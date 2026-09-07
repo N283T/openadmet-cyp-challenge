@@ -1,0 +1,16 @@
+.pixi/
+.venv/
+.cache/
+.runtime/
+.env
+.env.*
+!.env.example
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+data/raw/*
+data/processed/*
+data/features/*
+artifacts/*
+!artifacts/README.md
