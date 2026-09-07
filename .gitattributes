@@ -1,0 +1,2 @@
+# Preserve source Markdown whitespace, including its intentional hard line breaks.
+references/**/snapshot.md whitespace=-blank-at-eol
