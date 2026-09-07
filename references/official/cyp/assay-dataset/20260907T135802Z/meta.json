@@ -1,0 +1,202 @@
+{
+  "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/",
+  "group": "cyp",
+  "slug": "assay-dataset",
+  "fetched_at": "2026-09-07T13:58:05.665685+00:00",
+  "requests": [
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/",
+      "final_url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:05.867036+00:00",
+      "file": "source.html",
+      "sha256": "40fe5f075c3de705dce07af519e1c7239d17c5c030f1a0e49277520f528edc0a"
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/assets/openadmet-logo.png",
+      "final_url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/assets/openadmet-logo.png",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:06.053328+00:00",
+      "file": "7681355568089c89.png",
+      "sha256": "479b70fa548dda310ea3e0502bbb497e91d5dc7482af5cdca4dfe4d5b0b275cc"
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/assets/title-image.jpeg",
+      "final_url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/assets/title-image.jpeg",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:06.275775+00:00",
+      "file": "ddfe5a58f93a1283.jpeg",
+      "sha256": "4f941ac2cfc7ac202da9e523519b848638d504e9a446cda032098863cc99a9bb"
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure1.webp",
+      "final_url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure1.webp",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:06.459493+00:00",
+      "file": "37ab7aa0c0bcef8c.webp",
+      "sha256": "5add4b7390b2513192a9d4d206b30b7714dbde4e0e85133ba81e4b1bdb5ef1ce"
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure2.webp",
+      "final_url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure2.webp",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:06.639175+00:00",
+      "file": "82dffd4be7dd806f.webp",
+      "sha256": "d3413e1ff7e0b8916da8362e1f450a99dbd9443fee85ff729c1f1694421af30b"
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure3.webp",
+      "final_url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure3.webp",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:06.924557+00:00",
+      "file": "281ed252dca78069.webp",
+      "sha256": "d127ad26300be98fbeb3119658f0cacfda6375e3181dcaf5a9e38faef7b5888c"
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure4.webp",
+      "final_url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure4.webp",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:07.100504+00:00",
+      "file": "c725a8710cf912a5.webp",
+      "sha256": "8b9667c6762e96eccbdd4e230e66311ca67b5cd03092828bfb3d27366bc18c3d"
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure5.webp",
+      "final_url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure5.webp",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:07.278176+00:00",
+      "file": "f17cac3f8cc54215.webp",
+      "sha256": "93eaa15f018d36799c376c04cf6b785b56b0a3c69b2b2e20ea134b0b1a33ea60"
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure6.webp",
+      "final_url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure6.webp",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:07.448861+00:00",
+      "file": "54acc469dc0f4275.webp",
+      "sha256": "ed4ed3cd24a2332d17f81d50c37b6cfe14960356a4c2beb521a5a661113eecdc"
+    }
+  ],
+  "title": "Lowering Inhibitions, One CYP at a Time: Building the OpenADMET CYP Inhibition and TDI Dataset",
+  "authors": [],
+  "published": null,
+  "modified": null,
+  "authors_display": "Lauren Orr , Scott Simpkins , Hugo MacDermott-Opeskin",
+  "published_display": "August 24, 2026",
+  "extraction": "Article body converted to Markdown; figures saved locally",
+  "images": [
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/assets/openadmet-logo.png",
+      "file": "assets/7681355568089c89.png",
+      "sha256": "479b70fa548dda310ea3e0502bbb497e91d5dc7482af5cdca4dfe4d5b0b275cc",
+      "alt": "OpenADMET"
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/assets/openadmet-logo.png",
+      "file": "assets/7681355568089c89.png",
+      "sha256": "479b70fa548dda310ea3e0502bbb497e91d5dc7482af5cdca4dfe4d5b0b275cc",
+      "alt": "OpenADMET logo"
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/assets/title-image.jpeg",
+      "file": "assets/ddfe5a58f93a1283.jpeg",
+      "sha256": "4f941ac2cfc7ac202da9e523519b848638d504e9a446cda032098863cc99a9bb",
+      "alt": "Just a CYP might lower your inhibitions..."
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure1.webp",
+      "file": "assets/37ab7aa0c0bcef8c.webp",
+      "sha256": "5add4b7390b2513192a9d4d206b30b7714dbde4e0e85133ba81e4b1bdb5ef1ce",
+      "alt": "Three-step 1536-well plate workflow: CYP mix, then substrate, then quench and read, with cofactor timing splitting the two assay arms."
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure2.webp",
+      "file": "assets/82dffd4be7dd806f.webp",
+      "sha256": "d3413e1ff7e0b8916da8362e1f450a99dbd9443fee85ff729c1f1694421af30b",
+      "alt": "Structures of the DBOMF, BOMF and EOMCC probes beside their products' excitation and emission spectra, the coumarin dye overlapping NADPH."
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure3.webp",
+      "file": "assets/281ed252dca78069.webp",
+      "sha256": "d127ad26300be98fbeb3119658f0cacfda6375e3181dcaf5a9e38faef7b5888c",
+      "alt": "Control signals, fold changes and effect sizes plotted against a dashed quality threshold as EOMCC and NADP concentrations are varied."
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure4.webp",
+      "file": "assets/c725a8710cf912a5.webp",
+      "sha256": "8b9667c6762e96eccbdd4e230e66311ca67b5cd03092828bfb3d27366bc18c3d",
+      "alt": "Schematic of direct versus bioactivation-dependent inhibition, above paired dose-response curves that shift left only for a TDI."
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure5.webp",
+      "file": "assets/f17cac3f8cc54215.webp",
+      "sha256": "93eaa15f018d36799c376c04cf6b785b56b0a3c69b2b2e20ea134b0b1a33ea60",
+      "alt": "Two stacked bar panels, Z'-factor above absolute Cohen's d; blue direct and green TDI bars per isoform all tower over a low red dashed cutoff."
+    },
+    {
+      "url": "https://openadmet.github.io/octant-cyp-inhib-blog-post/post/figures/figure6.webp",
+      "file": "assets/54acc469dc0f4275.webp",
+      "sha256": "ed4ed3cd24a2332d17f81d50c37b6cfe14960356a4c2beb521a5a661113eecdc",
+      "alt": "Funnel from a single-dose 50 uM primary screen down to ~1,500-2,250 compounds run as dose-responses in both assay arms."
+    }
+  ],
+  "snapshot_sha256": "cca0fcd8bd38b5391645e362e3e55aecb91c0491008b9ffd01460daf7e4e97b3",
+  "status": "completed",
+  "files": [
+    {
+      "path": "assets/281ed252dca78069.webp",
+      "sha256": "d127ad26300be98fbeb3119658f0cacfda6375e3181dcaf5a9e38faef7b5888c",
+      "bytes": 264394
+    },
+    {
+      "path": "assets/37ab7aa0c0bcef8c.webp",
+      "sha256": "5add4b7390b2513192a9d4d206b30b7714dbde4e0e85133ba81e4b1bdb5ef1ce",
+      "bytes": 127204
+    },
+    {
+      "path": "assets/54acc469dc0f4275.webp",
+      "sha256": "ed4ed3cd24a2332d17f81d50c37b6cfe14960356a4c2beb521a5a661113eecdc",
+      "bytes": 108190
+    },
+    {
+      "path": "assets/7681355568089c89.png",
+      "sha256": "479b70fa548dda310ea3e0502bbb497e91d5dc7482af5cdca4dfe4d5b0b275cc",
+      "bytes": 52975
+    },
+    {
+      "path": "assets/82dffd4be7dd806f.webp",
+      "sha256": "d3413e1ff7e0b8916da8362e1f450a99dbd9443fee85ff729c1f1694421af30b",
+      "bytes": 172628
+    },
+    {
+      "path": "assets/c725a8710cf912a5.webp",
+      "sha256": "8b9667c6762e96eccbdd4e230e66311ca67b5cd03092828bfb3d27366bc18c3d",
+      "bytes": 99430
+    },
+    {
+      "path": "assets/ddfe5a58f93a1283.jpeg",
+      "sha256": "4f941ac2cfc7ac202da9e523519b848638d504e9a446cda032098863cc99a9bb",
+      "bytes": 2981129
+    },
+    {
+      "path": "assets/f17cac3f8cc54215.webp",
+      "sha256": "93eaa15f018d36799c376c04cf6b785b56b0a3c69b2b2e20ea134b0b1a33ea60",
+      "bytes": 152570
+    },
+    {
+      "path": "intent.json",
+      "sha256": "54feaca1a7c2224708179add31860e8bf03a83adf72d0616ce0e9721b1c7db36",
+      "bytes": 186
+    },
+    {
+      "path": "snapshot.md",
+      "sha256": "cca0fcd8bd38b5391645e362e3e55aecb91c0491008b9ffd01460daf7e4e97b3",
+      "bytes": 30794
+    },
+    {
+      "path": "source.html",
+      "sha256": "40fe5f075c3de705dce07af519e1c7239d17c5c030f1a0e49277520f528edc0a",
+      "bytes": 64392
+    }
+  ]
+}

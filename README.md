@@ -96,6 +96,13 @@ files to that invocation's persistent directory, not `/tmp`. Use `--endpoint`
 with an official endpoint name to retrieve its leaderboard. The default is `MA`.
 See [API notes](docs/api.md) for the current remote submission contract.
 
+## Official references
+
+Read the [official source archive](references/official/README.md) for saved challenge
+instructions, CYP blog posts and assay documentation, and the PXR retrospective.
+Original text and figures are separated from project docs and experiment outputs;
+updates retain prior timestamped versions.
+
 ## Layout
 
 ```text
@@ -105,6 +112,7 @@ scripts/                checked-in probes and operations
 db/migrations/          ordered, hash-checked SQL migrations
 tests/                 focused infrastructure tests
 docs/                  setup, architecture, API reference
+references/official/   original official source snapshots, grouped by CYP/PXR
 data/{raw,processed,features}/       shared versioned data and features
 artifacts/runs/<track>/<id>/         all attempts, including failed probes
 artifacts/candidates/<track>/<id>/   frozen upload candidates

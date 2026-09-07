@@ -1,0 +1,139 @@
+{
+  "url": "https://openadmet.ghost.io/dont-look-back-in-error-what-we-learned-predicting-pxr-induction-part-i/",
+  "group": "pxr",
+  "slug": "retrospective-part-1",
+  "fetched_at": "2026-09-07T13:58:07.462330+00:00",
+  "requests": [
+    {
+      "url": "https://openadmet.ghost.io/dont-look-back-in-error-what-we-learned-predicting-pxr-induction-part-i/",
+      "final_url": "https://openadmet.ghost.io/dont-look-back-in-error-what-we-learned-predicting-pxr-induction-part-i/",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:07.475452+00:00",
+      "file": "source.html",
+      "sha256": "8bb057205f634e67dc325d65e6c0ec2b436e2137a808d182732be1877ee2d747"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/size/w1200/2026/08/PXR_blog_post_header_v2.jpeg",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/size/w1200/2026/08/PXR_blog_post_header_v2.jpeg",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:07.767418+00:00",
+      "file": "ee24833947fb67d1.jpeg",
+      "sha256": "cb23175f0c7af24ecf0be2e57d7dfc942c313549aa79fb584264ba80a2024c5a"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/mae_vs_weighted_mae.png",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/mae_vs_weighted_mae.png",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:08.011365+00:00",
+      "file": "232590ce61cb9685.png",
+      "sha256": "c01e4ca472920028e1d0db2370b3d04ae735fab11c3b025173bdb3d5fc417507"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/activity_cliffs_plot.svg",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/activity_cliffs_plot.svg",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:08.066399+00:00",
+      "file": "a91086b35245c774.svg",
+      "sha256": "154830865d05ee3f7f933256bda95a44da525880b6ea536065953d86d9063355"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/AUC_final.png",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/AUC_final.png",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:08.079541+00:00",
+      "file": "9abdaa5d4a79a93a.png",
+      "sha256": "568f9eb15cc3f6963433377ce5c268b77a41f74df090c1c92792f4e781a2c19a"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/hb-vs-bh.png",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/hb-vs-bh.png",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:08.087749+00:00",
+      "file": "65049a96db3bc3bf.png",
+      "sha256": "46b7b2dd376c873be7e65dc606af49530361c246108e0b137f19279212702a02"
+    }
+  ],
+  "title": "Don’t Look Back in Error: What we learned predicting PXR induction (Part I)",
+  "authors": [
+    "OpenADMET"
+  ],
+  "published": "2026-08-27T14:00:57.000Z",
+  "modified": "2026-08-28T15:51:14.000Z",
+  "extraction": "Article body converted to Markdown; figures saved locally",
+  "images": [
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/size/w1200/2026/08/PXR_blog_post_header_v2.jpeg",
+      "file": "assets/ee24833947fb67d1.jpeg",
+      "sha256": "cb23175f0c7af24ecf0be2e57d7dfc942c313549aa79fb584264ba80a2024c5a",
+      "alt": "Don’t Look Back in Error: What we learned predicting PXR induction (Part I)"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/mae_vs_weighted_mae.png",
+      "file": "assets/232590ce61cb9685.png",
+      "sha256": "c01e4ca472920028e1d0db2370b3d04ae735fab11c3b025173bdb3d5fc417507",
+      "alt": ""
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/activity_cliffs_plot.svg",
+      "file": "assets/a91086b35245c774.svg",
+      "sha256": "154830865d05ee3f7f933256bda95a44da525880b6ea536065953d86d9063355",
+      "alt": ""
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/AUC_final.png",
+      "file": "assets/9abdaa5d4a79a93a.png",
+      "sha256": "568f9eb15cc3f6963433377ce5c268b77a41f74df090c1c92792f4e781a2c19a",
+      "alt": ""
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/hb-vs-bh.png",
+      "file": "assets/65049a96db3bc3bf.png",
+      "sha256": "46b7b2dd376c873be7e65dc606af49530361c246108e0b137f19279212702a02",
+      "alt": ""
+    }
+  ],
+  "snapshot_sha256": "16c1012f9b936fd3ee5cde224122f92891b3030513aa1d4406d91a964c66d083",
+  "status": "completed",
+  "files": [
+    {
+      "path": "assets/232590ce61cb9685.png",
+      "sha256": "c01e4ca472920028e1d0db2370b3d04ae735fab11c3b025173bdb3d5fc417507",
+      "bytes": 237360
+    },
+    {
+      "path": "assets/65049a96db3bc3bf.png",
+      "sha256": "46b7b2dd376c873be7e65dc606af49530361c246108e0b137f19279212702a02",
+      "bytes": 172750
+    },
+    {
+      "path": "assets/9abdaa5d4a79a93a.png",
+      "sha256": "568f9eb15cc3f6963433377ce5c268b77a41f74df090c1c92792f4e781a2c19a",
+      "bytes": 117406
+    },
+    {
+      "path": "assets/a91086b35245c774.svg",
+      "sha256": "154830865d05ee3f7f933256bda95a44da525880b6ea536065953d86d9063355",
+      "bytes": 4736325
+    },
+    {
+      "path": "assets/ee24833947fb67d1.jpeg",
+      "sha256": "cb23175f0c7af24ecf0be2e57d7dfc942c313549aa79fb584264ba80a2024c5a",
+      "bytes": 204889
+    },
+    {
+      "path": "intent.json",
+      "sha256": "40eb1f2e692fa610f61def41e27f2a0ec184cd8aed6bf529f4319fea28f05de7",
+      "bytes": 237
+    },
+    {
+      "path": "snapshot.md",
+      "sha256": "16c1012f9b936fd3ee5cde224122f92891b3030513aa1d4406d91a964c66d083",
+      "bytes": 34556
+    },
+    {
+      "path": "source.html",
+      "sha256": "8bb057205f634e67dc325d65e6c0ec2b436e2137a808d182732be1877ee2d747",
+      "bytes": 373100
+    }
+  ]
+}

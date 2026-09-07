@@ -16,4 +16,6 @@
   Do not put evolving experiment history or best-model claims in this file.
 - Keep model weights/data/runtime files out of Git. Never broad-clean ignored files.
 - Use feature branches. Run `pixi run check` and `pixi run test` for infrastructure edits.
+- Official source snapshots: [references/official/README.md](references/official/README.md).
+  Keep source text separate from interpretations; preserve previous versions on refresh.
 - Read [README.md](README.md) and [docs/infrastructure.md](docs/infrastructure.md).

@@ -1,0 +1,63 @@
+{
+  "url": "https://openadmet.ghost.io/openadmets-cyp-challenge-is-underway/",
+  "group": "cyp",
+  "slug": "underway",
+  "fetched_at": "2026-09-07T13:58:05.634486+00:00",
+  "requests": [
+    {
+      "url": "https://openadmet.ghost.io/openadmets-cyp-challenge-is-underway/",
+      "final_url": "https://openadmet.ghost.io/openadmets-cyp-challenge-is-underway/",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:05.641661+00:00",
+      "file": "source.html",
+      "sha256": "23a72bae5c1d6bde00d7a876732f2a0acfdcf945390fa4b5a42b00eb86b9eae0"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/size/w1200/2026/08/Gemini_Generated_Image_umxw4lumxw4lumxw.jpeg",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/size/w1200/2026/08/Gemini_Generated_Image_umxw4lumxw4lumxw.jpeg",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:05.658780+00:00",
+      "file": "22bed23507bca62c.jpeg",
+      "sha256": "bbc4ba4cd501d596e137d46c2cc3426d2ba00719ea14007c8b45f97e53e86ee2"
+    }
+  ],
+  "title": "OpenADMET’s CYP challenge is underway",
+  "authors": [
+    "OpenADMET"
+  ],
+  "published": "2026-08-17T14:00:07.000Z",
+  "modified": "2026-08-18T00:16:48.000Z",
+  "extraction": "Article body converted to Markdown; figures saved locally",
+  "images": [
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/size/w1200/2026/08/Gemini_Generated_Image_umxw4lumxw4lumxw.jpeg",
+      "file": "assets/22bed23507bca62c.jpeg",
+      "sha256": "bbc4ba4cd501d596e137d46c2cc3426d2ba00719ea14007c8b45f97e53e86ee2",
+      "alt": "OpenADMET’s CYP challenge is underway"
+    }
+  ],
+  "snapshot_sha256": "b8e5d4203481e9a7210de25798087f6f1a555339c95fdc930a9807b25d02f556",
+  "status": "completed",
+  "files": [
+    {
+      "path": "assets/22bed23507bca62c.jpeg",
+      "sha256": "bbc4ba4cd501d596e137d46c2cc3426d2ba00719ea14007c8b45f97e53e86ee2",
+      "bytes": 185948
+    },
+    {
+      "path": "intent.json",
+      "sha256": "a5fad1a11475eb994f81ba0a2faf7457db74431859b56dfe10a2446499368dcf",
+      "bytes": 190
+    },
+    {
+      "path": "snapshot.md",
+      "sha256": "b8e5d4203481e9a7210de25798087f6f1a555339c95fdc930a9807b25d02f556",
+      "bytes": 7825
+    },
+    {
+      "path": "source.html",
+      "sha256": "23a72bae5c1d6bde00d7a876732f2a0acfdcf945390fa4b5a42b00eb86b9eae0",
+      "bytes": 47197
+    }
+  ]
+}

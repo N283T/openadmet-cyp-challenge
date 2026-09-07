@@ -1,0 +1,54 @@
+{
+  "url": "https://huggingface.co/spaces/openadmet/cyp-challenge",
+  "group": "cyp",
+  "slug": "challenge",
+  "fetched_at": "2026-09-07T13:58:02.462195+00:00",
+  "requests": [
+    {
+      "url": "https://openadmet-cyp-challenge.hf.space/config",
+      "final_url": "https://openadmet-cyp-challenge.hf.space/config",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:03.725168+00:00",
+      "file": "source.json",
+      "sha256": "816185edb9eaf5f6fd5860086f7eb5844f85cac7725a1b7f5dd780f30261fbad"
+    },
+    {
+      "url": "https://huggingface.co/api/spaces/openadmet/cyp-challenge",
+      "final_url": "https://huggingface.co/api/spaces/openadmet/cyp-challenge",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:03.945913+00:00",
+      "file": "source-space.json",
+      "sha256": "307a8cc6d5e0555777d5fb0ecc423d5539cdafa9290a05fcea6ecae63f69cdec"
+    }
+  ],
+  "title": "OpenADMET CYP Blind Challenge",
+  "authors": [
+    "OpenADMET"
+  ],
+  "space_revision": "453a39a27c9671aa6790bbc2d618606a9cc556c3",
+  "extraction": "Live Gradio Markdown components; excludes leaderboard widgets",
+  "snapshot_sha256": "2becf48dfda805b4a1a3298af73eed995c76a10dda95723c7a237445864fc983",
+  "status": "completed",
+  "files": [
+    {
+      "path": "intent.json",
+      "sha256": "071e95fee1d46a7962a647d0f07ae4061c8e92d6977cdabb63b42158395fd7e4",
+      "bytes": 180
+    },
+    {
+      "path": "snapshot.md",
+      "sha256": "2becf48dfda805b4a1a3298af73eed995c76a10dda95723c7a237445864fc983",
+      "bytes": 21389
+    },
+    {
+      "path": "source-space.json",
+      "sha256": "307a8cc6d5e0555777d5fb0ecc423d5539cdafa9290a05fcea6ecae63f69cdec",
+      "bytes": 1309
+    },
+    {
+      "path": "source.json",
+      "sha256": "816185edb9eaf5f6fd5860086f7eb5844f85cac7725a1b7f5dd780f30261fbad",
+      "bytes": 285661
+    }
+  ]
+}

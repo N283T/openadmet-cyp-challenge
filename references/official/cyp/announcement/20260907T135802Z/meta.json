@@ -1,0 +1,120 @@
+{
+  "url": "https://openadmet.ghost.io/announcing-openadmets-cyp-inhibition-blind-challenge/",
+  "group": "cyp",
+  "slug": "announcement",
+  "fetched_at": "2026-09-07T13:58:03.952199+00:00",
+  "requests": [
+    {
+      "url": "https://openadmet.ghost.io/announcing-openadmets-cyp-inhibition-blind-challenge/",
+      "final_url": "https://openadmet.ghost.io/announcing-openadmets-cyp-inhibition-blind-challenge/",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:03.986307+00:00",
+      "file": "source.html",
+      "sha256": "02bf6984f4641e0f040c1c111c6d4f15ae14e9f51711f192232c6c5394985851"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/size/w1200/2026/07/HAscP8.png",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/size/w1200/2026/07/HAscP8.png",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:04.066432+00:00",
+      "file": "e1c1c5fe255cdba7.png",
+      "sha256": "814427a7097b82ff5961a5fbf2b64116c56134539070c43a615e8c50d71eb938"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/07/tdi_ic50_shift_design_two_compounds-2.png",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/07/tdi_ic50_shift_design_two_compounds-2.png",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:04.076926+00:00",
+      "file": "990b48db431a8f68.png",
+      "sha256": "543fb291b58dfbba024de3d687c21a78d90dc6bb29f2e5623ab08effa0a58926"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/07/openadmet_cyp_train_test_split-1.png",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/07/openadmet_cyp_train_test_split-1.png",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:04.084746+00:00",
+      "file": "9c417b20c76ec76b.png",
+      "sha256": "33240bb49efbec1b2b26e06ce7d5451a2f0e363936db7d7002771e70738539c8"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/07/figure-3.png",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/07/figure-3.png",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:04.092475+00:00",
+      "file": "c5ebf10844835b5b.png",
+      "sha256": "4efb8a253d84169eb5d783a86c951d5f2a173eb103fd79c01b1b03c259f190e1"
+    }
+  ],
+  "title": "Announcing OpenADMET’s CYP inhibition blind challenge",
+  "authors": [
+    "OpenADMET"
+  ],
+  "published": "2026-07-29T22:30:41.000Z",
+  "modified": "2026-08-04T10:59:07.000Z",
+  "extraction": "Article body converted to Markdown; figures saved locally",
+  "images": [
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/size/w1200/2026/07/HAscP8.png",
+      "file": "assets/e1c1c5fe255cdba7.png",
+      "sha256": "814427a7097b82ff5961a5fbf2b64116c56134539070c43a615e8c50d71eb938",
+      "alt": "Announcing OpenADMET’s CYP inhibition blind challenge"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/07/tdi_ic50_shift_design_two_compounds-2.png",
+      "file": "assets/990b48db431a8f68.png",
+      "sha256": "543fb291b58dfbba024de3d687c21a78d90dc6bb29f2e5623ab08effa0a58926",
+      "alt": ""
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/07/openadmet_cyp_train_test_split-1.png",
+      "file": "assets/9c417b20c76ec76b.png",
+      "sha256": "33240bb49efbec1b2b26e06ce7d5451a2f0e363936db7d7002771e70738539c8",
+      "alt": ""
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/07/figure-3.png",
+      "file": "assets/c5ebf10844835b5b.png",
+      "sha256": "4efb8a253d84169eb5d783a86c951d5f2a173eb103fd79c01b1b03c259f190e1",
+      "alt": ""
+    }
+  ],
+  "snapshot_sha256": "afb06079978749b93e019a0012804be3501eb915056695355af218eab62f0f17",
+  "status": "completed",
+  "files": [
+    {
+      "path": "assets/990b48db431a8f68.png",
+      "sha256": "543fb291b58dfbba024de3d687c21a78d90dc6bb29f2e5623ab08effa0a58926",
+      "bytes": 243853
+    },
+    {
+      "path": "assets/9c417b20c76ec76b.png",
+      "sha256": "33240bb49efbec1b2b26e06ce7d5451a2f0e363936db7d7002771e70738539c8",
+      "bytes": 139102
+    },
+    {
+      "path": "assets/c5ebf10844835b5b.png",
+      "sha256": "4efb8a253d84169eb5d783a86c951d5f2a173eb103fd79c01b1b03c259f190e1",
+      "bytes": 164127
+    },
+    {
+      "path": "assets/e1c1c5fe255cdba7.png",
+      "sha256": "814427a7097b82ff5961a5fbf2b64116c56134539070c43a615e8c50d71eb938",
+      "bytes": 649230
+    },
+    {
+      "path": "intent.json",
+      "sha256": "2a1a47eefec2979390cecd992ab7e993c46653b546f91658ddf1f41bc89caf4e",
+      "bytes": 210
+    },
+    {
+      "path": "snapshot.md",
+      "sha256": "afb06079978749b93e019a0012804be3501eb915056695355af218eab62f0f17",
+      "bytes": 25006
+    },
+    {
+      "path": "source.html",
+      "sha256": "02bf6984f4641e0f040c1c111c6d4f15ae14e9f51711f192232c6c5394985851",
+      "bytes": 67086
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "url": "https://openadmet.ghost.io/do-our-cyp-structural-alerts-actually-work/",
+  "group": "cyp",
+  "slug": "structural-alerts",
+  "fetched_at": "2026-09-07T13:58:04.102651+00:00",
+  "requests": [
+    {
+      "url": "https://openadmet.ghost.io/do-our-cyp-structural-alerts-actually-work/",
+      "final_url": "https://openadmet.ghost.io/do-our-cyp-structural-alerts-actually-work/",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:04.110163+00:00",
+      "file": "source.html",
+      "sha256": "4d7e8631ad66bd2d8061a5cb0f4ad3a1568d663705068b7702f3a4c12c871c4c"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/size/w1200/2026/08/PW_CYP_Post_image.png",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/size/w1200/2026/08/PW_CYP_Post_image.png",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:04.415528+00:00",
+      "file": "709b9e6380d1e96f.png",
+      "sha256": "63f1071f23b36f32edcbcb690405ef5e583fc586a50cb79a482b5d4c77548a8c"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-844a7d69-6cbf-4836-aba8-25fd2fc8c2cc.png",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-844a7d69-6cbf-4836-aba8-25fd2fc8c2cc.png",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:04.651649+00:00",
+      "file": "384e1b5e3a172266.png",
+      "sha256": "a98869e955ce2ce79270a243f038de0742d5668255fe7a06fc20b0877893c1f0"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-04fc91e4-40a2-46aa-9946-51fc96b23156.png",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-04fc91e4-40a2-46aa-9946-51fc96b23156.png",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:04.892897+00:00",
+      "file": "c6baf58e137f7e07.png",
+      "sha256": "1966b0aeb5abb603accb39e91f5eb7e0f53bde1c736e7eac3ac8492aa7a17032"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-e92b1787-0b15-4495-acac-1d9c3909b8c0.png",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-e92b1787-0b15-4495-acac-1d9c3909b8c0.png",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:05.140699+00:00",
+      "file": "e9f6d6e55cd02191.png",
+      "sha256": "68452eec79f45eb3648c45c3d5fbb26509b5ad9b956e52682213b1472b037a88"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-735b09da-e5d4-44a3-a421-8c910084f45e.png",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-735b09da-e5d4-44a3-a421-8c910084f45e.png",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:05.378641+00:00",
+      "file": "f9afc8771da10d1c.png",
+      "sha256": "3bbe053c99e531cbb8e8ee4b7d21222a3089466b42d95b07909531d2a92bb4ca"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-30373e36-0677-4e66-ab9d-a3cf2ecc658e.png",
+      "final_url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-30373e36-0677-4e66-ab9d-a3cf2ecc658e.png",
+      "status": 200,
+      "fetched_at": "2026-09-07T13:58:05.618048+00:00",
+      "file": "697e5e05dec3c94e.png",
+      "sha256": "bc933b9cd930d876b5b2b05e3ff8ba8e4a01d1471bec465f66c9af9b1b671a38"
+    }
+  ],
+  "title": "Do Our CYP Structural Alerts Actually Work?",
+  "authors": [
+    "OpenADMET"
+  ],
+  "published": "2026-08-11T12:07:43.000Z",
+  "modified": "2026-08-24T22:41:33.000Z",
+  "extraction": "Article body converted to Markdown; figures saved locally",
+  "images": [
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/size/w1200/2026/08/PW_CYP_Post_image.png",
+      "file": "assets/709b9e6380d1e96f.png",
+      "sha256": "63f1071f23b36f32edcbcb690405ef5e583fc586a50cb79a482b5d4c77548a8c",
+      "alt": "Do Our CYP Structural Alerts Actually Work?"
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-844a7d69-6cbf-4836-aba8-25fd2fc8c2cc.png",
+      "file": "assets/384e1b5e3a172266.png",
+      "sha256": "a98869e955ce2ce79270a243f038de0742d5668255fe7a06fc20b0877893c1f0",
+      "alt": ""
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-04fc91e4-40a2-46aa-9946-51fc96b23156.png",
+      "file": "assets/c6baf58e137f7e07.png",
+      "sha256": "1966b0aeb5abb603accb39e91f5eb7e0f53bde1c736e7eac3ac8492aa7a17032",
+      "alt": ""
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-e92b1787-0b15-4495-acac-1d9c3909b8c0.png",
+      "file": "assets/e9f6d6e55cd02191.png",
+      "sha256": "68452eec79f45eb3648c45c3d5fbb26509b5ad9b956e52682213b1472b037a88",
+      "alt": ""
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-735b09da-e5d4-44a3-a421-8c910084f45e.png",
+      "file": "assets/f9afc8771da10d1c.png",
+      "sha256": "3bbe053c99e531cbb8e8ee4b7d21222a3089466b42d95b07909531d2a92bb4ca",
+      "alt": ""
+    },
+    {
+      "url": "https://storage.ghost.io/c/3f/51/3f515c22-43d0-4696-a664-031fddd40688/content/images/2026/08/data-src-image-30373e36-0677-4e66-ab9d-a3cf2ecc658e.png",
+      "file": "assets/697e5e05dec3c94e.png",
+      "sha256": "bc933b9cd930d876b5b2b05e3ff8ba8e4a01d1471bec465f66c9af9b1b671a38",
+      "alt": ""
+    }
+  ],
+  "snapshot_sha256": "e1effeaff06504663e77d64a6dceda065a15c1062a85a2332cf38bfa3bb2f60a",
+  "status": "completed",
+  "files": [
+    {
+      "path": "assets/384e1b5e3a172266.png",
+      "sha256": "a98869e955ce2ce79270a243f038de0742d5668255fe7a06fc20b0877893c1f0",
+      "bytes": 200182
+    },
+    {
+      "path": "assets/697e5e05dec3c94e.png",
+      "sha256": "bc933b9cd930d876b5b2b05e3ff8ba8e4a01d1471bec465f66c9af9b1b671a38",
+      "bytes": 263505
+    },
+    {
+      "path": "assets/709b9e6380d1e96f.png",
+      "sha256": "63f1071f23b36f32edcbcb690405ef5e583fc586a50cb79a482b5d4c77548a8c",
+      "bytes": 815083
+    },
+    {
+      "path": "assets/c6baf58e137f7e07.png",
+      "sha256": "1966b0aeb5abb603accb39e91f5eb7e0f53bde1c736e7eac3ac8492aa7a17032",
+      "bytes": 242270
+    },
+    {
+      "path": "assets/e9f6d6e55cd02191.png",
+      "sha256": "68452eec79f45eb3648c45c3d5fbb26509b5ad9b956e52682213b1472b037a88",
+      "bytes": 426538
+    },
+    {
+      "path": "assets/f9afc8771da10d1c.png",
+      "sha256": "3bbe053c99e531cbb8e8ee4b7d21222a3089466b42d95b07909531d2a92bb4ca",
+      "bytes": 26834
+    },
+    {
+      "path": "intent.json",
+      "sha256": "f1344fbd5d5f62812c85d5f53eca9749250d28d29627e6c3f998daf760a6ac29",
+      "bytes": 205
+    },
+    {
+      "path": "snapshot.md",
+      "sha256": "e1effeaff06504663e77d64a6dceda065a15c1062a85a2332cf38bfa3bb2f60a",
+      "bytes": 31473
+    },
+    {
+      "path": "source.html",
+      "sha256": "4d7e8631ad66bd2d8061a5cb0f4ad3a1568d663705068b7702f3a4c12c871c4c",
+      "bytes": 105569
+    }
+  ]
+}

@@ -14,3 +14,4 @@ data/processed/*
 data/features/*
 artifacts/*
 !artifacts/README.md
+references/**/source*
