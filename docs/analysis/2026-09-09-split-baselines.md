@@ -45,6 +45,10 @@ Validation uses 80% reference labels; the test comparison uses all endpoint labe
 
 ## Decision and limits
 
+**Historical recommendation, superseded by [RL-0003](../research/2026-09.md#rl-0003--umap-only-and-local-research-log):**
+Routine evaluation now uses UMAP only; reconsider if LB substantially diverges from CV.
+The original recommendation below is retained as research history.
+
 Use UMAP as a provisional fixed benchmark for model comparisons, following PXR,
 with random as a secondary reference. Scaffold and random have similar baseline
 scores; do not spend further tuning budget on choosing a split at this stage.
@@ -84,4 +88,5 @@ refer to the audit run; model/OOF records refer to the original baseline run.
 All three split candidates remain available. No auxiliary pretraining, TabPFN fit,
 blinded-test prediction, or submission was performed.
 
-Decision and next experiments: [Issue #1](https://github.com/N283T/openadmet-cyp-challenge/issues/1).
+Current decisions and next experiments: [research log](../research/README.md).
+Historical discussion: [Issue #1](https://github.com/N283T/openadmet-cyp-challenge/issues/1).

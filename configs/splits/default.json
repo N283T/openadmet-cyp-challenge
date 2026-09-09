@@ -2,8 +2,8 @@
   "split_run": "20260909T135130268493Z-edba6fc0",
   "strategy": "umap",
   "n_folds": 5,
-  "status": "provisional_fixed_comparison",
-  "secondary_strategy": "random",
-  "decision_report": "docs/analysis/2026-09-09-split-baselines.md",
-  "auxiliary_supervision": "exclude all outer-held-out compound IDs across endpoints"
+  "status": "fixed",
+  "decision_report": "docs/research/2026-09.md#rl-0003--umap-only-and-local-research-log",
+  "auxiliary_supervision": "exclude all outer-held-out compound IDs across endpoints",
+  "revisit_when": "observed LB results diverge substantially from CV"
 }

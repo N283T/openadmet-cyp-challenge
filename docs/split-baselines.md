@@ -8,8 +8,10 @@ from log2fc-pretrained encoders, with TabPFN readout. This is the intended next
 stage for CYP; this probe only fits LightGBM on molecular descriptors.
 
 Results and decision: [2026-09-09 comparison](analysis/2026-09-09-split-baselines.md).
-Tracking: [Issue #1](https://github.com/N283T/openadmet-cyp-challenge/issues/1).
-The provisional primary/secondary choices are in `configs/splits/default.json`.
+Current decision: [RL-0003](research/2026-09.md#rl-0003--umap-only-and-local-research-log).
+`configs/splits/default.json` selects UMAP only for routine evaluation. Reconsider
+only if observed LB results diverge substantially from CV; random/scaffold remain
+historical comparison candidates.
 
 ## Frozen split candidates
 

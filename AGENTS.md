@@ -12,7 +12,9 @@
   completed runs, candidates, submissions, source data, or applied migrations.
 - Shared molecular data/features; explicit `regression`/`classification` tracks.
   Predictions must carry molecule IDs, endpoints, and split/fold IDs, not row indices.
-- DB = structured records. Issues = hypotheses, conclusions, and decisions with IDs.
+- DB = structured records. [Research log](docs/research/README.md) = hypotheses,
+  results (including failures), and decisions with run IDs; write logs/reports in English.
+  Use UMAP only for routine evaluation; revisit if LB substantially diverges from CV.
   Do not put evolving experiment history or best-model claims in this file.
 - Keep model weights/data/runtime files out of Git. Never broad-clean ignored files.
 - Use feature branches. Run `pixi run check` and `pixi run test` for infrastructure edits.

@@ -51,7 +51,9 @@ infrastructure does not substitute ordinary RAE for ST-RAE.
 - PostgreSQL: run status/config/results, metric rows, input/API inventories, candidate
   lineage and submission records/events.
 - Files: model weights, keyed predictions, source/input snapshots, raw API outputs.
-- Issues: hypotheses, interpretations, rejected approaches, next decisions.
+- [Local research log](research/README.md): hypotheses, interpretations, rejected
+  approaches and decisions, with stable entry IDs and run references. English by default.
+- Issues: optional bounded implementation tasks or actionable bugs.
 - AGENTS.md: short durable operating rules and links only.
 
 Candidates get a fresh ID and a read-only file copy. Submissions get another fresh

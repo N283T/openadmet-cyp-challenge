@@ -131,7 +131,9 @@ artifacts/submissions/<track>/<id>/  separate upload copies and receipt events
 artifacts/api/                      API contracts, responses and downloaded files
 ```
 
-DB stores structured records; GitHub Issues store hypotheses and decisions using
-run/candidate IDs. The private repository is https://github.com/N283T/openadmet-cyp-challenge.
+DB stores structured records; the local [research log](docs/research/README.md)
+stores hypotheses, results and decisions using run/candidate IDs. Reports and log
+entries default to English; Issues are optional for bounded implementation tasks. The private repository is https://github.com/N283T/openadmet-cyp-challenge.
 Keep it private until an explicit publication decision for the model report.
-Research decisions and next steps: [Issue #1](https://github.com/N283T/openadmet-cyp-challenge/issues/1).
+Routine evaluation uses UMAP only. Revisit the split if observed LB results diverge
+substantially from CV. See the research log for current decisions and next steps.
