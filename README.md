@@ -67,7 +67,9 @@ exact duplicates are resolved with source provenance. Python RDKit's full 217
 registered descriptors and Mordred's 1,613 2D descriptors are stored in PostgreSQL
 and versioned Parquet outputs. See [preprocessing](docs/preprocessing.md) for the
 policy, dataset/feature run IDs, exclusions, and reproducible commands.
-No splits or model fitting are included in this stage.
+No splits or model fitting are included in this preprocessing stage.
+See [split baselines](docs/split-baselines.md) for the subsequent random/scaffold/UMAP
+LightGBM comparison and the planned log2fc → frozen representation → TabPFN workflow.
 
 ## Candidates and submissions
 
@@ -132,4 +134,4 @@ artifacts/api/                      API contracts, responses and downloaded file
 DB stores structured records; GitHub Issues store hypotheses and decisions using
 run/candidate IDs. The private repository is https://github.com/N283T/openadmet-cyp-challenge.
 Keep it private until an explicit publication decision for the model report.
-A research issue has not yet been configured.
+Research decisions and next steps: [Issue #1](https://github.com/N283T/openadmet-cyp-challenge/issues/1).

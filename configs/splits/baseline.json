@@ -1,0 +1,16 @@
+{
+  "dataset_run": "20260909T132734119233Z-a7063ccd",
+  "feature_run": "20260909T132918829974Z-bc81af58",
+  "seed": 42,
+  "n_folds": 5,
+  "strategies": ["random", "scaffold", "umap"],
+  "fingerprint": {"radius": 2, "size": 2048, "include_chirality": false},
+  "umap": {"n_components": 10, "n_neighbors": 30, "metric": "jaccard", "n_clusters": 50, "kmeans_n_init": 10},
+  "features": ["mordred", "mordred_morgan"],
+  "lightgbm": {"n_estimators": 300, "learning_rate": 0.05, "num_leaves": 15, "min_child_samples": 20, "reg_lambda": 1.0, "n_jobs": 4, "verbosity": -1, "deterministic": true, "force_col_wise": true},
+  "regression_objective": "regression_l1",
+  "classification_threshold": 0.5,
+  "early_stopping": false,
+  "hyperparameter_search": false,
+  "endpoints": ["CYP1A2_pIC50_direct_inhibition", "CYP2C9_pIC50_direct_inhibition", "CYP2D6_pIC50_direct_inhibition", "CYP3A4_pIC50_direct_inhibition", "CYP2D6_is_TDI", "CYP3A4_is_TDI"]
+}
