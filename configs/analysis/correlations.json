@@ -1,0 +1,9 @@
+{
+  "dataset_run": "20260909T132734119233Z-a7063ccd",
+  "feature_run": "20260909T132918829974Z-bc81af58",
+  "minimum_n": 100,
+  "minimum_coverage": 0.8,
+  "seed": 42,
+  "bootstrap_repetitions": 300,
+  "endpoints": ["CYP1A2_pIC50_direct_inhibition", "CYP2C9_pIC50_direct_inhibition", "CYP2D6_pIC50_direct_inhibition", "CYP3A4_pIC50_direct_inhibition", "CYP2D6_is_TDI", "CYP3A4_is_TDI"]
+}
