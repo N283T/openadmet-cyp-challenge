@@ -1,0 +1,12 @@
+{
+  "standardization": "ChEMBL standardize_mol then get_parent_mol",
+  "preserve_stereochemistry": true,
+  "tautomer_canonicalization": false,
+  "excluded_policy": "quarantine",
+  "measurement_duplicates": "exact record only; preserve conflicts and source provenance",
+  "rdkit": "all registered Python Descriptors._descList (2D)",
+  "mordred": "all descriptors with ignore_3D=True",
+  "workers": 8,
+  "batch_size": 128,
+  "missing_values": "null with explicit reason; no imputation or feature selection"
+}

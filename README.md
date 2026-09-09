@@ -60,6 +60,15 @@ inputs, and creates a new run. Compare output hashes or task-specific tolerances
 replay is not a guarantee of deterministic GPU numerics. Model code must record
 all seeds and actual effective parameters. See [infrastructure details](docs/infrastructure.md).
 
+## Molecular preprocessing
+
+Shared molecular data are standardized with the ChEMBL structure pipeline and
+exact duplicates are resolved with source provenance. Python RDKit's full 217
+registered descriptors and Mordred's 1,613 2D descriptors are stored in PostgreSQL
+and versioned Parquet outputs. See [preprocessing](docs/preprocessing.md) for the
+policy, dataset/feature run IDs, exclusions, and reproducible commands.
+No splits or model fitting are included in this stage.
+
 ## Candidates and submissions
 
 ```sh
