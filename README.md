@@ -82,6 +82,8 @@ The [PCA + predicted-log2fc TabPFN comparison](docs/stacked-tabpfn.md) adds nest
 auxiliary cross-fitting and a compact 260-dimensional readout.
 The [Mordred and direct-FT screen](docs/model-screen.md) compares descriptor
 augmentation with directly fine-tuning CheMeleon on the challenge targets.
+The [TabPFN 3.0 comparison](docs/tabpfn-v3.md) evaluates both tracks and retains
+2.6 for the current feature recipe.
 
 ## Candidates and submissions
 

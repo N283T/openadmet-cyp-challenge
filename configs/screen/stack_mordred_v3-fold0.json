@@ -1,0 +1,21 @@
+{
+  "dataset_run": "20260909T132734119233Z-a7063ccd",
+  "split_run": "20260909T135130268493Z-edba6fc0",
+  "fold": 0,
+  "seed": 42,
+  "model_version": "3",
+  "n_estimators": 8,
+  "features": "pretrained_embedding_only",
+  "classification_threshold": 0.5,
+  "endpoints": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition",
+    "CYP2D6_is_TDI",
+    "CYP3A4_is_TDI"
+  ],
+  "variant": "stack_mordred_v3",
+  "feature_run": "20260909T132918829974Z-bc81af58",
+  "stack_run": "20260910T121031603901Z-fbc2b2ea"
+}

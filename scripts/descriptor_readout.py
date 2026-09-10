@@ -50,7 +50,7 @@ def main():
         clean[~train] = imp.transform(x[~train][:, keep])
         joblib.dump(imp, out / f"{ep}-imputer.joblib")
         write_json(out / f"{ep}-columns.json", [c for c, k in zip(columns, keep, strict=True) if k])
-        if cfg["variant"] == "stack_mordred":
+        if cfg["variant"].startswith("stack_mordred"):
             features = pl.read_parquet(next(inp.glob(f"*-{ep}-features.parquet")))
             joined = frame.select("compound_id", "fold").join(
                 features, on="compound_id", how="left", validate="1:1"
@@ -62,11 +62,12 @@ def main():
         binary = ep.endswith("is_TDI")
         kind = "classifier" if binary else "regressor"
         cls = TabPFNClassifier if binary else TabPFNRegressor
+        version = "v3" if cfg["model_version"] == "3" else "v2.6"
         model = cls.create_default_for_version(
-            ModelVersion.V2_6,
-            model_path=str(next(inp.glob(f"*-tabpfn-v2.6-{kind}-v2.6_default.ckpt"))),
+            ModelVersion.V3 if version == "v3" else ModelVersion.V2_6,
+            model_path=str(next(inp.glob(f"*-tabpfn-{version}-{kind}-{version}_default.ckpt"))),
             device="cuda",
-            n_estimators=8,
+            n_estimators=cfg["n_estimators"],
             random_state=42 + fold,
             ignore_pretraining_limits=True,
             fit_mode="fit_preprocessors",

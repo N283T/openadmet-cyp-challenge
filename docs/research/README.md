@@ -19,6 +19,8 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 - Mordred augmentation gives a small regression improvement; the first direct-FT
   recipe underperforms ([RL-0008](2026-09.md#rl-0008--mordred-augmentation-and-direct-chemeleon-ft)).
   Classification remains below the earlier LightGBM MCC.
+- Retain TabPFN 2.6 for the augmented feature recipe: v3 with eight or nine
+  estimators underperforms on both tracks ([RL-0009](2026-09.md#rl-0009--tabpfn-30-on-regression-and-classification)).
 - See [RL-0003](2026-09.md#rl-0003--umap-only-and-local-research-log) for the current decision.
 
 ## Recording policy
@@ -62,3 +64,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL-0006](2026-09.md#rl-0006--embedding-only-tabpfn-readout) | First frozen embedding TabPFN readout |
 | [RL-0007](2026-09.md#rl-0007--foundation-pca-and-predicted-log2fc-with-tabpfn) | PCA256 + nested predicted log2fc4 with TabPFN |
 | [RL-0008](2026-09.md#rl-0008--mordred-augmentation-and-direct-chemeleon-ft) | Mordred-only, augmentation and direct FT |
+| [RL-0009](2026-09.md#rl-0009--tabpfn-30-on-regression-and-classification) | TabPFN 3.0 with eight and nine estimators |

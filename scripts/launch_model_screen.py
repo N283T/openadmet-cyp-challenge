@@ -18,12 +18,20 @@ STACK = [
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("variant", choices=["mordred", "stack_mordred", "direct_ft"])
+    parser.add_argument(
+        "variant",
+        choices=["mordred", "stack_mordred", "stack_mordred_v3", "stack_mordred_v3_9", "direct_ft"],
+    )
     args = parser.parse_args()
     for fold in range(5):
         cfg = json.loads((ROOT / f"configs/readout/tabpfn-embedding-fold{fold}.json").read_text())
         cfg.pop("encoder_run")
         cfg.update(variant=args.variant, feature_run="20260909T132918829974Z-bc81af58")
+        if args.variant.startswith("stack_mordred_v3"):
+            cfg["model_version"] = "3"
+        if args.variant == "stack_mordred_v3_9":
+            cfg["n_estimators"] = 9
+        version = "v3" if cfg["model_version"] == "3" else "v2.6"
         files = [
             RUNS / cfg["dataset_run"] / "outputs/measurements.parquet",
             RUNS / cfg["split_run"] / "outputs/assignments.parquet",
@@ -49,10 +57,10 @@ def main():
         else:
             files += sorted((RUNS / cfg["feature_run"] / "outputs").glob("mordred-*.parquet"))
             files += [
-                Path.home() / f".cache/tabpfn/tabpfn-v2.6-{k}-v2.6_default.ckpt"
+                Path.home() / f".cache/tabpfn/tabpfn-{version}-{k}-{version}_default.ckpt"
                 for k in ["regressor", "classifier"]
             ]
-            if args.variant == "stack_mordred":
+            if args.variant.startswith("stack_mordred"):
                 cfg["stack_run"] = STACK[fold]
                 files += sorted((RUNS / STACK[fold] / "outputs").glob("*-features.parquet"))
                 files += [RUNS / STACK[fold] / "outputs/summary.json"]

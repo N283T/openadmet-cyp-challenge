@@ -75,7 +75,7 @@ def main():
                 if args.variant != "direct_ft":
                     feat, _ = verified_run(conn, cfg["feature_run"])
                     assert all(digest(p) in hashes for p in feat.glob("mordred-*.parquet"))
-                    if args.variant == "stack_mordred":
+                    if args.variant.startswith("stack_mordred"):
                         parent, _ = verified_run(conn, cfg["stack_run"])
                         assert all(digest(p) in hashes for p in parent.glob("*-features.parquet"))
                 else:
