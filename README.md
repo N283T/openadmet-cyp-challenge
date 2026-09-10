@@ -133,6 +133,11 @@ instructions, CYP blog posts and assay documentation, and the PXR retrospective.
 Original text and figures are separated from project docs and experiment outputs;
 updates retain prior timestamped versions.
 
+Participant write-ups are saved separately in the
+[community source archive](references/community/README.md), including the
+SuperCowPowers CYP working notes. These preserve author claims rather than
+independently validated project findings.
+
 ## Layout
 
 ```text

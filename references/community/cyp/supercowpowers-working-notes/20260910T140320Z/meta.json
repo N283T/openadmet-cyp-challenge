@@ -1,0 +1,61 @@
+{
+  "url": "https://supercowpowers.github.io/workbench/blogs/cyp_challenge/",
+  "group": "cyp",
+  "slug": "supercowpowers-working-notes",
+  "fetched_at": "2026-09-10T14:03:20.997206+00:00",
+  "requests": [
+    {
+      "url": "https://supercowpowers.github.io/workbench/blogs/cyp_challenge/",
+      "final_url": "https://supercowpowers.github.io/workbench/blogs/cyp_challenge/",
+      "status": 200,
+      "fetched_at": "2026-09-10T14:03:21.028715+00:00",
+      "file": "source.html",
+      "sha256": "97e8337b61ba406021c994311d3ab7247bbdbc003b6642b3f0519e0a3048c0f7"
+    },
+    {
+      "url": "https://supercowpowers.github.io/workbench/images/cyp_calibration_applied.svg",
+      "final_url": "https://supercowpowers.github.io/workbench/images/cyp_calibration_applied.svg",
+      "status": 200,
+      "fetched_at": "2026-09-10T14:03:21.077414+00:00",
+      "file": "e9a5c01c2cacdea8.svg",
+      "sha256": "acf5133ef7866d4d6659cf994841d349a8330f994a4f80d6da811ffecac58fd7"
+    }
+  ],
+  "title": "OpenADMET CYP Challenge — Working Notes",
+  "authors": [],
+  "published": null,
+  "modified": null,
+  "extraction": "Article body converted to Markdown; figures saved locally",
+  "images": [
+    {
+      "url": "https://supercowpowers.github.io/workbench/images/cyp_calibration_applied.svg",
+      "file": "assets/e9a5c01c2cacdea8.svg",
+      "sha256": "acf5133ef7866d4d6659cf994841d349a8330f994a4f80d6da811ffecac58fd7",
+      "alt": "Four panels, one per isoform, each overlaying raw blind-set predictions, the same predictions after placement, and the blind population curve. CYP1A2, CYP2C9 and CYP3A4 shift and widen onto their population curves. CYP2D6 also moves down and widens but deliberately stops short, sitting above the population centre and narrower than it, because that is where the scored metric is optimised rather than R-squared."
+    }
+  ],
+  "snapshot_sha256": "2b867f494a683ac2546a14024f7d9217b3ec82c64e96a5c46e72e63a386a9792",
+  "status": "completed",
+  "files": [
+    {
+      "path": "assets/e9a5c01c2cacdea8.svg",
+      "sha256": "acf5133ef7866d4d6659cf994841d349a8330f994a4f80d6da811ffecac58fd7",
+      "bytes": 171434
+    },
+    {
+      "path": "intent.json",
+      "sha256": "a50aa2520c753cfc0d5551e8b9c4f6c16d92769fd2baba38e8451ae9a7275b7c",
+      "bytes": 209
+    },
+    {
+      "path": "snapshot.md",
+      "sha256": "2b867f494a683ac2546a14024f7d9217b3ec82c64e96a5c46e72e63a386a9792",
+      "bytes": 13316
+    },
+    {
+      "path": "source.html",
+      "sha256": "97e8337b61ba406021c994311d3ab7247bbdbc003b6642b3f0519e0a3048c0f7",
+      "bytes": 90318
+    }
+  ]
+}

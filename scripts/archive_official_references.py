@@ -49,7 +49,11 @@ def fetch(client, url, target, requests):
 def extract_article(html, url):
     soup = BeautifulSoup(html, "html.parser")
     title = soup.find("h1").get_text(" ", strip=True)
-    body = soup.select_one("section.gh-content") or soup.select_one("main#quarto-document-content")
+    body = (
+        soup.select_one("section.gh-content")
+        or soup.select_one("main#quarto-document-content")
+        or soup.select_one("article.md-content__inner")
+    )
     if body is None:
         raise ValueError(f"Unknown article layout: {url}")
     metadata = {"title": title, "authors": [], "published": None, "modified": None}
@@ -69,15 +73,15 @@ def extract_article(html, url):
     # Keep the article header image/caption and subtitle, but omit navigation and subscription UI.
     prefix = "".join(str(x) for x in soup.select(".gh-article-excerpt, .gh-article-image"))
     body = BeautifulSoup(prefix + str(body), "html.parser")
-    for node in body.select("script, style, .anchorjs-link, .code-copy-button"):
+    for node in body.select("script, style, .anchorjs-link, .code-copy-button, .headerlink"):
         node.decompose()
     for node in body.select("a[href]"):
         node["href"] = urljoin(url, node["href"])
     return body, metadata
 
 
-def archive(client, group, slug, url, stamp):
-    path = ROOT / "references/official" / group / slug / stamp
+def archive(client, group, slug, url, stamp, collection="official"):
+    path = ROOT / "references" / collection / group / slug / stamp
     path.mkdir(parents=True, exist_ok=False)
     metadata = {"url": url, "group": group, "slug": slug, "fetched_at": now(), "requests": []}
     write_json(path / "intent.json", metadata)
@@ -157,7 +161,14 @@ def archive(client, group, slug, url, stamp):
         with connect() as conn:
             conn.execute(
                 "INSERT INTO reference_snapshots(id,url,path,metadata) VALUES (%s,%s,%s,%s)",
-                (f"{group}/{slug}/{stamp}", url, str(path.relative_to(ROOT)), Jsonb(metadata)),
+                (
+                    f"{group}/{slug}/{stamp}"
+                    if collection == "official"
+                    else f"{collection}/{group}/{slug}/{stamp}",
+                    url,
+                    str(path.relative_to(ROOT)),
+                    Jsonb(metadata),
+                ),
             )
     print(
         f"{group}/{slug}: {len(content)} characters, {len(metadata.get('images', []))} images",
