@@ -102,7 +102,12 @@ recorded run first. Classification probabilities belong to run outputs; upload
 files contain booleans. A preparation creates a separate immutable file copy;
 **it does not call the remote submission API**.
 
-After an actual upload, attach a saved API response/receipt using
+Use `pixi run cyp submit SUBMISSION_ID --dry-run` to validate the prepared file and
+private profile, then `pixi run cyp submit SUBMISSION_ID` to upload once. The sender
+reads `.private/submission-profile.json` (Git-ignored) and saves the API receipt.
+See [baseline submission preparation](docs/submission-baseline.md).
+
+For manual uploads or subsequent scoring evidence, attach a saved response using
 `pixi run cyp submission-event ID --status sent --evidence FILE --notes TEXT`.
 Later append `accepted` or `rejected`; use `unknown` for uncertain delivery.
 Never automatically retry a potentially successful upload.

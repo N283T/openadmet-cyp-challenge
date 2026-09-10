@@ -1,0 +1,18 @@
+{
+  "name": "baseline-v1",
+  "model_family": "TabPFN-2.6",
+  "features": "PCA256 foundation CheMeleon + predicted log2fc4 + Mordred",
+  "ensemble": "mean of five UMAP fold models",
+  "inference_run": "20260910T132141471698Z-343eb5ec",
+  "threshold_run": "20260910T133042436909Z-c95bbbfc",
+  "regression_candidate": "20260910T132850121465Z-7bbef880",
+  "regression_submission": "20260910T132854718239Z-4766cd9f",
+  "classification_candidate": "20260910T133115130724Z-48208365",
+  "classification_submission": "20260910T133122668124Z-68969a86",
+  "classification_thresholds": {
+    "CYP2D6_is_TDI": 0.13597816228866577,
+    "CYP3A4_is_TDI": 0.3193783760070801
+  },
+  "threshold_evaluation": "Selected on OOF labels; selection scores are not unbiased CV estimates",
+  "profile": ".private/submission-profile.json"
+}

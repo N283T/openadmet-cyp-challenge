@@ -160,3 +160,97 @@ def test_discard_reason_is_append_only(registry):
     assert len(rows) == 2
     assert {decision for decision, _ in rows} == {"discard", "observation"}
     assert all(Path(path).is_file() for _, path in rows)
+
+
+@pytest.mark.parametrize("outcome", ["sent", "rejected", "unknown"])
+def test_submission_attempt_persists_and_prevents_implicit_retries(registry, monkeypatch, outcome):
+    import gradio_client
+    from psycopg.types.json import Jsonb
+
+    from cyp_challenge import submission
+
+    connect, root = registry
+    monkeypatch.setattr(submission, "connect", connect)
+    frame = pl.DataFrame(
+        {
+            "SMILES": ["C"] * 750,
+            "Molecule_Name": [f"mol{i}" for i in range(750)],
+            **{ep: [float(i) / 750 for i in range(750)] for ep in ENDPOINTS["regression"]},
+        }
+    )
+    file = root / "predictions.parquet"
+    frame.write_parquet(file)
+    ref = root / "reference.csv"
+    frame.select("SMILES", "Molecule_Name").write_csv(ref)
+    manifest = {
+        "file": str(file),
+        "sha256": storage.digest(file),
+        "reference_sha256": storage.digest(ref),
+    }
+    with connect() as conn:
+        conn.execute(
+            "INSERT INTO candidates(id,track,manifest_path,manifest) VALUES (%s,%s,%s,%s)",
+            ("c", "regression", str(root / "c.json"), Jsonb(manifest)),
+        )
+        conn.execute(
+            "INSERT INTO submissions(id,candidate_id,track,status,manifest_path,manifest) "
+            "VALUES (%s,%s,%s,%s,%s,%s)",
+            ("s", "c", "regression", "prepared", str(root / "s.json"), Jsonb(manifest)),
+        )
+    profile = {k: "" for k in submission.TEXT_FIELDS}
+    profile.update({k: False for k in submission.BOOL_FIELDS})
+    profile["username"] = "example"
+    profile_path = root / "profile.json"
+    profile_path.write_text(json.dumps(profile))
+    calls = []
+
+    class FakeClient:
+        def __init__(self, *args, **kwargs):
+            pass
+
+        def view_api(self, **kwargs):
+            return {
+                "named_endpoints": {
+                    "/submit_predictions": {
+                        "parameters": [
+                            {"parameter_name": k}
+                            for k in set(profile) | {"track_select", "file_input"}
+                        ]
+                    }
+                }
+            }
+
+        def predict(self, **kwargs):
+            calls.append(kwargs)
+            # The intent must be visible from another connection before network delivery.
+            with connect() as conn:
+                assert (
+                    conn.execute("SELECT status FROM submission_attempts").fetchone()[0]
+                    == "unknown"
+                )
+            if outcome == "unknown":
+                raise TimeoutError("simulated uncertain delivery")
+            return {
+                "value": "Submission received from 'example'"
+                if outcome == "sent"
+                else "Error: Invalid submission"
+            }
+
+    monkeypatch.setattr(gradio_client, "Client", FakeClient)
+    monkeypatch.setattr(gradio_client, "handle_file", lambda p: p)
+    args = Namespace(id="s", profile=profile_path, dry_run=True, retry_rejected=False)
+    submission.submit(args)
+    assert not calls
+    args.dry_run = False
+    if outcome == "sent":
+        submission.submit(args)
+    else:
+        with pytest.raises(RuntimeError):
+            submission.submit(args)
+    with connect() as conn:
+        assert conn.execute("SELECT status FROM submission_attempts").fetchone()[0] == outcome
+        assert conn.execute("SELECT status FROM submissions").fetchone()[0] == outcome
+        assert conn.execute("SELECT count(*) FROM submission_events").fetchone()[0] == 1
+    with pytest.raises(ValueError):
+        submission.submit(args)
+    assert len(calls) == 1

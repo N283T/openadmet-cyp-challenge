@@ -1,4 +1,4 @@
-# CYP Space API — verified 2026-09-07
+# CYP Space API — verified 2026-09-10
 
 Sources:
 - https://openadmet-cyp-challenge.hf.space/gradio_api/info
@@ -20,9 +20,10 @@ open_code_checkbox, track_select, file_input
 
 `track_select` currently accepts `Regression Prediction` or `Classification Prediction`.
 The response is a status string, not proof of completed backend scoring. Submission
-needs a separate user profile; no personal details or credentials have been copied
-from PXR. Remote upload automation is intentionally not implemented in this first
-foundation. The endpoint has been inspected, not invoked.
+uses a separate Git-ignored profile. `cyp submit SUBMISSION_ID` now automates a
+single upload with durable attempt/receipt records and duplicate guards. See
+[baseline submission preparation](submission-baseline.md) for the private profile,
+dry-run command, delivery states and recovery policy.
 
 Tracks have independent 12-hour submission cooldowns in the public source. Both
 require exactly 750 compounds and identifiers `SMILES` and `Molecule_Name`.

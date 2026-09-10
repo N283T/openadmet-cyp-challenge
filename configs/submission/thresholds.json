@@ -1,0 +1,7 @@
+{
+  "oof_run": "20260910T123856868493Z-243a1e23",
+  "inference_run": "20260910T132141471698Z-343eb5ec",
+  "selection": "maximize per-endpoint MCC on labeled OOF only",
+  "tie_break": "closest to 0.5, then higher threshold",
+  "interpretation": "submission calibration only; selection scores are not unbiased CV"
+}

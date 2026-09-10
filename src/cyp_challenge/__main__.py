@@ -3,7 +3,7 @@
 import argparse
 from pathlib import Path
 
-from . import api, candidates, database, runs
+from . import api, candidates, database, runs, submission
 from .tracks import ENDPOINTS
 
 
@@ -47,8 +47,15 @@ def main():
     )
     event.add_argument("--evidence", type=Path, required=True)
     event.add_argument("--notes", required=True)
+    send = sub.add_parser("submit")
+    send.add_argument("id")
+    send.add_argument("--profile", type=Path, default=Path(".private/submission-profile.json"))
+    send.add_argument("--dry-run", action="store_true")
+    send.add_argument("--retry-rejected", action="store_true")
     args = parser.parse_args()
-    if args.action == "db":
+    if args.action == "submit":
+        submission.submit(args)
+    elif args.action == "db":
         database.lifecycle(args.operation)
     elif args.action == "api-inspect":
         api.inspect_api()
