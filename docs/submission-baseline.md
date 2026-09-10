@@ -114,3 +114,54 @@ The classification file SHA-256 is
 `fdddaea138eb27dba4a36d10a17a557a4cc579b4fdacef5f8e08ec4485ced312`.
 Infrastructure check and 37 tests passed, including mocked network/durable-state
 integration tests. Scoring/leaderboard results have not yet been recorded.
+
+## First leaderboard result — fetched 2026-09-10 13:49–13:50 UTC
+
+Both rows identify N283T and the 2026-09-10 13:32 UTC submission, matching the
+baseline receipts. Submission events now record accepted/scored evidence. Rankings
+are those in this snapshot and can change as other submissions are scored.
+
+| Track | Rank | Primary metric | Other aggregate metric |
+|---|---:|---:|---:|
+| Regression | 95 | MA-ST-RAE 0.868726 | MA-MAE 0.990925 |
+| Classification | 61 | MA-MCC 0.216149 | MA-Accuracy 0.444873 |
+
+| Regression endpoint | UMAP ST-RAE | LB ST-RAE | LB rank | UMAP MAE | LB MAE |
+|---|---:|---:|---:|---:|---:|
+| CYP1A2 | 0.816778 | 0.785188 | 90 | 0.651932 | 1.017915 |
+| CYP2C9 | 0.625471 | 0.588810 | 91 | 0.450591 | 0.558855 |
+| CYP2D6 | 0.928701 | 1.416195 | 92 | 0.599081 | 1.723898 |
+| CYP3A4 | 0.527865 | 0.684710 | 110 | 0.536985 | 0.663030 |
+
+| Classification endpoint | LB MCC | LB rank | LB precision | LB recall |
+|---|---:|---:|---:|---:|
+| CYP2D6 | 0.001644 | 75 | 0.070760 | 0.923001 |
+| CYP3A4 | 0.430653 | 18 | 0.562266 | 0.662249 |
+
+CYP2D6 is the main weakness. Its regression Spearman is 0.373798 on LB versus
+0.360647 in UMAP CV, despite the much larger absolute error. This motivates a
+check of value ranges, calibration and population differences; aggregate scores
+do not identify a specific cause or expose the hidden labels. The observed
+ST-RAE gap does not by itself establish that the UMAP split should be replaced.
+CYP1A2/CYP2C9 have lower LB ST-RAE despite higher MAE, illustrating why different
+populations/credible intervals and metric normalization complicate comparisons.
+
+Classification is not directly comparable with the original 0.5-threshold CV
+MCC: deployed thresholds were fitted on OOF labels. CYP2D6's 686/750 positives
+and near-zero LB MCC show that threshold tuning did not solve its weak ranking.
+CYP3A4 is materially stronger. Do not claim either the selection-only OOF MCC or
+this first LB result as evidence for general model superiority. No retraining,
+new threshold search or resubmission was done while fetching these results.
+
+Raw CSV snapshots and live API layouts are stored under `artifacts/api/<track>/`:
+
+| Track / endpoint | Snapshot ID |
+|---|---|
+| Regression MA | `20260910T134937823519Z-cc971b38` |
+| Classification MA | `20260910T134938608852Z-2a9f25aa` |
+| Regression CYP1A2 | `20260910T135018466919Z-66f7e785` |
+| Regression CYP2C9 | `20260910T135018468641Z-dfc27da3` |
+| Regression CYP2D6 | `20260910T135018466919Z-88b44c6e` |
+| Regression CYP3A4 | `20260910T135018484029Z-185aaa76` |
+| Classification CYP2D6 | `20260910T135018498829Z-6408f824` |
+| Classification CYP3A4 | `20260910T135018507465Z-d8cffd06` |

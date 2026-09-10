@@ -7,8 +7,9 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 ## Current direction
 
 - Baseline-v1 uses the augmented TabPFN 2.6 fold ensemble for **both** tracks by
-  user decision. Both submissions have intake receipts; scoring is pending
-  ([RL-0010](2026-09.md#rl-0010--tabpfn-baseline-v1-preparation-and-submission)).
+  user decision. First LB scores are recorded: regression ST-RAE 0.868726,
+  classification MCC 0.216149; CYP2D6 is the main weakness
+  ([RL-0011](2026-09.md#rl-0011--first-baseline-leaderboard-scores)).
 
 - Use the existing UMAP five-fold assignment for routine experiments on both tracks.
   No routine random or scaffold evaluation. Reconsider the split only if observed
@@ -70,3 +71,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL-0008](2026-09.md#rl-0008--mordred-augmentation-and-direct-chemeleon-ft) | Mordred-only, augmentation and direct FT |
 | [RL-0009](2026-09.md#rl-0009--tabpfn-30-on-regression-and-classification) | TabPFN 3.0 with eight and nine estimators |
 | [RL-0010](2026-09.md#rl-0010--tabpfn-baseline-v1-preparation-and-submission) | Baseline v1, private-profile upload automation and receipts |
+| [RL-0011](2026-09.md#rl-0011--first-baseline-leaderboard-scores) | First baseline LB results, endpoint breakdown and CV comparison |
