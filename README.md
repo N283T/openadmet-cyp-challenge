@@ -80,6 +80,8 @@ The first [embedding-only TabPFN readout](docs/tabpfn-readout.md) is complete on
 the fixed UMAP folds, with saved fitted states and audited OOF predictions.
 The [PCA + predicted-log2fc TabPFN comparison](docs/stacked-tabpfn.md) adds nested
 auxiliary cross-fitting and a compact 260-dimensional readout.
+The [Mordred and direct-FT screen](docs/model-screen.md) compares descriptor
+augmentation with directly fine-tuning CheMeleon on the challenge targets.
 
 ## Candidates and submissions
 

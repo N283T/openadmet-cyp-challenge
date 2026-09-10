@@ -16,6 +16,9 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
   pretraining remains deferred.
 - The PCA256 + predicted log2fc4 TabPFN experiment is complete ([RL-0007](2026-09.md#rl-0007--foundation-pca-and-predicted-log2fc-with-tabpfn)).
   Changes versus the embedding readout are marginal; CYP2D6 TDI remains weak.
+- Mordred augmentation gives a small regression improvement; the first direct-FT
+  recipe underperforms ([RL-0008](2026-09.md#rl-0008--mordred-augmentation-and-direct-chemeleon-ft)).
+  Classification remains below the earlier LightGBM MCC.
 - See [RL-0003](2026-09.md#rl-0003--umap-only-and-local-research-log) for the current decision.
 
 ## Recording policy
@@ -58,3 +61,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL-0005](2026-09.md#rl-0005--chemeleon-initialized-log2fc-pretraining) | Five-fold auxiliary pretraining from CheMeleon |
 | [RL-0006](2026-09.md#rl-0006--embedding-only-tabpfn-readout) | First frozen embedding TabPFN readout |
 | [RL-0007](2026-09.md#rl-0007--foundation-pca-and-predicted-log2fc-with-tabpfn) | PCA256 + nested predicted log2fc4 with TabPFN |
+| [RL-0008](2026-09.md#rl-0008--mordred-augmentation-and-direct-chemeleon-ft) | Mordred-only, augmentation and direct FT |
