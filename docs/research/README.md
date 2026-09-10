@@ -10,8 +10,10 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
   No routine random or scaffold evaluation. Reconsider the split only if observed
   leaderboard results diverge substantially from CV; record the evidence first.
 - CheMeleon-initialized auxiliary pretraining is complete ([RL-0005](2026-09.md#rl-0005--chemeleon-initialized-log2fc-pretraining)).
-  Next evaluate fold-matched frozen representations with TabPFN; predicted-log2fc
-  readout inputs require nested cross-fitting. Scratch pretraining remains deferred.
+  The first fold-matched embedding-only TabPFN readout is complete ([RL-0006](2026-09.md#rl-0006--embedding-only-tabpfn-readout)).
+  Regression improves over the initial LightGBM pipelines; classification MCC does
+  not. Predicted-log2fc readout inputs require nested cross-fitting. Scratch
+  pretraining remains deferred.
 - See [RL-0003](2026-09.md#rl-0003--umap-only-and-local-research-log) for the current decision.
 
 ## Recording policy
@@ -52,3 +54,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL-0003](2026-09.md#rl-0003--umap-only-and-local-research-log) | UMAP-only evaluation and local research log |
 | [RL-0004](2026-09.md#rl-0004--frozen-chemeleon-raw-2048-fingerprints) | Frozen CheMeleon features and checkpoint provenance |
 | [RL-0005](2026-09.md#rl-0005--chemeleon-initialized-log2fc-pretraining) | Five-fold auxiliary pretraining from CheMeleon |
+| [RL-0006](2026-09.md#rl-0006--embedding-only-tabpfn-readout) | First frozen embedding TabPFN readout |

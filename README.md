@@ -76,6 +76,8 @@ for all standardized compounds, with keyed Parquet and PostgreSQL storage.
 
 Five-fold [log2fc pretraining from CheMeleon](docs/log2fc-pretraining.md) is complete,
 with selected checkpoints and fold-specific embeddings ready for readout experiments.
+The first [embedding-only TabPFN readout](docs/tabpfn-readout.md) is complete on
+the fixed UMAP folds, with saved fitted states and audited OOF predictions.
 
 ## Candidates and submissions
 
