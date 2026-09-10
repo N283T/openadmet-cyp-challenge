@@ -20,9 +20,12 @@ from torch import nn
 from .storage import digest, write_json
 
 
-def partition(ids, folds, outer_fold, seed, fraction):
-    eligible = np.flatnonzero(folds != outer_fold)
-    heldout = np.flatnonzero(folds == outer_fold)
+def partition(ids, folds, outer_fold, seed, fraction, excluded_folds=None):
+    excluded = [outer_fold] if excluded_folds is None else excluded_folds
+    if outer_fold not in excluded:
+        raise ValueError("The outer fold must be excluded")
+    eligible = np.flatnonzero(~np.isin(folds, excluded))
+    heldout = np.flatnonzero(np.isin(folds, excluded))
     shuffled = np.random.default_rng(seed).permutation(eligible)
     n_val = max(1, int(len(eligible) * fraction))
     validation, training = shuffled[:n_val], shuffled[n_val:]
@@ -98,8 +101,9 @@ def main():
     y = wide.select(heads).to_numpy().astype(np.float32)
     folds = wide["fold"].to_numpy()
     outer = config["outer_fold"]
+    excluded = config.get("excluded_folds", [outer])
     train, validation, heldout = partition(
-        ids, folds, outer, seed, config["inner_validation_fraction"]
+        ids, folds, outer, seed, config["inner_validation_fraction"], excluded_folds=excluded
     )
     means, stds = target_scaler(y, train)
     z = (y - means) / stds
@@ -262,11 +266,23 @@ def main():
     for start in range(0, compounds.height, batch_size):
         batch = compounds.slice(start, batch_size)
         with torch.inference_mode():
-            values = model.fingerprint(graph(batch["compound_id"].to_list())).cpu().numpy()
+            g = graph(batch["compound_id"].to_list())
+            if config.get("export_predictions_only", False):
+                values = model(g).cpu().numpy() * stds + means
+            else:
+                values = model.fingerprint(g).cpu().numpy()
         assert np.isfinite(values).all()
-        pl.DataFrame(
-            {"compound_id": batch["compound_id"], "fold": outer, "embedding": values.tolist()}
-        ).write_parquet(output / f"embeddings-{start:05d}.parquet")
+        if config.get("export_predictions_only", False):
+            pl.DataFrame(
+                {
+                    "compound_id": batch["compound_id"],
+                    **{h: values[:, j] for j, h in enumerate(heads)},
+                }
+            ).write_parquet(output / f"predictions-{start:05d}.parquet")
+        else:
+            pl.DataFrame(
+                {"compound_id": batch["compound_id"], "fold": outer, "embedding": values.tolist()}
+            ).write_parquet(output / f"embeddings-{start:05d}.parquet")
     write_json(
         output / "summary.json",
         {
