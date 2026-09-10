@@ -82,6 +82,7 @@ cleanup losses, but does not provide disk-failure protection.
 CPU/tabular foundation installed now: Polars, Arrow, NumPy, SciPy, scikit-learn,
 RDKit, PostgreSQL cartridge, psycopg, LightGBM, XGBoost, CatBoost, Optuna,
 Matplotlib, Plotly, YAML, HTTPX, Hugging Face Hub, Gradio client, Rich, pytest, Ruff.
-GPU training/foundation-model libraries can be added in a separate pixi feature
-when hardware and model choices are known. Boltz and Jupyter are not declared.
+PyTorch and Chemprop are now installed through pixi for frozen CheMeleon extraction;
+the extraction run records the resolved versions and GPU runtime. Other foundation
+model libraries can be added when the model choices are known. Boltz and Jupyter are not declared.
 The lock is the resolved environment authority; do not use ad-hoc pip installs.

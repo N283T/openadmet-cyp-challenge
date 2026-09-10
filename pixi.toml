@@ -50,3 +50,7 @@ api-inspect = "python -m cyp_challenge api-inspect"
 check = "ruff check ."
 format = "ruff format ."
 test = "pytest -q"
+
+[pypi-dependencies]
+torch = ">=2.7, <3"
+chemprop = ">=2.2, <3"

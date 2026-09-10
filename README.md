@@ -71,6 +71,9 @@ No splits or model fitting are included in this preprocessing stage.
 See [split baselines](docs/split-baselines.md) for the subsequent random/scaffold/UMAP
 LightGBM comparison and the planned log2fc → frozen representation → TabPFN workflow.
 
+Frozen [CheMeleon fingerprints](docs/chemeleon.md) are also available: 2,048 dimensions
+for all standardized compounds, with keyed Parquet and PostgreSQL storage.
+
 ## Candidates and submissions
 
 ```sh

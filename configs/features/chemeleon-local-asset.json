@@ -1,0 +1,22 @@
+{
+  "dataset_run": "20260909T132734119233Z-a7063ccd",
+  "checkpoint_url": "https://zenodo.org/records/15460715/files/chemeleon_mp.pt",
+  "record_api": "https://zenodo.org/api/records/15460715",
+  "upstream_revision": "b5e5bd88a7070c3f278e7e65e85b792617bf125c",
+  "dimension": 2048,
+  "batch_size": 64,
+  "device": "cuda",
+  "seed": 42,
+  "threads": 4,
+  "representation": "pretrained BondMessagePassing -> MeanAggregation; no predictor",
+  "validation_tolerance": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "reuse_local_without_remote_verification": true,
+  "prior_verification_attempts": [
+    "20260910T012132065449Z-60cb1da6",
+    "20260910T012300773259Z-24d5e666",
+    "20260910T012422578414Z-570310d9"
+  ]
+}

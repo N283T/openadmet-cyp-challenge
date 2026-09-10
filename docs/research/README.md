@@ -48,3 +48,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL-0001](2026-09.md#rl-0001--preprocessing-and-descriptor-exploration) | Retrospective: preprocessing and descriptor exploration |
 | [RL-0002](2026-09.md#rl-0002--initial-split-baseline-comparison) | Retrospective: LightGBM split comparison |
 | [RL-0003](2026-09.md#rl-0003--umap-only-and-local-research-log) | UMAP-only evaluation and local research log |
+| [RL-0004](2026-09.md#rl-0004--frozen-chemeleon-raw-2048-fingerprints) | Frozen CheMeleon features and checkpoint provenance |
