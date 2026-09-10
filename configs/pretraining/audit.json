@@ -1,0 +1,6 @@
+{
+  "expected_outer_folds": [0, 1, 2, 3, 4],
+  "label_rtol": 0.000001,
+  "label_atol": 0.000001,
+  "selection": "none; pooled OOF summary only"
+}

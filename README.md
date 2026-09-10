@@ -74,6 +74,9 @@ LightGBM comparison and the planned log2fc → frozen representation → TabPFN 
 Frozen [CheMeleon fingerprints](docs/chemeleon.md) are also available: 2,048 dimensions
 for all standardized compounds, with keyed Parquet and PostgreSQL storage.
 
+Five-fold [log2fc pretraining from CheMeleon](docs/log2fc-pretraining.md) is complete,
+with selected checkpoints and fold-specific embeddings ready for readout experiments.
+
 ## Candidates and submissions
 
 ```sh

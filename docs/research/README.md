@@ -9,7 +9,9 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 - Use the existing UMAP five-fold assignment for routine experiments on both tracks.
   No routine random or scaffold evaluation. Reconsider the split only if observed
   leaderboard results diverge substantially from CV; record the evidence first.
-- Pursue predicted log2fc and frozen auxiliary representations with TabPFN readout.
+- CheMeleon-initialized auxiliary pretraining is complete ([RL-0005](2026-09.md#rl-0005--chemeleon-initialized-log2fc-pretraining)).
+  Next evaluate fold-matched frozen representations with TabPFN; predicted-log2fc
+  readout inputs require nested cross-fitting. Scratch pretraining remains deferred.
 - See [RL-0003](2026-09.md#rl-0003--umap-only-and-local-research-log) for the current decision.
 
 ## Recording policy
@@ -49,3 +51,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL-0002](2026-09.md#rl-0002--initial-split-baseline-comparison) | Retrospective: LightGBM split comparison |
 | [RL-0003](2026-09.md#rl-0003--umap-only-and-local-research-log) | UMAP-only evaluation and local research log |
 | [RL-0004](2026-09.md#rl-0004--frozen-chemeleon-raw-2048-fingerprints) | Frozen CheMeleon features and checkpoint provenance |
+| [RL-0005](2026-09.md#rl-0005--chemeleon-initialized-log2fc-pretraining) | Five-fold auxiliary pretraining from CheMeleon |
