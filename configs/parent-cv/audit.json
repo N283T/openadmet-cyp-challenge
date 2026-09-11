@@ -1,0 +1,17 @@
+{
+  "oof": [
+    "000-parent-oof.parquet",
+    "001-parent-oof.parquet",
+    "002-parent-oof.parquet",
+    "003-parent-oof.parquet",
+    "004-parent-oof.parquet"
+  ],
+  "database": {
+    "host": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/.runtime/socket",
+    "port": 5434,
+    "dbname": "cyp_challenge"
+  },
+  "assignments": "005-parent-assignments.parquet",
+  "labels": "006-measurements.parquet",
+  "scorer": "007-custom_scoring_functions.py"
+}

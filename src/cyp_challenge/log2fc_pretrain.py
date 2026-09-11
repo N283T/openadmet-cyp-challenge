@@ -85,7 +85,7 @@ def main():
     targets = pl.read_parquet(next(inputs.glob("*-targets.parquet")))
     compounds = pl.read_parquet(next(inputs.glob("*-compounds.parquet"))).sort("compound_id")
     assignments = pl.read_parquet(next(inputs.glob("*-assignments.parquet"))).filter(
-        pl.col("strategy") == "umap"
+        pl.col("strategy") == config.get("outer_strategy", "umap")
     )
     heads = sorted(targets["head"].unique())
     wide = (
