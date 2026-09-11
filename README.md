@@ -89,6 +89,10 @@ The [TabPFN 3.0 comparison](docs/tabpfn-v3.md) evaluates both tracks and retains
 PubChem AID1851 continuous responses as separate targets, with source lineage and
 all challenge connectivity blocks excluded from external training.
 
+The [regression calibration screen](docs/analysis/2026-09-11-calibration.md)
+tests PXR-inspired corrections on the existing TabPFN predictions, with interval
+losses adapted to CYP scoring and explicit evaluation limitations.
+
 ## Candidates and submissions
 
 ```sh

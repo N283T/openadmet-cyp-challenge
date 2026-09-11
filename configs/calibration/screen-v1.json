@@ -1,0 +1,13 @@
+{
+  "seed": 20260911,
+  "maps": ["shift_st", "affine_mse", "affine_mae", "affine_st", "isotonic", "binned"],
+  "bootstrap_draws": 1000,
+  "shifts": [-2.0, -1.5, -1.0, -0.75, -0.5, -0.25, 0.0, 0.25, 0.5],
+  "scales": [0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 2.5, 3.0],
+  "baseline_oof": "20260910T123856868493Z-243a1e23",
+  "diagnostics_run": "20260911T050944039369Z-36d00d9c",
+  "test_run": "20260910T132141471698Z-343eb5ec",
+  "scope": "Exploratory saved-OOF calibration screen; no external activity data, no remote submissions; not fully nested CV",
+  "domain_model": "Morgan2048r2 logistic C0.1, connectivity-group cross-fitted domain predictions, prior-corrected ratio clipped [1/3,3] then normalized",
+  "metric": "Official interval ST-RAE primary; positive affine slopes; other methods MSE monotone calibration"
+}

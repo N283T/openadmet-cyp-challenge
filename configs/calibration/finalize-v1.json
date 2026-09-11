@@ -1,0 +1,6 @@
+{
+ "screen_run":"20260911T070300314219Z-bb1e7e28",
+ "holdout_run":"20260911T070421577926Z-9ac84861",
+ "database":{"host":"/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/.runtime/socket","port":5434,"dbname":"cyp_challenge"},
+ "scope":"Audit and persist exploratory calibration evidence; save full and half-strength test corrections, no submission"
+}

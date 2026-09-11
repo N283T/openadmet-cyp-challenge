@@ -1,0 +1,7 @@
+{
+ "seed": 20260911,
+ "repeats": 5,
+ "methods": ["identity", "shift_st", "affine_mse", "affine_mse_iw", "affine_mae", "affine_st", "affine_st_iw", "affine_st_half"],
+ "source_screen": "20260911T070300314219Z-bb1e7e28",
+ "scope": "Small-calibration-set robustness check: two UMAP-cluster halves inside each untouched base-model held-out fold; not a deployment-equivalent nested CV estimate"
+}

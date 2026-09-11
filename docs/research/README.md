@@ -6,6 +6,11 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- External activity modeling is paused. A PXR-inspired calibration screen supports
+  modest interval-loss gains but does not identify the hidden test-population
+  correction. Keep full/half-strength maps for prospective evaluation; preserve
+  the existing submission
+  ([RL-0015](2026-09.md#rl-0015--pxr-inspired-regression-calibration-without-external-activity-data)).
 - Focus on regression; defer classification tuning until regression stalls or
   priorities change. Saved-prediction diagnosis is complete
   ([RL-0012](2026-09.md#rl-0012--regression-diagnosis-and-existing-chembl-inventory)).
@@ -90,3 +95,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL-0012](2026-09.md#rl-0012--regression-diagnosis-and-existing-chembl-inventory) | Regression diagnosis, classification deferral and local ChEMBL inventory |
 | [RL-0013](2026-09.md#rl-0013--external-chembl-and-pubchem-auxiliary-dataset) | ChEMBL/PubChem acquisition, curation and source lineage |
 | [RL-0014](2026-09.md#rl-0014--first-matched-external-data-regression-comparison) | Matched neural external-data comparison and conditional uncertainty |
+| [RL-0015](2026-09.md#rl-0015--pxr-inspired-regression-calibration-without-external-activity-data) | PXR-inspired interval calibration, label-isolation checks and unresolved test shift |
