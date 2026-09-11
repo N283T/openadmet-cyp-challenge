@@ -1,0 +1,1 @@
+{"initialization":"random","width":600,"depth":5,"heads":5,"max_epochs":80,"patience":12,"seed":42,"batch_size":128,"optimizer":"AdamW","peak_lr":0.001,"final_lr":0.0001,"warmup_epochs":3,"weight_decay":0.0001,"head_hidden":600,"head_dropout":0.1,"validation":"10 percent connectivity groups","dataset_run":"20260911T152904505817Z-a0a1a4a7"}
