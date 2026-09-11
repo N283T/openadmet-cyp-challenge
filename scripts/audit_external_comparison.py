@@ -44,7 +44,7 @@ def main():
                 assert test.select("compound_id", "endpoint").n_unique() == test.height == 3000
                 assert test_keys.join(test, on=["compound_id", "endpoint"]).height == 3000
                 assert (test["fold"] == item["fold"]).all()
-                assert np.isfinite(test["prediction"]).all()
+                assert np.isfinite(test["prediction"].to_numpy()).all()
                 assert set(member["compound_id"]).isdisjoint(test["compound_id"])
                 tests.append(test)
             frames.append(frame)
@@ -66,7 +66,7 @@ def main():
             validate="m:1",
         )
         assert (f["fold"] == f["expected_fold"]).all()
-        assert f["group"].null_count() == 0 and np.isfinite(f["prediction"]).all()
+        assert f["group"].null_count() == 0 and np.isfinite(f["prediction"].to_numpy()).all()
         variants[variant] = f
         f.with_columns(pl.lit(variant).alias("variant")).write_parquet(
             out / f"{variant}-oof.parquet"

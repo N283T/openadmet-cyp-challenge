@@ -1,0 +1,99 @@
+{
+  "labels": "000-measurements.parquet",
+  "splits": "001-assignments.parquet",
+  "scorer": "002-custom_scoring_functions.py",
+  "test_reference": "003-ensemble_probabilities.parquet",
+  "bootstrap_seed": 20260911,
+  "bootstrap_replicates": 2000,
+  "variants": {
+    "baseline": [
+      {
+        "oof": "004-oof.parquet"
+      }
+    ],
+    "control": [
+      {
+        "run_id": "20260911T053158423216Z-9c04a430",
+        "fold": 0,
+        "oof": "005-oof.parquet",
+        "summary": "006-summary.json",
+        "membership": "007-membership.parquet",
+        "test": "008-test-predictions.parquet"
+      },
+      {
+        "run_id": "20260911T053556181042Z-b9378cc2",
+        "fold": 1,
+        "oof": "009-oof.parquet",
+        "summary": "010-summary.json",
+        "membership": "011-membership.parquet",
+        "test": "012-test-predictions.parquet"
+      },
+      {
+        "run_id": "20260911T053904509268Z-fa9c30a0",
+        "fold": 2,
+        "oof": "013-oof.parquet",
+        "summary": "014-summary.json",
+        "membership": "015-membership.parquet",
+        "test": "016-test-predictions.parquet"
+      },
+      {
+        "run_id": "20260911T054158295368Z-f13076ec",
+        "fold": 3,
+        "oof": "017-oof.parquet",
+        "summary": "018-summary.json",
+        "membership": "019-membership.parquet",
+        "test": "020-test-predictions.parquet"
+      },
+      {
+        "run_id": "20260911T054826374242Z-0d93cdb3",
+        "fold": 4,
+        "oof": "021-oof.parquet",
+        "summary": "022-summary.json",
+        "membership": "023-membership.parquet",
+        "test": "024-test-predictions.parquet"
+      }
+    ],
+    "external": [
+      {
+        "run_id": "20260911T053308971388Z-587ff71b",
+        "fold": 0,
+        "oof": "025-oof.parquet",
+        "summary": "026-summary.json",
+        "membership": "027-membership.parquet",
+        "test": "028-test-predictions.parquet"
+      },
+      {
+        "run_id": "20260911T053658911105Z-1ea68598",
+        "fold": 1,
+        "oof": "029-oof.parquet",
+        "summary": "030-summary.json",
+        "membership": "031-membership.parquet",
+        "test": "032-test-predictions.parquet"
+      },
+      {
+        "run_id": "20260911T054002259749Z-29496a21",
+        "fold": 2,
+        "oof": "033-oof.parquet",
+        "summary": "034-summary.json",
+        "membership": "035-membership.parquet",
+        "test": "036-test-predictions.parquet"
+      },
+      {
+        "run_id": "20260911T054310514050Z-221b89e2",
+        "fold": 3,
+        "oof": "037-oof.parquet",
+        "summary": "038-summary.json",
+        "membership": "039-membership.parquet",
+        "test": "040-test-predictions.parquet"
+      },
+      {
+        "run_id": "20260911T054927294591Z-30e4d318",
+        "fold": 4,
+        "oof": "041-oof.parquet",
+        "summary": "042-summary.json",
+        "membership": "043-membership.parquet",
+        "test": "044-test-predictions.parquet"
+      }
+    ]
+  }
+}

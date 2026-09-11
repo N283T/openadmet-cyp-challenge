@@ -96,6 +96,12 @@ The selected ChEMBL data spans pIC50 >=4; it does not directly fill the weak-pot
 tail. PubChem contributes continuous responses for weak/inactive compounds without
 pretending that the response is a measured pIC50.
 
+The raw PubChem CYP2D6 panel contains 11,139 inactive observations, all with numeric
+Max_Response. Clipping is not equally rare across isoforms: for CYP2C19 it affects
+504 active, 51 inactive and 359 inconclusive observations in the raw panel. The
+full `pubchem-response-coverage.csv` is retained; do not assume the community
+article's clipping-rate claim holds for this snapshot.
+
 Curation excludes 236 selected ChEMBL rows and 1,555 PubChem rows for challenge
 connectivity overlap, and 3/330 rows for structure failures, respectively. Counts
 are observation rows and include isoform repetitions. The adopted target and
@@ -112,6 +118,11 @@ Raw descriptions, rejected rows, HTTP responses and full structure maps remain i
 the immutable run artifacts.
 
 ## First model comparison
+
+The five-fold comparison is complete; see the
+[results and decision](analysis/2026-09-11-external-comparison.md). External training
+improves the matched neural point estimate but does not beat the adopted TabPFN
+baseline. The external dataset is retained; the neural recipe is not adopted.
 
 Configuration: `configs/external/training-v1.json`. Use CheMeleon initialization,
 regression only, and fixed UMAP outer folds. Both arms have the same 18-head

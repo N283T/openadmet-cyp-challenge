@@ -62,9 +62,12 @@ def main():
                 )
             )
     path = ROOT / "configs/external/comparison-audit-v1.json"
-    with path.open("x") as stream:
-        json.dump(cfg, stream, indent=2)
-        stream.write("\n")
+    if path.exists():
+        assert json.loads(path.read_text()) == cfg
+    else:
+        with path.open("x") as stream:
+            json.dump(cfg, stream, indent=2)
+            stream.write("\n")
     command = [
         "pixi",
         "run",

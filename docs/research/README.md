@@ -12,6 +12,11 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
   ChEMBL 36 and PubChem auxiliaries are now curated with source lineage and
   challenge-connectivity exclusion: 24,075 external compounds, 93,119 labels
   ([RL-0013](2026-09.md#rl-0013--external-chembl-and-pubchem-auxiliary-dataset)).
+- The first matched neural comparison is complete: external auxiliaries improve
+  the point estimate of MA-ST-RAE from 0.824695 to 0.797301, but do not reach the
+  adopted TabPFN's 0.724704. Retain the dataset and baseline; do not adopt this
+  neural recipe. The macro conditional interval slightly crosses zero
+  ([RL-0014](2026-09.md#rl-0014--first-matched-external-data-regression-comparison)).
 - Pooled OOF means are nearly calibrated, but CYP2D6 ranking remains weak across
   folds. Hidden-test calibration is unresolved; retain UMAP and separate future
   calibration experiments from the external-data comparison.
@@ -84,3 +89,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL-0011](2026-09.md#rl-0011--first-baseline-leaderboard-scores) | First baseline LB results, endpoint breakdown and CV comparison |
 | [RL-0012](2026-09.md#rl-0012--regression-diagnosis-and-existing-chembl-inventory) | Regression diagnosis, classification deferral and local ChEMBL inventory |
 | [RL-0013](2026-09.md#rl-0013--external-chembl-and-pubchem-auxiliary-dataset) | ChEMBL/PubChem acquisition, curation and source lineage |
+| [RL-0014](2026-09.md#rl-0014--first-matched-external-data-regression-comparison) | Matched neural external-data comparison and conditional uncertainty |
