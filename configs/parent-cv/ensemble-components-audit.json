@@ -1,0 +1,26 @@
+{
+  "oofs": [
+    "000-component-oof.parquet",
+    "001-component-oof.parquet",
+    "002-component-oof.parquet",
+    "003-component-oof.parquet",
+    "004-component-oof.parquet"
+  ],
+  "runs": [
+    "20260911T142441093420Z-91e36a41",
+    "20260911T142530231264Z-a5b5b04c",
+    "20260911T142619356692Z-5c334eef",
+    "20260911T142708466901Z-8b7b5050",
+    "20260911T142757006049Z-db34f643"
+  ],
+  "controls": {
+    "current_full_tabicl": "005-tabicl-oof.parquet",
+    "current_full_tabpfn": "006-tabpfn-oof.parquet"
+  },
+  "database": {
+    "host": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/.runtime/socket",
+    "port": 5434,
+    "dbname": "cyp_challenge"
+  },
+  "scorer": "007-custom_scoring_functions.py"
+}
