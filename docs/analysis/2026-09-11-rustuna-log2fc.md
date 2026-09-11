@@ -112,3 +112,8 @@ neighbor subset. Preserve the tuned candidate, but do not replace the five-fold
 baseline based on this experiment. No test inference or submission was made.
 The experiment supports improving auxiliary fit; it does not resolve the 2D6
 pIC50 limitation. Checks and 44 DB-enabled tests passed.
+
+Subsequently the user requested adopting the tuned model. The
+[adoption record](2026-09-11-rustuna-adoption.md) documents the completed ten-pair
+model package and updated default references. This preserves the original
+experimental conclusion while recording the later user decision separately.

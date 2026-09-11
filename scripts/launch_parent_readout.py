@@ -10,11 +10,18 @@ root = Path(__file__).resolve().parents[1]
 shared = root / "artifacts/runs/shared"
 parser = argparse.ArgumentParser()
 parser.add_argument("--fold", type=int, action="append")
-parser.add_argument("--aux-log", default="artifacts/launches/parent-cv-aux-20260911.log")
+parser.add_argument(
+    "--aux-log", help="Explicit historical launch log instead of the current registry"
+)
+parser.add_argument("--aux-registry", default="configs/regression/current-log2fc.json")
 parser.add_argument("--revision", default="")
 args = parser.parse_args()
 parents = []
-for run in re.findall(r"run_id=(\S+)", (root / args.aux_log).read_text()):
+if args.aux_log:
+    runs = re.findall(r"run_id=(\S+)", (root / args.aux_log).read_text())
+else:
+    runs = [m["run"] for m in json.loads((root / args.aux_registry).read_text())["models"]]
+for run in runs:
     out = shared / run / "outputs"
     if not (out / "summary.json").exists():
         continue

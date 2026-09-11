@@ -1,11 +1,16 @@
 """Declare all five paired-readout runs for the final parent-retention audit."""
 
+import argparse
 import json
 import re
 import subprocess
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
+parser = argparse.ArgumentParser()
+parser.add_argument("--readout-log", default="artifacts/launches/parent-cv-readout-20260911.log")
+parser.add_argument("--revision", default="")
+args = parser.parse_args()
 paths = []
 
 
@@ -14,9 +19,7 @@ def add(p):
     return f"{len(paths) - 1:03d}-{p.name}"
 
 
-parents = re.findall(
-    r"run_id=(\S+)", (root / "artifacts/launches/parent-cv-readout-20260911.log").read_text()
-)
+parents = re.findall(r"run_id=(\S+)", (root / args.readout_log).read_text())
 assert len(parents) == 5
 cfg = {
     "oof": [
@@ -34,7 +37,7 @@ cfg["labels"] = add(
     root / "artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet"
 )
 cfg["scorer"] = add(root / "artifacts/metric-reference/custom_scoring_functions.py")
-p = root / "configs/parent-cv/audit.json"
+p = root / f"configs/parent-cv/audit{args.revision}.json"
 with p.open("x") as f:
     json.dump(cfg, f, indent=2)
 cmd = [

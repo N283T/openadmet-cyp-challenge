@@ -11,6 +11,11 @@ Official [Space](https://huggingface.co/spaces/openadmet/cyp-challenge) and
 Structure support and Boltz are deferred. No Jupyter dependency is declared.
 Pandas may exist transitively; project table processing uses Polars.
 
+For new regression work, use the explicit [current auxiliary configuration](configs/regression/current-log2fc.json)
+and [current parent-CV readout](configs/regression/current-parent-readout.json).
+These select the user-adopted Rustuna log2fc recipe; older experiment reports and
+run configurations retain their original inputs. See [the adoption record](docs/analysis/2026-09-11-rustuna-adoption.md).
+
 ## Setup
 
 ```sh

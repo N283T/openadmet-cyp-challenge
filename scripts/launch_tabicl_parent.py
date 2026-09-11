@@ -7,14 +7,18 @@ import subprocess
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
-parents = re.findall(
-    r"run_id=(\S+)", (root / "artifacts/launches/parent-cv-readout-20260911.log").read_text()
-)
-assert len(parents) == 5
 parser = argparse.ArgumentParser()
 parser.add_argument("--fold", type=int)
 parser.add_argument("--revision", default="")
+parser.add_argument("--readout-log", help="Explicit historical readout log")
+parser.add_argument("--readout-registry", default="configs/regression/current-parent-readout.json")
 args = parser.parse_args()
+if args.readout_log:
+    parents = re.findall(r"run_id=(\S+)", (root / args.readout_log).read_text())
+else:
+    registry = json.loads((root / args.readout_registry).read_text())
+    parents = [item["run"] for item in sorted(registry["models"], key=lambda item: item["fold"])]
+assert len(parents) == 5
 for fold, r in enumerate(parents):
     if args.fold is not None and fold != args.fold:
         continue

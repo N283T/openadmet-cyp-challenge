@@ -1,6 +1,7 @@
 """Refit a preselected HPO recipe for the untouched outer-fold-zero readout."""
 
 import argparse
+import itertools
 import json
 import subprocess
 from pathlib import Path
@@ -8,20 +9,25 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
 parser.add_argument("--search-run", required=True)
+parser.add_argument(
+    "--remaining", action="store_true", help="Fit the six pairs not containing fold zero"
+)
 args = parser.parse_args()
 shared = root / "artifacts/runs/shared"
 selected_path = shared / args.search_run / "outputs/selected.json"
 selected = json.loads(selected_path.read_text())
-for other in range(1, 5):
+for first, other in (
+    itertools.combinations(range(1, 5), 2) if args.remaining else [(0, i) for i in range(1, 5)]
+):
     cfg = {
         **selected["config"],
         "tuning_only": False,
-        "excluded_folds": [0, other],
-        "outer_fold": 0,
+        "excluded_folds": [first, other],
+        "outer_fold": first,
         "selection_run": args.search_run,
         "selection_trial": selected["trial"],
     }
-    p = root / f"configs/parent-cv/tuned-aux-0-{other}.json"
+    p = root / f"configs/parent-cv/tuned-aux-{first}-{other}.json"
     with p.open("x") as stream:
         json.dump(cfg, stream, indent=2)
     cmd = [
@@ -32,7 +38,7 @@ for other in range(1, 5):
         "--track",
         "shared",
         "--purpose",
-        f"Evaluate frozen Rustuna choice in nested auxiliary pair 0,{other}",
+        f"Fit adopted Rustuna choice in nested auxiliary pair {first},{other}",
         "--config",
         str(p),
     ]

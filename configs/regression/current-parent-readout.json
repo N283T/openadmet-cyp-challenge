@@ -1,0 +1,15 @@
+{
+  "track": "regression",
+  "auxiliary_registry": "configs/regression/current-log2fc.json",
+  "auxiliary_package_run": "20260911T125618165690Z-4e52f1df",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "audit_run": "20260911T130021181456Z-60011f3a",
+  "model": "LightGBM L1 300; parent-retained full features",
+  "models": [
+    {"fold": 0, "run": "20260911T124052504276Z-c22b0df7"},
+    {"fold": 1, "run": "20260911T125630683489Z-e2f0a4b2"},
+    {"fold": 2, "run": "20260911T125723862156Z-08fd7a35"},
+    {"fold": 3, "run": "20260911T125818040377Z-e0d35c62"},
+    {"fold": 4, "run": "20260911T125911665760Z-06163bb5"}
+  ]
+}
