@@ -1,0 +1,7 @@
+{
+ "metrics":{"context-metrics":"20260911T071844846604Z-595cb35a","distribution-metrics":"20260911T072717606484Z-8ec7593a"},
+ "prediction_run":"20260911T072717606484Z-8ec7593a",
+ "candidates":{"blend3:q0.55":"blend3-q55","blend3:median":"blend3-median"},
+ "database":{"host":"/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/.runtime/socket","port":5434,"dbname":"cyp_challenge"},
+ "scope":"Preserve prospective local candidates. Model and summary choices are exploratory, no LB claim."
+}

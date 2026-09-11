@@ -1,0 +1,31 @@
+{
+  "seed": 20260911,
+  "runs": [
+    {
+      "run": "20260911T072716421566Z-24ff1fd7",
+      "oof": "000-interval-oof.parquet",
+      "test": "001-interval-test.parquet"
+    },
+    {
+      "run": "20260911T073020399698Z-6f17daf6",
+      "oof": "002-interval-oof.parquet",
+      "test": "003-interval-test.parquet"
+    },
+    {
+      "run": "20260911T073322300653Z-61a1009a",
+      "oof": "004-interval-oof.parquet",
+      "test": "005-interval-test.parquet"
+    },
+    {
+      "run": "20260911T073628329393Z-94565589",
+      "oof": "006-interval-oof.parquet",
+      "test": "007-interval-test.parquet"
+    },
+    {
+      "run": "20260911T073931300085Z-8714b7fb",
+      "oof": "008-interval-oof.parquet",
+      "test": "009-interval-test.parquet"
+    }
+  ],
+  "neighbor_method": "knn(50, 2, 'interval'):weight1.0"
+}

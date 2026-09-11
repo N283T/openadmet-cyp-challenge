@@ -1,0 +1,13 @@
+{
+ "metrics":{"interval-metrics":"20260911T074638497859Z-7f0af974","neighborhood-metrics":"20260911T073458027748Z-50193fa7"},
+ "prediction_run":"20260911T074638497859Z-7f0af974",
+ "prediction_filename":"interval-comparison-test.parquet",
+ "candidates":{
+  "lgbm_interval_300_blend_q55_0.25":"q55-lgbm-interval25",
+  "interval_mixture_median_blend_q55_0.25":"q55-tabpfn-interval25",
+  "interval_mixture_median":"tabpfn-interval-only"
+ },
+ "plot_methods":["baseline_mean","blend3_q55","interval_mixture_median","interval_mixture_median_blend_q55_0.25","lgbm_interval_300_blend_q55_0.25"],
+ "database":{"host":"/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/.runtime/socket","port":5434,"dbname":"cyp_challenge"},
+ "scope":"Audit local interval-learning alternatives; incremental gains over q0.55 are small and exploratory. No upload."
+}

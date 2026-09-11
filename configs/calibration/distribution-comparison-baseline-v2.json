@@ -1,0 +1,43 @@
+{
+  "seed": 20260911,
+  "repeats": 5,
+  "estimators": [
+    "mean",
+    "median",
+    "q0.40",
+    "q0.45",
+    "q0.50",
+    "q0.55",
+    "q0.60",
+    "q0.65",
+    "q0.70"
+  ],
+  "baseline": [
+    {
+      "run": "20260911T071642514941Z-46dba429",
+      "oof": "000-distribution-oof.parquet",
+      "test": "001-fold_predictions.parquet"
+    },
+    {
+      "run": "20260911T071734625635Z-c0a1c0ca",
+      "oof": "002-distribution-oof.parquet",
+      "test": "003-fold_predictions.parquet"
+    },
+    {
+      "run": "20260911T071821705444Z-d24bb710",
+      "oof": "004-distribution-oof.parquet",
+      "test": "005-fold_predictions.parquet"
+    },
+    {
+      "run": "20260911T071909982887Z-282867eb",
+      "oof": "006-distribution-oof.parquet",
+      "test": "007-fold_predictions.parquet"
+    },
+    {
+      "run": "20260911T071957777491Z-48bf1b6b",
+      "oof": "008-distribution-oof.parquet",
+      "test": "009-fold_predictions.parquet"
+    }
+  ],
+  "additional": []
+}

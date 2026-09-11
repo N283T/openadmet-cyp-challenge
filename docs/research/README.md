@@ -6,6 +6,14 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- Interval-aware TabPFN/LightGBM and neighborhood trials are complete. The best
+  numerical blend scores 0.688853, but its incremental gain over the simple q0.55
+  ensemble is uncertain; retain alternatives without replacing the submitted baseline
+  ([RL-0017](2026-09.md#rl-0017--interval-aware-readouts-and-neighborhood-alternatives)).
+- Continued regression trials favor a simple three-member TabPFN 2.6 q0.55
+  ensemble in exploratory OOF (ST-RAE 0.691191). Local q0.55/median candidates
+  are saved, with hidden-test population shift unresolved
+  ([RL-0016](2026-09.md#rl-0016--distribution-summaries-and-simple-ensembles-improve-regression-cv)).
 - External activity modeling is paused. A PXR-inspired calibration screen supports
   modest interval-loss gains but does not identify the hidden test-population
   correction. Keep full/half-strength maps for prospective evaluation; preserve
@@ -96,3 +104,5 @@ Reports and research entries default to English; conversation language is indepe
 | [RL-0013](2026-09.md#rl-0013--external-chembl-and-pubchem-auxiliary-dataset) | ChEMBL/PubChem acquisition, curation and source lineage |
 | [RL-0014](2026-09.md#rl-0014--first-matched-external-data-regression-comparison) | Matched neural external-data comparison and conditional uncertainty |
 | [RL-0015](2026-09.md#rl-0015--pxr-inspired-regression-calibration-without-external-activity-data) | PXR-inspired interval calibration, label-isolation checks and unresolved test shift |
+| [RL-0016](2026-09.md#rl-0016--distribution-summaries-and-simple-ensembles-improve-regression-cv) | Distribution summaries, simple ensembles and local prospective candidates |
+| [RL-0017](2026-09.md#rl-0017--interval-aware-readouts-and-neighborhood-alternatives) | 120 interval/point readout fits, neighborhood alternatives and small incremental gains |

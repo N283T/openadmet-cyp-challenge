@@ -1,0 +1,37 @@
+{
+  "seed": 20260911,
+  "repeats": 5,
+  "members": [
+    {
+      "name": "baseline",
+      "path": "artifacts/runs/shared/20260910T123856868493Z-243a1e23/outputs/oof.parquet",
+      "input": "000-oof.parquet"
+    },
+    {
+      "name": "compact",
+      "path": "artifacts/runs/shared/20260910T121725442380Z-414b10ed/outputs/oof.parquet",
+      "input": "001-oof.parquet"
+    },
+    {
+      "name": "pretrained",
+      "path": "artifacts/runs/shared/20260910T112409569324Z-25cecb67/outputs/oof.parquet",
+      "input": "002-oof.parquet"
+    },
+    {
+      "name": "mordred",
+      "path": "artifacts/runs/shared/20260910T123026818816Z-7968c1c0/outputs/oof.parquet",
+      "input": "003-oof.parquet"
+    },
+    {
+      "name": "direct",
+      "path": "artifacts/runs/shared/20260910T124213825407Z-df00102c/outputs/oof.parquet",
+      "input": "004-oof.parquet"
+    }
+  ],
+  "penalties": [
+    0.01,
+    0.1,
+    1.0
+  ],
+  "scope": "External-data-free regression: fixed blends, interval convex ensembles, and chemical-context residual calibration. Evaluate disjoint cluster halves within each common base-model holdout. Exploratory method selection."
+}

@@ -92,6 +92,10 @@ all challenge connectivity blocks excluded from external training.
 The [regression calibration screen](docs/analysis/2026-09-11-calibration.md)
 tests PXR-inspired corrections on the existing TabPFN predictions, with interval
 losses adapted to CYP scoring and explicit evaluation limitations.
+The subsequent [distribution and ensemble comparison](docs/analysis/2026-09-11-distribution-ensembles.md)
+tests predictive quantiles and existing model diversity. The
+[interval-learning experiment](docs/analysis/2026-09-11-interval-learning.md)
+fits confidence-bound targets and interval-aware tree models.
 
 ## Candidates and submissions
 

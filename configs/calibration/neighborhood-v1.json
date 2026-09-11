@@ -1,0 +1,6 @@
+{
+ "neighbors":[10,50],
+ "powers":[2,8],
+ "strengths":[0.25,0.5,1.0],
+ "scope":"Twenty-four fixed local label/interval median and TabPFN-mean blends; no calibration labels from held fold, no external CYP labels."
+}

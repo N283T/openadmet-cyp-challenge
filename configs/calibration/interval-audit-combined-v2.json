@@ -1,0 +1,56 @@
+{
+  "seed": 20260911,
+  "runs": [
+    {
+      "run": "20260911T072716421566Z-24ff1fd7",
+      "oof": "000-interval-oof.parquet",
+      "test": "001-interval-test.parquet"
+    },
+    {
+      "run": "20260911T073020399698Z-6f17daf6",
+      "oof": "002-interval-oof.parquet",
+      "test": "003-interval-test.parquet"
+    },
+    {
+      "run": "20260911T073322300653Z-61a1009a",
+      "oof": "004-interval-oof.parquet",
+      "test": "005-interval-test.parquet"
+    },
+    {
+      "run": "20260911T073628329393Z-94565589",
+      "oof": "006-interval-oof.parquet",
+      "test": "007-interval-test.parquet"
+    },
+    {
+      "run": "20260911T073931300085Z-8714b7fb",
+      "oof": "008-interval-oof.parquet",
+      "test": "009-interval-test.parquet"
+    },
+    {
+      "run": "20260911T074009277562Z-be7cf1d4",
+      "oof": "010-interval-oof.parquet",
+      "test": "011-interval-test.parquet"
+    },
+    {
+      "run": "20260911T074131117243Z-9fd947df",
+      "oof": "012-interval-oof.parquet",
+      "test": "013-interval-test.parquet"
+    },
+    {
+      "run": "20260911T074301803825Z-4989e98c",
+      "oof": "014-interval-oof.parquet",
+      "test": "015-interval-test.parquet"
+    },
+    {
+      "run": "20260911T074417567845Z-70528e07",
+      "oof": "016-interval-oof.parquet",
+      "test": "017-interval-test.parquet"
+    },
+    {
+      "run": "20260911T074521296699Z-92454c6a",
+      "oof": "018-interval-oof.parquet",
+      "test": "019-interval-test.parquet"
+    }
+  ],
+  "neighbor_method": "knn(50, 2, 'interval'):weight1.0"
+}

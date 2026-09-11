@@ -1,0 +1,69 @@
+{
+  "seed": 20260911,
+  "repeats": 5,
+  "estimators": [
+    "mean",
+    "median",
+    "q0.40",
+    "q0.45",
+    "q0.50",
+    "q0.55",
+    "q0.60",
+    "q0.65",
+    "q0.70"
+  ],
+  "baseline": [
+    {
+      "run": "20260911T071642514941Z-46dba429",
+      "oof": "000-distribution-oof.parquet",
+      "test": "001-fold_predictions.parquet"
+    },
+    {
+      "run": "20260911T071734625635Z-c0a1c0ca",
+      "oof": "002-distribution-oof.parquet",
+      "test": "003-fold_predictions.parquet"
+    },
+    {
+      "run": "20260911T071821705444Z-d24bb710",
+      "oof": "004-distribution-oof.parquet",
+      "test": "005-fold_predictions.parquet"
+    },
+    {
+      "run": "20260911T071909982887Z-282867eb",
+      "oof": "006-distribution-oof.parquet",
+      "test": "007-fold_predictions.parquet"
+    },
+    {
+      "run": "20260911T071957777491Z-48bf1b6b",
+      "oof": "008-distribution-oof.parquet",
+      "test": "009-fold_predictions.parquet"
+    }
+  ],
+  "additional": [
+    {
+      "run": "20260911T072106821615Z-39d5ba1d",
+      "oof": "010-member-oof.parquet",
+      "test": "011-member-test.parquet"
+    },
+    {
+      "run": "20260911T072215746368Z-c51513a0",
+      "oof": "012-member-oof.parquet",
+      "test": "013-member-test.parquet"
+    },
+    {
+      "run": "20260911T072322810219Z-9301a74e",
+      "oof": "014-member-oof.parquet",
+      "test": "015-member-test.parquet"
+    },
+    {
+      "run": "20260911T072430468552Z-c902f32b",
+      "oof": "016-member-oof.parquet",
+      "test": "017-member-test.parquet"
+    },
+    {
+      "run": "20260911T072538070064Z-d344ca0e",
+      "oof": "018-member-oof.parquet",
+      "test": "019-member-test.parquet"
+    }
+  ]
+}
