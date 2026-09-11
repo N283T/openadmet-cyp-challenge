@@ -1,0 +1,24 @@
+{
+  "oof": [
+    "000-tabicl-oof.parquet",
+    "002-tabicl-oof.parquet",
+    "004-tabicl-oof.parquet",
+    "006-tabicl-oof.parquet",
+    "008-tabicl-oof.parquet"
+  ],
+  "test": [
+    "001-tabicl-test.parquet",
+    "003-tabicl-test.parquet",
+    "005-tabicl-test.parquet",
+    "007-tabicl-test.parquet",
+    "009-tabicl-test.parquet"
+  ],
+  "database": {
+    "host": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/.runtime/socket",
+    "port": 5434,
+    "dbname": "cyp_challenge"
+  },
+  "labels": "010-regression-oof-diagnostics.parquet",
+  "distribution": "011-distribution-comparison-oof.parquet",
+  "scorer": "012-custom_scoring_functions.py"
+}
