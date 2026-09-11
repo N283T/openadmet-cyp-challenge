@@ -1,0 +1,23 @@
+{
+  "dataset_run": "20260909T132734119233Z-a7063ccd",
+  "split_run": "20260909T135130268493Z-edba6fc0",
+  "auxiliary_run": "20260910T100337258849Z-927eac1c",
+  "external_run": "20260911T052745709989Z-8792f422",
+  "checkpoint_run": "20260910T012612848389Z-bfeed434",
+  "checkpoint_sha256": "c376624d3407204e780a0ed13a9ac097cc9bb1c13ef89cdbc633c1715c183651",
+  "initialization": "chemeleon",
+  "seed": 42,
+  "max_epochs": 60,
+  "patience": 10,
+  "inner_validation_fraction": 0.1,
+  "batch_size": 64,
+  "external_batch_per_source": 32,
+  "learning_rate": 0.0001,
+  "ffn_hidden_dim": 256,
+  "ffn_dropout": 0.1,
+  "log2fc_weight": 0.3,
+  "comparison": "Same 18-head initialization and challenge schedule: external loss weight 0 versus 0.3; stopping on inner direct-regression MSE; no calibration",
+  "fold": 3,
+  "variant": "control",
+  "external_weight": 0.0
+}

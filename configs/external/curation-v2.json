@@ -1,0 +1,16 @@
+{
+  "chembl_run": "20260911T052136820510Z-d4df2307",
+  "pubchem_run": "20260911T052330309388Z-80507a6e",
+  "supersedes": "20260911T052556943962Z-f9e57655: B/F-only omitted ADME assays",
+  "chembl_policy": "Non-PubChem human single-protein IC50; ADME/binding/functional assay confidence >=8; exact positive nM value with pChEMBL, no validity flag or potential duplicate; conservatively exclude explicit TDI/mechanism-based/preincubation descriptions",
+  "chembl_allowed_types": ["IC50"],
+  "chembl_assay_types": ["A", "B", "F"],
+  "chembl_excluded_source_ids": [7],
+  "chembl_min_confidence": 8,
+  "chembl_assay_exclusion_regex": "(?i)time[- ]dependent|mechanism[- ]based|pre[- ]?incubat|\\bTDI\\b|irreversible",
+  "pubchem_policy": "AID1851 Max_Response including inactive compounds; finite numeric values clipped [-150,50], median across standardized compound/isoform; raw values retained. Clipping is a modeling heuristic, not validated artifact detection.",
+  "max_response_clip": [-150, 50],
+  "identity_policy": "Project ChEMBL parent standardization with stereochemistry retained; connectivity-block overlap exclusion against ALL challenge compounds, including blinded test and auxiliary-only molecules",
+  "replicate_policy": "Median per assay/compound then median across assays for ChEMBL; median across SID rows for PubChem",
+  "standardization_workers": 6
+}

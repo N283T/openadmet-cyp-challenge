@@ -1,0 +1,1 @@
+{"base_url":"https://pubchem.ncbi.nlm.nih.gov/rest/pug","sid_batch_size":300,"cid_batch_size":300,"request_interval_seconds":0.3,"source":"Original AID1851 assay description and data; explicit SID pagination and CID-keyed isomeric structures"}

@@ -1,0 +1,7 @@
+{
+  "purpose": "Preserve original PubChem AID1851 assay description and full result table",
+  "requests": [
+    {"name": "aid1851-description.json", "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/assay/aid/1851/description/JSON"},
+    {"name": "aid1851.csv", "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/assay/aid/1851/CSV"}
+  ]
+}

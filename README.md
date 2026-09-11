@@ -85,6 +85,10 @@ augmentation with directly fine-tuning CheMeleon on the challenge targets.
 The [TabPFN 3.0 comparison](docs/tabpfn-v3.md) evaluates both tracks and retains
 2.6 for the current feature recipe.
 
+[External CYP auxiliaries](docs/external-data.md) preserve ChEMBL 36 IC50 and
+PubChem AID1851 continuous responses as separate targets, with source lineage and
+all challenge connectivity blocks excluded from external training.
+
 ## Candidates and submissions
 
 ```sh
