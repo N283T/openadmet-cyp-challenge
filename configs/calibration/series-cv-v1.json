@@ -1,0 +1,11 @@
+{
+  "similarity_threshold": 0.5,
+  "seeds_per_enzyme": 25,
+  "folds": 5,
+  "seed": 42,
+  "models": [
+    "lightgbm_l1_300",
+    "tabpfn_2.6_8"
+  ],
+  "features": "Mordred, outer-training median imputation"
+}
