@@ -1,0 +1,12 @@
+{
+  "track": "regression",
+  "model": "TabICL 2.2.0 full features with Rustuna-selected log2fc; parent-retained five-fold mean",
+  "prediction_run": "20260911T131826604125Z-ebb033cc",
+  "package_run": "20260911T132657697271Z-bb9311b7",
+  "candidate": "20260911T132706164937Z-88ee2e6d",
+  "submission": "20260911T132711430401Z-f3149927",
+  "attempt": "20260911T132723760759Z-82910c6b",
+  "sha256": "6a37411ff8a7c6a28a29f76752c2b9bc790e9fbc9766a836ba3ec5354894576d",
+  "status": "sent",
+  "receipt": "Submission received; predictions processing; leaderboard expected within 2 hours"
+}

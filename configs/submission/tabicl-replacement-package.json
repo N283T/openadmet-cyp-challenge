@@ -1,0 +1,1 @@
+{"source_run": "20260911T131826604125Z-ebb033cc", "backend": "tabicl", "operation": "Select official columns; remove internal compound_id; no prediction changes", "ensemble": "five-fold mean", "features": "PCA256 + tuned pred_log2fc4 + Mordred"}
