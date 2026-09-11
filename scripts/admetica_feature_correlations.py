@@ -155,7 +155,7 @@ top.write_csv(out / "top-feature-correlations.csv")
             pred_log2fc_test="ten-model mean",
             feature_correlation_rows=features.height,
             missing_descriptors="pairwise finite observations, at least 30; constants omitted",
-            scope="Train/test feature correlations use no labels; test target correlations unavailable.",
+            scope="Feature correlations use no labels; test targets unavailable.",
         ),
         indent=2,
     )
