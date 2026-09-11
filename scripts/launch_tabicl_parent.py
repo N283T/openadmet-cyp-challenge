@@ -10,6 +10,8 @@ root = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
 parser.add_argument("--fold", type=int)
 parser.add_argument("--revision", default="")
+parser.add_argument("--backend", choices=["tabicl", "tabpfn"], default="tabicl")
+parser.add_argument("--update-predictions", action="store_true")
 parser.add_argument("--readout-log", help="Explicit historical readout log")
 parser.add_argument("--readout-registry", default="configs/regression/current-parent-readout.json")
 args = parser.parse_args()
@@ -50,6 +52,12 @@ for fold, r in enumerate(parents):
         / "artifacts/runs/shared/20260911T093102177307Z-beddd36f/outputs"
         / "tabicl-regressor-v2-20260212.ckpt"
     )
+    if args.backend == "tabpfn":
+        cfg["weights"] = add(Path.home() / ".cache/tabpfn/tabpfn-v2.6-regressor-v2.6_default.ckpt")
+    cfg["backend"] = args.backend
+    cfg["update_predictions"] = args.update_predictions
+    if args.update_predictions:
+        cfg["feature_sets"] = ["full"]
     cfg["preprocessing"] = {}
     for ep in ["CYP1A2", "CYP2C9", "CYP2D6", "CYP3A4"]:
         e = ep + "_pIC50_direct_inhibition"
@@ -64,9 +72,9 @@ for fold, r in enumerate(parents):
             ]
         }
     add(parent / "outputs/parent-oof.parquet")
-    cfg["model"] = "TabICL 2.2.0; v2 fixed checkpoint; 8 estimators; mean"
+    cfg["model"] = args.backend + "; fixed checkpoint; 8 estimators; mean"
     cfg["features"] = "compact PCA256+predicted-log2fc4 and full +Mordred"
-    p = root / f"configs/parent-cv/tabicl-{fold}{args.revision}.json"
+    p = root / f"configs/parent-cv/{args.backend}-{fold}{args.revision}.json"
     with p.open("x") as f:
         json.dump(cfg, f, indent=2)
     cmd = [
@@ -77,7 +85,7 @@ for fold, r in enumerate(parents):
         "--track",
         "regression",
         "--purpose",
-        f"TabICL compact and full, parent CV fold {fold}; verify matched features",
+        f"Update {args.backend} pIC50 model on adopted auxiliary features, fold {fold}",
         "--config",
         str(p),
     ]

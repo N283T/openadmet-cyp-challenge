@@ -1,0 +1,36 @@
+{
+  "track": "regression",
+  "features": "frozen CheMeleon PCA256 + adopted nested pred_log2fc4 + Mordred",
+  "auxiliary_registry": "configs/regression/current-log2fc.json",
+  "preprocessing_registry": "configs/regression/current-parent-readout.json",
+  "audit_run": "20260911T131826604125Z-ebb033cc",
+  "prediction_aggregation": "mean across five folds",
+  "backends": {
+    "tabicl": {
+      "version": "2.2.0",
+      "model_filename": "{endpoint}.tabicl.joblib",
+      "regression_predictions": "artifacts/runs/regression/20260911T131826604125Z-ebb033cc/outputs/tabicl-regression.parquet",
+      "oof_predictions": "artifacts/runs/regression/20260911T131826604125Z-ebb033cc/outputs/tabicl-oof.parquet",
+      "models": [
+        {"fold": 0, "run": "20260911T130541636074Z-98075594"},
+        {"fold": 1, "run": "20260911T130703156203Z-8d3c8859"},
+        {"fold": 2, "run": "20260911T130823926945Z-a08d12eb"},
+        {"fold": 3, "run": "20260911T130944812832Z-48eff1e0"},
+        {"fold": 4, "run": "20260911T131106047746Z-2ea2c432"}
+      ]
+    },
+    "tabpfn": {
+      "model_version": "2.6",
+      "model_filename": "{endpoint}.tabpfn_fit",
+      "regression_predictions": "artifacts/runs/regression/20260911T131826604125Z-ebb033cc/outputs/tabpfn-regression.parquet",
+      "oof_predictions": "artifacts/runs/regression/20260911T131826604125Z-ebb033cc/outputs/tabpfn-oof.parquet",
+      "models": [
+        {"fold": 0, "run": "20260911T131313006781Z-a8508a11"},
+        {"fold": 1, "run": "20260911T131412685950Z-800631af"},
+        {"fold": 2, "run": "20260911T131512444869Z-ee4cdffc"},
+        {"fold": 3, "run": "20260911T131612138159Z-011ed838"},
+        {"fold": 4, "run": "20260911T131712066480Z-7bc3ef15"}
+      ]
+    }
+  }
+}

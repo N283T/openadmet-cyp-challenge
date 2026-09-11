@@ -15,6 +15,9 @@ For new regression work, use the explicit [current auxiliary configuration](conf
 and [current parent-CV readout](configs/regression/current-parent-readout.json).
 These select the user-adopted Rustuna log2fc recipe; older experiment reports and
 run configurations retain their original inputs. See [the adoption record](docs/analysis/2026-09-11-rustuna-adoption.md).
+The [current TabICL and TabPFN models](configs/regression/current-foundation-models.json)
+include fitted model assets, OOF predictions and five-fold averaged test predictions
+after the [completed downstream replacement](docs/analysis/2026-09-11-foundation-replacement.md).
 
 ## Setup
 

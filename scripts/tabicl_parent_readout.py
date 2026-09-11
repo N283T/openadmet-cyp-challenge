@@ -12,6 +12,8 @@ import polars as pl
 import torch
 from sklearn.decomposition import PCA
 from tabicl import TabICLRegressor
+from tabpfn import TabPFNRegressor
+from tabpfn.constants import ModelVersion
 from threadpoolctl import threadpool_limits
 
 from cyp_challenge.storage import write_json
@@ -44,7 +46,26 @@ for parent in cfg["auxiliary"]:
     auxiliary.append((next(i for i in pair if i != fold), pred, meta["heads"]))
 assert {g for g, _, _ in auxiliary} == set(range(5)) - {fold}
 rows = []
+test_rows = []
 audits = []
+test = (
+    emb.join(a.select("compound_id"), on="compound_id", how="anti")
+    .join(desc, on="compound_id", validate="1:1")
+    .sort("compound_id")
+)
+assert test.height == 750
+test_raw = test.select(ecols).to_numpy().astype(np.float32)
+test_dx = test.select(dcols).to_numpy().astype(float)
+test_dx[~np.isfinite(test_dx)] = np.nan
+test_aux = np.zeros((750, 4), dtype=np.float32)
+for _, pred, heads in auxiliary:
+    test_aux += (
+        test.select("compound_id")
+        .join(pred, on="compound_id", validate="1:1", maintain_order="left")
+        .select(heads)
+        .to_numpy()
+        / 4
+    )
 for ep in sorted(
     labels.filter(pl.col("endpoint").str.ends_with("_pIC50_direct_inhibition"))["endpoint"].unique()
 ):
@@ -127,23 +148,60 @@ for ep in sorted(
         )
         xs = {"compact": np.column_stack([reduced, aux]), "full": full}
         for features, x in xs.items():
+            if features not in cfg.get("feature_sets", ["compact", "full"]):
+                continue
             torch.set_num_threads(4)
-            model = TabICLRegressor(
-                n_estimators=8,
-                batch_size=1,
-                device="cuda",
-                random_state=42 + fold,
-                n_jobs=4,
-                model_path=str(inp / cfg["weights"]),
-                allow_auto_download=False,
-                use_amp="auto",
-                use_fa3="auto",
-                offload_mode="auto",
-                disk_offload_dir=os.environ["TMPDIR"],
+            model = (
+                TabICLRegressor(
+                    n_estimators=8,
+                    batch_size=1,
+                    device="cuda",
+                    random_state=42 + fold,
+                    n_jobs=4,
+                    model_path=str(inp / cfg["weights"]),
+                    allow_auto_download=False,
+                    use_amp="auto",
+                    use_fa3="auto",
+                    offload_mode="auto",
+                    disk_offload_dir=os.environ["TMPDIR"],
+                )
+                if cfg.get("backend", "tabicl") == "tabicl"
+                else TabPFNRegressor.create_default_for_version(
+                    ModelVersion.V2_6,
+                    n_estimators=8,
+                    model_path=str(inp / cfg["weights"]),
+                    device="cuda",
+                    random_state=42 + fold,
+                    auto_scale_n_estimators=False,
+                    n_preprocessing_jobs=1,
+                    memory_saving_mode="auto",
+                    show_progress_bar=False,
+                    ignore_pretraining_limits=True,
+                    fit_mode="fit_preprocessors",
+                )
             )
             model.fit(x[tr], y[tr])
             p = model.predict(x[va])
             assert np.isfinite(p).all()
+            if cfg.get("update_predictions", False):
+                with threadpool_limits(limits=4):
+                    test_reduced = pca.transform(test_raw)
+                test_dd = imputer.transform(test_dx[:, keep])
+                tx = np.column_stack([test_reduced, test_aux, test_dd])
+                tp = model.predict(tx)
+                assert np.isfinite(tp).all()
+                test_rows.append(
+                    test.select("compound_id").with_columns(
+                        pl.lit(ep).alias("endpoint"),
+                        pl.lit(fold).alias("fold"),
+                        pl.lit(cfg["split_run"]).alias("split_id"),
+                        pl.Series("prediction", tp),
+                    )
+                )
+                if cfg.get("backend", "tabicl") == "tabpfn":
+                    model.save_fit_state(out / f"{ep}.tabpfn_fit")
+                else:
+                    joblib.dump(model, out / f"{ep}.tabicl.joblib")
 
             rows.append(
                 f.filter(pl.Series(va))
@@ -181,4 +239,6 @@ for ep in sorted(
             gc.collect()
             torch.cuda.empty_cache()
 pl.concat(rows).write_parquet(out / "tabicl-parent-oof.parquet")
+if test_rows:
+    pl.concat(test_rows).write_parquet(out / "test-predictions.parquet")
 write_json(out / "summary.json", dict(config=cfg, fit_audits=audits, aux_memberships_verified=True))

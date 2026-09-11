@@ -1,0 +1,77 @@
+{
+  "models": {
+    "tabicl": [
+      {
+        "run": "20260911T130541636074Z-98075594",
+        "summary": "000-summary.json",
+        "oof": "001-tabicl-parent-oof.parquet",
+        "test": "002-test-predictions.parquet"
+      },
+      {
+        "run": "20260911T130703156203Z-8d3c8859",
+        "summary": "003-summary.json",
+        "oof": "004-tabicl-parent-oof.parquet",
+        "test": "005-test-predictions.parquet"
+      },
+      {
+        "run": "20260911T130823926945Z-a08d12eb",
+        "summary": "006-summary.json",
+        "oof": "007-tabicl-parent-oof.parquet",
+        "test": "008-test-predictions.parquet"
+      },
+      {
+        "run": "20260911T130944812832Z-48eff1e0",
+        "summary": "009-summary.json",
+        "oof": "010-tabicl-parent-oof.parquet",
+        "test": "011-test-predictions.parquet"
+      },
+      {
+        "run": "20260911T131106047746Z-2ea2c432",
+        "summary": "012-summary.json",
+        "oof": "013-tabicl-parent-oof.parquet",
+        "test": "014-test-predictions.parquet"
+      }
+    ],
+    "tabpfn": [
+      {
+        "run": "20260911T131313006781Z-a8508a11",
+        "summary": "015-summary.json",
+        "oof": "016-tabicl-parent-oof.parquet",
+        "test": "017-test-predictions.parquet"
+      },
+      {
+        "run": "20260911T131412685950Z-800631af",
+        "summary": "018-summary.json",
+        "oof": "019-tabicl-parent-oof.parquet",
+        "test": "020-test-predictions.parquet"
+      },
+      {
+        "run": "20260911T131512444869Z-ee4cdffc",
+        "summary": "021-summary.json",
+        "oof": "022-tabicl-parent-oof.parquet",
+        "test": "023-test-predictions.parquet"
+      },
+      {
+        "run": "20260911T131612138159Z-011ed838",
+        "summary": "024-summary.json",
+        "oof": "025-tabicl-parent-oof.parquet",
+        "test": "026-test-predictions.parquet"
+      },
+      {
+        "run": "20260911T131712066480Z-7bc3ef15",
+        "summary": "027-summary.json",
+        "oof": "028-tabicl-parent-oof.parquet",
+        "test": "029-test-predictions.parquet"
+      }
+    ]
+  },
+  "database": {
+    "host": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/.runtime/socket",
+    "port": 5434,
+    "dbname": "cyp_challenge"
+  },
+  "lgbm": "030-oof.parquet",
+  "previous_tabicl": "031-oof.parquet",
+  "mapping": "032-test_mapping.parquet",
+  "scorer": "033-custom_scoring_functions.py"
+}
