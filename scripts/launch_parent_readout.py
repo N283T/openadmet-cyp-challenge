@@ -10,11 +10,11 @@ root = Path(__file__).resolve().parents[1]
 shared = root / "artifacts/runs/shared"
 parser = argparse.ArgumentParser()
 parser.add_argument("--fold", type=int, action="append")
+parser.add_argument("--aux-log", default="artifacts/launches/parent-cv-aux-20260911.log")
+parser.add_argument("--revision", default="")
 args = parser.parse_args()
 parents = []
-for run in re.findall(
-    r"run_id=(\S+)", (root / "artifacts/launches/parent-cv-aux-20260911.log").read_text()
-):
+for run in re.findall(r"run_id=(\S+)", (root / args.aux_log).read_text()):
     out = shared / run / "outputs"
     if not (out / "summary.json").exists():
         continue
@@ -57,7 +57,7 @@ for fold in args.fold if args.fold is not None else range(5):
                     predictions=[add(p) for p in sorted(out.glob("predictions-*.parquet"))],
                 )
             )
-    path = root / f"configs/parent-cv/readout-{fold}.json"
+    path = root / f"configs/parent-cv/readout-{fold}{args.revision}.json"
     with path.open("x") as f:
         json.dump(cfg, f, indent=2)
     cmd = [

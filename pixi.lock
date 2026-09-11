@@ -354,6 +354,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/30/a4/2bffa9f8e804325a09867f0e9d30795c80ea9f8d62560bd1b6ad6220eb2f/pydantic_settings-2.15.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/0d/17/c5c6b53ddc18f297992099b3d9ec16c855c0ccc83263a21fe4d1c625ec6c/python_dotenv-1.2.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/8b/4d/5740c27110b83634d8491c3b5facf0111b3e554c3164f4fb953be9bddaf6/pytorch_lightning-2.6.5-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/e1/97/e3906c02268a1055b943d19d320cfb0ee733f3b24a995d1278f524f5e34f/rustuna-0.1.0-cp311-abi3-manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/28/50/f203ff3a3ddfe19308efc83c5a3a29ed02bf786732ec35e68bf9162f3365/safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/a2/09/77d55d46fd61b4a135c444fc97158ef34a095e5681d0a6c10b75bf356191/sympy-1.14.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/77/22/bbac2df399b8ed5a699bde38496ebb129a045c5d160fe52786727de932f3/tabicl-2.2.0-py3-none-any.whl
@@ -4913,6 +4914,11 @@ packages:
   - pkg:pypi/ruff?source=compressed-mapping
   size: 8983605
   timestamp: 1788474545889
+- pypi: https://files.pythonhosted.org/packages/e1/97/e3906c02268a1055b943d19d320cfb0ee733f3b24a995d1278f524f5e34f/rustuna-0.1.0-cp311-abi3-manylinux_2_28_x86_64.whl
+  name: rustuna
+  version: 0.1.0
+  sha256: 7db76e80f7054c8c5b36d8690642419fe544e6bd09e98c6737dba1bcc83787f8
+  requires_python: '>=3.11'
 - conda: https://conda.anaconda.org/conda-forge/linux-64/s2n-1.7.5-h7e3ee7f_1.conda
   sha256: 7369ac21f3561e2203f5b1600ef0671270057380783ca4b9e15f679ba25db575
   md5: fa1c00d999e83ec20173c9775f71a1f1

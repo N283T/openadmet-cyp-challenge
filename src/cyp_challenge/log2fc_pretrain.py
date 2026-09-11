@@ -52,7 +52,9 @@ class Network(nn.Module):
         elif config["initialization"] != "scratch":
             raise ValueError("Unknown initialization")
         self.agg = cnn.MeanAggregation()
-        self.bn = nn.BatchNorm1d(self.mp.output_dim)
+        self.bn = (
+            nn.BatchNorm1d(self.mp.output_dim) if config.get("batch_norm", True) else nn.Identity()
+        )
         self.head = nn.Sequential(
             nn.Linear(self.mp.output_dim, config["ffn_hidden_dim"]),
             nn.ReLU(),
@@ -129,7 +131,11 @@ def main():
         "torch": torch.__version__,
         "device": torch.cuda.get_device_name(),
         "cuda": torch.version.cuda,
-        "embedding": "2048d mean pooled message passing followed by trained BatchNorm",
+        "embedding": (
+            "2048d mean pooled message passing followed by trained BatchNorm"
+            if config.get("batch_norm", True)
+            else "2048d mean pooled message passing"
+        ),
         "inner_validation": "seeded 90/10 within outer-training molecules, for stopping only",
     }
     write_json(output / "metadata.json", metadata)
@@ -145,7 +151,34 @@ def main():
         return result
 
     model = Network(checkpoint, config, len(heads)).to(device)
-    optimizer = torch.optim.Adam(model.parameters(), lr=config["learning_rate"])
+    peak = config["learning_rate"] * config["lr_ratio"]
+    optimizer_class = torch.optim.AdamW if config.get("optimizer") == "adamw" else torch.optim.Adam
+    optimizer = optimizer_class(
+        [
+            {"params": model.mp.parameters(), "lr_scale": config.get("encoder_lr_scale", 1.0)},
+            {
+                "params": list(model.bn.parameters()) + list(model.head.parameters()),
+                "lr_scale": 1.0,
+            },
+        ],
+        lr=config["learning_rate"],
+        weight_decay=config.get("weight_decay", 0.0),
+    )
+    plateau = config.get("scheduler", "noam") == "plateau"
+    if plateau:
+        for group in optimizer.param_groups:
+            group["lr"] = peak * group["lr_scale"]
+    scheduler = (
+        torch.optim.lr_scheduler.ReduceLROnPlateau(
+            optimizer,
+            factor=0.5,
+            patience=config.get("lr_patience", 3),
+            threshold=0.0,
+            min_lr=[peak * g["lr_scale"] * 0.01 for g in optimizer.param_groups],
+        )
+        if plateau
+        else None
+    )
     batch_size = config["batch_size"]
     steps = math.ceil(len(train) / batch_size)
     warmup = config["warmup_epochs"] * steps
@@ -176,8 +209,10 @@ def main():
                 if step < warmup
                 else peak * (final_lr / peak) ** ((step - warmup) / max(1, total_steps - warmup))
             )
-            for group in optimizer.param_groups:
-                group["lr"] = lr
+            if not plateau:
+                for group in optimizer.param_groups:
+                    group["lr"] = lr * group["lr_scale"]
+            lr = optimizer.param_groups[-1]["lr"]
             truth = torch.tensor(z[batch], device=device)
             mask = torch.isfinite(truth)
             optimizer.zero_grad(set_to_none=True)
@@ -194,6 +229,8 @@ def main():
         val_loss = float(np.nanmean((p - z[validation]) ** 2))
         if not np.isfinite(val_loss):
             raise ValueError("Nonfinite validation loss")
+        if scheduler is not None:
+            scheduler.step(val_loss)
         improved = val_loss < best
         if improved:
             best, best_epoch, stale = val_loss, epoch, 0
@@ -211,6 +248,7 @@ def main():
             "train_mse_z": train_sum / train_count,
             "val_mse_z": val_loss,
             "learning_rate": lr,
+            "encoder_learning_rate": lr * config.get("encoder_lr_scale", 1.0),
             "seconds": time.monotonic() - started,
             "best_epoch": best_epoch,
         }
@@ -235,6 +273,19 @@ def main():
             break
     best_state = torch.load(output / "best.pt", map_location="cpu", weights_only=False)
     model.load_state_dict(best_state["state_dict"], strict=True)
+    if config.get("tuning_only", False):
+        write_json(
+            output / "summary.json",
+            {
+                **metadata,
+                "best_epoch": best_epoch,
+                "best_validation_mse_z": best,
+                "epochs": len(history),
+                "outer_metrics": [],
+                "best_checkpoint_sha256": digest(output / "best.pt"),
+            },
+        )
+        return
     outer_pred = predict(heldout) * stds + means
     rows, metrics = [], []
     for j, head in enumerate(heads):

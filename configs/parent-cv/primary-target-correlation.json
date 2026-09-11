@@ -1,0 +1,1 @@
+{"scope": "Parent-retained CV nonanchor OOF rows with observed primary available", "target": "y_true direct pIC50", "feature": "predicted_primary matching enzyme", "subsets": ["all", "neighbors"]}
