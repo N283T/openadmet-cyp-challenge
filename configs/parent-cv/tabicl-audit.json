@@ -1,0 +1,16 @@
+{
+  "oof": [
+    "000-tabicl-parent-oof.parquet",
+    "001-tabicl-parent-oof.parquet",
+    "002-tabicl-parent-oof.parquet",
+    "003-tabicl-parent-oof.parquet",
+    "004-tabicl-parent-oof.parquet"
+  ],
+  "baseline": "005-oof.parquet",
+  "scorer": "006-custom_scoring_functions.py",
+  "database": {
+    "host": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/.runtime/socket",
+    "port": 5434,
+    "dbname": "cyp_challenge"
+  }
+}
