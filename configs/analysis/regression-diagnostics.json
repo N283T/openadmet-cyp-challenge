@@ -1,0 +1,9 @@
+{
+  "oof_run": "20260910T123856868493Z-243a1e23",
+  "inference_run": "20260910T132141471698Z-343eb5ec",
+  "split_run": "20260909T135130268493Z-edba6fc0",
+  "strategy": "umap",
+  "prediction_bins": 5,
+  "label_bin_edges": [4.0, 5.0, 6.0, 7.0],
+  "scope": "Regression descriptive diagnostics only; no calibration fitting or submission"
+}

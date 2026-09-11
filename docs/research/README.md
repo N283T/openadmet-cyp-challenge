@@ -6,6 +6,14 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- Focus on regression; defer classification tuning until regression stalls or
+  priorities change. Saved-prediction diagnosis is complete; prioritize
+  source-preserving external-data curation using the existing local ChEMBL 36
+  mirror. See [RL-0012](2026-09.md#rl-0012--regression-diagnosis-and-existing-chembl-inventory).
+- Pooled OOF means are nearly calibrated, but CYP2D6 ranking remains weak across
+  folds. Hidden-test calibration is unresolved; retain UMAP and separate future
+  calibration experiments from the external-data comparison.
+
 - Baseline-v1 uses the augmented TabPFN 2.6 fold ensemble for **both** tracks by
   user decision. First LB scores are recorded: regression ST-RAE 0.868726,
   classification MCC 0.216149; CYP2D6 is the main weakness
@@ -72,3 +80,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL-0009](2026-09.md#rl-0009--tabpfn-30-on-regression-and-classification) | TabPFN 3.0 with eight and nine estimators |
 | [RL-0010](2026-09.md#rl-0010--tabpfn-baseline-v1-preparation-and-submission) | Baseline v1, private-profile upload automation and receipts |
 | [RL-0011](2026-09.md#rl-0011--first-baseline-leaderboard-scores) | First baseline LB results, endpoint breakdown and CV comparison |
+| [RL-0012](2026-09.md#rl-0012--regression-diagnosis-and-existing-chembl-inventory) | Regression diagnosis, classification deferral and local ChEMBL inventory |

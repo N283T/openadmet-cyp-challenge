@@ -1,0 +1,8 @@
+{
+  "dbname": "chembl_36",
+  "host": "/tmp",
+  "port": 5433,
+  "source": "Existing local ChEMBL mirror imported during PXR challenge",
+  "scope": "Read-only inventory of human CYP direct-potency evidence before extraction",
+  "sql_input": "chembl36-inventory.sql"
+}
