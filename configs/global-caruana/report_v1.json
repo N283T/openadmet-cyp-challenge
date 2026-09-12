@@ -1,0 +1,5 @@
+{
+  "selection_run": "20260912T091825933326Z-1548d56b",
+  "audit_run": "20260912T091833613985Z-10936af9",
+  "database": {"host": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/.runtime/socket", "port": 5434, "dbname": "cyp_challenge"}
+}

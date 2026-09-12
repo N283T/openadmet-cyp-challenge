@@ -6,6 +6,13 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Global Caruana completed:** 107 saved candidate identities across model families.
+  Weight-crossfit macro is 0.583257 versus 0.586931; gains are in 2C9 and 3A4,
+  while 1A2 and 2D6 slightly worsen. Full-OOF fitted score 0.573705 is a fitting
+  result, not independent CV. Weights and predictions are retained; no submission.
+  See [RL0047](2026-09.md#rl0047--global-caruana-across-saved-model-families)
+  and [the global comparison](../analysis/2026-09-12-global-caruana.md).
+
 - **Jazzy comparison complete:** standard ETDG features for all 6,896 compounds
   take about two minutes; 12 net-charged structures retain missing values. Paired
   LGBM/TabPFN controls show small mixed gains, with no improvement over the latest
