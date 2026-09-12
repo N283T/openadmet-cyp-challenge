@@ -6,6 +6,13 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Jazzy comparison complete:** standard ETDG features for all 6,896 compounds
+  take about two minutes; 12 net-charged structures retain missing values. Paired
+  LGBM/TabPFN controls show small mixed gains, with no improvement over the latest
+  ensemble. Retain features and results; latest candidate and submission remain
+  unchanged. See [RL0046](2026-09.md#rl0046--dg-jazzy-descriptors-and-controlled-readouts)
+  and [the controlled comparison](../analysis/2026-09-12-jazzy-readout.md).
+
 - **Latest focused round:** prioritize1A2/2D6, allowing useful auxiliary tasks.
   Improved log2fc features and a complementary2D6 readout yield OOF-only
   candidates around0.5869; no new submission. Latest actual LB is0.721167.
@@ -14,7 +21,7 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 - **2026-09-12 update:** The regression five-component ensemble reached development
   OOF ST-RAE **0.596414** on the retained parent CV. Its full-data refit has now
-  been submitted without calibration; official receipt is `sent`, scoring pending.
+  been submitted without calibration; its scored LB is 0.721167 (RL0044).
   See [RL0043](2026-09.md#rl0043--full-data-five-component-submission) and the
   [deployment report](../analysis/2026-09-12-full-ensemble-submission.md).
   This supersedes the older model/pause/split status bullets below, which retain

@@ -57,3 +57,13 @@ chemprop = ">=2.2, <3"
 tabpfn = ">=6, <9"
 tabicl = ">=2, <3"
 rustuna = ">=0.1.0, <0.2"
+
+[feature.jazzy.dependencies]
+python = "3.11.*"
+polars = ">=1,<2"
+
+[feature.jazzy.pypi-dependencies]
+jazzy = "==0.1.4"
+
+[environments]
+jazzy = { features = ["jazzy"], no-default-feature = true }

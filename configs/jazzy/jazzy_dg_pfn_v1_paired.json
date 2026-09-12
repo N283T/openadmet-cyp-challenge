@@ -1,0 +1,30 @@
+{
+  "split_run": "20260911T104703655337Z-a3923255",
+  "backend": "tabpfn",
+  "control_tolerance": 1e-05,
+  "arms": {
+    "control": [],
+    "jazzy_mean": [
+      "jazzy_sdc_mean",
+      "jazzy_sdx_mean",
+      "jazzy_sa_mean",
+      "jazzy_dga_mean",
+      "jazzy_dgp_mean",
+      "jazzy_dgtot_mean"
+    ],
+    "jazzy_mean_std": [
+      "jazzy_sdc_mean",
+      "jazzy_sdx_mean",
+      "jazzy_sa_mean",
+      "jazzy_dga_mean",
+      "jazzy_dgp_mean",
+      "jazzy_dgtot_mean",
+      "jazzy_sdc_std",
+      "jazzy_sdx_std",
+      "jazzy_sa_std",
+      "jazzy_dga_std",
+      "jazzy_dgp_std",
+      "jazzy_dgtot_std"
+    ]
+  }
+}
