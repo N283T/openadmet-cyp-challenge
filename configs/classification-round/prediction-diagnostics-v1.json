@@ -1,0 +1,41 @@
+{
+  "sources": [
+    {
+      "prefix": "lgbm",
+      "oof": "000-000-oof.parquet",
+      "inner": "001-001-inner-predictions.parquet",
+      "test": "002-002-fold-test-probabilities.parquet"
+    },
+    {
+      "prefix": "pfn",
+      "oof": "003-003-oof-probabilities.parquet",
+      "inner": "004-004-inner-validation-probabilities.parquet",
+      "test": "005-005-test-fold-probabilities.parquet"
+    },
+    {
+      "prefix": "graph",
+      "oof": "006-006-classification-oof.parquet",
+      "inner": "007-007-inner-probabilities.parquet",
+      "test": "008-008-fold-test-probabilities.parquet"
+    },
+    {
+      "prefix": "mean",
+      "oof": "009-ensemble-oof.parquet",
+      "test": "010-ensemble-test.parquet"
+    },
+    {
+      "prefix": "old",
+      "method": "baseline",
+      "oof": "011-oof.parquet"
+    }
+  ],
+  "canonical": "012-classification-labels.parquet",
+  "seed": 731,
+  "bootstrap": 500,
+  "permutations": 1000,
+  "focus": [
+    "mean::all_plain_pfn_graph_mean",
+    "mean::lgbm_balanced_mean",
+    "old::baseline"
+  ]
+}

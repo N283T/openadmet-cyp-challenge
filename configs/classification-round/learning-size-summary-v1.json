@@ -1,0 +1,7 @@
+{
+  "predictions": "000-predictions.parquet",
+  "selected": "001-selected-training-ids.parquet",
+  "fold_metrics": "002-fold-metrics.csv",
+  "seeds": [17, 42, 73],
+  "bootstrap_reps": 500
+}

@@ -1,0 +1,25 @@
+{
+  "oof": "000-ensemble-oof.parquet",
+  "old": "001-oof.parquet",
+  "oracle": "002-oracle_thresholds.csv",
+  "cuts": "003-thresholds.csv",
+  "ensemble_config": "004-config.json",
+  "sources": [
+    {
+      "prefix": "lgbm",
+      "test": "005-002-fold-test-probabilities.parquet"
+    },
+    {
+      "prefix": "pfn",
+      "test": "006-005-test-fold-probabilities.parquet"
+    },
+    {
+      "prefix": "graph",
+      "test": "007-008-fold-test-probabilities.parquet"
+    }
+  ],
+  "selected": {
+    "CYP2D6_is_TDI": "all_plain_pfn_graph_mean",
+    "CYP3A4_is_TDI": "lgbm_balanced_mean"
+  }
+}

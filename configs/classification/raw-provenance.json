@@ -1,0 +1,17 @@
+{
+  "aliases": "000-aliases.parquet",
+  "standard": "001-standardization.parquet",
+  "labels": "002-measurements.parquet",
+  "conflicts": "003-measurement_conflicts.parquet",
+  "compounds": "004-compounds.parquet",
+  "raw": [
+    "005-cyp-challenge-TRAIN_Emax.csv",
+    "006-cyp-challenge-TRAIN_TDI.csv",
+    "007-cyp-challenge-TRAIN_inhibition.csv"
+  ],
+  "leaderboards": {
+    "MA": "008-classification_leaderboard_d8mnmyg9.csv",
+    "CYP2D6": "009-classification_leaderboard_y3omn7g9.csv",
+    "CYP3A4": "010-classification_leaderboard_d5gww3_b.csv"
+  }
+}

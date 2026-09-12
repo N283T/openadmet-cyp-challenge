@@ -6,6 +6,15 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Comprehensive D6 classification audit completed:** 70 new controlled fits,
+  raw-call reconciliation, actual official scores, 25-model probability audits,
+  structural coverage and assay-cohort controls. Fewer labels alone do not explain
+  the gap. A4 includes1,250 incomplete-potency-pair negatives versus4 forD6;
+  original UMAP is structurally harsher than test even with identical neighbor
+  pools. No bulk label/identity failure found; no D6-specific noise ceiling
+  established. See [RL0056](2026-09.md#rl0056--comprehensive-d6-classification-explanation-audit)
+  and [full audit](../analysis/2026-09-12-d6-comprehensive-audit.md).
+
 - **Classification result confirmed:** MA-MCC0.275867 (rank45), D6 MCC0.176698
   improves from0.001644, while A4 MCC0.375036 falls from0.430653. Preserve the
   old A4 baseline for a future endpoint combination. See
