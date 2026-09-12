@@ -1,0 +1,11 @@
+{
+  "predictions": "000-ensemble-test.parquet",
+  "thresholds": "001-thresholds.csv",
+  "aliases": "002-aliases.parquet",
+  "reference": "003-cyp-challenge-TEST-BLINDED.csv",
+  "source_run": "20260912T121146867140Z-b0a05986",
+  "selected": {
+    "CYP2D6_is_TDI": "all_plain_pfn_graph_mean",
+    "CYP3A4_is_TDI": "lgbm_balanced_mean"
+  }
+}

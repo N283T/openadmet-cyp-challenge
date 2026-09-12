@@ -6,6 +6,10 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Classification submitted:** D6 broad mean and A4 balanced LGBM mean from the
+  completed round, 43/378 test positives. Official intake confirmed at September
+  12 12:27 UTC; scoring pending. See [RL0054](2026-09.md#rl0054--classification-round-submission).
+
 - **Classification round completed during regression cooldown:** 17 individual
   recipes and seven fixed probability means on the original UMAP folds. New
   inner-threshold MCC reaches 0.096228 for D6 and 0.338112 for A4, from different
