@@ -1,0 +1,6 @@
+{
+  "current": "000-ensemble-test.parquet",
+  "caruana": "001-deployment.parquet",
+  "aliases": "002-aliases.parquet",
+  "reference": "003-cyp-challenge-TEST-BLINDED.csv"
+}

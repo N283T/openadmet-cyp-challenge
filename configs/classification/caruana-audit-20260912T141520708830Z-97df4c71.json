@@ -1,0 +1,5 @@
+{
+  "config": "000-config.json",
+  "canonical": "028-classification-labels.parquet",
+  "source_run": "20260912T141520708830Z-97df4c71"
+}

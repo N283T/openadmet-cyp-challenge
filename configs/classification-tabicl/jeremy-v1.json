@@ -1,0 +1,39 @@
+{
+  "labels": "000-000-classification-labels.parquet",
+  "assignments": "001-001-umap-assignments.parquet",
+  "test_mapping": "002-002-test_mapping.parquet",
+  "weights": "004-tabicl-classifier-v2-20260212.ckpt",
+  "expected_counts": {
+    "CYP2D6_is_TDI": 1497,
+    "CYP3A4_is_TDI": 3584
+  },
+  "split_id": "original_umap_269e598d",
+  "views": [
+    {
+      "name": "tabicl_jeremy_pca256",
+      "backend": "tabicl",
+      "source_run": "c060d197",
+      "prefix": "emb_",
+      "files": [
+        "005-external-embeddings.parquet"
+      ]
+    },
+    {
+      "name": "tabpfn_jeremy_pca256",
+      "backend": "tabpfn",
+      "source_run": "c060d197",
+      "prefix": "emb_",
+      "files": [
+        "005-external-embeddings.parquet"
+      ]
+    }
+  ],
+  "pfn_weights": "003-003-004-tabpfn-v2.6-classifier-v2.6_default.ckpt",
+  "model": {
+    "n_estimators": 8,
+    "seed": "42+outer",
+    "scaler": "StandardScaler",
+    "pca_components": 256,
+    "pca_seed": 42
+  }
+}

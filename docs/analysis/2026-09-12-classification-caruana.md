@@ -156,7 +156,44 @@ prediction sources and CSVs are under run `20260912T133350390925Z-effedde5`.
 Neither was uploaded. All Caruana recipes also retain their own full-OOF-fitted
 test probabilities, weights and cuts, even when they were not adopted.
 
-Decision: the comparison is complete, including the strongest historical
+Decision before the TabICL expansion below: the comparison includes the strongest historical
 candidate. Caruana does not currently justify replacing D6's fixed reference or
 A4's historical single stack. Keep the compact D6 option as a concrete next
 comparison, rather than treating an eleven-type ensemble as necessary.
+
+## TabICL-expanded 24-candidate comparison
+
+Run `97df4c71` adds three frozen-view TabICL candidates, matched Jeremy600
+TabICL8 and TabPFN8, and the historical-stack TabICL replacement. The original
+18 candidates, nine procedures and exact
+`history::historical_stack_mordred` control remain unchanged. Test probabilities,
+outer-weighted fold predictions, deployment weights/cutoffs and all separate
+full-OOF fitting values are saved.
+
+| Procedure | D6 outer MCC | A4 outer MCC |
+|---|---:|---:|
+| Existing fixed submitted reference | **0.096228** | 0.338112 |
+| Fixed historical TabPFN | 0.026018 | 0.365149 |
+| Inner-selected single | 0.042403 | 0.305745 |
+| Inner-selected equal pair | 0.044502 | 0.348422 |
+| Inner-selected equal triple | 0.078507 | 0.330445 |
+| MCC Caruana | 0.088698 | 0.346761 |
+| MCC Caruana, maximum three types | 0.053293 | 0.349099 |
+| AUROC Caruana | 0.092594 | **0.387067** |
+| Brier Caruana | 0.030865 | 0.335858 |
+| Bagged Caruana, maximum three types | 0.050436 | 0.331489 |
+
+The new candidates do not improve D6 beyond its fixed submitted reference.
+A4 AUROC-Caruana improves the submitted fixed reference by 0.048956 and the old
+historical stack by 0.021918. Summary run `8889bb1f` gives a conditional paired
+UMAP-group interval of [0.019969, 0.077007] against the submitted A4 reference.
+The all-OOF deployment fit uses six base types (30 fold readouts), cutoff
+0.233569 and 361 blind-test positives. Its full-OOF MCC 0.417948 is a fitting
+value, not the honest outer score.
+
+Independent audit `d8ca5f7b` reconstructs all 108 selections and metrics for
+24 candidates, checks canonical inner/outer folds and labels, and reproduces
+all saved OOF, fold-test and deployment predictions. The practical target-wise
+candidate retains the current D6 vector and replaces only A4 with this ensemble;
+packaging run `d30a0365`, candidate `f0deac96` and prepared submission `82d53182`
+passed validation and dry run. No upload was made.

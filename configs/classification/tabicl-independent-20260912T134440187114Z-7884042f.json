@@ -1,0 +1,7 @@
+{
+  "config": "000-config.json",
+  "run": "20260912T134440187114Z-7884042f",
+  "pfn": "302-oof-probabilities.parquet",
+  "pfn_inner": "303-inner-validation-probabilities.parquet",
+  "canonical": "304-assignments.parquet"
+}

@@ -60,7 +60,7 @@ for source in cfg["sources"]:
                 assert (joined["actual_fold"] == expected).all()
             banks[kind, name] = t
 names = sorted(name for kind, name in banks if kind == "oof")
-assert len(names) in [17, 18]
+assert len(names) in [17, 18, 22, 24]
 selections = json.loads(path("selections.json").read_text())
 fitting = pl.read_csv(path("full-oof-fitting-only.csv"))
 saved = {

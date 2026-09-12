@@ -1,0 +1,207 @@
+{
+  "weights": "000-tabicl-classifier-v2-20260212.ckpt",
+  "test": "001-test-identities.parquet",
+  "prepared_run": "20260912T134501948257Z-665df66e",
+  "matrices": [
+    {
+      "name": "outer-CYP2D6_is_TDI-fold0",
+      "endpoint": "CYP2D6_is_TDI",
+      "outer": 0,
+      "inner": 1,
+      "phase": "outer",
+      "features": "002-outer-CYP2D6_is_TDI-fold0.npz",
+      "membership": "003-outer-CYP2D6_is_TDI-fold0-membership.parquet",
+      "dimensions": 1639
+    },
+    {
+      "name": "inner-CYP2D6_is_TDI-fold0",
+      "endpoint": "CYP2D6_is_TDI",
+      "outer": 0,
+      "inner": 1,
+      "phase": "inner",
+      "features": "004-inner-CYP2D6_is_TDI-fold0.npz",
+      "membership": "005-inner-CYP2D6_is_TDI-fold0-membership.parquet",
+      "dimensions": 1638
+    },
+    {
+      "name": "outer-CYP3A4_is_TDI-fold0",
+      "endpoint": "CYP3A4_is_TDI",
+      "outer": 0,
+      "inner": 1,
+      "phase": "outer",
+      "features": "006-outer-CYP3A4_is_TDI-fold0.npz",
+      "membership": "007-outer-CYP3A4_is_TDI-fold0-membership.parquet",
+      "dimensions": 1639
+    },
+    {
+      "name": "inner-CYP3A4_is_TDI-fold0",
+      "endpoint": "CYP3A4_is_TDI",
+      "outer": 0,
+      "inner": 1,
+      "phase": "inner",
+      "features": "008-inner-CYP3A4_is_TDI-fold0.npz",
+      "membership": "009-inner-CYP3A4_is_TDI-fold0-membership.parquet",
+      "dimensions": 1637
+    },
+    {
+      "name": "outer-CYP2D6_is_TDI-fold1",
+      "endpoint": "CYP2D6_is_TDI",
+      "outer": 1,
+      "inner": 2,
+      "phase": "outer",
+      "features": "010-outer-CYP2D6_is_TDI-fold1.npz",
+      "membership": "011-outer-CYP2D6_is_TDI-fold1-membership.parquet",
+      "dimensions": 1638
+    },
+    {
+      "name": "inner-CYP2D6_is_TDI-fold1",
+      "endpoint": "CYP2D6_is_TDI",
+      "outer": 1,
+      "inner": 2,
+      "phase": "inner",
+      "features": "012-inner-CYP2D6_is_TDI-fold1.npz",
+      "membership": "013-inner-CYP2D6_is_TDI-fold1-membership.parquet",
+      "dimensions": 1629
+    },
+    {
+      "name": "outer-CYP3A4_is_TDI-fold1",
+      "endpoint": "CYP3A4_is_TDI",
+      "outer": 1,
+      "inner": 2,
+      "phase": "outer",
+      "features": "014-outer-CYP3A4_is_TDI-fold1.npz",
+      "membership": "015-outer-CYP3A4_is_TDI-fold1-membership.parquet",
+      "dimensions": 1647
+    },
+    {
+      "name": "inner-CYP3A4_is_TDI-fold1",
+      "endpoint": "CYP3A4_is_TDI",
+      "outer": 1,
+      "inner": 2,
+      "phase": "inner",
+      "features": "016-inner-CYP3A4_is_TDI-fold1.npz",
+      "membership": "017-inner-CYP3A4_is_TDI-fold1-membership.parquet",
+      "dimensions": 1645
+    },
+    {
+      "name": "outer-CYP2D6_is_TDI-fold2",
+      "endpoint": "CYP2D6_is_TDI",
+      "outer": 2,
+      "inner": 3,
+      "phase": "outer",
+      "features": "018-outer-CYP2D6_is_TDI-fold2.npz",
+      "membership": "019-outer-CYP2D6_is_TDI-fold2-membership.parquet",
+      "dimensions": 1630
+    },
+    {
+      "name": "inner-CYP2D6_is_TDI-fold2",
+      "endpoint": "CYP2D6_is_TDI",
+      "outer": 2,
+      "inner": 3,
+      "phase": "inner",
+      "features": "020-inner-CYP2D6_is_TDI-fold2.npz",
+      "membership": "021-inner-CYP2D6_is_TDI-fold2-membership.parquet",
+      "dimensions": 1616
+    },
+    {
+      "name": "outer-CYP3A4_is_TDI-fold2",
+      "endpoint": "CYP3A4_is_TDI",
+      "outer": 2,
+      "inner": 3,
+      "phase": "outer",
+      "features": "022-outer-CYP3A4_is_TDI-fold2.npz",
+      "membership": "023-outer-CYP3A4_is_TDI-fold2-membership.parquet",
+      "dimensions": 1647
+    },
+    {
+      "name": "inner-CYP3A4_is_TDI-fold2",
+      "endpoint": "CYP3A4_is_TDI",
+      "outer": 2,
+      "inner": 3,
+      "phase": "inner",
+      "features": "024-inner-CYP3A4_is_TDI-fold2.npz",
+      "membership": "025-inner-CYP3A4_is_TDI-fold2-membership.parquet",
+      "dimensions": 1633
+    },
+    {
+      "name": "outer-CYP2D6_is_TDI-fold3",
+      "endpoint": "CYP2D6_is_TDI",
+      "outer": 3,
+      "inner": 4,
+      "phase": "outer",
+      "features": "026-outer-CYP2D6_is_TDI-fold3.npz",
+      "membership": "027-outer-CYP2D6_is_TDI-fold3-membership.parquet",
+      "dimensions": 1629
+    },
+    {
+      "name": "inner-CYP2D6_is_TDI-fold3",
+      "endpoint": "CYP2D6_is_TDI",
+      "outer": 3,
+      "inner": 4,
+      "phase": "inner",
+      "features": "028-inner-CYP2D6_is_TDI-fold3.npz",
+      "membership": "029-inner-CYP2D6_is_TDI-fold3-membership.parquet",
+      "dimensions": 1627
+    },
+    {
+      "name": "outer-CYP3A4_is_TDI-fold3",
+      "endpoint": "CYP3A4_is_TDI",
+      "outer": 3,
+      "inner": 4,
+      "phase": "outer",
+      "features": "030-outer-CYP3A4_is_TDI-fold3.npz",
+      "membership": "031-outer-CYP3A4_is_TDI-fold3-membership.parquet",
+      "dimensions": 1637
+    },
+    {
+      "name": "inner-CYP3A4_is_TDI-fold3",
+      "endpoint": "CYP3A4_is_TDI",
+      "outer": 3,
+      "inner": 4,
+      "phase": "inner",
+      "features": "032-inner-CYP3A4_is_TDI-fold3.npz",
+      "membership": "033-inner-CYP3A4_is_TDI-fold3-membership.parquet",
+      "dimensions": 1635
+    },
+    {
+      "name": "outer-CYP2D6_is_TDI-fold4",
+      "endpoint": "CYP2D6_is_TDI",
+      "outer": 4,
+      "inner": 0,
+      "phase": "outer",
+      "features": "034-outer-CYP2D6_is_TDI-fold4.npz",
+      "membership": "035-outer-CYP2D6_is_TDI-fold4-membership.parquet",
+      "dimensions": 1639
+    },
+    {
+      "name": "inner-CYP2D6_is_TDI-fold4",
+      "endpoint": "CYP2D6_is_TDI",
+      "outer": 4,
+      "inner": 0,
+      "phase": "inner",
+      "features": "036-inner-CYP2D6_is_TDI-fold4.npz",
+      "membership": "037-inner-CYP2D6_is_TDI-fold4-membership.parquet",
+      "dimensions": 1639
+    },
+    {
+      "name": "outer-CYP3A4_is_TDI-fold4",
+      "endpoint": "CYP3A4_is_TDI",
+      "outer": 4,
+      "inner": 0,
+      "phase": "outer",
+      "features": "038-outer-CYP3A4_is_TDI-fold4.npz",
+      "membership": "039-outer-CYP3A4_is_TDI-fold4-membership.parquet",
+      "dimensions": 1647
+    },
+    {
+      "name": "inner-CYP3A4_is_TDI-fold4",
+      "endpoint": "CYP3A4_is_TDI",
+      "outer": 4,
+      "inner": 0,
+      "phase": "inner",
+      "features": "040-inner-CYP3A4_is_TDI-fold4.npz",
+      "membership": "041-inner-CYP3A4_is_TDI-fold4-membership.parquet",
+      "dimensions": 1637
+    }
+  ]
+}
