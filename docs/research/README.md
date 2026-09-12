@@ -6,6 +6,11 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Classification result confirmed:** MA-MCC0.275867 (rank45), D6 MCC0.176698
+  improves from0.001644, while A4 MCC0.375036 falls from0.430653. Preserve the
+  old A4 baseline for a future endpoint combination. See
+  [RL0055](2026-09.md#rl0055--classification-ensemble-leaderboard-result).
+
 - **Classification submitted:** D6 broad mean and A4 balanced LGBM mean from the
   completed round, 43/378 test positives. Official intake confirmed at September
   12 12:27 UTC; scoring pending. See [RL0054](2026-09.md#rl0054--classification-round-submission).
