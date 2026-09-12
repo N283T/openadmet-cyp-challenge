@@ -6,6 +6,12 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Latest focused round:** prioritize1A2/2D6, allowing useful auxiliary tasks.
+  Improved log2fc features and a complementary2D6 readout yield OOF-only
+  candidates around0.5869; no new submission. Latest actual LB is0.721167.
+  See [RL0045](2026-09.md#rl0045--focused1a22d6-experiments-and-improved-primary-features)
+  and [the focused program](../analysis/2026-09-12-focus-program.md).
+
 - **2026-09-12 update:** The regression five-component ensemble reached development
   OOF ST-RAE **0.596414** on the retained parent CV. Its full-data refit has now
   been submitted without calibration; official receipt is `sent`, scoring pending.

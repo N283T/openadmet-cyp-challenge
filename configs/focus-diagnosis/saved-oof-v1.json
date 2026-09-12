@@ -1,0 +1,1 @@
+{"baseline_methods":["fp_mordred_lgbm","emb_tabpfn","pred_log2fc_tabpfn","mean_four_pubchem600"],"added_methods":["final","caruana","medium_pfn","scores_pfn","ft_tuned_lgbm","cheme_tabicl","interval_direct"]}

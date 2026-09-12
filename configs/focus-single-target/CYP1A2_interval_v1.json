@@ -1,0 +1,13 @@
+{
+  "endpoint": "CYP1A2_pIC50_direct_inhibition",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "expected_oof_rows": 1372,
+  "method": "focus_single_CYP1A2",
+  "training_loss": "pic50_interval",
+  "checkpoint_selection": "pic50_st_rae",
+  "max_epochs": 160,
+  "patience": 20,
+  "num_threads": 2,
+  "seed": 42,
+  "inner_fraction": 0.1
+}

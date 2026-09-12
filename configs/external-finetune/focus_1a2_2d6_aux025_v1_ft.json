@@ -1,0 +1,36 @@
+{
+  "training_loss": "pic50_interval",
+  "auxiliary_loss": "mse",
+  "checkpoint_selection": "pic50_st_rae",
+  "seed": 42,
+  "encoder_lr": 1e-05,
+  "head_lr": 0.0001,
+  "weight_decay": 0.0001,
+  "max_epochs": 160,
+  "patience": 20,
+  "batch_size": 64,
+  "inference_batch_size": 128,
+  "dropout": 0.1,
+  "inner_fraction": 0.1,
+  "inner_group_column": "group",
+  "device": "cuda",
+  "num_threads": 4,
+  "pIC50_weight": 2.0,
+  "pic50_endpoint_weights": {
+    "CYP1A2": 2.0,
+    "CYP2C9": 0.5,
+    "CYP2D6": 2.0,
+    "CYP3A4": 0.5
+  },
+  "selection_targets": [
+    "CYP1A2",
+    "CYP2D6"
+  ],
+  "log2fc_weight": 0.25,
+  "checkpoint_file": "best.pt",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "expected_oof_rows": 6384,
+  "method": "focus_1a2_2d6_aux025_v1_ft_direct",
+  "source_checkpoint": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260912T060426566774Z-7604ffeb/outputs/best.pt",
+  "outer_policy": "Exclude every label of outer nonanchor compounds; anchors train"
+}

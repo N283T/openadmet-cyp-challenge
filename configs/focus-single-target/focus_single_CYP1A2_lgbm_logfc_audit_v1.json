@@ -1,0 +1,5 @@
+{
+  "endpoint": "CYP1A2",
+  "n": 1372,
+  "prediction_file": "000-external-oof.parquet"
+}

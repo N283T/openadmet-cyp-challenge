@@ -1,0 +1,17 @@
+{
+  "reference": "000-external-oof.parquet",
+  "original_components": [
+    "001-external-oof.parquet",
+    "002-external-oof.parquet",
+    "003-external-oof.parquet",
+    "004-external-oof.parquet",
+    "005-external-oof.parquet"
+  ],
+  "replacements": {
+    "2": "006-external-oof.parquet",
+    "3": "007-external-oof.parquet",
+    "4": "008-external-oof.parquet"
+  },
+  "addition": "009-external-oof.parquet",
+  "scorer": "010-custom_scoring_functions.py"
+}

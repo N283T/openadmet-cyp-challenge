@@ -1,0 +1,20 @@
+{
+  "endpoints": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition"
+  ],
+  "views": [
+    "scores_svr",
+    "medium_svr",
+    "combined_lgbm"
+  ],
+  "trials": 16,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "assignments": "000-parent-assignments.parquet",
+  "measurements": "001-measurements.parquet",
+  "aux": "002-nested-log2fc.parquet",
+  "baseline": "003-external-oof.parquet",
+  "medium": "004-external-embeddings.parquet",
+  "scores": "005-external-scores.parquet",
+  "classic": "006-fp-mordred-features.parquet"
+}
