@@ -85,3 +85,26 @@ Final test prediction mean / standard deviation:
 These are diagnostics, not calibration targets. No decision was changed based
 on the test distribution. All-data deployment uses fixed CV-derived epochs,
 parameters and weights; its future LB score must be read from the scoring receipt.
+
+## Scored result — 2026-09-12 08:10–08:12 UTC
+
+The official leaderboard now matches N283T's submission timestamp exactly:
+2026-09-12 07:48 UTC. An accepted/scored event was appended with recorded audit
+`20260912T081214850798Z-d2f05549`. This supersedes the pending status above.
+
+| CYP | OOF ST-RAE | LB ST-RAE | Official TabICL LB | Our LB rank |
+|---|---:|---:|---:|---:|
+| Macro | 0.596414 | 0.721167 | 0.675491 | 61 |
+| 1A2 | 0.683335 | 0.698949 | 0.576417 | 62 |
+| 2C9 | 0.463781 | 0.381119 | 0.463916 | 13 |
+| 2D6 | 0.834741 | 1.334970 | 1.145196 | 75 |
+| 3A4 | 0.403800 | 0.469628 | 0.516435 | 30 |
+
+2C9 and3A4 outperform the official TabICL point estimate; 1A2 and2D6 underperform.
+The largest OOF-to-LB gap is2D6. All four endpoint Spearman point estimates exceed
+the official baseline (ours/official:1A2 .783888/.765241,2C9 .856067/.801403,
+2D6 .433905/.357156,3A4 .835185/.799830). This supports investigating absolute-value
+calibration separately from ranking, especially1A2 and2D6; it does not establish
+an offset direction or prove calibration alone will close the error gap.
+Snapshots and exact values are declared inputs of the audit run. No retraining,
+correction or resubmission was performed while retrieving this result.

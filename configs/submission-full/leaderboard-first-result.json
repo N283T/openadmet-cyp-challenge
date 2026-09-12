@@ -1,0 +1,35 @@
+{
+  "submission_id": "20260912T074802231782Z-eaafa860",
+  "snapshots": [
+    {
+      "endpoint": "MA",
+      "snapshot": "20260912T081048806309Z-6fe81b63",
+      "oof": 0.5964141092282933,
+      "file": "000-regression_leaderboard_wl7vn_ny.csv"
+    },
+    {
+      "endpoint": "CYP1A2",
+      "snapshot": "20260912T081116173280Z-1750752a",
+      "oof": 0.683335,
+      "file": "001-regression_leaderboard_mfeuupr0.csv"
+    },
+    {
+      "endpoint": "CYP2C9",
+      "snapshot": "20260912T081116169013Z-c3fe0073",
+      "oof": 0.463781,
+      "file": "002-regression_leaderboard_zd0kjf8e.csv"
+    },
+    {
+      "endpoint": "CYP2D6",
+      "snapshot": "20260912T081116179549Z-5b722cbb",
+      "oof": 0.834741,
+      "file": "003-regression_leaderboard_l_k0ou9e.csv"
+    },
+    {
+      "endpoint": "CYP3A4",
+      "snapshot": "20260912T081116193953Z-d9b548b8",
+      "oof": 0.4038,
+      "file": "004-regression_leaderboard_r4wz8z17.csv"
+    }
+  ]
+}
