@@ -1,0 +1,7 @@
+{
+  "feature_sets": [
+    "geometry",
+    "substrate",
+    "jazzy"
+  ]
+}

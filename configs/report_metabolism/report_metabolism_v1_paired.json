@@ -1,0 +1,21 @@
+{
+  "split_run": "20260911T104703655337Z-a3923255",
+  "backend": "lgbm",
+  "control_tolerance": 0,
+  "arms": {
+    "control": [],
+    "substrate_logistic": [
+      "substrate_CYP2C9_logistic",
+      "substrate_CYP2D6_logistic",
+      "substrate_CYP3A4_logistic"
+    ],
+    "substrate_six": [
+      "substrate_CYP2C9_logistic",
+      "substrate_CYP2D6_logistic",
+      "substrate_CYP3A4_logistic",
+      "substrate_CYP2C9_forest",
+      "substrate_CYP2D6_forest",
+      "substrate_CYP3A4_forest"
+    ]
+  }
+}

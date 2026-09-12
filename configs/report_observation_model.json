@@ -1,0 +1,24 @@
+{
+  "arms": [
+    "independent",
+    "hill_fixed",
+    "hill_learned"
+  ],
+  "max_epochs": 150,
+  "patience": 20,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "architecture": [
+    647,
+    256,
+    128,
+    16
+  ],
+  "seed": 42,
+  "loss_weights": {
+    "direct": 2,
+    "tdi": 0.5,
+    "emax": 0.25,
+    "logfc": 0.5,
+    "hill_prior": 0.01
+  }
+}

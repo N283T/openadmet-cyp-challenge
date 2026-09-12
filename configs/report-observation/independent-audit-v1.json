@@ -1,0 +1,8 @@
+{
+  "model_run": "20260912T093601580048Z-ec2b7210",
+  "arms": [
+    "independent",
+    "hill_fixed",
+    "hill_learned"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "method": "report_tdi_arm_v1_ft_lgbm",
+  "backend": "lgbm",
+  "feature_prefix": "emb_",
+  "pca": 0,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "expected_oof_rows": 6384,
+  "finetune_run": "20260912T092823518869Z-8e57e8e7",
+  "feature_files": {
+    "0": "000-external-embeddings.parquet",
+    "1": "001-external-embeddings.parquet",
+    "2": "002-external-embeddings.parquet",
+    "3": "003-external-embeddings.parquet",
+    "4": "004-external-embeddings.parquet"
+  },
+  "nested_file": "nested-log2fc.parquet"
+}

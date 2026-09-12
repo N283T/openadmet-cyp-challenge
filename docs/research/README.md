@@ -6,6 +6,13 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Report-derived round complete:** TDI auxiliaries, Hill-linked response heads,
+  geometry/charge proxies, external substrate scores and joint descriptors.
+  Expanded 126-candidate weight-crossfit macro is 0.582816 versus 0.583257.
+  Small 1A2 gain; 2D6 essentially unchanged. Atom-level SoM remains untested.
+  No submission. See [RL0048](2026-09.md#rl0048--report-derived-auxiliary-and-descriptor-experiments)
+  and [completed program](../analysis/2026-09-12-report-experiments.md).
+
 - **Global Caruana completed:** 107 saved candidate identities across model families.
   Weight-crossfit macro is 0.583257 versus 0.586931; gains are in 2C9 and 3A4,
   while 1A2 and 2D6 slightly worsen. Full-OOF fitted score 0.573705 is a fitting

@@ -1,0 +1,35 @@
+{
+  "baseline_run": "20260912T083627802028Z-ae562a59",
+  "baseline_file": "000-focus_2d6_combined_50pct.parquet",
+  "prediction_files": {
+    "control_direct": "001-finetune-oof.parquet",
+    "control_lgbm": "002-external-oof.parquet",
+    "arm_direct": "008-finetune-oof.parquet",
+    "arm_lgbm": "009-external-oof.parquet",
+    "arm_delta_direct": "015-finetune-oof.parquet",
+    "arm_delta_lgbm": "016-external-oof.parquet"
+  },
+  "membership_files": {
+    "control": [
+      "003-membership.parquet",
+      "004-membership.parquet",
+      "005-membership.parquet",
+      "006-membership.parquet",
+      "007-membership.parquet"
+    ],
+    "arm": [
+      "010-membership.parquet",
+      "011-membership.parquet",
+      "012-membership.parquet",
+      "013-membership.parquet",
+      "014-membership.parquet"
+    ],
+    "arm_delta": [
+      "017-membership.parquet",
+      "018-membership.parquet",
+      "019-membership.parquet",
+      "020-membership.parquet",
+      "021-membership.parquet"
+    ]
+  }
+}
