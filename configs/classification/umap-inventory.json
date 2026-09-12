@@ -1,0 +1,1 @@
+{"split_run":"20260909T135130268493Z-edba6fc0","strategy":"umap","n_folds":5,"target_endpoints":["CYP2D6_is_TDI","CYP3A4_is_TDI"],"purpose":"Classification label and fold inventory only; no fitted models"}

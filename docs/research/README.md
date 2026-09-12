@@ -6,6 +6,14 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Classification round completed during regression cooldown:** 17 individual
+  recipes and seven fixed probability means on the original UMAP folds. New
+  inner-threshold MCC reaches 0.096228 for D6 and 0.338112 for A4, from different
+  means. Keep the historical A4 baseline, whose AUROC remains higher. Models,
+  inner/outer predictions and test probabilities saved; no upload. This resumes
+  classification after its earlier deferral. See [RL0053](2026-09.md#rl0053--classification-round-during-regression-cooldown)
+  and [completed comparison](../analysis/2026-09-12-classification-round.md).
+
 - **Calibration comparison complete:** 30 fixed methods; native macro improves
   0.622574 to 0.601682, but D6 only 0.823983 to 0.819776 with a conditional
   uncertainty interval crossing zero. Source placement is separately applied to

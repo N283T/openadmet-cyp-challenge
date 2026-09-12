@@ -1,0 +1,310 @@
+{
+  "inner_validation": "000-inner-validation-probabilities.parquet",
+  "oof": "001-oof-probabilities.parquet",
+  "inner": "002-oof-inner-threshold.parquet",
+  "test": "003-test-probabilities.parquet",
+  "fold_test": "004-test-fold-probabilities.parquet",
+  "labels": "005-classification-labels.parquet",
+  "memberships": [
+    {
+      "kind": "outer",
+      "fold": 0,
+      "file": "006-chemeleon_pca256-CYP2D6_is_TDI-fold0-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 1,
+      "file": "007-chemeleon_pca256-CYP2D6_is_TDI-fold1-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 2,
+      "file": "008-chemeleon_pca256-CYP2D6_is_TDI-fold2-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 3,
+      "file": "009-chemeleon_pca256-CYP2D6_is_TDI-fold3-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 4,
+      "file": "010-chemeleon_pca256-CYP2D6_is_TDI-fold4-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 0,
+      "file": "011-chemeleon_pca256-CYP3A4_is_TDI-fold0-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 1,
+      "file": "012-chemeleon_pca256-CYP3A4_is_TDI-fold1-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 2,
+      "file": "013-chemeleon_pca256-CYP3A4_is_TDI-fold2-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 3,
+      "file": "014-chemeleon_pca256-CYP3A4_is_TDI-fold3-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 4,
+      "file": "015-chemeleon_pca256-CYP3A4_is_TDI-fold4-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 0,
+      "file": "016-external_class_pca256-CYP2D6_is_TDI-fold0-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 1,
+      "file": "017-external_class_pca256-CYP2D6_is_TDI-fold1-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 2,
+      "file": "018-external_class_pca256-CYP2D6_is_TDI-fold2-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 3,
+      "file": "019-external_class_pca256-CYP2D6_is_TDI-fold3-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 4,
+      "file": "020-external_class_pca256-CYP2D6_is_TDI-fold4-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 0,
+      "file": "021-external_class_pca256-CYP3A4_is_TDI-fold0-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 1,
+      "file": "022-external_class_pca256-CYP3A4_is_TDI-fold1-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 2,
+      "file": "023-external_class_pca256-CYP3A4_is_TDI-fold2-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 3,
+      "file": "024-external_class_pca256-CYP3A4_is_TDI-fold3-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 4,
+      "file": "025-external_class_pca256-CYP3A4_is_TDI-fold4-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 0,
+      "file": "026-external_mixed_pca256-CYP2D6_is_TDI-fold0-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 1,
+      "file": "027-external_mixed_pca256-CYP2D6_is_TDI-fold1-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 2,
+      "file": "028-external_mixed_pca256-CYP2D6_is_TDI-fold2-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 3,
+      "file": "029-external_mixed_pca256-CYP2D6_is_TDI-fold3-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 4,
+      "file": "030-external_mixed_pca256-CYP2D6_is_TDI-fold4-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 0,
+      "file": "031-external_mixed_pca256-CYP3A4_is_TDI-fold0-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 1,
+      "file": "032-external_mixed_pca256-CYP3A4_is_TDI-fold1-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 2,
+      "file": "033-external_mixed_pca256-CYP3A4_is_TDI-fold2-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 3,
+      "file": "034-external_mixed_pca256-CYP3A4_is_TDI-fold3-membership.parquet"
+    },
+    {
+      "kind": "outer",
+      "fold": 4,
+      "file": "035-external_mixed_pca256-CYP3A4_is_TDI-fold4-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 0,
+      "file": "036-chemeleon_pca256-CYP2D6_is_TDI-outer0-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 1,
+      "file": "037-chemeleon_pca256-CYP2D6_is_TDI-outer1-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 2,
+      "file": "038-chemeleon_pca256-CYP2D6_is_TDI-outer2-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 3,
+      "file": "039-chemeleon_pca256-CYP2D6_is_TDI-outer3-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 4,
+      "file": "040-chemeleon_pca256-CYP2D6_is_TDI-outer4-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 0,
+      "file": "041-chemeleon_pca256-CYP3A4_is_TDI-outer0-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 1,
+      "file": "042-chemeleon_pca256-CYP3A4_is_TDI-outer1-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 2,
+      "file": "043-chemeleon_pca256-CYP3A4_is_TDI-outer2-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 3,
+      "file": "044-chemeleon_pca256-CYP3A4_is_TDI-outer3-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 4,
+      "file": "045-chemeleon_pca256-CYP3A4_is_TDI-outer4-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 0,
+      "file": "046-external_class_pca256-CYP2D6_is_TDI-outer0-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 1,
+      "file": "047-external_class_pca256-CYP2D6_is_TDI-outer1-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 2,
+      "file": "048-external_class_pca256-CYP2D6_is_TDI-outer2-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 3,
+      "file": "049-external_class_pca256-CYP2D6_is_TDI-outer3-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 4,
+      "file": "050-external_class_pca256-CYP2D6_is_TDI-outer4-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 0,
+      "file": "051-external_class_pca256-CYP3A4_is_TDI-outer0-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 1,
+      "file": "052-external_class_pca256-CYP3A4_is_TDI-outer1-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 2,
+      "file": "053-external_class_pca256-CYP3A4_is_TDI-outer2-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 3,
+      "file": "054-external_class_pca256-CYP3A4_is_TDI-outer3-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 4,
+      "file": "055-external_class_pca256-CYP3A4_is_TDI-outer4-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 0,
+      "file": "056-external_mixed_pca256-CYP2D6_is_TDI-outer0-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 1,
+      "file": "057-external_mixed_pca256-CYP2D6_is_TDI-outer1-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 2,
+      "file": "058-external_mixed_pca256-CYP2D6_is_TDI-outer2-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 3,
+      "file": "059-external_mixed_pca256-CYP2D6_is_TDI-outer3-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 4,
+      "file": "060-external_mixed_pca256-CYP2D6_is_TDI-outer4-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 0,
+      "file": "061-external_mixed_pca256-CYP3A4_is_TDI-outer0-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 1,
+      "file": "062-external_mixed_pca256-CYP3A4_is_TDI-outer1-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 2,
+      "file": "063-external_mixed_pca256-CYP3A4_is_TDI-outer2-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 3,
+      "file": "064-external_mixed_pca256-CYP3A4_is_TDI-outer3-membership.parquet"
+    },
+    {
+      "kind": "inner",
+      "fold": 4,
+      "file": "065-external_mixed_pca256-CYP3A4_is_TDI-outer4-membership.parquet"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "sources": [
+    {
+      "prefix": "lgbm",
+      "oof": "000-oof.parquet",
+      "inner": "001-inner-predictions.parquet",
+      "test": "002-fold-test-probabilities.parquet"
+    },
+    {
+      "prefix": "pfn",
+      "oof": "003-oof-probabilities.parquet",
+      "inner": "004-inner-validation-probabilities.parquet",
+      "test": "005-test-fold-probabilities.parquet"
+    },
+    {
+      "prefix": "graph",
+      "oof": "006-classification-oof.parquet",
+      "inner": "007-inner-probabilities.parquet",
+      "test": "008-fold-test-probabilities.parquet"
+    }
+  ],
+  "ensembles": {
+    "classical_plain_mean": [
+      "lgbm::morgan_plain",
+      "lgbm::mordred_plain",
+      "lgbm::fp_mordred_plain"
+    ],
+    "lgbm_plain_mean": [
+      "lgbm::morgan_plain",
+      "lgbm::mordred_plain",
+      "lgbm::fp_mordred_plain",
+      "lgbm::external_class_plain",
+      "lgbm::external_mixed_plain",
+      "lgbm::external_class_mordred_plain"
+    ],
+    "lgbm_balanced_mean": [
+      "lgbm::morgan_balanced",
+      "lgbm::mordred_balanced",
+      "lgbm::fp_mordred_balanced",
+      "lgbm::external_class_balanced",
+      "lgbm::external_mixed_balanced",
+      "lgbm::external_class_mordred_balanced"
+    ],
+    "pfn_mean": [
+      "pfn::external_class_pca256",
+      "pfn::external_mixed_pca256",
+      "pfn::chemeleon_pca256"
+    ],
+    "graph_mean": [
+      "graph::tdi_only",
+      "graph::tdi_aux"
+    ],
+    "classical_pfn_mean": [
+      "lgbm::morgan_plain",
+      "lgbm::mordred_plain",
+      "lgbm::fp_mordred_plain",
+      "pfn::external_class_pca256",
+      "pfn::external_mixed_pca256",
+      "pfn::chemeleon_pca256"
+    ],
+    "all_plain_pfn_graph_mean": [
+      "lgbm::morgan_plain",
+      "lgbm::mordred_plain",
+      "lgbm::fp_mordred_plain",
+      "lgbm::external_class_plain",
+      "lgbm::external_mixed_plain",
+      "lgbm::external_class_mordred_plain",
+      "pfn::external_class_pca256",
+      "pfn::external_mixed_pca256",
+      "pfn::chemeleon_pca256",
+      "graph::tdi_only",
+      "graph::tdi_aux"
+    ]
+  }
+}
