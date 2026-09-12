@@ -1,0 +1,25 @@
+{
+  "source_helpers": "000-chemprop_utils.py",
+  "source_core": "001-chemprop_core.py",
+  "source_splits": "002-splits.py",
+  "source_template": "003-chemprop.template",
+  "table_file": "004-d6_single1.parquet",
+  "assignments_file": "005-parent-assignments.parquet",
+  "connectivity_folds_file": "006-challenge-connectivity-folds.parquet",
+  "labels_file": "007-measurements.parquet",
+  "test_file": "008-prediction-compounds.parquet",
+  "test_mapping_file": "009-test_mapping.parquet",
+  "recipe": "single1",
+  "heads": [
+    "cyp2d6_pic50_direct_inhibition"
+  ],
+  "n_primary": 1,
+  "scored_endpoints": [
+    "CYP2D6"
+  ],
+  "split_run": "20260911T104703655337Z-a3923255",
+  "source_commit": "4cf07a8cb4366eb29111fb42396336b20b69ada0",
+  "num_threads": 2,
+  "num_workers": 0,
+  "cv_policy": "parent_adapted"
+}

@@ -52,7 +52,9 @@ for run in sorted(b.iterdir()):
 assert len(new) >= 10, len(new)
 config["sources"] = sources + new
 config["explicit_excluded_runs"] = exclude_runs
-config["policy"] += "; frozen prior pool plus completed 2D6-focused round; exclude unconverged solver"
+config["policy"] += (
+    "; frozen prior pool plus completed 2D6-focused round; exclude unconverged solver"
+)
 p = root / f"configs/global-caruana/{args.tag}.json"
 with p.open("x") as f:
     json.dump(config, f, indent=2)

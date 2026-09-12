@@ -1,0 +1,64 @@
+{
+  "runs": [
+    {
+      "run": "20260912T105152218493Z-fec30715",
+      "model": "d6_single1",
+      "memberships": {
+        "0": 5,
+        "1": 6,
+        "2": 7,
+        "3": 8,
+        "4": 9
+      },
+      "table": 2,
+      "assignments": 3,
+      "effective": 4
+    },
+    {
+      "run": "20260912T105211810369Z-423d2caf",
+      "model": "challenge8",
+      "memberships": {
+        "0": 13,
+        "1": 14,
+        "2": 15
+      },
+      "table": 10,
+      "assignments": 11,
+      "effective": 12
+    },
+    {
+      "run": "20260912T105212997766Z-288cae8b",
+      "model": "union18",
+      "memberships": {
+        "0": 19
+      },
+      "table": 16,
+      "assignments": 17,
+      "effective": 18
+    },
+    {
+      "run": "20260912T105214185310Z-e6e93fbf",
+      "model": "d6_isoform6",
+      "memberships": {
+        "0": 23
+      },
+      "table": 20,
+      "assignments": 21,
+      "effective": 22
+    },
+    {
+      "run": "20260912T105256414096Z-03b86209",
+      "model": "d6_single1",
+      "memberships": {
+        "0": 27,
+        "1": 28,
+        "2": 29,
+        "3": 30,
+        "4": 31
+      },
+      "table": 24,
+      "assignments": 25,
+      "effective": 26
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "members": [
+    {
+      "name": "single1",
+      "export_run": "20260912T105434860843Z-0f300d9d",
+      "oof_input": 3,
+      "test_input": 4,
+      "endpoints": [
+        "CYP2D6_pIC50_direct_inhibition"
+      ]
+    },
+    {
+      "name": "aux8",
+      "export_run": "20260912T105856623427Z-dcf54932",
+      "oof_input": 5,
+      "test_input": 6,
+      "endpoints": [
+        "CYP1A2_pIC50_direct_inhibition",
+        "CYP2C9_pIC50_direct_inhibition",
+        "CYP2D6_pIC50_direct_inhibition",
+        "CYP3A4_pIC50_direct_inhibition"
+      ]
+    },
+    {
+      "name": "union18",
+      "export_run": "20260912T112334954080Z-d5c85419",
+      "oof_input": 7,
+      "test_input": 8,
+      "endpoints": [
+        "CYP1A2_pIC50_direct_inhibition",
+        "CYP2C9_pIC50_direct_inhibition",
+        "CYP2D6_pIC50_direct_inhibition",
+        "CYP3A4_pIC50_direct_inhibition"
+      ]
+    },
+    {
+      "name": "isoform6",
+      "export_run": "20260912T111043791239Z-e6fbb180",
+      "oof_input": 9,
+      "test_input": 10,
+      "endpoints": [
+        "CYP2D6_pIC50_direct_inhibition"
+      ]
+    }
+  ],
+  "validation_description": "Fixed parent folds with held-out connectivity excluded from all heads; native held-fold val_loss checkpoint selection; fixed equal direct means"
+}

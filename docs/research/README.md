@@ -6,6 +6,14 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Native community learning reproduction complete:** all 25 fits use source
+  data and native Chemprop defaults. Fixed mean gives D6 0.823983 / Spearman
+  0.472811, essentially tied with previous 0.825436 / 0.472752; macro worsens
+  to 0.622574. A separate audit identifies different local ST-RAE denominators,
+  not a demonstrated live-LB scoring bug. No adoption or submission. See
+  [RL0050](2026-09.md#rl0050--native-community-learning-reproduction-and-metric-definition-audit)
+  and [completed comparison](../analysis/2026-09-12-scp-training-reproduction.md).
+
 - **2D6-focused follow-up complete:** specialist scope/seed means, external efficacy
   features, actual joint public graph learning, interval-width decisions and kernel
   regressors. Fixed scope-mean addition gives D6 0.822232 versus 0.825436, but the

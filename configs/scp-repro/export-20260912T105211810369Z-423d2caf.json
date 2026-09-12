@@ -1,0 +1,21 @@
+{
+  "labels": "000-measurements.parquet",
+  "assignments": "001-assignments.parquet",
+  "parent": "002-parent-assignments.parquet",
+  "prediction_compounds": "003-prediction-compounds.parquet",
+  "test_mapping": "004-test_mapping.parquet",
+  "val0": "005-all-head-validation.parquet",
+  "test0": "006-all-head-test.parquet",
+  "val1": "007-all-head-validation.parquet",
+  "test1": "008-all-head-test.parquet",
+  "val2": "009-all-head-validation.parquet",
+  "test2": "010-all-head-test.parquet",
+  "val3": "011-all-head-validation.parquet",
+  "test3": "012-all-head-test.parquet",
+  "val4": "013-all-head-validation.parquet",
+  "test4": "014-all-head-test.parquet",
+  "source_run": "20260912T105211810369Z-423d2caf",
+  "recipe": "aux8",
+  "cv_policy": "parent_adapted",
+  "split_id": "20260911T104703655337Z-a3923255"
+}
