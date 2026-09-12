@@ -6,6 +6,13 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Calibration comparison complete:** 30 fixed methods; native macro improves
+  0.622574 to 0.601682, but D6 only 0.823983 to 0.819776 with a conditional
+  uncertainty interval crossing zero. Source placement is separately applied to
+  the exact previously submitted vector; D6-only CSV changes no other endpoint.
+  Files validated, no upload. See [RL0051](2026-09.md#rl0051--broad-calibration-screen-and-same-vector-placement-controls)
+  and [completed comparison](../analysis/2026-09-12-placement-round.md).
+
 - **Native community learning reproduction complete:** all 25 fits use source
   data and native Chemprop defaults. Fixed mean gives D6 0.823983 / Spearman
   0.472811, essentially tied with previous 0.825436 / 0.472752; macro worsens

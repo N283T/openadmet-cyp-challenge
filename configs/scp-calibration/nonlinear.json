@@ -1,0 +1,1 @@
+{"base_methods":["community_direct_mean","previous_global"],"fold_policy":"Train each fixed calibration using other four saved OOF folds; apply only to heldout fold","selection":"No method selection on evaluated fold","methods":"isotonic L2, quantile5/9, half-shrink maps, monotonic interval L1 k5/k9 regularization0/.05/.2, pointL1k5reg.05, identity"}
