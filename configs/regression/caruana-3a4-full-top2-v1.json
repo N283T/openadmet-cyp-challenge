@@ -1,0 +1,19 @@
+{
+  "endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "k": 2,
+  "expected_candidates": [
+    "class_quantile_0.65",
+    "morgan_quantile_0.65"
+  ],
+  "predictions": "000-test-predictions.parquet",
+  "membership": "001-membership.parquet",
+  "selection": "002-selected.json",
+  "compounds": "003-compounds.parquet",
+  "test_mapping": "004-test_mapping.parquet",
+  "class_emb": "005-external-embeddings.parquet",
+  "models": {
+    "class_quantile_0.65": "006-class_quantile_0.65.txt",
+    "morgan_quantile_0.65": "007-morgan_quantile_0.65.txt"
+  },
+  "selection_evidence_run": "20260912T152832952478Z-3e4de7c8"
+}

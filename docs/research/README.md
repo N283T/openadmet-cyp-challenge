@@ -7,11 +7,11 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 ## Current direction
 
 - **Regression ensemble pruned target by target:** the preferred simplified
-  result removes nested Caruana and its77 full-data LightGBM refits entirely,
-  then selects 3/3/2/2 components for1A2/2C9/2D6/3A4. Endpoint-component uses
-  fall20→10; cross-fitted macro ST-RAE is0.597839 versus0.596414 for the submitted
-  five-way mean. A candidate is prepared and dry-run validated; no upload. See
-  [RL0059](2026-09.md#rl0059--target-wise-regression-component-pruning)
+  result uses3/3/2/5 top-level components for1A2/2C9/2D6/3A4 and compresses the
+  internal3A4 Caruana from20 LightGBMs to two. Total Caruana models fall77→59;
+  cross-fitted macro ST-RAE is0.594228 versus0.596414 for the submitted five-way
+  mean. A candidate is prepared and dry-run validated; no upload. See
+  [RL0060](2026-09.md#rl0060--internal-cyp3a4-caruana-compression)
   and [the pruning report](../analysis/2026-09-13-regression-component-pruning.md).
 
 - **Classification Caruana and compact candidates completed:** 18 candidates,

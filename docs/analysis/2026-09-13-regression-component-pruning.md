@@ -98,3 +98,44 @@ all OOF scores and every test mean. Candidate `20260912T151930272078Z-a62d5643`
 and prepared submission `20260912T151934226891Z-162bf482` pass dry run. Nothing
 was uploaded. This supersedes the earlier 13-component candidate as the preferred
 management-oriented pruning result.
+
+## Compressing CYP3A4 Caruana internally
+
+The all-or-nothing removal above did not test the requested middle ground. Run
+`20260912T152832952478Z-3e4de7c8` reconstructs every saved CYP3A4 Caruana outer
+prediction from its individual LightGBM files (maximum absolute error
+1.8e-15), then compares top-K truncation. The deployment-style comparison uses
+only the other four folds' Caruana weights to rank candidates for each held-out
+fold, refits those candidates on the outer-training labels and evaluates the
+unchanged five-component mean.
+
+| CYP3A4 Caruana recipe | Models | Caruana-only ST-RAE | Five-component ST-RAE | Change vs original five |
+|---|---:|---:|---:|---:|
+| Original nested OOF | up to 11/fold; 20 full-data | 0.456743 | 0.403800 | — |
+| Cross-fold top 2, weighted | 2 | 0.556305 | **0.398316** | **-0.005484** |
+| Cross-fold top 2, equal | 2 | 0.558623 | 0.398408 | -0.005392 |
+| Cross-fold top 7, weighted | 7 | 0.458384 | 0.401037 | -0.002764 |
+| Cross-fold top 10, weighted | 10 | 0.452577 | 0.402334 | -0.001466 |
+| Cross-fold top 20, weighted | 20 | 0.450564 | 0.403673 | -0.000127 |
+
+The paired conditional bootstrap interval for the weighted top-two change is
+[-0.008544, -0.002492]. It improves four of five outer folds; fold 1 worsens by
+0.001808. The worse Caruana-only score does not contradict the better final
+score: the two retained quantile models complement the other four top-level
+components better than the larger Caruana average.
+
+Full-data run `20260912T153211990718Z-e29d7578` replaces CYP3A4 Caruana with a
+simple weighted sum of `class_quantile_0.65` (0.520339 normalized weight) and
+`morgan_quantile_0.65` (0.479661). This reduces CYP3A4 from 20 LightGBMs to two
+and the four-endpoint Caruana total from 77 to 59. Other endpoint predictions
+are unchanged.
+
+Packaging run `20260912T153308257696Z-cea40f16` combines this component with the
+previous target-wise 3/3/2/5 top-level recipe. Audit
+`20260912T153454738585Z-d0cfe511` reconstructs every test mean, verifies exact
+equality for the other three endpoints and reports cross-fitted endpoint scores
+0.687095/0.463103/0.828397/0.398316, macro **0.594228**. Candidate
+`20260912T153532099223Z-96ddb745` and prepared submission
+`20260912T153535785660Z-e08fc07c` pass the official dry run. Nothing was
+uploaded. This internally compressed candidate supersedes both earlier pruning
+candidates.
