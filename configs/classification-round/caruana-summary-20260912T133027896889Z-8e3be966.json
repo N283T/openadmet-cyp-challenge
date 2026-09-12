@@ -1,0 +1,8 @@
+{
+  "oof": "000-oof.parquet",
+  "deployment": "001-deployment.parquet",
+  "selections": "002-selections.json",
+  "metrics": "003-metrics.csv",
+  "reference": "004-ensemble-oof.parquet",
+  "labels": "005-classification-labels.parquet"
+}

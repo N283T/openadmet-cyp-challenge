@@ -6,6 +6,14 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Classification Caruana and compact candidates completed:** 18 candidates,
+  nine selection procedures; 10 new triple-excluded auxiliary models and10
+  historical inner readouts. D6 best tested Caruana MCC0.084431 <fixedmean0.096228;
+  A4 sparseCaruana0.356736 <historicalTabPFN0.365149. FixedMorgan D6single scores
+  0.093546; exact A4 restoration and compact candidates prepared/dry-run validated,
+  no upload. See [RL0057](2026-09.md#rl0057--classification-caruana-and-compact-candidates)
+  and [completed comparison](../analysis/2026-09-12-classification-caruana.md).
+
 - **Comprehensive D6 classification audit completed:** 70 new controlled fits,
   raw-call reconciliation, actual official scores, 25-model probability audits,
   structural coverage and assay-cohort controls. Fewer labels alone do not explain

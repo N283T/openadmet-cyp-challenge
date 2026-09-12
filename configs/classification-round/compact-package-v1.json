@@ -1,0 +1,9 @@
+{
+  "current_test": "000-ensemble-test.parquet",
+  "current_oof": "001-ensemble-oof.parquet",
+  "lgbm_test": "002-fold-test-probabilities.parquet",
+  "lgbm_oof": "003-oof.parquet",
+  "old_submission": "004-classification.parquet",
+  "aliases": "005-aliases.parquet",
+  "reference": "006-cyp-challenge-TEST-BLINDED.csv"
+}

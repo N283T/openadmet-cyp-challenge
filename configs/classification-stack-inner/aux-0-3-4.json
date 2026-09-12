@@ -1,0 +1,29 @@
+{
+  "dataset_run": "20260909T132734119233Z-a7063ccd",
+  "split_run": "20260909T135130268493Z-edba6fc0",
+  "initialization": "chemeleon",
+  "seed": 42,
+  "outer_strategy": "umap",
+  "max_epochs": 150,
+  "patience": 15,
+  "inner_validation_fraction": 0.1,
+  "batch_size": 64,
+  "learning_rate": 1.364559692954765e-05,
+  "warmup_epochs": 3,
+  "lr_ratio": 10.0,
+  "ffn_hidden_dim": 256,
+  "ffn_dropout": 0.1,
+  "aggregation": "mean",
+  "target_weights": "equal",
+  "target_scaling": "zscore_on_inner_training_only",
+  "selection": "inner_validation_loss_only",
+  "checkpoint_sha256": "c376624d3407204e780a0ed13a9ac097cc9bb1c13ef89cdbc633c1715c183651",
+  "outer_fold": 0,
+  "lr_rationale": "10x lower than prior scratch recipe to adapt the pretrained encoder",
+  "excluded_folds": [
+    0,
+    3,
+    4
+  ],
+  "export_predictions_only": true
+}

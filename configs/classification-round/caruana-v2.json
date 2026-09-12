@@ -1,0 +1,43 @@
+{
+  "sources": [
+    {
+      "prefix": "lgbm",
+      "oof": "000-000-oof.parquet",
+      "inner": "001-001-inner-predictions.parquet",
+      "test": "002-002-fold-test-probabilities.parquet"
+    },
+    {
+      "prefix": "pfn",
+      "oof": "003-003-oof-probabilities.parquet",
+      "inner": "004-004-inner-validation-probabilities.parquet",
+      "test": "005-005-test-fold-probabilities.parquet"
+    },
+    {
+      "prefix": "graph",
+      "oof": "006-006-classification-oof.parquet",
+      "inner": "007-007-inner-probabilities.parquet",
+      "test": "008-008-fold-test-probabilities.parquet"
+    },
+    {
+      "prefix": "history",
+      "oof": "009-outer-oof.parquet",
+      "inner": "010-inner-probabilities.parquet",
+      "test": "011-fold-test-probabilities.parquet"
+    }
+  ],
+  "steps": 50,
+  "bagging_seed": 731,
+  "bagging_samples": 20,
+  "historical_run": "20260912T132823500863Z-130ac6af",
+  "recipes": [
+    "fixed_historical",
+    "subset1",
+    "subset2",
+    "subset3",
+    "caruana_mcc",
+    "caruana_mcc_sparse3",
+    "caruana_auc",
+    "caruana_brier",
+    "bagged_sparse3"
+  ]
+}

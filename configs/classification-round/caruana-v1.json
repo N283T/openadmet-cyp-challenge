@@ -1,0 +1,32 @@
+{
+  "sources": [
+    {
+      "prefix": "lgbm",
+      "oof": "000-000-oof.parquet",
+      "inner": "001-001-inner-predictions.parquet",
+      "test": "002-002-fold-test-probabilities.parquet"
+    },
+    {
+      "prefix": "pfn",
+      "oof": "003-003-oof-probabilities.parquet",
+      "inner": "004-004-inner-validation-probabilities.parquet",
+      "test": "005-005-test-fold-probabilities.parquet"
+    },
+    {
+      "prefix": "graph",
+      "oof": "006-006-classification-oof.parquet",
+      "inner": "007-007-inner-probabilities.parquet",
+      "test": "008-008-fold-test-probabilities.parquet"
+    }
+  ],
+  "steps": 50,
+  "recipes": [
+    "subset1",
+    "subset2",
+    "subset3",
+    "caruana_mcc",
+    "caruana_mcc_sparse3",
+    "caruana_auc",
+    "caruana_brier"
+  ]
+}
