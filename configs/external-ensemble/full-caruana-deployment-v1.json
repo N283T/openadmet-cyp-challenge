@@ -1,0 +1,10 @@
+{
+  "compounds": "000-compounds.parquet",
+  "measurements": "001-measurements.parquet",
+  "test_mapping": "002-test_mapping.parquet",
+  "selection": "003-summary.json",
+  "class_emb": "004-external-embeddings.parquet",
+  "mixed_emb": "005-external-embeddings.parquet",
+  "tree": "006-external-scores.parquet",
+  "aux": "007-full-aux.parquet"
+}

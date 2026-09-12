@@ -1,0 +1,6 @@
+{
+  "source_finetune_run": "20260912T060538153709Z-8d434eee",
+  "source_encoder_run": "20260912T060426566774Z-7604ffeb",
+  "purpose": "Full-data submission refit of adopted medium fine-tuned encoder",
+  "policy": "All non-test challenge pIC50 and actual log2fc labels; fixed median one-based OOF epoch"
+}

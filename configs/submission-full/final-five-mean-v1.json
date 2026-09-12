@@ -1,0 +1,52 @@
+{
+  "measurements": "000-measurements.parquet",
+  "aliases": "001-aliases.parquet",
+  "reference": "002-cyp-challenge-TEST-BLINDED.csv",
+  "components": [
+    {
+      "name": "caruana",
+      "run": "20260912T074545177210Z-0d561e17",
+      "weight": 0.2,
+      "predictions": "003-test-predictions.parquet",
+      "membership": "004-membership.parquet",
+      "summary": "005-summary.json",
+      "result": "006-result.json"
+    },
+    {
+      "name": "medium_tabpfn",
+      "run": "20260912T074409483212Z-f3024998",
+      "weight": 0.2,
+      "predictions": "007-test-predictions.parquet",
+      "membership": "008-membership.parquet",
+      "summary": "009-summary.json",
+      "result": "010-result.json"
+    },
+    {
+      "name": "scores_logfc_tabpfn",
+      "run": "20260912T074557646349Z-da857069",
+      "weight": 0.2,
+      "predictions": "011-test-predictions.parquet",
+      "membership": "012-membership.parquet",
+      "summary": "013-summary.json",
+      "result": "014-result.json"
+    },
+    {
+      "name": "ft_logfc_tuned_lgbm",
+      "run": "20260912T074624192288Z-bd58b762",
+      "weight": 0.2,
+      "predictions": "015-test-predictions.parquet",
+      "membership": "016-membership.parquet",
+      "summary": "017-summary.json",
+      "result": "018-result.json"
+    },
+    {
+      "name": "cheme_logfc_tabicl",
+      "run": "20260912T074558733332Z-98ab8ceb",
+      "weight": 0.2,
+      "predictions": "019-test-predictions.parquet",
+      "membership": "020-membership.parquet",
+      "summary": "021-summary.json",
+      "result": "022-result.json"
+    }
+  ]
+}

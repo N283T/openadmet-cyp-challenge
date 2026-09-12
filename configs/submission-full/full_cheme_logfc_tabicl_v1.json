@@ -1,0 +1,14 @@
+{
+  "method": "full_cheme_logfc_tabicl_v1",
+  "backend": "tabicl",
+  "prefix": "emb_",
+  "expected_dimensions": 2048,
+  "pca": 256,
+  "features": "000-external-embeddings.parquet",
+  "measurements": "001-measurements.parquet",
+  "assignments": "002-parent-assignments.parquet",
+  "aliases": "003-aliases.parquet",
+  "reference": "004-cyp-challenge-TEST-BLINDED.csv",
+  "auxiliary": "005-full-aux.parquet",
+  "weights": "006-tabicl-regressor-v2-20260212.ckpt"
+}

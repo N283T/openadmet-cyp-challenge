@@ -1,0 +1,8 @@
+{
+  "features": "000-full-aux.parquet",
+  "model": "001-full.pt",
+  "membership": "002-membership.parquet",
+  "nested": "003-nested-log2fc.parquet",
+  "targets": "004-targets.parquet",
+  "compounds": "005-compounds.parquet"
+}

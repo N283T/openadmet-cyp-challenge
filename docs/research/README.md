@@ -6,6 +6,14 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **2026-09-12 update:** The regression five-component ensemble reached development
+  OOF ST-RAE **0.596414** on the retained parent CV. Its full-data refit has now
+  been submitted without calibration; official receipt is `sent`, scoring pending.
+  See [RL0043](2026-09.md#rl0043--full-data-five-component-submission) and the
+  [deployment report](../analysis/2026-09-12-full-ensemble-submission.md).
+  This supersedes the older model/pause/split status bullets below, which retain
+  links to the earlier decisions. Regression remains the priority.
+
 - Interval-aware TabPFN/LightGBM and neighborhood trials are complete. The best
   numerical blend scores 0.688853, but its incremental gain over the simple q0.55
   ensemble is uncertain; retain alternatives without replacing the submitted baseline

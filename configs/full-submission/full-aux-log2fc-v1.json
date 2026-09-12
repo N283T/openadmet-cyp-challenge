@@ -1,0 +1,21 @@
+{
+  "registry": "000-current-log2fc.json",
+  "compounds": "001-compounds.parquet",
+  "targets": "002-targets.parquet",
+  "nested": "003-nested-log2fc.parquet",
+  "checkpoint": "004-chemeleon_mp.pt",
+  "provenance": "005-provenance.json",
+  "pair_summaries": [
+    "006-summary.json",
+    "007-summary.json",
+    "008-summary.json",
+    "009-summary.json",
+    "010-summary.json",
+    "011-summary.json",
+    "012-summary.json",
+    "013-summary.json",
+    "014-summary.json",
+    "015-summary.json"
+  ],
+  "nested_membership_audit": "016-membership-audit.json"
+}

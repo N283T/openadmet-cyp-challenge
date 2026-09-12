@@ -1,0 +1,15 @@
+{
+  "method": "full_ft_logfc_tuned_lgbm_v1",
+  "backend": "tuned_lgbm",
+  "prefix": "emb_",
+  "expected_dimensions": 600,
+  "pca": 0,
+  "features": "000-external-embeddings.parquet",
+  "measurements": "001-measurements.parquet",
+  "assignments": "002-parent-assignments.parquet",
+  "aliases": "003-aliases.parquet",
+  "reference": "004-cyp-challenge-TEST-BLINDED.csv",
+  "auxiliary": "005-full-aux.parquet",
+  "selection_summary": "006-summary.json",
+  "deployment_selection": "Refit each of five inner-CV-selected parameter sets on all endpoint labels, equal mean within component."
+}

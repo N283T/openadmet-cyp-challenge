@@ -1,0 +1,14 @@
+{
+  "method": "full_scores_logfc_tabpfn_v1",
+  "backend": "tabpfn",
+  "prefix": "score_",
+  "expected_dimensions": 47,
+  "pca": 0,
+  "features": "000-external-scores.parquet",
+  "measurements": "001-measurements.parquet",
+  "assignments": "002-parent-assignments.parquet",
+  "aliases": "003-aliases.parquet",
+  "reference": "004-cyp-challenge-TEST-BLINDED.csv",
+  "auxiliary": "005-full-aux.parquet",
+  "weights": "006-tabpfn-v2.6-regressor-v2.6_default.ckpt"
+}

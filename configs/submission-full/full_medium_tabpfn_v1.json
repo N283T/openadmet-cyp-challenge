@@ -1,0 +1,13 @@
+{
+  "method": "full_medium_tabpfn_v1",
+  "backend": "tabpfn",
+  "prefix": "emb_",
+  "expected_dimensions": 600,
+  "pca": 0,
+  "features": "000-external-embeddings.parquet",
+  "measurements": "001-measurements.parquet",
+  "assignments": "002-parent-assignments.parquet",
+  "aliases": "003-aliases.parquet",
+  "reference": "004-cyp-challenge-TEST-BLINDED.csv",
+  "weights": "005-tabpfn-v2.6-regressor-v2.6_default.ckpt"
+}
