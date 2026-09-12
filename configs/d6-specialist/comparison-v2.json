@@ -1,0 +1,117 @@
+{
+  "global_run": "20260912T094021204217Z-84c28266",
+  "global_file": "000-global-oof.parquet",
+  "models": {
+    "full": {
+      "scope": "full",
+      "fit_run": "20260912T101144735437Z-661a1844",
+      "readout_run": "20260912T101614614291Z-00de4aad",
+      "summary": "001-summary.json",
+      "direct": "002-finetune-oof.parquet",
+      "lgbm": "003-external-oof.parquet",
+      "memberships": [
+        "004-membership.parquet",
+        "005-membership.parquet",
+        "006-membership.parquet",
+        "007-membership.parquet",
+        "008-membership.parquet"
+      ],
+      "histories": {
+        "0": "009-history.jsonl",
+        "1": "010-history.jsonl",
+        "2": "011-history.jsonl",
+        "3": "012-history.jsonl",
+        "4": "013-history.jsonl"
+      }
+    },
+    "d6_aux": {
+      "scope": "d6_aux",
+      "fit_run": "20260912T101145931305Z-90443092",
+      "readout_run": "20260912T101620627804Z-fa092585",
+      "summary": "014-summary.json",
+      "direct": "015-finetune-oof.parquet",
+      "lgbm": "016-external-oof.parquet",
+      "memberships": [
+        "017-membership.parquet",
+        "018-membership.parquet",
+        "019-membership.parquet",
+        "020-membership.parquet",
+        "021-membership.parquet"
+      ],
+      "histories": {
+        "0": "022-history.jsonl",
+        "1": "023-history.jsonl",
+        "2": "024-history.jsonl",
+        "3": "025-history.jsonl",
+        "4": "026-history.jsonl"
+      }
+    },
+    "d6_direct": {
+      "scope": "d6_direct",
+      "fit_run": "20260912T101147108878Z-fc9a4ac0",
+      "readout_run": "20260912T101418694424Z-390ed3c8",
+      "summary": "027-summary.json",
+      "direct": "028-finetune-oof.parquet",
+      "lgbm": "029-external-oof.parquet",
+      "memberships": [
+        "030-membership.parquet",
+        "031-membership.parquet",
+        "032-membership.parquet",
+        "033-membership.parquet",
+        "034-membership.parquet"
+      ],
+      "histories": {
+        "0": "035-history.jsonl",
+        "1": "036-history.jsonl",
+        "2": "037-history.jsonl",
+        "3": "038-history.jsonl",
+        "4": "039-history.jsonl"
+      }
+    },
+    "d6_direct_fresh": {
+      "scope": "d6_direct",
+      "fit_run": "20260912T101218879142Z-b1286445",
+      "readout_run": "20260912T101606024008Z-70d8bdfa",
+      "summary": "040-summary.json",
+      "direct": "041-finetune-oof.parquet",
+      "lgbm": "042-external-oof.parquet",
+      "memberships": [
+        "043-membership.parquet",
+        "044-membership.parquet",
+        "045-membership.parquet",
+        "046-membership.parquet",
+        "047-membership.parquet"
+      ],
+      "histories": {
+        "0": "048-history.jsonl",
+        "1": "049-history.jsonl",
+        "2": "050-history.jsonl",
+        "3": "051-history.jsonl",
+        "4": "052-history.jsonl"
+      }
+    },
+    "d6_direct_fresh_scratchrates": {
+      "scope": "d6_direct",
+      "fit_run": "20260912T101246158987Z-b36fd27b",
+      "readout_run": "20260912T101411999351Z-601b7cb4",
+      "summary": "053-summary.json",
+      "direct": "054-finetune-oof.parquet",
+      "lgbm": "055-external-oof.parquet",
+      "memberships": [
+        "056-membership.parquet",
+        "057-membership.parquet",
+        "058-membership.parquet",
+        "059-membership.parquet",
+        "060-membership.parquet"
+      ],
+      "histories": {
+        "0": "061-history.jsonl",
+        "1": "062-history.jsonl",
+        "2": "063-history.jsonl",
+        "3": "064-history.jsonl",
+        "4": "065-history.jsonl"
+      }
+    }
+  },
+  "split_run": "20260911T104703655337Z-a3923255"
+}

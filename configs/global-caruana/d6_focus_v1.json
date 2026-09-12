@@ -1,0 +1,1175 @@
+{
+  "steps": 50,
+  "seed": 42,
+  "sources": [
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T050944039369Z-36d00d9c/outputs/regression-oof-diagnostics.parquet",
+      "run": "20260911T050944039369Z-36d00d9c",
+      "script": "regression_diagnostics.py",
+      "purpose": "Diagnose baseline regression label/OOF/test distributions, residuals, uncertainty intervals and UMAP fold variation before external-data expansion"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T053158423216Z-9c04a430/outputs/oof.parquet",
+      "run": "20260911T053158423216Z-9c04a430",
+      "script": "external_regression.py",
+      "purpose": "External-data comparison control, UMAP fold 0; ChEMBL/PubChem auxiliaries"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T053308971388Z-587ff71b/outputs/oof.parquet",
+      "run": "20260911T053308971388Z-587ff71b",
+      "script": "external_regression.py",
+      "purpose": "External-data comparison external, UMAP fold 0; ChEMBL/PubChem auxiliaries"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T053556181042Z-b9378cc2/outputs/oof.parquet",
+      "run": "20260911T053556181042Z-b9378cc2",
+      "script": "external_regression.py",
+      "purpose": "External-data comparison control, UMAP fold 1; ChEMBL/PubChem auxiliaries"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T053658911105Z-1ea68598/outputs/oof.parquet",
+      "run": "20260911T053658911105Z-1ea68598",
+      "script": "external_regression.py",
+      "purpose": "External-data comparison external, UMAP fold 1; ChEMBL/PubChem auxiliaries"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T053904509268Z-fa9c30a0/outputs/oof.parquet",
+      "run": "20260911T053904509268Z-fa9c30a0",
+      "script": "external_regression.py",
+      "purpose": "External-data comparison control, UMAP fold 2; ChEMBL/PubChem auxiliaries"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T054002259749Z-29496a21/outputs/oof.parquet",
+      "run": "20260911T054002259749Z-29496a21",
+      "script": "external_regression.py",
+      "purpose": "External-data comparison external, UMAP fold 2; ChEMBL/PubChem auxiliaries"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T054158295368Z-f13076ec/outputs/oof.parquet",
+      "run": "20260911T054158295368Z-f13076ec",
+      "script": "external_regression.py",
+      "purpose": "External-data comparison control, UMAP fold 3; ChEMBL/PubChem auxiliaries"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T054310514050Z-221b89e2/outputs/oof.parquet",
+      "run": "20260911T054310514050Z-221b89e2",
+      "script": "external_regression.py",
+      "purpose": "External-data comparison external, UMAP fold 3; ChEMBL/PubChem auxiliaries"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T054826374242Z-0d93cdb3/outputs/oof.parquet",
+      "run": "20260911T054826374242Z-0d93cdb3",
+      "script": "external_regression.py",
+      "purpose": "External-data comparison control, UMAP fold 4; ChEMBL/PubChem auxiliaries"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T054927294591Z-30e4d318/outputs/oof.parquet",
+      "run": "20260911T054927294591Z-30e4d318",
+      "script": "external_regression.py",
+      "purpose": "External-data comparison external, UMAP fold 4; ChEMBL/PubChem auxiliaries"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T072716421566Z-24ff1fd7/outputs/interval-oof.parquet",
+      "run": "20260911T072716421566Z-24ff1fd7",
+      "script": "interval_readout.py",
+      "purpose": "Train lower/upper interval marginals and midpoint TabPFN 2.6 regression fold 0"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T073020399698Z-6f17daf6/outputs/interval-oof.parquet",
+      "run": "20260911T073020399698Z-6f17daf6",
+      "script": "interval_readout.py",
+      "purpose": "Train lower/upper interval marginals and midpoint TabPFN 2.6 regression fold 1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T073322300653Z-61a1009a/outputs/interval-oof.parquet",
+      "run": "20260911T073322300653Z-61a1009a",
+      "script": "interval_readout.py",
+      "purpose": "Train lower/upper interval marginals and midpoint TabPFN 2.6 regression fold 2"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T073458027748Z-50193fa7/outputs/neighborhood-oof.parquet",
+      "run": "20260911T073458027748Z-50193fa7",
+      "script": "neighborhood_regression.py",
+      "purpose": "Test structure-neighborhood label/interval medians and fixed blends using outer-training labels only"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T073628329393Z-94565589/outputs/interval-oof.parquet",
+      "run": "20260911T073628329393Z-94565589",
+      "script": "interval_readout.py",
+      "purpose": "Train lower/upper interval marginals and midpoint TabPFN 2.6 regression fold 3"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T073931300085Z-8714b7fb/outputs/interval-oof.parquet",
+      "run": "20260911T073931300085Z-8714b7fb",
+      "script": "interval_readout.py",
+      "purpose": "Train lower/upper interval marginals and midpoint TabPFN 2.6 regression fold 4"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T074009277562Z-be7cf1d4/outputs/interval-oof.parquet",
+      "run": "20260911T074009277562Z-be7cf1d4",
+      "script": "interval_readout.py",
+      "purpose": "Train lower/upper interval marginals and midpoint TabPFN 2.6 regression fold 0"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T074131117243Z-9fd947df/outputs/interval-oof.parquet",
+      "run": "20260911T074131117243Z-9fd947df",
+      "script": "interval_readout.py",
+      "purpose": "Train lower/upper interval marginals and midpoint TabPFN 2.6 regression fold 1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T074301803825Z-4989e98c/outputs/interval-oof.parquet",
+      "run": "20260911T074301803825Z-4989e98c",
+      "script": "interval_readout.py",
+      "purpose": "Train lower/upper interval marginals and midpoint TabPFN 2.6 regression fold 2"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T074417567845Z-70528e07/outputs/interval-oof.parquet",
+      "run": "20260911T074417567845Z-70528e07",
+      "script": "interval_readout.py",
+      "purpose": "Train lower/upper interval marginals and midpoint TabPFN 2.6 regression fold 3"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T074521296699Z-92454c6a/outputs/interval-oof.parquet",
+      "run": "20260911T074521296699Z-92454c6a",
+      "script": "interval_readout.py",
+      "purpose": "Train lower/upper interval marginals and midpoint TabPFN 2.6 regression fold 4"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T093200583715Z-a7b5212d/outputs/tabicl-oof.parquet",
+      "run": "20260911T093200583715Z-a7b5212d",
+      "script": "tabicl_readout.py",
+      "purpose": "Train tabicl interval-aware regression fold 0"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T093324497439Z-e8a75360/outputs/tabicl-oof.parquet",
+      "run": "20260911T093324497439Z-e8a75360",
+      "script": "tabicl_readout.py",
+      "purpose": "Train tabicl interval-aware regression fold 1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T093444498345Z-331fc5dc/outputs/tabicl-oof.parquet",
+      "run": "20260911T093444498345Z-331fc5dc",
+      "script": "tabicl_readout.py",
+      "purpose": "Train tabicl interval-aware regression fold 2"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T093604244693Z-64342e75/outputs/tabicl-oof.parquet",
+      "run": "20260911T093604244693Z-64342e75",
+      "script": "tabicl_readout.py",
+      "purpose": "Train tabicl interval-aware regression fold 3"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T093724505089Z-5311f2b5/outputs/tabicl-oof.parquet",
+      "run": "20260911T093724505089Z-5311f2b5",
+      "script": "tabicl_readout.py",
+      "purpose": "Train tabicl interval-aware regression fold 4"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T093904047313Z-d7cfa808/outputs/oof.parquet",
+      "run": "20260911T093904047313Z-d7cfa808",
+      "script": "audit_tabicl.py",
+      "purpose": "Audit matched-feature TabICL versus original TabPFN on all five UMAP folds"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T095536618510Z-f97937d4/outputs/oof.parquet",
+      "run": "20260911T095536618510Z-f97937d4",
+      "script": "series_cv.py",
+      "purpose": "Compare shared structure-series and UMAP CV using identical Mordred LightGBM and TabPFN models"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T100134004950Z-c7a3f2bf/outputs/oof.parquet",
+      "run": "20260911T100134004950Z-c7a3f2bf",
+      "script": "series_cv.py",
+      "purpose": "Compare series and UMAP CV with matched Mordred LightGBM and TabPFN"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T105206572152Z-e998787e/outputs/parent-oof.parquet",
+      "run": "20260911T105206572152Z-e998787e",
+      "script": "parent_readout.py",
+      "purpose": "Paired parent-retained/excluded full-feature LightGBM comparison fold 0"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T105552018025Z-562f006a/outputs/parent-oof.parquet",
+      "run": "20260911T105552018025Z-562f006a",
+      "script": "parent_readout.py",
+      "purpose": "Paired parent-retained/excluded full-feature LightGBM comparison fold 1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T105818167518Z-a178d271/outputs/parent-oof.parquet",
+      "run": "20260911T105818167518Z-a178d271",
+      "script": "parent_readout.py",
+      "purpose": "Paired parent-retained/excluded full-feature LightGBM comparison fold 2"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T105928961261Z-66728975/outputs/parent-oof.parquet",
+      "run": "20260911T105928961261Z-66728975",
+      "script": "parent_readout.py",
+      "purpose": "Paired parent-retained/excluded full-feature LightGBM comparison fold 3"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T110021961231Z-8ec1d5bb/outputs/parent-oof.parquet",
+      "run": "20260911T110021961231Z-8ec1d5bb",
+      "script": "parent_readout.py",
+      "purpose": "Paired parent-retained/excluded full-feature LightGBM comparison fold 4"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T110118749415Z-5167f1a0/outputs/oof.parquet",
+      "run": "20260911T110118749415Z-5167f1a0",
+      "script": "audit_parent_cv.py",
+      "purpose": "Audit corrected parent-retained full-feature LightGBM against matched parent-excluded control"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T111242726192Z-f4e821b7/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T111242726192Z-f4e821b7",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "TabICL compact and full baseline on parent-retained CV fold 0; verify exact LGBM feature reconstruction"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T111346031387Z-2da109d7/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T111346031387Z-2da109d7",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "TabICL compact and full baseline on parent-retained CV fold 1; verify exact LGBM feature reconstruction"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T111445421875Z-125ca4de/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T111445421875Z-125ca4de",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "TabICL compact and full baseline on parent-retained CV fold 2; verify exact LGBM feature reconstruction"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T111544943864Z-0c11f380/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T111544943864Z-0c11f380",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "TabICL compact and full baseline on parent-retained CV fold 3; verify exact LGBM feature reconstruction"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T111844883202Z-14521360/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T111844883202Z-14521360",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "TabICL compact and full, parent CV fold 4; verify matched features"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T111952347762Z-e9f6c457/outputs/oof.parquet",
+      "run": "20260911T111952347762Z-e9f6c457",
+      "script": "audit_tabicl_parent.py",
+      "purpose": "Compare TabICL compact/full and LightGBM on corrected parent-retained CV"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T124052504276Z-c22b0df7/outputs/parent-oof.parquet",
+      "run": "20260911T124052504276Z-c22b0df7",
+      "script": "parent_readout.py",
+      "purpose": "Paired parent-retained/excluded full-feature LightGBM comparison fold 0"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T125630683489Z-e2f0a4b2/outputs/parent-oof.parquet",
+      "run": "20260911T125630683489Z-e2f0a4b2",
+      "script": "parent_readout.py",
+      "purpose": "Paired parent-retained/excluded full-feature LightGBM comparison fold 1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T125723862156Z-08fd7a35/outputs/parent-oof.parquet",
+      "run": "20260911T125723862156Z-08fd7a35",
+      "script": "parent_readout.py",
+      "purpose": "Paired parent-retained/excluded full-feature LightGBM comparison fold 2"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T125818040377Z-e0d35c62/outputs/parent-oof.parquet",
+      "run": "20260911T125818040377Z-e0d35c62",
+      "script": "parent_readout.py",
+      "purpose": "Paired parent-retained/excluded full-feature LightGBM comparison fold 3"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T125911665760Z-06163bb5/outputs/parent-oof.parquet",
+      "run": "20260911T125911665760Z-06163bb5",
+      "script": "parent_readout.py",
+      "purpose": "Paired parent-retained/excluded full-feature LightGBM comparison fold 4"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T130021181456Z-60011f3a/outputs/oof.parquet",
+      "run": "20260911T130021181456Z-60011f3a",
+      "script": "audit_parent_cv.py",
+      "purpose": "Audit corrected parent-retained full-feature LightGBM against matched parent-excluded control"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T130541636074Z-98075594/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T130541636074Z-98075594",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "Update tabicl pIC50 model on adopted auxiliary features, fold 0"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T130703156203Z-8d3c8859/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T130703156203Z-8d3c8859",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "Update tabicl pIC50 model on adopted auxiliary features, fold 1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T130823926945Z-a08d12eb/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T130823926945Z-a08d12eb",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "Update tabicl pIC50 model on adopted auxiliary features, fold 2"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T130944812832Z-48eff1e0/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T130944812832Z-48eff1e0",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "Update tabicl pIC50 model on adopted auxiliary features, fold 3"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T131106047746Z-2ea2c432/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T131106047746Z-2ea2c432",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "Update tabicl pIC50 model on adopted auxiliary features, fold 4"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T131313006781Z-a8508a11/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T131313006781Z-a8508a11",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "Update tabpfn pIC50 model on adopted auxiliary features, fold 0"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T131412685950Z-800631af/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T131412685950Z-800631af",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "Update tabpfn pIC50 model on adopted auxiliary features, fold 1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T131512444869Z-ee4cdffc/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T131512444869Z-ee4cdffc",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "Update tabpfn pIC50 model on adopted auxiliary features, fold 2"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T131612138159Z-011ed838/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T131612138159Z-011ed838",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "Update tabpfn pIC50 model on adopted auxiliary features, fold 3"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T131712066480Z-7bc3ef15/outputs/tabicl-parent-oof.parquet",
+      "run": "20260911T131712066480Z-7bc3ef15",
+      "script": "tabicl_parent_readout.py",
+      "purpose": "Update tabpfn pIC50 model on adopted auxiliary features, fold 4"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T131826604125Z-ebb033cc/outputs/tabicl-oof.parquet",
+      "run": "20260911T131826604125Z-ebb033cc",
+      "script": "audit_foundation_replacement.py",
+      "purpose": "Audit complete TabICL and TabPFN replacement including five-fold test predictions"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T131826604125Z-ebb033cc/outputs/tabpfn-oof.parquet",
+      "run": "20260911T131826604125Z-ebb033cc",
+      "script": "audit_foundation_replacement.py",
+      "purpose": "Audit complete TabICL and TabPFN replacement including five-fold test predictions"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T142441093420Z-91e36a41/outputs/component-oof.parquet",
+      "run": "20260911T142441093420Z-91e36a41",
+      "script": "ensemble_components.py",
+      "purpose": "Fit three separate ensemble components on matched fold 0"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T142530231264Z-a5b5b04c/outputs/component-oof.parquet",
+      "run": "20260911T142530231264Z-a5b5b04c",
+      "script": "ensemble_components.py",
+      "purpose": "Fit three separate ensemble components on matched fold 1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T142619356692Z-5c334eef/outputs/component-oof.parquet",
+      "run": "20260911T142619356692Z-5c334eef",
+      "script": "ensemble_components.py",
+      "purpose": "Fit three separate ensemble components on matched fold 2"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T142708466901Z-8b7b5050/outputs/component-oof.parquet",
+      "run": "20260911T142708466901Z-8b7b5050",
+      "script": "ensemble_components.py",
+      "purpose": "Fit three separate ensemble components on matched fold 3"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T142757006049Z-db34f643/outputs/component-oof.parquet",
+      "run": "20260911T142757006049Z-db34f643",
+      "script": "ensemble_components.py",
+      "purpose": "Fit three separate ensemble components on matched fold 4"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T150557650787Z-4a460d9e/outputs/admetica-emb-oof.parquet",
+      "run": "20260911T150557650787Z-4a460d9e",
+      "script": "admetica_emb_tabpfn.py",
+      "purpose": "Evaluate frozen per-CYP Admetica embeddings alone with TabPFN 2.6 on matched folds"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T151537020733Z-d635955c/outputs/finetune-oof.parquet",
+      "run": "20260911T151537020733Z-d635955c",
+      "script": "admetica_finetune.py",
+      "purpose": "Fine-tune matched Admetica encoders on pIC50 and evaluate direct heads plus adapted-embedding TabPFN"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260911T153310505641Z-81ed702c/outputs/pubchem600-oof.parquet",
+      "run": "20260911T153310505641Z-81ed702c",
+      "script": "pubchem600_readout.py",
+      "purpose": "Evaluate frozen PubChem600 embeddings alone using TabPFN2.6 on matched folds"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T051035118217Z-9e25d09a/outputs/external-oof.parquet",
+      "run": "20260912T051035118217Z-9e25d09a",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation pubchem600_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T051117382555Z-02dc4d54/outputs/external-oof.parquet",
+      "run": "20260912T051117382555Z-02dc4d54",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation pubchem600_pca200_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T051258883571Z-a2ab5b73/outputs/external-oof.parquet",
+      "run": "20260912T051258883571Z-a2ab5b73",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation pubchem600_scores_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T051723365377Z-f5bbadd1/outputs/external-oof.parquet",
+      "run": "20260912T051723365377Z-f5bbadd1",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_v1_classification_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T051744700453Z-ced71172/outputs/external-oof.parquet",
+      "run": "20260912T051744700453Z-ced71172",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_v1_classification_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T052004136093Z-e51e6529/outputs/external-oof.parquet",
+      "run": "20260912T052004136093Z-e51e6529",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_classifier_scores_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T052123907991Z-f1723cf3/outputs/external-oof.parquet",
+      "run": "20260912T052123907991Z-f1723cf3",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_v1_ranking_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T052142698708Z-18cff6a7/outputs/external-oof.parquet",
+      "run": "20260912T052142698708Z-18cff6a7",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_v1_ranking_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T052601654102Z-6844f96d/outputs/external-oof.parquet",
+      "run": "20260912T052601654102Z-6844f96d",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_v1_continuous_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T052624234131Z-e6d20de8/outputs/external-oof.parquet",
+      "run": "20260912T052624234131Z-e6d20de8",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_v1_continuous_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T052822068470Z-7bf5e0a4/outputs/external-oof.parquet",
+      "run": "20260912T052822068470Z-7bf5e0a4",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_class_emb_logfc_lgbm_v2"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T053133881906Z-a5e33dcc/outputs/external-oof.parquet",
+      "run": "20260912T053133881906Z-a5e33dcc",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_v1_mixed_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T053152207404Z-f4f0dfec/outputs/external-oof.parquet",
+      "run": "20260912T053152207404Z-f4f0dfec",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external_tree_logfc_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T053154535798Z-c0b98b26/outputs/external-oof.parquet",
+      "run": "20260912T053154535798Z-c0b98b26",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_v1_mixed_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T053231503669Z-d109c0a8/outputs/external-oof.parquet",
+      "run": "20260912T053231503669Z-d109c0a8",
+      "script": "tune_external_readout.py",
+      "purpose": "Nested twelve-trial Rustuna LightGBM tuning of external classification embeddings and safe log2fc readout"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T053530795103Z-33be026e/outputs/external-oof.parquet",
+      "run": "20260912T053530795103Z-33be026e",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_class_emb_logfc_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T053633898496Z-a4e7f2b4/outputs/embedding-oof.parquet",
+      "run": "20260912T053633898496Z-a4e7f2b4",
+      "script": "external_kernel_knn.py",
+      "purpose": "Evaluate corrected split-ID serialization for Morgan-Tanimoto and external classification cosine kNN, with inner-only selection and fixed parent-retained CV"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T053633898496Z-a4e7f2b4/outputs/morgan-oof.parquet",
+      "run": "20260912T053633898496Z-a4e7f2b4",
+      "script": "external_kernel_knn.py",
+      "purpose": "Evaluate corrected split-ID serialization for Morgan-Tanimoto and external classification cosine kNN, with inner-only selection and fixed parent-retained CV"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T053814887047Z-156c5bf5/outputs/external-oof.parquet",
+      "run": "20260912T053814887047Z-156c5bf5",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external_tree_logfc_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T053838041107Z-289578d5/outputs/finetune-oof.parquet",
+      "run": "20260912T053838041107Z-289578d5",
+      "script": "finetune_external_multitask.py",
+      "purpose": "External600 -> four pIC50 plus four actual log2fc heads; full outer compound exclusion: external3_class_mt_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T054040869295Z-3f403bb3/outputs/external-oof.parquet",
+      "run": "20260912T054040869295Z-3f403bb3",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: external3_class_mt_v1_ft_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T054054898981Z-8bde71ca/outputs/external-oof.parquet",
+      "run": "20260912T054054898981Z-8bde71ca",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external_measured_masked_logfc_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T054103177844Z-c9ac1f84/outputs/external-oof.parquet",
+      "run": "20260912T054103177844Z-c9ac1f84",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: external3_class_mt_v1_ft_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T054406239560Z-96fce32b/outputs/external-oof.parquet",
+      "run": "20260912T054406239560Z-96fce32b",
+      "script": "nested_external_ensemble.py",
+      "purpose": "Honest nested Caruana selection among24 external feature LGBMs using inner group holdout only"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T054509532185Z-76f9c0f9/outputs/external-oof.parquet",
+      "run": "20260912T054509532185Z-76f9c0f9",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_cond_v1_classification_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T054534754156Z-3c369a92/outputs/external-oof.parquet",
+      "run": "20260912T054534754156Z-3c369a92",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_cond_v1_classification_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T055130250735Z-8bce3e59/outputs/external-oof.parquet",
+      "run": "20260912T055130250735Z-8bce3e59",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_cond_v1_mixed_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T055149151415Z-6c457dd0/outputs/external-oof.parquet",
+      "run": "20260912T055149151415Z-6c457dd0",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external3_cond_v1_mixed_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T055443217549Z-466ccda1/outputs/finetune-oof.parquet",
+      "run": "20260912T055443217549Z-466ccda1",
+      "script": "finetune_external_multitask.py",
+      "purpose": "External600 -> four pIC50 plus four actual log2fc heads; full outer compound exclusion: external3_class_mt_long_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T055801068627Z-a14071a6/outputs/external-oof.parquet",
+      "run": "20260912T055801068627Z-a14071a6",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: external3_class_mt_long_v1_ft_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T055825039246Z-36aa5478/outputs/external-oof.parquet",
+      "run": "20260912T055825039246Z-36aa5478",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: external3_class_mt_long_v1_ft_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T055849013223Z-f16a5dfd/outputs/external-oof.parquet",
+      "run": "20260912T055849013223Z-f16a5dfd",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation jeremy_medium_unverified_lgbm_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T060059705105Z-2f0fbfbd/outputs/external-oof.parquet",
+      "run": "20260912T060059705105Z-2f0fbfbd",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation jeremy_upstream_medium_tabpfn_diagnostic_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T060513219458Z-97152a22/outputs/finetune-oof.parquet",
+      "run": "20260912T060513219458Z-97152a22",
+      "script": "finetune_external_multitask.py",
+      "purpose": "Short MAE and official inner ST-RAE FT checkpoint-selection smoke across five fixed folds"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T060538153709Z-8d434eee/outputs/finetune-oof.parquet",
+      "run": "20260912T060538153709Z-8d434eee",
+      "script": "finetune_external_multitask.py",
+      "purpose": "External600 -> pIC50/log2fc and configured auxiliary heads; outer compound exclusion: jeremy_medium_mt_diagnostic_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T060610654496Z-6ba41237/outputs/external-oof.parquet",
+      "run": "20260912T060610654496Z-6ba41237",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external_az_mixed_v1_mixed_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T060633425514Z-cd9510df/outputs/external-oof.parquet",
+      "run": "20260912T060633425514Z-cd9510df",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external_az_mixed_v1_mixed_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T060919366336Z-8981abe3/outputs/finetune-oof.parquet",
+      "run": "20260912T060919366336Z-8981abe3",
+      "script": "finetune_external_multitask.py",
+      "purpose": "External600 -> pIC50/log2fc and configured auxiliary heads; outer compound exclusion: external_az_mixed_v1_mixed_adapted"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T061036581812Z-288ee828/outputs/external-oof.parquet",
+      "run": "20260912T061036581812Z-288ee828",
+      "script": "nested_external_ensemble.py",
+      "purpose": "Nested Caruana inner-only selection of external LGBMs with six frozen Jeremy candidates"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T061128389603Z-7e5dff88/outputs/external-oof.parquet",
+      "run": "20260912T061128389603Z-7e5dff88",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: jeremy_medium_mt_diagnostic_v1_ft_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T061217877841Z-96e6dfe4/outputs/external-oof.parquet",
+      "run": "20260912T061217877841Z-96e6dfe4",
+      "script": "readout_external_finetune.py",
+      "purpose": "Readout of completed fold-specific FT embeddings: jeremy_medium_mt_tabpfn_diagnostic_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T061234828813Z-af0b7a62/outputs/finetune-oof.parquet",
+      "run": "20260912T061234828813Z-af0b7a62",
+      "script": "finetune_external_multitask.py",
+      "purpose": "External600 -> pIC50/log2fc and configured auxiliary heads; outer compound exclusion: jeremy_medium_mae_st_diagnostic_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T061253921227Z-4930ca7c/outputs/external-oof.parquet",
+      "run": "20260912T061253921227Z-4930ca7c",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation jeremy_chemeleon_frozen_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T061422270233Z-beadc922/outputs/external-oof.parquet",
+      "run": "20260912T061422270233Z-beadc922",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: external_az_mixed_v1_mixed_adapted_ft_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T061514330688Z-3ff745e1/outputs/external-oof.parquet",
+      "run": "20260912T061514330688Z-3ff745e1",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: external_az_mixed_v1_mixed_adapted_ft_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T061629455493Z-730c8bea/outputs/external-oof.parquet",
+      "run": "20260912T061629455493Z-730c8bea",
+      "script": "readout_external_finetune.py",
+      "purpose": "Readout of completed fold-specific FT embeddings: jeremy_medium_mt_logfc_lgbm_diagnostic_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T061857274240Z-2a218369/outputs/finetune-oof.parquet",
+      "run": "20260912T061857274240Z-2a218369",
+      "script": "finetune_external_multitask.py",
+      "purpose": "External600 -> pIC50/log2fc and configured auxiliary heads; outer compound exclusion: external3_class_emax_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T061944885447Z-bcbc4188/outputs/external-oof.parquet",
+      "run": "20260912T061944885447Z-bcbc4188",
+      "script": "external_tabicl_readout.py",
+      "purpose": "Fixed parent CV TabICL: embedding-only training PCA, then nested log2fc; fit and save all models: jeremy_medium_logfc_tabicl_diagnostic_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T062019762453Z-05ebd82a/outputs/external-oof.parquet",
+      "run": "20260912T062019762453Z-05ebd82a",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: jeremy_medium_mae_st_diagnostic_v1_ft_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T062241730532Z-f11cd0a6/outputs/external-oof.parquet",
+      "run": "20260912T062241730532Z-f11cd0a6",
+      "script": "readout_external_finetune.py",
+      "purpose": "Readout of completed fold-specific FT embeddings: jeremy_medium_mt_pca256_logfc_tabpfn_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T062323161344Z-db6745c3/outputs/external-oof.parquet",
+      "run": "20260912T062323161344Z-db6745c3",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation jeremy_chemeleon_frozen_log2fc_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T062329198020Z-60f59445/outputs/external-oof.parquet",
+      "run": "20260912T062329198020Z-60f59445",
+      "script": "nested_external_ensemble.py",
+      "purpose": "Nested Caruana inner-only selection of external LGBMs with Jeremy and train-filtered FP+Mordred candidates"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T062355358019Z-c630879e/outputs/external-oof.parquet",
+      "run": "20260912T062355358019Z-c630879e",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: external3_class_emax_v1_ft_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T062500451470Z-ad87df0a/outputs/external-oof.parquet",
+      "run": "20260912T062500451470Z-ad87df0a",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: external3_class_emax_v1_ft_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T062520343225Z-49647baf/outputs/external-oof.parquet",
+      "run": "20260912T062520343225Z-49647baf",
+      "script": "readout_external_finetune.py",
+      "purpose": "Readout of completed fold-specific FT embeddings: jeremy_medium_mt_logfc_catboost_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T063027598586Z-e0de0493/outputs/external-oof.parquet",
+      "run": "20260912T063027598586Z-e0de0493",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation pubchem_tox_class_v1_classification_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T063056874971Z-a7af7360/outputs/external-oof.parquet",
+      "run": "20260912T063056874971Z-a7af7360",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation pubchem_tox_class_v1_classification_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T063656617199Z-926eac9a/outputs/external-oof.parquet",
+      "run": "20260912T063656617199Z-926eac9a",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external_adme_medium_v1_mixed_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T063716578278Z-e7f75b06/outputs/external-oof.parquet",
+      "run": "20260912T063716578278Z-e7f75b06",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation external_adme_medium_v1_mixed_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T063947706425Z-fbcc15b3/outputs/finetune-oof.parquet",
+      "run": "20260912T063947706425Z-fbcc15b3",
+      "script": "finetune_external_multitask.py",
+      "purpose": "External600 -> pIC50/log2fc and configured auxiliary heads; outer compound exclusion: external_adme_medium_v1_mixed_adapted"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T064405119644Z-c052bb8a/outputs/external-oof.parquet",
+      "run": "20260912T064405119644Z-c052bb8a",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: external_adme_medium_v1_mixed_adapted_ft_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T064428546815Z-2cf60995/outputs/external-oof.parquet",
+      "run": "20260912T064428546815Z-2cf60995",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: external_adme_medium_v1_mixed_adapted_ft_tabpfn"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T071619253798Z-73a6fb7e/outputs/external-oof.parquet",
+      "run": "20260912T071619253798Z-73a6fb7e",
+      "script": "external_tabicl_readout.py",
+      "purpose": "Fixed parent CV TabICL: embedding-only training PCA, then nested log2fc; fit and save all models: jeremy_chemeleon_logfc_tabicl_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T072034139020Z-92ad0df3/outputs/finetune-oof.parquet",
+      "run": "20260912T072034139020Z-92ad0df3",
+      "script": "finetune_external_multitask.py",
+      "purpose": "Fivefold2epoch smoke officialinterval pIC50 loss plusMSElogfc; strictinnerconfidence joins andfinitegradients"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T072056445264Z-e6b6cbcb/outputs/external-oof.parquet",
+      "run": "20260912T072056445264Z-e6b6cbcb",
+      "script": "tune_finetuned_readout.py",
+      "purpose": "Inner-only Rustuna LGBM tuning of outer-safe Jeremy FT600 and log2fc4"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T072212614673Z-7efe2633/outputs/external-oof.parquet",
+      "run": "20260912T072212614673Z-7efe2633",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation jeremy_ffn_hidden_logfc_lgbm_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T072250002510Z-eb7d9b85/outputs/external-oof.parquet",
+      "run": "20260912T072250002510Z-eb7d9b85",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation jeremy_ffn_scores_logfc_lgbm_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T072303592078Z-07f2749a/outputs/external-oof.parquet",
+      "run": "20260912T072303592078Z-07f2749a",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation jeremy_ffn_scores_logfc_tabpfn_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T072352902207Z-1b836eeb/outputs/external-oof.parquet",
+      "run": "20260912T072352902207Z-1b836eeb",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation jeremy_ffn_hidden_logfc_tabpfn_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T072355846776Z-2e678154/outputs/finetune-oof.parquet",
+      "run": "20260912T072355846776Z-2e678154",
+      "script": "finetune_external_multitask.py",
+      "purpose": "External600 -> pIC50/log2fc and configured auxiliary heads; outer compound exclusion: jeremy_medium_interval160_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T072938900055Z-5d9f4a03/outputs/external-oof.parquet",
+      "run": "20260912T072938900055Z-5d9f4a03",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: jeremy_medium_interval160_v1_ft_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T073002574503Z-8be77a87/outputs/verified-oof.parquet",
+      "run": "20260912T073002574503Z-8be77a87",
+      "script": "finalize_regression_audit.py",
+      "purpose": "Independent final fixed-five OOF reconstruction, official scoring and provenance package"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T073049029140Z-0c26dd06/outputs/verified-oof.parquet",
+      "run": "20260912T073049029140Z-0c26dd06",
+      "script": "finalize_regression_audit.py",
+      "purpose": "Independent final fixed-five OOF reconstruction, official scoring and provenance package"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T082146155304Z-f5b1cef2/outputs/finetune-oof.parquet",
+      "run": "20260912T082146155304Z-f5b1cef2",
+      "script": "focus_multitask.py",
+      "purpose": "External600 -> pIC50/log2fc and configured auxiliary heads; outer compound exclusion: focus_1a2_2d6_aux025_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T082204145061Z-26558f40/outputs/finetune-oof.parquet",
+      "run": "20260912T082204145061Z-26558f40",
+      "script": "focus_single_target.py",
+      "purpose": "Single-target interval adaptation control: CYP1A2"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T082257132357Z-bf656b4e/outputs/focus-oof.parquet",
+      "run": "20260912T082257132357Z-bf656b4e",
+      "script": "focus_readout_screen.py",
+      "purpose": "Focused1A2/2D6: grouped inner-selected RBF-SVR and combined external features LGBM"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T082308319207Z-5c3b657c/outputs/finetune-oof.parquet",
+      "run": "20260912T082308319207Z-5c3b657c",
+      "script": "focus_single_target.py",
+      "purpose": "Single-target interval adaptation control: CYP2D6"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T082508554737Z-6457cb39/outputs/external-oof.parquet",
+      "run": "20260912T082508554737Z-6457cb39",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: focus_1a2_2d6_aux025_v1_ft_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T082600563304Z-a5955327/outputs/external-oof.parquet",
+      "run": "20260912T082600563304Z-a5955327",
+      "script": "focus_single_readout.py",
+      "purpose": "focus_single_CYP1A2_lgbm_logfc_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T082603039086Z-4dcb4559/outputs/finetune-oof.parquet",
+      "run": "20260912T082603039086Z-4dcb4559",
+      "script": "focus_multitask.py",
+      "purpose": "External600 -> pIC50/log2fc and configured auxiliary heads; outer compound exclusion: focus_1a2_2d6_aux1_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T082618415537Z-79e86a45/outputs/external-oof.parquet",
+      "run": "20260912T082618415537Z-79e86a45",
+      "script": "focus_single_readout.py",
+      "purpose": "focus_single_CYP2D6_lgbm_logfc_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T082657021636Z-bedc430e/outputs/external-oof.parquet",
+      "run": "20260912T082657021636Z-bedc430e",
+      "script": "external_embedding_readout.py",
+      "purpose": "Fixed600emb pIC50LGBM paired control with old nested primary prediction"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T082847782759Z-b1e19c7b/outputs/external-oof.parquet",
+      "run": "20260912T082847782759Z-b1e19c7b",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: focus_1a2_2d6_aux1_v1_ft_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T083010595992Z-1e7001de/outputs/external-oof.parquet",
+      "run": "20260912T083010595992Z-1e7001de",
+      "script": "external_embedding_readout.py",
+      "purpose": "Fixed600emb pIC50LGBM paired control with new nested primary prediction"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T083032513346Z-568bc526/outputs/external-oof.parquet",
+      "run": "20260912T083032513346Z-568bc526",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation focus_primary_new_tabpfn_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T083209287272Z-e8487aeb/outputs/external-oof.parquet",
+      "run": "20260912T083209287272Z-e8487aeb",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation focus_scores_new_primary_tabpfn_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T083210446408Z-8d59a1f4/outputs/external-oof.parquet",
+      "run": "20260912T083210446408Z-8d59a1f4",
+      "script": "external_tabicl_readout.py",
+      "purpose": "Fixed parent CV TabICL: embedding-only training PCA, then nested log2fc; fit and save all models: focus_cheme_new_primary_tabicl_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T083330269990Z-9f0909f1/outputs/external-oof.parquet",
+      "run": "20260912T083330269990Z-9f0909f1",
+      "script": "external_embedding_readout.py",
+      "purpose": "Matched fixed-CV evaluation of external representation focus_primary_old_tabpfn_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T083421950497Z-036b9595/outputs/external-oof.parquet",
+      "run": "20260912T083421950497Z-036b9595",
+      "script": "focus_ft_primary.py",
+      "purpose": "Replace only primary features in selected FT600 LGBM component; fixed old parameters, exact exclusions and25/50blends"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T085800716037Z-db5687c1/outputs/jazzy-oof.parquet",
+      "run": "20260912T085800716037Z-db5687c1",
+      "script": "jazzy_readout.py",
+      "purpose": "Controlled DG Jazzy additions to frozen600 and new nested log2fc"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T090040918188Z-695fb6ee/outputs/jazzy-oof.parquet",
+      "run": "20260912T090040918188Z-695fb6ee",
+      "script": "jazzy_readout.py",
+      "purpose": "Controlled DG Jazzy additions to frozen600 and new nested log2fc"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T092823518869Z-8e57e8e7/outputs/finetune-oof.parquet",
+      "run": "20260912T092823518869Z-8e57e8e7",
+      "script": "finetune_external_multitask.py",
+      "purpose": "External600 -> pIC50/log2fc and configured auxiliary heads; outer compound exclusion: report_tdi_arm_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T092824781073Z-fef7788e/outputs/external-oof.parquet",
+      "run": "20260912T092824781073Z-fef7788e",
+      "script": "readout_external_finetune.py",
+      "purpose": "Readout of completed fold-specific FT embeddings: report_tdi_control_newaux_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T092909986920Z-c5d42521/outputs/geometry-oof.parquet",
+      "run": "20260912T092909986920Z-c5d42521",
+      "script": "report_geometry_readout.py",
+      "purpose": "Controlled ligand-only geometry additions to frozen600 plus nested log2fc"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T092945291275Z-4fe962be/outputs/finetune-oof.parquet",
+      "run": "20260912T092945291275Z-4fe962be",
+      "script": "finetune_external_multitask.py",
+      "purpose": "External600 -> pIC50/log2fc and configured auxiliary heads; outer compound exclusion: report_tdi_arm_delta_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T092952805447Z-28db8483/outputs/substrate-oof.parquet",
+      "run": "20260912T092952805447Z-28db8483",
+      "script": "report_metabolism_readout.py",
+      "purpose": "Controlled external substrate additions to frozen600 and new nested log2fc"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T093227551001Z-ed3e4d03/outputs/geometry-oof.parquet",
+      "run": "20260912T093227551001Z-ed3e4d03",
+      "script": "report_geometry_readout.py",
+      "purpose": "Controlled ligand-only geometry additions to frozen600 plus nested log2fc"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T093415808252Z-708fd656/outputs/external-oof.parquet",
+      "run": "20260912T093415808252Z-708fd656",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: report_tdi_arm_v1_ft_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T093601580048Z-ec2b7210/outputs/observation-oof.parquet",
+      "run": "20260912T093601580048Z-ec2b7210",
+      "script": "report_observation_model.py",
+      "purpose": "Matched independent vs Hill observation MLP; all heads held-out; inner epoch selection and refit"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T093615055236Z-2a25a497/outputs/external-oof.parquet",
+      "run": "20260912T093615055236Z-2a25a497",
+      "script": "readout_external_finetune.py",
+      "purpose": "Fold-specific adapted external600 readout: report_tdi_arm_delta_v1_ft_lgbm"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T093642111763Z-4ec73c9f/outputs/geometry-oof.parquet",
+      "run": "20260912T093642111763Z-4ec73c9f",
+      "script": "report_geometry_readout.py",
+      "purpose": "Matched simultaneous geometry substrate and Jazzy additions"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101108734911Z-7aa9cf27/outputs/d6-kernel-oof.parquet",
+      "run": "20260912T101108734911Z-7aa9cf27",
+      "script": "d6_kernel.py",
+      "purpose": "2D6 grouped inner-selected count-fingerprint kernel SVR and fixed global additions"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101132109311Z-afffa016/outputs/d6-oof.parquet",
+      "run": "20260912T101132109311Z-afffa016",
+      "script": "d6_interval_width.py",
+      "purpose": "D6 nested learned asymmetric interval width conditioned residual point decisions, no LB constants"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101132109311Z-afffa016/outputs/width-oof.parquet",
+      "run": "20260912T101132109311Z-afffa016",
+      "script": "d6_interval_width.py",
+      "purpose": "D6 nested learned asymmetric interval width conditioned residual point decisions, no LB constants"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101144735437Z-661a1844/outputs/finetune-oof.parquet",
+      "run": "20260912T101144735437Z-661a1844",
+      "script": "d6_specialist_fit.py",
+      "purpose": "Matched CYP2D6 specialist scope: d6_specialist_full_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101145931305Z-90443092/outputs/finetune-oof.parquet",
+      "run": "20260912T101145931305Z-90443092",
+      "script": "d6_specialist_fit.py",
+      "purpose": "Matched CYP2D6 specialist scope: d6_specialist_d6_aux_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101147108878Z-fc9a4ac0/outputs/finetune-oof.parquet",
+      "run": "20260912T101147108878Z-fc9a4ac0",
+      "script": "d6_specialist_fit.py",
+      "purpose": "Matched CYP2D6 specialist scope: d6_specialist_d6_direct_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101218879142Z-b1286445/outputs/finetune-oof.parquet",
+      "run": "20260912T101218879142Z-b1286445",
+      "script": "d6_specialist_fit.py",
+      "purpose": "Matched CYP2D6 specialist scope: d6_specialist_d6_direct_fresh_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101240365075Z-50533a8f/outputs/efficacy-oof.parquet",
+      "run": "20260912T101240365075Z-50533a8f",
+      "script": "d6_efficacy_readout.py",
+      "purpose": "Controlled external efficacy additions to frozen600 and new nested log2fc"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101246158987Z-b36fd27b/outputs/finetune-oof.parquet",
+      "run": "20260912T101246158987Z-b36fd27b",
+      "script": "d6_specialist_fit.py",
+      "purpose": "Matched CYP2D6 specialist scope: d6_specialist_d6_direct_fresh_scratchrates_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101356027800Z-320cdd53/outputs/d6-interval-kernel-oof.parquet",
+      "run": "20260912T101356027800Z-320cdd53",
+      "script": "d6_interval_kernel.py",
+      "purpose": "2D6 matched point versus credible-interval kernel regression with inner regularization selection"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101411999351Z-601b7cb4/outputs/external-oof.parquet",
+      "run": "20260912T101411999351Z-601b7cb4",
+      "script": "focus_single_readout.py",
+      "purpose": "Matched CYP2D6 specialist scope: d6_specialist_d6_direct_fresh_scratchrates_v1_readout"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101418694424Z-390ed3c8/outputs/external-oof.parquet",
+      "run": "20260912T101418694424Z-390ed3c8",
+      "script": "focus_single_readout.py",
+      "purpose": "Matched CYP2D6 specialist scope: d6_specialist_d6_direct_v1_readout"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101606024008Z-70d8bdfa/outputs/external-oof.parquet",
+      "run": "20260912T101606024008Z-70d8bdfa",
+      "script": "focus_single_readout.py",
+      "purpose": "Matched CYP2D6 specialist scope: d6_specialist_d6_direct_fresh_v1_readout"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101614614291Z-00de4aad/outputs/external-oof.parquet",
+      "run": "20260912T101614614291Z-00de4aad",
+      "script": "focus_single_readout.py",
+      "purpose": "Matched CYP2D6 specialist scope: d6_specialist_full_v1_readout"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101620627804Z-fa092585/outputs/external-oof.parquet",
+      "run": "20260912T101620627804Z-fa092585",
+      "script": "focus_single_readout.py",
+      "purpose": "Matched CYP2D6 specialist scope: d6_specialist_d6_aux_v1_readout"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101831048657Z-478527aa/outputs/joint-oof.parquet",
+      "run": "20260912T101831048657Z-478527aa",
+      "script": "d6_joint_external.py",
+      "purpose": "Joint D6 external efficacy graph training, matched no-public and publicweights .05/.30"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101944672747Z-d726bb6d/outputs/finetune-oof.parquet",
+      "run": "20260912T101944672747Z-d726bb6d",
+      "script": "d6_specialist_fit.py",
+      "purpose": "Matched CYP2D6 specialist scope: d6_specialist_d6_aux_seed17_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T101945866326Z-bf0ef563/outputs/finetune-oof.parquet",
+      "run": "20260912T101945866326Z-bf0ef563",
+      "script": "d6_specialist_fit.py",
+      "purpose": "Matched CYP2D6 specialist scope: d6_specialist_d6_aux_seed89_v1"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T102254368746Z-570cbe07/outputs/joint-oof.parquet",
+      "run": "20260912T102254368746Z-570cbe07",
+      "script": "d6_joint_external.py",
+      "purpose": "Joint D6 fullouter refits with inner-selected epoch budgets and no outer selection"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T102337278051Z-f89acb5a/outputs/external-oof.parquet",
+      "run": "20260912T102337278051Z-f89acb5a",
+      "script": "focus_single_readout.py",
+      "purpose": "Matched CYP2D6 specialist scope: d6_specialist_d6_aux_seed17_v1_readout"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T102341169498Z-491ace93/outputs/external-oof.parquet",
+      "run": "20260912T102341169498Z-491ace93",
+      "script": "focus_single_readout.py",
+      "purpose": "Matched CYP2D6 specialist scope: d6_specialist_d6_aux_seed89_v1_readout"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T102357053293Z-e9975cb3/outputs/d6_scope_mean_direct-oof.parquet",
+      "run": "20260912T102357053293Z-e9975cb3",
+      "script": "d6_specialist_seed_summary.py",
+      "purpose": "Prespecified3seed and4scope specialist means, membership audits and fixedglobalblends"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T102357053293Z-e9975cb3/outputs/d6_scope_mean_lgbm-oof.parquet",
+      "run": "20260912T102357053293Z-e9975cb3",
+      "script": "d6_specialist_seed_summary.py",
+      "purpose": "Prespecified3seed and4scope specialist means, membership audits and fixedglobalblends"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T102357053293Z-e9975cb3/outputs/d6_seed_mean_direct-oof.parquet",
+      "run": "20260912T102357053293Z-e9975cb3",
+      "script": "d6_specialist_seed_summary.py",
+      "purpose": "Prespecified3seed and4scope specialist means, membership audits and fixedglobalblends"
+    },
+    {
+      "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression/20260912T102357053293Z-e9975cb3/outputs/d6_seed_mean_lgbm-oof.parquet",
+      "run": "20260912T102357053293Z-e9975cb3",
+      "script": "d6_specialist_seed_summary.py",
+      "purpose": "Prespecified3seed and4scope specialist means, membership audits and fixedglobalblends"
+    }
+  ],
+  "policy": "Completed compatible OOF artifacts, including prior ensembles; no score prefilter; exact endpoint keys and labels; duplicate vectors collapsed; frozen prior pool plus completed 2D6-only round; exclude unconverged solver",
+  "crossfit_interpretation": "Weight cross-fit only; base models are not retrained in nested meta folds",
+  "explicit_excluded_runs": {
+    "20260912T101320386840Z-dcf09b87": "Unconverged alpha solver; superseded by320cdd53"
+  }
+}

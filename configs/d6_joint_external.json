@@ -1,0 +1,11 @@
+{
+  "public_weights": [
+    0,
+    0.05,
+    0.3
+  ],
+  "max_epochs": 80,
+  "patience": 10,
+  "public_samples_per_epoch": 4096,
+  "split_run": "20260911T104703655337Z-a3923255"
+}

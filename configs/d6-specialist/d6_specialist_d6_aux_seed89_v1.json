@@ -1,0 +1,35 @@
+{
+  "scope": "d6_aux",
+  "fresh_initialization": false,
+  "seed": 89,
+  "encoder_lr": 1e-05,
+  "head_lr": 0.0001,
+  "weight_decay": 0.0001,
+  "max_epochs": 160,
+  "patience": 20,
+  "batch_size": 64,
+  "inference_batch_size": 128,
+  "dropout": 0.1,
+  "inner_fraction": 0.1,
+  "inner_group_column": "group",
+  "device": "cuda",
+  "num_threads": 2,
+  "pIC50_weight": 2.0,
+  "log2fc_weight": 1.0,
+  "aux_kind_weights": {
+    "tdi": 0.5,
+    "emax": 0.25,
+    "logfc": 1.0
+  },
+  "selection_targets": [
+    "CYP2D6"
+  ],
+  "checkpoint_file": "best.pt",
+  "training_loss": "pic50_interval",
+  "auxiliary_loss": "mse",
+  "checkpoint_selection": "pic50_st_rae",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "expected_oof_rows": 1457,
+  "method": "d6_specialist_d6_aux_direct",
+  "inner_split_seed": 42
+}

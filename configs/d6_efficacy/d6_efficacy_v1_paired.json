@@ -1,0 +1,19 @@
+{
+  "split_run": "20260911T104703655337Z-a3923255",
+  "backend": "lgbm",
+  "control_tolerance": 0,
+  "arms": {
+    "control": [],
+    "efficacy_max": [
+      "efficacy_max_l1",
+      "efficacy_max_l2"
+    ],
+    "efficacy_all": [
+      "efficacy_max_l1",
+      "efficacy_max_l2",
+      "efficacy_high_dose",
+      "efficacy_mid_dose",
+      "efficacy_inactive"
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "split_run": "20260911T104703655337Z-a3923255",
+  "global_run": "20260912T094021204217Z-84c28266",
+  "predictions": {
+    "seed42_direct": "002-finetune-oof.parquet",
+    "seed42_lgbm": "003-external-oof.parquet",
+    "seed17_direct": "014-finetune-oof.parquet",
+    "seed17_lgbm": "015-external-oof.parquet",
+    "seed89_direct": "026-finetune-oof.parquet",
+    "seed89_lgbm": "027-external-oof.parquet",
+    "full_direct": "038-finetune-oof.parquet",
+    "full_lgbm": "039-external-oof.parquet",
+    "direct_direct": "040-finetune-oof.parquet",
+    "direct_lgbm": "041-external-oof.parquet",
+    "freshscratch_direct": "042-finetune-oof.parquet",
+    "freshscratch_lgbm": "043-external-oof.parquet"
+  },
+  "means": {
+    "d6_seed_mean_direct": [
+      "seed42_direct",
+      "seed17_direct",
+      "seed89_direct"
+    ],
+    "d6_scope_mean_direct": [
+      "full_direct",
+      "seed42_direct",
+      "direct_direct",
+      "freshscratch_direct"
+    ],
+    "d6_seed_mean_lgbm": [
+      "seed42_lgbm",
+      "seed17_lgbm",
+      "seed89_lgbm"
+    ],
+    "d6_scope_mean_lgbm": [
+      "full_lgbm",
+      "seed42_lgbm",
+      "direct_lgbm",
+      "freshscratch_lgbm"
+    ]
+  },
+  "memberships": {
+    "42": [
+      "004-membership.parquet",
+      "005-membership.parquet",
+      "006-membership.parquet",
+      "007-membership.parquet",
+      "008-membership.parquet"
+    ],
+    "17": [
+      "016-membership.parquet",
+      "017-membership.parquet",
+      "018-membership.parquet",
+      "019-membership.parquet",
+      "020-membership.parquet"
+    ],
+    "89": [
+      "028-membership.parquet",
+      "029-membership.parquet",
+      "030-membership.parquet",
+      "031-membership.parquet",
+      "032-membership.parquet"
+    ]
+  },
+  "histories": {
+    "42": [
+      "009-history.jsonl",
+      "010-history.jsonl",
+      "011-history.jsonl",
+      "012-history.jsonl",
+      "013-history.jsonl"
+    ],
+    "17": [
+      "021-history.jsonl",
+      "022-history.jsonl",
+      "023-history.jsonl",
+      "024-history.jsonl",
+      "025-history.jsonl"
+    ],
+    "89": [
+      "033-history.jsonl",
+      "034-history.jsonl",
+      "035-history.jsonl",
+      "036-history.jsonl",
+      "037-history.jsonl"
+    ]
+  },
+  "global_file": "000-global-oof.parquet",
+  "assignments": "001-parent-assignments.parquet"
+}

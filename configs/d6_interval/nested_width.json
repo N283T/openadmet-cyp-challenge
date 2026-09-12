@@ -1,0 +1,1 @@
+{"inner_splits":3,"base_trees":300,"calibration_trees":60,"calibration_min_leaf":80,"width_trees":150,"fixed_correction_weights":[0.5,1.0],"seed":42,"source_blog":"https://supercowpowers.github.io/workbench/blogs/cyp_challenge/","source_code":"https://raw.githubusercontent.com/SuperCowPowers/workbench/main/ml_pipelines/OpenADMET/cyp/scripts/cyp_recalibrate.py"}

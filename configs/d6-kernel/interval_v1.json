@@ -1,0 +1,12 @@
+{
+  "kernels": [
+    "fingerprint_mix",
+    "fp_emb_mix"
+  ],
+  "regularization": [
+    0.0003,
+    0.003,
+    0.03
+  ],
+  "split_run": "20260911T104703655337Z-a3923255"
+}

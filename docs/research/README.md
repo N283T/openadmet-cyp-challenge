@@ -6,6 +6,13 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **2D6-focused follow-up complete:** specialist scope/seed means, external efficacy
+  features, actual joint public graph learning, interval-width decisions and kernel
+  regressors. Fixed scope-mean addition gives D6 0.822232 versus 0.825436, but the
+  bootstrap interval includes zero; expanded Caruana is slightly worse (0.825952).
+  No submission. See [RL0049](2026-09.md#rl0049--cyp2d6-specialists-joint-external-responses-and-interval-decisions)
+  and [completed program](../analysis/2026-09-12-d6-focus-round.md).
+
 - **Report-derived round complete:** TDI auxiliaries, Hill-linked response heads,
   geometry/charge proxies, external substrate scores and joint descriptors.
   Expanded 126-candidate weight-crossfit macro is 0.582816 versus 0.583257.
