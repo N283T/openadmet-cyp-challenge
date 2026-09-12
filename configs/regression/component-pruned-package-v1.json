@@ -1,0 +1,59 @@
+{
+  "measurements": "000-000-measurements.parquet",
+  "aliases": "001-001-aliases.parquet",
+  "reference": "002-002-cyp-challenge-TEST-BLINDED.csv",
+  "components": [
+    {
+      "name": "nested_caruana",
+      "predictions": "003-test-predictions.parquet",
+      "membership": "004-membership.parquet"
+    },
+    {
+      "name": "jeremy_frozen_tabpfn",
+      "predictions": "005-test-predictions.parquet",
+      "membership": "006-membership.parquet"
+    },
+    {
+      "name": "jeremy_scores_log2fc_tabpfn",
+      "predictions": "007-test-predictions.parquet",
+      "membership": "008-membership.parquet"
+    },
+    {
+      "name": "jeremy_finetuned_log2fc_lgbm",
+      "predictions": "009-test-predictions.parquet",
+      "membership": "010-membership.parquet"
+    },
+    {
+      "name": "chemeleon_log2fc_tabicl",
+      "predictions": "011-test-predictions.parquet",
+      "membership": "012-membership.parquet"
+    }
+  ],
+  "endpoint_components": {
+    "CYP1A2_pIC50_direct_inhibition": [
+      "nested_caruana",
+      "jeremy_frozen_tabpfn",
+      "jeremy_scores_log2fc_tabpfn"
+    ],
+    "CYP2C9_pIC50_direct_inhibition": [
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm",
+      "chemeleon_log2fc_tabicl"
+    ],
+    "CYP2D6_pIC50_direct_inhibition": [
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm"
+    ],
+    "CYP3A4_pIC50_direct_inhibition": [
+      "nested_caruana",
+      "jeremy_frozen_tabpfn",
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm",
+      "chemeleon_log2fc_tabicl"
+    ]
+  },
+  "selection_run": "20260912T150626214420Z-d602ffed",
+  "selection_scores": "013-crossfit-scores.csv",
+  "selection_full_oof": "014-full-oof-best.csv",
+  "selection_rule": "Per endpoint, use the smallest component count whose paired conditional bootstrap interval versus the best cross-fitted count includes zero; choose that count's full-OOF best fixed subset for deployment."
+}

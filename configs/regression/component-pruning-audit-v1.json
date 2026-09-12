@@ -1,0 +1,58 @@
+{
+  "crossfit_scores": "000-crossfit-scores.csv",
+  "full_oof_best": "001-full-oof-best.csv",
+  "packaged_long": "002-test-predictions.parquet",
+  "packaged_wide": "003-regression.parquet",
+  "reference": "004-cyp-challenge-TEST-BLINDED.csv",
+  "components": [
+    {
+      "name": "nested_caruana",
+      "oof": "005-external-oof.parquet",
+      "test": "010-test-predictions.parquet"
+    },
+    {
+      "name": "jeremy_frozen_tabpfn",
+      "oof": "006-external-oof.parquet",
+      "test": "011-test-predictions.parquet"
+    },
+    {
+      "name": "jeremy_scores_log2fc_tabpfn",
+      "oof": "007-external-oof.parquet",
+      "test": "012-test-predictions.parquet"
+    },
+    {
+      "name": "jeremy_finetuned_log2fc_lgbm",
+      "oof": "008-external-oof.parquet",
+      "test": "013-test-predictions.parquet"
+    },
+    {
+      "name": "chemeleon_log2fc_tabicl",
+      "oof": "009-external-oof.parquet",
+      "test": "014-test-predictions.parquet"
+    }
+  ],
+  "scorer": "015-custom_scoring_functions.py",
+  "endpoint_components": {
+    "CYP1A2_pIC50_direct_inhibition": [
+      "nested_caruana",
+      "jeremy_frozen_tabpfn",
+      "jeremy_scores_log2fc_tabpfn"
+    ],
+    "CYP2C9_pIC50_direct_inhibition": [
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm",
+      "chemeleon_log2fc_tabicl"
+    ],
+    "CYP2D6_pIC50_direct_inhibition": [
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm"
+    ],
+    "CYP3A4_pIC50_direct_inhibition": [
+      "nested_caruana",
+      "jeremy_frozen_tabpfn",
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm",
+      "chemeleon_log2fc_tabicl"
+    ]
+  }
+}

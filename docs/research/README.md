@@ -6,6 +6,13 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Regression ensemble pruned target by target:** exhaustive five-component
+  subset comparison selects 3/3/2/5 components for 1A2/2C9/2D6/3A4. This reduces
+  20 endpoint-component uses to13; cross-fitted macro ST-RAE is0.595599 versus
+  0.596414 for the submitted five-way mean. A candidate is prepared and dry-run
+  validated; no upload. See [RL0059](2026-09.md#rl0059--target-wise-regression-component-pruning)
+  and [the pruning report](../analysis/2026-09-13-regression-component-pruning.md).
+
 - **Classification Caruana and compact candidates completed:** 18 candidates,
   nine selection procedures; 10 new triple-excluded auxiliary models and10
   historical inner readouts. D6 best tested Caruana MCC0.084431 <fixedmean0.096228;

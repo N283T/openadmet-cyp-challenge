@@ -1,0 +1,32 @@
+{
+  "components": [
+    {
+      "name": "nested_caruana",
+      "file": "000-external-oof.parquet",
+      "column": "prediction"
+    },
+    {
+      "name": "jeremy_frozen_tabpfn",
+      "file": "001-external-oof.parquet",
+      "column": "prediction"
+    },
+    {
+      "name": "jeremy_scores_log2fc_tabpfn",
+      "file": "002-external-oof.parquet",
+      "column": "prediction"
+    },
+    {
+      "name": "jeremy_finetuned_log2fc_lgbm",
+      "file": "003-external-oof.parquet",
+      "column": "prediction"
+    },
+    {
+      "name": "chemeleon_log2fc_tabicl",
+      "file": "004-external-oof.parquet",
+      "column": "prediction"
+    }
+  ],
+  "scorer": "005-custom_scoring_functions.py",
+  "bootstrap_replicates": 1000,
+  "bootstrap_seed": 20260913
+}
