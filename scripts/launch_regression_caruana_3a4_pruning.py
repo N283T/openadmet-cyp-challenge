@@ -1,10 +1,18 @@
-"""Record and run the CYP3A4 internal Caruana compression experiment."""
+"""Record and run an endpoint-specific internal Caruana compression experiment."""
 
+import argparse
 import json
 import subprocess
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
+parser = argparse.ArgumentParser()
+parser.add_argument("--endpoint", choices=["1a2", "3a4"], default="3a4")
+args = parser.parse_args()
+endpoint = {
+    "1a2": "CYP1A2_pIC50_direct_inhibition",
+    "3a4": "CYP3A4_pIC50_direct_inhibition",
+}[args.endpoint]
 inputs = []
 
 
@@ -17,7 +25,7 @@ def add(relative: str) -> str:
 original = "artifacts/runs/regression/20260912T054406239560Z-96fce32b"
 shared = "artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs"
 cfg = {
-    "endpoint": "CYP3A4_pIC50_direct_inhibition",
+    "endpoint": endpoint,
     "seed": 42,
     "max_models": 20,
     "bootstrap_replicates": 1000,
@@ -53,6 +61,12 @@ cfg["components"] = [
     }
     for name, run in component_runs
 ]
+if args.endpoint == "1a2":
+    cfg["ensemble_components"] = [
+        "nested_caruana",
+        "jeremy_frozen_tabpfn",
+        "jeremy_scores_log2fc_tabpfn",
+    ]
 folds = []
 for fold in range(5):
     directory = root / original / "outputs" / f"fold-{fold}" / cfg["endpoint"]
@@ -72,7 +86,8 @@ for fold in range(5):
     folds.append(record)
 cfg["folds"] = folds
 
-config = root / "configs/regression/caruana-3a4-internal-pruning-v2.json"
+version = "v2" if args.endpoint == "1a2" else "v3"
+config = root / f"configs/regression/caruana-{args.endpoint}-internal-pruning-{version}.json"
 config.parent.mkdir(parents=True, exist_ok=True)
 with config.open("x") as stream:
     json.dump(cfg, stream, indent=2)
@@ -86,8 +101,8 @@ command = [
     "regression",
     "--purpose",
     (
-        "Evaluate CYP3A4 Caruana internal compression using top-K weighted and equal "
-        "averages, including outer-fold simulation of the full-data weight recipe"
+        f"Evaluate {endpoint} Caruana internal compression using top-K weighted and "
+        "equal averages, including outer-fold simulation of the full-data weight recipe"
     ),
     "--config",
     str(config),

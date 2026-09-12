@@ -105,6 +105,7 @@ pl.DataFrame(stats).write_csv(out / "prediction-distributions.csv")
             "internal_model_count_before": cfg.get("internal_model_count_before"),
             "internal_model_count_after": cfg.get("internal_model_count_after"),
             "caruana_pruning_evidence_run": cfg.get("caruana_pruning_evidence_run"),
+            "cyp1a2_pruning_evidence_run": cfg.get("cyp1a2_pruning_evidence_run"),
             "calibration": False,
             "deployment": "All-data component predictions; target-wise equal means",
         },

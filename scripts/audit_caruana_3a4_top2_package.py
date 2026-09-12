@@ -82,7 +82,7 @@ verification = {
     "crossfit_endpoint_ST_RAE": cv_scores,
     "crossfit_macro_ST_RAE": float(np.mean(list(cv_scores.values()))),
     "caruana_internal_models_before": 77,
-    "caruana_internal_models_after": 59,
+    "caruana_internal_models_after": cfg["caruana_internal_models_after"],
 }
 (out / "verification.json").write_text(json.dumps(verification, indent=2))
 print(json.dumps(verification, indent=2), flush=True)

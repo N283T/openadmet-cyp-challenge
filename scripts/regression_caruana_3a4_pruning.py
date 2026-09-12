@@ -82,9 +82,17 @@ truth = ["y_true", "conf_low", "conf_high", "is_neighbor"]
 for frame in component_frames[1:]:
     for column in keys + truth:
         assert frame[column].equals(base[column]), column
-other_sum = sum(frame["prediction"].to_numpy() for frame in component_frames[1:])
+component_by_name = {
+    item["name"]: frame
+    for item, frame in zip(cfg["components"], component_frames, strict=True)
+}
+ensemble_names = cfg.get("ensemble_components", list(component_by_name))
+assert ensemble_names[0] == cfg["components"][0]["name"]
+assert set(ensemble_names).issubset(component_by_name)
+ensemble_frames = [component_by_name[name] for name in ensemble_names]
+other_sum = sum(frame["prediction"].to_numpy() for frame in ensemble_frames[1:])
 original_caruana = base["prediction"].to_numpy()
-original_five = (original_caruana + other_sum) / len(component_frames)
+original_ensemble = (original_caruana + other_sum) / len(ensemble_frames)
 
 fold_records = {int(item["fold"]): item for item in cfg["folds"]}
 assert set(fold_records) == set(range(5))
@@ -171,7 +179,7 @@ for weighting in ["weighted", "equal"]:
                 weight * saved_predictions[fold][name] for name, weight in chosen
             )
             fold_frame = base.filter(pl.col("fold") == fold)
-            fold_five = (prediction[mask] + other_sum[mask]) / len(component_frames)
+            fold_ensemble = (prediction[mask] + other_sum[mask]) / len(ensemble_frames)
             fold_score_rows.append(
                 {
                     "strategy": "nested_topk",
@@ -180,7 +188,7 @@ for weighting in ["weighted", "equal"]:
                     "fold": fold,
                     "retained_models": len(chosen),
                     "caruana_ST_RAE": score(fold_frame, prediction[mask]),
-                    "five_component_ST_RAE": score(fold_frame, fold_five),
+                    "ensemble_ST_RAE": score(fold_frame, fold_ensemble),
                 }
             )
         predictions.append(("nested_topk", weighting, k, prediction, fit_count))
@@ -262,8 +270,8 @@ for weighting in ["weighted", "equal"]:
                         "fold": fold,
                         "retained_models": count,
                         "caruana_ST_RAE": score(fold_frame, p),
-                        "five_component_ST_RAE": score(
-                            fold_frame, (p + other_sum[mask]) / len(component_frames)
+                        "ensemble_ST_RAE": score(
+                            fold_frame, (p + other_sum[mask]) / len(ensemble_frames)
                         ),
                     }
                 )
@@ -272,13 +280,15 @@ predictions = [item for item in predictions if len(item) == 5] + joined
 
 rng = np.random.default_rng(cfg["bootstrap_seed"])
 for strategy, weighting, k, prediction, fit_count in predictions:
-    five = (prediction + other_sum) / len(component_frames)
-    delta = score(base, five) - score(base, original_five)
+    ensemble = (prediction + other_sum) / len(ensemble_frames)
+    delta = score(base, ensemble) - score(base, original_ensemble)
     bootstrap = []
     for _ in range(cfg["bootstrap_replicates"]):
         sample = rng.integers(0, base.height, base.height)
         sampled = base[sample]
-        bootstrap.append(score(sampled, five[sample]) - score(sampled, original_five[sample]))
+        bootstrap.append(
+            score(sampled, ensemble[sample]) - score(sampled, original_ensemble[sample])
+        )
     score_rows.append(
         {
             "strategy": strategy,
@@ -286,8 +296,8 @@ for strategy, weighting, k, prediction, fit_count in predictions:
             "k": k,
             "fold_fit_count": fit_count,
             "caruana_ST_RAE": score(base, prediction),
-            "five_component_ST_RAE": score(base, five),
-            "delta_vs_original_five": delta,
+            "ensemble_ST_RAE": score(base, ensemble),
+            "delta_vs_original_ensemble": delta,
             "delta_ci_low": float(np.quantile(bootstrap, 0.025)),
             "delta_ci_high": float(np.quantile(bootstrap, 0.975)),
         }
@@ -304,7 +314,7 @@ for strategy, weighting, k, prediction, _fit_count in predictions:
         base.select(keys + truth).with_columns(
             pl.Series("caruana_prediction", prediction),
             pl.Series(
-                "five_component_prediction", (prediction + other_sum) / len(component_frames)
+                "ensemble_prediction", (prediction + other_sum) / len(ensemble_frames)
             ),
             pl.lit(strategy).alias("strategy"),
             pl.lit(weighting).alias("weighting"),
@@ -317,7 +327,8 @@ pl.concat(prediction_frames).write_parquet(out / "predictions.parquet")
         {
             "endpoint": endpoint,
             "original_caruana_ST_RAE": score(base, original_caruana),
-            "original_five_component_ST_RAE": score(base, original_five),
+            "ensemble_components": ensemble_names,
+            "original_ensemble_ST_RAE": score(base, original_ensemble),
             "original_fold_selected_models": [
                 len(selection_by_fold[fold]) for fold in range(5)
             ],

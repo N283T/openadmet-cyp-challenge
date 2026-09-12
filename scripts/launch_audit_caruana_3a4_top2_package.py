@@ -16,13 +16,13 @@ def add(relative: str) -> str:
 
 cfg = {
     "packaged_long": add(
-        "artifacts/runs/regression/20260912T153308257696Z-cea40f16/outputs/test-predictions.parquet"
+        "artifacts/runs/regression/20260912T163036856426Z-bf2e35dc/outputs/test-predictions.parquet"
     ),
     "packaged_wide": add(
-        "artifacts/runs/regression/20260912T153308257696Z-cea40f16/outputs/regression.parquet"
+        "artifacts/runs/regression/20260912T163036856426Z-bf2e35dc/outputs/regression.parquet"
     ),
     "previous_packaged_long": add(
-        "artifacts/runs/regression/20260912T151057434347Z-ba71e814/outputs/test-predictions.parquet"
+        "artifacts/runs/regression/20260912T151847989358Z-14af08d1/outputs/test-predictions.parquet"
     ),
     "reference": add(
         "artifacts/runs/regression/20260912T074740645032Z-45d23980/inputs/002-cyp-challenge-TEST-BLINDED.csv"
@@ -34,7 +34,7 @@ cfg = {
         "artifacts/runs/regression/20260912T152832952478Z-3e4de7c8/outputs/scores.csv"
     ),
     "top_level_scores": add(
-        "artifacts/runs/regression/20260912T150626214420Z-d602ffed/outputs/crossfit-scores.csv"
+        "artifacts/runs/regression/20260912T151747998390Z-f24622ac/outputs/crossfit-scores.csv"
     ),
     "endpoint": "CYP3A4_pIC50_direct_inhibition",
     "unchanged_endpoints": [
@@ -48,6 +48,7 @@ cfg = {
         "CYP2D6_pIC50_direct_inhibition": 2,
         "CYP3A4_pIC50_direct_inhibition": 5,
     },
+    "caruana_internal_models_after": 2,
 }
 component_runs = [
     ("caruana_3a4_top2", "20260912T153211990718Z-e29d7578"),
@@ -65,9 +66,9 @@ cfg["components"] = [
 ]
 cfg["endpoint_components"] = {
     "CYP1A2_pIC50_direct_inhibition": [
-        "caruana_3a4_top2",
         "jeremy_frozen_tabpfn",
         "jeremy_scores_log2fc_tabpfn",
+        "jeremy_finetuned_log2fc_lgbm",
     ],
     "CYP2C9_pIC50_direct_inhibition": [
         "jeremy_scores_log2fc_tabpfn",
@@ -81,7 +82,7 @@ cfg["endpoint_components"] = {
     "CYP3A4_pIC50_direct_inhibition": [name for name, _run in component_runs],
 }
 
-config = root / "configs/regression/component-pruned-caruana-3a4-top2-audit-v1.json"
+config = root / "configs/regression/component-pruned-caruana-3a4-top2-audit-v3.json"
 with config.open("x") as stream:
     json.dump(cfg, stream, indent=2)
 command = [

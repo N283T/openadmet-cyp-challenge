@@ -1,0 +1,119 @@
+{
+  "endpoint": "CYP1A2_pIC50_direct_inhibition",
+  "seed": 42,
+  "max_models": 20,
+  "bootstrap_replicates": 1000,
+  "bootstrap_seed": 20260913,
+  "deployment_distinct_models": 20,
+  "assignments": "000-parent-assignments.parquet",
+  "measurements": "001-measurements.parquet",
+  "compounds": "002-compounds.parquet",
+  "class_emb": "003-external-embeddings.parquet",
+  "mixed_emb": "004-external-embeddings.parquet",
+  "tree": "005-external-scores.parquet",
+  "scorer": "006-custom_scoring_functions.py",
+  "components": [
+    {
+      "name": "nested_caruana",
+      "file": "007-external-oof.parquet"
+    },
+    {
+      "name": "jeremy_frozen_tabpfn",
+      "file": "008-external-oof.parquet"
+    },
+    {
+      "name": "jeremy_scores_log2fc_tabpfn",
+      "file": "009-external-oof.parquet"
+    },
+    {
+      "name": "jeremy_finetuned_log2fc_lgbm",
+      "file": "010-external-oof.parquet"
+    },
+    {
+      "name": "chemeleon_log2fc_tabicl",
+      "file": "011-external-oof.parquet"
+    }
+  ],
+  "ensemble_components": [
+    "nested_caruana",
+    "jeremy_frozen_tabpfn",
+    "jeremy_scores_log2fc_tabpfn"
+  ],
+  "folds": [
+    {
+      "fold": 0,
+      "selection": "012-selected.json",
+      "nested": "013-nested-log2fc.parquet",
+      "models": {
+        "tree_regression_l1_None": "014-tree_regression_l1_None.txt",
+        "class_regression_l1_None": "015-class_regression_l1_None.txt",
+        "mixed_logfc_regression_l1_None": "016-mixed_logfc_regression_l1_None.txt",
+        "morgan_quantile_0.65": "017-morgan_quantile_0.65.txt",
+        "class_logfc_regression_l1_None": "018-class_logfc_regression_l1_None.txt",
+        "class_logfc_quantile_0.65": "019-class_logfc_quantile_0.65.txt",
+        "morgan_regression_l1_None": "020-morgan_regression_l1_None.txt",
+        "logfc_quantile_0.35": "021-logfc_quantile_0.35.txt",
+        "mixed_quantile_0.65": "022-mixed_quantile_0.65.txt",
+        "mixed_logfc_quantile_0.35": "023-mixed_logfc_quantile_0.35.txt"
+      }
+    },
+    {
+      "fold": 1,
+      "selection": "024-selected.json",
+      "nested": "025-nested-log2fc.parquet",
+      "models": {
+        "tree_quantile_0.65": "026-tree_quantile_0.65.txt",
+        "class_regression_l1_None": "027-class_regression_l1_None.txt",
+        "tree_logfc_quantile_0.65": "028-tree_logfc_quantile_0.65.txt",
+        "tree_regression_l1_None": "029-tree_regression_l1_None.txt",
+        "mixed_logfc_regression_l1_None": "030-mixed_logfc_regression_l1_None.txt",
+        "mixed_logfc_quantile_0.65": "031-mixed_logfc_quantile_0.65.txt"
+      }
+    },
+    {
+      "fold": 2,
+      "selection": "032-selected.json",
+      "nested": "033-nested-log2fc.parquet",
+      "models": {
+        "mixed_logfc_regression_l1_None": "034-mixed_logfc_regression_l1_None.txt",
+        "logfc_regression_l1_None": "035-logfc_regression_l1_None.txt",
+        "tree_logfc_quantile_0.35": "036-tree_logfc_quantile_0.35.txt",
+        "mixed_quantile_0.65": "037-mixed_quantile_0.65.txt",
+        "mixed_logfc_quantile_0.35": "038-mixed_logfc_quantile_0.35.txt",
+        "tree_quantile_0.65": "039-tree_quantile_0.65.txt",
+        "class_quantile_0.65": "040-class_quantile_0.65.txt"
+      }
+    },
+    {
+      "fold": 3,
+      "selection": "041-selected.json",
+      "nested": "042-nested-log2fc.parquet",
+      "models": {
+        "tree_logfc_regression_l1_None": "043-tree_logfc_regression_l1_None.txt",
+        "class_regression_l1_None": "044-class_regression_l1_None.txt",
+        "tree_logfc_quantile_0.35": "045-tree_logfc_quantile_0.35.txt",
+        "class_quantile_0.65": "046-class_quantile_0.65.txt",
+        "class_logfc_regression_l1_None": "047-class_logfc_regression_l1_None.txt",
+        "tree_quantile_0.35": "048-tree_quantile_0.35.txt",
+        "logfc_quantile_0.65": "049-logfc_quantile_0.65.txt",
+        "mixed_logfc_quantile_0.35": "050-mixed_logfc_quantile_0.35.txt"
+      }
+    },
+    {
+      "fold": 4,
+      "selection": "051-selected.json",
+      "nested": "052-nested-log2fc.parquet",
+      "models": {
+        "mixed_logfc_regression_l1_None": "053-mixed_logfc_regression_l1_None.txt",
+        "tree_quantile_0.35": "054-tree_quantile_0.35.txt",
+        "tree_quantile_0.65": "055-tree_quantile_0.65.txt",
+        "morgan_quantile_0.65": "056-morgan_quantile_0.65.txt",
+        "class_logfc_quantile_0.65": "057-class_logfc_quantile_0.65.txt",
+        "class_logfc_quantile_0.35": "058-class_logfc_quantile_0.35.txt",
+        "mixed_logfc_quantile_0.65": "059-mixed_logfc_quantile_0.65.txt",
+        "logfc_quantile_0.65": "060-logfc_quantile_0.65.txt",
+        "mixed_logfc_quantile_0.35": "061-mixed_logfc_quantile_0.35.txt"
+      }
+    }
+  ]
+}

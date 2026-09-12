@@ -138,4 +138,41 @@ equality for the other three endpoints and reports cross-fitted endpoint scores
 `20260912T153532099223Z-96ddb745` and prepared submission
 `20260912T153535785660Z-e08fc07c` pass the official dry run. Nothing was
 uploaded. This internally compressed candidate supersedes both earlier pruning
-candidates.
+candidates, but still retains 20 CYP1A2 Caruana models and is therefore an
+intermediate result.
+
+## CYP1A2 internal compression and final operational choice
+
+The retained CYP1A2 Caruana improved the honest top-level component-count
+procedure by only 0.000847 versus removing it. Runs
+`20260912T162358570573Z-55e7c2fd` and
+`20260912T162640128007Z-5d378ca2` therefore repeat the internal top-K comparison
+for CYP1A2. The first run evaluates the submitted five-component mean. The
+second, decision-relevant run evaluates the deployed fixed three-component mean:
+Caruana, Jeremy frozen TabPFN and Jeremy-score/log2fc TabPFN.
+
+| CYP1A2 Caruana recipe | Models | Three-component ST-RAE | Change vs original 20 |
+|---|---:|---:|---:|
+| Original | 20 | 0.683694 | — |
+| Cross-fold top 2, weighted | 2 | 0.692163 | +0.008469 |
+| Cross-fold top 4, weighted | 4 | 0.688930 | +0.005236 |
+| Cross-fold top 8, weighted | 8 | 0.684808 | +0.001113 |
+| Cross-fold top 10, weighted | 10 | 0.683778 | +0.000084 |
+| Cross-fold top 17, weighted | 17 | 0.681869 | -0.001825 |
+
+Unlike CYP3A4, CYP1A2 cannot be compressed to two or four models without a clear
+point-estimate loss. It needs roughly eight to ten models to recover the original
+fixed-ensemble score. That cost is not justified by the 0.000847 advantage in
+the honest top-level selection comparison, so the operational choice removes
+CYP1A2 Caruana entirely.
+
+Final package `20260912T163036856426Z-bf2e35dc` uses no Caruana for CYP1A2,
+CYP2C9 or CYP2D6 and only the two retained models for CYP3A4. Independent audit
+`20260912T163050754512Z-ba9c19df` verifies the three non-CYP3A4 predictions are
+exactly unchanged from the no-Caruana package, reconstructs all test means and
+reports cross-fitted endpoint scores 0.687942/0.463103/0.828397/0.398316, macro
+**0.594440**. This is 0.000212 above the intermediate 22-Caruana-model candidate
+and uses only two Caruana models rather than 22. Candidate
+`20260912T163058242643Z-4f82b69b` and prepared submission
+`20260912T163102549701Z-9545d109` pass dry run. Nothing was uploaded. This is the
+preferred simplified regression candidate.

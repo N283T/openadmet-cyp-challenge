@@ -1,0 +1,60 @@
+{
+  "measurements": "000-000-measurements.parquet",
+  "aliases": "001-001-aliases.parquet",
+  "reference": "002-002-cyp-challenge-TEST-BLINDED.csv",
+  "components": [
+    {
+      "name": "caruana_3a4_top2",
+      "predictions": "003-test-predictions.parquet",
+      "membership": "004-membership.parquet"
+    },
+    {
+      "name": "jeremy_frozen_tabpfn",
+      "predictions": "005-test-predictions.parquet",
+      "membership": "006-membership.parquet"
+    },
+    {
+      "name": "jeremy_scores_log2fc_tabpfn",
+      "predictions": "007-test-predictions.parquet",
+      "membership": "008-membership.parquet"
+    },
+    {
+      "name": "jeremy_finetuned_log2fc_lgbm",
+      "predictions": "009-test-predictions.parquet",
+      "membership": "010-membership.parquet"
+    },
+    {
+      "name": "chemeleon_log2fc_tabicl",
+      "predictions": "011-test-predictions.parquet",
+      "membership": "012-membership.parquet"
+    }
+  ],
+  "endpoint_components": {
+    "CYP1A2_pIC50_direct_inhibition": [
+      "jeremy_frozen_tabpfn",
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm"
+    ],
+    "CYP2C9_pIC50_direct_inhibition": [
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm",
+      "chemeleon_log2fc_tabicl"
+    ],
+    "CYP2D6_pIC50_direct_inhibition": [
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm"
+    ],
+    "CYP3A4_pIC50_direct_inhibition": [
+      "caruana_3a4_top2",
+      "jeremy_frozen_tabpfn",
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm",
+      "chemeleon_log2fc_tabicl"
+    ]
+  },
+  "selection_run": "20260912T150626214420Z-d602ffed",
+  "selection_rule": "Remove Caruana from CYP1A2, CYP2C9 and CYP2D6; within the CYP3A4 Caruana component use the two highest aggregate-weight full-data models, renormalized to sum to one.",
+  "internal_model_count_before": 77,
+  "internal_model_count_after": 2,
+  "caruana_pruning_evidence_run": "20260912T152832952478Z-3e4de7c8"
+}
