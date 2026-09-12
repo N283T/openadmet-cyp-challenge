@@ -1,0 +1,294 @@
+{
+  "global_run": "20260912T094021204217Z-84c28266",
+  "records": [
+    {
+      "run": "20260911T105206572152Z-e998787e",
+      "files": {
+        "manifest": "002-manifest.json",
+        "config": "003-config.json",
+        "result": "004-result.json"
+      }
+    },
+    {
+      "run": "20260911T105552018025Z-562f006a",
+      "files": {
+        "manifest": "005-manifest.json",
+        "config": "006-config.json",
+        "result": "007-result.json"
+      }
+    },
+    {
+      "run": "20260911T105818167518Z-a178d271",
+      "files": {
+        "manifest": "008-manifest.json",
+        "config": "009-config.json",
+        "result": "010-result.json"
+      }
+    },
+    {
+      "run": "20260911T105928961261Z-66728975",
+      "files": {
+        "manifest": "011-manifest.json",
+        "config": "012-config.json",
+        "result": "013-result.json"
+      }
+    },
+    {
+      "run": "20260911T110021961231Z-8ec1d5bb",
+      "files": {
+        "manifest": "014-manifest.json",
+        "config": "015-config.json",
+        "result": "016-result.json"
+      }
+    },
+    {
+      "run": "20260911T110118749415Z-5167f1a0",
+      "files": {
+        "manifest": "017-manifest.json",
+        "config": "018-config.json",
+        "result": "019-result.json"
+      }
+    },
+    {
+      "run": "20260911T111952347762Z-e9f6c457",
+      "files": {
+        "manifest": "020-manifest.json",
+        "config": "021-config.json",
+        "result": "022-result.json"
+      }
+    },
+    {
+      "run": "20260912T051258883571Z-a2ab5b73",
+      "files": {
+        "manifest": "023-manifest.json",
+        "config": "024-config.json",
+        "result": "025-result.json"
+      }
+    },
+    {
+      "run": "20260912T052601654102Z-6844f96d",
+      "files": {
+        "manifest": "026-manifest.json",
+        "config": "027-config.json",
+        "result": "028-result.json"
+      }
+    },
+    {
+      "run": "20260912T053152207404Z-f4f0dfec",
+      "files": {
+        "manifest": "029-manifest.json",
+        "config": "030-config.json",
+        "result": "031-result.json"
+      }
+    },
+    {
+      "run": "20260912T054054898981Z-8bde71ca",
+      "files": {
+        "manifest": "032-manifest.json",
+        "config": "033-config.json",
+        "result": "034-result.json"
+      }
+    },
+    {
+      "run": "20260912T054406239560Z-96fce32b",
+      "files": {
+        "manifest": "035-manifest.json",
+        "config": "036-config.json",
+        "result": "037-result.json"
+      }
+    },
+    {
+      "run": "20260912T060059705105Z-2f0fbfbd",
+      "files": {
+        "manifest": "038-manifest.json",
+        "config": "039-config.json",
+        "result": "040-result.json"
+      }
+    },
+    {
+      "run": "20260912T060513219458Z-97152a22",
+      "files": {
+        "manifest": "041-manifest.json",
+        "config": "042-config.json",
+        "result": "043-result.json"
+      }
+    },
+    {
+      "run": "20260912T061514330688Z-3ff745e1",
+      "files": {
+        "manifest": "044-manifest.json",
+        "config": "045-config.json",
+        "result": "046-result.json"
+      }
+    },
+    {
+      "run": "20260912T061629455493Z-730c8bea",
+      "files": {
+        "manifest": "047-manifest.json",
+        "config": "048-config.json",
+        "result": "049-result.json"
+      }
+    },
+    {
+      "run": "20260912T062241730532Z-f11cd0a6",
+      "files": {
+        "manifest": "050-manifest.json",
+        "config": "051-config.json",
+        "result": "052-result.json"
+      }
+    },
+    {
+      "run": "20260912T062329198020Z-60f59445",
+      "files": {
+        "manifest": "053-manifest.json",
+        "config": "054-config.json",
+        "result": "055-result.json"
+      }
+    },
+    {
+      "run": "20260912T062500451470Z-ad87df0a",
+      "files": {
+        "manifest": "056-manifest.json",
+        "config": "057-config.json",
+        "result": "058-result.json"
+      }
+    },
+    {
+      "run": "20260912T071619253798Z-73a6fb7e",
+      "files": {
+        "manifest": "059-manifest.json",
+        "config": "060-config.json",
+        "result": "061-result.json"
+      }
+    },
+    {
+      "run": "20260912T072034139020Z-92ad0df3",
+      "files": {
+        "manifest": "062-manifest.json",
+        "config": "063-config.json",
+        "result": "064-result.json"
+      }
+    },
+    {
+      "run": "20260912T072056445264Z-e6b6cbcb",
+      "files": {
+        "manifest": "065-manifest.json",
+        "config": "066-config.json",
+        "result": "067-result.json"
+      }
+    },
+    {
+      "run": "20260912T072250002510Z-eb7d9b85",
+      "files": {
+        "manifest": "068-manifest.json",
+        "config": "069-config.json",
+        "result": "070-result.json"
+      }
+    },
+    {
+      "run": "20260912T072303592078Z-07f2749a",
+      "files": {
+        "manifest": "071-manifest.json",
+        "config": "072-config.json",
+        "result": "073-result.json"
+      }
+    },
+    {
+      "run": "20260912T072355846776Z-2e678154",
+      "files": {
+        "manifest": "074-manifest.json",
+        "config": "075-config.json",
+        "result": "076-result.json"
+      }
+    },
+    {
+      "run": "20260912T073002574503Z-8be77a87",
+      "files": {
+        "manifest": "077-manifest.json",
+        "config": "078-config.json",
+        "result": "079-result.json"
+      }
+    },
+    {
+      "run": "20260912T073049029140Z-0c26dd06",
+      "files": {
+        "manifest": "080-manifest.json",
+        "config": "081-config.json",
+        "result": "082-result.json"
+      }
+    },
+    {
+      "run": "20260912T083209287272Z-e8487aeb",
+      "files": {
+        "manifest": "083-manifest.json",
+        "config": "084-config.json",
+        "result": "085-result.json"
+      }
+    },
+    {
+      "run": "20260912T083210446408Z-8d59a1f4",
+      "files": {
+        "manifest": "086-manifest.json",
+        "config": "087-config.json",
+        "result": "088-result.json"
+      }
+    },
+    {
+      "run": "20260912T083421950497Z-036b9595",
+      "files": {
+        "manifest": "089-manifest.json",
+        "config": "090-config.json",
+        "result": "091-result.json"
+      }
+    },
+    {
+      "run": "20260912T090040918188Z-695fb6ee",
+      "files": {
+        "manifest": "092-manifest.json",
+        "config": "093-config.json",
+        "result": "094-result.json"
+      }
+    },
+    {
+      "run": "20260912T092824781073Z-fef7788e",
+      "files": {
+        "manifest": "095-manifest.json",
+        "config": "096-config.json",
+        "result": "097-result.json"
+      }
+    },
+    {
+      "run": "20260912T092909986920Z-c5d42521",
+      "files": {
+        "manifest": "098-manifest.json",
+        "config": "099-config.json",
+        "result": "100-result.json"
+      }
+    },
+    {
+      "run": "20260912T093227551001Z-ed3e4d03",
+      "files": {
+        "manifest": "101-manifest.json",
+        "config": "102-config.json",
+        "result": "103-result.json"
+      }
+    },
+    {
+      "run": "20260912T093601580048Z-ec2b7210",
+      "files": {
+        "manifest": "104-manifest.json",
+        "config": "105-config.json",
+        "result": "106-result.json"
+      }
+    },
+    {
+      "run": "20260912T093642111763Z-4ec73c9f",
+      "files": {
+        "manifest": "107-manifest.json",
+        "config": "108-config.json",
+        "result": "109-result.json"
+      }
+    }
+  ],
+  "policy": "Read-only metadata inventory; no fit or inference; global126 full-OOF weight support for1A2/2C9/3A4"
+}
