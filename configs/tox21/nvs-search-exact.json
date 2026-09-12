@@ -1,0 +1,1 @@
+{"downloads":[{"url":"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pcassay&term=NVS_ADME_hCYP1A2&retmode=json&retmax=100","filename":"nvs-assay-search-exact.json"},{"url":"https://clowder.edap-cluster.com/api/files/68af6bd3e4b02565fc7c3aa8","filename":"epa-annotation-metadata.json"}]}

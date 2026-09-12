@@ -1,0 +1,9 @@
+{
+  "method": "pubchem600_pca200_tabpfn",
+  "backend": "tabpfn",
+  "feature_file": "pubchem600-embeddings.parquet",
+  "feature_prefix": "emb_",
+  "pca": 200,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "weights": "003-tabpfn-v2.6-regressor-v2.6_default.ckpt"
+}

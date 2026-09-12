@@ -1,0 +1,10 @@
+{
+  "base_run": "20260912T051513413487Z-ac9df6b5",
+  "nvs_run": "20260912T052128343558Z-128af2eb",
+  "version": "four-source-v1",
+  "nvs_version": "EPA invitrodb v3.3 (2020), DSSTox structure snapshot 2018-10-17",
+  "binary_policy": "Representative gsid_rep=1 hitc=0/1 observations, conflicts masked across compound/assay",
+  "potency_policy": "Representative hitc=1, finite unflagged uM measurements; pAC50=6-modl_ga where modl_ga=log10(uM)",
+  "assay_policy": "Keep NVS original aeid and assay name separate from all prior source heads",
+  "identity_policy": "Exact standardized compounds deduplicated; all challenge connectivity excluded"
+}

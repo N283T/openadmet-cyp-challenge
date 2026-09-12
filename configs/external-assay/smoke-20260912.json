@@ -1,0 +1,1 @@
+{"mode":"mixed","max_epochs":1,"patience":1,"steps_per_epoch":2,"batch_size":128,"device":"cuda","seed":42,"min_train_observations":5,"dataset_run":"20260912T051342149959Z-2b7ef7dd","purpose":"Smoke assay-aware mixed trainer; finite gradients and keyed export, not model comparison"}

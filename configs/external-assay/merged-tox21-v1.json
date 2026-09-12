@@ -1,0 +1,6 @@
+{
+  "base_run": "20260912T051342149959Z-2b7ef7dd",
+  "tox21_run": "20260912T051221903183Z-6113ed82",
+  "binary_conflicts": "Mask all contradictory or fractional percompound/assay binary labels, preserve original values",
+  "assays": "Preserve source and original assay identifiers; no cross-assay potency averaging"
+}

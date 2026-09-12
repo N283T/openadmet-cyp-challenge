@@ -1,0 +1,1 @@
+{"preparation_only":true,"device":"cpu","seed":42,"split_run":"20260911T104703655337Z-a3923255","checkpoint_file":"best.pt","purpose":"Validate full outer all-head exclusion and grouped inner folds without training"}

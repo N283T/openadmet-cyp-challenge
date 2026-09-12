@@ -1,0 +1,24 @@
+{
+  "version": "assay-aware-v3",
+  "structure_mapping": "structure-provenance",
+  "chembl_source_run": "20260911T052136820510Z-d4df2307",
+  "pubchem_source_run": "20260911T052745709989Z-8792f422",
+  "standardization_workers": 6,
+  "chembl_min_confidence": 8,
+  "chembl_types": [
+    "IC50",
+    "AC50",
+    "Ki",
+    "Potency"
+  ],
+  "chembl_exclude_sources": [
+    7
+  ],
+  "tdi_regex": "(?i)time[- ]dependent|mechanism[- ]based|\\bTDI\\b|irreversible",
+  "classification_threshold_p": 5.0,
+  "pubchem_binary_policy": "Original Active/Inactive only; Inconclusive missing",
+  "pubchem_continuous_policy": "-Fit_LogAC50; finite fitted values including inconclusive retained with hitcall/QC; raw Max_Response separately retained",
+  "chembl_policy": "Human or unspecified assay organism, human single-protein target confidence >=8 A/B/F; quality flags excluded; all PubChem imports excluded; explicit TDI excluded, preincubation flagged but retained",
+  "identity_policy": "Reuse ChEMBL-parent pipeline mappings, standardize newly admitted structures; exclude all challenge connectivity, overlaps retained separately",
+  "replicate_policy": "One row per original source observation; no cross-assay aggregation"
+}
