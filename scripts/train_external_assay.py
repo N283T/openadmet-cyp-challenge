@@ -18,6 +18,7 @@ import torch.nn.functional as F
 from chemprop import featurizers
 from chemprop import nn as cnn
 from chemprop.data import BatchMolGraph
+from external_assay_scaling import GROUP_COLUMNS, shrunk_assay_std, training_variance_pools
 from external_loss_utils import interval_mse, ordered_pairs, ranking_loss
 from rdkit import Chem
 
@@ -71,8 +72,13 @@ def main():
         continuous_weight=1.0,
         ranking_weight=1.0,
         classification_weight=1.0,
+        scaling_policy="assay",
+        scaling_pseudocount=20.0,
+        scaling_minimum_std=0.3,
     )
     cfg.update(json.loads(Path(os.environ["CYP_CONFIG_PATH"]).read_text()))
+    if cfg["scaling_policy"] not in {"assay", "pooled_shrinkage"}:
+        raise ValueError("Unknown scaling_policy")
     modes = {
         "continuous": ["continuous"],
         "ranking": ["ranking"],
@@ -99,6 +105,11 @@ def main():
             .otherwise(None)
             .alias("binary_label"),
             pl.col("source").first(),
+            *[
+                pl.col(name).first()
+                for name in ["isoform", "measurement_type"]
+                if name in observations.columns
+            ],
             pl.when((pl.col("lower_bound") == pl.col("upper_bound")).fill_null(False).all())
             .then(pl.col("lower_bound").median())
             .otherwise(pl.col("lower_bound").max())
@@ -125,6 +136,28 @@ def main():
     compounds.select("compound_id", "connectivity").with_columns(
         pl.Series("role", np.where(is_val, "validation", "training"))
     ).write_parquet(out / "membership.parquet")
+    scaling_pools = {}
+    if cfg["scaling_policy"] == "pooled_shrinkage":
+        for column in GROUP_COLUMNS:
+            if column not in observations.columns:
+                raise ValueError(f"pooled_shrinkage requires {column}")
+        if (
+            observations.group_by("assay_id")
+            .agg(pl.struct(GROUP_COLUMNS).n_unique().alias("metadata_variants"))
+            .filter(pl.col("metadata_variants") != 1)
+            .height
+        ):
+            raise ValueError("Assay metadata must map to one source/CYP/measurement group")
+        pool_table = training_variance_pools(
+            observations,
+            compounds["compound_id"].filter(pl.Series(~is_val)).to_list(),
+            cfg["scaling_minimum_std"],
+        )
+        pool_table.write_parquet(out / "training-variance-pools.parquet")
+        scaling_pools = {
+            tuple(row[column] for column in GROUP_COLUMNS): row
+            for row in pool_table.iter_rows(named=True)
+        }
     tasks, task_meta = [], []
     assays = sorted(observations["assay_id"].unique())
     for assay_index, assay in enumerate(assays):
@@ -150,6 +183,27 @@ def main():
         mean = float(np.mean(lower[train_exact])) if train_exact.any() else 0.0
         std = float(np.std(lower[train_exact])) if train_exact.sum() > 1 else 1.0
         std = max(std, 0.1)
+        scaling_meta = dict(scaling_policy=cfg["scaling_policy"])
+        if cfg["scaling_policy"] == "pooled_shrinkage":
+            group = tuple(rows[column][0] for column in GROUP_COLUMNS)
+            pool = scaling_pools.get(group)
+            # Ranking/binary-only groups can have no exact training observations.
+            pool_variance = pool["pool_variance"] if pool else 1.0
+            std = shrunk_assay_std(
+                lower[train_exact],
+                pool_variance,
+                cfg["scaling_pseudocount"],
+                cfg["scaling_minimum_std"],
+            )
+            scaling_meta.update(
+                scaling_group=dict(zip(GROUP_COLUMNS, group, strict=True)),
+                scaling_pool_variance=pool_variance,
+                scaling_pool_exact_n=pool["pool_exact_n"] if pool else 0,
+                scaling_pool_fallback=pool is None,
+                scaling_pseudocount=cfg["scaling_pseudocount"],
+                scaling_minimum_std=cfg["scaling_minimum_std"],
+                scaling_train_exact_n=int(train_exact.sum()),
+            )
         known = (np.isfinite(lower) | np.isfinite(upper)) & (lower <= upper)
         assert not np.any(~np.isnan(lower) & ~np.isnan(upper) & (lower > upper))
         for objective in objectives:
@@ -202,6 +256,7 @@ def main():
                     validation_n=len(va),
                     train_pairs=None if tp is None else len(tp),
                     validation_pairs=None if vp is None else len(vp),
+                    **scaling_meta,
                 )
             )
     if not tasks:

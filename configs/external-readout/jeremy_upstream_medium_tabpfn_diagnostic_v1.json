@@ -1,0 +1,10 @@
+{
+  "method": "jeremy_upstream_medium_tabpfn_diagnostic_v1",
+  "backend": "tabpfn",
+  "feature_file": "external-embeddings.parquet",
+  "feature_prefix": "emb_",
+  "pca": 0,
+  "mask_observed_validation": false,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "weights": "003-tabpfn-v2.6-regressor-v2.6_default.ckpt"
+}

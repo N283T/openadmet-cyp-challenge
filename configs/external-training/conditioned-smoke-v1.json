@@ -1,0 +1,11 @@
+{
+  "mode": "mixed",
+  "max_epochs": 1,
+  "steps_per_epoch": 3,
+  "min_train_observations": 5,
+  "conditioning_group": "cyp_measurement",
+  "conditioning_variant": "affine",
+  "scaling_policy": "pooled_shrinkage",
+  "dataset_run": "20260912T051513413487Z-ac9df6b5",
+  "purpose": "Check shared biological heads and learned assay calibration before full trials"
+}

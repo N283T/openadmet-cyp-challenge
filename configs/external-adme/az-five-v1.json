@@ -1,0 +1,13 @@
+{
+  "dbname": "chembl_36",
+  "host": "/tmp",
+  "port": 5433,
+  "source_id": 27,
+  "source_name": "chembl36_az_adme",
+  "assay_ids": ["CHEMBL3301363", "CHEMBL3301364", "CHEMBL3301365", "CHEMBL3301370", "CHEMBL3301372"],
+  "identity_policy": "Project ChEMBL-parent standardization; exclude all challenge connectivity; preserve overlaps separately",
+  "null_relation_policy": "Interpret null relation as uncensored only for explicitly allowlisted source27 deposited assays; preserve original relation and measurement range descriptions",
+  "transform_policy": "LogD unchanged; solubility log10(nM)-9; PPB log10(100-percent_bound) reverses censor direction; clearance log10 original declared unit value; no inhibition labels or binary thresholds inferred",
+  "workers": 2,
+  "merge_base_run": "20260912T051513413487Z-ac9df6b5"
+}

@@ -1,6 +1,6 @@
-"""Fold-safe external600 -> four pIC50 plus four actual log2FC challenge heads.
+"""Fold-safe external600 -> pIC50, actual log2FC and optional auxiliary heads.
 
-Outer nonanchor compounds lose ALL eight labels during fitting and checkpoint
+Outer nonanchor compounds lose ALL head labels during fitting and checkpoint
 selection. Anchors stay in training. Inner validation separates supplied molecular
 groups; groups containing anchors cannot enter inner validation.
 """
@@ -26,17 +26,39 @@ def input_path(root, name):
     return paths[0]
 
 
+def encoder_architecture(checkpoint):
+    source = checkpoint.get("config", {})
+    medium = source.get("architecture") == "medium"
+    architecture = dict(
+        width=source.get("width", 600),
+        depth=source.get("depth", 4 if medium else 5),
+        aggregation=source.get("aggregation", "norm" if medium else "mean"),
+        aggregation_norm=source.get("aggregation_norm", 100.0) if medium else None,
+    )
+    assert architecture["width"] == 600
+    assert architecture["depth"] == (4 if medium else 5)
+    assert architecture["aggregation"] == ("norm" if medium else "mean")
+    if medium:
+        assert architecture["aggregation_norm"] == 100.0
+    return architecture
+
+
 class MultitaskModel(torch.nn.Module):
-    def __init__(self, encoder_state, dropout):
+    def __init__(self, encoder_state, dropout, n_heads=8, architecture=None):
         super().__init__()
-        self.mp = cnn.BondMessagePassing(d_h=600, depth=5)
+        architecture = architecture or encoder_architecture({})
+        self.mp = cnn.BondMessagePassing(d_h=600, depth=architecture["depth"])
         self.mp.load_state_dict(encoder_state, strict=True)
-        self.aggregation = cnn.MeanAggregation()
+        self.aggregation = (
+            cnn.NormAggregation(norm=architecture["aggregation_norm"])
+            if architecture["aggregation"] == "norm"
+            else cnn.MeanAggregation()
+        )
         self.head = torch.nn.Sequential(
             torch.nn.Linear(600, 256),
             torch.nn.ReLU(),
             torch.nn.Dropout(dropout),
-            torch.nn.Linear(256, 8),
+            torch.nn.Linear(256, n_heads),
         )
 
     def embed(self, graph):
@@ -84,18 +106,31 @@ def main():
     labels = pl.read_parquet(input_path(inp, "measurements.parquet")).filter(
         pl.col("endpoint").str.ends_with("_pIC50_direct_inhibition")
     )
-    auxiliary = pl.read_parquet(input_path(inp, "targets.parquet"))
+    auxiliary = pl.read_parquet(
+        inp / cfg["auxiliary_file"]
+        if cfg.get("auxiliary_file")
+        else input_path(inp, "targets.parquet")
+    )
     endpoints = sorted(labels["endpoint"].unique())
     aux_heads = sorted(auxiliary["head"].unique())
     assert len(endpoints) == len(aux_heads) == 4
     assert {ep.split("_")[0] for ep in endpoints} == {head.split("@")[0] for head in aux_heads}
     heads = endpoints + aux_heads
+    extra = None
+    if cfg.get("extra_targets_file"):
+        extra = pl.read_parquet(inp / cfg["extra_targets_file"])
+        extra_heads = sorted(extra["head"].unique())
+        assert not set(extra_heads) & set(heads)
+        assert extra_heads and cfg.get("extra_weight", 1.0) > 0
+        heads += extra_heads
     targets = pl.concat(
         [
             labels.select("compound_id", pl.col("endpoint").alias("head"), "value"),
             auxiliary.select("compound_id", "head", "value"),
         ]
     )
+    if extra is not None:
+        targets = pl.concat([targets, extra.select("compound_id", "head", "value")])
     assert targets.select("compound_id", "head").unique().height == targets.height
     assert set(targets["compound_id"]).issubset(set(assignments["compound_id"]))
     assert assignments["compound_id"].n_unique() == assignments.height
@@ -121,12 +156,18 @@ def main():
         if key.startswith("mp.")
     }
     assert encoder_state
+    architecture = encoder_architecture(checkpoint)
+    (out / "encoder-architecture.json").write_text(json.dumps(architecture, indent=2))
     torch.set_num_threads(cfg["num_threads"])
     torch.backends.cuda.matmul.allow_tf32 = False
     preparation_only = cfg.get("preparation_only", False)
     device = "cpu" if preparation_only else cfg["device"]
     weights = torch.tensor(
-        [cfg["pIC50_weight"]] * 4 + [cfg["log2fc_weight"]] * 4, device=device, dtype=torch.float32
+        [cfg["pIC50_weight"]] * 4
+        + [cfg["log2fc_weight"]] * 4
+        + [cfg.get("extra_weight", 1.0)] * (len(heads) - 8),
+        device=device,
+        dtype=torch.float32,
     )
     f = featurizers.SimpleMoleculeMolGraphFeaturizer()
     graphs = []
@@ -198,7 +239,7 @@ def main():
                 )
             )
             continue
-        model = MultitaskModel(encoder_state, cfg["dropout"]).to(device)
+        model = MultitaskModel(encoder_state, cfg["dropout"], len(heads), architecture).to(device)
         optimizer = torch.optim.AdamW(
             [
                 {"params": model.mp.parameters(), "lr": cfg["encoder_lr"]},
@@ -265,6 +306,7 @@ def main():
                 means=means.tolist(),
                 stds=stds.tolist(),
                 config=cfg,
+                encoder_architecture=architecture,
                 fold=fold,
                 split_id=cfg["split_run"],
             )
@@ -353,6 +395,7 @@ def main():
                     preparation_only=True,
                     training_executed=False,
                     external_encoder_tensors=len(encoder_state),
+                    encoder_architecture=architecture,
                 ),
                 indent=2,
             )
@@ -378,6 +421,7 @@ def main():
                 challenge_rows=compounds.height,
                 selection="group-held-out inner loss; all outer compound labels excluded",
                 external_checkpoint_epoch=checkpoint.get("epoch"),
+                encoder_architecture=architecture,
             ),
             indent=2,
         )

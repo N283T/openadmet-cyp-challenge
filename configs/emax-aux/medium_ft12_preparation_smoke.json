@@ -1,0 +1,1 @@
+{"preparation_only":true,"device":"cpu","seed":42,"split_run":"20260911T104703655337Z-a3923255","checkpoint_file":"best.pt","auxiliary_file":"004-targets.parquet","extra_targets_file":"005-targets.parquet","pIC50_weight":2.0,"log2fc_weight":1.0,"extra_weight":0.5,"purpose":"CPU medium architecture transfer plus twelve-head preparation; no training"}

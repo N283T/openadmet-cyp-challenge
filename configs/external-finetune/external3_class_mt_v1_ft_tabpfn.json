@@ -1,0 +1,17 @@
+{
+  "method": "external3_class_mt_v1_ft_tabpfn",
+  "backend": "tabpfn",
+  "feature_prefix": "emb_",
+  "pca": 0,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "expected_oof_rows": 6384,
+  "finetune_run": "20260912T053838041107Z-289578d5",
+  "feature_files": {
+    "0": "000-external-embeddings.parquet",
+    "1": "001-external-embeddings.parquet",
+    "2": "002-external-embeddings.parquet",
+    "3": "003-external-embeddings.parquet",
+    "4": "004-external-embeddings.parquet"
+  },
+  "weights": "007-tabpfn-v2.6-regressor-v2.6_default.ckpt"
+}

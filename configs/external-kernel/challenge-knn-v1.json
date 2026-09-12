@@ -1,0 +1,14 @@
+{
+  "seed": 42,
+  "k_grid": [3, 10, 30, 100],
+  "weight_grid": ["uniform", "inverse_distance"],
+  "inner_fraction": 0.2,
+  "morgan_radius": 2,
+  "morgan_bits": 2048,
+  "embedding_metric": "cosine with fixed per-molecule L2 normalization, no fitted scaling",
+  "embedding_run": "20260912T051543210441Z-a3ea2ec3",
+  "cv_run": "20260911T104703655337Z-a3923255",
+  "selection": "Minimum official ST_RAE on inner group20% within each outer training fold; anchor groups always inner train",
+  "distance_epsilon": 0.000001,
+  "threads": 2
+}

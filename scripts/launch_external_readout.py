@@ -13,6 +13,7 @@ parser.add_argument("--backend", choices=["lgbm", "tabpfn"], required=True)
 parser.add_argument("--prefix", default="emb_")
 parser.add_argument("--pca", type=int, default=0)
 parser.add_argument("--nested", type=Path)
+parser.add_argument("--mask-observed-validation", action="store_true")
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 assert re.fullmatch(r"[a-z0-9_]+", args.method)
@@ -29,6 +30,7 @@ cfg = dict(
     feature_file=files[0].name,
     feature_prefix=args.prefix,
     pca=args.pca,
+    mask_observed_validation=args.mask_observed_validation,
     split_run="20260911T104703655337Z-a3923255",
 )
 if args.nested:

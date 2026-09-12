@@ -1,0 +1,1 @@
+{"dataset_run":"20260912T051513413487Z-ac9df6b5","sources":["pubchem1851","tox21_p450_glo"],"purpose":"Test whether many sparse ChEMBL assay heads reduce source alignment while preserving exact compound split pool"}

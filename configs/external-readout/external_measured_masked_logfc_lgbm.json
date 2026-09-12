@@ -1,0 +1,10 @@
+{
+  "method": "external_measured_masked_logfc_lgbm",
+  "backend": "lgbm",
+  "feature_file": "external-measured-features.parquet",
+  "feature_prefix": "score_",
+  "pca": 0,
+  "mask_observed_validation": true,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "nested_file": "nested-log2fc.parquet"
+}

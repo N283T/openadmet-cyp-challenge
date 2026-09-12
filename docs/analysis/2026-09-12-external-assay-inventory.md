@@ -152,3 +152,56 @@ Potency additionally requires active, finite, unflagged observations and convert
 from PubChem, Tox21 and ChEMBL. Original assay names, tested concentration units,
 response units and curated source records are included in merged run outputs.
 All challenge connectivity exclusions and prior binary masks are verified again.
+
+## Small-assay normalization audit
+
+Recorded CPU audit **`20260912T052617517710Z-c45b7793`** inspects task metadata
+and training membership of the continuous run
+`20260912T052347954512Z-91ba5769`. It reconstructs the trainer's replicate policy
+and asserts that every training mean and standard deviation matches saved task
+metadata. Outputs include `assay-scale-audit.parquet`, `source-scale-summary.csv`,
+`train-only-pooled-scales.csv` and `high-leverage-assays.csv`.
+
+| Source | Continuous assays | Median exact training n | Median sigma | Sigma at 0.1 floor | Mean-predictor raw validation interval MSE | Normalized MSE |
+|---|---:|---:|---:|---:|---:|---:|
+| ChEMBL36 | 996 | 7 | 0.397 | 97 | 0.446 | 3.419 |
+| PubChem1851 | 5 | 8,172 | 0.700 | 0 | 0.423 | 0.938 |
+| Tox21 | 5 | 1,916 | 0.577 | 0 | 0.355 | 1.021 |
+
+The predictor in this table is each assay's **training mean**, not a neural model.
+The comparison isolates the scale convention: ChEMBL physical-unit errors are
+similar to the larger panels, while small fitted sigmas inflate normalized errors.
+Among ChEMBL tasks, 405 have <=5 exact training values and 263 have sigma <=0.25.
+The 90th percentile inverse variance is 96.4. One task has two exact training
+values spanning only 0.173 p-units; its sigma reaches the 0.1 floor and a raw
+validation squared error of 1.41 becomes a normalized error of 141.1.
+
+A prospective **optional** scaling variant should retain assay-specific training
+means but regularize variance using training-only source × CYP × measurement-type
+pools. A within-assay residual pool avoids interpreting assay mean shifts as
+within-assay variability. One declared candidate is
+
+`sigma² = (n_exact * assay_variance + 20 * pooled_within_assay_variance) / (n_exact + 20)`,
+
+followed by a sigma floor of 0.3. The audit computes this candidate using only
+training exact values; validation values never define scales. For the same mean
+predictor, ChEMBL normalized MSE becomes 1.615 under that convention. **This is a
+change in loss units, not an accuracy improvement.** The appropriate comparison
+is downstream OOF quality after an independently recorded training run. Existing
+four-objective comparison configurations and running models are unchanged.
+
+The optional `scaling_policy="pooled_shrinkage"` is now implemented in
+`scripts/train_external_assay.py`, with helper `external_assay_scaling.py`.
+The default remains `"assay"` and preserves its numeric scaling behavior.
+`scaling_pseudocount=20` and `scaling_minimum_std=0.3` are explicit effective
+configuration fields. Pools are calculated once, before task construction, from
+training exact deduplicated labels. Per-assay means remain unchanged. Group,
+prior variance, training count, fallback status and shrinkage parameters are
+saved in task/checkpoint metadata; the complete pool table is a run output.
+
+Recorded verification **`20260912T052936486765Z-7e14a6cc`** perturbs every
+held-out lower/upper label as `-1000*x + 100000` and confirms the 20 variance
+pools are exactly unchanged. Perturbing a training assay changes its pool,
+checking the test is not vacuous. The helper's pools also match the prior
+independent audit across all 1,006 eligible continuous assays, and direct
+formula/floor cases pass. No current experiment configurations were modified.

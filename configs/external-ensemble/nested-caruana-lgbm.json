@@ -1,0 +1,15 @@
+{
+  "seed": 42,
+  "steps": 50,
+  "method": "nested_caruana_external_lgbm",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "assignments": "000-parent-assignments.parquet",
+  "measurements": "001-measurements.parquet",
+  "compounds": "002-compounds.parquet",
+  "class_emb": "003-external-embeddings.parquet",
+  "mixed_emb": "004-external-embeddings.parquet",
+  "tree": "005-external-scores.parquet",
+  "nested": "006-nested-log2fc.parquet",
+  "scorer": "007-custom_scoring_functions.py",
+  "threads": 3
+}

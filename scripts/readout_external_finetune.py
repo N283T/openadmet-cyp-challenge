@@ -31,6 +31,7 @@ def read(name):
 a, labels = read("parent-assignments.parquet"), read("measurements.parquet")
 assert set(cfg["feature_files"]) == {str(fold) for fold in range(5)}
 features = {}
+nest = read(cfg["nested_file"]) if cfg.get("nested_file") else None
 feature_ids = None
 for fold in range(5):
     filename = cfg["feature_files"][str(fold)]
@@ -47,6 +48,15 @@ for fold in range(5):
         assert feature_ids == ids
     feature_ids = ids
     features[fold] = emb.select("compound_id", *cols)
+    if nest is not None:
+        aux_cols = [f"aux_{i}" for i in range(4)]
+        auxiliary = nest.filter(pl.col("outer_fold") == fold).select("compound_id", *aux_cols)
+        assert auxiliary["compound_id"].n_unique() == auxiliary.height
+        features[fold] = features[fold].join(
+            auxiliary, on="compound_id", how="inner", validate="1:1"
+        )
+        assert set(a["compound_id"]).issubset(set(features[fold]["compound_id"]))
+        assert np.isfinite(features[fold].select(aux_cols).to_numpy()).all()
 torch.set_num_threads(4)
 rows, fits = [], []
 for ep in sorted(

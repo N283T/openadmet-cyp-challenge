@@ -1,0 +1,11 @@
+{
+  "source": "biogen2023_adme",
+  "primary_repository": "molecularinformatics/Computational-ADME",
+  "raw_run": "20260912T055605172480Z-f639f5a2",
+  "base_run": "20260912T055348682784Z-be731fe3",
+  "value_policy": "Preserve original logged property values unchanged; no second log or unit conversion",
+  "censor_policy": "Parse explicit < > <= >= if present; raw CSV has no such tokens; no inferred bounds from repeated numerical plateaus",
+  "binary_policy": "No fabricated classification thresholds",
+  "identity_policy": "Project ChEMBL-parent standardization; exclude all challenge connectivity; no Polaris duplicate",
+  "workers": 2
+}

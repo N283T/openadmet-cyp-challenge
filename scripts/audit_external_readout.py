@@ -22,7 +22,7 @@ def path(name):
 
 keys = ["compound_id", "endpoint", "fold"]
 base = pl.read_parquet(path("aligned-oof.parquet")).sort(keys)
-new = pl.read_parquet(path("external-oof.parquet")).sort(keys)
+new = pl.read_parquet(path(cfg.get("prediction_file", "external-oof.parquet"))).sort(keys)
 assert new.height == base.height == 6384
 assert not new.select(keys).is_duplicated().any()
 for c in keys + ["y_true", "conf_low", "conf_high", "is_neighbor"]:

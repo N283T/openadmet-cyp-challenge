@@ -45,12 +45,20 @@ for ep in sorted(
     for fold in cfg.get("folds", list(range(5))):
         va = (h["fold"].to_numpy() == fold) & ~h["is_anchor"].to_numpy()
         xx = x
+        if cfg.get("mask_observed_validation"):
+            xx = x.copy()
+            for j, name in enumerate(cols):
+                if name.startswith("score_fused_"):
+                    original = name.replace("score_fused_", "score_", 1)
+                    xx[va, j] = x[va, cols.index(original)]
+                elif name.startswith("score_available_"):
+                    xx[va, j] = 0
         if cfg.get("pca"):
-            scaler = StandardScaler().fit(x[~va])
+            scaler = StandardScaler().fit(xx[~va])
             pca = PCA(
                 n_components=min(cfg["pca"], x.shape[1], int((~va).sum())), random_state=42
-            ).fit(scaler.transform(x[~va]))
-            xx = pca.transform(scaler.transform(x))
+            ).fit(scaler.transform(xx[~va]))
+            xx = pca.transform(scaler.transform(xx))
             joblib.dump((scaler, pca, cols), out / f"{ep}-{fold}-pca.joblib")
         if nested is not None:
             auxiliary = h.select("compound_id").join(
@@ -60,8 +68,8 @@ for ep in sorted(
                 validate="1:1",
                 maintain_order="left",
             )
-            acols = sorted(c for c in auxiliary.columns if c.startswith("aux_"))
-            assert len(acols) == 4
+            acols = [f"aux_{i}" for i in range(4)]
+            assert all(c in auxiliary.columns for c in acols)
             ax = auxiliary.select(acols).to_numpy()
             assert np.isfinite(ax).all()
             xx = np.column_stack([xx, ax])

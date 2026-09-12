@@ -1,0 +1,11 @@
+{
+  "seed": 42,
+  "n_trials": 12,
+  "inner_fraction": 0.2,
+  "method": "external3_class_logfc_tuned_lgbm",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "embedding_run": "20260912T051543210441Z-a3ea2ec3",
+  "nested_run": "20260912T052549384296Z-bac5fb3a",
+  "selection": "inner grouped ST_RAE only; anchor groups always innertrain",
+  "threads": 4
+}

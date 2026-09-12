@@ -1,0 +1,10 @@
+{
+  "mode": "continuous",
+  "scaling_policy": "pooled_shrinkage",
+  "scaling_pseudocount": 20,
+  "scaling_minimum_std": 0.3,
+  "min_train_observations": 5,
+  "device": "cpu",
+  "num_threads": 1,
+  "seed": 42
+}

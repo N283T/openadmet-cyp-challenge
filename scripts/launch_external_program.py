@@ -15,7 +15,13 @@ parser.add_argument(
 parser.add_argument("--epochs", type=int, default=60)
 parser.add_argument("--steps", type=int, default=200)
 parser.add_argument("--conditioned", action="store_true")
+parser.add_argument("--architecture", choices=["default", "medium"], default="default")
+parser.add_argument("--scaling", choices=["assay", "pooled_shrinkage"], default="assay")
+parser.add_argument("--finetune", action="store_true")
+parser.add_argument("--finetune-epochs", type=int, default=160)
 args = parser.parse_args()
+if args.conditioned and args.architecture != "default":
+    parser.error("--conditioned and --architecture medium are mutually exclusive")
 root = Path(__file__).resolve().parents[1]
 assert re.fullmatch(r"[a-z0-9_]+", args.tag)
 folder = root / f"artifacts/runs/shared/{args.dataset_run}/outputs"
@@ -41,6 +47,7 @@ for mode in args.modes:
         min_train_observations=5,
         rank_min_gap=0.25,
         initialization="random",
+        scaling_policy=args.scaling,
         width=600,
         depth=5,
         sampling="uniform objective then source then assay",
@@ -48,6 +55,14 @@ for mode in args.modes:
     )
     if args.conditioned:
         cfg.update(conditioning_group="cyp_measurement", conditioning_variant="affine")
+    if args.architecture == "medium":
+        cfg.update(
+            architecture="medium",
+            depth=4,
+            aggregation="norm",
+            aggregation_norm=100.0,
+            ffn_hidden_layers=3,
+        )
     path = configs / (name + ".json")
     with path.open("x") as stream:
         json.dump(cfg, stream, indent=2)
@@ -72,6 +87,8 @@ for mode in args.modes:
             "python",
             "scripts/train_external_conditioned.py"
             if args.conditioned
+            else "scripts/train_external_medium.py"
+            if args.architecture == "medium"
             else "scripts/train_external_assay.py",
         ],
         cwd=root,
@@ -97,6 +114,25 @@ for mode in args.modes:
                 name + "_" + backend,
                 "--backend",
                 backend,
+            ],
+            cwd=root,
+            check=True,
+        )
+    if args.finetune:
+        subprocess.run(
+            [
+                "pixi",
+                "run",
+                "python",
+                "scripts/launch_external_finetune.py",
+                "--checkpoint",
+                str(feature.with_name("best.pt")),
+                "--tag",
+                name + "_adapted",
+                "--epochs",
+                str(args.finetune_epochs),
+                "--patience",
+                "20",
             ],
             cwd=root,
             check=True,
