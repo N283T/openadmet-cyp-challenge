@@ -20,6 +20,13 @@ def main():
     parser.add_argument("--extra-targets", type=Path)
     parser.add_argument("--extra-weight", type=float, default=1.0)
     parser.add_argument("--nested", type=Path)
+    parser.add_argument("--training-loss", choices=["mse", "mae", "pic50_interval"], default="mse")
+    parser.add_argument("--auxiliary-loss", choices=["mse", "mae"], default="mse")
+    parser.add_argument(
+        "--checkpoint-selection",
+        choices=["multitask_mse", "pic50_st_rae"],
+        default="multitask_mse",
+    )
     args = parser.parse_args()
     assert re.fullmatch(r"[a-z0-9_]+", args.tag)
     assert len(args.backends) == len(set(args.backends))
@@ -109,6 +116,9 @@ def main():
         )
 
     fit_config = dict(
+        training_loss=args.training_loss,
+        auxiliary_loss=args.auxiliary_loss,
+        checkpoint_selection=args.checkpoint_selection,
         seed=42,
         encoder_lr=1e-5,
         head_lr=1e-4,
@@ -142,9 +152,9 @@ def main():
         fit_config["auxiliary_file"] = "004-targets.parquet"
         extra_filename = f"{len(fit_inputs):03d}-{args.extra_targets.name}"
         fit_inputs.append(args.extra_targets.resolve())
-        fit_config.update(
-            extra_targets_file=extra_filename, extra_weight=args.extra_weight
-        )
+        fit_config.update(extra_targets_file=extra_filename, extra_weight=args.extra_weight)
+    if args.checkpoint_selection == "pic50_st_rae" or args.training_loss == "pic50_interval":
+        fit_inputs.append(scorer)
     fit_run = launch(
         args.tag + "_ft",
         fit_config,

@@ -1,0 +1,21 @@
+{
+  "mode": "mixed",
+  "dataset_run": "20260912T055809060996Z-06088efb",
+  "seed": 42,
+  "max_epochs": 60,
+  "patience": 10,
+  "batch_size": 128,
+  "steps_per_epoch": 200,
+  "min_train_observations": 5,
+  "rank_min_gap": 0.25,
+  "initialization": "random",
+  "scaling_policy": "pooled_shrinkage",
+  "width": 600,
+  "depth": 4,
+  "sampling": "uniform objective then source then assay",
+  "purpose": "Controlled external objective comparison on shared dataset and seed",
+  "architecture": "medium",
+  "aggregation": "norm",
+  "aggregation_norm": 100.0,
+  "ffn_hidden_layers": 3
+}

@@ -241,3 +241,65 @@ verification **`20260912T055905891725Z-f1e5161d`** confirms every one of the
 the input CSV hash and the six unique keyed heads, and confirms no challenge
 connectivity or fabricated binary labels. This data-preparation task used no GPU
 and did not modify earlier frozen corpora or trainer behavior.
+
+## Frozen upstream CheMeleon control
+
+Export run **`20260912T061231617816Z-299439e8`** extracts all 6,896 challenge
+compounds from Jeremy's upstream `checkpoints/chemprop_chemeleon.pt`. The safe
+`weights_only=True` loader and strict message-passing state load verify 2,048
+hidden dimensions, depth 6, MeanAggregation, no batch normalization and **47
+pretraining output heads**. The upstream README and script03 are registered
+inputs: they identify this checkpoint as the sibling ADME-pretraining artifact,
+separate from the challenge's 17-head multitask fine-tune. Original training
+molecule manifests and named 47-task definitions remain unavailable, as with the
+upstream medium checkpoint. Extraction uses no challenge labels and adds no
+fine-tuning.
+
+LGBM run **`20260912T061253921227Z-4930ca7c`**, matched audit
+**`20260912T061613446259Z-edd55762`**, and recorded comparison
+**`20260912T061638025159Z-a9d3b413`** use the same retained parent CV and all
+6,384 OOF label rows. These are plain frozen-embedding LGBM readouts, without
+auxiliary log2fc features or PCA, using identical LGBM settings.
+
+| Upstream representation | Overall ST-RAE | Neighbor ST-RAE |
+|---|---:|---:|
+| CheMeleon 2,048 | 0.674158 | 0.786083 |
+| Medium 600 | 0.651179 | 0.739368 |
+
+Medium performs better in this controlled readout. This comparison does not
+establish the best TabPFN/TabICL readout or the effect of vanilla CheMeleon
+initialization alone: the two upstream checkpoints also differ in architecture
+and unpublished pretraining details. Frozen embeddings, all LGBM models, OOF
+predictions and matched audit tables are saved in the runs above.
+
+### CheMeleon with nested log2fc and the prespecified four-way mean
+
+Run **`20260912T062323161344Z-db6745c3`** adds the four nested log2fc values
+from `bac5fb3a` to the 2,048 frozen upstream CheMeleon features, without PCA,
+using the same fixed LGBM settings and retained parent CV. Audit
+**`20260912T062641940553Z-33400514`** gives overall ST-RAE **0.645076** and
+neighbor ST-RAE **0.739819** (plain CheMeleon was 0.674158 / 0.786083).
+
+The prespecified equal four-way mean combines original Caruana `96fce32b`,
+Jeremy medium frozen TabPFN `2f0fbfbd`, Jeremy medium fine-tuned log2fc LGBM
+`730c8bea`, and this new CheMeleon model. Blend
+**`20260912T062715715731Z-1fd5fd13`**, audit
+**`20260912T062716598528Z-b318390d`**, gives **0.605600 overall / 0.696930
+neighbors**. No OOF weights were fitted. Overall performance does not improve
+on the preceding three-way mean (0.605039).
+
+Matched diagnostic **`20260912T062742470988Z-460d1539`** verifies all 6,384
+molecule/endpoint/fold keys and label/confidence/neighbor fields, then records
+prediction and residual Pearson correlations:
+
+| CYP | CheM vs medium FT prediction | CheM vs medium FT residual | CheM vs medium frozen PFN residual |
+|---|---:|---:|---:|
+| 1A2 | 0.8946 | 0.9546 | 0.9215 |
+| 2C9 | 0.9439 | 0.9442 | 0.8826 |
+| 2D6 | 0.8460 | 0.9783 | 0.9462 |
+| 3A4 | 0.9701 | 0.9440 | 0.8490 |
+
+The strong residual correlations are consistent with the limited benefit of
+adding CheMeleon to this particular three-model mean. They do not establish that
+all readouts of this representation are redundant. This control used CPU only;
+no further training was started after the results were available.

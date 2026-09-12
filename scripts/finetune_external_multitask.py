@@ -6,6 +6,7 @@ groups; groups containing anchors cannot enter inner validation.
 """
 
 import copy
+import importlib.util
 import json
 import os
 from pathlib import Path
@@ -68,14 +69,58 @@ class MultitaskModel(torch.nn.Module):
         return self.head(self.embed(graph))
 
 
-def masked_loss(prediction, truth, weights):
+def masked_loss(prediction, truth, weights, kind="mse"):
     mask = torch.isfinite(truth)
-    per_head = ((prediction - torch.nan_to_num(truth)).square() * mask).sum(0)
+    error = prediction - torch.nan_to_num(truth)
+    if kind == "mse":
+        error = error.square()
+    elif kind == "mae":
+        error = error.abs()
+    else:
+        raise ValueError(f"Unknown training loss: {kind}")
+    per_head = (error * mask).sum(0)
     per_head = per_head / mask.sum(0).clamp_min(1)
     present = mask.any(0)
     if not present.any():
         raise ValueError("Batch without labels")
     return (per_head[present] * weights[present]).sum() / weights[present].sum()
+
+
+def interval_multitask_loss(prediction, truth, weights, lower, upper, denominator, aux_kind):
+    """Official soft-threshold interval error for pIC50; explicit point loss for auxiliaries."""
+    mask = torch.isfinite(truth)
+    potency = prediction[:, :4]
+    distance = torch.relu(torch.nan_to_num(lower) - potency)
+    distance = distance + torch.relu(potency - torch.nan_to_num(upper))
+    distance = distance / denominator
+    auxiliary = prediction[:, 4:] - torch.nan_to_num(truth[:, 4:])
+    auxiliary = auxiliary.square() if aux_kind == "mse" else auxiliary.abs()
+    error = torch.cat([distance, auxiliary], dim=1)
+    per_head = (error * mask).sum(0) / mask.sum(0).clamp_min(1)
+    present = mask.any(0)
+    assert present.any()
+    return (per_head[present] * weights[present]).sum() / weights[present].sum()
+
+
+def inner_pic50_score(scorer, prediction, truth, lower, upper):
+    scores = []
+    for head in range(4):
+        keep = np.isfinite(truth[:, head])
+        assert keep.any()
+        assert np.isfinite(prediction[keep, head]).all()
+        assert np.isfinite(lower[keep, head]).all() and np.isfinite(upper[keep, head]).all()
+        scores.append(
+            float(
+                scorer.rae_soft_threshold_absolute_error(
+                    truth[keep, head],
+                    prediction[keep, head],
+                    y_true_lower=lower[keep, head],
+                    y_true_upper=upper[keep, head],
+                )
+            )
+        )
+    assert np.isfinite(scores).all()
+    return float(np.mean(scores)), scores
 
 
 def main():
@@ -97,9 +142,15 @@ def main():
         pIC50_weight=1.0,
         log2fc_weight=1.0,
         checkpoint_file="best.pt",
+        training_loss="mse",
+        auxiliary_loss="mse",
+        checkpoint_selection="multitask_mse",
     )
     cfg.update(json.loads(Path(os.environ["CYP_CONFIG_PATH"]).read_text()))
     assert cfg["pIC50_weight"] > 0 and cfg["log2fc_weight"] > 0
+    assert cfg["training_loss"] in {"mse", "mae", "pic50_interval"}
+    assert cfg["auxiliary_loss"] in {"mse", "mae"}
+    assert cfg["checkpoint_selection"] in {"multitask_mse", "pic50_st_rae"}
     (out / "effective-config.json").write_text(json.dumps(cfg, indent=2))
     compounds = pl.read_parquet(input_path(inp, "compounds.parquet")).sort("compound_id")
     assignments = pl.read_parquet(input_path(inp, "parent-assignments.parquet")).sort("compound_id")
@@ -143,6 +194,30 @@ def main():
     ).sort("compound_id")
     assert h[cfg["inner_group_column"]].null_count() == 0
     y = h.select(heads).to_numpy().astype(np.float32)
+    scorer, bounds_low, bounds_high = None, None, None
+    if cfg["checkpoint_selection"] == "pic50_st_rae" or cfg["training_loss"] == "pic50_interval":
+        spec = importlib.util.spec_from_file_location(
+            "official", input_path(inp, "custom_scoring_functions.py")
+        )
+        scorer = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(scorer)
+        bound_tables = [
+            h.select("compound_id").join(
+                labels.filter(pl.col("endpoint") == endpoint).select(
+                    "compound_id", "conf_low", "conf_high"
+                ),
+                on="compound_id",
+                how="left",
+                validate="1:1",
+                maintain_order="left",
+            )
+            for endpoint in endpoints
+        ]
+        bounds_low = np.column_stack([table["conf_low"].to_numpy() for table in bound_tables])
+        bounds_high = np.column_stack([table["conf_high"].to_numpy() for table in bound_tables])
+        measured = np.isfinite(y[:, :4])
+        assert np.isfinite(bounds_low[measured]).all() and np.isfinite(bounds_high[measured]).all()
+        assert np.all(bounds_low[measured] <= bounds_high[measured])
     labelled = np.isfinite(y).any(1)
     id_to_graph = {key: i for i, key in enumerate(compounds["compound_id"])}
     graph_indices = np.array([id_to_graph[key] for key in h["compound_id"]])
@@ -208,6 +283,53 @@ def main():
         assert np.isfinite(y[validation]).sum(0).min() > 0
         directory = out / f"fold{fold}"
         directory.mkdir()
+        interval_context = None
+        if cfg["training_loss"] == "pic50_interval":
+            # Scales, confidence bounds, and denominator use inner training only.
+            low_z = (bounds_low - means[:4]) / stds[:4]
+            high_z = (bounds_high - means[:4]) / stds[:4]
+            denominators, verification = [], []
+            for j in range(4):
+                keep = np.isfinite(y[training, j])
+                raw_y = y[training, j][keep]
+                lo, hi = bounds_low[training, j][keep], bounds_high[training, j][keep]
+                mean = np.mean(raw_y)
+                denominator = np.mean(np.maximum(lo - mean, 0) + np.maximum(mean - hi, 0))
+                assert denominator > 0 and np.isfinite(denominator)
+                denominators.append(denominator / stds[j])
+                probe = np.full(len(raw_y), float(mean) + 0.123 * float(stds[j]))
+                ratio = np.mean(np.maximum(lo - probe, 0) + np.maximum(probe - hi, 0)) / denominator
+                official = scorer.rae_soft_threshold_absolute_error(
+                    raw_y, probe, y_true_lower=lo, y_true_upper=hi
+                )
+                assert np.isclose(ratio, official, atol=1e-12)
+                verification.append(
+                    dict(
+                        head=heads[j],
+                        training_n=len(raw_y),
+                        raw_denominator=denominator,
+                        equivalent_official_probe_score=float(official),
+                    )
+                )
+            interval_context = (
+                low_z,
+                high_z,
+                torch.tensor(denominators, dtype=torch.float32, device=device),
+            )
+            (directory / "interval-training-context.json").write_text(
+                json.dumps(
+                    dict(
+                        normalization="Per-head mean soft error of inner-training mean predictor",
+                        auxiliary_loss=cfg["auxiliary_loss"],
+                        verification=verification,
+                    ),
+                    indent=2,
+                )
+            )
+            h.select("compound_id").filter(pl.Series(inner_train)).with_columns(
+                *[pl.Series(heads[j] + "_conf_low", bounds_low[training, j]) for j in range(4)],
+                *[pl.Series(heads[j] + "_conf_high", bounds_high[training, j]) for j in range(4)],
+            ).write_parquet(directory / "inner-training-confidence-bounds.parquet")
         role = np.where(
             outer,
             "outer_holdout",
@@ -256,11 +378,21 @@ def main():
             for start in range(0, len(order), cfg["batch_size"]):
                 batch = order[start : start + cfg["batch_size"]]
                 optimizer.zero_grad(set_to_none=True)
-                loss = masked_loss(
-                    model(graph(graph_indices[batch])),
-                    torch.as_tensor(z[batch], device=device),
-                    weights,
-                )
+                prediction = model(graph(graph_indices[batch]))
+                truth = torch.as_tensor(z[batch], device=device)
+                if interval_context is None:
+                    loss = masked_loss(prediction, truth, weights, cfg["training_loss"])
+                else:
+                    lower, upper, denominator = interval_context
+                    loss = interval_multitask_loss(
+                        prediction,
+                        truth,
+                        weights,
+                        torch.as_tensor(lower[batch], dtype=torch.float32, device=device),
+                        torch.as_tensor(upper[batch], dtype=torch.float32, device=device),
+                        denominator,
+                        cfg["auxiliary_loss"],
+                    )
                 if not torch.isfinite(loss):
                     raise ValueError("Nonfinite training loss")
                 loss.backward()
@@ -287,13 +419,27 @@ def main():
                 )
                 per_head = np.nanmean((pv.cpu().numpy() - z[validation]) ** 2, axis=0)
             assert np.isfinite(val_loss)
+            selection_score = val_loss
             record = dict(
                 fold=fold,
                 epoch=epoch,
-                train_mse=total / count,
                 validation_mse=val_loss,
                 validation_head_mse=dict(zip(heads, per_head.astype(float), strict=True)),
             )
+            record["train_" + cfg["training_loss"]] = total / count
+            if cfg["checkpoint_selection"] == "pic50_st_rae":
+                selection_score, st_by_head = inner_pic50_score(
+                    scorer,
+                    (pv.cpu().numpy() * stds + means)[:, :4],
+                    y[validation, :4],
+                    bounds_low[validation],
+                    bounds_high[validation],
+                )
+                record["validation_pic50_st_rae"] = selection_score
+                record["validation_pic50_head_st_rae"] = dict(
+                    zip(endpoints, st_by_head, strict=True)
+                )
+            record["selection_score"] = selection_score
             history.append(record)
             with (directory / "history.jsonl").open("a") as stream:
                 stream.write(json.dumps(record) + "\n")
@@ -311,8 +457,8 @@ def main():
                 split_id=cfg["split_run"],
             )
             torch.save(state, directory / "last.pt")
-            if val_loss < best:
-                best, best_epoch, stale = val_loss, epoch, 0
+            if selection_score < best:
+                best, best_epoch, stale = selection_score, epoch, 0
                 best_state = copy.deepcopy(model.state_dict())
                 torch.save(state, directory / "best.pt")
             else:
@@ -372,7 +518,9 @@ def main():
                 inner_validation=len(validation),
                 outer_compounds=int(outer.sum()),
                 best_epoch=best_epoch,
-                best_validation_mse=best,
+                best_validation_mse=history[best_epoch]["validation_mse"],
+                best_selection_score=best,
+                checkpoint_selection=cfg["checkpoint_selection"],
                 epochs=epoch + 1,
                 training_labels=dict(
                     zip(heads, np.isfinite(y[training]).sum(0).tolist(), strict=True)

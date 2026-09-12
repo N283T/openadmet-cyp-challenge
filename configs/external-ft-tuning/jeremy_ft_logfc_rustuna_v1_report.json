@@ -1,0 +1,116 @@
+{
+  "fit_run": "20260912T072056445264Z-e6b6cbcb",
+  "models": {
+    "caruana": "004-external-oof.parquet",
+    "frozen_pfn": "005-external-oof.parquet",
+    "fixed_lgbm": "006-external-oof.parquet",
+    "tuned_lgbm": "007-external-oof.parquet"
+  },
+  "scorer": "000-custom_scoring_functions.py",
+  "membership": "001-membership.parquet",
+  "summary": "002-summary.json",
+  "encoder_exclusion_audit": "003-encoder-exclusion-audit.json",
+  "trial_files": [
+    {
+      "file": "009-trials.jsonl",
+      "fold": 0,
+      "endpoint": "CYP1A2_pIC50_direct_inhibition"
+    },
+    {
+      "file": "010-trials.jsonl",
+      "fold": 0,
+      "endpoint": "CYP2C9_pIC50_direct_inhibition"
+    },
+    {
+      "file": "011-trials.jsonl",
+      "fold": 0,
+      "endpoint": "CYP2D6_pIC50_direct_inhibition"
+    },
+    {
+      "file": "012-trials.jsonl",
+      "fold": 0,
+      "endpoint": "CYP3A4_pIC50_direct_inhibition"
+    },
+    {
+      "file": "013-trials.jsonl",
+      "fold": 1,
+      "endpoint": "CYP1A2_pIC50_direct_inhibition"
+    },
+    {
+      "file": "014-trials.jsonl",
+      "fold": 1,
+      "endpoint": "CYP2C9_pIC50_direct_inhibition"
+    },
+    {
+      "file": "015-trials.jsonl",
+      "fold": 1,
+      "endpoint": "CYP2D6_pIC50_direct_inhibition"
+    },
+    {
+      "file": "016-trials.jsonl",
+      "fold": 1,
+      "endpoint": "CYP3A4_pIC50_direct_inhibition"
+    },
+    {
+      "file": "017-trials.jsonl",
+      "fold": 2,
+      "endpoint": "CYP1A2_pIC50_direct_inhibition"
+    },
+    {
+      "file": "018-trials.jsonl",
+      "fold": 2,
+      "endpoint": "CYP2C9_pIC50_direct_inhibition"
+    },
+    {
+      "file": "019-trials.jsonl",
+      "fold": 2,
+      "endpoint": "CYP2D6_pIC50_direct_inhibition"
+    },
+    {
+      "file": "020-trials.jsonl",
+      "fold": 2,
+      "endpoint": "CYP3A4_pIC50_direct_inhibition"
+    },
+    {
+      "file": "021-trials.jsonl",
+      "fold": 3,
+      "endpoint": "CYP1A2_pIC50_direct_inhibition"
+    },
+    {
+      "file": "022-trials.jsonl",
+      "fold": 3,
+      "endpoint": "CYP2C9_pIC50_direct_inhibition"
+    },
+    {
+      "file": "023-trials.jsonl",
+      "fold": 3,
+      "endpoint": "CYP2D6_pIC50_direct_inhibition"
+    },
+    {
+      "file": "024-trials.jsonl",
+      "fold": 3,
+      "endpoint": "CYP3A4_pIC50_direct_inhibition"
+    },
+    {
+      "file": "025-trials.jsonl",
+      "fold": 4,
+      "endpoint": "CYP1A2_pIC50_direct_inhibition"
+    },
+    {
+      "file": "026-trials.jsonl",
+      "fold": 4,
+      "endpoint": "CYP2C9_pIC50_direct_inhibition"
+    },
+    {
+      "file": "027-trials.jsonl",
+      "fold": 4,
+      "endpoint": "CYP2D6_pIC50_direct_inhibition"
+    },
+    {
+      "file": "028-trials.jsonl",
+      "fold": 4,
+      "endpoint": "CYP3A4_pIC50_direct_inhibition"
+    }
+  ],
+  "reference_membership": "008-membership.parquet"
+}

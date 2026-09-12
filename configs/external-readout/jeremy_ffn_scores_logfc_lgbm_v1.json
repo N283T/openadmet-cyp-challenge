@@ -1,0 +1,10 @@
+{
+  "method": "jeremy_ffn_scores_logfc_lgbm_v1",
+  "backend": "lgbm",
+  "feature_file": "external-scores.parquet",
+  "feature_prefix": "score_",
+  "pca": 0,
+  "mask_observed_validation": false,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "nested_file": "nested-log2fc.parquet"
+}

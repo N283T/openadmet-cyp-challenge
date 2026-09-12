@@ -1,10 +1,15 @@
 """Record all immutable inputs for nested Caruana external feature selection."""
 
+import argparse
 import json
 import subprocess
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
+parser = argparse.ArgumentParser()
+parser.add_argument("--jeremy-expanded", action="store_true")
+parser.add_argument("--classic-expanded", action="store_true")
+args = parser.parse_args()
 paths = []
 
 
@@ -44,6 +49,19 @@ cfg = dict(
     threads=3,
 )
 config = root / "configs/external-ensemble/nested-caruana-lgbm.json"
+if args.jeremy_expanded or args.classic_expanded:
+    cfg["jeremy_emb"] = add(
+        "artifacts/runs/shared/20260912T055819206227Z-c060d197/outputs/external-embeddings.parquet"
+    )
+    cfg["method"] = "jeremy_expanded_v1"
+    cfg["upstream_pretrained_diagnostic"] = True
+    config = root / "configs/external-ensemble/jeremy_expanded_v1.json"
+if args.classic_expanded:
+    cfg["classic"] = add(
+        "artifacts/runs/shared/20260912T061043373484Z-2e344d7a/outputs/fp-mordred-features.parquet"
+    )
+    cfg["method"] = "jeremy_classic_expanded_v1"
+    config = root / "configs/external-ensemble/jeremy_classic_expanded_v1.json"
 config.parent.mkdir(parents=True, exist_ok=True)
 with config.open("x") as f:
     json.dump(cfg, f, indent=2)
@@ -55,7 +73,14 @@ cmd = [
     "--track",
     "regression",
     "--purpose",
-    "Honest nested Caruana selection among24 external feature LGBMs using inner group holdout only",
+    "Nested Caruana inner-only selection of external LGBMs"
+    + (
+        " with Jeremy and train-filtered FP+Mordred candidates"
+        if args.classic_expanded
+        else " with six frozen Jeremy candidates"
+        if args.jeremy_expanded
+        else " among 24 candidates"
+    ),
     "--config",
     str(config),
 ]

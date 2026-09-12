@@ -13,6 +13,7 @@ import lightgbm as lgb
 import numpy as np
 import polars as pl
 import torch
+from catboost import CatBoostRegressor
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 from tabpfn import TabPFNRegressor
@@ -76,11 +77,16 @@ for ep in sorted(
         va = (h["fold"].to_numpy() == fold) & ~h["is_anchor"].to_numpy()
         xx = x
         if cfg.get("pca"):
-            scaler = StandardScaler().fit(x[~va])
+            aux_indices = [i for i, c in enumerate(cols) if nest is not None and c in aux_cols]
+            emb_indices = [i for i in range(len(cols)) if i not in aux_indices]
+            embedding_x = x[:, emb_indices]
+            scaler = StandardScaler().fit(embedding_x[~va])
             pca = PCA(
-                n_components=min(cfg["pca"], x.shape[1], int((~va).sum())), random_state=42
-            ).fit(scaler.transform(x[~va]))
-            xx = pca.transform(scaler.transform(x))
+                n_components=min(cfg["pca"], len(emb_indices), int((~va).sum())), random_state=42
+            ).fit(scaler.transform(embedding_x[~va]))
+            xx = pca.transform(scaler.transform(embedding_x))
+            if aux_indices:
+                xx = np.column_stack([xx, x[:, aux_indices]])
             joblib.dump((scaler, pca, cols), out / f"{ep}-{fold}-pca.joblib")
         if cfg["backend"] == "lgbm":
             params = dict(
@@ -98,6 +104,20 @@ for ep in sorted(
             )
             params.update(cfg.get("lgbm_overrides", {}))
             model = lgb.LGBMRegressor(**params)
+        elif cfg["backend"] == "catboost":
+            params = dict(
+                iterations=500,
+                depth=6,
+                learning_rate=0.03,
+                l2_leaf_reg=5,
+                loss_function="MAE",
+                random_seed=42 + fold,
+                thread_count=3,
+                verbose=False,
+                allow_writing_files=False,
+                task_type="CPU",
+            )
+            model = CatBoostRegressor(**params)
         else:
             assert cfg["backend"] == "tabpfn"
             model = TabPFNRegressor.create_default_for_version(
@@ -118,6 +138,8 @@ for ep in sorted(
         assert np.isfinite(pred).all()
         if cfg["backend"] == "lgbm":
             model.booster_.save_model(str(out / f"{ep}-{fold}.lgbm.txt"))
+        elif cfg["backend"] == "catboost":
+            model.save_model(str(out / f"{ep}-{fold}.catboost.cbm"))
         else:
             model.save_fit_state(out / f"{ep}-{fold}.tabpfn_fit")
         rows.append(
@@ -144,6 +166,8 @@ for ep in sorted(
                 train=int((~va).sum()),
                 validation=int(va.sum()),
                 dimensions=xx.shape[1],
+                backend=cfg["backend"],
+                effective_parameters=params if cfg["backend"] == "catboost" else None,
             )
         )
         print(json.dumps(fits[-1]), flush=True)

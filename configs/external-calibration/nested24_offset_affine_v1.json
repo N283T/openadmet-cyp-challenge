@@ -1,0 +1,147 @@
+{
+  "source_run": "20260912T054406239560Z-96fce32b",
+  "scale_bounds": [
+    0.5,
+    1.5
+  ],
+  "offset_bounds": [
+    -0.5,
+    0.5
+  ],
+  "variants": [
+    "offset",
+    "affine"
+  ],
+  "optimizer": "scipy linprog highs",
+  "database": {
+    "host": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/.runtime/socket",
+    "port": 5434,
+    "dbname": "cyp_challenge"
+  },
+  "outer_oof": "000-external-oof.parquet",
+  "jeremy_oof": "001-external-oof.parquet",
+  "scorer": "002-custom_scoring_functions.py",
+  "original_fit_source": "003-nested_external_ensemble.py",
+  "groups": [
+    {
+      "inner": "004-inner-predictions.parquet",
+      "membership": "005-membership.parquet",
+      "selected": "006-selected.json",
+      "history": "007-caruana-history.json"
+    },
+    {
+      "inner": "008-inner-predictions.parquet",
+      "membership": "009-membership.parquet",
+      "selected": "010-selected.json",
+      "history": "011-caruana-history.json"
+    },
+    {
+      "inner": "012-inner-predictions.parquet",
+      "membership": "013-membership.parquet",
+      "selected": "014-selected.json",
+      "history": "015-caruana-history.json"
+    },
+    {
+      "inner": "016-inner-predictions.parquet",
+      "membership": "017-membership.parquet",
+      "selected": "018-selected.json",
+      "history": "019-caruana-history.json"
+    },
+    {
+      "inner": "020-inner-predictions.parquet",
+      "membership": "021-membership.parquet",
+      "selected": "022-selected.json",
+      "history": "023-caruana-history.json"
+    },
+    {
+      "inner": "024-inner-predictions.parquet",
+      "membership": "025-membership.parquet",
+      "selected": "026-selected.json",
+      "history": "027-caruana-history.json"
+    },
+    {
+      "inner": "028-inner-predictions.parquet",
+      "membership": "029-membership.parquet",
+      "selected": "030-selected.json",
+      "history": "031-caruana-history.json"
+    },
+    {
+      "inner": "032-inner-predictions.parquet",
+      "membership": "033-membership.parquet",
+      "selected": "034-selected.json",
+      "history": "035-caruana-history.json"
+    },
+    {
+      "inner": "036-inner-predictions.parquet",
+      "membership": "037-membership.parquet",
+      "selected": "038-selected.json",
+      "history": "039-caruana-history.json"
+    },
+    {
+      "inner": "040-inner-predictions.parquet",
+      "membership": "041-membership.parquet",
+      "selected": "042-selected.json",
+      "history": "043-caruana-history.json"
+    },
+    {
+      "inner": "044-inner-predictions.parquet",
+      "membership": "045-membership.parquet",
+      "selected": "046-selected.json",
+      "history": "047-caruana-history.json"
+    },
+    {
+      "inner": "048-inner-predictions.parquet",
+      "membership": "049-membership.parquet",
+      "selected": "050-selected.json",
+      "history": "051-caruana-history.json"
+    },
+    {
+      "inner": "052-inner-predictions.parquet",
+      "membership": "053-membership.parquet",
+      "selected": "054-selected.json",
+      "history": "055-caruana-history.json"
+    },
+    {
+      "inner": "056-inner-predictions.parquet",
+      "membership": "057-membership.parquet",
+      "selected": "058-selected.json",
+      "history": "059-caruana-history.json"
+    },
+    {
+      "inner": "060-inner-predictions.parquet",
+      "membership": "061-membership.parquet",
+      "selected": "062-selected.json",
+      "history": "063-caruana-history.json"
+    },
+    {
+      "inner": "064-inner-predictions.parquet",
+      "membership": "065-membership.parquet",
+      "selected": "066-selected.json",
+      "history": "067-caruana-history.json"
+    },
+    {
+      "inner": "068-inner-predictions.parquet",
+      "membership": "069-membership.parquet",
+      "selected": "070-selected.json",
+      "history": "071-caruana-history.json"
+    },
+    {
+      "inner": "072-inner-predictions.parquet",
+      "membership": "073-membership.parquet",
+      "selected": "074-selected.json",
+      "history": "075-caruana-history.json"
+    },
+    {
+      "inner": "076-inner-predictions.parquet",
+      "membership": "077-membership.parquet",
+      "selected": "078-selected.json",
+      "history": "079-caruana-history.json"
+    },
+    {
+      "inner": "080-inner-predictions.parquet",
+      "membership": "081-membership.parquet",
+      "selected": "082-selected.json",
+      "history": "083-caruana-history.json"
+    }
+  ]
+}

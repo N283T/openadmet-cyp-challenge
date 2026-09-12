@@ -1,0 +1,35 @@
+{
+  "scorer": "000-custom_scoring_functions.py",
+  "folds": [
+    {
+      "fold": 0,
+      "history": "001-history.jsonl",
+      "checkpoint": "002-best.pt",
+      "membership": "003-membership.parquet"
+    },
+    {
+      "fold": 1,
+      "history": "004-history.jsonl",
+      "checkpoint": "005-best.pt",
+      "membership": "006-membership.parquet"
+    },
+    {
+      "fold": 2,
+      "history": "007-history.jsonl",
+      "checkpoint": "008-best.pt",
+      "membership": "009-membership.parquet"
+    },
+    {
+      "fold": 3,
+      "history": "010-history.jsonl",
+      "checkpoint": "011-best.pt",
+      "membership": "012-membership.parquet"
+    },
+    {
+      "fold": 4,
+      "history": "013-history.jsonl",
+      "checkpoint": "014-best.pt",
+      "membership": "015-membership.parquet"
+    }
+  ]
+}

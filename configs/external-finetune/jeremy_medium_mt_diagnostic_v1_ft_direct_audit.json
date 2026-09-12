@@ -1,0 +1,9 @@
+{
+  "model_run": "20260912T060538153709Z-8d434eee",
+  "prediction_file": "finetune-oof.parquet",
+  "database": {
+    "host": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/.runtime/socket",
+    "port": 5434,
+    "dbname": "cyp_challenge"
+  }
+}

@@ -58,3 +58,9 @@ The public code makes the workflow distinction concrete:
 - `src/cyp_submission/chemprop_transfer.py` loads the upstream model, retains its encoder and aggregation, and attaches a fresh target-specific head for the challenge adaptation.
 
 Thus the tested 47-head checkpoint is the documented upstream input, not the public script's 17-head challenge-trained output. The author describes the upstream sources as public ChEMBL/TDC/Polaris and a Novartis-surrogate CYP panel. We did not find a separate explicit statement saying “challenge pIC50 excluded,” nor an upstream training timestamp or task/molecule manifest. No stronger assertion about individual upstream observations is made.
+
+## Encoder-only bridge for subsequent fold-safe fine-tuning
+
+Shared run `20260912T060426566774Z-7604ffeb` creates `outputs/best.pt` with only the four message-passing tensors, renamed from the source `message_passing.*` keys to our `mp.*` keys. The bridge declares `architecture=medium`, width600, depth4, norm aggregation100, and carries the original checkpoint hash and provenance. The 47-head predictor is not transferred.
+
+A strict reload into our `MultitaskModel` with a fresh 12-head predictor passed on CPU. On 16 compounds spread across the sorted challenge IDs, its 600-dimensional embedding was bitwise identical to the source encoder evaluated on CPU. The maximum difference from the earlier saved GPU embedding was `3.725290298461914e-08`. This bridge run performs no training and uses no GPU; it only makes the verified upstream encoder available to the existing fold-safe FT launcher.

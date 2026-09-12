@@ -1,0 +1,94 @@
+{
+  "fit_run": "20260912T061036581812Z-288ee828",
+  "new_oof": "000-external-oof.parquet",
+  "old_oof": "001-external-oof.parquet",
+  "baseline": "002-aligned-oof.parquet",
+  "scorer": "003-custom_scoring_functions.py",
+  "new_membership": "004-membership.parquet",
+  "old_membership": "005-membership.parquet",
+  "new_summary": "006-summary.json",
+  "jeremy_oof": "007-external-oof.parquet",
+  "jeremy_ft_oof": "008-external-oof.parquet",
+  "inner_pairs": [
+    {
+      "new": "009-inner-predictions.parquet",
+      "old": "010-inner-predictions.parquet"
+    },
+    {
+      "new": "011-inner-predictions.parquet",
+      "old": "012-inner-predictions.parquet"
+    },
+    {
+      "new": "013-inner-predictions.parquet",
+      "old": "014-inner-predictions.parquet"
+    },
+    {
+      "new": "015-inner-predictions.parquet",
+      "old": "016-inner-predictions.parquet"
+    },
+    {
+      "new": "017-inner-predictions.parquet",
+      "old": "018-inner-predictions.parquet"
+    },
+    {
+      "new": "019-inner-predictions.parquet",
+      "old": "020-inner-predictions.parquet"
+    },
+    {
+      "new": "021-inner-predictions.parquet",
+      "old": "022-inner-predictions.parquet"
+    },
+    {
+      "new": "023-inner-predictions.parquet",
+      "old": "024-inner-predictions.parquet"
+    },
+    {
+      "new": "025-inner-predictions.parquet",
+      "old": "026-inner-predictions.parquet"
+    },
+    {
+      "new": "027-inner-predictions.parquet",
+      "old": "028-inner-predictions.parquet"
+    },
+    {
+      "new": "029-inner-predictions.parquet",
+      "old": "030-inner-predictions.parquet"
+    },
+    {
+      "new": "031-inner-predictions.parquet",
+      "old": "032-inner-predictions.parquet"
+    },
+    {
+      "new": "033-inner-predictions.parquet",
+      "old": "034-inner-predictions.parquet"
+    },
+    {
+      "new": "035-inner-predictions.parquet",
+      "old": "036-inner-predictions.parquet"
+    },
+    {
+      "new": "037-inner-predictions.parquet",
+      "old": "038-inner-predictions.parquet"
+    },
+    {
+      "new": "039-inner-predictions.parquet",
+      "old": "040-inner-predictions.parquet"
+    },
+    {
+      "new": "041-inner-predictions.parquet",
+      "old": "042-inner-predictions.parquet"
+    },
+    {
+      "new": "043-inner-predictions.parquet",
+      "old": "044-inner-predictions.parquet"
+    },
+    {
+      "new": "045-inner-predictions.parquet",
+      "old": "046-inner-predictions.parquet"
+    },
+    {
+      "new": "047-inner-predictions.parquet",
+      "old": "048-inner-predictions.parquet"
+    }
+  ]
+}

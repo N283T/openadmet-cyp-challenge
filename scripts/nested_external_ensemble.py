@@ -47,6 +47,46 @@ xc, classcols = matrix(class_emb)
 xm, mixedcols = matrix(mixed_emb)
 xt, treecols = matrix(tree)
 assert xc.shape[1] == xm.shape[1] == 600 and xt.shape[1] == 20
+xj, jeremycols = matrix(read("jeremy_emb")) if cfg.get("jeremy_emb") else (None, [])
+if xj is not None:
+    assert xj.shape[1] == 600
+classiccols, xclassic = [], None
+if cfg.get("classic"):
+    classic = read("classic")
+    classiccols = [c for c in classic.columns if c != "compound_id"]
+    assert all(c.startswith("fp_") for c in classiccols[:2048])
+    assert all(c.startswith("mordred_") for c in classiccols[2048:])
+    xclassic = (
+        ids.join(classic, on="compound_id", validate="1:1", maintain_order="left")
+        .select(classiccols)
+        .to_numpy()
+        .astype(np.float32)
+    )
+
+
+def classic_transform(train_indices, destination):
+    """Fit descriptor filters and imputation only on the supplied training indices."""
+    fp, desc = xclassic[:, :2048], xclassic[:, 2048:].copy()
+    assert np.isfinite(fp).all()
+    desc[~np.isfinite(desc)] = np.nan
+    train = desc[train_indices]
+    keep = np.flatnonzero(np.isfinite(train).any(axis=0))
+    train = train[:, keep]
+    keep = keep[np.nanmin(train, axis=0) != np.nanmax(train, axis=0)]
+    median = np.nanmedian(desc[train_indices][:, keep], axis=0)
+    selected = desc[:, keep]
+    selected = np.where(np.isfinite(selected), selected, median)
+    assert np.isfinite(selected).all()
+    np.savez(
+        destination,
+        descriptor_indices=keep,
+        medians=median,
+        descriptor_columns=np.array(classiccols[2048:])[keep],
+        training_compound_ids=a["compound_id"].to_numpy()[train_indices],
+    )
+    return np.column_stack([fp, selected])
+
+
 fpgen = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
 smiles = ids.join(compounds, on="compound_id", validate="1:1", maintain_order="left")[
     "standardized_smiles"
@@ -79,6 +119,9 @@ for outer in range(5):
         "mixed_logfc": np.column_stack([xm, xn]),
         "tree_logfc": np.column_stack([xt, xn]),
     }
+    if xj is not None:
+        views["jeremy"] = xj
+        views["jeremy_logfc"] = np.column_stack([xj, xn])
     for ep in sorted(
         labels.filter(pl.col("endpoint").str.ends_with("_pIC50_direct_inhibition"))[
             "endpoint"
@@ -104,6 +147,13 @@ for outer in range(5):
         )
         d = out / f"fold-{outer}" / ep
         d.mkdir(parents=True)
+        fit_views = dict(views)
+        outer_classic = None
+        if xclassic is not None:
+            inner_classic = classic_transform(ix[it], d / "classic-inner-preprocessor.npz")
+            outer_classic = classic_transform(ix[ot], d / "classic-outer-preprocessor.npz")
+            fit_views["classic"] = inner_classic
+            fit_views["classic_logfc"] = np.column_stack([inner_classic, xn])
         member = t.select("compound_id", "endpoint", "fold", "group", "is_anchor").with_columns(
             pl.lit(outer).alias("outer_fold"),
             pl.lit(cfg["split_run"]).alias("split_id"),
@@ -118,7 +168,7 @@ for outer in range(5):
         valid = t.filter(pl.Series(iv))
         yv, lo, hi = (valid[c].to_numpy() for c in ["value", "conf_low", "conf_high"])
         candidates, predictions = [], []
-        for view, x in views.items():
+        for view, x in fit_views.items():
             for objective, alpha in [
                 ("regression_l1", None),
                 ("quantile", 0.35),
@@ -146,7 +196,7 @@ for outer in range(5):
                 predictions.append(pv)
                 candidates.append(dict(name=name, view=view, params=params, features=x.shape[1]))
         p = np.stack(predictions)
-        assert p.shape == (24, int(iv.sum())) and np.isfinite(p).all()
+        assert p.shape == (len(fit_views) * 3, int(iv.sum())) and np.isfinite(p).all()
         inner_predictions = valid.select(
             "compound_id",
             "endpoint",
@@ -189,14 +239,22 @@ for outer in range(5):
         selected = []
         for i, count in best_weights.items():
             candidate = candidates[i]
-            x = views[candidate["view"]]
+            view = candidate["view"]
+            if view == "classic":
+                x = outer_classic
+            elif view == "classic_logfc":
+                x = np.column_stack([outer_classic, xn])
+            else:
+                x = fit_views[view]
             model = lgb.LGBMRegressor(**candidate["params"])
             model.fit(x[ix[ot]], t.filter(pl.Series(ot))["value"].to_numpy())
             prediction = model.predict(x[ix[ov]])
             weight = count / best_step
             outer_prediction += weight * prediction
             model.booster_.save_model(str(d / (candidate["name"] + ".txt")))
-            selected.append({**candidate, "count": count, "weight": weight})
+            selected.append(
+                {**candidate, "count": count, "weight": weight, "refit_features": x.shape[1]}
+            )
         assert np.isfinite(outer_prediction).all() and np.isclose(
             sum(s["weight"] for s in selected), 1
         )
@@ -242,7 +300,12 @@ pl.concat(memberships).write_parquet(out / "membership.parquet")
         dict(
             config=cfg,
             selections=summary,
-            feature_columns={"class": classcols, "mixed": mixedcols, "tree": treecols},
+            feature_columns={
+                "class": classcols,
+                "mixed": mixedcols,
+                "tree": treecols,
+                "jeremy": jeremycols,
+            },
         ),
         indent=2,
     )

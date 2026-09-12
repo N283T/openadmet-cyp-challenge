@@ -1,0 +1,7 @@
+{
+  "representations": {
+    "jeremy_upstream_chemeleon_2048": {"file":"000-macro.csv", "method":"jeremy_chemeleon_frozen_lgbm"},
+    "jeremy_upstream_medium_600": {"file":"001-macro.csv", "method":"jeremy_medium_unverified_lgbm_v1"}
+  },
+  "export_summary":"002-summary.json"
+}

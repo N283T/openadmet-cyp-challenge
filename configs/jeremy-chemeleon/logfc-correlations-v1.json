@@ -1,0 +1,11 @@
+{
+  "new_oof":"000-external-oof.parquet",
+  "controls": {
+    "jeremy_medium_ft_logfc_lgbm":"001-external-oof.parquet",
+    "jeremy_medium_frozen_tabpfn":"002-external-oof.parquet"
+  },
+  "scores": [
+    {"file":"003-macro.csv", "method":"jeremy_chemeleon_frozen_log2fc_lgbm"},
+    {"file":"004-macro.csv", "method":"original_jeremypfn_mediumft_chemeleonlogfc_equal4_v1"}
+  ]
+}

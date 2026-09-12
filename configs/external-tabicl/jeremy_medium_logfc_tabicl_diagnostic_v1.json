@@ -1,0 +1,23 @@
+{
+  "method": "jeremy_medium_logfc_tabicl_diagnostic_v1",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "assignments": "000-parent-assignments.parquet",
+  "measurements": "001-measurements.parquet",
+  "weights": "002-tabicl-regressor-v2-20260212.ckpt",
+  "fold_specific": false,
+  "prepare_only": false,
+  "pca": 256,
+  "threads": 2,
+  "feature_prefix": "emb_",
+  "n_estimators": 8,
+  "device": "cuda",
+  "expected_oof_rows": 6384,
+  "feature_files": {
+    "0": "003-external-embeddings.parquet",
+    "1": "003-external-embeddings.parquet",
+    "2": "003-external-embeddings.parquet",
+    "3": "003-external-embeddings.parquet",
+    "4": "003-external-embeddings.parquet"
+  },
+  "nested_file": "004-nested-log2fc.parquet"
+}

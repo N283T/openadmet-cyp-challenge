@@ -1,0 +1,28 @@
+{
+  "method": "jeremy_ft_logfc_rustuna_v1",
+  "seed": 42,
+  "n_trials": 24,
+  "inner_fraction": 0.2,
+  "threads": 3,
+  "workers": 4,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "embedding_run": "20260912T060538153709Z-8d434eee",
+  "embeddings": [
+    "000-external-embeddings.parquet",
+    "001-external-embeddings.parquet",
+    "002-external-embeddings.parquet",
+    "003-external-embeddings.parquet",
+    "004-external-embeddings.parquet"
+  ],
+  "encoder_memberships": [
+    "005-membership.parquet",
+    "006-membership.parquet",
+    "007-membership.parquet",
+    "008-membership.parquet",
+    "009-membership.parquet"
+  ],
+  "encoder_summary": "010-summary.json",
+  "selection": "24 readout trials per endpoint and outer fold; only inner-group official ST-RAE",
+  "inner_hpo_optimism": "The FT encoder used inner pIC50 labels, so inner HPO scores are optimistic. All nonanchor outer-fold compounds were excluded from encoder labels and readout HPO.",
+  "upstream_pretrained_diagnostic": true
+}

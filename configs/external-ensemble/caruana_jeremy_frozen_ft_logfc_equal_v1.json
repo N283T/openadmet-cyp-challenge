@@ -1,0 +1,19 @@
+{
+  "method": "caruana_jeremy_frozen_ft_logfc_equal_v1",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "components": [
+    {
+      "file": "000-external-oof.parquet",
+      "column": "prediction"
+    },
+    {
+      "file": "001-external-oof.parquet",
+      "column": "prediction"
+    },
+    {
+      "file": "002-external-oof.parquet",
+      "column": "prediction"
+    }
+  ],
+  "weight_policy": "Fixed equal mean, no OOF fitting"
+}

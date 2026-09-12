@@ -1,0 +1,103 @@
+{
+  "final_oof": "000-external-oof.parquet",
+  "blend_config": "001-caruana_medium_scores_tuned_ft_cheme_v1.json",
+  "blend_manifest": "002-manifest.json",
+  "prior_macro": "003-macro.csv",
+  "measurements": "004-measurements.parquet",
+  "assignments": "005-parent-assignments.parquet",
+  "scorer": "006-custom_scoring_functions.py",
+  "components": [
+    {
+      "name": "Original nested Caruana",
+      "run_id": "20260912T054406239560Z-96fce32b",
+      "oof": "007-external-oof.parquet",
+      "manifest": "008-manifest.json",
+      "intent": "009-intent.json",
+      "result": "010-result.json",
+      "config": "011-config.json"
+    },
+    {
+      "name": "Jeremy medium frozen embedding TabPFN",
+      "run_id": "20260912T060059705105Z-2f0fbfbd",
+      "oof": "012-external-oof.parquet",
+      "manifest": "013-manifest.json",
+      "intent": "014-intent.json",
+      "result": "015-result.json",
+      "config": "016-config.json"
+    },
+    {
+      "name": "Jeremy upstream FFN scores plus nested log2fc TabPFN",
+      "run_id": "20260912T072303592078Z-07f2749a",
+      "oof": "017-external-oof.parquet",
+      "manifest": "018-manifest.json",
+      "intent": "019-intent.json",
+      "result": "020-result.json",
+      "config": "021-config.json"
+    },
+    {
+      "name": "Jeremy medium fine-tuned embedding plus nested log2fc LGBM (inner-search tuned)",
+      "run_id": "20260912T072056445264Z-e6b6cbcb",
+      "oof": "022-external-oof.parquet",
+      "manifest": "023-manifest.json",
+      "intent": "024-intent.json",
+      "result": "025-result.json",
+      "config": "026-config.json"
+    },
+    {
+      "name": "Jeremy CheMeleon PCA256 plus nested log2fc TabICL",
+      "run_id": "20260912T071619253798Z-73a6fb7e",
+      "oof": "027-external-oof.parquet",
+      "manifest": "028-manifest.json",
+      "intent": "029-intent.json",
+      "result": "030-result.json",
+      "config": "031-config.json"
+    }
+  ],
+  "references": [
+    {
+      "run_id": "20260912T060127278065Z-39e5a986",
+      "manifest": "032-manifest.json",
+      "result": "033-result.json",
+      "summary": "034-summary.json"
+    },
+    {
+      "run_id": "20260912T060426566774Z-7604ffeb",
+      "manifest": "035-manifest.json",
+      "result": "036-result.json",
+      "summary": "037-summary.json"
+    },
+    {
+      "run_id": "20260912T055819206227Z-c060d197",
+      "manifest": "038-manifest.json",
+      "result": "039-result.json",
+      "summary": "040-summary.json"
+    },
+    {
+      "run_id": "20260912T061231617816Z-299439e8",
+      "manifest": "041-manifest.json",
+      "result": "042-result.json",
+      "summary": "043-summary.json"
+    },
+    {
+      "run_id": "20260912T052549384296Z-bac5fb3a",
+      "manifest": "044-manifest.json",
+      "result": "045-result.json",
+      "summary": "046-summary.json"
+    },
+    {
+      "run_id": "20260912T060538153709Z-8d434eee",
+      "manifest": "052-manifest.json",
+      "result": "053-result.json",
+      "summary": "054-summary.json"
+    }
+  ],
+  "ft_membership": [
+    "047-membership.parquet",
+    "048-membership.parquet",
+    "049-membership.parquet",
+    "050-membership.parquet",
+    "051-membership.parquet"
+  ],
+  "nested_membership_audit": "055-membership-audit.json",
+  "public_inventory_report": "056-2026-09-12-jeremy-pretraining-public-inventory.md"
+}

@@ -1,0 +1,5 @@
+{
+  "checkpoint_file": "chemprop_medium.pt",
+  "embedding_run": "20260912T055819206227Z-c060d197",
+  "feature_selection": "All final hidden activations and all 47 upstream predictions, no OOF selection"
+}
