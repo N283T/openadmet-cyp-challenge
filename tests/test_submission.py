@@ -2,6 +2,7 @@ import json
 
 import pytest
 
+from cyp_challenge import submission
 from cyp_challenge.submission import load_profile, response_status
 
 
@@ -43,3 +44,35 @@ def test_profile_requires_explicit_boolean_declarations(tmp_path):
     p.write_text(json.dumps(profile))
     with pytest.raises(ValueError):
         load_profile(p)
+
+
+def test_pre_submission_snapshot_requires_ma_and_every_track_endpoint(monkeypatch, tmp_path):
+    calls = []
+
+    def fake_leaderboard(track, endpoint):
+        calls.append((track, endpoint))
+        return tmp_path / endpoint
+
+    monkeypatch.setattr(submission, "leaderboard", fake_leaderboard)
+    snapshots = submission.snapshot_leaderboards("regression")
+    expected = ["MA", *submission.ENDPOINTS["regression"]]
+    assert calls == [("regression", endpoint) for endpoint in expected]
+    assert [item["endpoint"] for item in snapshots] == expected
+
+
+def test_pre_submission_snapshot_stops_on_first_failure(monkeypatch, tmp_path):
+    calls = []
+
+    def fake_leaderboard(track, endpoint):
+        calls.append((track, endpoint))
+        if len(calls) == 2:
+            raise RuntimeError("snapshot failed")
+        return tmp_path / endpoint
+
+    monkeypatch.setattr(submission, "leaderboard", fake_leaderboard)
+    with pytest.raises(RuntimeError, match="snapshot failed"):
+        submission.snapshot_leaderboards("regression")
+    assert calls == [
+        ("regression", "MA"),
+        ("regression", submission.ENDPOINTS["regression"][0]),
+    ]

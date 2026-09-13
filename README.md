@@ -124,7 +124,9 @@ files contain booleans. A preparation creates a separate immutable file copy;
 
 Use `pixi run cyp submit SUBMISSION_ID --dry-run` to validate the prepared file and
 private profile, then `pixi run cyp submit SUBMISSION_ID` to upload once. The sender
-reads `.private/submission-profile.json` (Git-ignored) and saves the API receipt.
+reads `.private/submission-profile.json` (Git-ignored), saves the MA and every
+endpoint leaderboard before upload, and saves the API receipt. If any leaderboard
+snapshot fails, the command stops before calling the submission API.
 See [baseline submission preparation](docs/submission-baseline.md).
 
 For manual uploads or subsequent scoring evidence, attach a saved response using

@@ -182,3 +182,25 @@ submission at ST-RAE 0.721167 (rank 67). The reflected candidate scores endpoint
 ST-RAE 0.685494/0.369556/1.353707/0.468640 for CYP1A2/CYP2C9/CYP2D6/CYP3A4 and
 macro **0.719349** (rank 67), an improvement of 0.001817. This is the preferred
 simplified regression candidate.
+
+The endpoint movement explains the small net gain:
+
+| Endpoint | Previous ST-RAE | New ST-RAE | Change | Previous archived rank | New rank |
+|---|---:|---:|---:|---:|---:|
+| CYP1A2 | 0.698949 | 0.685494 | -0.013455 | 62 | 68 |
+| CYP2C9 | 0.381119 | 0.369556 | -0.011563 | 13 | 8 |
+| CYP2D6 | 1.334970 | 1.353707 | +0.018737 | 75 | 82 |
+| CYP3A4 | 0.469628 | 0.468640 | -0.000988 | 30 | 35 |
+| Macro | 0.721167 | 0.719349 | -0.001817 | 67 | 67 |
+
+Lower ST-RAE is better. The 1A2 and 2C9 gains offset the larger 2D6 loss; the
+3A4 change is negligible. Endpoint ranks for the previous submission come from
+the September 12 post-score archive, whereas its macro rank was fetched again
+immediately before the new result appeared. Endpoint rank differences therefore
+also include intervening submissions by other teams.
+
+The aggregate secondary metrics moved only slightly. MAE improved from 0.895992
+to 0.895630 and R² from 0.220778 to 0.221760. Rank correlation weakened:
+Spearman's rho changed from 0.727261 to 0.724695 and Kendall's tau from 0.553571
+to 0.550403. The leaderboard result is therefore a marginal aggregate improvement,
+not a broad improvement across endpoints or metrics.

@@ -203,6 +203,14 @@ def test_submission_attempt_persists_and_prevents_implicit_retries(registry, mon
     profile_path = root / "profile.json"
     profile_path.write_text(json.dumps(profile))
     calls = []
+    snapshots = []
+
+    def fake_snapshot_leaderboards(track):
+        assert not calls
+        snapshots.append(track)
+        return [{"endpoint": "MA", "path": "/saved/pre-submission/ma"}]
+
+    monkeypatch.setattr(submission, "snapshot_leaderboards", fake_snapshot_leaderboards)
 
     class FakeClient:
         def __init__(self, *args, **kwargs):
@@ -254,3 +262,4 @@ def test_submission_attempt_persists_and_prevents_implicit_retries(registry, mon
     with pytest.raises(ValueError):
         submission.submit(args)
     assert len(calls) == 1
+    assert snapshots == ["regression"]

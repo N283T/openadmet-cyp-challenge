@@ -4,10 +4,10 @@ import json
 import shutil
 from pathlib import Path
 
-from .api import SPACE
+from .api import SPACE, leaderboard
 from .database import connect
 from .storage import allocate, digest, now, snapshot_source, write_json
-from .tracks import validate
+from .tracks import ENDPOINTS, validate
 
 TEXT_FIELDS = {
     "username",
@@ -49,6 +49,16 @@ def response_status(response):
     if value.startswith("Error:"):
         return "rejected"
     return "unknown"
+
+
+def snapshot_leaderboards(track):
+    """Save every current leaderboard before a live upload; fail closed."""
+
+    snapshots = []
+    for endpoint in ["MA", *ENDPOINTS[track]]:
+        path = leaderboard(track, endpoint)
+        snapshots.append({"endpoint": endpoint, "path": str(path)})
+    return snapshots
 
 
 def submit(args):
@@ -102,6 +112,9 @@ def submit(args):
             )
         if previous and not args.retry_rejected:
             raise ValueError("Previously rejected payload; inspect receipt before --retry-rejected")
+        # These network reads happen before any upload intent or submission API call.
+        # A failure propagates and prevents the live upload.
+        pre_submission_leaderboards = snapshot_leaderboards(track)
         identifier, path = allocate("submission-attempts", track)
         path.chmod(0o700)
         upload = path / file.name
@@ -119,6 +132,7 @@ def submit(args):
             file_sha256=digest(upload),
             profile_sha256=digest(private),
             endpoint="/submit_predictions",
+            pre_submission_leaderboards=pre_submission_leaderboards,
             source=snapshot_source(path / "source"),
             status="unknown",
         )

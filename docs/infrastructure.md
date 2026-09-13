@@ -59,6 +59,10 @@ infrastructure does not substitute ordinary RAE for ST-RAE.
 Candidates get a fresh ID and a read-only file copy. Submissions get another fresh
 ID and file copy with matching SHA-256. Preparation is separate from remote sending.
 Events append receipts/status without rewriting the original manifest or file.
+Before a live send, the submission command downloads MA and every endpoint
+leaderboard for the selected track. All downloads must finish successfully before
+the upload intent is created or the submission API is called; their artifact paths
+are stored in the attempt record.
 SHA-256 verification catches accidental changes; chmod is not a security boundary
 against the file owner. Run output files are inventoried rather than OS-locked.
 

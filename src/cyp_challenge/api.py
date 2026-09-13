@@ -153,3 +153,4 @@ def leaderboard(track, endpoint):
         write_json(path / "manifest.json", manifest)
         register_asset(identifier, "api", path, manifest)
         print(path)
+    return path
