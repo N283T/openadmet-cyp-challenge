@@ -6,6 +6,14 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Large-effect regression placement candidate prepared:** current live CYP2D6
+  has ST-RAE1.353707, Spearman.431249 and R²−.813077. An exact current-vector
+  candidate shifts only CYP2D6 from mean/SD4.6559/.3993 to the leaderboard-informed
+  3.57/.90, preserving all ranks and the other three endpoints. Macro below.60
+  requires placed D6 below.8763; the public source's stronger vector scored.5653
+  at this placement, but that result is not assigned to ours. See
+  [RL0063](2026-09.md#rl0063--large-effect-lb-informed-cyp2d6-placement-candidate).
+
 - **Regression ensemble pruned target by target:** the preferred simplified
   result uses3/3/2/5 top-level components for1A2/2C9/2D6/3A4 and compresses the
   internal3A4 Caruana from20 LightGBMs to two. Caruana is removed from the other
