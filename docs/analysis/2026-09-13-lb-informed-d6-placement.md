@@ -64,3 +64,6 @@ effect but does not reach the desired range alone. The combined CYP1A2+CYP2D6
 candidate is the primary large-effect scenario. Candidate records
 `20260913T063932439761Z-fc3c0b14` and
 `20260913T063941288793Z-8fa520b1` preserve the exact files and lineage.
+The combined candidate is designated as the next regression candidate. Prepared
+submission `20260913T070437301639Z-3c0dbc41` passes the local dry run with 750
+rows, exact identifiers and all four finite endpoint columns.

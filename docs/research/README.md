@@ -11,7 +11,9 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
   candidate shifts only CYP2D6 from mean/SD4.6559/.3993 to the leaderboard-informed
   3.57/.90, preserving all ranks and the other three endpoints. Macro below.60
   requires placed D6 below.8763; the public source's stronger vector scored.5653
-  at this placement, but that result is not assigned to ours. See
+  at this placement, but that result is not assigned to ours. The combined
+  CYP1A2+CYP2D6 version is the designated next regression candidate and passes
+  submission dry run. See
   [RL0063](2026-09.md#rl0063--large-effect-lb-informed-cyp2d6-placement-candidate).
 
 - **Regression ensemble pruned target by target:** the preferred simplified
