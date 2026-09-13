@@ -83,6 +83,14 @@ def main():
     base = scenarios.get("our_oof_times_author_ratio_strae", scenarios["author_solved_strae"])
     scenarios["d6_only_author_strae"] = {iso: dict(c) for iso, c in scenarios["raw"].items()}
     scenarios["d6_only_author_strae"]["CYP2D6"] = dict(base["CYP2D6"])
+    author_r2 = scenarios["author_solved_r2"]
+    scenarios["a2_only_author_r2"] = {iso: dict(c) for iso, c in scenarios["raw"].items()}
+    scenarios["a2_only_author_r2"]["CYP1A2"] = dict(author_r2["CYP1A2"])
+    scenarios["a2_d6_author_placement"] = {
+        iso: dict(c) for iso, c in scenarios["raw"].items()
+    }
+    scenarios["a2_d6_author_placement"]["CYP1A2"] = dict(author_r2["CYP1A2"])
+    scenarios["a2_d6_author_placement"]["CYP2D6"] = dict(base["CYP2D6"])
     for fraction in [0.25, 0.5, 0.75]:
         scenarios[f"partial_{fraction}"] = {
             iso: dict(scale=1 + fraction * (c["scale"] - 1), offset=fraction * c["offset"])
@@ -101,7 +109,7 @@ def main():
             cal = parameters[iso]
             assert cal["scale"] > 0
             affine = values.mean() + cal["scale"] * (values - values.mean()) + cal["offset"]
-            untouched = name == "raw" or (name == "d6_only_author_strae" and iso != "CYP2D6")
+            untouched = cal["scale"] == 1.0 and cal["offset"] == 0.0
             placed = values.copy() if untouched else np.maximum(namespace["FLOOR"], affine)
             if untouched:
                 np.testing.assert_array_equal(placed, values)

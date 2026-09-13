@@ -10,6 +10,7 @@ import polars as pl
 from cyp_challenge.tracks import ENDPOINTS, validate
 
 inp, out = Path(os.environ["CYP_INPUT_DIR"]), Path(os.environ["CYP_OUTPUT_DIR"])
+cfg = json.loads(Path(os.environ["CYP_CONFIG_PATH"]).read_text())
 
 
 def path(i):
@@ -34,7 +35,7 @@ expected = (
     .sort("compound_id", "endpoint")
 )
 manifest = []
-for name in ["raw", "author_solved_strae", "d6_only_author_strae"]:
+for name in cfg.get("scenarios", ["raw", "author_solved_strae", "d6_only_author_strae"]):
     h = (
         scenarios.filter(pl.col("scenario") == name)
         .select("compound_id", "endpoint", "prediction")
@@ -65,7 +66,7 @@ for name in ["raw", "author_solved_strae", "d6_only_author_strae"]:
     json.dumps(
         dict(
             files=manifest,
-            source="same previously submitted vector; source assumption calibration; no upload",
+            source=cfg.get("source", "source-assumption placement on a fixed prediction vector"),
         ),
         indent=2,
     )

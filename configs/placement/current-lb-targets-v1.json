@@ -1,0 +1,10 @@
+{
+  "purpose": "Package current-vector LB-informed placement for CYP1A2, CYP2D6, and their combination",
+  "source": "Exact current submitted vector with source blind-moment placement; no score assigned",
+  "scenarios": [
+    "raw",
+    "a2_only_author_r2",
+    "d6_only_author_strae",
+    "a2_d6_author_placement"
+  ]
+}
