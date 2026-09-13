@@ -11,8 +11,8 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
   internal3A4 Caruana from20 LightGBMs to two. Caruana is removed from the other
   three endpoints, so its total falls77→2; cross-fitted macro ST-RAE is0.594440
   versus0.596414 for the submitted five-way
-  mean. The candidate was submitted on September 13 at 05:51 UTC; its leaderboard
-  result is pending. See
+  mean. The candidate submitted on September 13 at 05:51 UTC scored leaderboard
+  macro ST-RAE0.719349 (rank67), improving the prior0.721167 by0.001817. See
   [RL0061](2026-09.md#rl0061--cyp1a2-caruana-compression-and-removal)
   and [the pruning report](../analysis/2026-09-13-regression-component-pruning.md).
 
@@ -95,7 +95,8 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 - **Latest focused round:** prioritize1A2/2D6, allowing useful auxiliary tasks.
   Improved log2fc features and a complementary2D6 readout yield OOF-only
-  candidates around0.5869; no new submission. Latest actual LB is0.721167.
+  candidates around0.5869; no new submission from that round. The later simplified
+  regression ensemble is the latest actual LB at0.719349.
   See [RL0045](2026-09.md#rl0045--focused1a22d6-experiments-and-improved-primary-features)
   and [the focused program](../analysis/2026-09-12-focus-program.md).
 

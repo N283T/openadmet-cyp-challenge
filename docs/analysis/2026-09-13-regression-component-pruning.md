@@ -177,5 +177,8 @@ and uses only two Caruana models rather than 22. Candidate
 `20260912T163102549701Z-9545d109` pass dry run. The first live attempt was blocked
 with 2:30:13 remaining in the confirmed 12-hour cooldown. Retry
 `20260913T055138710137Z-e0ce27ff` was accepted at 2026-09-13 05:51 UTC and is
-awaiting leaderboard processing. This is the preferred simplified regression
-candidate.
+now scored. The MA leaderboard immediately before reflection retained the prior
+submission at ST-RAE 0.721167 (rank 67). The reflected candidate scores endpoint
+ST-RAE 0.685494/0.369556/1.353707/0.468640 for CYP1A2/CYP2C9/CYP2D6/CYP3A4 and
+macro **0.719349** (rank 67), an improvement of 0.001817. This is the preferred
+simplified regression candidate.
