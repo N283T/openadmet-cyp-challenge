@@ -174,5 +174,8 @@ reports cross-fitted endpoint scores 0.687942/0.463103/0.828397/0.398316, macro
 **0.594440**. This is 0.000212 above the intermediate 22-Caruana-model candidate
 and uses only two Caruana models rather than 22. Candidate
 `20260912T163058242643Z-4f82b69b` and prepared submission
-`20260912T163102549701Z-9545d109` pass dry run. Nothing was uploaded. This is the
-preferred simplified regression candidate.
+`20260912T163102549701Z-9545d109` pass dry run. The first live attempt was blocked
+with 2:30:13 remaining in the confirmed 12-hour cooldown. Retry
+`20260913T055138710137Z-e0ce27ff` was accepted at 2026-09-13 05:51 UTC and is
+awaiting leaderboard processing. This is the preferred simplified regression
+candidate.

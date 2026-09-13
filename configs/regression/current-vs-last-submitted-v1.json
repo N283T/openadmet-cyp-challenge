@@ -1,0 +1,6 @@
+{
+  "previous": "000-predictions.parquet",
+  "current": "001-predictions.parquet",
+  "previous_submission": "20260912T074802231782Z-eaafa860",
+  "current_candidate": "20260912T163058242643Z-4f82b69b"
+}
