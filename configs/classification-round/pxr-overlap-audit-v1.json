@@ -1,0 +1,7 @@
+{
+  "compounds": "000-compounds.parquet",
+  "test_mapping": "001-test_mapping.parquet",
+  "pxr_train_activity": "002-train_activity_db.parquet",
+  "pxr_test_activity": "003-phase_1_unblinded_test.parquet",
+  "pxr_single_concentration": "004-single_concentration_train.parquet"
+}

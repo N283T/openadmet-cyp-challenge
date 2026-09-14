@@ -1,0 +1,9 @@
+{
+  "compounds": "000-compounds.parquet",
+  "labels": "001-measurements.parquet",
+  "test_mapping": "002-test_mapping.parquet",
+  "assignments": "003-assignments.parquet",
+  "endpoints": ["CYP2D6_is_TDI", "CYP3A4_is_TDI"],
+  "strategies": ["random", "scaffold", "umap"],
+  "fingerprint": {"radius": 2, "size": 2048}
+}

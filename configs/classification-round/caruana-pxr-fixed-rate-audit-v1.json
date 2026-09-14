@@ -1,0 +1,11 @@
+{
+  "old_oof": "000-oof.parquet",
+  "old_test": "001-deployment.parquet",
+  "new_oof": "002-oof.parquet",
+  "new_test": "003-deployment.parquet",
+  "endpoint": "CYP3A4_is_TDI",
+  "methods": ["caruana_mcc", "caruana_mcc_sparse3", "caruana_auc", "caruana_brier", "bagged_sparse3"],
+  "call_rate": 0.332,
+  "test_calls": 249,
+  "target_prior": 0.2916
+}

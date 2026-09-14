@@ -1,0 +1,18 @@
+{
+  "external_records": "000-fda-cyp3a4-tdi-records.parquet",
+  "compounds": "001-compounds.parquet",
+  "block_oof": "002-oof.parquet",
+  "block_test": "003-test.parquet",
+  "endpoint": "CYP3A4_is_TDI",
+  "strategies": ["umap", "scaffold"],
+  "block_method": "radius1_chemprop1",
+  "radius": 2,
+  "fp_size": 2048,
+  "lr_c": 0.05,
+  "svm_c": 1.0,
+  "trees": 600,
+  "min_samples_leaf": 3,
+  "blend_weights": [[3, 1], [2, 1], [1, 1]],
+  "call_rate": 0.332,
+  "target_prior": 0.2916
+}

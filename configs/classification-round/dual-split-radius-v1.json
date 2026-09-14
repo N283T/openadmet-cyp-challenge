@@ -1,0 +1,20 @@
+{
+  "compounds": "000-compounds.parquet",
+  "labels": "001-measurements.parquet",
+  "test_mapping": "002-test_mapping.parquet",
+  "assignments": "003-assignments.parquet",
+  "endpoints": ["CYP2D6_is_TDI", "CYP3A4_is_TDI"],
+  "strategies": ["umap", "scaffold"],
+  "endpoint_settings": {
+    "CYP2D6_is_TDI": {
+      "radii": [2],
+      "call_rate": 0.06533333333333333,
+      "target_prior": 0.07062568306010919
+    },
+    "CYP3A4_is_TDI": {
+      "radii": [0, 1],
+      "call_rate": 0.332,
+      "target_prior": 0.2916
+    }
+  }
+}

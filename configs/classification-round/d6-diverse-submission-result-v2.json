@@ -1,0 +1,17 @@
+{
+  "pre": {
+    "MA": "000-classification_leaderboard_lzvrqs92.csv",
+    "CYP2D6_is_TDI": "001-classification_leaderboard_2h27jmvh.csv",
+    "CYP3A4_is_TDI": "002-classification_leaderboard_xyum5p33.csv"
+  },
+  "post": {
+    "MA": "003-classification_leaderboard_a5_ktm4y.csv",
+    "CYP2D6_is_TDI": "004-classification_leaderboard_3y79bgkb.csv",
+    "CYP3A4_is_TDI": "005-classification_leaderboard_sakz90yv.csv"
+  },
+  "previous_scores": {
+    "MA": 0.2758672631400589,
+    "CYP2D6_is_TDI": 0.1766984121410384,
+    "CYP3A4_is_TDI": 0.3750361141390794
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "d6_candidate": "000-fixed-morgan-model-selection.parquet",
+  "a4_blends": "001-test-blends.parquet",
+  "aliases": "002-aliases.parquet",
+  "reference": "003-cyp-challenge-TEST-BLINDED.csv",
+  "a4_method": "caruana_auc+0.2*morgan_pxr_admetica_lgbm",
+  "a4_positive_calls": 249
+}

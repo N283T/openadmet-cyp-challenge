@@ -1,0 +1,17 @@
+{
+  "caruana_oof": "000-member-oof.parquet",
+  "new_oof": "001-oof.parquet",
+  "assignments": "002-assignments.parquet",
+  "base_method": "caruana_auc",
+  "candidate_methods": [
+    "morgan_admetica_lgbm",
+    "morgan_pxr_admetica_lgbm",
+    "morgan_pred_bank_lgbm"
+  ],
+  "weights": [0.0, 0.025, 0.05, 0.075, 0.1, 0.15, 0.2, 0.3],
+  "bootstrap_weights": [0.05, 0.1, 0.15, 0.2],
+  "call_rate": 0.332,
+  "target_prior": 0.2916,
+  "bootstrap_replicates": 3000,
+  "bootstrap_seed": 20260913
+}

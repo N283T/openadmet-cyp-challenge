@@ -1,0 +1,9 @@
+{
+  "oof": "000-oof.parquet",
+  "source_run": "20260913T093248333738Z-60af2657",
+  "endpoints": [
+    "CYP2D6_is_TDI",
+    "CYP3A4_is_TDI"
+  ],
+  "bootstrap_replicates": 2000
+}

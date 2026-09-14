@@ -1,0 +1,16 @@
+{
+  "old_submission": "000-predictions.parquet",
+  "pre_submission": "001-predictions.parquet",
+  "post_submission": "002-predictions.parquet",
+  "old_CYP2D6_is_TDI": "003-classification_leaderboard_7rnut467.csv",
+  "old_CYP3A4_is_TDI": "004-classification_leaderboard_k1avqsbk.csv",
+  "pre_CYP2D6_is_TDI": "005-classification_leaderboard_2h27jmvh.csv",
+  "pre_CYP3A4_is_TDI": "006-classification_leaderboard_xyum5p33.csv",
+  "post_CYP2D6_is_TDI": "007-classification_leaderboard_huoq0wk6.csv",
+  "post_CYP3A4_is_TDI": "008-classification_leaderboard_ocp6e_6t.csv",
+  "pre_MA": "009-classification_leaderboard_lzvrqs92.csv",
+  "post_MA": "010-classification_leaderboard_ojhs6zla.csv",
+  "our_username": "N283T",
+  "all_negative_username": "cyp450_reg",
+  "tabicl_baseline": 0.324967
+}

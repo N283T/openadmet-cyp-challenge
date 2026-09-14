@@ -1,0 +1,20 @@
+{
+  "live_oof": "000-oof.parquet",
+  "live_test": "001-test.parquet",
+  "radius_oof": "002-oof.parquet",
+  "radius_test": "003-test.parquet",
+  "live_method": "current2_logistic_morgan_c0.05_rank_mean",
+  "radius_method": "rank_mean_all_unhashed",
+  "weights": {
+    "live": [1, 0],
+    "live2_radius1": [2, 1],
+    "live1_radius1": [1, 1],
+    "live1_radius2": [1, 2],
+    "radius": [0, 1]
+  },
+  "positive_calls": 49,
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 20260913
+}

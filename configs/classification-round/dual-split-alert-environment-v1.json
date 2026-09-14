@@ -1,0 +1,13 @@
+{
+  "compounds": "000-compounds.parquet",
+  "block_oof": "001-oof.parquet",
+  "block_test": "002-test.parquet",
+  "strategies": ["umap", "scaffold"],
+  "endpoints": ["CYP2D6_is_TDI", "CYP3A4_is_TDI"],
+  "lr_c": 0.05,
+  "blend_weights": [[3, 1], [2, 1], [1, 1]],
+  "endpoint_settings": {
+    "CYP2D6_is_TDI": {"radii": [2], "block_method": "radius", "call_rate": 0.06533333333333333, "target_prior": 0.07062568306010919},
+    "CYP3A4_is_TDI": {"radii": [0, 1], "block_method": "radius1_chemprop1", "call_rate": 0.332, "target_prior": 0.2916}
+  }
+}

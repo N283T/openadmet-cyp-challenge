@@ -1,0 +1,12 @@
+{
+  "method": "pxr_strict_chemprop_emb_lgbm_v1",
+  "backend": "lgbm",
+  "feature_file": "pxr-chemprop-features.parquet",
+  "feature_prefix": "pxr_cp_emb_",
+  "pca": 0,
+  "mask_observed_validation": false,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "lgbm_overrides": {
+    "n_jobs": 4
+  }
+}

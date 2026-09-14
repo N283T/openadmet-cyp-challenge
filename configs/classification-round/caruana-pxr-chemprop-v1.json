@@ -1,0 +1,18 @@
+{
+  "sources": [
+    {"prefix": "lgbm", "oof": "000-000-000-000-oof.parquet", "inner": "001-001-001-001-inner-predictions.parquet", "test": "002-002-002-002-fold-test-probabilities.parquet"},
+    {"prefix": "pfn", "oof": "003-003-003-003-oof-probabilities.parquet", "inner": "004-004-004-004-inner-validation-probabilities.parquet", "test": "005-005-005-005-test-fold-probabilities.parquet"},
+    {"prefix": "graph", "oof": "006-006-006-006-classification-oof.parquet", "inner": "007-007-007-007-inner-probabilities.parquet", "test": "008-008-008-008-fold-test-probabilities.parquet"},
+    {"prefix": "history", "oof": "009-009-009-outer-oof.parquet", "inner": "010-010-010-inner-probabilities.parquet", "test": "011-011-011-fold-test-probabilities.parquet"},
+    {"prefix": "icl_frozen", "oof": "012-012-outer-oof.parquet", "inner": "013-013-inner-probabilities.parquet", "test": "014-014-fold-test-probabilities.parquet"},
+    {"prefix": "jeremy8", "oof": "015-015-outer-oof.parquet", "inner": "016-016-inner-probabilities.parquet", "test": "017-017-fold-test-probabilities.parquet"},
+    {"prefix": "icl_stack", "oof": "018-018-oof.parquet", "inner": "019-019-inner-probabilities.parquet", "test": "020-020-fold-test-probabilities.parquet"},
+    {"prefix": "pxr_strict", "oof": "021-outer-oof.parquet", "inner": "022-inner-probabilities.parquet", "test": "023-fold-test-probabilities.parquet"}
+  ],
+  "steps": 50,
+  "bagging_seed": 731,
+  "bagging_samples": 20,
+  "parent_run": "20260912T141520708830Z-97df4c71",
+  "pxr_nested_run": "20260913T161139263699Z-41ccf0ec",
+  "recipes": ["fixed_historical", "subset1", "subset2", "subset3", "caruana_mcc", "caruana_mcc_sparse3", "caruana_auc", "caruana_brier", "bagged_sparse3"]
+}

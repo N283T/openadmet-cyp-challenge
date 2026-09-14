@@ -1,0 +1,13 @@
+{
+  "selections": "000-selections.json",
+  "sources": {
+    "lgbm": {"oof": "001-000-000-000-oof.parquet", "test": "002-002-002-002-fold-test-probabilities.parquet"},
+    "pfn": {"oof": "003-003-003-003-oof-probabilities.parquet", "test": "004-005-005-005-test-fold-probabilities.parquet"},
+    "history": {"oof": "005-009-009-outer-oof.parquet", "test": "006-011-011-fold-test-probabilities.parquet"},
+    "jeremy8": {"oof": "007-015-outer-oof.parquet", "test": "008-017-fold-test-probabilities.parquet"}
+  },
+  "endpoint": "CYP3A4_is_TDI",
+  "recipe": "caruana_auc",
+  "selection_steps": 50,
+  "call_rate": 0.332
+}

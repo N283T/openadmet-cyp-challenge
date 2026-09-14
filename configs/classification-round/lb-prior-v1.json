@@ -1,0 +1,23 @@
+{
+  "old_submission": "000-predictions.parquet",
+  "current_submission": "001-predictions.parquet",
+  "old_d6_leaderboard": "002-classification_leaderboard_7rnut467.csv",
+  "old_a4_leaderboard": "003-classification_leaderboard_k1avqsbk.csv",
+  "current_d6_leaderboard": "004-classification_leaderboard_wairi7uv.csv",
+  "current_a4_leaderboard": "005-classification_leaderboard_elbwovr6.csv",
+  "ensemble_oof": "006-ensemble-oof.parquet",
+  "ensemble_inner": "007-ensemble-inner.parquet",
+  "ensemble_test": "008-ensemble-test.parquet",
+  "aliases": "009-aliases.parquet",
+  "official_evaluation": "010-012-evaluate_predictions.py",
+  "endpoints": [
+    "CYP2D6_is_TDI",
+    "CYP3A4_is_TDI"
+  ],
+  "current_methods": {
+    "CYP2D6_is_TDI": "all_plain_pfn_graph_mean",
+    "CYP3A4_is_TDI": "lgbm_balanced_mean"
+  },
+  "all_negative_username": "cyp450_reg",
+  "our_username": "N283T"
+}

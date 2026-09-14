@@ -1,0 +1,12 @@
+{
+  "base_oof": "000-oof.parquet",
+  "base_test": "001-test.parquet",
+  "model_oof": "002-oof.parquet",
+  "model_test": "003-test.parquet",
+  "base_method": "morgan_chemprop_embedding_lgbm",
+  "candidate_methods": ["extra_trees_leaf2", "random_forest_leaf2", "rbf_svm_c1", "lgbm"],
+  "candidate_weights": [0.25, 0.5],
+  "strategies": ["umap", "scaffold"],
+  "call_rate": 0.332,
+  "target_prior": 0.2916
+}

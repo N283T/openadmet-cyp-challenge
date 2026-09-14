@@ -1,0 +1,18 @@
+{
+  "ensemble_oof": "000-ensemble-oof.parquet",
+  "ensemble_test": "001-ensemble-test.parquet",
+  "caruana_oof": "002-oof.parquet",
+  "caruana_test": "003-deployment.parquet",
+  "weighted_oof": "004-oof.parquet",
+  "weighted_test": "005-deployment.parquet",
+  "old_submission": "006-predictions.parquet",
+  "current_submission": "007-predictions.parquet",
+  "aliases": "008-aliases.parquet",
+  "lb_summary": "009-summary.json",
+  "our_lb": "010-our-lb-operating-points.csv",
+  "leaderboard_points": "011-leaderboard-operating-points.csv",
+  "endpoints": [
+    "CYP2D6_is_TDI",
+    "CYP3A4_is_TDI"
+  ]
+}

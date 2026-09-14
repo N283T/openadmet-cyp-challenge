@@ -1,0 +1,12 @@
+{
+  "attributions": "000-bit-attributions.csv",
+  "ablations": "001-ablation-metrics.csv",
+  "endpoints": ["CYP2D6_is_TDI", "CYP3A4_is_TDI"],
+  "endpoint_sizes": {
+    "CYP2D6_is_TDI": 1497,
+    "CYP3A4_is_TDI": 3584
+  },
+  "minimum_bit_count": 15,
+  "maximum_frequency": 0.95,
+  "top_n": 12
+}

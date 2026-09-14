@@ -1,0 +1,34 @@
+{
+  "compounds": "000-compounds.parquet",
+  "labels": "001-measurements.parquet",
+  "assignments": "002-assignments.parquet",
+  "lgbm_models": {
+    "CYP2D6_is_TDI": [
+      "003-morgan_plain-CYP2D6_is_TDI-0.txt",
+      "004-morgan_plain-CYP2D6_is_TDI-1.txt",
+      "005-morgan_plain-CYP2D6_is_TDI-2.txt",
+      "006-morgan_plain-CYP2D6_is_TDI-3.txt",
+      "007-morgan_plain-CYP2D6_is_TDI-4.txt"
+    ],
+    "CYP3A4_is_TDI": [
+      "008-morgan_plain-CYP3A4_is_TDI-0.txt",
+      "009-morgan_plain-CYP3A4_is_TDI-1.txt",
+      "010-morgan_plain-CYP3A4_is_TDI-2.txt",
+      "011-morgan_plain-CYP3A4_is_TDI-3.txt",
+      "012-morgan_plain-CYP3A4_is_TDI-4.txt"
+    ]
+  },
+  "endpoints": ["CYP2D6_is_TDI", "CYP3A4_is_TDI"],
+  "logistic_c": 0.05,
+  "minimum_bit_count": 15,
+  "call_rates": {
+    "CYP2D6_is_TDI": 0.06533333333333333,
+    "CYP3A4_is_TDI": 0.332
+  },
+  "target_priors": {
+    "CYP2D6_is_TDI": 0.07062568306010919,
+    "CYP3A4_is_TDI": 0.2915710382513661
+  },
+  "split_run": "20260909T135130268493Z-edba6fc0",
+  "seed": 20260913
+}

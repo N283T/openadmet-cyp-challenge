@@ -1,0 +1,29 @@
+{
+  "compact_oof": "000-oof.parquet",
+  "compact_test": "001-test.parquet",
+  "radius_oof": "002-oof.parquet",
+  "radius_test": "003-test.parquet",
+  "endpoints": ["CYP2D6_is_TDI", "CYP3A4_is_TDI"],
+  "strategies": ["umap", "scaffold"],
+  "weights": {
+    "radius": [1, 0],
+    "radius2_chemprop1": [2, 1],
+    "radius1_chemprop1": [1, 1],
+    "radius1_chemprop2": [1, 2],
+    "chemprop": [0, 1]
+  },
+  "endpoint_settings": {
+    "CYP2D6_is_TDI": {
+      "radius_method": "rank_mean_all_unhashed",
+      "chemprop_method": "chemprop_mixed_lr",
+      "call_rate": 0.06533333333333333,
+      "target_prior": 0.07062568306010919
+    },
+    "CYP3A4_is_TDI": {
+      "radius_method": "rank_mean_all_unhashed",
+      "chemprop_method": "chemprop_class_lr",
+      "call_rate": 0.332,
+      "target_prior": 0.2916
+    }
+  }
+}

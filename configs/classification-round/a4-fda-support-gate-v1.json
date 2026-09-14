@@ -1,0 +1,14 @@
+{
+  "external_records": "000-fda-cyp3a4-tdi-records.parquet",
+  "compounds": "001-compounds.parquet",
+  "prior_oof": "002-oof.parquet",
+  "prior_test": "003-test.parquet",
+  "endpoint": "CYP3A4_is_TDI",
+  "strategies": ["umap", "scaffold"],
+  "thresholds": [0.4, 0.5, 0.6],
+  "continuous_low": 0.3,
+  "continuous_high": 0.7,
+  "alphas": [0.25, 0.3333333333333333],
+  "call_rate": 0.332,
+  "target_prior": 0.2916
+}

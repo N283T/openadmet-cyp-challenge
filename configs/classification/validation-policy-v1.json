@@ -1,0 +1,9 @@
+{
+  "assignment_run": "20260909T135130268493Z-edba6fc0",
+  "primary_stress_test": "umap",
+  "secondary_ordering_check": "scaffold",
+  "n_folds": 5,
+  "selection_policy": "Prefer effects with the same direction on UMAP and scaffold; use grouped bootstrap to quantify selection instability.",
+  "limitation": "CYP2D6 blind-test support exceeds even the training leave-one-out support ceiling, so no honest all-row CV split can exactly match the blind-test support distribution.",
+  "decision_run": "20260913T134552223806Z-5729eb3c"
+}

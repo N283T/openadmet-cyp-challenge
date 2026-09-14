@@ -1,0 +1,6 @@
+{
+  "sdf": "000-Supplementary_TableS1_Full_Database.sdf",
+  "compounds": "001-compounds.parquet",
+  "labels": "002-measurements.parquet",
+  "test_mapping": "003-test_mapping.parquet"
+}

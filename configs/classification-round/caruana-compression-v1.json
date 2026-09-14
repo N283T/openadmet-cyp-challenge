@@ -1,0 +1,16 @@
+{
+  "member_oof": "000-member-oof.parquet",
+  "member_test": "001-member-test.parquet",
+  "target": "caruana_auc",
+  "members": [
+    "history::historical_stack_mordred",
+    "jeremy8::tabicl_jeremy_pca256",
+    "jeremy8::tabpfn_jeremy_pca256",
+    "lgbm::external_class_mordred_balanced",
+    "pfn::external_class_pca256",
+    "lgbm::morgan_balanced"
+  ],
+  "call_rate": 0.332,
+  "test_positive_calls": 249,
+  "effective_weight_min": 0.00001
+}

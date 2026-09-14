@@ -1,0 +1,31 @@
+{
+  "oof": "000-oof.parquet",
+  "test_scores": "001-test.parquet",
+  "caruana_a4": "002-current_d6_caruana_a4_old_count.parquet",
+  "old_a4": "003-retain_d6_restore_a4.parquet",
+  "aliases": "004-aliases.parquet",
+  "reference": "005-cyp-challenge-TEST-BLINDED.csv",
+  "target_prior": 0.07062568306010919,
+  "candidates": {
+    "current_43": {
+      "method": "current",
+      "positives": 43
+    },
+    "logistic_blend_43": {
+      "method": "current_logistic_morgan_c0.05_rank_mean",
+      "positives": 43
+    },
+    "logistic_blend_49": {
+      "method": "current2_logistic_morgan_c0.05_rank_mean",
+      "positives": 49
+    },
+    "tanimoto_blend_43": {
+      "method": "current2_tanimoto_knn5_rank_mean",
+      "positives": 43
+    },
+    "tanimoto_blend_53": {
+      "method": "current2_tanimoto_knn5_rank_mean",
+      "positives": 53
+    }
+  }
+}

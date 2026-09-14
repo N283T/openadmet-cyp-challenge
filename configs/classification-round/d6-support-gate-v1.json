@@ -1,0 +1,59 @@
+{
+  "compounds": "000-compounds.parquet",
+  "labels": "001-measurements.parquet",
+  "test_mapping": "002-test_mapping.parquet",
+  "assignments": "003-assignments.parquet",
+  "diverse_oof": "004-oof.parquet",
+  "diverse_test": "005-test.parquet",
+  "fixed_oof": "006-oof.parquet",
+  "fp_oof": "007-oof.parquet",
+  "fp_test": "008-test.parquet",
+  "fixed_models": {
+    "complement": [
+      "009-complement_nb_a1-fold0.joblib",
+      "010-complement_nb_a1-fold1.joblib",
+      "011-complement_nb_a1-fold2.joblib",
+      "012-complement_nb_a1-fold3.joblib",
+      "013-complement_nb_a1-fold4.joblib"
+    ],
+    "rbf": [
+      "014-rbf_svm_balanced_c1-fold0.joblib",
+      "015-rbf_svm_balanced_c1-fold1.joblib",
+      "016-rbf_svm_balanced_c1-fold2.joblib",
+      "017-rbf_svm_balanced_c1-fold3.joblib",
+      "018-rbf_svm_balanced_c1-fold4.joblib"
+    ]
+  },
+  "methods": {
+    "live": "current2_logistic_morgan_c0.05_rank_mean",
+    "original": "current",
+    "tanimoto_knn5": "tanimoto_knn5",
+    "catboost_mordred": "catboost_mordred",
+    "catboost_external": "catboost_external_class",
+    "complement_blend": "live2_complement_nb_a1",
+    "rbf_blend": "original2_rbf_svm_balanced_c1",
+    "r3_count": "logistic_morgan_r3_count_c0.02",
+    "chemprop_mixed": "logistic_chemprop_mixed_c0.02",
+    "r3_chemprop_fusion": "logistic_morgan_r3_count_chemprop_mixed_c0.05"
+  },
+  "low_support_methods": [
+    "live",
+    "original",
+    "catboost_mordred",
+    "catboost_external",
+    "chemprop_mixed",
+    "r3_chemprop_fusion"
+  ],
+  "high_support_methods": [
+    "live",
+    "tanimoto_knn5",
+    "complement_blend",
+    "rbf_blend",
+    "r3_count"
+  ],
+  "support_quantiles": [0.25, 0.5, 0.75],
+  "support_bins": [0.0, 0.3, 0.4, 0.5, 0.6, 1.01],
+  "top_k": [1, 3, 5],
+  "positive_calls": 49,
+  "target_prior": 0.07062568306010919
+}

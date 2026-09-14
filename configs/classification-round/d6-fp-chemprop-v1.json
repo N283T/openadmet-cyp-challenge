@@ -1,0 +1,16 @@
+{
+  "compounds": "000-compounds.parquet",
+  "labels": "001-measurements.parquet",
+  "test_mapping": "002-test_mapping.parquet",
+  "assignments": "003-assignments.parquet",
+  "class_emb": "004-external-embeddings.parquet",
+  "mixed_emb": "005-external-embeddings.parquet",
+  "current_oof": "006-ensemble-oof.parquet",
+  "current_test": "007-ensemble-test.parquet",
+  "target_prior": 0.07062568306010919,
+  "rates": {
+    "calls43": 0.05733333333333333,
+    "calls49": 0.06533333333333333,
+    "calls53": 0.07066666666666667
+  }
+}

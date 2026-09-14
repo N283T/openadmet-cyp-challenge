@@ -1,0 +1,20 @@
+{
+  "caruana_oof": "000-oof.parquet",
+  "caruana_test": "001-deployment.parquet",
+  "block_oof": "002-oof.parquet",
+  "block_test": "003-test.parquet",
+  "caruana_method": "caruana_auc",
+  "block_method": "radius1_chemprop1",
+  "weights": {
+    "caruana": [1, 0],
+    "caruana3_block1": [3, 1],
+    "caruana2_block1": [2, 1],
+    "caruana1_block1": [1, 1],
+    "block": [0, 1]
+  },
+  "positive_calls": 249,
+  "call_rate": 0.332,
+  "target_prior": 0.2916,
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 20260913
+}

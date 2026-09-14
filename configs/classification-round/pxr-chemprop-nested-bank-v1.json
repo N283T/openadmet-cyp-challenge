@@ -1,0 +1,11 @@
+{
+  "compounds": "000-compounds.parquet",
+  "labels": "001-measurements.parquet",
+  "test_mapping": "002-test_mapping.parquet",
+  "assignments": "003-assignments.parquet",
+  "features": "004-pxr-chemprop-features.parquet",
+  "endpoints": ["CYP2D6_is_TDI", "CYP3A4_is_TDI"],
+  "strategy": "umap",
+  "random_seed": 20260914,
+  "split_id": "20260909T135130268493Z-edba6fc0"
+}

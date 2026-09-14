@@ -1,0 +1,9 @@
+{
+  "oof": "000-oof.parquet",
+  "selection": "001-crossfit-selection.csv",
+  "deployment": "002-deployment.parquet",
+  "live_submission": "003-predictions.parquet",
+  "aliases": "004-aliases.parquet",
+  "reference": "005-cyp-challenge-TEST-BLINDED.csv",
+  "target_prior": 0.07062568306010919
+}

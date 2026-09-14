@@ -1,0 +1,11 @@
+{
+  "oof": "000-oof.parquet",
+  "endpoints": ["CYP2D6_is_TDI", "CYP3A4_is_TDI"],
+  "strategies": ["umap", "scaffold"],
+  "replicates": 2000,
+  "seed": 20260913,
+  "endpoint_settings": {
+    "CYP2D6_is_TDI": {"call_rate": 0.06533333333333333, "target_prior": 0.07062568306010919},
+    "CYP3A4_is_TDI": {"call_rate": 0.332, "target_prior": 0.2916}
+  }
+}

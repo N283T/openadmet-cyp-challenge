@@ -1,0 +1,9 @@
+{
+  "compounds": "000-compounds.parquet",
+  "pxr_train_activity": "001-train_activity_db.parquet",
+  "pxr_test_activity": "002-phase_1_unblinded_test.parquet",
+  "fingerprint_radius": 2,
+  "fingerprint_bits": 2048,
+  "cv_folds": 5,
+  "random_seed": 20260913
+}

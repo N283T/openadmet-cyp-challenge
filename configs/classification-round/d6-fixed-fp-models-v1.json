@@ -1,0 +1,12 @@
+{
+  "compounds": "000-compounds.parquet",
+  "labels": "001-measurements.parquet",
+  "test_mapping": "002-test_mapping.parquet",
+  "assignments": "003-assignments.parquet",
+  "original_oof": "004-ensemble-oof.parquet",
+  "original_test": "005-ensemble-test.parquet",
+  "live_oof": "006-oof.parquet",
+  "live_test": "007-test.parquet",
+  "live_method": "current2_logistic_morgan_c0.05_rank_mean",
+  "target_prior": 0.07062568306010919
+}

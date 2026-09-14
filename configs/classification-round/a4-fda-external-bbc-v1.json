@@ -1,0 +1,10 @@
+{
+  "oof": "000-oof.parquet",
+  "endpoints": ["CYP3A4_is_TDI"],
+  "strategies": ["umap", "scaffold"],
+  "replicates": 5000,
+  "seed": 20260913,
+  "endpoint_settings": {
+    "CYP3A4_is_TDI": {"call_rate": 0.332, "target_prior": 0.2916}
+  }
+}

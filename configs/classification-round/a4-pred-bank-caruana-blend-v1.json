@@ -1,0 +1,15 @@
+{
+  "caruana_oof": "000-member-oof.parquet",
+  "caruana_test": "001-member-test.parquet",
+  "new_oof": "002-oof.parquet",
+  "new_test": "003-test.parquet",
+  "base_method": "caruana_auc",
+  "candidate_methods": [
+    "morgan_admetica_lgbm",
+    "morgan_pxr_admetica_lgbm",
+    "morgan_pred_bank_lgbm"
+  ],
+  "weights": [0.025, 0.05, 0.075, 0.1, 0.15, 0.2, 0.3],
+  "call_rate": 0.332,
+  "target_prior": 0.2916
+}

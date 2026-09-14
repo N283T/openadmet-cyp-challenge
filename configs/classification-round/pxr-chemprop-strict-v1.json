@@ -1,0 +1,21 @@
+{
+  "compounds": "000-compounds.parquet",
+  "pxr_single_concentration": "001-single_concentration_train.parquet",
+  "seeds": [42, 43, 44],
+  "validation_fraction": 0.1,
+  "message_hidden_dim": 384,
+  "depth": 4,
+  "mp_dropout": 0.003018927726517212,
+  "activation": "relu",
+  "aggregation": "norm",
+  "ffn_hidden_dim": 128,
+  "ffn_num_layers": 1,
+  "ffn_dropout": 0.004678439897536829,
+  "warmup_epochs": 3,
+  "learning_rate": 0.0004566976024050153,
+  "lr_ratio": 5.0,
+  "batch_size": 64,
+  "w_33": 0.975186620836461,
+  "max_epochs": 100,
+  "patience": 10
+}
