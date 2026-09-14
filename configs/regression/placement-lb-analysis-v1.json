@@ -1,0 +1,30 @@
+{
+  "username": "N283T",
+  "old_submitted": "2026-09-13 05:51 UTC",
+  "new_submitted": "2026-09-14 02:48 UTC",
+  "old_ma": "000-regression_leaderboard_24h7_2h0.csv",
+  "new_ma": "001-regression_leaderboard_h2swr1dh.csv",
+  "old_predictions": "010-predictions.parquet",
+  "new_predictions": "011-predictions.csv",
+  "endpoints": [
+    {"name": "MA", "old": "000-regression_leaderboard_24h7_2h0.csv", "new": "001-regression_leaderboard_h2swr1dh.csv", "score_column": "MA-ST-RAE"},
+    {"name": "CYP1A2_pIC50_direct_inhibition", "old": "002-regression_leaderboard_2e8kdti9.csv", "new": "003-regression_leaderboard_yjdb03n2.csv", "score_column": "ST-RAE"},
+    {"name": "CYP2C9_pIC50_direct_inhibition", "old": "004-regression_leaderboard_xp7eg0ng.csv", "new": "005-regression_leaderboard_6cy0lu13.csv", "score_column": "ST-RAE"},
+    {"name": "CYP2D6_pIC50_direct_inhibition", "old": "006-regression_leaderboard_6v9erty4.csv", "new": "007-regression_leaderboard_fkbmsxp_.csv", "score_column": "ST-RAE"},
+    {"name": "CYP3A4_pIC50_direct_inhibition", "old": "008-regression_leaderboard_modbumrm.csv", "new": "009-regression_leaderboard_c4nvfznj.csv", "score_column": "ST-RAE"}
+  ],
+  "endpoint_order": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "counterfactuals": [
+    {"name": "previous", "new_endpoints": []},
+    {"name": "1a2_only", "new_endpoints": ["CYP1A2_pIC50_direct_inhibition"]},
+    {"name": "2d6_only", "new_endpoints": ["CYP2D6_pIC50_direct_inhibition"]},
+    {"name": "1a2_plus_2d6", "new_endpoints": ["CYP1A2_pIC50_direct_inhibition", "CYP2D6_pIC50_direct_inhibition"]},
+    {"name": "all_four", "new_endpoints": ["CYP1A2_pIC50_direct_inhibition", "CYP2C9_pIC50_direct_inhibition", "CYP2D6_pIC50_direct_inhibition", "CYP3A4_pIC50_direct_inhibition"]}
+  ],
+  "macro_metrics": ["MA-ST-RAE", "MA-MAE", "MA-R²", "MA-Spearman's ρ", "MA-Kendall's τ"]
+}

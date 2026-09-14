@@ -1,0 +1,41 @@
+{
+  "pxr": "000-external-oof.parquet",
+  "jeremy_frozen_tabpfn": "001-external-oof.parquet",
+  "jeremy_scores_log2fc_tabpfn": "002-external-oof.parquet",
+  "jeremy_finetuned_log2fc_lgbm": "003-external-oof.parquet",
+  "chemeleon_log2fc_tabicl": "004-external-oof.parquet",
+  "caruana_top2": "005-predictions.parquet",
+  "scorer": "006-custom_scoring_functions.py",
+  "component_names": [
+    "jeremy_frozen_tabpfn",
+    "jeremy_scores_log2fc_tabpfn",
+    "jeremy_finetuned_log2fc_lgbm",
+    "chemeleon_log2fc_tabicl"
+  ],
+  "endpoint_components": {
+    "CYP1A2_pIC50_direct_inhibition": [
+      "jeremy_frozen_tabpfn",
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm"
+    ],
+    "CYP2C9_pIC50_direct_inhibition": [
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm",
+      "chemeleon_log2fc_tabicl"
+    ],
+    "CYP2D6_pIC50_direct_inhibition": [
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm"
+    ],
+    "CYP3A4_pIC50_direct_inhibition": [
+      "jeremy_frozen_tabpfn",
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm",
+      "chemeleon_log2fc_tabicl"
+    ]
+  },
+  "a4_endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "weights": [0.0, 0.1, 0.2, 0.25, 0.3333333333333333],
+  "bootstrap_replicates": 3000,
+  "bootstrap_seed": 20260914
+}

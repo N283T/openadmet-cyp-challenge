@@ -1,0 +1,40 @@
+{
+  "predictions": "000-test-predictions.parquet",
+  "aliases": "001-aliases.parquet",
+  "reference": "002-cyp-challenge-TEST-BLINDED.csv",
+  "targets": {
+    "CYP1A2_pIC50_direct_inhibition": {"mean": 4.412, "sd": 1.169409},
+    "CYP2C9_pIC50_direct_inhibition": {"mean": 4.830, "sd": 0.922638},
+    "CYP2D6_pIC50_direct_inhibition": {"mean": 3.570, "sd": 0.900000},
+    "CYP3A4_pIC50_direct_inhibition": {"mean": 4.880, "sd": 1.082472}
+  },
+  "scenarios": [
+    {
+      "name": "a2_d6_full_c9_a4_quarter",
+      "strengths": {
+        "CYP1A2_pIC50_direct_inhibition": 1.0,
+        "CYP2C9_pIC50_direct_inhibition": 0.25,
+        "CYP2D6_pIC50_direct_inhibition": 1.0,
+        "CYP3A4_pIC50_direct_inhibition": 0.25
+      }
+    },
+    {
+      "name": "a2_d6_full_c9_a4_half",
+      "strengths": {
+        "CYP1A2_pIC50_direct_inhibition": 1.0,
+        "CYP2C9_pIC50_direct_inhibition": 0.5,
+        "CYP2D6_pIC50_direct_inhibition": 1.0,
+        "CYP3A4_pIC50_direct_inhibition": 0.5
+      }
+    },
+    {
+      "name": "all_full_hybrid_targets",
+      "strengths": {
+        "CYP1A2_pIC50_direct_inhibition": 1.0,
+        "CYP2C9_pIC50_direct_inhibition": 1.0,
+        "CYP2D6_pIC50_direct_inhibition": 1.0,
+        "CYP3A4_pIC50_direct_inhibition": 1.0
+      }
+    }
+  ]
+}
