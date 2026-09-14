@@ -6,6 +6,148 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Four-endpoint regression placement reaches ST-RAE .475974, rank20:** the
+  strict challenge-disjoint PXR Chemprop embedding has
+  generic pIC50 signal, but a 10% addition is unstable for 2C9 and worsens 3A4.
+  Validated hybrid files instead retain the full planned 1A2/D6 placement and
+  move 2C9/3A4 by 25%, 50% or 100% toward archived source moments. Even full
+  movement is only .180/.202 pIC50 mean absolute change for 2C9/3A4. With the
+  user's high-risk, high-information preference, keep all-full as the exploratory
+  choice. Candidate `f87e9914` / submission `8ef21e06` improves every endpoint;
+  the largest movement is D6 1.353707→.565520 and rank83→20. Macro improves
+  .719349→.475974 and rank69→20, while unchanged rank correlations isolate the
+  gain as population placement rather than molecular ordering. See
+  [RL0080](2026-09.md#rl0080--strict-pxr-chemprop-regression-transfer-and-hybrid-placement)
+  and [the report](../analysis/2026-09-14-regression-pxr-hybrid-placement.md).
+  Recorded decomposition attributes 80.96% of the improvement to D6 and 16.34%
+  to1A2; changing 2C9/A4 adds another .006568 macro. Freeze the four placements
+  as the new test-time baseline and prioritize a new D6 ranking signal.
+
+- **Challenge-disjoint PXR Chemprop is a strong independent A4 representation,
+  but not a live-Caruana addition:** old PXR checkpoints overlap four blind-test
+  structures, so a strict three-seed model was retrained after excluding all CYP
+  connectivities. Morgan plus its 384-d embedding reaches target-prior MCC
+  .373/.407 on UMAP/scaffold, and a tree/SVM/LGBM blend reaches .382/.426.
+  Direct PXR response predictions are weak. Chemprop/live-Caruana cross-fit
+  blending worsens; a lower-correlation classical PXR/Admetica 20% addition has
+  +.0107 descriptive MCC but a bootstrap interval crossing zero. Keep both as
+  saved alternatives; no submission. See
+  [RL0078](2026-09.md#rl0078--challenge-disjoint-pxr-transfer-into-a4-tdi) and
+  [the report](../analysis/2026-09-14-classification-pxr-transfer.md).
+
+- **Live A4 Caruana is highly compressible:** the six effective members have
+  mean blind-test pairwise Spearman .702, including .963 between the two Jeremy
+  PCA256 readouts. OOF-only prediction distillation reduces the ensemble to the
+  historical stack plus Jeremy PCA256 TabICL with blind Spearman .99472 and only
+  seven top-249 swaps each way. Four members leave two swaps, and dropping the
+  2% Morgan tail leaves none. A 15:1 addition of pure radius-0/1 unhashed counts
+  gives a tiny +.00307 descriptive MCC change but lowers AUROC/AP and has an
+  interval crossing zero; the ordinary-plus-unhashed composite consistently
+  hurts. Keep the two-member recipe clean, or the exact three-type unhashed
+  version only as an LB probe; no submission. See
+  [RL0077](2026-09.md#rl0077--live-a4-caruana-member-correlation-and-compression)
+  and [the report](../analysis/2026-09-13-classification-caruana-compression.md).
+
+- **A4 block fusion helps CV but not the live ensemble; FDA TDI transfer is
+  domain-shifted:** radius plus classification-Chemprop improves both internal
+  splits, but hurts when added to live Caruana. The checksum-validated primary
+  FDA/Instem source supplies 621 A4 TDI labels; overlapping challenge labels
+  agree only64.7%. Independent transfer improves UMAP but worsens scaffold,
+  similarity gating changes no calls, and alert-centered exact environments fail
+  the dual readout. Keep the data, not the model; no submission. See
+  [RL0076](2026-09.md#rl0076--block-fusion-primary-fda-tdi-source-and-local-alert-environments)
+  and [the analysis](../analysis/2026-09-13-classification-dual-split-priorities.md).
+
+- **Dual-split audit finds a robust radius/unhashed representation gain:** blind
+  D6 test support is higher than even the training leave-one-out ceiling, so no
+  honest all-row split can exactly match it. Keep UMAP as the OOD stress test and
+  use the existing scaffold folds as the closest grouped secondary readout. PLS
+  and local residual correction are rejected. Endpoint-specific unhashed Morgan
+  improves ordinary Morgan on both splits, but exceeds the live D6 ensemble by
+  only .00503 with an interval crossing zero; no submission. See
+  [RL0075](2026-09.md#rl0075--dual-split-small-data-and-unhashed-radius-follow-up)
+  and [the analysis](../analysis/2026-09-13-classification-dual-split-priorities.md).
+
+- **Support gating rejected; validation mismatch identified:** a fold-excluded
+  router among ten saved D6 ranks scores projected MCC .08495 versus .09485 live.
+  UMAP OOF is much harder than test: median nearest-train Tanimoto .299 versus
+  .471, with93.4% versus42.0% below.4. Keep UMAP as the OOD stress test; add a
+  prespecified grouped secondary split matched to the test support histogram for
+  likely-LB ordering. See
+  [RL0074](2026-09.md#rl0074--fold-excluded-d6-support-routing) and
+  [the analysis](../analysis/2026-09-13-classification-d6-support-gate.md).
+
+- **Hashed FP positions hide D6 test novelty:** test density is46.23 bits/molecule
+  versus48.04 D6 and49.80 A4. Nearly all test bit positions occur in training, but
+  unhashed IDs show4.58% occurrence-weighted novelty against D6 and3.03% against
+  A4. D6 median nearest-train Tanimoto is only.471 and42% of test is below.4.
+  Treat this as structural coverage/frequency shift, not a fingerprint alignment
+  bug; favor larger/unhashed fingerprints and support-aware blends. See
+  [RL0073](2026-09.md#rl0073--traintest-morgan-density-and-environment-coverage)
+  and [the analysis](../analysis/2026-09-13-classification-fp-train-test-shift.md).
+
+- **Morgan attribution separates the endpoint regimes:** D6 has only two
+  non-ubiquitous FDR-significant bits and gains from radius-2-only environments,
+  while A4 has 110 significant bits and gains from radius0/1. D6's top-50
+  coefficients alone fail and their removal improves AUROC, so do not turn hashed
+  top bits into manual alerts. Next use prespecified radius-isolated and unhashed
+  collision-control features; no live change. See
+  [RL0072](2026-09.md#rl0072--morgan-bit-attribution-and-radius-ablation) and
+  [the analysis](../analysis/2026-09-13-classification-fp-attribution.md).
+
+- **Fixed-feature model variation finds a small D6 complement:** with Morgan
+  radius-2 bits and 49 calls fixed, honest fold-excluded selection chooses RBF-SVM
+  or ComplementNB and moves projected MCC from .09485 to .09988. The +.00503
+  conditional interval crosses zero; the validated candidate swaps only six live
+  calls each way and was not uploaded. Keep the current live reference and retain
+  this only as a low-risk optional LB probe. See
+  [RL0071](2026-09.md#rl0071--fixed-fingerprint-classical-d6-model-comparison) and
+  [the report](../analysis/2026-09-13-classification-d6-fixed-fp-models.md).
+
+- **Broader classical D6 screen is promising but unstable:** radius-3 Morgan is
+  the best pooled extension and FP+Chemprop wins three of five fold-specific
+  selections, but fold-excluded model choice does not beat the live D6 recipe.
+  Keep the current submission; next test only a prespecified radius2/radius3/torsion
+  late-rank ensemble. See
+  [RL0070](2026-09.md#rl0070--classical-fingerprint-and-chemprop-d6-screen) and
+  [the report](../analysis/2026-09-13-classification-d6-fp-chemprop.md).
+
+- **Diverse classification candidate reaches macro MCC0.352961, rank13:** the
+  user-approved logistic-blend49 D6 plus Caruana-rank249 A4 improves D6
+  .176698→.270958 and A4.375036→.434963. Macro rises from.275867 at rank48 and
+  exceeds the public TabICL baseline.324967. Gain decomposition attributes61.1%
+  to the D6 blend,36.1% to restoring the A4 call rate, and2.8% to A4 Caruana
+  reranking. See
+  [RL0069](2026-09.md#rl0069--classification-lb-gain-decomposition) and
+  [the result analysis](../analysis/2026-09-13-classification-diverse-lb-result.md).
+
+- **A materially new classification candidate is prepared:** a2:1 rank blend of
+  currentD6 and weak Morgan logistic regression uses49 D6 calls, removing14 and
+  adding20 relative to the live vector. Projected hidden-prior MCC improves on all
+  five folds; the post-screen conditional interval is narrowly positive. Combined
+  with the249-call Caruana A4 rerank, both endpoints change. Candidate validates;
+  no upload. See
+  [RL0066](2026-09.md#rl0066--diverse-cyp2d6-rankers-after-lb-prior-analysis) and
+  [the report](../analysis/2026-09-13-classification-d6-diverse-models.md).
+
+- **Classification LB correction favors endpoint rollback, not a global rate
+  shift:** inferred hidden positive rates are about7.06% forD6 and29.16% forA4.
+  The current D6 contraction helped, while the A4 expansion hurt. CurrentD6 plus
+  oldA4 has known macro MCC0.303676 versus0.275867 current, though still below the
+  public TabICL baseline0.324967. Prior-weighted LightGBMs and D6 rank blends do
+  not justify replacing currentD6; an A4 Caruana rerank is retained only as a
+  higher-risk test. No upload. See
+  [RL0065](2026-09.md#rl0065--classification-leaderboard-prior-correction) and
+  [the analysis](../analysis/2026-09-13-classification-lb-prior-correction.md).
+
+- **Direct TDI structural-alert concatenation rejected:** a fixed 12-category
+  bioactivation SMARTS panel contains real univariate signal, including 2.64-fold
+  CYP2D6 methylenedioxyphenyl enrichment, but worsens honest inner-threshold macro
+  MCC for both Morgan and Morgan+Mordred LightGBM. Retain only as an interpretable
+  diversity feature for future hypotheses; do not adopt in the current candidate.
+  See [RL0064](2026-09.md#rl0064--explicit-tdi-structural-alert-augmentation) and
+  [the comparison](../analysis/2026-09-13-classification-tdi-structural-alerts.md).
+
 - **Large-effect regression placement candidate prepared:** current live CYP2D6
   has ST-RAE1.353707, Spearman.431249 and R²−.813077. An exact current-vector
   candidate shifts only CYP2D6 from mean/SD4.6559/.3993 to the leaderboard-informed
