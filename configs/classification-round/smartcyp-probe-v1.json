@@ -1,0 +1,7 @@
+{
+  "jar": "000-smartcyp-2.4.2.jar",
+  "jar_sha256": "d39456abb7c8c8376c1257feeee7f9cd6bbdaa060d139ec48736cfe068d5ad9c",
+  "source_commit": "92ebd48af891188d509c23e297437218c00ec136",
+  "probe_smiles": "O=Cc1ccc(s1)c2cccnc2",
+  "timeout_seconds": 120
+}

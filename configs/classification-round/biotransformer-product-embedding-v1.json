@@ -1,0 +1,10 @@
+{
+  "compounds": "000-compounds.parquet",
+  "products": "001-biotransformer-products.parquet",
+  "checkpoint": "002-chemeleon_mp.pt",
+  "checkpoint_sha256": "c376624d3407204e780a0ed13a9ac097cc9bb1c13ef89cdbc633c1715c183651",
+  "source_run": "20260914T060605082765Z-9e3ff5cd",
+  "batch_size": 128,
+  "seed": 20260915,
+  "selection": "Frozen CheMeleon parent and mean one-step BioTransformer-product embeddings; no CYP or classification-label fitting."
+}

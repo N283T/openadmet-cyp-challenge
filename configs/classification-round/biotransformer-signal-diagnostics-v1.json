@@ -1,0 +1,21 @@
+{
+  "compounds": "000-compounds.parquet",
+  "labels": "001-measurements.parquet",
+  "assignments": "002-assignments.parquet",
+  "activity_features": "003-product-activity-features.parquet",
+  "embeddings": "004-product-embeddings.parquet",
+  "embedding_scalars": "005-product-embedding-scalars.parquet",
+  "endpoints": ["CYP2D6_is_TDI", "CYP3A4_is_TDI"],
+  "strategies": ["umap", "scaffold"],
+  "pca_components": 32,
+  "permutation_repeats": 10,
+  "lgbm": {
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "num_leaves": 15,
+    "min_child_samples": 30,
+    "reg_lambda": 2.0
+  },
+  "seed": 20260915,
+  "selection": "Descriptive target correlations, normalized LightGBM gain/split importance, and held-out block permutation importance for fold-safe BioTransformer activity summaries and frozen CheMeleon parent/product representations."
+}

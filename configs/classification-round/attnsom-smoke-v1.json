@@ -1,0 +1,32 @@
+{
+  "source_commit": "0faa38bbd1665262efb3642a2a3ae0f83c928a49",
+  "compounds": "000-compounds.parquet",
+  "sdf_files": {
+    "1A2": "001-1A2.sdf",
+    "2A6": "002-2A6.sdf",
+    "2B6": "003-2B6.sdf",
+    "2C8": "004-2C8.sdf",
+    "2C9": "005-2C9.sdf",
+    "2C19": "006-2C19.sdf",
+    "2D6": "007-2D6.sdf",
+    "2E1": "008-2E1.sdf",
+    "3A4": "009-3A4.sdf"
+  },
+  "source_files": {
+    "main.py": "010-main.py",
+    "dataset.py": "011-dataset.py",
+    "dataset_utils.py": "012-dataset_utils.py",
+    "train.py": "013-train.py",
+    "metrics.py": "014-metrics.py",
+    "model.py": "015-model.py",
+    "LICENSE": "016-LICENSE"
+  },
+  "device": "cuda",
+  "n_splits": 2,
+  "inner_val_ratio": 0.1,
+  "max_epochs": 2,
+  "batch_size": 64,
+  "seed": 20260914,
+  "hidden_size": 256,
+  "num_layers": 4
+}

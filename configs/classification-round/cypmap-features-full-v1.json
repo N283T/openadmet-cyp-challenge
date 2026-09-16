@@ -1,0 +1,14 @@
+{
+  "source_commit": "e55ddd96544000a34b8ff6654fb04b6583da537c",
+  "source_directory": "/home/nagaet/ghq/github.com/qwon135/CYP-MAP",
+  "compounds": "000-compounds.parquet",
+  "checkpoints": [
+    "007-cypmap_trial1.pt",
+    "008-cypmap_trial2.pt",
+    "009-cypmap_trial3.pt",
+    "010-cypmap_trial4.pt",
+    "011-cypmap_trial5.pt"
+  ],
+  "batch_size": 64,
+  "device": "cuda"
+}

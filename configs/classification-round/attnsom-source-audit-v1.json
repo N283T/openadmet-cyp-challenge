@@ -1,0 +1,16 @@
+{
+  "source_commit": "0faa38bbd1665262efb3642a2a3ae0f83c928a49",
+  "compounds": "000-compounds.parquet",
+  "test_mapping": "001-test_mapping.parquet",
+  "sdf_files": {
+    "1A2": "002-1A2.sdf",
+    "2A6": "003-2A6.sdf",
+    "2B6": "004-2B6.sdf",
+    "2C8": "005-2C8.sdf",
+    "2C9": "006-2C9.sdf",
+    "2C19": "007-2C19.sdf",
+    "2D6": "008-2D6.sdf",
+    "2E1": "009-2E1.sdf",
+    "3A4": "010-3A4.sdf"
+  }
+}

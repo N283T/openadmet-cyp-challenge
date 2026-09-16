@@ -1,0 +1,8 @@
+{
+  "jar": "000-smartcyp-2.4.2.jar",
+  "compounds": "001-compounds.parquet",
+  "jar_sha256": "d39456abb7c8c8376c1257feeee7f9cd6bbdaa060d139ec48736cfe068d5ad9c",
+  "source_commit": "92ebd48af891188d509c23e297437218c00ec136",
+  "chunk_size": 100,
+  "timeout_seconds": 3600
+}

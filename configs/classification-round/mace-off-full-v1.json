@@ -1,0 +1,12 @@
+{
+  "model": "000-MACE-OFF23_small.model",
+  "compounds": "001-compounds.parquet",
+  "model_sha256": "165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f",
+  "code_commit": "f4437305b1aa21c623998a3aab0228856e699ffa",
+  "model_commit": "91a78c5a9c300d1104700d9352c8bfe449227737",
+  "device": "cuda",
+  "default_dtype": "float32",
+  "conformer_seed": 20260914,
+  "supported_atomic_numbers": [1, 6, 7, 8, 9, 15, 16, 17, 35, 53],
+  "max_compounds": null
+}

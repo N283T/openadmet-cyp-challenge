@@ -1,0 +1,21 @@
+{
+  "caruana_oof": "000-oof.parquet",
+  "caruana_test": "001-deployment.parquet",
+  "block_oof": "002-oof.parquet",
+  "block_test": "003-test.parquet",
+  "caruana_method": "caruana_auc",
+  "block_method": "morgan_smartcyp_attnsom_lgbm",
+  "weights": {
+    "caruana": [1, 0],
+    "caruana7_som1": [7, 1],
+    "caruana3_som1": [3, 1],
+    "caruana2_som1": [2, 1],
+    "caruana1_som1": [1, 1],
+    "som": [0, 1]
+  },
+  "positive_calls": 249,
+  "call_rate": 0.332,
+  "target_prior": 0.2916,
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 20260914
+}

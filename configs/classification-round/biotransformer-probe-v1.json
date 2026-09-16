@@ -1,0 +1,11 @@
+{
+  "source_commit": "6432cf887ed70c7c943c2dfeb60298ccdc788d7d",
+  "archive": "000-biotransformer3.0jar-6432cf8.tar.gz",
+  "archive_sha256": "11f9dd240bad842806ebc47be158841283b7e20d94f045c070598b5cc209e516",
+  "jar": "BioTransformer3.0_20230525.jar",
+  "jar_sha256": "c70cad913e9c08b90473a26bbb8bb2acf8c2d683c85f463463ef5a07cdb370c5",
+  "smiles": "CC(C)C1=CC=C(C)C=C1O",
+  "mode": "cyp450",
+  "cyp450_mode": 3,
+  "steps": 1
+}

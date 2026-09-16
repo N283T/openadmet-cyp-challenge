@@ -1,0 +1,7 @@
+{
+  "mechanism_candidate": "000-predictions.parquet",
+  "current_candidate": "001-predictions.parquet",
+  "reference": "002-cyp-challenge-TEST-BLINDED.csv",
+  "source_run": "20260914T151707304794Z-428271d1",
+  "selection": "Retain only the prespecified D6 75% current plus 25% Morgan-SMARTCyp rank blend; restore A4 bitwise from the currently scored candidate after the A4 mechanism blend failed its OOF increment check."
+}

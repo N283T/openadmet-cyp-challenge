@@ -1,0 +1,13 @@
+{
+  "source_commit": "ec8ca2b6915baa8f8cb84945e42c31dfa8efbe38",
+  "readme": "000-README.rst",
+  "pyproject": "001-pyproject.toml",
+  "tutorial": "002-python_api.ipynb",
+  "example_model": "003-example_model.joblib",
+  "reaction_rules": [
+    "004-adams_rules.csv",
+    "005-gloryx_reactionrules_connect.csv",
+    "006-gloryx_reactionrules_fixed.csv",
+    "007-gloryx_reactionrules_orig.csv"
+  ]
+}

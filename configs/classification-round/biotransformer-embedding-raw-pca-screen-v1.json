@@ -1,0 +1,24 @@
+{
+  "compounds": "000-compounds.parquet",
+  "labels": "001-measurements.parquet",
+  "test_mapping": "002-test_mapping.parquet",
+  "assignments": "003-assignments.parquet",
+  "embeddings": "004-product-embeddings.parquet",
+  "endpoints": ["CYP2D6_is_TDI", "CYP3A4_is_TDI"],
+  "strategies": ["umap", "scaffold"],
+  "views": ["parent", "delta_endpoint", "parent_delta_endpoint"],
+  "pca_components": [32, 128, 256],
+  "endpoint_settings": {
+    "CYP2D6_is_TDI": {"call_rate": 0.06533333333333333, "target_prior": 0.07062568306010919},
+    "CYP3A4_is_TDI": {"call_rate": 0.332, "target_prior": 0.2916}
+  },
+  "lgbm": {
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "num_leaves": 15,
+    "min_child_samples": 30,
+    "reg_lambda": 2.0
+  },
+  "seed": 20260915,
+  "selection": "Matched raw versus train-fold PCA32/PCA128/PCA256 LightGBM readouts for frozen CheMeleon parent, endpoint-product-minus-parent, and concatenated parent-plus-delta embeddings, each added to Morgan."
+}

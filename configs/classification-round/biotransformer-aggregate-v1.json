@@ -1,0 +1,6 @@
+{
+  "generation_run": "20260914T051230863257Z-abb7661e",
+  "compounds": "000-compounds.parquet",
+  "products": "001-products.sdf",
+  "fingerprint_bits": 2048
+}

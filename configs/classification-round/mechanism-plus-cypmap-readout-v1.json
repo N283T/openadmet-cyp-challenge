@@ -1,0 +1,50 @@
+{
+  "compounds": "000-compounds.parquet",
+  "labels": "001-measurements.parquet",
+  "test_mapping": "002-test_mapping.parquet",
+  "assignments": "003-assignments.parquet",
+  "feature_sources": {
+    "smartcyp": "004-smartcyp-features.parquet",
+    "attnsom_properties": "005-attnsom-features.parquet",
+    "attnsom_emb": "006-attnsom-embeddings.parquet",
+    "cypmap_substrate": {
+      "file": "007-cypmap-features.parquet",
+      "columns": [
+        "cypmap_2d6_substrate_mean",
+        "cypmap_2d6_substrate_std",
+        "cypmap_3a4_substrate_mean",
+        "cypmap_3a4_substrate_std"
+      ]
+    },
+    "cypmap_reaction": {
+      "file": "007-cypmap-features.parquet",
+      "exclude_substrings": ["_substrate_"]
+    },
+    "cypmap_emb": "008-cypmap-embeddings.parquet"
+  },
+  "methods": [
+    {"name": "morgan_lgbm", "blocks": ["morgan"], "model": "lgbm"},
+    {"name": "morgan_smartcyp_lgbm", "blocks": ["morgan", "smartcyp"], "model": "lgbm"},
+    {"name": "morgan_attnsom_lgbm", "blocks": ["morgan", "attnsom_properties", "attnsom_emb"], "model": "lgbm"},
+    {"name": "morgan_smartcyp_attnsom_lgbm", "blocks": ["morgan", "smartcyp", "attnsom_properties", "attnsom_emb"], "model": "lgbm"},
+    {"name": "morgan_cypmap_emb_lgbm", "blocks": ["morgan", "cypmap_emb"], "model": "lgbm"},
+    {"name": "morgan_mechanism_cypmap_emb_lgbm", "blocks": ["morgan", "smartcyp", "attnsom_properties", "attnsom_emb", "cypmap_emb"], "model": "lgbm"},
+    {"name": "morgan_mechanism_cypmap_all_lgbm", "blocks": ["morgan", "smartcyp", "attnsom_properties", "attnsom_emb", "cypmap_substrate", "cypmap_reaction", "cypmap_emb"], "model": "lgbm"}
+  ],
+  "endpoints": ["CYP2D6_is_TDI", "CYP3A4_is_TDI"],
+  "strategies": ["umap", "scaffold"],
+  "endpoint_settings": {
+    "CYP2D6_is_TDI": {"call_rate": 0.06533333333333333, "target_prior": 0.07062568306010919},
+    "CYP3A4_is_TDI": {"call_rate": 0.332, "target_prior": 0.2916}
+  },
+  "lr_c": 0.03,
+  "seed": 20260914,
+  "lgbm": {
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "num_leaves": 15,
+    "min_child_samples": 30,
+    "reg_lambda": 2.0
+  },
+  "selection": "Prespecified complementarity comparison of frozen mechanism representations; no candidate or submission selection."
+}

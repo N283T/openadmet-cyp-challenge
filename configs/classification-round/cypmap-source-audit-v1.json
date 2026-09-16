@@ -1,0 +1,9 @@
+{
+  "source_commit": "e55ddd96544000a34b8ff6654fb04b6583da537c",
+  "compounds": "000-compounds.parquet",
+  "test_mapping": "001-test_mapping.parquet",
+  "sdf_files": {
+    "train": "002-cyp_map_train.sdf",
+    "test": "003-cyp_map_test.sdf"
+  }
+}

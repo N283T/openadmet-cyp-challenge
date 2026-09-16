@@ -1,0 +1,13 @@
+{
+  "oof": "000-oof.parquet",
+  "endpoint": "CYP3A4_is_TDI",
+  "anchor": "morgan_smartcyp_attnsom_lgbm",
+  "methods": [
+    "morgan_mechanism_cypmap_emb_lgbm",
+    "morgan_mechanism_cypmap_all_lgbm"
+  ],
+  "strategies": ["umap", "scaffold"],
+  "target_prior": 0.2916,
+  "replicates": 2000,
+  "seed": 20260914
+}

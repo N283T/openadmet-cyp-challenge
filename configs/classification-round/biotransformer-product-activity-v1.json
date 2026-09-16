@@ -1,0 +1,24 @@
+{
+  "compounds": "000-compounds.parquet",
+  "measurements": "001-measurements.parquet",
+  "log2fc_targets": "002-targets.parquet",
+  "assignments": "003-assignments.parquet",
+  "products": "004-biotransformer-products.parquet",
+  "test_mapping": "005-test_mapping.parquet",
+  "strategies": ["umap", "scaffold"],
+  "enzymes": ["CYP2D6", "CYP3A4"],
+  "model": {
+    "objective": "regression_l1",
+    "n_estimators": 220,
+    "learning_rate": 0.035,
+    "num_leaves": 15,
+    "min_child_samples": 25,
+    "reg_lambda": 2.0,
+    "verbosity": -1,
+    "n_jobs": 4
+  },
+  "fingerprint_radius": 2,
+  "fingerprint_bits": 2048,
+  "seed": 20260915,
+  "selection": "Outer-fold-safe Morgan regressors score one-step BioTransformer products for direct pIC50 and primary log2fc; each downstream fold uses one auxiliary transform excluding that entire fold. No classification labels enter feature construction."
+}

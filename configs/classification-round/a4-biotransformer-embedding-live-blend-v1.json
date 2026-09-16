@@ -1,0 +1,21 @@
+{
+  "caruana_oof": "000-000-member-oof.parquet",
+  "pxr_oof": "001-002-oof.parquet",
+  "current_test": "002-test-blends.parquet",
+  "candidate_oof": "003-oof.parquet",
+  "candidate_test": "004-test.parquet",
+  "pxr_method": "morgan_pxr_admetica_lgbm",
+  "current_test_method": "caruana_auc+0.2*morgan_pxr_admetica_lgbm",
+  "candidate_methods": [
+    "morgan_parent_pca_lgbm",
+    "morgan_parent_delta_endpoint_pca_lgbm"
+  ],
+  "weights": [0.1, 0.25],
+  "pxr_weight": 0.2,
+  "call_rate": 0.332,
+  "positive_calls": 249,
+  "target_prior": 0.2916,
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 20260915,
+  "selection": "Prespecified 10% and 25% rank additions of fold-safe CheMeleon parent and parent-plus-BioTransformer-product-delta readouts to the currently scored A4 rank."
+}

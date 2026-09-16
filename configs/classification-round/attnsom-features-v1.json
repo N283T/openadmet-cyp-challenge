@@ -1,0 +1,18 @@
+{
+  "source_commit": "0faa38bbd1665262efb3642a2a3ae0f83c928a49",
+  "training_run": "20260914T044928216258Z-221787f2",
+  "compounds": "000-compounds.parquet",
+  "dataset_utils": "001-dataset_utils.py",
+  "model_source": "002-model.py",
+  "model_config": "003-config.json",
+  "checkpoints": [
+    "004-fold1_best.pt",
+    "005-fold2_best.pt",
+    "006-fold3_best.pt",
+    "007-fold4_best.pt",
+    "008-fold5_best.pt"
+  ],
+  "isoforms": ["2D6", "3A4"],
+  "batch_size": 128,
+  "device": "cuda"
+}

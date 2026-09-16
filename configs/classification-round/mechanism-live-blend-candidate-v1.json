@@ -1,0 +1,30 @@
+{
+  "current_candidate": "000-predictions.parquet",
+  "aliases": "001-aliases.parquet",
+  "d6_current_oof": "002-000-oof.parquet",
+  "d6_selection": "003-001-crossfit-selection.csv",
+  "d6_current_test": "004-002-deployment.parquet",
+  "d6_mechanism_oof": "005-oof.parquet",
+  "d6_mechanism_test": "006-test.parquet",
+  "a4_caruana_oof": "007-000-member-oof.parquet",
+  "a4_pxr_oof": "008-002-oof.parquet",
+  "a4_current_test": "009-test-blends.parquet",
+  "a4_mechanism_oof": "010-oof.parquet",
+  "a4_mechanism_test": "011-test.parquet",
+  "reference": "012-cyp-challenge-TEST-BLINDED.csv",
+  "blend_weight": 0.25,
+  "d6_positive_calls": 49,
+  "a4_positive_calls": 249,
+  "d6_mechanism_method": "morgan_smartcyp_lgbm",
+  "a4_pxr_method": "morgan_pxr_admetica_lgbm",
+  "a4_current_test_method": "caruana_auc+0.2*morgan_pxr_admetica_lgbm",
+  "a4_mechanism_method": "morgan_mechanism_cypmap_all_lgbm",
+  "a4_pxr_weight": 0.2,
+  "target_prior": {
+    "CYP2D6_is_TDI": 0.07062568306010919,
+    "CYP3A4_is_TDI": 0.2916
+  },
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 20260915,
+  "selection": "Prespecified endpoint-specific 3:1 live/mechanism rank blend requested by the user; D6 uses Morgan+SMARTCyp and A4 uses Morgan+SMARTCyp+ATTNSOM+CYP-MAP-all."
+}
