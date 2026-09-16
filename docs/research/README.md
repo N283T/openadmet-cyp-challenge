@@ -6,6 +6,155 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **A4 raw600 helps as a complement, not a wholesale replacement:** matched
+  Jeremy600 TabICL/TabPFN raw readouts improve standalone AUROC/AP over PCA256.
+  Replacing both PCA members loses ensemble MCC, but retaining both raw and PCA
+  yields a seven-member fixed equal mean selected identically in all five outer
+  folds. It improves AP/MCC from `.51391/.45467` to `.52275/.46540`, with a
+  slight AUROC decrease `.80687→.80578`; its MCC interval still crosses zero.
+  Keep it as the first A4 development candidate and a six-member mean as the
+  compact fallback. See
+  [RL0095](2026-09.md#rl0095--a4-matched-raw-readouts-and-fixed-mean-simplification)
+  and the [report](../analysis/2026-09-15-a4-raw-simplification.md).
+
+- **The first D6 candidate is the 11-model raw600/PCA256 block average:** its
+  controlled cross-fit AUROC/AP/target-prior MCC is
+  `.58076/.29686/.11011`; keep the PCA256-only ten-model variant as the cheaper
+  fallback. See
+  [RL0094](2026-09.md#rl0094--d6-rawpca-block-prioritization-and-remaining-a4-raw-controls).
+
+- **Classification now has an extensible OOF prediction-bank interface:** a
+  prespecified nested comparison evaluates ridge, three convex-simplex losses,
+  and a permutation-invariant expert-set network with the current fixed ratio
+  retained as an eligible expert/control. No learned D6 stacker beats the
+  control MCC `.09988`; the 24-expert equal mean ties MCC and improves
+  AUROC/AP. A4 ridge improves all point metrics to `.80924/.53012/.45774`, but
+  its grouped MCC interval crosses zero. Anchor-preserving follow-up does not
+  rescue D6. Keep the D6 fixed ratio for submission, retain A4 ridge only as a
+  development candidate, and add future models as keyed OOF columns rather
+  than inventing new manual blend locations. See
+  [RL0093](2026-09.md#rl0093--extensible-classification-stacking-and-safe-anchoring).
+
+- **The legacy PCA-only A4 pool compresses to five members:** matched raw
+  versus PCA readouts show that raw CheMeleon parent embeddings are strongest
+  for A4, while no D6 embedding view transfers across both splits. A
+  hierarchy-correct peer audit places SMARTCyp, ATTNSOM, CYP-MAP,
+  BioTransformer, raw embeddings and MACE in the same fold-excluded Caruana
+  pool; expanded pools worsen or tie both endpoints, and explicit swaps are not
+  bootstrap-stable. A4 can drop Morgan balanced and external-class PCA256 from
+  the development pool without a material cross-fit loss, but a three-member
+  compression loses significantly. RL0095 supersedes this as the active A4
+  development direction after adding matched raw members. A corrected genuinely flat D6 follow-up
+  performs substantially worse than the hierarchy and does not provide a viable
+  successor. Exhaustive held-fold-excluded selection over all 2,047 subsets of
+  the 11-member D6 core finds ten total components as the smallest design that
+  strictly preserves all three point metrics: AUROC `.57933→.58059`, AP
+  `.29059→.29623`, and target-prior MCC `.09988→.11011`. Contrary to the limited
+  three-member ablation, its stable core retains Morgan, Mordred and FP+Mordred
+  and removes four different legacy members. See
+  [RL0092](2026-09.md#rl0092--classification-simplification-raw-embeddings-and-peer-replacement)
+  and the [report](../analysis/2026-09-15-classification-simplification-and-replacement.md).
+
+- **MoLFormer pooling plus Random Forest is a stable D6 complement:** complete
+  frozen CLS+mean extraction covers all 6,896 compounds. A 25%
+  scores+CLS+mean+log2fc4 Random Forest addition improves ST-RAE
+  `.822681→.818407` and Spearman `.476425→.482580`, improves all five folds,
+  and has a conditional group-bootstrap interval `[-.00859,-.00006]` / 97.6%
+  improvement probability. A fixed average with the earlier hybrid CatBoost
+  reaches `.816803/.482720`; learned fold-excluded stacks fail every fold.
+  The stable standalone Random Forest was full-fit and submitted as
+  `20260914T150145548210Z-1ab27b1d`, but the blind result is negative: D6
+  ST-RAE worsens `.565520→.572470`, Spearman `.431248→.415591`, and rank
+  `21→22`; MA-ST-RAE worsens `.475974→.477712`. Reject this deployment and do
+  not infer that the higher-gain post-screen fixed average will transfer.
+  KERMT remains nearly flat; defer CYPMol until a
+  direct Uni-Mol comparison is justified. Fixed transfer to 1A2 and 2C9 is
+  effectively flat (`-.00008` ST-RAE each), while every 3A4 addition worsens;
+  treat this as D6-specific rather than a global representation update. See
+  [RL0089](2026-09.md#rl0089--d6-molformer-random-forest-leaderboard-submission),
+  [RL0088](2026-09.md#rl0088--cross-endpoint-transfer-of-the-d6-selected-molformer-view),
+  [RL0087](2026-09.md#rl0087--molformer-pooling-tree-readouts-and-candidate-combinations),
+  [RL0086](2026-09.md#rl0086--generic-kermt-and-molformer-cyp2d6-representations),
+  and [the report](../analysis/2026-09-14-regression-d6-model-family-screen.md#molformer-pooling-and-candidate-combinations).
+
+- **Ordinal regression is the most stable new D6 classical complement:** a
+  second fixed parent-CV screen compares joint interval/pairwise loss, weighted
+  pairwise logistic, ordinal logistic, additive splines, Huber, and exact
+  Tanimoto kernel ridge. Interval+pairwise25 gives the best pooled ST-RAE
+  `.819885`, but improves only three folds. Ordinal-logit5 at 10% reaches
+  `.820686` with four improving folds and a conditional group-bootstrap interval
+  `[-.00470,+.00070]` / 92.1% improvement probability. Huber corroborates the
+  scores51 signal; Tanimoto KRR is diverse but worsens four folds. Retain
+  ordinal10 beside XGBoost-pairwise10 as the stable next-candidate shortlist;
+  no inference or submission. See
+  [RL0085](2026-09.md#rl0085--cyp2d6-ordinal-interval-pairwise-kernel-and-robust-readouts)
+  and [the report](../analysis/2026-09-14-regression-d6-model-family-screen.md#ranking-kernel-and-classical-follow-up).
+
+- **Direct pairwise learning adds a modest new D6 ordering signal:** fixed
+  parent-CV comparison of five rankers across three views finds that a 10%
+  scores51 XGBoost-pairwise addition improves ST-RAE `.822681→.820434` and
+  Spearman `.476425→.477486`. Its prediction correlation with latest is only
+  `.6738`, although residual correlation remains `.9567`. Scores-only pairwise
+  logistic gives more rank gain at 10% (`.479816`) but less loss gain; 25%
+  overweights it. The conditional group-bootstrap interval for XGBoost10
+  `[-.00534,+.00069]` crosses zero, with 93.1% improvement probability and four
+  of five folds improving. Keep compact pairwise rankers as low-weight model-bank
+  entries and follow with a prespecified pair-margin/weight comparison plus
+  fold-excluded blending; reject the tested RankNet and do not infer or submit.
+  See [RL0084](2026-09.md#rl0084--interval-confident-cyp2d6-pairwise-rankers) and
+  [the analysis](../analysis/2026-09-14-regression-d6-model-family-screen.md#pairwise-ranking-follow-up).
+
+- **Broad D6 readout screen finds a modest CatBoost complement:** fixed parent-CV
+  comparison of 12 classical/modern model families across three frozen feature
+  views produces 36 complete OOF vectors. A 50% moment-matched hybrid CatBoost
+  addition improves latest D6 ST-RAE `.822681→.817687` and Spearman
+  `.476425→.479956`; scores-only Random Forest and PLS give smaller complementary
+  gains. The conditional group-bootstrap CatBoost interval
+  `[-.01150,+.00097]` crosses zero and residual correlation remains `.9903`, so
+  this is a follow-up candidate rather than a new production model. The tested
+  compact spline KAN is weak and should only be revisited with a materially
+  different formulation. Confirm a small CatBoost family and fold-excluded
+  blending next; no inference or submission. See
+  [RL0083](2026-09.md#rl0083--broad-cyp2d6-model-family-diversity-screen) and
+  [the report](../analysis/2026-09-14-regression-d6-model-family-screen.md).
+
+- **CYP-trained representations provide a real A4 TDI gain:** SMARTCyp atom
+  summaries, a challenge-disjoint ATTNSOM embedding, and frozen CYP-MAP are
+  complementary. Adding CYP-MAP to Morgan plus the first two reaches AUROC
+  .748/.784 and target-prior MCC .345/.393 on UMAP/scaffold, versus Morgan
+  .658/.731 and .188/.314. The conditional UMAP-group MCC interval is positive;
+  scaffold uncertainty still crosses zero. D6 instead prefers
+  Morgan plus SMARTCyp; adding ATTNSOM hurts. A fixed 3:1 live-Caruana/SoM rank
+  blend gives a small +.00617 descriptive MCC change, but its grouped interval
+  crosses zero. MACE-OFF is mixed, BioTransformer products fail the dual-split
+  increment test, and GLORYxR lacks its published full weights. CYPMol is the
+  next frozen representation to audit, followed by MetaCYP; aweSOM weights need
+  an access request. Retain endpoint-specific representation banks; no candidate
+  or submission.
+  See [RL0081](2026-09.md#rl0081--site-of-metabolism-and-mlp-representation-screen)
+  and [the report](../analysis/2026-09-14-tdi-som-representation-screen.md).
+
+- **Current-live mechanism additions are rejected after a call-rate correction:**
+  the first audit incorrectly used the blind-test totals 49/249 across the full
+  OOF cohorts. Corrected 49/750 and 249/750 fold rates show that a 25%
+  Morgan+SMARTCyp addition lowers D6 target-prior MCC `.09988→.08987`, and the
+  expanded CYP-MAP mechanism bank lowers A4 `.45467→.44240`. Earlier A4 gains
+  remain valid versus Morgan/pre-PXR Caruana, not the current PXR/Admetica
+  vector. Candidate `0c3c0267` / submission `361f4c44` was never uploaded and
+  is withdrawn; retain the scored classification vector. See
+  [RL0090](2026-09.md#rl0090--d6-smartcyp-live-blend-candidate) and
+  [the report](../analysis/2026-09-14-tdi-som-representation-screen.md#current-live-mechanism-blend).
+
+- **Scored BioTransformer metabolites do not improve the live model:**
+  fold-safe pIC50/log2fc scores for predicted products and frozen CheMeleon
+  parent/product embeddings both improve the weak A4 Morgan baseline on the two
+  splits. The gain is mostly attributable to the parent representation, however,
+  and fixed 10% additions lower current-live MCC `.45467→.44700` for activity
+  features and `.45467→.44240` for embeddings. D6 has no stable gain. Retain
+  these as model-bank diagnostics only; create no candidate or submission. See
+  [RL0091](2026-09.md#rl0091--biotransformer-metabolite-activity-and-embedding-follow-up)
+  and the [follow-up report](../analysis/2026-09-14-tdi-som-representation-screen.md#metabolite-activity-and-embedding-follow-up).
+
 - **Four-endpoint regression placement reaches ST-RAE .475974, rank20:** the
   strict challenge-disjoint PXR Chemprop embedding has
   generic pIC50 signal, but a 10% addition is unstable for 2C9 and worsens 3A4.
@@ -22,6 +171,14 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
   Recorded decomposition attributes 80.96% of the improvement to D6 and 16.34%
   to1A2; changing 2C9/A4 adds another .006568 macro. Freeze the four placements
   as the new test-time baseline and prioritize a new D6 ranking signal.
+  A corrected parent-CV transfer of SMARTCyp, ATTNSOM and CYP-MAP finds that
+  SMARTCyp improves a fixed frozen-feature control from macro ST-RAE
+  .617895 to .614356, but a 10% addition already worsens the latest development
+  ensemble .586931 to .587254. ATTNSOM and CYP-MAP do not improve macro, and
+  none supplies a material D6 ordering gain. Retain the features but do not add
+  them to the current regression candidate. See
+  [RL0082](2026-09.md#rl0082--som-representations-for-direct-inhibition-regression)
+  and [the report](../analysis/2026-09-14-regression-som-representation-screen.md).
 
 - **Challenge-disjoint PXR Chemprop is a strong independent A4 representation,
   but not a live-Caruana addition:** old PXR checkpoints overlap four blind-test
@@ -360,3 +517,8 @@ Reports and research entries default to English; conversation language is indepe
 | [RL-0015](2026-09.md#rl-0015--pxr-inspired-regression-calibration-without-external-activity-data) | PXR-inspired interval calibration, label-isolation checks and unresolved test shift |
 | [RL-0016](2026-09.md#rl-0016--distribution-summaries-and-simple-ensembles-improve-regression-cv) | Distribution summaries, simple ensembles and local prospective candidates |
 | [RL-0017](2026-09.md#rl-0017--interval-aware-readouts-and-neighborhood-alternatives) | 120 interval/point readout fits, neighborhood alternatives and small incremental gains |
+| [RL0091](2026-09.md#rl0091--biotransformer-metabolite-activity-and-embedding-follow-up) | Fold-safe metabolite activity scoring and frozen parent/product embedding follow-up |
+| [RL0092](2026-09.md#rl0092--classification-simplification-raw-embeddings-and-peer-replacement) | Classification hierarchy, raw/PCA comparison, compression and peer replacement |
+| [RL0093](2026-09.md#rl0093--extensible-classification-stacking-and-safe-anchoring) | Extensible nested stacking, expert-set trial and safe anchoring |
+| [RL0094](2026-09.md#rl0094--d6-rawpca-block-prioritization-and-remaining-a4-raw-controls) | D6 raw/PCA candidate priority and untested A4 raw controls |
+| [RL0095](2026-09.md#rl0095--a4-matched-raw-readouts-and-fixed-mean-simplification) | A4 raw600 controls and fixed-mean simplification |
