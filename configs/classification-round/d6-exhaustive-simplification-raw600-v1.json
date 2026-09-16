@@ -1,0 +1,31 @@
+{
+  "reference_oof": "000-ensemble-oof.parquet",
+  "lgbm_oof": "001-000-oof.parquet",
+  "pfn_oof": "002-003-oof-probabilities.parquet",
+  "graph_oof": "003-006-classification-oof.parquet",
+  "fixed_oof": "004-oof.parquet",
+  "raw600_oof": "005-oof-probabilities.parquet",
+  "reference_method": "all_plain_pfn_graph_mean",
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "caruana_steps": 25,
+  "extra_candidates": [
+    {
+      "name": "pfn::external_mixed_raw600",
+      "source": "raw600_oof",
+      "method": "external_mixed_raw600",
+      "column": "probability"
+    }
+  ],
+  "ablations": {
+    "full11": ["pfn::external_mixed_raw600"],
+    "drop_morgan": ["lgbm::morgan_plain", "pfn::external_mixed_raw600"],
+    "drop_mordred": ["lgbm::mordred_plain", "pfn::external_mixed_raw600"],
+    "drop_fp_mordred": ["lgbm::fp_mordred_plain", "pfn::external_mixed_raw600"],
+    "drop_three_basic": ["lgbm::morgan_plain", "lgbm::mordred_plain", "lgbm::fp_mordred_plain", "pfn::external_mixed_raw600"],
+    "drop_all_lgbm": ["lgbm::morgan_plain", "lgbm::mordred_plain", "lgbm::fp_mordred_plain", "lgbm::external_class_plain", "lgbm::external_mixed_plain", "lgbm::external_class_mordred_plain", "pfn::external_mixed_raw600"]
+  },
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260915,
+  "selection": "Exhaustive held-fold-excluded simplification over the legacy 11-member core plus raw-600 external-mixed TabPFN and five downstream recipes."
+}

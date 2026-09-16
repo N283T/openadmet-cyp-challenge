@@ -1,0 +1,89 @@
+{
+  "a4_member_oof": "000-member-oof.parquet",
+  "a4_member_test": "001-member-test.parquet",
+  "a4_aux_oof": "002-oof.parquet",
+  "a4_aux_test": "003-test.parquet",
+  "d6_reference_oof": "004-ensemble-oof.parquet",
+  "d6_reference_test": "005-ensemble-test.parquet",
+  "fixed_oof": "006-oof.parquet",
+  "compounds": "007-compounds.parquet",
+  "test_mapping": "008-test_mapping.parquet",
+  "logistic_models": [
+    "009-logistic_c0.05-fold0.joblib",
+    "010-logistic_c0.05-fold1.joblib",
+    "011-logistic_c0.05-fold2.joblib",
+    "012-logistic_c0.05-fold3.joblib",
+    "013-logistic_c0.05-fold4.joblib"
+  ],
+  "complement_models": [
+    "014-complement_nb_a1-fold0.joblib",
+    "015-complement_nb_a1-fold1.joblib",
+    "016-complement_nb_a1-fold2.joblib",
+    "017-complement_nb_a1-fold3.joblib",
+    "018-complement_nb_a1-fold4.joblib"
+  ],
+  "mechanism_oof": "019-oof.parquet",
+  "mechanism_test": "020-test.parquet",
+  "activity_oof": "021-oof.parquet",
+  "activity_test": "022-test.parquet",
+  "mace_oof": "023-oof.parquet",
+  "mace_test": "024-test.parquet",
+  "embedding_oof": "025-oof.parquet",
+  "embedding_test": "026-test.parquet",
+  "rbf_models": [
+    "027-rbf_svm_c1-fold0.joblib",
+    "028-rbf_svm_c1-fold1.joblib",
+    "029-rbf_svm_c1-fold2.joblib",
+    "030-rbf_svm_c1-fold3.joblib",
+    "031-rbf_svm_c1-fold4.joblib"
+  ],
+  "d6_lgbm_oof": "032-000-oof.parquet",
+  "d6_lgbm_test": "033-002-fold-test-probabilities.parquet",
+  "d6_pfn_oof": "034-003-oof-probabilities.parquet",
+  "d6_pfn_test": "035-005-test-fold-probabilities.parquet",
+  "d6_graph_oof": "036-006-classification-oof.parquet",
+  "d6_graph_test": "037-008-fold-test-probabilities.parquet",
+  "a4_aux_method": "morgan_pxr_admetica_lgbm",
+  "d6_reference_method": "all_plain_pfn_graph_mean",
+  "d6_current_fold_members": [
+    "live2_rbf",
+    "live2_rbf",
+    "live2_complement",
+    "live2_complement",
+    "live2_complement"
+  ],
+  "d6_deployment_member": "live2_complement",
+  "a4_compressed_pools": {
+    "compressed3": [
+      "history::historical_stack_mordred",
+      "jeremy8::tabicl_jeremy_pca256",
+      "pxr_admetica"
+    ],
+    "compressed5": [
+      "history::historical_stack_mordred",
+      "jeremy8::tabicl_jeremy_pca256",
+      "jeremy8::tabpfn_jeremy_pca256",
+      "lgbm::external_class_mordred_balanced",
+      "pxr_admetica"
+    ]
+  },
+  "candidate_families": [
+    {"name": "new::smartcyp", "source": "mechanism", "method": "morgan_smartcyp_lgbm"},
+    {"name": "new::attnsom", "source": "mechanism", "method": "morgan_attnsom_lgbm"},
+    {"name": "new::cypmap", "source": "mechanism", "method": "morgan_cypmap_emb_lgbm"},
+    {"name": "new::mechanism_all", "source": "mechanism", "method": "morgan_mechanism_cypmap_all_lgbm"},
+    {"name": "new::product_activity", "source": "activity", "method": "morgan_activity_endpoint_lgbm"},
+    {"name": "new::parent_raw", "source": "embedding", "method": "morgan_parent_raw_lgbm"},
+    {"name": "new::parent_delta_raw", "source": "embedding", "method": "morgan_parent_delta_endpoint_raw_lgbm"},
+    {"name": "new::mace", "source": "mace", "method_by_endpoint": {"CYP2D6_is_TDI": "morgan_mace_off_emb_lr", "CYP3A4_is_TDI": "morgan_mace_off_emb_lgbm"}}
+  ],
+  "endpoint_settings": {
+    "CYP2D6_is_TDI": {"call_rate": 0.06533333333333333, "test_calls": 49, "target_prior": 0.07062568306010919},
+    "CYP3A4_is_TDI": {"call_rate": 0.332, "test_calls": 249, "target_prior": 0.2916}
+  },
+  "recipes": ["caruana_auc", "caruana_target_mcc_sparse5"],
+  "steps": 25,
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260915,
+  "selection": "Second-level outer-fold cross-fit comparison of the live top-level pool, the expanded peer pool, and one-for-one replacement pools. Candidate predictions are already OOF; held-fold labels are never used for member selection. Previously screened families are represented once to limit selection freedom."
+}

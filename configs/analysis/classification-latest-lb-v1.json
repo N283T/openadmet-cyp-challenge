@@ -1,0 +1,14 @@
+{
+  "pre_MA": "000-classification_leaderboard_u5msmx90.csv",
+  "pre_CYP2D6_is_TDI": "001-classification_leaderboard_n71zlaf1.csv",
+  "pre_CYP3A4_is_TDI": "002-classification_leaderboard_tkhrqrpx.csv",
+  "post_MA": "003-classification_leaderboard_8782ot6k.csv",
+  "post_CYP2D6_is_TDI": "004-classification_leaderboard_uorsc9xo.csv",
+  "post_CYP3A4_is_TDI": "005-classification_leaderboard_n_8cx0gz.csv",
+  "pre_submission": "006-predictions.parquet",
+  "post_submission": "007-predictions.parquet",
+  "a4_bootstrap": "008-bootstrap.csv",
+  "d6_metrics": "009-metrics.csv",
+  "username": "N283T",
+  "selection": "Post-reflection analysis of the submitted D6 mean-block and A4 equal-seven classification vector against the immediately preceding scored submission."
+}

@@ -1,0 +1,26 @@
+{
+  "member_oof": "000-member-oof.parquet",
+  "member_test": "001-member-test.parquet",
+  "aux_oof": "002-oof.parquet",
+  "aux_test": "003-test.parquet",
+  "raw_oof": "004-outer-oof.parquet",
+  "raw_test": "005-test-probabilities.parquet",
+  "embedding_oof": "006-oof.parquet",
+  "embedding_test": "007-test.parquet",
+  "endpoint": "CYP3A4_is_TDI",
+  "aux_method": "morgan_pxr_admetica_lgbm",
+  "embedding_method": "morgan_parent_raw_lgbm",
+  "call_rate": 0.332,
+  "test_calls": 249,
+  "target_prior": 0.2916,
+  "caruana_steps": 25,
+  "pools": {
+    "pca5": ["historical", "jeremy_tabicl_pca256", "jeremy_tabpfn_pca256", "external_class_mordred", "pxr_admetica"],
+    "raw5": ["historical", "jeremy_tabicl_raw600", "jeremy_tabpfn_raw600", "external_class_mordred", "pxr_admetica"],
+    "raw_pca7": ["historical", "jeremy_tabicl_pca256", "jeremy_tabicl_raw600", "jeremy_tabpfn_pca256", "jeremy_tabpfn_raw600", "external_class_mordred", "pxr_admetica"],
+    "raw_expanded10": ["historical", "jeremy_tabicl_pca256", "jeremy_tabicl_raw600", "jeremy_tabpfn_pca256", "jeremy_tabpfn_raw600", "external_class_mordred", "pxr_admetica", "external_class_raw600", "external_mixed_raw600", "chemeleon_parent_raw_lgbm"]
+  },
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260915,
+  "selection": "First compare prespecified PCA5, raw5, raw+PCA7 and expanded10 pools by outer-fold Caruana. Then exhaustively evaluate all fixed equal-weight subsets of the ten-candidate bank, selecting the subset only on the other four folds for each component count. Report AUROC and target-prior MCC selection separately; current 80/20 is the immutable control."
+}

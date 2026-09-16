@@ -32,11 +32,12 @@ def main():
     mapping = pl.read_parquet(inp / cfg["test_mapping"])
     torch.set_num_threads(2)
     all_oof, all_test, metrics, thresholds = [], [], [], []
+    endpoints = cfg.get("endpoints", ["CYP2D6_is_TDI", "CYP3A4_is_TDI"])
     for view in cfg["views"]:
         feature = pl.concat([pl.read_parquet(inp / name) for name in view["files"]])
         columns = [c for c in feature.columns if c.startswith(view["prefix"])]
         assert columns and feature["compound_id"].n_unique() == 6896
-        for endpoint in ["CYP2D6_is_TDI", "CYP3A4_is_TDI"]:
+        for endpoint in endpoints:
             frame = (
                 labels.filter(pl.col("endpoint") == endpoint)
                 .join(assigned.select("compound_id", "fold"), on="compound_id", validate="1:1")
@@ -56,10 +57,17 @@ def main():
                 start = time.monotonic()
                 val = frame["fold"].to_numpy() == fold
                 scaler = StandardScaler().fit(x[~val])
-                pca = PCA(n_components=256, random_state=42).fit(scaler.transform(x[~val]))
-                train_x = pca.transform(scaler.transform(x[~val])).astype(np.float32)
-                val_x = pca.transform(scaler.transform(x[val])).astype(np.float32)
-                test_x = pca.transform(scaler.transform(xt)).astype(np.float32)
+                scaled_train = scaler.transform(x[~val])
+                if view.get("preprocessing", "pca256") == "raw_scaled":
+                    pca = None
+                    train_x = scaled_train.astype(np.float32)
+                    val_x = scaler.transform(x[val]).astype(np.float32)
+                    test_x = scaler.transform(xt).astype(np.float32)
+                else:
+                    pca = PCA(n_components=256, random_state=42).fit(scaled_train)
+                    train_x = pca.transform(scaled_train).astype(np.float32)
+                    val_x = pca.transform(scaler.transform(x[val])).astype(np.float32)
+                    test_x = pca.transform(scaler.transform(xt)).astype(np.float32)
                 name = f"{view['name']}-{endpoint}-fold{fold}"
                 joblib.dump(
                     dict(scaler=scaler, pca=pca, columns=columns), out / f"{name}-pca.joblib"
@@ -171,7 +179,8 @@ def main():
         .group_by("compound_id", "endpoint", "method", "split_id")
         .agg(pl.col("probability").mean(), pl.len().alias("n_folds"))
     )
-    assert (mean["n_folds"] == 5).all() and mean.height == 4500
+    expected_test_rows = 750 * len(cfg["views"]) * len(endpoints)
+    assert (mean["n_folds"] == 5).all() and mean.height == expected_test_rows
     deployment = (
         pl.DataFrame(thresholds)
         .filter(pl.col("fold") == -1)
@@ -187,7 +196,7 @@ def main():
     (out / "summary.json").write_text(
         json.dumps(
             dict(
-                fits=30,
+                fits=5 * len(cfg["views"]) * len(endpoints),
                 config=cfg,
                 threshold_note="Other-fold OOF thresholds; overlapping fits, not fully nested.",
             ),

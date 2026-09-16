@@ -65,9 +65,15 @@ def main():
                     val = folds == (fold if phase == "outer" else inner)
                     assert not (train & val).any() and not (train & (folds == fold)).any()
                     scaler = StandardScaler().fit(x[train])
-                    pca = PCA(n_components=256, random_state=42).fit(scaler.transform(x[train]))
-                    tx = pca.transform(scaler.transform(x[train])).astype(np.float32)
-                    vx = pca.transform(scaler.transform(x[val])).astype(np.float32)
+                    scaled_train = scaler.transform(x[train])
+                    if view.get("preprocessing", "pca256") == "raw_scaled":
+                        pca = None
+                        tx = scaled_train.astype(np.float32)
+                        vx = scaler.transform(x[val]).astype(np.float32)
+                    else:
+                        pca = PCA(n_components=256, random_state=42).fit(scaled_train)
+                        tx = pca.transform(scaled_train).astype(np.float32)
+                        vx = pca.transform(scaler.transform(x[val])).astype(np.float32)
                     name = f"{view['name']}-{endpoint}-fold{fold}-{phase}"
                     joblib.dump(
                         dict(scaler=scaler, pca=pca, columns=columns), out / f"{name}-pca.joblib"
@@ -118,7 +124,10 @@ def main():
                     )
                     pair[phase] = table
                     if phase == "outer":
-                        test_x = pca.transform(scaler.transform(xt)).astype(np.float32)
+                        if pca is None:
+                            test_x = scaler.transform(xt).astype(np.float32)
+                        else:
+                            test_x = pca.transform(scaler.transform(xt)).astype(np.float32)
                         tp = model.predict_proba(test_x)[:, positive].astype(float)
                         tt.append(
                             test.select("compound_id").with_columns(
@@ -200,14 +209,17 @@ def main():
             pl.concat(tt).write_parquet(out / "fold-test-probabilities.parquet")
             pl.DataFrame(metrics).write_csv(out / "metrics.csv")
             pl.DataFrame(thresholds).write_csv(out / "thresholds.csv")
-    assert pl.concat(oo).height == pl.concat(ii).height == 10162
-    assert pl.concat(tt).height == 15000
+    expected_oof = sum(cfg["expected_counts"].values()) * len(cfg["views"])
+    expected_test_folds = 750 * 5 * len(cfg["expected_counts"]) * len(cfg["views"])
+    assert pl.concat(oo).height == pl.concat(ii).height == expected_oof
+    assert pl.concat(tt).height == expected_test_folds
     mean = (
         pl.concat(tt)
         .group_by("compound_id", "endpoint", "method", "split_id")
         .agg(pl.col("probability").mean(), pl.len().alias("n_folds"))
     )
-    assert mean.height == 3000 and (mean["n_folds"] == 5).all()
+    expected_test = 750 * len(cfg["expected_counts"]) * len(cfg["views"])
+    assert mean.height == expected_test and (mean["n_folds"] == 5).all()
     mean.write_parquet(out / "test-probabilities.parquet")
     (out / "summary.json").write_text(
         json.dumps(

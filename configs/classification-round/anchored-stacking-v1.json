@@ -1,0 +1,15 @@
+{
+  "prediction_bank": "000-prediction-bank.parquet",
+  "group_source": "001-oof.parquet",
+  "group_method": "morgan_smartcyp_lgbm",
+  "endpoint_settings": {
+    "CYP2D6_is_TDI": {"call_rate": 0.06533333333333333, "target_prior": 0.07062568306010919},
+    "CYP3A4_is_TDI": {"call_rate": 0.332, "target_prior": 0.2916}
+  },
+  "mean_alpha": [0.0, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.75, 1.0],
+  "anchor_lambda": [0.0, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0],
+  "pairwise_temperature": 0.1,
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260915,
+  "protocol": "Safe follow-up fixed before inspection: keep current_fixed_ratio as an explicit anchor. Compare a one-parameter shrinkage toward the equal mean of all other experts and a nonnegative pairwise simplex penalized toward the anchor. Select alpha or regularization solely by target-prior MCC on inner folds; report untouched outer-fold predictions."
+}

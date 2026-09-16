@@ -1,0 +1,23 @@
+{
+  "labels": "000-classification-labels.parquet",
+  "assignments": "001-umap-assignments.parquet",
+  "test_mapping": "002-test_mapping.parquet",
+  "weights": "003-004-tabpfn-v2.6-classifier-v2.6_default.ckpt",
+  "expected_counts": {
+    "CYP2D6_is_TDI": 1497
+  },
+  "endpoints": [
+    "CYP2D6_is_TDI"
+  ],
+  "views": [
+    {
+      "name": "external_mixed_raw600",
+      "source_run": "20260912T052853359792Z-2c0a0953",
+      "prefix": "emb_",
+      "preprocessing": "raw_scaled",
+      "files": [
+        "004-external-embeddings.parquet"
+      ]
+    }
+  ]
+}

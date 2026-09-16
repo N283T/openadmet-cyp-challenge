@@ -1,0 +1,36 @@
+{
+  "lgbm_test": "000-002-fold-test-probabilities.parquet",
+  "pfn_test": "001-005-test-fold-probabilities.parquet",
+  "graph_test": "002-008-fold-test-probabilities.parquet",
+  "raw600_test": "003-test-probabilities.parquet",
+  "compounds": "004-compounds.parquet",
+  "test_mapping": "005-test_mapping.parquet",
+  "aliases": "006-aliases.parquet",
+  "a4_test": "007-test.parquet",
+  "reference": "008-cyp-challenge-TEST-BLINDED.csv",
+  "logistic_models": [
+    "009-logistic_c0.05-fold0.joblib",
+    "010-logistic_c0.05-fold1.joblib",
+    "011-logistic_c0.05-fold2.joblib",
+    "012-logistic_c0.05-fold3.joblib",
+    "013-logistic_c0.05-fold4.joblib"
+  ],
+  "rbf_models": [
+    "014-rbf_svm_c1-fold0.joblib",
+    "015-rbf_svm_c1-fold1.joblib",
+    "016-rbf_svm_c1-fold2.joblib",
+    "017-rbf_svm_c1-fold3.joblib",
+    "018-rbf_svm_c1-fold4.joblib"
+  ],
+  "complement_models": [
+    "019-complement_nb_a1-fold0.joblib",
+    "020-complement_nb_a1-fold1.joblib",
+    "021-complement_nb_a1-fold2.joblib",
+    "022-complement_nb_a1-fold3.joblib",
+    "023-complement_nb_a1-fold4.joblib"
+  ],
+  "d6_test_calls": 49,
+  "a4_model": "exhaustive_mcc::components_7",
+  "a4_test_calls": 249,
+  "selection": "Package two prespecified candidates: the D6 PCA256/raw600 equal embedding block inside the full-data ten-component selection, and the A4 fixed equal-seven subset."
+}

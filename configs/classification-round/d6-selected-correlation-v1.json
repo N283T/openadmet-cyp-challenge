@@ -1,0 +1,20 @@
+{
+  "reference_oof": "000-ensemble-oof.parquet",
+  "lgbm_oof": "001-000-oof.parquet",
+  "pfn_oof": "002-003-oof-probabilities.parquet",
+  "graph_oof": "003-006-classification-oof.parquet",
+  "fixed_oof": "004-oof.parquet",
+  "reference_method": "all_plain_pfn_graph_mean",
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "selected_core": [
+    "lgbm::morgan_plain",
+    "lgbm::mordred_plain",
+    "lgbm::fp_mordred_plain",
+    "lgbm::external_class_plain",
+    "lgbm::external_mixed_plain",
+    "pfn::external_mixed_pca256",
+    "graph::tdi_only"
+  ],
+  "selection": "Correlation and leave-one-component-out audit of the full-data ten-component D6 simplification choice. Metrics are descriptive because the composition was selected using these OOF predictions."
+}

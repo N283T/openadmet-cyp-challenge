@@ -1,0 +1,50 @@
+{
+  "reference_oof": "000-ensemble-oof.parquet",
+  "reference_test": "001-ensemble-test.parquet",
+  "lgbm_oof": "002-000-oof.parquet",
+  "lgbm_test": "003-002-fold-test-probabilities.parquet",
+  "pfn_oof": "004-003-oof-probabilities.parquet",
+  "pfn_test": "005-005-test-fold-probabilities.parquet",
+  "graph_oof": "006-006-classification-oof.parquet",
+  "graph_test": "007-008-fold-test-probabilities.parquet",
+  "fixed_oof": "008-oof.parquet",
+  "compounds": "009-compounds.parquet",
+  "test_mapping": "010-test_mapping.parquet",
+  "logistic_models": [
+    "011-logistic_c0.05-fold0.joblib",
+    "012-logistic_c0.05-fold1.joblib",
+    "013-logistic_c0.05-fold2.joblib",
+    "014-logistic_c0.05-fold3.joblib",
+    "015-logistic_c0.05-fold4.joblib"
+  ],
+  "complement_models": [
+    "016-complement_nb_a1-fold0.joblib",
+    "017-complement_nb_a1-fold1.joblib",
+    "018-complement_nb_a1-fold2.joblib",
+    "019-complement_nb_a1-fold3.joblib",
+    "020-complement_nb_a1-fold4.joblib"
+  ],
+  "rbf_models": [
+    "021-rbf_svm_c1-fold0.joblib",
+    "022-rbf_svm_c1-fold1.joblib",
+    "023-rbf_svm_c1-fold2.joblib",
+    "024-rbf_svm_c1-fold3.joblib",
+    "025-rbf_svm_c1-fold4.joblib"
+  ],
+  "reference_method": "all_plain_pfn_graph_mean",
+  "call_rate": 0.06533333333333333,
+  "test_calls": 49,
+  "target_prior": 0.07062568306010919,
+  "current_fold_tail": ["rbf", "rbf", "complement", "complement", "complement"],
+  "ablations": {
+    "full11": [],
+    "drop_morgan": ["lgbm::morgan_plain"],
+    "drop_mordred": ["lgbm::mordred_plain"],
+    "drop_morgan_mordred": ["lgbm::fp_mordred_plain"],
+    "drop_three_basic": ["lgbm::morgan_plain", "lgbm::mordred_plain", "lgbm::fp_mordred_plain"],
+    "drop_all_lgbm": ["lgbm::morgan_plain", "lgbm::mordred_plain", "lgbm::fp_mordred_plain", "lgbm::external_class_plain", "lgbm::external_mixed_plain", "lgbm::external_class_mordred_plain"]
+  },
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 20260915,
+  "selection": "Fixed-policy ablation of the six LightGBM members inside the deployed D6 old11 probability mean. Downstream rank-blend weights, fold tail choices, call rate and test deployment tail remain unchanged."
+}

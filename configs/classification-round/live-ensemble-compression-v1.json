@@ -1,0 +1,41 @@
+{
+  "a4_member_oof": "000-member-oof.parquet",
+  "a4_member_test": "001-member-test.parquet",
+  "a4_aux_oof": "002-oof.parquet",
+  "a4_aux_test": "003-test.parquet",
+  "d6_reference_oof": "004-ensemble-oof.parquet",
+  "d6_reference_test": "005-ensemble-test.parquet",
+  "lgbm_oof": "006-000-oof.parquet",
+  "lgbm_test": "007-002-fold-test-probabilities.parquet",
+  "pfn_oof": "008-003-oof-probabilities.parquet",
+  "pfn_test": "009-005-test-fold-probabilities.parquet",
+  "graph_oof": "010-006-classification-oof.parquet",
+  "graph_test": "011-008-fold-test-probabilities.parquet",
+  "fixed_oof": "012-oof.parquet",
+  "compounds": "013-compounds.parquet",
+  "test_mapping": "014-test_mapping.parquet",
+  "logistic_models": [
+    "015-logistic_c0.05-fold0.joblib",
+    "016-logistic_c0.05-fold1.joblib",
+    "017-logistic_c0.05-fold2.joblib",
+    "018-logistic_c0.05-fold3.joblib",
+    "019-logistic_c0.05-fold4.joblib"
+  ],
+  "complement_models": [
+    "020-complement_nb_a1-fold0.joblib",
+    "021-complement_nb_a1-fold1.joblib",
+    "022-complement_nb_a1-fold2.joblib",
+    "023-complement_nb_a1-fold3.joblib",
+    "024-complement_nb_a1-fold4.joblib"
+  ],
+  "a4_aux_method": "morgan_pxr_admetica_lgbm",
+  "a4_caruana_weight": 0.8,
+  "a4_calls": 249,
+  "a4_rate": 0.332,
+  "d6_reference_method": "all_plain_pfn_graph_mean",
+  "d6_calls": 49,
+  "d6_rate": 0.06533333333333333,
+  "d6_target_prior": 0.07062568306010919,
+  "effective_weight_min": 0.001,
+  "selection": "Prediction-distillation Pareto screen over the seven top-level A4 members and thirteen expanded D6 members. Simplex weights minimize OOF squared error to the currently scored continuous rank; target metrics are descriptive, and blind labels are never used."
+}

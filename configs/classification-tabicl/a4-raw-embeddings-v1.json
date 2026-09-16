@@ -1,0 +1,52 @@
+{
+  "labels": "000-000-classification-labels.parquet",
+  "assignments": "001-001-umap-assignments.parquet",
+  "test_mapping": "002-002-test_mapping.parquet",
+  "pfn_weights": "003-003-004-tabpfn-v2.6-classifier-v2.6_default.ckpt",
+  "weights": "004-tabicl-classifier-v2-20260212.ckpt",
+  "expected_counts": {
+    "CYP3A4_is_TDI": 3584
+  },
+  "split_id": "original_umap_269e598d",
+  "views": [
+    {
+      "name": "tabicl_jeremy_raw600",
+      "backend": "tabicl",
+      "source_run": "c060d197",
+      "prefix": "emb_",
+      "files": ["005-external-embeddings.parquet"],
+      "preprocessing": "raw_scaled"
+    },
+    {
+      "name": "tabpfn_jeremy_raw600",
+      "backend": "tabpfn",
+      "source_run": "c060d197",
+      "prefix": "emb_",
+      "files": ["005-external-embeddings.parquet"],
+      "preprocessing": "raw_scaled"
+    },
+    {
+      "name": "tabpfn_external_class_raw600",
+      "backend": "tabpfn",
+      "source_run": "a3ea2ec3",
+      "prefix": "emb_",
+      "files": ["006-external-embeddings.parquet"],
+      "preprocessing": "raw_scaled"
+    },
+    {
+      "name": "tabpfn_external_mixed_raw600",
+      "backend": "tabpfn",
+      "source_run": "2c0a0953",
+      "prefix": "emb_",
+      "files": ["007-external-embeddings.parquet"],
+      "preprocessing": "raw_scaled"
+    }
+  ],
+  "model": {
+    "n_estimators": 8,
+    "seed": "42+outer",
+    "scaler": "StandardScaler",
+    "preprocessing": "raw_scaled"
+  },
+  "selection": "Matched A4 raw600 controls for the PCA256 Jeremy TabICL/TabPFN and external-class TabPFN members, plus external-mixed raw600 as a prespecified representation peer. Outer and next-fold inner fits use the original UMAP split and the same eight-estimator readouts."
+}

@@ -1,0 +1,51 @@
+{
+  "d6_reference_oof": "000-ensemble-oof.parquet",
+  "d6_lgbm_oof": "001-000-oof.parquet",
+  "d6_pfn_oof": "002-003-oof-probabilities.parquet",
+  "d6_graph_oof": "003-006-classification-oof.parquet",
+  "fixed_oof": "004-oof.parquet",
+  "a4_member_oof": "005-member-oof.parquet",
+  "a4_aux_oof": "006-oof.parquet",
+  "mechanism_oof": "007-oof.parquet",
+  "activity_oof": "008-oof.parquet",
+  "mace_oof": "009-oof.parquet",
+  "embedding_oof": "010-oof.parquet",
+  "raw600_oof": "011-oof-probabilities.parquet",
+  "d6_reference_method": "all_plain_pfn_graph_mean",
+  "a4_aux_method": "morgan_pxr_admetica_lgbm",
+  "d6_current_fold_members": [
+    "tail_rbf",
+    "tail_rbf",
+    "tail_complement",
+    "tail_complement",
+    "tail_complement"
+  ],
+  "candidate_families": [
+    {"name": "new::smartcyp", "family": "mechanism", "source": "mechanism_oof", "method": "morgan_smartcyp_lgbm"},
+    {"name": "new::attnsom", "family": "mechanism", "source": "mechanism_oof", "method": "morgan_attnsom_lgbm"},
+    {"name": "new::cypmap", "family": "mechanism", "source": "mechanism_oof", "method": "morgan_cypmap_emb_lgbm"},
+    {"name": "new::mechanism_all", "family": "mechanism", "source": "mechanism_oof", "method": "morgan_mechanism_cypmap_all_lgbm"},
+    {"name": "new::product_activity", "family": "metabolite", "source": "activity_oof", "method": "morgan_activity_endpoint_lgbm"},
+    {"name": "new::parent_raw", "family": "embedding", "source": "embedding_oof", "method": "morgan_parent_raw_lgbm"},
+    {"name": "new::parent_delta_raw", "family": "embedding", "source": "embedding_oof", "method": "morgan_parent_delta_endpoint_raw_lgbm"},
+    {"name": "new::mace", "family": "embedding", "source": "mace_oof", "method_by_endpoint": {"CYP2D6_is_TDI": "morgan_mace_off_emb_lr", "CYP3A4_is_TDI": "morgan_mace_off_emb_lgbm"}}
+  ],
+  "endpoint_settings": {
+    "CYP2D6_is_TDI": {"call_rate": 0.06533333333333333, "target_prior": 0.07062568306010919},
+    "CYP3A4_is_TDI": {"call_rate": 0.332, "target_prior": 0.2916}
+  },
+  "ridge_c": [0.001, 0.01, 0.1, 1.0, 10.0, 100.0],
+  "simplex_lambda": [0.0, 0.0001, 0.001, 0.01, 0.1, 1.0],
+  "pairwise_temperature": 0.1,
+  "deepsets": {
+    "hidden": 16,
+    "learning_rate": 0.01,
+    "weight_decay": 0.001,
+    "max_epochs": 400,
+    "patience": 40,
+    "seeds": [20260915, 20260916]
+  },
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260915,
+  "protocol": "Prespecified comparison on a common rank-normalized OOF prediction bank. The current fixed-ratio prediction is an eligible expert and the control. Ridge C and simplex regularization are selected by inner-fold log loss. DeepSets is permutation-invariant over experts and uses inner-fold early stopping. Every reported meta-model prediction is from an outer-fold fit that did not see that fold's labels. No method is promoted post hoc; AUROC, AP, and target-prior fixed-call MCC are all reported."
+}
