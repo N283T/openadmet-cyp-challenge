@@ -59,7 +59,7 @@ def launch(command, **kwargs):
     )
 
 
-def test_failed_command_and_missing_input_remain_recorded(registry):
+def test_failed_command_is_recorded_but_missing_input_is_preflight(registry):
     connect, root = registry
     assert launch(["python", "-c", "raise SystemExit(7)"]) == 7
     args = Namespace(
@@ -70,10 +70,11 @@ def test_failed_command_and_missing_input_remain_recorded(registry):
         input=[root / "does-not-exist"],
         command=["python", "-c", "pass"],
     )
-    assert runs.run(args) == 1
+    with pytest.raises(FileNotFoundError):
+        runs.run(args)
     with connect() as conn:
         rows = conn.execute("SELECT status,manifest_path FROM runs").fetchall()
-    assert len(rows) == 2
+    assert len(rows) == 1
     for status, path in rows:
         assert status == "failed"
         assert Path(path).with_name("intent.json").exists()

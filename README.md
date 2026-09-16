@@ -36,9 +36,10 @@ PostgreSQL uses a project-local socket in `.runtime/socket`, port 5434, and data
 `cyp_challenge`. TCP listening is disabled. It does not reuse the PXR database.
 `pixi run db-stop` stops it. `pixi run db-backup` writes a durable custom-format dump.
 
-## Record every experiment
+## Record substantive experiments
 
-Keep even quick probes as scripts. The wrapper saves intent before execution,
+Keep substantive probes as scripts; small read-only inspections and preflight checks
+can run directly. The wrapper saves intent before execution,
 snapshots source/config/inputs/environment, then executes from the source snapshot.
 All model/feature commands must read their declared input snapshots and write to
 `CYP_OUTPUT_DIR`. Scratch uses the persistent run-local `TMPDIR`.
@@ -46,22 +47,24 @@ All model/feature commands must read their declared input snapshots and write to
 ```sh
 pixi run cyp run --track shared \
   --purpose "Inspect blinded dataset dimensions" \
-  --input data/raw/cyp-challenge-TEST-BLINDED.csv \
+  --input test.csv=data/raw/cyp-challenge-TEST-BLINDED.csv \
   -- python scripts/smoke.py
 
 pixi run cyp replay RUN_ID
 ```
 
-Record the outcome of a discarded probe without deleting it:
+Record the outcome of a scientifically informative discarded probe:
 
 ```sh
 pixi run cyp note RUN_ID --decision discard --notes "No improvement; retain as negative evidence"
 ```
 
-Use repeatable `--input FILE`, `--config FILE`, and optional `--issue URL`.
+Use repeatable `--input ALIAS=FILE`, `--config FILE`, and optional `--issue URL`.
 The resolved config snapshot is exposed as `CYP_CONFIG_PATH`. Input snapshots live
-in `CYP_INPUT_DIR` and are numbered in argument order. The command is executed as
-an argv array without a shell. Logs are in the printed run directory's `console.log`.
+in `CYP_INPUT_DIR` under the declared aliases. Legacy bare `--input FILE` arguments
+are numbered in argument order. Input and config paths are checked before a run is
+allocated. The command is executed as an argv array without a shell. Logs are in the
+printed run directory's `console.log`.
 
 Replay checks recorded hashes and the current lock, reuses the saved source and
 inputs, and creates a new run. Compare output hashes or task-specific tolerances;

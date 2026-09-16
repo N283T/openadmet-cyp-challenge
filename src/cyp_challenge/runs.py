@@ -15,12 +15,36 @@ from .database import connect
 from .storage import ROOT, allocate, digest, inventory, now, snapshot_source, write_json
 
 
+def resolve_inputs(specs, replay=False):
+    """Resolve inputs before allocating a run and assign stable snapshot names."""
+    resolved = []
+    names = set()
+    for index, spec in enumerate(specs):
+        raw = os.fspath(spec)
+        alias = None
+        source_text = raw
+        if not replay and "=" in raw:
+            alias, source_text = raw.split("=", 1)
+            if not alias or Path(alias).name != alias or alias in {".", ".."}:
+                raise ValueError(f"Invalid input alias: {alias!r}")
+        source = Path(source_text).resolve(strict=True)
+        name = source.name if replay else alias or f"{index:03d}-{source.name}"
+        if name in names:
+            raise ValueError(f"Duplicate input snapshot name: {name}")
+        names.add(name)
+        resolved.append((source, name))
+    return resolved
+
+
 def run(args):
     command = args.command
     if command and command[0] == "--":
         command = command[1:]
     if not command:
         raise ValueError("An explicit command is required")
+    replay = bool(getattr(args, "replay_of", None))
+    resolved_inputs = resolve_inputs(args.input, replay=replay)
+    config = args.config.resolve(strict=True) if args.config else None
     with connect():
         pass
     identifier, path = allocate("runs", args.track)
@@ -58,18 +82,16 @@ def run(args):
     try:
         for name in ("outputs", "scratch", "inputs"):
             (path / name).mkdir()
-        for i, source in enumerate(args.input):
-            source = source.resolve(strict=True)
-            name = source.name if getattr(args, "replay_of", None) else f"{i:03d}-{source.name}"
+        for source, name in resolved_inputs:
             target = path / "inputs" / name
             shutil.copy2(source, target)
             target.chmod(0o444)
             manifest["inputs"].append(
                 {"original": str(source), "snapshot": str(target), "sha256": digest(target)}
             )
-        if args.config:
-            target = path / ("config" + args.config.suffix)
-            shutil.copy2(args.config, target)
+        if config:
+            target = path / ("config" + config.suffix)
+            shutil.copy2(config, target)
             manifest["config"] = {"path": str(target), "sha256": digest(target)}
         if getattr(args, "source_snapshot", None):
             shutil.copytree(args.source_snapshot, path / "source")

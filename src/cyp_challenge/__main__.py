@@ -30,7 +30,16 @@ def main():
     run.add_argument("--purpose", required=True)
     run.add_argument("--issue")
     run.add_argument("--config", type=Path)
-    run.add_argument("--input", type=Path, action="append", default=[])
+    run.add_argument(
+        "--input",
+        action="append",
+        default=[],
+        metavar="[ALIAS=]PATH",
+        help=(
+            "Snapshot an input. Prefer a stable ALIAS=PATH name; bare paths retain "
+            "the legacy numeric-prefix behavior."
+        ),
+    )
     run.add_argument("command", nargs=argparse.REMAINDER)
     candidate = sub.add_parser("candidate")
     candidate.add_argument("--track", choices=ENDPOINTS, required=True)

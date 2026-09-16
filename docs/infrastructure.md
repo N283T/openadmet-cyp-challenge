@@ -2,13 +2,14 @@
 
 ## Durable experimentation
 
-Every probe is a run, even when abandoned. Allocate a unique directory and insert
-its DB record before preparing inputs or starting the child process. Failed input
-preparation, failed commands, and keyboard interruption produce `result.json`.
-Do not delete scratch automatically. `cyp reconcile` repairs final DB states from
-saved results after a DB outage; records without a result are printed for human
-inspection because they may still be running. SIGKILL/power failure cannot execute
-finalizers; intent, process identity and console logs remain available.
+Substantive experiments are recorded runs; small read-only inspections and preflight
+checks are not. Validate declared input and config paths before allocating a run.
+Failed commands and keyboard interruption produce `result.json`. Failed or interrupted
+runs with no usable scientific result may be removed after recording a concise reason;
+scientifically informative negative results remain durable. `cyp reconcile` repairs
+final DB states from saved results after a DB outage; records without a result are
+printed for human inspection because they may still be running. SIGKILL/power failure
+cannot execute finalizers; intent, process identity and console logs remain available.
 
 Each run contains:
 
@@ -24,6 +25,12 @@ arbitrary files from the working directory. Declare extra input files explicitly
 Use `CYP_INPUT_DIR`, `CYP_CONFIG_PATH`, and `CYP_OUTPUT_DIR`; commands that bypass
 these and read mutable absolute paths do not inherit reproducibility guarantees.
 Do not put credentials in command arguments, configs, or checked-in source.
+
+New or edited launchers should pass inputs as `--input alias.ext=/path/to/file` and
+refer to `alias.ext` from the run config. Bare `--input /path/to/file` remains
+supported for older launchers and receives the legacy numeric prefix. Input paths,
+aliases and the config path are validated before a run ID is allocated, so basic
+name/path mistakes do not create failed run records.
 
 Large immutable feature assets may eventually use content-addressed storage to
 avoid per-run copies; this initial version intentionally copies declared inputs.

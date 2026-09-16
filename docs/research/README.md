@@ -472,9 +472,12 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 Append dated entries to `YYYY-MM.md`, with stable sequential IDs (`RL-0001`, etc.).
 Use the actual event date/time with an explicit timezone when available. Label
 retrospective entries as such; do not invent timestamps. One entry may cover a
-coherent batch of runs. Include failed, interrupted and discarded attempts, not
-only improvements. Every attempt still goes through `pixi run cyp run`, even before
-there is a result worth discussing. Link the log entry in a run note when useful.
+coherent batch of runs. Include scientifically informative negative and discarded
+results, not only improvements. Do not turn path mistakes, schema typos, preflight
+failures, or empty interruptions into research findings. Substantive experiments go
+through `pixi run cyp run`; small read-only inspections and preflight checks do not
+require a run. Failed runs with no usable scientific result may be removed after a
+concise reason is recorded. Link the log entry in a retained run note when useful.
 
 Keep each entry short and evidence-backed:
 
