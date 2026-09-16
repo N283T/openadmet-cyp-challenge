@@ -1,0 +1,45 @@
+{
+  "track": "regression",
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "feature_views": {
+    "scores51": "upstream predictor scores47 + new nested log2fc4",
+    "medium604": "frozen upstream medium embedding600 + new nested log2fc4",
+    "hybrid2699": "medium600 + scores47 + Morgan2048 + new nested log2fc4"
+  },
+  "methods": [
+    "ridge",
+    "elastic_net",
+    "pls16",
+    "extra_trees",
+    "random_forest",
+    "rbf_svr",
+    "nystroem_ridge",
+    "knn",
+    "mlp",
+    "xgboost",
+    "catboost",
+    "compact_kan"
+  ],
+  "blend_weights": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "tree_estimators": 240,
+  "pca_dimensions": 64,
+  "threads": 4,
+  "kan": {
+    "pca_dimensions": 64,
+    "hidden": 16,
+    "grid_size": 8,
+    "bound": 3.0,
+    "epochs": 180,
+    "batch_size": 128,
+    "learning_rate": 0.002,
+    "weight_decay": 0.0001
+  },
+  "evaluation": "Fixed parent CV; inspect standalone ordering, residual diversity, and prespecified raw/moment-matched blends with the latest development OOF."
+}

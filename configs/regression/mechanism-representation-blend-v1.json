@@ -1,0 +1,6 @@
+{
+  "model_run": "20260914T111634758781Z-477d7e4e",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "weights": [0.1, 0.25, 0.5],
+  "selection": "Fixed-weight comparison against the latest development and submitted OOF vectors; conditional development evidence only."
+}

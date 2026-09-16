@@ -1,0 +1,33 @@
+{
+  "track": "regression",
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "feature_mode": "molformer_pooling",
+  "encoder_run": "20260914T140517644424Z-de551457",
+  "feature_views": {
+    "molformer_mean": "masked mean768 + nested log2fc4",
+    "molformer_cls_mean": "CLS768 + masked mean768 + nested log2fc4",
+    "scores_molformer_mean": "scores47 + masked mean768 + nested log2fc4",
+    "scores_molformer_cls_mean": "scores47 + CLS768 + masked mean768 + nested log2fc4"
+  },
+  "methods": [
+    "extra_trees_l1",
+    "extra_trees_l3",
+    "extra_trees_l8",
+    "extra_trees_f025",
+    "random_forest",
+    "catboost_mae",
+    "xgboost"
+  ],
+  "blend_weights": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "tree_estimators": 240,
+  "threads": 4,
+  "seed": 20260914,
+  "evaluation": "Fixed parent CV; fixed pooling and small tree recipes; no tuning on OOF."
+}

@@ -1,0 +1,32 @@
+{
+  "track": "regression",
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "encoder_runs": {
+    "kermt_v2": "20260914T135108660328Z-387c0bcc",
+    "molformer_c3": "20260914T135140332924Z-1d133b02"
+  },
+  "feature_views": {
+    "kermt": "generic KERMT v2 3200 + nested log2fc4",
+    "molformer": "generic MoLFormer-c3 768 + nested log2fc4",
+    "scores_kermt": "upstream scores47 + generic KERMT v2 3200 + nested log2fc4",
+    "scores_molformer": "upstream scores47 + generic MoLFormer-c3 768 + nested log2fc4"
+  },
+  "methods": [
+    "pca64_ridge",
+    "pca64_rbf_svr",
+    "pls16",
+    "extra_trees"
+  ],
+  "blend_weights": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "tree_estimators": 300,
+  "threads": 4,
+  "seed": 20260914,
+  "evaluation": "Fixed parent CV and fixed readouts; no tuning on this representation screen."
+}

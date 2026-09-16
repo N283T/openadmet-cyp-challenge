@@ -1,0 +1,87 @@
+{
+  "track": "regression",
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "screen_run": "20260914T125646427763Z-1707a0e2",
+  "expected_rows": 1457,
+  "methods": [
+    [
+      "scores51",
+      "pairwise_logistic_weighted"
+    ],
+    [
+      "scores51",
+      "interval_pair025"
+    ],
+    [
+      "scores51",
+      "interval_pair100"
+    ],
+    [
+      "morgan2048",
+      "tanimoto_krr_a0p1"
+    ],
+    [
+      "morgan2048",
+      "tanimoto_krr_a1"
+    ],
+    [
+      "morgan2048",
+      "tanimoto_krr_a10"
+    ],
+    [
+      "scores51",
+      "ordinal_logit5"
+    ],
+    [
+      "scores51",
+      "ordinal_logit8"
+    ],
+    [
+      "scores51",
+      "spline_gam"
+    ],
+    [
+      "scores51",
+      "huber"
+    ]
+  ],
+  "candidates": [
+    {
+      "name": "scores_interval_pair025_25",
+      "view": "scores51",
+      "method": "interval_pair025",
+      "placement": "raw",
+      "weight": 0.25
+    },
+    {
+      "name": "scores_huber_25",
+      "view": "scores51",
+      "method": "huber",
+      "placement": "raw",
+      "weight": 0.25
+    },
+    {
+      "name": "scores_ordinal_logit5_10",
+      "view": "scores51",
+      "method": "ordinal_logit5",
+      "placement": "raw",
+      "weight": 0.1
+    },
+    {
+      "name": "scores_pairwise_weighted_10",
+      "view": "scores51",
+      "method": "pairwise_logistic_weighted",
+      "placement": "raw",
+      "weight": 0.1
+    },
+    {
+      "name": "morgan_tanimoto_a0p1_10",
+      "view": "morgan2048",
+      "method": "tanimoto_krr_a0p1",
+      "placement": "raw",
+      "weight": 0.1
+    }
+  ],
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 20260914
+}

@@ -1,0 +1,28 @@
+{
+  "split_run": "20260911T104703655337Z-a3923255",
+  "control_run": "20260912T083010595992Z-1e7001de",
+  "arms": {
+    "control": [],
+    "smartcyp": ["smartcyp"],
+    "attnsom": ["attnsom_properties", "attnsom_emb"],
+    "cypmap_emb": ["cypmap_emb"],
+    "cypmap_all": ["cypmap_properties", "cypmap_emb"],
+    "smartcyp_attnsom": ["smartcyp", "attnsom_properties", "attnsom_emb"],
+    "all_embeddings": ["smartcyp", "attnsom_properties", "attnsom_emb", "cypmap_emb"],
+    "all": ["smartcyp", "attnsom_properties", "attnsom_emb", "cypmap_properties", "cypmap_emb"]
+  },
+  "n_folds": 5,
+  "lightgbm": {
+    "objective": "regression_l1",
+    "n_estimators": 300,
+    "num_leaves": 15,
+    "min_child_samples": 20,
+    "learning_rate": 0.05,
+    "reg_lambda": 1,
+    "n_jobs": 3,
+    "verbosity": -1,
+    "deterministic": true,
+    "force_col_wise": true
+  },
+  "selection": "Prespecified SMARTCyp, challenge-disjoint ATTNSOM, and frozen CYP-MAP additions to the fixed frozen600 plus nested-log2fc parent-CV control; no candidate or submission selection."
+}

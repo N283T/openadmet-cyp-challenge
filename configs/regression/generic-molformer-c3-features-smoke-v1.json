@@ -1,0 +1,17 @@
+{
+  "encoder": "molformer_c3",
+  "model_id": "DeepChem/MoLFormer-c3-1.1B",
+  "model_revision": "9f1b9ea3590833bd0ea1a70e789c5d3da11ba7ed",
+  "custom_code_revision": "7b12d946c181a37f6012b9dc3b002275de070314",
+  "runtime_commit": "9ae83505589c8ab3226a734686ecf41d67964bbf",
+  "runtime_manifest": "/home/nagaet/pxr-iduction-challenge/pyproject.toml",
+  "driver": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/scripts/generic_molformer_fingerprint_driver.py",
+  "feature_prefix": "molformer",
+  "model_files": ["config.json", "model.safetensors", "special_tokens_map.json", "tokenizer.json", "tokenizer_config.json", "vocab.json"],
+  "code_files": ["__init__.py", "configuration_molformer.py", "modeling_molformer.py", "tokenization_molformer.py", "tokenization_molformer_fast.py"],
+  "batch_size": 64,
+  "pooling_mode": "cls",
+  "limit": 16,
+  "pooling": "CLS token",
+  "supervision": "Untouched released MoLFormer-c3 foundation checkpoint; no PXR or CYP challenge training."
+}

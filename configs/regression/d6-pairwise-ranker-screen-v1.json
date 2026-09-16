@@ -1,0 +1,39 @@
+{
+  "track": "regression",
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "views": [
+    "scores51",
+    "medium604",
+    "hybrid2699"
+  ],
+  "methods": [
+    "pairwise_logistic",
+    "rank_svm",
+    "ranknet",
+    "xgb_pairwise",
+    "cat_pairlogit"
+  ],
+  "compact_methods": [
+    "pairwise_logistic",
+    "rank_svm",
+    "ranknet"
+  ],
+  "maximum_pairs": 30000,
+  "pca_dimensions": 64,
+  "blend_weights": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "threads": 4,
+  "ranknet": {
+    "epochs": 60,
+    "batch_size": 512,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001
+  },
+  "evaluation": "Fixed parent CV; interval-confident pair construction inside outer training for logistic, RankSVM, RankNet, and CatBoost; full outer-training ranking for XGBoost; positive training-only affine calibration; fixed blends with latest development OOF."
+}

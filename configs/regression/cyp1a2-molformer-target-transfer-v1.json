@@ -1,0 +1,26 @@
+{
+  "track": "regression",
+  "endpoint": "CYP1A2_pIC50_direct_inhibition",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "feature_mode": "molformer_pooling",
+  "encoder_run": "20260914T140517644424Z-de551457",
+  "feature_views": {
+    "scores_molformer_cls_mean": "scores47 + CLS768 + mean768 + nested log2fc4"
+  },
+  "methods": [
+    "random_forest",
+    "extra_trees_l1",
+    "catboost_mae"
+  ],
+  "blend_weights": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "tree_estimators": 240,
+  "threads": 4,
+  "seed": 20260914,
+  "evaluation": "D6-selected view and fixed tree recipes transferred without retuning."
+}

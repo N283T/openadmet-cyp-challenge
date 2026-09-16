@@ -1,0 +1,71 @@
+{
+  "track": "regression",
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "methods": [
+    [
+      "scores51",
+      "pairwise_logistic_weighted"
+    ],
+    [
+      "scores51",
+      "interval_pair025"
+    ],
+    [
+      "scores51",
+      "interval_pair100"
+    ],
+    [
+      "morgan2048",
+      "tanimoto_krr_a0p1"
+    ],
+    [
+      "morgan2048",
+      "tanimoto_krr_a1"
+    ],
+    [
+      "morgan2048",
+      "tanimoto_krr_a10"
+    ],
+    [
+      "scores51",
+      "ordinal_logit5"
+    ],
+    [
+      "scores51",
+      "ordinal_logit8"
+    ],
+    [
+      "scores51",
+      "spline_gam"
+    ],
+    [
+      "scores51",
+      "huber"
+    ]
+  ],
+  "maximum_pairs": 30000,
+  "blend_weights": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "tanimoto_alphas": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "ordinal_bins": [
+    5,
+    8
+  ],
+  "interval_pair_weights": [
+    0.25,
+    1.0
+  ],
+  "interval_epochs": 400,
+  "threads": 4,
+  "evaluation": "Fixed parent CV; outer-training-only preprocessing, pair creation, ordinal thresholds, and calibration; fixed raw blends with latest development OOF."
+}

@@ -1,0 +1,184 @@
+{
+  "track": "regression",
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "screen_run": "20260914T121807545564Z-5d24aefa",
+  "expected_rows": 1457,
+  "methods": [
+    [
+      "scores51",
+      "ridge"
+    ],
+    [
+      "scores51",
+      "elastic_net"
+    ],
+    [
+      "scores51",
+      "pls16"
+    ],
+    [
+      "scores51",
+      "extra_trees"
+    ],
+    [
+      "scores51",
+      "random_forest"
+    ],
+    [
+      "scores51",
+      "rbf_svr"
+    ],
+    [
+      "scores51",
+      "nystroem_ridge"
+    ],
+    [
+      "scores51",
+      "knn"
+    ],
+    [
+      "scores51",
+      "mlp"
+    ],
+    [
+      "scores51",
+      "xgboost"
+    ],
+    [
+      "scores51",
+      "catboost"
+    ],
+    [
+      "scores51",
+      "compact_kan"
+    ],
+    [
+      "medium604",
+      "ridge"
+    ],
+    [
+      "medium604",
+      "elastic_net"
+    ],
+    [
+      "medium604",
+      "pls16"
+    ],
+    [
+      "medium604",
+      "extra_trees"
+    ],
+    [
+      "medium604",
+      "random_forest"
+    ],
+    [
+      "medium604",
+      "rbf_svr"
+    ],
+    [
+      "medium604",
+      "nystroem_ridge"
+    ],
+    [
+      "medium604",
+      "knn"
+    ],
+    [
+      "medium604",
+      "mlp"
+    ],
+    [
+      "medium604",
+      "xgboost"
+    ],
+    [
+      "medium604",
+      "catboost"
+    ],
+    [
+      "medium604",
+      "compact_kan"
+    ],
+    [
+      "hybrid2699",
+      "ridge"
+    ],
+    [
+      "hybrid2699",
+      "elastic_net"
+    ],
+    [
+      "hybrid2699",
+      "pls16"
+    ],
+    [
+      "hybrid2699",
+      "extra_trees"
+    ],
+    [
+      "hybrid2699",
+      "random_forest"
+    ],
+    [
+      "hybrid2699",
+      "rbf_svr"
+    ],
+    [
+      "hybrid2699",
+      "nystroem_ridge"
+    ],
+    [
+      "hybrid2699",
+      "knn"
+    ],
+    [
+      "hybrid2699",
+      "mlp"
+    ],
+    [
+      "hybrid2699",
+      "xgboost"
+    ],
+    [
+      "hybrid2699",
+      "catboost"
+    ],
+    [
+      "hybrid2699",
+      "compact_kan"
+    ]
+  ],
+  "candidates": [
+    {
+      "name": "hybrid_catboost_50",
+      "view": "hybrid2699",
+      "method": "catboost",
+      "placement": "match_latest_moments",
+      "weight": 0.5
+    },
+    {
+      "name": "scores_random_forest_25",
+      "view": "scores51",
+      "method": "random_forest",
+      "placement": "match_latest_moments",
+      "weight": 0.25
+    },
+    {
+      "name": "scores_pls16_25",
+      "view": "scores51",
+      "method": "pls16",
+      "placement": "match_latest_moments",
+      "weight": 0.25
+    },
+    {
+      "name": "medium_catboost_25",
+      "view": "medium604",
+      "method": "catboost",
+      "placement": "match_latest_moments",
+      "weight": 0.25
+    }
+  ],
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 20260914
+}

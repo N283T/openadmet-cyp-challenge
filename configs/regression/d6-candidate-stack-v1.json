@@ -1,0 +1,24 @@
+{
+  "track": "regression",
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "expected_rows": 1457,
+  "source_runs": [
+    "20260914T140653173662Z-24d529d2",
+    "20260914T121807545564Z-5d24aefa",
+    "20260914T125646427763Z-1707a0e2",
+    "20260914T123940860032Z-de101db4"
+  ],
+  "fixed_components": [
+    "MoLFormer RF25 moment matched",
+    "hybrid CatBoost50 moment matched",
+    "ordinal-logit5 raw10",
+    "scores XGBoost-pairwise raw10"
+  ],
+  "meta_models": [
+    "Ridge alpha 1/10/100",
+    "positive linear regression"
+  ],
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 20260914,
+  "evaluation": "Fixed combinations plus five-fold-excluded level-2 stacking."
+}

@@ -1,0 +1,100 @@
+{
+  "track": "regression",
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "screen_run": "20260914T123940860032Z-de101db4",
+  "expected_rows": 1457,
+  "methods": [
+    [
+      "scores51",
+      "pairwise_logistic"
+    ],
+    [
+      "scores51",
+      "rank_svm"
+    ],
+    [
+      "scores51",
+      "ranknet"
+    ],
+    [
+      "scores51",
+      "xgb_pairwise"
+    ],
+    [
+      "scores51",
+      "cat_pairlogit"
+    ],
+    [
+      "medium604",
+      "pairwise_logistic"
+    ],
+    [
+      "medium604",
+      "rank_svm"
+    ],
+    [
+      "medium604",
+      "ranknet"
+    ],
+    [
+      "medium604",
+      "xgb_pairwise"
+    ],
+    [
+      "medium604",
+      "cat_pairlogit"
+    ],
+    [
+      "hybrid2699",
+      "pairwise_logistic"
+    ],
+    [
+      "hybrid2699",
+      "rank_svm"
+    ],
+    [
+      "hybrid2699",
+      "ranknet"
+    ],
+    [
+      "hybrid2699",
+      "xgb_pairwise"
+    ],
+    [
+      "hybrid2699",
+      "cat_pairlogit"
+    ]
+  ],
+  "candidates": [
+    {
+      "name": "scores_xgb_pairwise_10",
+      "view": "scores51",
+      "method": "xgb_pairwise",
+      "placement": "raw",
+      "weight": 0.1
+    },
+    {
+      "name": "scores_pairwise_logistic_10",
+      "view": "scores51",
+      "method": "pairwise_logistic",
+      "placement": "raw",
+      "weight": 0.1
+    },
+    {
+      "name": "scores_pairwise_logistic_25",
+      "view": "scores51",
+      "method": "pairwise_logistic",
+      "placement": "raw",
+      "weight": 0.25
+    },
+    {
+      "name": "hybrid_cat_pairlogit_10",
+      "view": "hybrid2699",
+      "method": "cat_pairlogit",
+      "placement": "raw",
+      "weight": 0.1
+    }
+  ],
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 20260914
+}

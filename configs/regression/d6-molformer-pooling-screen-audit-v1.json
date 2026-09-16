@@ -1,0 +1,152 @@
+{
+  "track": "regression",
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "screen_run": "20260914T140653173662Z-24d529d2",
+  "expected_rows": 1457,
+  "methods": [
+    [
+      "molformer_mean",
+      "extra_trees_l1"
+    ],
+    [
+      "molformer_mean",
+      "extra_trees_l3"
+    ],
+    [
+      "molformer_mean",
+      "extra_trees_l8"
+    ],
+    [
+      "molformer_mean",
+      "extra_trees_f025"
+    ],
+    [
+      "molformer_mean",
+      "random_forest"
+    ],
+    [
+      "molformer_mean",
+      "catboost_mae"
+    ],
+    [
+      "molformer_mean",
+      "xgboost"
+    ],
+    [
+      "molformer_cls_mean",
+      "extra_trees_l1"
+    ],
+    [
+      "molformer_cls_mean",
+      "extra_trees_l3"
+    ],
+    [
+      "molformer_cls_mean",
+      "extra_trees_l8"
+    ],
+    [
+      "molformer_cls_mean",
+      "extra_trees_f025"
+    ],
+    [
+      "molformer_cls_mean",
+      "random_forest"
+    ],
+    [
+      "molformer_cls_mean",
+      "catboost_mae"
+    ],
+    [
+      "molformer_cls_mean",
+      "xgboost"
+    ],
+    [
+      "scores_molformer_mean",
+      "extra_trees_l1"
+    ],
+    [
+      "scores_molformer_mean",
+      "extra_trees_l3"
+    ],
+    [
+      "scores_molformer_mean",
+      "extra_trees_l8"
+    ],
+    [
+      "scores_molformer_mean",
+      "extra_trees_f025"
+    ],
+    [
+      "scores_molformer_mean",
+      "random_forest"
+    ],
+    [
+      "scores_molformer_mean",
+      "catboost_mae"
+    ],
+    [
+      "scores_molformer_mean",
+      "xgboost"
+    ],
+    [
+      "scores_molformer_cls_mean",
+      "extra_trees_l1"
+    ],
+    [
+      "scores_molformer_cls_mean",
+      "extra_trees_l3"
+    ],
+    [
+      "scores_molformer_cls_mean",
+      "extra_trees_l8"
+    ],
+    [
+      "scores_molformer_cls_mean",
+      "extra_trees_f025"
+    ],
+    [
+      "scores_molformer_cls_mean",
+      "random_forest"
+    ],
+    [
+      "scores_molformer_cls_mean",
+      "catboost_mae"
+    ],
+    [
+      "scores_molformer_cls_mean",
+      "xgboost"
+    ]
+  ],
+  "candidates": [
+    {
+      "name": "scores_cls_mean_rf_match25",
+      "view": "scores_molformer_cls_mean",
+      "method": "random_forest",
+      "placement": "match_latest_moments",
+      "weight": 0.25
+    },
+    {
+      "name": "scores_cls_mean_rf_raw25",
+      "view": "scores_molformer_cls_mean",
+      "method": "random_forest",
+      "placement": "raw",
+      "weight": 0.25
+    },
+    {
+      "name": "scores_cls_mean_extra_trees_l1_raw25",
+      "view": "scores_molformer_cls_mean",
+      "method": "extra_trees_l1",
+      "placement": "raw",
+      "weight": 0.25
+    },
+    {
+      "name": "scores_cls_mean_catboost_match25",
+      "view": "scores_molformer_cls_mean",
+      "method": "catboost_mae",
+      "placement": "match_latest_moments",
+      "weight": 0.25
+    }
+  ],
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 20260914
+}

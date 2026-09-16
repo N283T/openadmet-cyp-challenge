@@ -1,0 +1,13 @@
+{
+  "encoder": "kermt_v2",
+  "model_id": "nvidia/NV-KERMT-70M-v2",
+  "model_revision": "7df5eb3179235fdea1e8124db73215da33d77dce",
+  "source_commit": "d0b6fdea162150fd12569075c2edd15fa3aca9e3",
+  "source_dir": "/home/nagaet/ghq/github.com/NVIDIA-Digital-Bio/KERMT",
+  "runtime_manifest": "/home/nagaet/ghq/github.com/NVIDIA-Digital-Bio/KERMT/pixi.toml",
+  "driver": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/scripts/generic_kermt_fingerprint_driver.py",
+  "feature_prefix": "kermt",
+  "batch_size": 32,
+  "limit": 16,
+  "supervision": "Untouched released contrastive KERMT v2 foundation checkpoint; no PXR or CYP challenge training."
+}
