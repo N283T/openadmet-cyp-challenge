@@ -1,0 +1,16 @@
+{
+  "raw_run": "20260916T060715739725Z-b0ddf3c8",
+  "pca_run": "20260912T071619253798Z-73a6fb7e",
+  "frozen_run": "20260912T060059705105Z-2f0fbfbd",
+  "scores_run": "20260912T072303592078Z-07f2749a",
+  "finetuned_run": "20260912T072056445264Z-e6b6cbcb",
+  "cyp3a4_top2_run": "20260912T152832952478Z-3e4de7c8",
+  "raw": "raw-oof.parquet",
+  "pca": "pca-oof.parquet",
+  "frozen": "frozen-oof.parquet",
+  "scores": "scores-oof.parquet",
+  "finetuned": "finetuned-oof.parquet",
+  "cyp3a4_top2": "cyp3a4-top2.parquet",
+  "scorer": "custom_scoring_functions.py",
+  "policy": "Compare complete equal-member ensemble recipes only; no incremental-weight search"
+}

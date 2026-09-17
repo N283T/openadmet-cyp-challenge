@@ -1,0 +1,15 @@
+{
+  "features": {
+    "top_arch": {"run": "20260916T091504286466Z-0a2d0b73", "file": "concatenated-embeddings.parquet"},
+    "broad5": {"run": "20260916T091746252797Z-e571bd53", "file": "concatenated-embeddings.parquet"}
+  },
+  "lgbm_grid": {
+    "shallow7": {"n_estimators": 500, "num_leaves": 7, "min_child_samples": 20, "learning_rate": 0.03},
+    "leaves31": {"n_estimators": 500, "num_leaves": 31, "min_child_samples": 20, "learning_rate": 0.03},
+    "regularized31": {"n_estimators": 500, "num_leaves": 31, "min_child_samples": 40, "learning_rate": 0.03},
+    "leaves63": {"n_estimators": 500, "num_leaves": 63, "min_child_samples": 20, "learning_rate": 0.03},
+    "slow31": {"n_estimators": 800, "num_leaves": 31, "min_child_samples": 20, "learning_rate": 0.02}
+  },
+  "pca_dimensions": [256, 512],
+  "protocol": "Readout-capacity and fold-local PCA screen on the two strongest owned concatenated raw representations. Selection remains target-specific."
+}

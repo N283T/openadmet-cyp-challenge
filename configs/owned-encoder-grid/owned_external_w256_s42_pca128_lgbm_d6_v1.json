@@ -1,0 +1,15 @@
+{
+  "method": "owned_external_w256_s42_pca128_lgbm_d6_v1",
+  "backend": "lgbm",
+  "feature_file": "external-embeddings.parquet",
+  "feature_prefix": "emb_",
+  "pca": 128,
+  "mask_observed_validation": false,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "endpoints": [
+    "CYP2D6_pIC50_direct_inhibition"
+  ],
+  "encoder_run": "20260916T073258258609Z-c05c3377",
+  "encoder_width": 256,
+  "encoder_seed": 42
+}

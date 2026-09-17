@@ -1,0 +1,22 @@
+{
+  "endpoints": ["CYP2C9_pIC50_direct_inhibition"],
+  "components": [
+    {"name": "jeremy_frozen_tabpfn26", "file": "jeremy-frozen-oof.parquet"},
+    {"name": "jeremy_scores_log2fc_tabpfn26", "file": "jeremy-scores-oof.parquet"},
+    {"name": "jeremy_finetuned_log2fc_lgbm", "file": "jeremy-finetuned-oof.parquet"},
+    {"name": "chemeleon_pca256_log2fc_tabicl", "file": "chemeleon-pca-oof.parquet"},
+    {"name": "chemeleon_raw2048_log2fc_tabicl", "file": "chemeleon-raw-oof.parquet"},
+    {"name": "owned_broad5_2c9_specialist_lgbm", "file": "owned-2c9-oof.parquet"},
+    {"name": "tabpfn35_fast_chemeleon_raw_logfc", "file": "t35-fast-chemeleon-raw-logfc.parquet"},
+    {"name": "tabpfn35_full_chemeleon_raw_logfc", "file": "t35-full-chemeleon-raw-logfc.parquet"},
+    {"name": "tabpfn35_fast_anchor59_raw_scores_logfc", "file": "t35-fast-anchor59-raw-scores-logfc.parquet"},
+    {"name": "tabpfn35_full_anchor59_raw_scores_logfc", "file": "t35-full-anchor59-raw-scores-logfc.parquet"},
+    {"name": "tabpfn35_full_pub030_raw", "file": "t35-full-pub030-raw.parquet"}
+  ],
+  "current_control": "current-control.parquet",
+  "scorer": "custom_scoring_functions.py",
+  "ridge_alpha": [0.01, 0.1, 1.0, 10.0, 100.0],
+  "simplex_lambda": [0.0, 0.0001, 0.001, 0.01, 0.1, 1.0],
+  "caruana_steps": [5, 10, 20, 50],
+  "protocol": "CYP2C9-only flat atomic bank with selected TabPFN 3.5 fast/full peers."
+}

@@ -24,7 +24,10 @@ from rdkit import Chem
 
 
 def read_input(root, name):
-    paths = [p for p in root.iterdir() if p.name.partition("-")[2] == name]
+    exact = root / name
+    paths = [exact] if exact.exists() else [
+        p for p in root.iterdir() if p.name.partition("-")[2] == name
+    ]
     if len(paths) != 1:
         raise ValueError(f"Expected one input {name}; got {paths}")
     return pl.read_parquet(paths[0])
@@ -81,6 +84,7 @@ def main():
         raise ValueError("Unknown scaling_policy")
     modes = {
         "continuous": ["continuous"],
+        "continuous_ranking": ["continuous", "ranking"],
         "ranking": ["ranking"],
         "classification": ["classification"],
         "mixed": ["continuous", "ranking", "classification"],
@@ -89,6 +93,24 @@ def main():
     (out / "effective-config.json").write_text(json.dumps(cfg, indent=2))
     compounds = read_input(inp, "external-compounds.parquet").sort("compound_id")
     observations = read_input(inp, "observations.parquet")
+    task_filter = cfg.get("task_filter", {})
+    if prefix := task_filter.get("isoform_prefix"):
+        observations = observations.filter(pl.col("isoform").str.starts_with(prefix))
+    if target_isoform := task_filter.get("target_cyp_isoform"):
+        if not target_isoform.startswith("CYP"):
+            raise ValueError(f"target_cyp_isoform must start with CYP: {target_isoform}")
+        observations = observations.filter(
+            ~pl.col("isoform").str.starts_with("CYP")
+            | (pl.col("isoform") == target_isoform)
+        )
+    if sources := task_filter.get("sources"):
+        observations = observations.filter(pl.col("source").is_in(sources))
+    if measurement_types := task_filter.get("measurement_types"):
+        observations = observations.filter(
+            pl.col("measurement_type").is_in(measurement_types)
+        )
+    if not observations.height:
+        raise ValueError(f"Task filter removed every observation: {task_filter}")
     challenge = read_input(inp, "compounds.parquet").sort("compound_id")
     assert compounds["compound_id"].n_unique() == compounds.height
     assert challenge["compound_id"].n_unique() == challenge.height
@@ -129,8 +151,10 @@ def main():
     assert set(observations["compound_id"]).issubset(set(compounds["compound_id"]))
     indices = {key: i for i, key in enumerate(compounds["compound_id"])}
     rng = np.random.default_rng(cfg["seed"])
-    val_rng = np.random.default_rng(cfg["seed"] + 739)
-    keys = rng.permutation(sorted(compounds["connectivity"].unique()))
+    validation_seed = cfg.get("validation_seed", cfg["seed"] + 739)
+    val_rng = np.random.default_rng(validation_seed)
+    split_rng = np.random.default_rng(validation_seed)
+    keys = split_rng.permutation(sorted(compounds["connectivity"].unique()))
     val_keys = set(keys[: max(1, int(len(keys) * cfg["validation_fraction"]))])
     is_val = np.array([key in val_keys for key in compounds["connectivity"]])
     compounds.select("compound_id", "connectivity").with_columns(
@@ -160,6 +184,20 @@ def main():
         }
     tasks, task_meta = [], []
     assays = sorted(observations["assay_id"].unique())
+    assay_metadata = {
+        row["assay_id"]: row
+        for row in observations.group_by("assay_id").agg(
+            pl.col("isoform").first(),
+            pl.col("measurement_type").first(),
+            pl.col("isoform").n_unique().alias("isoform_variants"),
+            pl.col("measurement_type").n_unique().alias("measurement_type_variants"),
+        ).iter_rows(named=True)
+    }
+    if any(
+        row["isoform_variants"] != 1 or row["measurement_type_variants"] != 1
+        for row in assay_metadata.values()
+    ):
+        raise ValueError("Each assay must have one isoform and measurement type")
     for assay_index, assay in enumerate(assays):
         rows = observations.filter(pl.col("assay_id") == assay).sort("compound_id")
         ids = np.array([indices[key] for key in rows["compound_id"]])
@@ -261,17 +299,42 @@ def main():
             )
     if not tasks:
         raise ValueError("No eligible training tasks")
-    # Allocate outputs only for eligible assays, not every raw assay record.
+    # Allocate outputs only for eligible tasks. Optionally let semantically matched
+    # assays share a standardized output head while retaining assay-specific losses.
     old_assays = assays
     assays = sorted({task["assay_id"] for task in tasks})
-    assay_lookup = {assay: i for i, assay in enumerate(assays)}
+    head_grouping = cfg.get("head_grouping", "assay")
+    if head_grouping == "assay":
+        head_ids = {assay: assay for assay in assays}
+    elif head_grouping == "isoform_measurement":
+        head_ids = {
+            assay: (
+                f"{assay_metadata[assay]['isoform']}::"
+                f"{assay_metadata[assay]['measurement_type']}"
+            )
+            for assay in assays
+        }
+    else:
+        raise ValueError(f"Unknown head_grouping: {head_grouping}")
+    heads = sorted(set(head_ids.values()))
+    head_lookup = {head: i for i, head in enumerate(heads)}
     for task, meta in zip(tasks, task_meta, strict=True):
-        task["column"] = assay_lookup[task["assay_id"]] * 2 + int(
+        head_id = head_ids[task["assay_id"]]
+        task["head_id"] = head_id
+        meta["head_id"] = head_id
+        task["column"] = head_lookup[head_id] * 2 + int(
             task["objective"] == "classification"
         )
         meta["column"] = task["column"]
     print(
-        json.dumps(dict(raw_assays=len(old_assays), eligible_assays=len(assays), tasks=len(tasks))),
+        json.dumps(
+            dict(
+                raw_assays=len(old_assays),
+                eligible_assays=len(assays),
+                output_heads=len(heads),
+                tasks=len(tasks),
+            )
+        ),
         flush=True,
     )
     (out / "tasks.json").write_text(json.dumps(task_meta, indent=2))
@@ -291,7 +354,7 @@ def main():
         result.to(device)
         return result
 
-    model = AssayModel(len(assays), cfg["dropout"]).to(device)
+    model = AssayModel(len(heads), cfg["dropout"]).to(device)
     optimizer = torch.optim.AdamW(
         model.parameters(), lr=cfg["learning_rate"], weight_decay=cfg["weight_decay"]
     )
@@ -324,6 +387,13 @@ def main():
     val_ids = np.flatnonzero(is_val)
     available = {name: [t for t in tasks if t["objective"] == name] for name in objectives}
     available = {name: ts for name, ts in available.items() if ts}
+    sampling_weights = np.array(
+        [cfg.get("objective_sampling_weights", {}).get(name, 1.0) for name in available],
+        dtype=float,
+    )
+    if not np.isfinite(sampling_weights).all() or np.any(sampling_weights <= 0):
+        raise ValueError(f"Invalid objective sampling weights: {sampling_weights}")
+    sampling_weights /= sampling_weights.sum()
     by_source = {
         name: {
             source: [t for t in ts if t["source"] == source]
@@ -331,6 +401,28 @@ def main():
         }
         for name, ts in available.items()
     }
+    task_sampling = cfg.get("task_sampling", "source_uniform")
+    if task_sampling not in {
+        "source_uniform",
+        "task_uniform",
+        "sqrt_observations",
+        "observation_power",
+    }:
+        raise ValueError(f"Unknown task_sampling: {task_sampling}")
+    task_probabilities = {}
+    for name, objective_tasks in available.items():
+        if task_sampling == "task_uniform":
+            weights = np.ones(len(objective_tasks), dtype=float)
+        elif task_sampling == "sqrt_observations":
+            weights = np.sqrt([len(task["train"]) for task in objective_tasks])
+        elif task_sampling == "observation_power":
+            power = float(cfg["task_sampling_power"])
+            if not 0 <= power <= 1:
+                raise ValueError(f"task_sampling_power must be in [0, 1]; got {power}")
+            weights = np.power([len(task["train"]) for task in objective_tasks], power)
+        else:
+            continue
+        task_probabilities[name] = weights / weights.sum()
     best, stale, best_epoch = float("inf"), 0, -1
     for epoch in range(cfg["max_epochs"]):
         phase = max(0, epoch - 3) / max(1, cfg["max_epochs"] - 4)
@@ -349,10 +441,16 @@ def main():
         model.train()
         train_losses = {name: [] for name in available}
         for _ in range(cfg["steps_per_epoch"]):
-            objective = rng.choice(list(available))
-            source = rng.choice(list(by_source[objective]))
-            pool_tasks = by_source[objective][source]
-            task = pool_tasks[rng.integers(len(pool_tasks))]
+            objective = rng.choice(list(available), p=sampling_weights)
+            if task_sampling == "source_uniform":
+                source = rng.choice(list(by_source[objective]))
+                pool_tasks = by_source[objective][source]
+                task = pool_tasks[rng.integers(len(pool_tasks))]
+            else:
+                task_index = rng.choice(
+                    len(available[objective]), p=task_probabilities[objective]
+                )
+                task = available[objective][task_index]
             if objective == "ranking":
                 pool = task["train_pairs"]
                 pairs = pool[
@@ -371,7 +469,7 @@ def main():
             optimizer.step()
             train_losses[objective].append(float(loss.detach()))
         model.eval()
-        prediction = np.full((len(val_ids), len(assays) * 2), np.nan, dtype=np.float32)
+        prediction = np.full((len(val_ids), len(heads) * 2), np.nan, dtype=np.float32)
         with torch.inference_mode():
             for start in range(0, len(val_ids), cfg["batch_size"]):
                 batch = val_ids[start : start + cfg["batch_size"]]
@@ -379,6 +477,7 @@ def main():
             validation_losses = {
                 name: {source: [] for source in by_source[name]} for name in available
             }
+            validation_task_rows = []
             for task in tasks:
                 positions, pairs = task["validation"], task["validation_pairs"]
                 if not len(positions) or (pairs is not None and not len(pairs)):
@@ -386,6 +485,19 @@ def main():
                 value = float(objective_loss(task, positions, pairs, prediction))
                 assert np.isfinite(value)
                 validation_losses[task["objective"]][task["source"]].append(value)
+                validation_task_rows.append(
+                    {
+                        "assay_id": task["assay_id"],
+                        "source": task["source"],
+                        "isoform": assay_metadata[task["assay_id"]]["isoform"],
+                        "measurement_type": assay_metadata[task["assay_id"]][
+                            "measurement_type"
+                        ],
+                        "objective": task["objective"],
+                        "validation_n": len(positions),
+                        "loss": value,
+                    }
+                )
         source_averages = {
             name: {source: float(np.mean(v)) for source, v in sources.items() if v}
             for name, sources in validation_losses.items()
@@ -397,15 +509,47 @@ def main():
         }
         if not averages:
             raise ValueError("No held-out task losses for checkpoint selection")
-        validation_loss = float(
-            np.mean([v * cfg[f"{name}_weight"] for name, v in averages.items()])
+        checkpoint_rows = validation_task_rows
+        checkpoint_filter = cfg.get("checkpoint_task_filter", {})
+        if names := checkpoint_filter.get("objectives"):
+            checkpoint_rows = [row for row in checkpoint_rows if row["objective"] in names]
+        if prefix := checkpoint_filter.get("isoform_prefix"):
+            checkpoint_rows = [
+                row for row in checkpoint_rows if row["isoform"].startswith(prefix)
+            ]
+        if sources := checkpoint_filter.get("sources"):
+            checkpoint_rows = [row for row in checkpoint_rows if row["source"] in sources]
+        if not checkpoint_rows:
+            raise ValueError(f"No checkpoint tasks matched {checkpoint_filter}")
+        checkpoint_aggregation = cfg.get("checkpoint_aggregation", "source_objective")
+        if checkpoint_aggregation == "source_objective" and not checkpoint_filter:
+            validation_loss = float(
+                np.mean([v * cfg[f"{name}_weight"] for name, v in averages.items()])
+            )
+        elif checkpoint_aggregation == "task_macro":
+            validation_loss = float(np.mean([row["loss"] for row in checkpoint_rows]))
+        else:
+            raise ValueError(
+                "Filtered checkpoint tasks require checkpoint_aggregation=task_macro; "
+                f"got {checkpoint_aggregation}"
+            )
+        validation_observation_weighted = float(
+            np.average(
+                [row["loss"] for row in checkpoint_rows],
+                weights=[row["validation_n"] for row in checkpoint_rows],
+            )
         )
         row = dict(
             epoch=epoch,
             lr=lr,
             validation_loss=validation_loss,
+            validation_observation_weighted=validation_observation_weighted,
+            checkpoint_task_count=len(checkpoint_rows),
+            checkpoint_task_filter=checkpoint_filter,
+            checkpoint_aggregation=checkpoint_aggregation,
             validation_by_objective=averages,
             validation_by_source=source_averages,
+            validation_by_task=validation_task_rows,
             train_by_objective={k: float(np.mean(v)) for k, v in train_losses.items() if v},
         )
         print(json.dumps(row), flush=True)
@@ -417,6 +561,7 @@ def main():
             epoch=epoch,
             config=cfg,
             assays=assays,
+            output_heads=heads,
             tasks=task_meta,
             validation=row,
         )
@@ -443,15 +588,18 @@ def main():
             batch.to(device)
             values.append(model.embed(batch).cpu().numpy())
     values = np.concatenate(values)
-    assert values.shape == (challenge.height, 600) and np.isfinite(values).all()
-    pl.DataFrame(values, schema=[f"emb_{i:03d}" for i in range(600)]).insert_column(
-        0, challenge["compound_id"]
-    ).write_parquet(out / "external-embeddings.parquet")
+    embedding_dimensions = values.shape[1]
+    assert values.shape[0] == challenge.height and np.isfinite(values).all()
+    pl.DataFrame(
+        values, schema=[f"emb_{i:04d}" for i in range(embedding_dimensions)]
+    ).insert_column(0, challenge["compound_id"]).write_parquet(out / "external-embeddings.parquet")
     (out / "summary.json").write_text(
         json.dumps(
             dict(
                 config=cfg,
                 assays=len(assays),
+                output_heads=len(heads),
+                head_grouping=head_grouping,
                 tasks=len(tasks),
                 training_compounds=int((~is_val).sum()),
                 validation_compounds=int(is_val.sum()),
@@ -459,7 +607,8 @@ def main():
                 epochs=epoch + 1,
                 best_validation_loss=best,
                 challenge_rows=challenge.height,
-                embedding_dimensions=600,
+                embedding_dimensions=embedding_dimensions,
+                validation_seed=validation_seed,
                 challenge_labels_used=False,
                 initialization="random",
                 task_metadata=task_meta,

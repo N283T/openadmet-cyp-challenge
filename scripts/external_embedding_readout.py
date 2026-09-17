@@ -19,7 +19,10 @@ cfg = json.loads(Path(os.environ["CYP_CONFIG_PATH"]).read_text())
 
 
 def read(name):
-    paths = [p for p in inp.iterdir() if p.name.partition("-")[2] == name]
+    exact = inp / name
+    paths = [exact] if exact.exists() else [
+        p for p in inp.iterdir() if p.name.partition("-")[2] == name
+    ]
     assert len(paths) == 1, (name, paths)
     return pl.read_parquet(paths[0])
 
@@ -32,9 +35,12 @@ assert cols and emb["compound_id"].n_unique() == emb.height
 assert np.isfinite(emb.select(cols).to_numpy()).all()
 torch.set_num_threads(4)
 rows, fits = [], []
-for ep in sorted(
+available_endpoints = sorted(
     labels.filter(pl.col("endpoint").str.ends_with("_pIC50_direct_inhibition"))["endpoint"].unique()
-):
+)
+endpoints = cfg.get("endpoints", available_endpoints)
+assert endpoints and set(endpoints).issubset(set(available_endpoints))
+for ep in endpoints:
     h = (
         labels.filter(pl.col("endpoint") == ep)
         .join(a, on="compound_id", validate="1:1")

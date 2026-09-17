@@ -1,0 +1,23 @@
+{
+  "corpus_run": "20260916T082302554619Z-656c63e6",
+  "variants": ["assay", "compact_all", "compact_cyp", "endpoint_only"],
+  "architecture": "owned_width_grid",
+  "width": 600,
+  "depth": 4,
+  "aggregation": "norm",
+  "aggregation_norm": 100.0,
+  "ffn_hidden_layers": 3,
+  "mode": "mixed",
+  "seed": 42,
+  "validation_seed": 781,
+  "max_epochs": 70,
+  "patience": 12,
+  "batch_size": 128,
+  "steps_per_epoch": 300,
+  "min_train_observations": 5,
+  "rank_min_gap": 0.25,
+  "initialization": "random",
+  "scaling_policy": "pooled_shrinkage",
+  "readout": "raw_lgbm_all_targets",
+  "protocol": "First compare source/task-organization variants with one Jeremy-like width600 architecture. Frozen raw embedding plus the same all-target LightGBM is the primary encoder metric."
+}

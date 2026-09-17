@@ -1,0 +1,41 @@
+{
+  "seed": 42,
+  "validation_seed": 781,
+  "validation_fraction": 0.1,
+  "width": 600,
+  "depth": 4,
+  "aggregation_norm": 100.0,
+  "ffn_hidden_layers": 3,
+  "dropout": 0.0,
+  "batch_size": 256,
+  "max_epochs": 45,
+  "patience": 8,
+  "warmup_epochs": 5,
+  "init_lr": 0.0005,
+  "max_lr": 0.005,
+  "final_lr": 0.000005,
+  "min_train_observations": 50,
+  "min_validation_observations": 10,
+  "device": "cuda",
+  "num_threads": 4,
+  "variants": [
+    {
+      "name": "joint_assay_no_binary",
+      "observation_file": "observations-assay.parquet",
+      "exclude_measurement_types": ["binary"]
+    },
+    {
+      "name": "joint_compact_no_binary_no_polaris",
+      "observation_file": "observations-compact-all.parquet",
+      "exclude_measurement_types": ["binary"],
+      "exclude_sources": ["polaris_novartis_cyp"]
+    },
+    {
+      "name": "joint_compact_no_binary_no_tox21",
+      "observation_file": "observations-compact-all.parquet",
+      "exclude_measurement_types": ["binary"],
+      "exclude_sources": ["tox21_p450_glo"]
+    }
+  ],
+  "protocol": "Target-specific refinement of the strongest project-owned joint-matrix recipe. Keep binary targets excluded, then isolate assay granularity and two source-removal hypotheses. Judge each endpoint independently by raw600 LightGBM five-fold OOF. This is an optimization experiment, not a reconstruction of Jeremy's checkpoint."
+}

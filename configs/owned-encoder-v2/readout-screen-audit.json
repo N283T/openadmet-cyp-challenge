@@ -1,0 +1,80 @@
+{
+  "endpoints": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "scorer": "custom_scoring_functions.py",
+  "protocol": "Target-specific readout screen; no blending or bank insertion.",
+  "variants": [
+    {
+      "name": "top_arch_shallow7",
+      "file": "top_arch_shallow7.parquet"
+    },
+    {
+      "name": "top_arch_leaves31",
+      "file": "top_arch_leaves31.parquet"
+    },
+    {
+      "name": "top_arch_regularized31",
+      "file": "top_arch_regularized31.parquet"
+    },
+    {
+      "name": "top_arch_leaves63",
+      "file": "top_arch_leaves63.parquet"
+    },
+    {
+      "name": "top_arch_slow31",
+      "file": "top_arch_slow31.parquet"
+    },
+    {
+      "name": "top_arch_pca256",
+      "file": "top_arch_pca256.parquet"
+    },
+    {
+      "name": "top_arch_pca512",
+      "file": "top_arch_pca512.parquet"
+    },
+    {
+      "name": "broad5_shallow7",
+      "file": "broad5_shallow7.parquet"
+    },
+    {
+      "name": "broad5_leaves31",
+      "file": "broad5_leaves31.parquet"
+    },
+    {
+      "name": "broad5_regularized31",
+      "file": "broad5_regularized31.parquet"
+    },
+    {
+      "name": "broad5_leaves63",
+      "file": "broad5_leaves63.parquet"
+    },
+    {
+      "name": "broad5_slow31",
+      "file": "broad5_slow31.parquet"
+    },
+    {
+      "name": "broad5_pca256",
+      "file": "broad5_pca256.parquet"
+    },
+    {
+      "name": "broad5_pca512",
+      "file": "broad5_pca512.parquet"
+    },
+    {
+      "name": "top_arch_default",
+      "file": "top_arch_default.parquet"
+    },
+    {
+      "name": "broad5_default",
+      "file": "broad5_default.parquet"
+    },
+    {
+      "name": "jeremy_raw600_lgbm",
+      "file": "jeremy_raw600_lgbm.parquet"
+    }
+  ]
+}

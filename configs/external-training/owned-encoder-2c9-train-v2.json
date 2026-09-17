@@ -1,0 +1,20 @@
+{
+  "architecture": "owned_width_grid",
+  "width": 600,
+  "depth": 3,
+  "aggregation": "norm",
+  "aggregation_norm": 100.0,
+  "ffn_hidden_layers": 3,
+  "mode": "mixed",
+  "seed": 42,
+  "validation_seed": 781,
+  "max_epochs": 80,
+  "patience": 14,
+  "batch_size": 128,
+  "steps_per_epoch": 300,
+  "min_train_observations": 5,
+  "rank_min_gap": 0.25,
+  "initialization": "random",
+  "scaling_policy": "pooled_shrinkage",
+  "purpose": "CYP2C9-specialist owned encoder after broad representations identified CYP2C9 as the only remaining Jeremy gap."
+}

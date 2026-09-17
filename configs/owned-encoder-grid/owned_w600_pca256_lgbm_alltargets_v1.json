@@ -1,0 +1,19 @@
+{
+  "method": "owned_w600_pca256_lgbm_alltargets_v1",
+  "backend": "lgbm",
+  "feature_file": "external-embeddings.parquet",
+  "feature_prefix": "emb_",
+  "pca": 256,
+  "mask_observed_validation": false,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "endpoints": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "encoder_run": "20260916T073416372035Z-2dda20d9",
+  "encoder_width": 600,
+  "encoder_seed": 42,
+  "comparison_role": "Jeremy frozen encoder replacement"
+}

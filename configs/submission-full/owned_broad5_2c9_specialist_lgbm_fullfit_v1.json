@@ -1,0 +1,18 @@
+{
+  "method": "owned_broad5_2c9_specialist_lgbm_fullfit_v1",
+  "backend": "fixed_lgbm",
+  "prefix": "emb_",
+  "prefixes": [
+    "emb_"
+  ],
+  "expected_dimensions": 3384,
+  "pca": 0,
+  "features": "features.parquet",
+  "measurements": "measurements.parquet",
+  "assignments": "assignments.parquet",
+  "aliases": "aliases.parquet",
+  "reference": "reference.csv",
+  "endpoints": [
+    "CYP2C9_pIC50_direct_inhibition"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "split_run": "20260911T104703655337Z-a3923255",
+  "feature_prefix": "emb_",
+  "endpoints": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "variants": [
+    {"name": "focused_w600_d3_ffn3", "file": "w600-d3-ffn3.parquet"},
+    {"name": "focused_w600_d2_ffn3", "file": "w600-d2-ffn3.parquet"},
+    {"name": "focused_w600_d4_ffn3", "file": "w600-d4-ffn3.parquet"},
+    {"name": "focused_w448_d3_ffn3", "file": "w448-d3-ffn3.parquet"},
+    {"name": "focused_w768_d3_ffn3", "file": "w768-d3-ffn3.parquet"},
+    {"name": "focused_w600_d3_ffn2", "file": "w600-d3-ffn2.parquet"},
+    {"name": "focused_w600_d3_ffn2_confirm_split", "file": "confirm-ffn2.parquet"}
+  ],
+  "controls": [
+    {"name": "previous_owned_endpoint_d3", "file": "previous-owned.parquet"},
+    {"name": "jeremy_raw600", "file": "jeremy.parquet"}
+  ],
+  "protocol": "Atomic raw-embedding LightGBM screen of already-trained focused-task checkpoints. No PCA, feature concatenation, blending or bank insertion."
+}

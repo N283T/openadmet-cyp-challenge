@@ -1,0 +1,15 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "scorer": "custom_scoring_functions.py",
+  "protocol": "Independent focused readouts only; no blend or weight search.",
+  "variants": [
+    {
+      "name": "owned_external_d6focused_w600_raw600_lgbm_d6_v1",
+      "file": "owned_external_d6focused_w600_raw600_lgbm_d6_v1.parquet"
+    },
+    {
+      "name": "owned_external_d6focused_w600_raw600_tabpfn_d6_v1",
+      "file": "owned_external_d6focused_w600_raw600_tabpfn_d6_v1.parquet"
+    }
+  ]
+}

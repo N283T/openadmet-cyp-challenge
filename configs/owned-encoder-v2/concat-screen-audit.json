@@ -1,0 +1,44 @@
+{
+  "endpoints": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "scorer": "custom_scoring_functions.py",
+  "protocol": "Matched raw feature-level owned-view concatenation screen.",
+  "variants": [
+    {
+      "name": "top_arch",
+      "file": "top_arch.parquet"
+    },
+    {
+      "name": "top_data",
+      "file": "top_data.parquet"
+    },
+    {
+      "name": "multiwidth",
+      "file": "multiwidth.parquet"
+    },
+    {
+      "name": "broad5",
+      "file": "broad5.parquet"
+    },
+    {
+      "name": "owned_endpoint_d3",
+      "file": "owned_endpoint_d3.parquet"
+    },
+    {
+      "name": "owned_endpoint_f2",
+      "file": "owned_endpoint_f2.parquet"
+    },
+    {
+      "name": "owned_compact_all",
+      "file": "owned_compact_all.parquet"
+    },
+    {
+      "name": "jeremy_raw600_lgbm",
+      "file": "jeremy_raw600_lgbm.parquet"
+    }
+  ]
+}

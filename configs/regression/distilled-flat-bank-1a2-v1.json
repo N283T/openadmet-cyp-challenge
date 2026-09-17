@@ -1,0 +1,21 @@
+{
+  "endpoints": ["CYP1A2_pIC50_direct_inhibition"],
+  "components": [
+    {"name": "jeremy_medium_raw_lgbm", "file": "jeremy-medium-oof.parquet"},
+    {"name": "scratch_raw_lgbm", "file": "broad-scratch-raw-lgbm.parquet"},
+    {"name": "owned_raw_scores_lgbm", "file": "broad-owned-raw-scores-lgbm.parquet"},
+    {"name": "pub010_raw_scores_lgbm", "file": "broad-pub010-raw-scores-lgbm.parquet"},
+    {"name": "pub030_raw_lgbm", "file": "broad-pub030-raw-lgbm.parquet"},
+    {"name": "pub030_raw_scores_lgbm", "file": "broad-pub030-raw-scores-lgbm.parquet"},
+    {"name": "scratch_raw_tabpfn", "file": "diverse-scratch-raw-tabpfn.parquet"},
+    {"name": "anchor59_raw_scores_tabpfn", "file": "diverse-anchor59-raw-scores-tabpfn.parquet"},
+    {"name": "pub030_raw_tabpfn", "file": "diverse-pub030-raw-tabpfn.parquet"},
+    {"name": "owned_raw_scores_catboost", "file": "diverse-owned-raw-scores-catboost.parquet"}
+  ],
+  "current_control": "current-control.parquet",
+  "scorer": "custom_scoring_functions.py",
+  "ridge_alpha": [0.01, 0.1, 1.0, 10.0, 100.0],
+  "simplex_lambda": [0.0, 0.0001, 0.001, 0.01, 0.1, 1.0],
+  "caruana_steps": [5, 10, 20, 50],
+  "protocol": "CYP1A2-only flat bank of atomic checkpoint readouts selected for strength and prediction diversity."
+}

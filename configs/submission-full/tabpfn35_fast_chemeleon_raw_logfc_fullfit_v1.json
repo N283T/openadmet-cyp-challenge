@@ -1,0 +1,19 @@
+{
+  "method": "tabpfn35_fast_chemeleon_raw_logfc_fullfit_v1",
+  "backend": "tabpfn",
+  "prefix": "emb_",
+  "prefixes": [
+    "emb_"
+  ],
+  "expected_dimensions": 2048,
+  "pca": 0,
+  "features": "features.parquet",
+  "measurements": "measurements.parquet",
+  "assignments": "assignments.parquet",
+  "aliases": "aliases.parquet",
+  "reference": "reference.csv",
+  "auxiliary": "auxiliary.parquet",
+  "weights": "weights.safetensors",
+  "tabpfn_version": "v3.5-fast",
+  "tabpfn_estimators": 8
+}

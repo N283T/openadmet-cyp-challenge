@@ -1,0 +1,16 @@
+{
+  "method": "owned_external_d6focused_w600_raw600_lgbm_d6_v1",
+  "backend": "lgbm",
+  "feature_file": "external-embeddings.parquet",
+  "feature_prefix": "emb_",
+  "pca": 0,
+  "mask_observed_validation": false,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "endpoints": [
+    "CYP2D6_pIC50_direct_inhibition"
+  ],
+  "encoder_run": "20260916T074007664204Z-ba663997",
+  "encoder_width": 600,
+  "encoder_seed": 42,
+  "data_variant": "direct_CYP2D6_only"
+}

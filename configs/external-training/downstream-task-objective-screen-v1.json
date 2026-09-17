@@ -1,0 +1,90 @@
+{
+  "selection_fold": 3,
+  "confirmation_fold": 4,
+  "base": {
+    "architecture": "owned_width_grid",
+    "width": 600,
+    "depth": 3,
+    "aggregation": "norm",
+    "aggregation_norm": 100.0,
+    "ffn_hidden_layers": 3,
+    "dropout": 0.1,
+    "seed": 42,
+    "validation_seed": 781,
+    "max_epochs": 70,
+    "patience": 12,
+    "batch_size": 128,
+    "steps_per_epoch": 300,
+    "min_train_observations": 5,
+    "rank_min_gap": 0.25,
+    "max_train_pairs": 4096,
+    "max_validation_pairs": 2048,
+    "interval_regression": true,
+    "scaling_policy": "pooled_shrinkage",
+    "scaling_pseudocount": 20.0,
+    "scaling_minimum_std": 0.3,
+    "device": "cuda",
+    "num_threads": 4
+  },
+  "variants": [
+    {
+      "name": "control_source_uniform_mixed",
+      "mode": "mixed",
+      "task_sampling": "source_uniform",
+      "continuous_weight": 1.0,
+      "ranking_weight": 1.0,
+      "classification_weight": 1.0
+    },
+    {
+      "name": "task_uniform_mixed",
+      "mode": "mixed",
+      "task_sampling": "task_uniform",
+      "continuous_weight": 1.0,
+      "ranking_weight": 1.0,
+      "classification_weight": 1.0
+    },
+    {
+      "name": "sqrt_mixed",
+      "mode": "mixed",
+      "task_sampling": "sqrt_observations",
+      "continuous_weight": 1.0,
+      "ranking_weight": 1.0,
+      "classification_weight": 1.0
+    },
+    {
+      "name": "proportional_mixed",
+      "mode": "mixed",
+      "task_sampling": "observation_power",
+      "task_sampling_power": 1.0,
+      "continuous_weight": 1.0,
+      "ranking_weight": 1.0,
+      "classification_weight": 1.0
+    },
+    {
+      "name": "sqrt_weak_aux",
+      "mode": "mixed",
+      "task_sampling": "sqrt_observations",
+      "objective_sampling_weights": {"continuous": 4.0, "ranking": 2.0, "classification": 1.0},
+      "continuous_weight": 1.0,
+      "ranking_weight": 0.5,
+      "classification_weight": 0.25
+    },
+    {
+      "name": "sqrt_weak_classification",
+      "mode": "mixed",
+      "task_sampling": "sqrt_observations",
+      "objective_sampling_weights": {"continuous": 2.0, "ranking": 2.0, "classification": 1.0},
+      "continuous_weight": 1.0,
+      "ranking_weight": 1.0,
+      "classification_weight": 0.25
+    },
+    {
+      "name": "sqrt_no_classification",
+      "mode": "continuous_ranking",
+      "task_sampling": "sqrt_observations",
+      "continuous_weight": 1.0,
+      "ranking_weight": 1.0
+    }
+  ],
+  "protocol": "Tune objective sampling and loss weights on challenge fold 3 raw LightGBM ST-RAE, retain target-specific winners, then inspect only those winners on untouched fold 4. Jeremy is a frozen benchmark and never an initialization."
+}

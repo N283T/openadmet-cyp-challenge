@@ -1,0 +1,13 @@
+{
+  "device": "cuda",
+  "num_threads": 4,
+  "batch_size": 256,
+  "checkpoints": [
+    {"name": "scratch_teacher_only", "file": "scratch-teacher-only.pt", "predictor_trained": false},
+    {"name": "owned_init_hybrid", "file": "owned-init-hybrid.pt", "predictor_trained": true},
+    {"name": "jeremy_init_task_anchor", "file": "jeremy-init-task-anchor.pt", "predictor_trained": true},
+    {"name": "jeremy_pubchem_only", "file": "jeremy-pubchem-only.pt", "predictor_trained": true},
+    {"name": "jeremy_pubchem_anchor010", "file": "jeremy-pubchem-anchor010.pt", "predictor_trained": true},
+    {"name": "jeremy_pubchem_anchor030", "file": "jeremy-pubchem-anchor030.pt", "predictor_trained": true}
+  ]
+}

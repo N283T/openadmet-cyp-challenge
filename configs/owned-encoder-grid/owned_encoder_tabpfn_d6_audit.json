@@ -1,0 +1,23 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "scorer": "custom_scoring_functions.py",
+  "protocol": "Selected independent TabPFN readouts; no blend or weight search.",
+  "variants": [
+    {
+      "name": "owned_external_w256_s42_raw256_tabpfn_d6_v1",
+      "file": "owned_external_w256_s42_raw256_tabpfn_d6_v1.parquet"
+    },
+    {
+      "name": "owned_external_w600_s42_raw600_tabpfn_d6_v1",
+      "file": "owned_external_w600_s42_raw600_tabpfn_d6_v1.parquet"
+    },
+    {
+      "name": "owned_external_w600_s42_pca128_tabpfn_d6_v1",
+      "file": "owned_external_w600_s42_pca128_tabpfn_d6_v1.parquet"
+    },
+    {
+      "name": "owned_external_w600_s42_pca256_tabpfn_d6_v1",
+      "file": "owned_external_w600_s42_pca256_tabpfn_d6_v1.parquet"
+    }
+  ]
+}

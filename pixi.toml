@@ -54,7 +54,7 @@ test = "pytest -q"
 [pypi-dependencies]
 torch = ">=2.7, <3"
 chemprop = ">=2.2, <3"
-tabpfn = ">=6, <9"
+tabpfn = ">=9, <10"
 tabicl = ">=2, <3"
 rustuna = ">=0.1.0, <0.2"
 torch-geometric = ">=2.6, <3"

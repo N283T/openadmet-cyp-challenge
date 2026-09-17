@@ -1,0 +1,58 @@
+{
+  "expected_train_rows": 1493,
+  "num_threads": 4,
+  "base_candidate": "20260914T024735834387Z-f87e9914",
+  "component_order": [
+    "jeremy_frozen_tabpfn",
+    "jeremy_scores_log2fc_tabpfn",
+    "jeremy_finetuned_log2fc_lgbm",
+    "chemeleon_raw2048_log2fc_tabicl",
+    "owned_raw_scores_lgbm",
+    "anchor59_raw_scores_lgbm",
+    "anchor59_scores_lgbm",
+    "pubonly_raw_lgbm",
+    "scratch_raw_catboost",
+    "anchor59_raw_scores_catboost"
+  ],
+  "oof_components": [
+    {"name": "jeremy_frozen_tabpfn", "file": "oof-jeremy-frozen.parquet"},
+    {"name": "jeremy_scores_log2fc_tabpfn", "file": "oof-jeremy-scores.parquet"},
+    {"name": "jeremy_finetuned_log2fc_lgbm", "file": "oof-jeremy-finetuned.parquet"},
+    {"name": "chemeleon_raw2048_log2fc_tabicl", "file": "oof-chemeleon-raw.parquet"},
+    {"name": "owned_raw_scores_lgbm", "file": "oof-owned-raw-scores.parquet"},
+    {"name": "anchor59_raw_scores_lgbm", "file": "oof-anchor59-raw-scores.parquet"},
+    {"name": "anchor59_scores_lgbm", "file": "oof-anchor59-scores.parquet"},
+    {"name": "pubonly_raw_lgbm", "file": "oof-pubonly-raw.parquet"},
+    {"name": "scratch_raw_catboost", "file": "oof-scratch-catboost.parquet"},
+    {"name": "anchor59_raw_scores_catboost", "file": "oof-anchor59-catboost.parquet"}
+  ],
+  "recipes": {
+    "stable5": [
+      "jeremy_scores_log2fc_tabpfn",
+      "chemeleon_raw2048_log2fc_tabicl",
+      "anchor59_raw_scores_lgbm",
+      "anchor59_scores_lgbm",
+      "pubonly_raw_lgbm"
+    ],
+    "checkpoint6": [
+      "owned_raw_scores_lgbm",
+      "anchor59_raw_scores_lgbm",
+      "anchor59_scores_lgbm",
+      "pubonly_raw_lgbm",
+      "scratch_raw_catboost",
+      "anchor59_raw_scores_catboost"
+    ],
+    "equal10": [
+      "jeremy_frozen_tabpfn",
+      "jeremy_scores_log2fc_tabpfn",
+      "jeremy_finetuned_log2fc_lgbm",
+      "chemeleon_raw2048_log2fc_tabicl",
+      "owned_raw_scores_lgbm",
+      "anchor59_raw_scores_lgbm",
+      "anchor59_scores_lgbm",
+      "pubonly_raw_lgbm",
+      "scratch_raw_catboost",
+      "anchor59_raw_scores_catboost"
+    ]
+  }
+}

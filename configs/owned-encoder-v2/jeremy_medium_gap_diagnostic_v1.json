@@ -1,0 +1,22 @@
+{
+  "endpoints": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "owned_by_endpoint": {
+    "CYP1A2_pIC50_direct_inhibition": "owned-1a2.parquet",
+    "CYP2C9_pIC50_direct_inhibition": "owned-2c9.parquet",
+    "CYP2D6_pIC50_direct_inhibition": "owned-2d6.parquet",
+    "CYP3A4_pIC50_direct_inhibition": "owned-3a4.parquet"
+  },
+  "geometry_embeddings": [
+    {"name": "jeremy_medium", "file": "jeremy-embeddings.parquet"},
+    {"name": "owned_sqrt_mixed", "file": "owned-sqrt-embeddings.parquet"},
+    {"name": "owned_previous", "file": "owned-previous-embeddings.parquet"}
+  ],
+  "bootstrap_replicates": 1000,
+  "bootstrap_seed": 20260916,
+  "protocol": "Matched diagnostic of Jeremy versus target-specific owned raw LightGBM OOF performance on challenge compounds that do or do not overlap currently assembled public TDC/Polaris source snapshots, plus representation geometry. The public overlap snapshot is a proxy for possible upstream exposure, not proof of Jeremy training membership."
+}

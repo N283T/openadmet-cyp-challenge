@@ -1,0 +1,39 @@
+{
+  "base": {
+    "architecture": "owned_width_grid",
+    "width": 600,
+    "depth": 3,
+    "aggregation": "norm",
+    "aggregation_norm": 100.0,
+    "ffn_hidden_layers": 3,
+    "dropout": 0.1,
+    "mode": "continuous",
+    "task_filter": {"isoform_prefix": "CYP"},
+    "task_sampling": "observation_power",
+    "task_sampling_power": 1.0,
+    "seed": 42,
+    "validation_seed": 781,
+    "max_epochs": 55,
+    "patience": 10,
+    "batch_size": 128,
+    "steps_per_epoch": 220,
+    "min_train_observations": 50,
+    "interval_regression": true,
+    "scaling_policy": "pooled_shrinkage",
+    "scaling_pseudocount": 20.0,
+    "scaling_minimum_std": 0.3,
+    "checkpoint_task_filter": {"objectives": ["continuous"], "isoform_prefix": "CYP"},
+    "checkpoint_aggregation": "task_macro",
+    "device": "cuda",
+    "num_threads": 4
+  },
+  "variants": [
+    {"name": "w600_d3_ffn3", "width": 600, "depth": 3, "ffn_hidden_layers": 3},
+    {"name": "w600_d2_ffn3", "width": 600, "depth": 2, "ffn_hidden_layers": 3},
+    {"name": "w600_d4_ffn3", "width": 600, "depth": 4, "ffn_hidden_layers": 3},
+    {"name": "w448_d3_ffn3", "width": 448, "depth": 3, "ffn_hidden_layers": 3},
+    {"name": "w768_d3_ffn3", "width": 768, "depth": 3, "ffn_hidden_layers": 3},
+    {"name": "w600_d3_ffn2", "width": 600, "depth": 3, "ffn_hidden_layers": 2}
+  ],
+  "protocol": "Intrinsic architecture screen on the fixed 14-task CYP continuous objective. Selection metric is held-out task-macro standardized interval MSE; no challenge-label readout is run."
+}

@@ -1,0 +1,18 @@
+{
+  "method": "tdi_continuous_delta_3a4_fold_encoder_lgbm_v1",
+  "endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "feature_prefix": "emb_",
+  "embedding_dimensions": 600,
+  "feature_files": {
+    "0": "delta-fold0.parquet",
+    "1": "delta-fold1.parquet",
+    "2": "delta-fold2.parquet",
+    "3": "delta-fold3.parquet",
+    "4": "delta-fold4.parquet"
+  },
+  "measurements": "measurements.parquet",
+  "assignments": "assignments.parquet",
+  "aliases": "aliases.parquet",
+  "reference": "reference.csv",
+  "auxiliary": "full-aux.parquet"
+}

@@ -1,0 +1,13 @@
+{
+  "endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "caruana_top2_run": "20260912T152832952478Z-3e4de7c8",
+  "raw_run": "20260916T060715739725Z-b0ddf3c8",
+  "caruana_top2": "caruana-top2.parquet",
+  "frozen": "frozen-oof.parquet",
+  "scores": "scores-oof.parquet",
+  "finetuned": "finetuned-oof.parquet",
+  "pca": "pca-oof.parquet",
+  "raw": "raw-oof.parquet",
+  "scorer": "custom_scoring_functions.py",
+  "policy": "Compare single-layer equal-member ensembles; no nested pseudo-member and no incremental weights"
+}

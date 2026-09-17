@@ -44,7 +44,8 @@ def main():
     assert test["compound_id"].null_count() == 0
     assert set(test["compound_id"]).isdisjoint(set(assignments["compound_id"]))
     emb = read("features")
-    cols = sorted(c for c in emb.columns if c.startswith(cfg["prefix"]))
+    prefixes = cfg.get("prefixes", [cfg["prefix"]])
+    cols = sorted(c for c in emb.columns if any(c.startswith(prefix) for prefix in prefixes))
     assert len(cols) == cfg["expected_dimensions"]
     assert emb["compound_id"].n_unique() == emb.height
     emb = emb.select("compound_id", *cols)
@@ -59,7 +60,9 @@ def main():
     threadpool_limits(limits=3)
     torch.set_num_threads(3)
     predictions, fits, members = [], [], []
-    for endpoint in sorted(labels["endpoint"].unique()):
+    endpoints = cfg.get("endpoints", sorted(labels["endpoint"].unique()))
+    assert endpoints and set(endpoints).issubset(set(labels["endpoint"].unique()))
+    for endpoint in endpoints:
         train = (
             labels.filter(pl.col("endpoint") == endpoint)
             .join(emb, on="compound_id", validate="1:1")
@@ -97,8 +100,8 @@ def main():
             from tabpfn.constants import ModelVersion
 
             model = TabPFNRegressor.create_default_for_version(
-                ModelVersion.V2_6,
-                n_estimators=8,
+                ModelVersion(cfg.get("tabpfn_version", "v2.6")),
+                n_estimators=cfg.get("tabpfn_estimators", 8),
                 model_path=str(inp / cfg["weights"]),
                 device="cuda",
                 random_state=42,
@@ -133,8 +136,7 @@ def main():
             pred = np.asarray(model.predict(xt), dtype=float)
             joblib.dump(model, out / f"{endpoint}.tabicl.joblib")
             model_count = 1
-        else:
-            assert cfg["backend"] == "tuned_lgbm"
+        elif cfg["backend"] == "tuned_lgbm":
             summary = json.loads((inp / cfg["selection_summary"]).read_text())
             selections = sorted(
                 [s for s in summary["selections"] if s["endpoint"] == endpoint],
@@ -157,6 +159,25 @@ def main():
             pred = np.mean(individual, axis=0)
             model_count = 5
             (out / f"{endpoint}-selections.json").write_text(json.dumps(selections, indent=2))
+        else:
+            assert cfg["backend"] == "fixed_lgbm"
+            model = lgb.LGBMRegressor(
+                objective="regression_l1",
+                n_estimators=300,
+                num_leaves=15,
+                min_child_samples=20,
+                learning_rate=0.05,
+                reg_lambda=1.0,
+                n_jobs=3,
+                random_state=42,
+                verbosity=-1,
+                deterministic=True,
+                force_col_wise=True,
+            )
+            model.fit(x, y)
+            pred = np.asarray(model.predict(xt), dtype=float)
+            model.booster_.save_model(str(out / f"{endpoint}.lgbm.txt"))
+            model_count = 1
         assert np.isfinite(pred).all()
         predictions.append(
             tt.select("compound_id", "Molecule_Name", "SMILES").with_columns(
@@ -191,10 +212,16 @@ def main():
         gc.collect()
         torch.cuda.empty_cache()
     pred_table = pl.concat(predictions)
-    assert pred_table.height == pred_table.select("compound_id", "endpoint").n_unique() == 3000
+    expected_test_rows = 750 * len(endpoints)
+    assert (
+        pred_table.height
+        == pred_table.select("compound_id", "endpoint").n_unique()
+        == expected_test_rows
+    )
     pred_table.write_parquet(out / "test-predictions.parquet")
     membership = pl.concat(members)
-    assert membership.height == 6525
+    expected_membership = labels.filter(pl.col("endpoint").is_in(endpoints)).height
+    assert membership.height == expected_membership
     membership.write_parquet(out / "membership.parquet")
     (out / "summary.json").write_text(
         json.dumps(

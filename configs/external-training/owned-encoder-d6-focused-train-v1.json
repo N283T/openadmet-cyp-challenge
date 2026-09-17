@@ -1,0 +1,21 @@
+{
+  "dataset_run": "20260916T073911873001Z-c23f09a3",
+  "mode": "mixed",
+  "architecture": "owned_width_grid",
+  "width": 600,
+  "seed": 42,
+  "validation_seed": 781,
+  "max_epochs": 60,
+  "patience": 10,
+  "batch_size": 128,
+  "steps_per_epoch": 200,
+  "min_train_observations": 5,
+  "rank_min_gap": 0.25,
+  "initialization": "random",
+  "scaling_policy": "pooled_shrinkage",
+  "depth": 4,
+  "aggregation": "norm",
+  "aggregation_norm": 100.0,
+  "ffn_hidden_layers": 3,
+  "purpose": "Project-owned random-initialized width-600 encoder focused on leak-excluded direct CYP2D6 external supervision."
+}

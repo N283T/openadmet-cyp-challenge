@@ -1,0 +1,17 @@
+{
+  "method": "owned_v2_endpoint_w768_d4_norm_f3_raw_lgbm",
+  "backend": "lgbm",
+  "feature_file": "external-embeddings.parquet",
+  "feature_prefix": "emb_",
+  "pca": 0,
+  "mask_observed_validation": false,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "endpoints": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "encoder_run": "20260916T084411900740Z-4258ad05",
+  "architecture_tag": "w768_d4_norm_f3"
+}

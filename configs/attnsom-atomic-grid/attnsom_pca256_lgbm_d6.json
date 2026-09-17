@@ -1,0 +1,14 @@
+{
+  "method": "attnsom_pca256_lgbm_d6",
+  "backend": "lgbm",
+  "feature_file": "attnsom-embeddings.parquet",
+  "feature_prefix": "attnsom_emb_",
+  "pca": 256,
+  "mask_observed_validation": false,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "endpoints": [
+    "CYP2D6_pIC50_direct_inhibition"
+  ],
+  "source_training_run": "20260914T044928216258Z-221787f2",
+  "source_embedding_run": "20260914T045809423993Z-c5c2c254"
+}

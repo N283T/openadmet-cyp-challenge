@@ -1,0 +1,6 @@
+{
+  "base_run": "20260916T072819161332Z-a374a545",
+  "isoforms": ["CYP2D6"],
+  "sources": ["chembl36", "pubchem1851", "tox21_p450_glo"],
+  "purpose": "Direct CYP2D6 external supervision only; all challenge connectivity was excluded upstream."
+}

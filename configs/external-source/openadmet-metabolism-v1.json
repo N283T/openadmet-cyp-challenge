@@ -1,0 +1,43 @@
+{
+  "requests": [
+    {
+      "name": "octant-inhibition.tsv",
+      "url": "https://huggingface.co/datasets/openadmet/Octant_CYP_inhibition_reactivity_blog_release/resolve/96dc1cceaa545a22041d1e16a9c2524a658403f8/inhibition.tsv"
+    },
+    {
+      "name": "octant-reactivity.tsv",
+      "url": "https://huggingface.co/datasets/openadmet/Octant_CYP_inhibition_reactivity_blog_release/resolve/96dc1cceaa545a22041d1e16a9c2524a658403f8/reactivity.tsv"
+    },
+    {
+      "name": "octant-mass-spec.tsv",
+      "url": "https://huggingface.co/datasets/openadmet/Octant_CYP_inhibition_reactivity_blog_release/resolve/96dc1cceaa545a22041d1e16a9c2524a658403f8/will_it_fly_in_mass_spec.tsv"
+    },
+    {
+      "name": "expansionrx-raw.csv",
+      "url": "https://huggingface.co/datasets/openadmet/openadmet-expansionrx-challenge-data/resolve/6b898ccc43d10d25b230fb09e22a6e30c30022b5/expansion_data_raw.csv"
+    },
+    {
+      "name": "pxr-train.csv",
+      "url": "https://huggingface.co/datasets/openadmet/pxr-challenge-train-test/resolve/8041adfc295cac7f0bf85b73a2d87f21c5302ab1/pxr-challenge_TRAIN.csv"
+    },
+    {
+      "name": "pxr-phase1.csv",
+      "url": "https://huggingface.co/datasets/openadmet/pxr-challenge-train-test/resolve/8041adfc295cac7f0bf85b73a2d87f21c5302ab1/pxr-challenge_TEST_PHASE_1_UNBLINDED.csv"
+    },
+    {
+      "name": "pxr-phase2.csv",
+      "url": "https://huggingface.co/datasets/openadmet/pxr-challenge-train-test/resolve/8041adfc295cac7f0bf85b73a2d87f21c5302ab1/pxr-challenge_TEST_PHASE_2_UNBLINDED.csv"
+    },
+    {
+      "name": "az-som.csv",
+      "url": "https://zenodo.org/api/records/15458631/files/AstraZeneca_SoM_annotations_120_Compounds.csv/content"
+    }
+  ],
+  "licenses": {
+    "openadmet_octant": "CC-BY-4.0",
+    "openadmet_expansionrx": "CC-BY-4.0",
+    "openadmet_pxr": "CC-BY-4.0",
+    "az_som": "CC-BY-4.0"
+  },
+  "purpose": "Pinned public metabolism data for project-owned encoder pretraining; no challenge labels or Jeremy assets."
+}

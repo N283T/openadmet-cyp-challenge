@@ -1,0 +1,18 @@
+{
+  "method": "tdi_continuous_arm_3a4_fold_encoder_lgbm_v1",
+  "endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "feature_prefix": "emb_",
+  "embedding_dimensions": 600,
+  "feature_files": {
+    "0": "arm-fold0.parquet",
+    "1": "arm-fold1.parquet",
+    "2": "arm-fold2.parquet",
+    "3": "arm-fold3.parquet",
+    "4": "arm-fold4.parquet"
+  },
+  "measurements": "measurements.parquet",
+  "assignments": "assignments.parquet",
+  "aliases": "aliases.parquet",
+  "reference": "reference.csv",
+  "auxiliary": "full-aux.parquet"
+}

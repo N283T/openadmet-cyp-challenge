@@ -1,0 +1,18 @@
+{
+  "endpoints": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "scorer": "custom_scoring_functions.py",
+  "protocol": "Matched frozen raw embedding plus LightGBM comparison of v2 corpus variants against the prior owned encoder and Jeremy raw600. No blending or bank insertion.",
+  "variants": [
+    {"name": "v2_assay", "file": "v2_assay.parquet"},
+    {"name": "v2_compact_all", "file": "v2_compact_all.parquet"},
+    {"name": "v2_compact_cyp", "file": "v2_compact_cyp.parquet"},
+    {"name": "v2_endpoint_only", "file": "v2_endpoint_only.parquet"},
+    {"name": "v1_owned_w600", "file": "v1_owned_w600.parquet"},
+    {"name": "jeremy_raw600_lgbm", "file": "jeremy_raw600_lgbm.parquet"}
+  ]
+}

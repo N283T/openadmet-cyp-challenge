@@ -1,0 +1,51 @@
+{
+  "seed": 42,
+  "validation_seed": 781,
+  "validation_fraction": 0.1,
+  "width": 600,
+  "depth": 4,
+  "aggregation_norm": 100.0,
+  "ffn_hidden_layers": 3,
+  "dropout": 0.0,
+  "batch_size": 256,
+  "max_epochs": 45,
+  "patience": 8,
+  "warmup_epochs": 5,
+  "init_lr": 0.0005,
+  "max_lr": 0.005,
+  "final_lr": 0.000005,
+  "min_train_observations": 50,
+  "min_validation_observations": 10,
+  "device": "cuda",
+  "num_threads": 4,
+  "variants": [
+    {
+      "name": "joint_public_core_all",
+      "observation_file": "observations-compact-all.parquet",
+      "sources": ["chembl36", "tdc_adme", "polaris_novartis_cyp"]
+    },
+    {
+      "name": "joint_core_plus_cyp_panels",
+      "observation_file": "observations-compact-all.parquet",
+      "sources": [
+        "chembl36",
+        "tdc_adme",
+        "polaris_novartis_cyp",
+        "pubchem1851",
+        "tox21_p450_glo"
+      ]
+    },
+    {
+      "name": "joint_public_core_cyp",
+      "observation_file": "observations-compact-all.parquet",
+      "sources": ["chembl36", "tdc_adme", "polaris_novartis_cyp"],
+      "cyp_only": true
+    },
+    {
+      "name": "joint_all_no_binary",
+      "observation_file": "observations-compact-all.parquet",
+      "exclude_measurement_types": ["binary"]
+    }
+  ],
+  "protocol": "Follow-up to the joint-matrix mechanics screen. Compare scientifically motivated source families and binary-target inclusion without fixing the task count to Jeremy. Rank each endpoint independently by raw600 LightGBM five-fold OOF; retain Jeremy and the prior owned task-sampler only as frozen controls."
+}

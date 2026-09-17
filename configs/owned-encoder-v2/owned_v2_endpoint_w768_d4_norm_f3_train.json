@@ -1,0 +1,20 @@
+{
+  "mode": "mixed",
+  "seed": 42,
+  "validation_seed": 781,
+  "max_epochs": 70,
+  "patience": 12,
+  "batch_size": 128,
+  "steps_per_epoch": 300,
+  "min_train_observations": 5,
+  "rank_min_gap": 0.25,
+  "initialization": "random",
+  "scaling_policy": "pooled_shrinkage",
+  "architecture": "owned_width_grid",
+  "aggregation_norm": 100.0,
+  "purpose": "Architecture screen on the best first-wave endpoint-only corpus. Primary metric is matched all-target frozen raw embedding plus LightGBM.",
+  "width": 768,
+  "depth": 4,
+  "aggregation": "norm",
+  "ffn_hidden_layers": 3
+}

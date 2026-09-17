@@ -1,0 +1,16 @@
+{
+  "method": "owned_single_rustuna_v1_raw_lgbm",
+  "backend": "lgbm",
+  "feature_file": "selected-embeddings.parquet",
+  "feature_prefix": "emb_",
+  "pca": 0,
+  "mask_observed_validation": false,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "endpoints": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "protocol": "One selected encoder checkpoint, one raw embedding matrix and the unchanged matched LightGBM readout."
+}

@@ -1,0 +1,24 @@
+{
+  "recipe": "top_arch",
+  "protocol": "Concatenate independently trained raw owned embeddings by compound identity, then fit the unchanged all-target LightGBM readout.",
+  "views": [
+    {
+      "name": "endpoint_d3",
+      "file": "endpoint_d3.parquet",
+      "run": "20260916T085412850783Z-b1f5762b",
+      "dimensions": 600
+    },
+    {
+      "name": "endpoint_f2",
+      "file": "endpoint_f2.parquet",
+      "run": "20260916T090940535525Z-2cd2e6a6",
+      "dimensions": 600
+    },
+    {
+      "name": "endpoint_w384",
+      "file": "endpoint_w384.parquet",
+      "run": "20260916T084125450184Z-06f719c0",
+      "dimensions": 384
+    }
+  ]
+}

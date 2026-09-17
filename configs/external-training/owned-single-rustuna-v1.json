@@ -1,0 +1,27 @@
+{
+  "method": "owned_single_rustuna_v1",
+  "n_trials": 16,
+  "tuning_fold": 3,
+  "untouched_holdout_fold": 4,
+  "sampler_seed": 20260916,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "corpus_run": "20260916T082302554619Z-656c63e6",
+  "corpus_variant": "endpoint_only",
+  "base": {
+    "architecture": "owned_width_grid",
+    "mode": "mixed",
+    "seed": 42,
+    "validation_seed": 781,
+    "max_epochs": 55,
+    "patience": 10,
+    "steps_per_epoch": 220,
+    "min_train_observations": 5,
+    "max_train_pairs": 4096,
+    "max_validation_pairs": 2048,
+    "interval_regression": true,
+    "scaling_policy": "pooled_shrinkage",
+    "device": "cuda",
+    "num_threads": 4
+  },
+  "protocol": "Single-checkpoint-only Rustuna search. Trial selection uses challenge fold 3 with the fixed raw LightGBM readout; fold 4 remains unread until one winner is selected. No embedding concatenation or prediction ensemble is eligible."
+}

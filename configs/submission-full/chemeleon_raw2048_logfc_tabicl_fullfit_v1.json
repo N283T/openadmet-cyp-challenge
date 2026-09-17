@@ -1,0 +1,17 @@
+{
+  "method": "chemeleon_raw2048_logfc_tabicl_fullfit_v1",
+  "backend": "tabicl",
+  "prefix": "emb_",
+  "prefixes": [
+    "emb_"
+  ],
+  "expected_dimensions": 2048,
+  "pca": 0,
+  "features": "features.parquet",
+  "measurements": "measurements.parquet",
+  "assignments": "assignments.parquet",
+  "aliases": "aliases.parquet",
+  "reference": "reference.csv",
+  "auxiliary": "auxiliary.parquet",
+  "weights": "weights.ckpt"
+}

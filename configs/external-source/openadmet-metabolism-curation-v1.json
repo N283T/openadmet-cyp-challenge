@@ -1,0 +1,14 @@
+{
+  "base_run": "20260912T055809060996Z-06088efb",
+  "fetch_run": "20260916T072328099350Z-fa03aef6",
+  "workers": 8,
+  "source_revisions": {
+    "octant-inhibition.tsv": "96dc1cceaa545a22041d1e16a9c2524a658403f8",
+    "octant-reactivity.tsv": "96dc1cceaa545a22041d1e16a9c2524a658403f8",
+    "octant-mass-spec.tsv": "96dc1cceaa545a22041d1e16a9c2524a658403f8",
+    "expansionrx-raw.csv": "6b898ccc43d10d25b230fb09e22a6e30c30022b5",
+    "pxr-train.csv": "8041adfc295cac7f0bf85b73a2d87f21c5302ab1",
+    "pxr-phase1.csv": "8041adfc295cac7f0bf85b73a2d87f21c5302ab1",
+    "pxr-phase2.csv": "8041adfc295cac7f0bf85b73a2d87f21c5302ab1"
+  }
+}

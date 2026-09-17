@@ -1,0 +1,15 @@
+{
+  "protocol": "Append the CYP2C9-specialist raw embedding to the frozen broad5 owned embedding and evaluate CYP2C9 only.",
+  "views": [
+    {
+      "name": "broad5",
+      "file": "broad5.parquet",
+      "run": "20260916T091746252797Z-e571bd53"
+    },
+    {
+      "name": "2c9_specialist",
+      "file": "2c9-specialist.parquet",
+      "run": "20260916T094226751324Z-20c2d3d6"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "seed": 42,
+  "validation_seed": 781,
+  "validation_fraction": 0.1,
+  "width": 600,
+  "depth": 4,
+  "aggregation_norm": 100.0,
+  "ffn_hidden_layers": 3,
+  "dropout": 0.0,
+  "batch_size": 256,
+  "max_epochs": 45,
+  "patience": 8,
+  "warmup_epochs": 5,
+  "init_lr": 0.0005,
+  "max_lr": 0.005,
+  "final_lr": 0.000005,
+  "min_train_observations": 50,
+  "min_validation_observations": 10,
+  "device": "cuda",
+  "num_threads": 4,
+  "variants": [
+    {
+      "name": "joint_assay",
+      "observation_file": "observations-assay.parquet"
+    },
+    {
+      "name": "joint_compact_all",
+      "observation_file": "observations-compact-all.parquet"
+    },
+    {
+      "name": "joint_compact_cyp",
+      "observation_file": "observations-compact-cyp.parquet"
+    }
+  ],
+  "protocol": "Project-owned joint sparse target-matrix screen. Numeric continuous and binary labels are standardized per task and optimized together by masked MSE on full molecule batches. Architecture and learning-rate envelope follow the useful Jeremy clues, but task count and task definitions are selected from the owned challenge-disjoint corpus. Evaluation is target-specific raw600 LightGBM five-fold OOF; Jeremy and the prior owned task-sampler are frozen controls."
+}

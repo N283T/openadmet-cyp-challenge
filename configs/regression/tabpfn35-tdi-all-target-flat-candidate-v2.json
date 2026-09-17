@@ -1,0 +1,42 @@
+{
+  "reference": "reference.csv",
+  "aliases": "aliases.parquet",
+  "base_candidate": "base-candidate.csv",
+  "old_predictions": {
+    "jeremy_frozen_tabpfn26": "jeremy-frozen-test.parquet",
+    "jeremy_scores_log2fc_tabpfn26": "jeremy-scores-test.parquet",
+    "jeremy_finetuned_log2fc_lgbm": "jeremy-finetuned-test.parquet",
+    "chemeleon_pca256_log2fc_tabicl": "chemeleon-pca-test.parquet",
+    "chemeleon_raw2048_log2fc_tabicl": "chemeleon-raw-test.parquet"
+  },
+  "new_predictions": {
+    "tabpfn35_fast_pub030_raw": "t35-fast-pub030-test.parquet",
+    "tabpfn35_full_pub030_raw": "t35-full-pub030-test.parquet",
+    "tabpfn35_fast_jeremy_raw": "t35-fast-jeremy-raw-test.parquet",
+    "tabpfn35_full_jeremy_raw": "t35-full-jeremy-raw-test.parquet",
+    "tabpfn35_fast_anchor59_raw_scores_logfc": "t35-fast-anchor-test.parquet",
+    "tabpfn35_full_anchor59_raw_scores_logfc": "t35-full-anchor-test.parquet",
+    "tabpfn35_fast_jeremy_scores_logfc": "t35-fast-jeremy-scores-test.parquet",
+    "tabpfn35_full_jeremy_scores_logfc": "t35-full-jeremy-scores-test.parquet",
+    "tabpfn35_fast_chemeleon_raw_logfc": "t35-fast-chemeleon-test.parquet",
+    "tdi_continuous_arm_lgbm": "tdi-arm-test.parquet",
+    "tdi_continuous_delta_lgbm": "tdi-delta-test.parquet"
+  },
+  "owned_2c9_prediction": "owned-2c9-test.parquet",
+  "d6_atomic_prediction": "d6-atomic-test.parquet",
+  "d6_fits": "d6-fits.csv",
+  "d6_bank_config": "d6-bank-config.json",
+  "a4_fits": "a4-fits.csv",
+  "a4_bank_config": "a4-bank-config.json",
+  "caruana_compounds": "caruana-compounds.parquet",
+  "caruana_test_mapping": "caruana-test-mapping.parquet",
+  "caruana_class_features": "caruana-class-features.parquet",
+  "a4_class_model": "a4-class-quantile-065.txt",
+  "a4_morgan_model": "a4-morgan-quantile-065.txt",
+  "recipes": {
+    "CYP1A2_pIC50_direct_inhibition": {"method": "equal_all", "bank_run": "20260917T123557490373Z-edab6042"},
+    "CYP2C9_pIC50_direct_inhibition": {"method": "equal_subset", "bank_run": "20260917T123601175420Z-e1560701"},
+    "CYP2D6_pIC50_direct_inhibition": {"method": "simplex_interval_cv_mean", "weight_method": "simplex_interval", "bank_run": "20260917T123605451416Z-d9ca2bee"},
+    "CYP3A4_pIC50_direct_inhibition": {"method": "caruana_cv_mean", "weight_method": "caruana", "bank_run": "20260917T130718808881Z-dfa02730"}
+  }
+}

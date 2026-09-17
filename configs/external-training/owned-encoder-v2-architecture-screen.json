@@ -1,0 +1,32 @@
+{
+  "corpus_run": "20260916T082302554619Z-656c63e6",
+  "variant": "endpoint_only",
+  "reuse": {
+    "w600_d4_norm_f3": {
+      "encoder_run": "20260916T083559634288Z-062467ce",
+      "readout_run": "20260916T083915098714Z-00da8699"
+    }
+  },
+  "architectures": [
+    {"width": 384, "depth": 4, "aggregation": "norm", "ffn_hidden_layers": 3},
+    {"width": 768, "depth": 4, "aggregation": "norm", "ffn_hidden_layers": 3},
+    {"width": 1024, "depth": 4, "aggregation": "norm", "ffn_hidden_layers": 3},
+    {"width": 600, "depth": 3, "aggregation": "norm", "ffn_hidden_layers": 3},
+    {"width": 600, "depth": 5, "aggregation": "norm", "ffn_hidden_layers": 3},
+    {"width": 600, "depth": 5, "aggregation": "mean", "ffn_hidden_layers": 3},
+    {"width": 600, "depth": 6, "aggregation": "mean", "ffn_hidden_layers": 3},
+    {"width": 600, "depth": 4, "aggregation": "norm", "ffn_hidden_layers": 2}
+  ],
+  "mode": "mixed",
+  "seed": 42,
+  "validation_seed": 781,
+  "max_epochs": 70,
+  "patience": 12,
+  "batch_size": 128,
+  "steps_per_epoch": 300,
+  "min_train_observations": 5,
+  "rank_min_gap": 0.25,
+  "initialization": "random",
+  "scaling_policy": "pooled_shrinkage",
+  "protocol": "Architecture screen on the best first-wave endpoint-only corpus. Primary metric is matched all-target frozen raw embedding plus LightGBM."
+}

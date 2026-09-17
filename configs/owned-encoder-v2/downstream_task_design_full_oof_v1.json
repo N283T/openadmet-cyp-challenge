@@ -1,0 +1,31 @@
+{
+  "split_run": "20260911T104703655337Z-a3923255",
+  "feature_prefix": "emb_",
+  "endpoints": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "variants": [
+    {"name": "objective_source_uniform_mixed", "file": "objective-source-uniform.parquet"},
+    {"name": "objective_task_uniform_mixed", "file": "objective-task-uniform.parquet"},
+    {"name": "objective_sqrt_mixed", "file": "objective-sqrt-mixed.parquet"},
+    {"name": "objective_proportional_mixed", "file": "objective-proportional-mixed.parquet"},
+    {"name": "objective_sqrt_weak_aux", "file": "objective-sqrt-weak-aux.parquet"},
+    {"name": "objective_sqrt_weak_classification", "file": "objective-sqrt-weak-classification.parquet"},
+    {"name": "objective_sqrt_no_classification", "file": "objective-sqrt-no-classification.parquet"},
+    {"name": "source_sqrt_no_tdc", "file": "source-no-tdc.parquet"},
+    {"name": "source_sqrt_no_pubchem", "file": "source-no-pubchem.parquet"},
+    {"name": "source_sqrt_no_tox21", "file": "source-no-tox21.parquet"},
+    {"name": "source_sqrt_no_polaris", "file": "source-no-polaris.parquet"},
+    {"name": "source_sqrt_no_expansionrx", "file": "source-no-expansionrx.parquet"},
+    {"name": "source_sqrt_no_pxr", "file": "source-no-pxr.parquet"},
+    {"name": "source_sqrt_cyp_only", "file": "source-cyp-only.parquet"}
+  ],
+  "controls": [
+    {"name": "previous_owned_endpoint_d3", "file": "previous-owned.parquet"},
+    {"name": "jeremy_raw600", "file": "jeremy.parquet"}
+  ],
+  "protocol": "Full five-fold target-specific atomic raw600 LightGBM audit of all downstream-guided objective and source-family checkpoints. No PCA, concatenation, blending, bank insertion or weight search."
+}

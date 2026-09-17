@@ -1,0 +1,8 @@
+{
+  "raw_run": "20260916T060715739725Z-b0ddf3c8",
+  "pca_run": "20260912T071619253798Z-73a6fb7e",
+  "raw": "raw-oof.parquet",
+  "pca": "pca-oof.parquet",
+  "scorer": "custom_scoring_functions.py",
+  "comparison": "Matched raw2048, PCA256, and their equal prediction ensemble; no incremental-weight search"
+}

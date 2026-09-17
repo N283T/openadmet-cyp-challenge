@@ -1,0 +1,22 @@
+{
+  "split_run": "20260911T104703655337Z-a3923255",
+  "scorer": "custom_scoring_functions.py",
+  "num_threads": 4,
+  "tabpfn_version": "v3.5-fast",
+  "tabpfn_weights": "tabpfn-v3.5-fast-20260909.safetensors",
+  "tabpfn_estimators": 8,
+  "candidates": [
+    {"name": "jeremy_raw", "file": "jeremy-raw.parquet", "prefixes": ["emb_"], "backends": ["tabpfn"]},
+    {"name": "jeremy_scores", "file": "jeremy-scores.parquet", "prefixes": ["score_"], "backends": ["tabpfn"]},
+    {"name": "jeremy_scores_logfc", "file": "jeremy-scores.parquet", "prefixes": ["score_"], "nested_file": "nested-log2fc.parquet", "backends": ["tabpfn"]},
+    {"name": "scratch_raw", "file": "scratch-raw.parquet", "prefixes": ["raw_"], "backends": ["tabpfn"]},
+    {"name": "owned_raw_scores", "file": "owned-raw-scores.parquet", "prefixes": ["raw_", "score_"], "backends": ["tabpfn"]},
+    {"name": "anchor59_raw_scores", "file": "anchor59-raw-scores.parquet", "prefixes": ["raw_", "score_"], "backends": ["tabpfn"]},
+    {"name": "anchor59_raw_scores_logfc", "file": "anchor59-raw-scores.parquet", "prefixes": ["raw_", "score_"], "nested_file": "nested-log2fc.parquet", "backends": ["tabpfn"]},
+    {"name": "anchor59_scores", "file": "anchor59-scores.parquet", "prefixes": ["score_"], "backends": ["tabpfn"]},
+    {"name": "pubonly_raw", "file": "pubonly-raw.parquet", "prefixes": ["raw_"], "backends": ["tabpfn"]},
+    {"name": "pub030_raw", "file": "pub030-raw.parquet", "prefixes": ["raw_"], "backends": ["tabpfn"]},
+    {"name": "chemeleon_raw", "file": "chemeleon-raw.parquet", "prefixes": ["emb_"], "backends": ["tabpfn"]},
+    {"name": "chemeleon_raw_logfc", "file": "chemeleon-raw.parquet", "prefixes": ["emb_"], "nested_file": "nested-log2fc.parquet", "backends": ["tabpfn"]}
+  ]
+}

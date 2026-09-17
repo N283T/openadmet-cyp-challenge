@@ -83,8 +83,7 @@ for frame in component_frames[1:]:
     for column in keys + truth:
         assert frame[column].equals(base[column]), column
 component_by_name = {
-    item["name"]: frame
-    for item, frame in zip(cfg["components"], component_frames, strict=True)
+    item["name"]: frame for item, frame in zip(cfg["components"], component_frames, strict=True)
 }
 ensemble_names = cfg.get("ensemble_components", list(component_by_name))
 assert ensemble_names[0] == cfg["components"][0]["name"]
@@ -100,6 +99,7 @@ selection_by_fold = {}
 candidate_specs = {}
 saved_predictions = {}
 reconstruction_rows = []
+fixed_atomic_rows = {"class_quantile_0.65": [], "morgan_quantile_0.65": []}
 
 for fold in range(5):
     record = fold_records[fold]
@@ -238,6 +238,14 @@ for outer in range(5):
         model = lgb.LGBMRegressor(**params)
         model.fit(views[spec_item["view"]][ix_train], y_train)
         model_predictions[name] = model.predict(views[spec_item["view"]][ix_valid])
+    for name in fixed_atomic_rows:
+        assert name in model_predictions
+        fixed_atomic_rows[name].append(
+            fold_rows.select(keys + truth).with_columns(
+                pl.Series("prediction", model_predictions[name]),
+                pl.lit(name).alias("method"),
+            )
+        )
     for weighting in ["weighted", "equal"]:
         for k in range(1, max_k + 1):
             retained = ranked[: min(k, len(ranked))]
@@ -313,15 +321,15 @@ for strategy, weighting, k, prediction, _fit_count in predictions:
     prediction_frames.append(
         base.select(keys + truth).with_columns(
             pl.Series("caruana_prediction", prediction),
-            pl.Series(
-                "ensemble_prediction", (prediction + other_sum) / len(ensemble_frames)
-            ),
+            pl.Series("ensemble_prediction", (prediction + other_sum) / len(ensemble_frames)),
             pl.lit(strategy).alias("strategy"),
             pl.lit(weighting).alias("weighting"),
             pl.lit(k).alias("k"),
         )
     )
 pl.concat(prediction_frames).write_parquet(out / "predictions.parquet")
+for name, frames in fixed_atomic_rows.items():
+    pl.concat(frames).sort(keys).write_parquet(out / f"atomic-{name}.parquet")
 (out / "summary.json").write_text(
     json.dumps(
         {
@@ -329,9 +337,7 @@ pl.concat(prediction_frames).write_parquet(out / "predictions.parquet")
             "original_caruana_ST_RAE": score(base, original_caruana),
             "ensemble_components": ensemble_names,
             "original_ensemble_ST_RAE": score(base, original_ensemble),
-            "original_fold_selected_models": [
-                len(selection_by_fold[fold]) for fold in range(5)
-            ],
+            "original_fold_selected_models": [len(selection_by_fold[fold]) for fold in range(5)],
             "original_fold_fit_count": sum(len(v) for v in selection_by_fold.values()),
             "deployment_distinct_models": cfg["deployment_distinct_models"],
             "reconstruction_max_abs_error": max(

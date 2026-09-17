@@ -6,6 +6,105 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **Checkpoint predictor views produce a stronger D6 flat bank:** six
+  distillation/adaptation checkpoints now expose raw600, final-hidden,
+  external-task score and raw-plus-score views. Across 32 atomic readouts, the
+  59-task anchored raw-plus-score LightGBM is the best D6 single at `.835963`,
+  while target winners differ elsewhere. Adding six complete checkpoint peers
+  to the established D6 bank improves outer-cross-fit equal subset from the
+  current control `.828397` to `.815840`. Keep the other three established
+  banks unchanged. Full-fit deployment produced three valid D6-only candidates
+  on the favorable scored placement baseline. Prefer stable-five candidate
+  `40e0984c` (OOF `.811998`); equal-ten `f1786ea3` is the conservative control
+  and checkpoint-only `ed3d1154` is exploratory. None is uploaded. See
+  [RL0112](2026-09.md#rl0112--predictor-views-and-flat-checkpoint-ensembles-improve-d6)
+  and [RL0113](2026-09.md#rl0113--three-full-fit-d6-checkpoint-submission-candidates).
+
+- **Representation distillation produces the first universal student that
+  beats frozen Jeremy macro:** a random teacher-only student reaches `.647986`
+  and beats Jeremy on 1A2, 2C9 and 3A4. A Jeremy-initialized, externally
+  supervised anchored student improves further to macro `.646348`, driven by
+  2C9 `.519131` and 3A4 `.474981`; Jeremy remains best on D6. The owned-init
+  hybrid is negative. Keep the two successful students as separate atomic,
+  target-specific candidates. A Jeremy-initialized PubChem-only follow-up moves
+  D6 only `.858244→.858168`, while teacher anchoring worsens it; retain frozen
+  Jeremy for D6. See
+  [RL0110](2026-09.md#rl0110--jeremy-representation-distillation-surpasses-the-frozen-teacher)
+  and [RL0111](2026-09.md#rl0111--jeremy-initialized-pubchem-only-adaptation-is-marginal-for-d6).
+
+- **Challenge train plus auxiliary adaptation gives a new owned 3A4
+  candidate:** fold-safe 12-head adaptation uses direct pIC50, primary log2FC
+  and direct-inhibition Emax together. Raw LightGBM scores
+  `.737444/.554001/.877706/.480498`; 3A4 beats Jeremy `.482742`, and 2C9
+  improves slightly, while 1A2 and D6 worsen. Keep it target-specific and make
+  no bank change yet. See
+  [RL0109](2026-09.md#rl0109--fold-safe-challenge-train-and-auxiliary-adaptation).
+
+- **Joint sparse-matrix training nearly closes the owned representation gap:**
+  a from-scratch 59-task continuous model nearly matches Jeremy on 1A2, while
+  a 28-task CYP model nearly matches it on D6. Combining those with the earlier
+  target-specific owned winners gives `.729526/.554558/.859557/.488025`,
+  descriptive macro `.657917`, versus Jeremy `.651179`. Source layouts chosen
+  to resemble Jeremy are worse, and including binary tasks also hurts: use the
+  checkpoint analysis as a mechanics clue, not a reproduction target. Keep
+  target-specific candidates separate and make no bank change yet. See
+  [RL0107](2026-09.md#rl0107--joint-sparse-matrix-training-nearly-closes-the-owned-gap)
+  and the [report](../analysis/2026-09-16-jeremy-medium-gap-reanalysis.md#joint-matrix-experiments).
+
+- **Small refinements do not finish the single-checkpoint replacement:**
+  matched 2x/4x target-isoform loss weights worsen every intended target.
+  Honest nested LightGBM selection scores owned versus Jeremy at
+  `.734005/.551885/.860291/.490499` versus
+  `.726729/.531426/.856142/.478637`; Jeremy also benefits from tuning. Local
+  25/50/75% encoder-weight interpolation produces no new target winner. The
+  next attempt should change the pretraining signal or formulation rather than
+  continue loss/readout micro-tuning. See
+  [RL0108](2026-09.md#rl0108--small-joint-encoder-refinements-do-not-surpass-jeremy).
+
+- **The earlier one-task-sampled encoders remain useful target-specific
+  candidates:** the leak-excluded v2 corpus contains 78,449 compounds. Its
+  task/source optimization produced target-specific values
+  `.736899/.554558/.870970/.488025` still trail Jeremy
+  `.728514/.535216/.858244/.482742`. The earlier 2C9 specialist-augmented
+  readout remains a complete flat-bank peer, while the 2C9 and 3A4 models remain
+  the best project-owned choices after the joint-matrix screen. See
+  [RL0101](2026-09.md#rl0101--project-owned-encoder-v2-closes-the-jeremy-medium-gap)
+  and [RL0105](2026-09.md#rl0105--full-oof-task-design-audit-and-follow-ups).
+
+- **Regression now has a flat atomic prediction-bank interface:** equal-all,
+  median, held-fold equal subset, Ridge, positive linear, MSE/interval simplex,
+  and Caruana share one outer-cross-fit protocol. The current aggregate is a
+  control, never a member. Selection is endpoint-specific and macro is only a
+  descriptive summary. D6 favors swapping PCA for raw, with interval simplex
+  `.827988` and Caruana `.827973`; this is not transferred to the other three
+  targets. Four separate bank manifests now cover 1A2, 2C9, 2D6 and 3A4; the
+  latter includes separately refit class- and Morgan-quantile LightGBMs rather
+  than their nested average. Bank additions and family swaps can now be rerun
+  target by target through the unchanged auditable suite. See
+  [RL0097](2026-09.md#rl0097--regression-chemeleon-raw-readout-and-full-member-placement).
+
+- **Regression raw CheMeleon is a D6-specific full-member candidate:** matched
+  raw2048 TabICL improves PCA256 macro ST-RAE `.650170→.637270`, and their
+  standalone equal mean reaches `.627101`. Uniformly adding raw to the current
+  endpoint ensembles worsens macro `.594440→.595178`, but exhaustive
+  held-fold-excluded equal-member selection chooses the same raw-containing
+  four-member D6 subset in all five folds and improves `.828397→.825571`.
+  Retain it for exploratory D6 follow-up; do not deploy globally. Routine
+  ensemble development uses complete members and subset reselection rather than
+  10/25/50% additions. See
+  [RL0097](2026-09.md#rl0097--regression-chemeleon-raw-readout-and-full-member-placement)
+  and the [report](../analysis/2026-09-16-regression-chemeleon-raw.md).
+
+- **Flatten the legacy CYP3A4 nested member:** the scored vector packages a
+  weighted two-LightGBM Caruana block as one of five top-level members. Treating
+  those LightGBMs as separate peers in a six-member equal mean changes ST-RAE
+  only `.398316→.400327` and improves three of five folds; deleting them costs
+  more at `.409099`. The two atomic LightGBMs are now present in the 3A4-only
+  bank; equal-subset consistently retains Morgan but drops class and scores
+  `.400035`.
+  The scored vector is unchanged until explicitly repackaged. See the
+  [RL0097 follow-up](2026-09.md#rl0097--regression-chemeleon-raw-readout-and-full-member-placement).
+
 - **A4 raw600 helps as a complement, not a wholesale replacement:** matched
   Jeremy600 TabICL/TabPFN raw readouts improve standalone AUROC/AP over PCA256.
   Replacing both PCA members loses ensemble MCC, but retaining both raw and PCA
@@ -525,3 +624,23 @@ Reports and research entries default to English; conversation language is indepe
 | [RL0093](2026-09.md#rl0093--extensible-classification-stacking-and-safe-anchoring) | Extensible nested stacking, expert-set trial and safe anchoring |
 | [RL0094](2026-09.md#rl0094--d6-rawpca-block-prioritization-and-remaining-a4-raw-controls) | D6 raw/PCA candidate priority and untested A4 raw controls |
 | [RL0095](2026-09.md#rl0095--a4-matched-raw-readouts-and-fixed-mean-simplification) | A4 raw600 controls and fixed-mean simplification |
+| [RL0096](2026-09.md#rl0096--d6-mean-block-plus-a4-equal-seven-leaderboard-result) | D6 raw/PCA block plus A4 equal-seven leaderboard result |
+| [RL0097](2026-09.md#rl0097--regression-chemeleon-raw-readout-and-full-member-placement) | Regression CheMeleon raw2048 readout and full-member placement |
+| [RL0098](2026-09.md#rl0098--project-owned-external-encoder-and-som-representation-screen-for-d6) | Project-owned external encoder and SoM representation screen for D6 |
+| [RL0099](2026-09.md#rl0099--corrected-all-target-jeremy-replacement-evaluation) | Corrected all-target project-owned versus Jeremy encoder comparison |
+| [RL0100](2026-09.md#rl0100--jeremy-medium-public-source-family-acquisition) | Public source-family acquisition for a project-owned Jeremy-medium replacement |
+| [RL0101](2026-09.md#rl0101--project-owned-encoder-v2-closes-the-jeremy-medium-gap) | Project-owned encoder v2 replacement and complement screen |
+| [RL0102](2026-09.md#rl0102--focused-intrinsic-cyp-task-objective) | Focused CYP continuous pretraining objective and intrinsic confirmation |
+| [RL0103](2026-09.md#rl0103--focused-task-intrinsic-gains-do-not-transfer-to-raw-lightgbm) | Focused-task raw LightGBM transfer check and negative result |
+| [RL0104](2026-09.md#rl0104--downstream-guided-task-objectives-recover-owned-transfer) | Downstream-guided task-objective screen and held-fold confirmation |
+| [RL0105](2026-09.md#rl0105--full-oof-task-design-audit-and-follow-ups) | Full-OOF task/source audit and target-family follow-ups |
+| [RL0106](2026-09.md#rl0106--jeremy-medium-gap-points-to-joint-multitask-optimization) | Jeremy checkpoint, overlap and representation-geometry reanalysis |
+| [RL0107](2026-09.md#rl0107--joint-sparse-matrix-training-nearly-closes-the-owned-gap) | Project-owned joint sparse-matrix training and target-specific transfer |
+| [RL0108](2026-09.md#rl0108--small-joint-encoder-refinements-do-not-surpass-jeremy) | Target weighting, nested readout and weight-space interpolation follow-up |
+| [RL0109](2026-09.md#rl0109--fold-safe-challenge-train-and-auxiliary-adaptation) | Fold-safe direct pIC50, primary log2FC and direct Emax adaptation |
+| [RL0110](2026-09.md#rl0110--jeremy-representation-distillation-surpasses-the-frozen-teacher) | Jeremy raw600 representation distillation and external-task anchoring |
+| [RL0111](2026-09.md#rl0111--jeremy-initialized-pubchem-only-adaptation-is-marginal-for-d6) | Jeremy-initialized PubChem-only CYP2D6 adaptation |
+| [RL0112](2026-09.md#rl0112--predictor-views-and-flat-checkpoint-ensembles-improve-d6) | Predictor views, diverse readouts and target-specific flat checkpoint banks |
+| [RL0113](2026-09.md#rl0113--three-full-fit-d6-checkpoint-submission-candidates) | Full-fit stable-five, equal-ten and checkpoint-only D6 candidates |
+| [RL0114](2026-09.md#rl0114--tabpfn-35-target-specific-flat-banks-and-all-target-candidates) | TabPFN 3.5 target-specific flat banks and all-target submission candidates |
+| [RL0115](2026-09.md#rl0115--continuous-tdi-representations-improve-the-3a4-regression-bank) | Continuous TDI representations in the target-specific 3A4 regression bank |

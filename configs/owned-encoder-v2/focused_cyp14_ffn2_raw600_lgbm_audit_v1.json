@@ -1,0 +1,24 @@
+{
+  "endpoints": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "scorer": "custom_scoring_functions.py",
+  "protocol": "Matched atomic raw600 LightGBM comparison. No PCA, concatenation, blending, bank insertion or weight search.",
+  "variants": [
+    {
+      "name": "focused_cyp14_ffn2_raw600_lgbm",
+      "file": "focused.parquet"
+    },
+    {
+      "name": "previous_owned_endpoint_d3_raw600_lgbm",
+      "file": "previous-owned.parquet"
+    },
+    {
+      "name": "jeremy_raw600_lgbm",
+      "file": "jeremy.parquet"
+    }
+  ]
+}

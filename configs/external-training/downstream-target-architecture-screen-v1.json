@@ -1,0 +1,110 @@
+{
+  "selection_fold": 3,
+  "confirmation_fold": 4,
+  "base": {
+    "architecture": "owned_width_grid",
+    "aggregation": "norm",
+    "aggregation_norm": 100.0,
+    "dropout": 0.1,
+    "seed": 42,
+    "validation_seed": 781,
+    "max_epochs": 70,
+    "patience": 12,
+    "batch_size": 128,
+    "steps_per_epoch": 300,
+    "min_train_observations": 5,
+    "rank_min_gap": 0.25,
+    "max_train_pairs": 4096,
+    "max_validation_pairs": 2048,
+    "interval_regression": true,
+    "scaling_policy": "pooled_shrinkage",
+    "scaling_pseudocount": 20.0,
+    "scaling_minimum_std": 0.3,
+    "device": "cuda",
+    "num_threads": 4,
+    "continuous_weight": 1.0,
+    "ranking_weight": 1.0,
+    "classification_weight": 1.0
+  },
+  "variants": [
+    {
+      "name": "1a2_no_tox21_w448_d3_f3",
+      "screen_endpoints": ["CYP1A2_pIC50_direct_inhibition"],
+      "width": 448, "depth": 3, "ffn_hidden_layers": 3,
+      "mode": "mixed", "task_sampling": "sqrt_observations",
+      "task_filter": {"sources": ["tdc_adme", "pubchem1851", "polaris_novartis_cyp", "openadmet_expansionrx", "biogen2023_adme", "chembl36_az_adme", "openadmet_pxr", "openadmet_octant"]}
+    },
+    {
+      "name": "1a2_no_tox21_w600_d2_f3",
+      "screen_endpoints": ["CYP1A2_pIC50_direct_inhibition"],
+      "width": 600, "depth": 2, "ffn_hidden_layers": 3,
+      "mode": "mixed", "task_sampling": "sqrt_observations",
+      "task_filter": {"sources": ["tdc_adme", "pubchem1851", "polaris_novartis_cyp", "openadmet_expansionrx", "biogen2023_adme", "chembl36_az_adme", "openadmet_pxr", "openadmet_octant"]}
+    },
+    {
+      "name": "1a2_no_tox21_w600_d3_f2",
+      "screen_endpoints": ["CYP1A2_pIC50_direct_inhibition"],
+      "width": 600, "depth": 3, "ffn_hidden_layers": 2,
+      "mode": "mixed", "task_sampling": "sqrt_observations",
+      "task_filter": {"sources": ["tdc_adme", "pubchem1851", "polaris_novartis_cyp", "openadmet_expansionrx", "biogen2023_adme", "chembl36_az_adme", "openadmet_pxr", "openadmet_octant"]}
+    },
+    {
+      "name": "2c9_no_polaris_w448_d3_f3",
+      "screen_endpoints": ["CYP2C9_pIC50_direct_inhibition"],
+      "width": 448, "depth": 3, "ffn_hidden_layers": 3,
+      "mode": "mixed", "task_sampling": "sqrt_observations",
+      "task_filter": {"sources": ["tdc_adme", "pubchem1851", "tox21_p450_glo", "openadmet_expansionrx", "biogen2023_adme", "chembl36_az_adme", "openadmet_pxr", "openadmet_octant"]}
+    },
+    {
+      "name": "2c9_no_polaris_w600_d2_f3",
+      "screen_endpoints": ["CYP2C9_pIC50_direct_inhibition"],
+      "width": 600, "depth": 2, "ffn_hidden_layers": 3,
+      "mode": "mixed", "task_sampling": "sqrt_observations",
+      "task_filter": {"sources": ["tdc_adme", "pubchem1851", "tox21_p450_glo", "openadmet_expansionrx", "biogen2023_adme", "chembl36_az_adme", "openadmet_pxr", "openadmet_octant"]}
+    },
+    {
+      "name": "2c9_no_polaris_w600_d3_f2",
+      "screen_endpoints": ["CYP2C9_pIC50_direct_inhibition"],
+      "width": 600, "depth": 3, "ffn_hidden_layers": 2,
+      "mode": "mixed", "task_sampling": "sqrt_observations",
+      "task_filter": {"sources": ["tdc_adme", "pubchem1851", "tox21_p450_glo", "openadmet_expansionrx", "biogen2023_adme", "chembl36_az_adme", "openadmet_pxr", "openadmet_octant"]}
+    },
+    {
+      "name": "2d6_no_class_w448_d3_f3",
+      "screen_endpoints": ["CYP2D6_pIC50_direct_inhibition"],
+      "width": 448, "depth": 3, "ffn_hidden_layers": 3,
+      "mode": "continuous_ranking", "task_sampling": "sqrt_observations"
+    },
+    {
+      "name": "2d6_no_class_w600_d2_f3",
+      "screen_endpoints": ["CYP2D6_pIC50_direct_inhibition"],
+      "width": 600, "depth": 2, "ffn_hidden_layers": 3,
+      "mode": "continuous_ranking", "task_sampling": "sqrt_observations"
+    },
+    {
+      "name": "2d6_no_class_w600_d3_f2",
+      "screen_endpoints": ["CYP2D6_pIC50_direct_inhibition"],
+      "width": 600, "depth": 3, "ffn_hidden_layers": 2,
+      "mode": "continuous_ranking", "task_sampling": "sqrt_observations"
+    },
+    {
+      "name": "3a4_proportional_w448_d3_f3",
+      "screen_endpoints": ["CYP3A4_pIC50_direct_inhibition"],
+      "width": 448, "depth": 3, "ffn_hidden_layers": 3,
+      "mode": "mixed", "task_sampling": "observation_power", "task_sampling_power": 1.0
+    },
+    {
+      "name": "3a4_proportional_w600_d2_f3",
+      "screen_endpoints": ["CYP3A4_pIC50_direct_inhibition"],
+      "width": 600, "depth": 2, "ffn_hidden_layers": 3,
+      "mode": "mixed", "task_sampling": "observation_power", "task_sampling_power": 1.0
+    },
+    {
+      "name": "3a4_proportional_w600_d3_f2",
+      "screen_endpoints": ["CYP3A4_pIC50_direct_inhibition"],
+      "width": 600, "depth": 3, "ffn_hidden_layers": 2,
+      "mode": "mixed", "task_sampling": "observation_power", "task_sampling_power": 1.0
+    }
+  ],
+  "protocol": "For each challenge endpoint, hold its best full-OOF task recipe fixed and screen three single-checkpoint architecture alternatives on fold 3 raw LightGBM ST-RAE; inspect only the endpoint-specific architecture winner on fold 4. Existing width600/depth3/FFN3 incumbents are compared afterward."
+}

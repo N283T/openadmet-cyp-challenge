@@ -1,0 +1,31 @@
+{
+  "endpoint": "CYP2C9_pIC50_direct_inhibition",
+  "scorer": "custom_scoring_functions.py",
+  "protocol": "Append the CYP2C9-specialist raw embedding to the frozen broad5 owned embedding and evaluate CYP2C9 only.",
+  "variants": [
+    {
+      "name": "broad5_plus_2c9_specialist_default",
+      "file": "broad5_plus_2c9_specialist_default.parquet"
+    },
+    {
+      "name": "broad5_plus_2c9_specialist_leaves31",
+      "file": "broad5_plus_2c9_specialist_leaves31.parquet"
+    },
+    {
+      "name": "broad5_default",
+      "file": "broad5_default.parquet"
+    },
+    {
+      "name": "broad5_leaves31",
+      "file": "broad5_leaves31.parquet"
+    },
+    {
+      "name": "jeremy_raw600_lgbm",
+      "file": "jeremy_raw600_lgbm.parquet"
+    },
+    {
+      "name": "2c9_specialist_alone",
+      "file": "2c9_specialist_alone.parquet"
+    }
+  ]
+}

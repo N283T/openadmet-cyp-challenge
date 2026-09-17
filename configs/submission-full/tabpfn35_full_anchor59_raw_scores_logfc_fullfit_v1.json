@@ -1,0 +1,20 @@
+{
+  "method": "tabpfn35_full_anchor59_raw_scores_logfc_fullfit_v1",
+  "backend": "tabpfn",
+  "prefix": "raw_",
+  "prefixes": [
+    "raw_",
+    "score_"
+  ],
+  "expected_dimensions": 659,
+  "pca": 0,
+  "features": "features.parquet",
+  "measurements": "measurements.parquet",
+  "assignments": "assignments.parquet",
+  "aliases": "aliases.parquet",
+  "reference": "reference.csv",
+  "auxiliary": "auxiliary.parquet",
+  "weights": "weights.safetensors",
+  "tabpfn_version": "v3.5",
+  "tabpfn_estimators": 8
+}

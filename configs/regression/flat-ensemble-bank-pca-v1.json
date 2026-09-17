@@ -1,0 +1,14 @@
+{
+  "components": [
+    {"name": "jeremy_frozen_tabpfn", "file": "jeremy-frozen-oof.parquet"},
+    {"name": "jeremy_scores_log2fc_tabpfn", "file": "jeremy-scores-oof.parquet"},
+    {"name": "jeremy_finetuned_log2fc_lgbm", "file": "jeremy-finetuned-oof.parquet"},
+    {"name": "chemeleon_pca256_log2fc_tabicl", "file": "chemeleon-pca-oof.parquet"}
+  ],
+  "current_control": "current-control.parquet",
+  "scorer": "custom_scoring_functions.py",
+  "ridge_alpha": [0.01, 0.1, 1.0, 10.0, 100.0],
+  "simplex_lambda": [0.0, 0.0001, 0.001, 0.01, 0.1, 1.0],
+  "caruana_steps": [5, 10, 20, 50],
+  "protocol": "Endpoint-specific PCA-only atomic bank control; current ensemble is not a member; macro is descriptive only."
+}

@@ -1,0 +1,33 @@
+{
+  "device": "cuda",
+  "num_threads": 4,
+  "batch_size": 256,
+  "alphas": [0.0, 0.25, 0.5, 0.75, 1.0],
+  "pairs": [
+    {
+      "name": "continuous_1a2",
+      "endpoint": "CYP1A2_pIC50_direct_inhibition",
+      "base": "continuous-base.pt",
+      "focused": "continuous-1a2-focus2.pt"
+    },
+    {
+      "name": "continuous_2c9",
+      "endpoint": "CYP2C9_pIC50_direct_inhibition",
+      "base": "continuous-base.pt",
+      "focused": "continuous-2c9-focus2.pt"
+    },
+    {
+      "name": "cyp_2d6",
+      "endpoint": "CYP2D6_pIC50_direct_inhibition",
+      "base": "cyp-base.pt",
+      "focused": "cyp-2d6-focus2.pt"
+    },
+    {
+      "name": "all_3a4",
+      "endpoint": "CYP3A4_pIC50_direct_inhibition",
+      "base": "all-base.pt",
+      "focused": "all-3a4-focus2.pt"
+    }
+  ],
+  "protocol": "Single-encoder weight-space interpolation between matched-initialization 1x and 2x isoform-loss models. Interpolate only message-passing weights at 0/25/50/75/100%, export one raw600 representation, and use the unchanged fixed LightGBM readout. No embedding concatenation or prediction ensemble."
+}

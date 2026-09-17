@@ -1,0 +1,9 @@
+{
+  "model_run": "20260917T045247632576Z-99584378",
+  "prediction_file": "external-oof.parquet",
+  "database": {
+    "host": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/.runtime/socket",
+    "port": 5434,
+    "dbname": "cyp_challenge"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "split_run": "20260911T104703655337Z-a3923255",
+  "scorer": "custom_scoring_functions.py",
+  "num_threads": 4,
+  "candidates": [
+    {"name": "scratch_teacher_only_raw", "file": "scratch_teacher_only-raw.parquet", "prefixes": ["raw_"], "backends": ["lgbm"]},
+    {"name": "owned_init_hybrid_raw", "file": "owned_init_hybrid-raw.parquet", "prefixes": ["raw_"], "backends": ["lgbm"]},
+    {"name": "owned_init_hybrid_hidden", "file": "owned_init_hybrid-hidden.parquet", "prefixes": ["hidden_"], "backends": ["lgbm"]},
+    {"name": "owned_init_hybrid_scores", "file": "owned_init_hybrid-scores.parquet", "prefixes": ["score_"], "backends": ["lgbm"]},
+    {"name": "owned_init_hybrid_raw_scores", "file": "owned_init_hybrid-raw-scores.parquet", "prefixes": ["raw_", "score_"], "backends": ["lgbm"]},
+    {"name": "jeremy_init_task_anchor_raw", "file": "jeremy_init_task_anchor-raw.parquet", "prefixes": ["raw_"], "backends": ["lgbm"]},
+    {"name": "jeremy_init_task_anchor_hidden", "file": "jeremy_init_task_anchor-hidden.parquet", "prefixes": ["hidden_"], "backends": ["lgbm"]},
+    {"name": "jeremy_init_task_anchor_scores", "file": "jeremy_init_task_anchor-scores.parquet", "prefixes": ["score_"], "backends": ["lgbm"]},
+    {"name": "jeremy_init_task_anchor_raw_scores", "file": "jeremy_init_task_anchor-raw-scores.parquet", "prefixes": ["raw_", "score_"], "backends": ["lgbm"]},
+    {"name": "jeremy_pubchem_only_raw", "file": "jeremy_pubchem_only-raw.parquet", "prefixes": ["raw_"], "backends": ["lgbm"]},
+    {"name": "jeremy_pubchem_only_hidden", "file": "jeremy_pubchem_only-hidden.parquet", "prefixes": ["hidden_"], "backends": ["lgbm"]},
+    {"name": "jeremy_pubchem_only_scores", "file": "jeremy_pubchem_only-scores.parquet", "prefixes": ["score_"], "backends": ["lgbm"]},
+    {"name": "jeremy_pubchem_only_raw_scores", "file": "jeremy_pubchem_only-raw-scores.parquet", "prefixes": ["raw_", "score_"], "backends": ["lgbm"]},
+    {"name": "jeremy_pubchem_anchor010_raw", "file": "jeremy_pubchem_anchor010-raw.parquet", "prefixes": ["raw_"], "backends": ["lgbm"]},
+    {"name": "jeremy_pubchem_anchor010_hidden", "file": "jeremy_pubchem_anchor010-hidden.parquet", "prefixes": ["hidden_"], "backends": ["lgbm"]},
+    {"name": "jeremy_pubchem_anchor010_scores", "file": "jeremy_pubchem_anchor010-scores.parquet", "prefixes": ["score_"], "backends": ["lgbm"]},
+    {"name": "jeremy_pubchem_anchor010_raw_scores", "file": "jeremy_pubchem_anchor010-raw-scores.parquet", "prefixes": ["raw_", "score_"], "backends": ["lgbm"]},
+    {"name": "jeremy_pubchem_anchor030_raw", "file": "jeremy_pubchem_anchor030-raw.parquet", "prefixes": ["raw_"], "backends": ["lgbm"]},
+    {"name": "jeremy_pubchem_anchor030_hidden", "file": "jeremy_pubchem_anchor030-hidden.parquet", "prefixes": ["hidden_"], "backends": ["lgbm"]},
+    {"name": "jeremy_pubchem_anchor030_scores", "file": "jeremy_pubchem_anchor030-scores.parquet", "prefixes": ["score_"], "backends": ["lgbm"]},
+    {"name": "jeremy_pubchem_anchor030_raw_scores", "file": "jeremy_pubchem_anchor030-raw-scores.parquet", "prefixes": ["raw_", "score_"], "backends": ["lgbm"]}
+  ]
+}

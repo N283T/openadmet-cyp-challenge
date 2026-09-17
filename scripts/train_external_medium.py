@@ -17,30 +17,42 @@ class MediumAssayModel(torch.nn.Module):
     def __init__(self, n_assays, dropout):
         super().__init__()
         cfg = json.loads(Path(os.environ["CYP_CONFIG_PATH"]).read_text())
-        assert cfg.get("architecture") == "medium"
-        assert cfg.get("width", 600) == 600 and cfg.get("depth", 4) == 4
-        assert cfg.get("aggregation", "norm") == "norm"
-        assert cfg.get("aggregation_norm", 100.0) == 100.0
-        assert cfg.get("ffn_hidden_layers", 3) == 3
+        assert cfg.get("architecture") == "owned_width_grid"
+        width = int(cfg["width"])
+        depth = int(cfg.get("depth", 4))
+        aggregation = cfg.get("aggregation", "norm")
+        aggregation_norm = float(cfg.get("aggregation_norm", 100.0))
+        hidden_layers = int(cfg.get("ffn_hidden_layers", 3))
+        assert width in {256, 384, 448, 512, 600, 768, 896, 1024}
+        assert depth in {2, 3, 4, 5, 6}
+        assert aggregation in {"norm", "mean", "sum"}
+        assert hidden_layers in {1, 2, 3, 4}
         assert not cfg.get("conditioning_group")
-        self.mp = cnn.BondMessagePassing(d_h=600, depth=4)
-        self.aggregation = cnn.NormAggregation(norm=100.0)
+        self.mp = cnn.BondMessagePassing(d_h=width, depth=depth)
+        if aggregation == "norm":
+            self.aggregation = cnn.NormAggregation(norm=aggregation_norm)
+        elif aggregation == "mean":
+            self.aggregation = cnn.MeanAggregation()
+        else:
+            self.aggregation = cnn.SumAggregation()
         layers = []
-        for _ in range(3):
-            layers.extend([torch.nn.Linear(600, 600), torch.nn.ReLU(), torch.nn.Dropout(dropout)])
-        layers.append(torch.nn.Linear(600, n_assays * 2))
+        for _ in range(hidden_layers):
+            layers.extend(
+                [torch.nn.Linear(width, width), torch.nn.ReLU(), torch.nn.Dropout(dropout)]
+            )
+        layers.append(torch.nn.Linear(width, n_assays * 2))
         self.head = torch.nn.Sequential(*layers)
-        assert len([m for m in self.head if isinstance(m, torch.nn.Linear)]) == 4
-        assert self.mp.output_dim == 600
+        assert len([m for m in self.head if isinstance(m, torch.nn.Linear)]) == hidden_layers + 1
+        assert self.mp.output_dim == width
         metadata = dict(
-            architecture="medium",
-            width=600,
-            depth=4,
+            architecture="owned_width_grid",
+            width=width,
+            depth=depth,
             message_passing="BondMessagePassing",
-            aggregation="NormAggregation",
-            aggregation_norm=100.0,
-            ffn_hidden_layers=3,
-            ffn_hidden_width=600,
+            aggregation=type(self.aggregation).__name__,
+            aggregation_norm=aggregation_norm if aggregation == "norm" else None,
+            ffn_hidden_layers=hidden_layers,
+            ffn_hidden_width=width,
             activation="ReLU",
             dropout=dropout,
             assay_outputs=n_assays,
@@ -49,7 +61,7 @@ class MediumAssayModel(torch.nn.Module):
             parameter_count=sum(p.numel() for p in self.parameters()),
             state_key_groups=["mp", "head"],
             protocol="Existing external assay objectives, split, scaler and sampler unchanged",
-            scope="Architecture comparison only; no claim to reproduce Jeremy data or training",
+            scope="Project-owned encoder width/seed grid; no Jeremy checkpoint or training data",
         )
         (Path(os.environ["CYP_OUTPUT_DIR"]) / "architecture.json").write_text(
             json.dumps(metadata, indent=2)

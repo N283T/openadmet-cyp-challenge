@@ -1,0 +1,18 @@
+{
+  "method": "tabpfn35_fast_pub030_raw_fullfit_v1",
+  "backend": "tabpfn",
+  "prefix": "raw_",
+  "prefixes": [
+    "raw_"
+  ],
+  "expected_dimensions": 600,
+  "pca": 0,
+  "features": "features.parquet",
+  "measurements": "measurements.parquet",
+  "assignments": "assignments.parquet",
+  "aliases": "aliases.parquet",
+  "reference": "reference.csv",
+  "weights": "weights.safetensors",
+  "tabpfn_version": "v3.5-fast",
+  "tabpfn_estimators": 8
+}

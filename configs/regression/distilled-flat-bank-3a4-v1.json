@@ -1,0 +1,24 @@
+{
+  "endpoints": ["CYP3A4_pIC50_direct_inhibition"],
+  "components": [
+    {"name": "jeremy_medium_raw_lgbm", "file": "jeremy-medium-oof.parquet"},
+    {"name": "scratch_raw_lgbm", "file": "broad-scratch-raw-lgbm.parquet"},
+    {"name": "anchor59_raw_lgbm", "file": "broad-anchor59-raw-lgbm.parquet"},
+    {"name": "anchor59_raw_scores_lgbm", "file": "broad-anchor59-raw-scores-lgbm.parquet"},
+    {"name": "pub010_raw_scores_lgbm", "file": "broad-pub010-raw-scores-lgbm.parquet"},
+    {"name": "owned_raw_scores_lgbm", "file": "broad-owned-raw-scores-lgbm.parquet"},
+    {"name": "owned_hidden_lgbm", "file": "broad-owned-hidden-lgbm.parquet"},
+    {"name": "scratch_raw_tabpfn", "file": "diverse-scratch-raw-tabpfn.parquet"},
+    {"name": "owned_raw_scores_tabpfn", "file": "diverse-owned-raw-scores-tabpfn.parquet"},
+    {"name": "owned_raw_scores_catboost", "file": "diverse-owned-raw-scores-catboost.parquet"},
+    {"name": "anchor59_raw_scores_tabpfn", "file": "diverse-anchor59-raw-scores-tabpfn.parquet"},
+    {"name": "anchor59_raw_scores_catboost", "file": "diverse-anchor59-raw-scores-catboost.parquet"},
+    {"name": "pub030_raw_tabpfn", "file": "diverse-pub030-raw-tabpfn.parquet"}
+  ],
+  "current_control": "current-control.parquet",
+  "scorer": "custom_scoring_functions.py",
+  "ridge_alpha": [0.01, 0.1, 1.0, 10.0, 100.0],
+  "simplex_lambda": [0.0, 0.0001, 0.001, 0.01, 0.1, 1.0],
+  "caruana_steps": [5, 10, 20, 50],
+  "protocol": "CYP3A4-only flat bank emphasizing the strong 59-task predictor views across three downstream learners."
+}

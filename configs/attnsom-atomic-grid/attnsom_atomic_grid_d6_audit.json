@@ -1,0 +1,34 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "embedding_run": "20260914T045809423993Z-c5c2c254",
+  "training_run": "20260914T044928216258Z-221787f2",
+  "dimensions": [
+    0,
+    64,
+    128,
+    256
+  ],
+  "backends": [
+    "lgbm"
+  ],
+  "protocol": "Independent atomic readouts only; no blend or weight search. PCA is fit inside each outer fold.",
+  "scorer": "custom_scoring_functions.py",
+  "variants": [
+    {
+      "name": "attnsom_raw512_lgbm_d6",
+      "file": "attnsom_raw512_lgbm_d6.parquet"
+    },
+    {
+      "name": "attnsom_pca64_lgbm_d6",
+      "file": "attnsom_pca64_lgbm_d6.parquet"
+    },
+    {
+      "name": "attnsom_pca128_lgbm_d6",
+      "file": "attnsom_pca128_lgbm_d6.parquet"
+    },
+    {
+      "name": "attnsom_pca256_lgbm_d6",
+      "file": "attnsom_pca256_lgbm_d6.parquet"
+    }
+  ]
+}

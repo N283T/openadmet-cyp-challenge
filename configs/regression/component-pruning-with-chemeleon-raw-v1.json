@@ -1,0 +1,38 @@
+{
+  "components": [
+    {
+      "name": "nested_caruana",
+      "file": "nested-caruana-oof.parquet",
+      "column": "prediction"
+    },
+    {
+      "name": "jeremy_frozen_tabpfn",
+      "file": "jeremy-frozen-oof.parquet",
+      "column": "prediction"
+    },
+    {
+      "name": "jeremy_scores_log2fc_tabpfn",
+      "file": "jeremy-scores-oof.parquet",
+      "column": "prediction"
+    },
+    {
+      "name": "jeremy_finetuned_log2fc_lgbm",
+      "file": "jeremy-finetuned-oof.parquet",
+      "column": "prediction"
+    },
+    {
+      "name": "chemeleon_pca256_log2fc_tabicl",
+      "file": "chemeleon-pca-oof.parquet",
+      "column": "prediction"
+    },
+    {
+      "name": "chemeleon_raw2048_log2fc_tabicl",
+      "file": "chemeleon-raw-oof.parquet",
+      "column": "prediction"
+    }
+  ],
+  "scorer": "custom_scoring_functions.py",
+  "bootstrap_replicates": 1000,
+  "bootstrap_seed": 20260916,
+  "selection_policy": "Equal-weight subsets only; raw is a full ensemble member; no incremental-weight search"
+}

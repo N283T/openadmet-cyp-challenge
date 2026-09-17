@@ -1,0 +1,17 @@
+{
+  "method": "owned_v2_broad5_pca512_lgbm",
+  "backend": "lgbm",
+  "feature_file": "concatenated-embeddings.parquet",
+  "feature_prefix": "emb_",
+  "pca": 512,
+  "mask_observed_validation": false,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "endpoints": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "feature_run": "20260916T091746252797Z-e571bd53",
+  "lgbm_overrides": {}
+}

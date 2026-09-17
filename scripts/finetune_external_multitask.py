@@ -27,19 +27,37 @@ def input_path(root, name):
     return paths[0]
 
 
-def encoder_architecture(checkpoint):
+def encoder_architecture(checkpoint, encoder_state=None):
     source = checkpoint.get("config", {})
     medium = source.get("architecture") == "medium"
+    aggregation = source.get(
+        "aggregation", "norm" if medium or "aggregation_norm" in source else "mean"
+    )
+    explicit_owned_architecture = all(
+        key in source for key in ["width", "depth"]
+    ) and ("aggregation" in source or "aggregation_norm" in source)
+    bias = source.get(
+        "bias",
+        True if encoder_state is None else "W_i.bias" in encoder_state,
+    )
     architecture = dict(
         width=source.get("width", 600),
         depth=source.get("depth", 4 if medium else 5),
-        aggregation=source.get("aggregation", "norm" if medium else "mean"),
-        aggregation_norm=source.get("aggregation_norm", 100.0) if medium else None,
+        aggregation=aggregation,
+        aggregation_norm=(
+            source.get("aggregation_norm", 100.0)
+            if aggregation == "norm"
+            else None
+        ),
+        bias=bias,
     )
     assert architecture["width"] == 600
-    assert architecture["depth"] == (4 if medium else 5)
-    assert architecture["aggregation"] == ("norm" if medium else "mean")
-    if medium:
+    assert 3 <= architecture["depth"] <= 6
+    assert architecture["aggregation"] in {"norm", "mean"}
+    if not explicit_owned_architecture:
+        assert architecture["depth"] == (4 if medium else 5)
+        assert architecture["aggregation"] == ("norm" if medium else "mean")
+    if architecture["aggregation"] == "norm":
         assert architecture["aggregation_norm"] == 100.0
     return architecture
 
@@ -48,7 +66,9 @@ class MultitaskModel(torch.nn.Module):
     def __init__(self, encoder_state, dropout, n_heads=8, architecture=None):
         super().__init__()
         architecture = architecture or encoder_architecture({})
-        self.mp = cnn.BondMessagePassing(d_h=600, depth=architecture["depth"])
+        self.mp = cnn.BondMessagePassing(
+            d_h=600, depth=architecture["depth"], bias=architecture["bias"]
+        )
         self.mp.load_state_dict(encoder_state, strict=True)
         self.aggregation = (
             cnn.NormAggregation(norm=architecture["aggregation_norm"])
@@ -225,13 +245,21 @@ def main():
     checkpoint = torch.load(
         input_path(inp, cfg["checkpoint_file"]), map_location="cpu", weights_only=False
     )
+    state_dict = checkpoint["state_dict"]
+    prefixes = [
+        prefix
+        for prefix in ("mp.", "message_passing.")
+        if any(key.startswith(prefix) for key in state_dict)
+    ]
+    assert len(prefixes) == 1, prefixes
+    prefix = prefixes[0]
     encoder_state = {
-        key.removeprefix("mp."): value
-        for key, value in checkpoint["state_dict"].items()
-        if key.startswith("mp.")
+        key.removeprefix(prefix): value
+        for key, value in state_dict.items()
+        if key.startswith(prefix)
     }
     assert encoder_state
-    architecture = encoder_architecture(checkpoint)
+    architecture = encoder_architecture(checkpoint, encoder_state)
     (out / "encoder-architecture.json").write_text(json.dumps(architecture, indent=2))
     torch.set_num_threads(cfg["num_threads"])
     torch.backends.cuda.matmul.allow_tf32 = False

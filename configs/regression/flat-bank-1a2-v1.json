@@ -1,0 +1,13 @@
+{
+  "endpoints": ["CYP1A2_pIC50_direct_inhibition"],
+  "components": [
+    {"name": "jeremy_frozen_tabpfn", "file": "jeremy-frozen-oof.parquet"},
+    {"name": "jeremy_scores_log2fc_tabpfn", "file": "jeremy-scores-oof.parquet"},
+    {"name": "jeremy_finetuned_log2fc_lgbm", "file": "jeremy-finetuned-oof.parquet"},
+    {"name": "chemeleon_pca256_log2fc_tabicl", "file": "chemeleon-pca-oof.parquet"},
+    {"name": "chemeleon_raw2048_log2fc_tabicl", "file": "chemeleon-raw-oof.parquet"}
+  ],
+  "current_control": "current-control.parquet", "scorer": "custom_scoring_functions.py",
+  "ridge_alpha": [0.01, 0.1, 1.0, 10.0, 100.0], "simplex_lambda": [0.0, 0.0001, 0.001, 0.01, 0.1, 1.0], "caruana_steps": [5, 10, 20, 50],
+  "protocol": "CYP1A2-only atomic bank; select bank and ensemble independently."
+}

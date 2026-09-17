@@ -1,0 +1,16 @@
+{
+  "purpose": "Raw and curated public Polaris Novartis CYP3A4 surrogate panel snapshot for project-owned molecular pretraining; task construction is deferred.",
+  "source_revision": "polaris-hub/polaris-recipes acab563e06f7d7cdc1aa9c927bfc9b6df7966219",
+  "license": "CC-BY-4.0 as declared by the Polaris dataset page",
+  "requests": [
+    {"name": "surrogate_training_set_public.parquet", "url": "https://storage.polarishub.io/public/polaris-recipes/org-novartis/CYP/data/raw/surrogate_training_set_public.parquet"},
+    {"name": "test_set_Zimmerlin2011.parquet", "url": "https://storage.polarishub.io/public/polaris-recipes/org-novartis/CYP/data/raw/test_set_Zimmerlin2011.parquet"},
+    {"name": "train_test.parquet", "url": "https://storage.polarishub.io/public/polaris-recipes/org-novartis/CYP/data/raw/train_test.parquet"},
+    {"name": "CYP_curated.csv", "url": "https://storage.polarishub.io/public/polaris-recipes/org-novartis/CYP/data/curation/CYP_curated.csv"},
+    {"name": "CYP3A4_readme.md", "url": "https://raw.githubusercontent.com/polaris-hub/polaris-recipes/acab563e06f7d7cdc1aa9c927bfc9b6df7966219/org-Novartis/CYP/CYP3A4_readme.md"},
+    {"name": "00_CYP3A4_data_processing.ipynb", "url": "https://raw.githubusercontent.com/polaris-hub/polaris-recipes/acab563e06f7d7cdc1aa9c927bfc9b6df7966219/org-Novartis/CYP/00_CYP3A4_data_processing.ipynb"},
+    {"name": "01_CYP3A4_data_curation.ipynb", "url": "https://raw.githubusercontent.com/polaris-hub/polaris-recipes/acab563e06f7d7cdc1aa9c927bfc9b6df7966219/org-Novartis/CYP/01_CYP3A4_data_curation.ipynb"},
+    {"name": "02_CYP3A4_dataset.ipynb", "url": "https://raw.githubusercontent.com/polaris-hub/polaris-recipes/acab563e06f7d7cdc1aa9c927bfc9b6df7966219/org-Novartis/CYP/02_CYP3A4_dataset.ipynb"},
+    {"name": "dataset-page.html", "url": "https://polarishub.io/datasets/novartis/novartis-cyp3a4-v1"}
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "seed": 42,
+  "inner_folds": 3,
+  "num_threads": 4,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "candidates": [
+    {
+      "name": "owned_joint_continuous",
+      "file": "owned-joint-continuous.parquet",
+      "endpoints": ["CYP1A2_pIC50_direct_inhibition"]
+    },
+    {
+      "name": "owned_no_polaris",
+      "file": "owned-no-polaris.parquet",
+      "endpoints": ["CYP2C9_pIC50_direct_inhibition"]
+    },
+    {
+      "name": "owned_joint_cyp",
+      "file": "owned-joint-cyp.parquet",
+      "endpoints": ["CYP2D6_pIC50_direct_inhibition"]
+    },
+    {
+      "name": "owned_proportional",
+      "file": "owned-proportional.parquet",
+      "endpoints": ["CYP3A4_pIC50_direct_inhibition"]
+    },
+    {
+      "name": "jeremy_raw600",
+      "file": "jeremy.parquet",
+      "endpoints": [
+        "CYP1A2_pIC50_direct_inhibition",
+        "CYP2C9_pIC50_direct_inhibition",
+        "CYP2D6_pIC50_direct_inhibition",
+        "CYP3A4_pIC50_direct_inhibition"
+      ]
+    }
+  ],
+  "lgbm_grid": [
+    {"name": "default15", "params": {}},
+    {"name": "shallow7", "params": {"n_estimators": 500, "num_leaves": 7, "learning_rate": 0.03}},
+    {"name": "leaves31", "params": {"n_estimators": 500, "num_leaves": 31, "learning_rate": 0.03}},
+    {"name": "regularized31", "params": {"n_estimators": 500, "num_leaves": 31, "min_child_samples": 40, "learning_rate": 0.03}},
+    {"name": "slow31", "params": {"n_estimators": 800, "num_leaves": 31, "learning_rate": 0.02}},
+    {"name": "feature70", "params": {"n_estimators": 500, "num_leaves": 31, "learning_rate": 0.03, "colsample_bytree": 0.7}},
+    {"name": "l1_regularized", "params": {"n_estimators": 500, "num_leaves": 31, "learning_rate": 0.03, "reg_alpha": 1.0, "reg_lambda": 3.0}},
+    {"name": "huber31", "params": {"objective": "huber", "n_estimators": 500, "num_leaves": 31, "learning_rate": 0.03}}
+  ],
+  "protocol": "Atomic raw600 comparison only. For every outer parent fold, choose one shared LightGBM grid entry by mean official ST-RAE across three inner group folds, refit on all outer-training rows, and assess the untouched outer fold. Apply the identical selection protocol to each target-specific owned candidate and Jeremy."
+}

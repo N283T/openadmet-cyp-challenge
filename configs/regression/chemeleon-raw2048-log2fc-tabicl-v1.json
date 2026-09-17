@@ -1,0 +1,23 @@
+{
+  "method": "chemeleon_raw2048_log2fc_tabicl_v1",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "assignments": "assignments.parquet",
+  "measurements": "measurements.parquet",
+  "weights": "tabicl-regressor.ckpt",
+  "fold_specific": false,
+  "prepare_only": false,
+  "pca": 0,
+  "threads": 2,
+  "feature_prefix": "emb_",
+  "n_estimators": 8,
+  "device": "cuda",
+  "expected_oof_rows": 6384,
+  "feature_files": {
+    "0": "embeddings.parquet",
+    "1": "embeddings.parquet",
+    "2": "embeddings.parquet",
+    "3": "embeddings.parquet",
+    "4": "embeddings.parquet"
+  },
+  "nested_file": "nested-log2fc.parquet"
+}

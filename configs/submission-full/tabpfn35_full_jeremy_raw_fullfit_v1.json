@@ -1,0 +1,18 @@
+{
+  "method": "tabpfn35_full_jeremy_raw_fullfit_v1",
+  "backend": "tabpfn",
+  "prefix": "emb_",
+  "prefixes": [
+    "emb_"
+  ],
+  "expected_dimensions": 600,
+  "pca": 0,
+  "features": "features.parquet",
+  "measurements": "measurements.parquet",
+  "assignments": "assignments.parquet",
+  "aliases": "aliases.parquet",
+  "reference": "reference.csv",
+  "weights": "weights.safetensors",
+  "tabpfn_version": "v3.5",
+  "tabpfn_estimators": 8
+}

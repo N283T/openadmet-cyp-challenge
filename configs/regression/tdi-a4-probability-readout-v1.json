@@ -1,0 +1,7 @@
+{
+  "endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "tdi_model": "exhaustive_mcc::components_7",
+  "ridge_alphas": [0.1, 1.0, 10.0, 100.0],
+  "num_threads": 4,
+  "protocol": "Use classification OOF probabilities only as regression features. Fit every pIC50 calibration on the other four regression folds and predict the held regression fold."
+}

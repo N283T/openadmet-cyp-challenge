@@ -1,0 +1,15 @@
+{
+  "endpoints": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "scorer": "custom_scoring_functions.py",
+  "protocol": "Matched single-checkpoint raw LightGBM comparison; no concatenation and no blending.",
+  "variants": [
+    {"name": "owned_single_rustuna_v1", "file": "owned.parquet"},
+    {"name": "jeremy_raw600_lgbm", "file": "jeremy.parquet"},
+    {"name": "owned_single_d3_control", "file": "owned-d3-control.parquet"}
+  ]
+}

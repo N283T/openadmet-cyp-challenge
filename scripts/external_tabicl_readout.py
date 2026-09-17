@@ -1,7 +1,8 @@
 """TabICL on frozen or fold-specific external embeddings with optional nested log2fc.
 
-Fit standardization/PCA to embedding columns using outer training rows only;
-append the four nested auxiliary columns AFTER the embedding PCA.
+Fit standardization and optional PCA to embedding columns using outer training
+rows only; append the four nested auxiliary columns after embedding preprocessing.
+Set ``pca`` to zero to retain every standardized embedding coordinate.
 """
 
 import importlib.metadata
@@ -97,12 +98,20 @@ def main():
             assert va.any() and (~va).any()
             raw = h.select(cols).to_numpy().astype(np.float32)
             scaler = StandardScaler().fit(raw[~va])
-            ncomp = min(cfg.get("pca", 256), raw.shape[1], int((~va).sum()) - 1)
-            assert ncomp > 0
-            pca = PCA(n_components=ncomp, random_state=42, svd_solver="randomized").fit(
-                scaler.transform(raw[~va])
-            )
-            x = pca.transform(scaler.transform(raw)).astype(np.float32)
+            requested_pca = cfg.get("pca", 256)
+            assert requested_pca >= 0
+            scaled = scaler.transform(raw)
+            if requested_pca:
+                ncomp = min(requested_pca, raw.shape[1], int((~va).sum()) - 1)
+                assert ncomp > 0
+                pca = PCA(n_components=ncomp, random_state=42, svd_solver="randomized").fit(
+                    scaled[~va]
+                )
+                x = pca.transform(scaled).astype(np.float32)
+            else:
+                ncomp = raw.shape[1]
+                pca = None
+                x = scaled.astype(np.float32)
             assert x.shape[1] == ncomp
             if nested is not None:
                 aux = h.select("compound_id").join(
@@ -122,7 +131,9 @@ def main():
                     pca=pca,
                     embedding_columns=cols,
                     auxiliary_columns=auxcols if nested is not None else [],
-                    pca_training_compound_ids=h.filter(pl.Series(~va))["compound_id"].to_list(),
+                    preprocessing_training_compound_ids=h.filter(pl.Series(~va))[
+                        "compound_id"
+                    ].to_list(),
                 ),
                 out / f"{endpoint}-fold{fold}-preprocessing.joblib",
             )
@@ -138,13 +149,16 @@ def main():
                 training_n=int((~va).sum()),
                 validation_n=int(va.sum()),
                 embedding_columns=len(cols),
-                pca_components=ncomp,
+                pca_components=0 if pca is None else ncomp,
+                embedding_output_columns=ncomp,
                 auxiliary_columns=4 if nested is not None else 0,
                 final_columns=x.shape[1],
                 pca_n_samples=int(scaler.n_samples_seen_),
                 feature_snapshot=cfg["feature_files"][str(fold)],
                 nested_snapshot=cfg.get("nested_file"),
-                embedding_only_pca=True,
+                embedding_preprocessing="standard_scaler_only"
+                if pca is None
+                else "standard_scaler_then_pca",
                 method=cfg["method"],
             )
             assert meta["pca_n_samples"] == meta["training_n"]
@@ -192,7 +206,10 @@ def main():
                 oof_rows=0 if cfg.get("prepare_only", False) else 6384,
                 expected_oof_rows=6384,
                 fold_specific=cfg["fold_specific"],
-                features="Train-only embedding PCA, then four optional keyed nested log2fc values",
+                features=(
+                    "Train-only embedding scaling with optional PCA, then four optional keyed "
+                    "nested log2fc values"
+                ),
                 status="prepared_only" if cfg.get("prepare_only", False) else "completed",
             ),
             indent=2,

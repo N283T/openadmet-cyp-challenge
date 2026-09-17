@@ -1,0 +1,6 @@
+{
+  "base_run": "20260916T082302554619Z-656c63e6",
+  "isoforms": ["CYP2C9"],
+  "sources": ["chembl36", "pubchem1851", "tox21_p450_glo", "tdc_adme", "polaris_novartis_cyp"],
+  "purpose": "Leak-excluded direct CYP2C9 supervision from consolidated ChEMBL, PubChem, Tox21, TDC and Novartis endpoints."
+}

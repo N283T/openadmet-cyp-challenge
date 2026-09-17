@@ -1,0 +1,21 @@
+{
+  "dataset_run": "20260916T072819161332Z-a374a545",
+  "mode": "mixed",
+  "validation_seed": 781,
+  "max_epochs": 60,
+  "patience": 10,
+  "batch_size": 128,
+  "steps_per_epoch": 200,
+  "min_train_observations": 5,
+  "rank_min_gap": 0.25,
+  "initialization": "random",
+  "scaling_policy": "pooled_shrinkage",
+  "depth": 4,
+  "aggregation": "norm",
+  "aggregation_norm": 100.0,
+  "ffn_hidden_layers": 3,
+  "architecture": "owned_width_grid",
+  "width": 256,
+  "seed": 42,
+  "purpose": "Project-owned random-initialized external encoder first wave on the leak-excluded OpenADMET-expanded corpus. One training seed; compare width and fold-local raw/PCA readouts on CYP2D6 before expanding seeds or backends."
+}
