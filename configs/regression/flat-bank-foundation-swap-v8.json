@@ -1,0 +1,108 @@
+{
+  "scorer": "custom_scoring_functions.py",
+  "current_control": "current-control.parquet",
+  "ridge_alpha": [0.01, 0.1, 1.0, 10.0, 100.0],
+  "simplex_lambda": [0.0, 0.0001, 0.001, 0.01, 0.1, 1.0],
+  "caruana_steps": [5, 10, 20, 50],
+  "pools": {
+    "1A2": {
+      "endpoint": "CYP1A2_pIC50_direct_inhibition",
+      "components": [
+        ["jeremy_frozen_tabpfn26", "jeremy-frozen-oof.parquet"],
+        ["jeremy_scores_log2fc_tabpfn26", "jeremy-scores-oof.parquet"],
+        ["jeremy_finetuned_log2fc_lgbm", "jeremy-finetuned-oof.parquet"],
+        ["chemeleon_pca256_log2fc_tabicl", "chemeleon-pca-oof.parquet"],
+        ["tabpfn35_fast_pub030_raw", "t35-fast-pub030-raw.parquet"],
+        ["tabpfn35_fast_anchor59_raw_scores_logfc", "t35-fast-anchor59-raw-scores-logfc.parquet"],
+        ["lgbm_all_pool_top512", "lgbm-all-pool-top512.parquet"],
+        ["lgbm_jeremy_all_log2fc", "lgbm-jeremy-all-log2fc.parquet"],
+        ["lgbm_dense_pool_top256", "lgbm-dense-pool-top256.parquet"],
+        ["tabpfn35fast_all_pool_top512", "foundation-fast-all512-1a2.parquet"],
+        ["tabpfn35fast_jeremy_anchor_all", "foundation-fast-jeremy-anchor-1a2.parquet"]
+      ],
+      "variants": {
+        "v7": ["jeremy_frozen_tabpfn26", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_fast_pub030_raw", "tabpfn35_fast_anchor59_raw_scores_logfc", "lgbm_all_pool_top512", "lgbm_jeremy_all_log2fc"],
+        "swap_dense": ["jeremy_frozen_tabpfn26", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_fast_pub030_raw", "tabpfn35_fast_anchor59_raw_scores_logfc", "lgbm_dense_pool_top256", "lgbm_jeremy_all_log2fc"],
+        "add_fast_pool": ["jeremy_frozen_tabpfn26", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_fast_pub030_raw", "tabpfn35_fast_anchor59_raw_scores_logfc", "lgbm_all_pool_top512", "lgbm_jeremy_all_log2fc", "tabpfn35fast_all_pool_top512"],
+        "add_fast_jeremy": ["jeremy_frozen_tabpfn26", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_fast_pub030_raw", "tabpfn35_fast_anchor59_raw_scores_logfc", "lgbm_all_pool_top512", "lgbm_jeremy_all_log2fc", "tabpfn35fast_jeremy_anchor_all"],
+        "add_fast_both": ["jeremy_frozen_tabpfn26", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_fast_pub030_raw", "tabpfn35_fast_anchor59_raw_scores_logfc", "lgbm_all_pool_top512", "lgbm_jeremy_all_log2fc", "tabpfn35fast_all_pool_top512", "tabpfn35fast_jeremy_anchor_all"],
+        "swap_dense_add_fast_pool": ["jeremy_frozen_tabpfn26", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_fast_pub030_raw", "tabpfn35_fast_anchor59_raw_scores_logfc", "lgbm_dense_pool_top256", "lgbm_jeremy_all_log2fc", "tabpfn35fast_all_pool_top512"],
+        "add_dense_and_fast_pool": ["jeremy_frozen_tabpfn26", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_fast_pub030_raw", "tabpfn35_fast_anchor59_raw_scores_logfc", "lgbm_all_pool_top512", "lgbm_jeremy_all_log2fc", "lgbm_dense_pool_top256", "tabpfn35fast_all_pool_top512"]
+      }
+    },
+    "2C9": {
+      "endpoint": "CYP2C9_pIC50_direct_inhibition",
+      "components": [
+        ["jeremy_scores_log2fc_tabpfn26", "jeremy-scores-oof.parquet"],
+        ["jeremy_finetuned_log2fc_lgbm", "jeremy-finetuned-oof.parquet"],
+        ["chemeleon_pca256_log2fc_tabicl", "chemeleon-pca-oof.parquet"],
+        ["owned_broad5_2c9_specialist_lgbm", "owned-2c9-oof.parquet"],
+        ["tabpfn35_full_chemeleon_raw_logfc", "t35-full-chemeleon-raw-logfc.parquet"],
+        ["lgbm_owned_scratch_anchor", "lgbm-owned-scratch-anchor.parquet"],
+        ["lgbm_dense_pool_top512", "lgbm-dense-pool-top512.parquet"],
+        ["tabpfn35fast_dense_pool_top512", "foundation-fast-dense512-2c9.parquet"],
+        ["tabicl_dense_pool_top512", "foundation-icl-dense512-2c9.parquet"]
+      ],
+      "variants": {
+        "v7": ["jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "owned_broad5_2c9_specialist_lgbm", "tabpfn35_full_chemeleon_raw_logfc", "lgbm_owned_scratch_anchor"],
+        "swap_dense_lgbm": ["jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "owned_broad5_2c9_specialist_lgbm", "tabpfn35_full_chemeleon_raw_logfc", "lgbm_dense_pool_top512"],
+        "add_dense_lgbm": ["jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "owned_broad5_2c9_specialist_lgbm", "tabpfn35_full_chemeleon_raw_logfc", "lgbm_owned_scratch_anchor", "lgbm_dense_pool_top512"],
+        "add_dense_fast": ["jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "owned_broad5_2c9_specialist_lgbm", "tabpfn35_full_chemeleon_raw_logfc", "lgbm_owned_scratch_anchor", "tabpfn35fast_dense_pool_top512"],
+        "add_dense_icl": ["jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "owned_broad5_2c9_specialist_lgbm", "tabpfn35_full_chemeleon_raw_logfc", "lgbm_owned_scratch_anchor", "tabicl_dense_pool_top512"],
+        "swap_dense_lgbm_add_fast": ["jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "owned_broad5_2c9_specialist_lgbm", "tabpfn35_full_chemeleon_raw_logfc", "lgbm_dense_pool_top512", "tabpfn35fast_dense_pool_top512"],
+        "swap_dense_lgbm_add_icl": ["jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "owned_broad5_2c9_specialist_lgbm", "tabpfn35_full_chemeleon_raw_logfc", "lgbm_dense_pool_top512", "tabicl_dense_pool_top512"],
+        "add_lgbm_and_fast": ["jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "owned_broad5_2c9_specialist_lgbm", "tabpfn35_full_chemeleon_raw_logfc", "lgbm_owned_scratch_anchor", "lgbm_dense_pool_top512", "tabpfn35fast_dense_pool_top512"],
+        "add_lgbm_and_icl": ["jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "owned_broad5_2c9_specialist_lgbm", "tabpfn35_full_chemeleon_raw_logfc", "lgbm_owned_scratch_anchor", "lgbm_dense_pool_top512", "tabicl_dense_pool_top512"]
+      }
+    },
+    "2D6": {
+      "endpoint": "CYP2D6_pIC50_direct_inhibition",
+      "components": [
+        ["jeremy_frozen_tabpfn26", "jeremy-frozen-oof.parquet"],
+        ["jeremy_finetuned_log2fc_lgbm", "jeremy-finetuned-oof.parquet"],
+        ["chemeleon_raw2048_log2fc_tabicl", "chemeleon-raw-oof.parquet"],
+        ["owned_raw_scores_lgbm", "owned-raw-scores-lgbm.parquet"],
+        ["anchor59_raw_scores_lgbm", "anchor59-raw-scores-lgbm.parquet"],
+        ["anchor59_scores_lgbm", "anchor59-scores-lgbm.parquet"],
+        ["pubonly_raw_lgbm", "pubonly-raw-lgbm.parquet"],
+        ["scratch_raw_catboost", "scratch-raw-catboost.parquet"],
+        ["anchor59_raw_scores_catboost", "anchor59-raw-scores-catboost.parquet"],
+        ["tabpfn35_fast_jeremy_scores_logfc", "t35-fast-jeremy-scores-logfc.parquet"],
+        ["tabpfn35_fast_anchor59_raw_scores_logfc", "t35-fast-anchor59-raw-scores-logfc.parquet"],
+        ["tabpfn35_fast_chemeleon_raw_logfc", "t35-fast-chemeleon-raw-logfc.parquet"],
+        ["lgbm_jeremy_anchor_all_log2fc", "lgbm-jeremy-anchor-all-log2fc.parquet"]
+      ],
+      "variants": {
+        "v7": ["jeremy_frozen_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_raw2048_log2fc_tabicl", "owned_raw_scores_lgbm", "anchor59_raw_scores_lgbm", "anchor59_scores_lgbm", "pubonly_raw_lgbm", "scratch_raw_catboost", "anchor59_raw_scores_catboost", "tabpfn35_fast_jeremy_scores_logfc", "tabpfn35_fast_anchor59_raw_scores_logfc", "tabpfn35_fast_chemeleon_raw_logfc", "lgbm_jeremy_anchor_all_log2fc"]
+      }
+    },
+    "3A4": {
+      "endpoint": "CYP3A4_pIC50_direct_inhibition",
+      "components": [
+        ["class_quantile_065_lgbm", "3a4-class-quantile-oof.parquet"],
+        ["morgan_quantile_065_lgbm", "3a4-morgan-quantile-oof.parquet"],
+        ["jeremy_scores_log2fc_tabpfn26", "jeremy-scores-oof.parquet"],
+        ["jeremy_finetuned_log2fc_lgbm", "jeremy-finetuned-oof.parquet"],
+        ["chemeleon_pca256_log2fc_tabicl", "chemeleon-pca-oof.parquet"],
+        ["tabpfn35_full_anchor59_raw_scores_logfc", "t35-full-anchor59-raw-scores-logfc.parquet"],
+        ["tdi_continuous_arm_lgbm", "tdi-continuous-arm-oof.parquet"],
+        ["lgbm_dense_pool_top256", "lgbm-dense-pool-top256.parquet"],
+        ["lgbm_jeremy_anchor_all_log2fc", "lgbm-jeremy-anchor-all-log2fc.parquet"],
+        ["lgbm_dense_pool_top512", "lgbm-dense-pool-top512.parquet"],
+        ["tabpfn35fast_dense_pool_top512", "foundation-fast-dense512-3a4.parquet"],
+        ["tabicl_dense_pool_top512", "foundation-icl-dense512-3a4.parquet"]
+      ],
+      "variants": {
+        "v7": ["class_quantile_065_lgbm", "morgan_quantile_065_lgbm", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_full_anchor59_raw_scores_logfc", "tdi_continuous_arm_lgbm", "lgbm_dense_pool_top256", "lgbm_jeremy_anchor_all_log2fc"],
+        "swap_dense512": ["class_quantile_065_lgbm", "morgan_quantile_065_lgbm", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_full_anchor59_raw_scores_logfc", "tdi_continuous_arm_lgbm", "lgbm_dense_pool_top512", "lgbm_jeremy_anchor_all_log2fc"],
+        "add_dense512": ["class_quantile_065_lgbm", "morgan_quantile_065_lgbm", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_full_anchor59_raw_scores_logfc", "tdi_continuous_arm_lgbm", "lgbm_dense_pool_top256", "lgbm_jeremy_anchor_all_log2fc", "lgbm_dense_pool_top512"],
+        "add_dense_fast": ["class_quantile_065_lgbm", "morgan_quantile_065_lgbm", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_full_anchor59_raw_scores_logfc", "tdi_continuous_arm_lgbm", "lgbm_dense_pool_top256", "lgbm_jeremy_anchor_all_log2fc", "tabpfn35fast_dense_pool_top512"],
+        "add_dense_icl": ["class_quantile_065_lgbm", "morgan_quantile_065_lgbm", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_full_anchor59_raw_scores_logfc", "tdi_continuous_arm_lgbm", "lgbm_dense_pool_top256", "lgbm_jeremy_anchor_all_log2fc", "tabicl_dense_pool_top512"],
+        "swap_dense512_add_fast": ["class_quantile_065_lgbm", "morgan_quantile_065_lgbm", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_full_anchor59_raw_scores_logfc", "tdi_continuous_arm_lgbm", "lgbm_dense_pool_top512", "lgbm_jeremy_anchor_all_log2fc", "tabpfn35fast_dense_pool_top512"],
+        "swap_dense512_add_icl": ["class_quantile_065_lgbm", "morgan_quantile_065_lgbm", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_full_anchor59_raw_scores_logfc", "tdi_continuous_arm_lgbm", "lgbm_dense_pool_top512", "lgbm_jeremy_anchor_all_log2fc", "tabicl_dense_pool_top512"],
+        "add_lgbm_and_fast": ["class_quantile_065_lgbm", "morgan_quantile_065_lgbm", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_full_anchor59_raw_scores_logfc", "tdi_continuous_arm_lgbm", "lgbm_dense_pool_top256", "lgbm_jeremy_anchor_all_log2fc", "lgbm_dense_pool_top512", "tabpfn35fast_dense_pool_top512"],
+        "add_lgbm_and_icl": ["class_quantile_065_lgbm", "morgan_quantile_065_lgbm", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_full_anchor59_raw_scores_logfc", "tdi_continuous_arm_lgbm", "lgbm_dense_pool_top256", "lgbm_jeremy_anchor_all_log2fc", "lgbm_dense_pool_top512", "tabicl_dense_pool_top512"]
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "strategy": "scaffold",
+  "folds": 5,
+  "primary_split": "20260911T104703655337Z-a3923255",
+  "base_split": "20260909T135130268493Z-edba6fc0",
+  "selection_policy": "Series is primary; scaffold is a prespecified secondary ordering check. Report both and never select the better split post hoc."
+}

@@ -1,0 +1,39 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "old_oof_method": "simplex_interval",
+  "new_oof_method": "caruana",
+  "delta_alpha_grid": [0.0, 0.5, 1.0, 1.25, 1.5, 2.0, 3.0],
+  "selection_alpha_max": 2.0,
+  "fold_guardrail": 0.02,
+  "d6_inferred_blind_sd": 1.599,
+  "placements": {
+    "CYP1A2_pIC50_direct_inhibition": {"mean": 4.412, "sample_sd": 1.169409},
+    "CYP2C9_pIC50_direct_inhibition": {"mean": 4.83, "sample_sd": 0.922638},
+    "CYP2D6_pIC50_direct_inhibition": {"mean": 3.57, "sample_sd": 0.9},
+    "CYP3A4_pIC50_direct_inhibition": {"mean": 4.88, "sample_sd": 1.082472}
+  },
+  "d6_placement_sensitivity": {
+    "means": [3.45, 3.57, 3.69],
+    "sample_sds": [0.8, 0.9, 1.0]
+  },
+  "leaderboard_history": [
+    {
+      "name": "unplaced-five-member",
+      "file": "submitted-20260912.parquet",
+      "submitted": "2026-09-12T07:48:00Z",
+      "scores": {"1A2": 0.6989487646478034, "2C9": 0.381119060179734, "2D6": 1.3349701041213575, "3A4": 0.4696282371839585, "macro": 0.7211665415332134}
+    },
+    {
+      "name": "source-placement",
+      "file": "submitted-20260914.csv",
+      "submitted": "2026-09-14T02:48:00Z",
+      "scores": {"1A2": 0.5264553745519536, "2C9": 0.3669393407944391, "2D6": 0.5655200037077417, "3A4": 0.4449831468036935, "macro": 0.4759744664644569}
+    },
+    {
+      "name": "flat-bank-v7",
+      "file": "submitted-20260917.csv",
+      "submitted": "2026-09-17T13:27:00Z",
+      "scores": {"1A2": 0.5298449080323527, "2C9": 0.3593578956523321, "2D6": 0.5827882036595153, "3A4": 0.4312525270426474, "macro": 0.4758108835967119}
+    }
+  ]
+}

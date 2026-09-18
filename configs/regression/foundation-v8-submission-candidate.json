@@ -1,0 +1,48 @@
+{
+  "aliases": "aliases.parquet",
+  "reference": "reference.csv",
+  "base_candidate": "previous-submission.csv",
+  "prior_atomic": "previous-atomic.parquet",
+  "new_atomic": "new-atomic.parquet",
+  "new_method_names": {
+    "lgbm_all_pool_top512_1a2": "lgbm_all_pool_top512",
+    "lgbm_dense_pool_top256_1a2": "lgbm_dense_pool_top256",
+    "lgbm_jeremy_all_log2fc_1a2": "lgbm_jeremy_all_log2fc",
+    "tabpfn35fast_all_pool_top512_1a2": "tabpfn35fast_all_pool_top512",
+    "lgbm_owned_scratch_anchor_2c9": "lgbm_owned_scratch_anchor",
+    "tabicl_dense_pool_top512_2c9": "tabicl_dense_pool_top512",
+    "lgbm_jeremy_anchor_all_log2fc_2d6": "lgbm_jeremy_anchor_all_log2fc",
+    "lgbm_dense_pool_top256_3a4": "lgbm_dense_pool_top256",
+    "lgbm_jeremy_anchor_all_log2fc_3a4": "lgbm_jeremy_anchor_all_log2fc",
+    "lgbm_dense_pool_top512_3a4": "lgbm_dense_pool_top512",
+    "tabpfn35fast_dense_pool_top512_3a4": "tabpfn35fast_dense_pool_top512"
+  },
+  "supplemental_predictions": [
+    {
+      "file": "full-chemeleon-2c9.parquet",
+      "endpoint": "CYP2C9_pIC50_direct_inhibition",
+      "source_method": "tabpfn35_full_chemeleon_raw_logfc_fullfit_v1",
+      "member": "tabpfn35_full_chemeleon_raw_logfc"
+    }
+  ],
+  "recipes": {
+    "CYP1A2_pIC50_direct_inhibition": {
+      "method": "equal_all",
+      "components": ["jeremy_frozen_tabpfn26", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_fast_pub030_raw", "tabpfn35_fast_anchor59_raw_scores_logfc", "lgbm_all_pool_top512", "lgbm_jeremy_all_log2fc", "lgbm_dense_pool_top256", "tabpfn35fast_all_pool_top512"]
+    },
+    "CYP2C9_pIC50_direct_inhibition": {
+      "method": "simplex_interval",
+      "fits_file": "2c9-fits.csv",
+      "components": ["jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "owned_broad5_2c9_specialist_lgbm", "tabpfn35_full_chemeleon_raw_logfc", "lgbm_owned_scratch_anchor", "tabicl_dense_pool_top512"]
+    },
+    "CYP2D6_pIC50_direct_inhibition": {
+      "method": "caruana",
+      "fits_file": "2d6-fits.csv",
+      "components": ["jeremy_frozen_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_raw2048_log2fc_tabicl", "owned_raw_scores_lgbm", "anchor59_raw_scores_lgbm", "anchor59_scores_lgbm", "pubonly_raw_lgbm", "scratch_raw_catboost", "anchor59_raw_scores_catboost", "tabpfn35_fast_jeremy_scores_logfc", "tabpfn35_fast_anchor59_raw_scores_logfc", "tabpfn35_fast_chemeleon_raw_logfc", "lgbm_jeremy_anchor_all_log2fc"]
+    },
+    "CYP3A4_pIC50_direct_inhibition": {
+      "method": "equal_all",
+      "components": ["class_quantile_065_lgbm", "morgan_quantile_065_lgbm", "jeremy_scores_log2fc_tabpfn26", "jeremy_finetuned_log2fc_lgbm", "chemeleon_pca256_log2fc_tabicl", "tabpfn35_full_anchor59_raw_scores_logfc", "tdi_continuous_arm_lgbm", "lgbm_dense_pool_top256", "lgbm_jeremy_anchor_all_log2fc", "lgbm_dense_pool_top512", "tabpfn35fast_dense_pool_top512"]
+    }
+  }
+}

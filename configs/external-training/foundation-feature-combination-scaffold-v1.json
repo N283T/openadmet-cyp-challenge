@@ -1,0 +1,28 @@
+{
+  "split_run": "20260918T021731984021Z-11c1a26e",
+  "split_role": "secondary_ordering_check",
+  "scorer": "custom_scoring_functions.py",
+  "num_threads": 4,
+  "seed": 42,
+  "tabpfn_version": "v3.5-fast",
+  "tabpfn_weights": "tabpfn-v3.5-fast-20260909.safetensors",
+  "tabpfn_estimators": 8,
+  "tabicl_weights": "tabicl-regressor-v2-20260212.ckpt",
+  "tabicl_estimators": 8,
+  "blocks": {
+    "morgan": {"file": "fp-mordred.parquet", "prefixes": ["fp_"]},
+    "mordred": {"file": "fp-mordred.parquet", "prefixes": ["mordred_"]},
+    "jeremy_raw": {"file": "jeremy-raw.parquet", "prefixes": ["emb_"]},
+    "jeremy_scores": {"file": "jeremy-scores.parquet", "prefixes": ["score_"]},
+    "anchor_raw": {"file": "anchor-raw-scores.parquet", "prefixes": ["raw_"]},
+    "anchor_scores": {"file": "anchor-raw-scores.parquet", "prefixes": ["score_"]},
+    "pub030_raw": {"file": "pub030-raw.parquet", "prefixes": ["raw_"]},
+    "owned_raw": {"file": "owned-raw-scores.parquet", "prefixes": ["raw_"]},
+    "owned_scores": {"file": "owned-raw-scores.parquet", "prefixes": ["score_"]},
+    "scratch_raw": {"file": "scratch-raw.parquet", "prefixes": ["raw_"]}
+  },
+  "candidates": [
+    {"name": "all_pool_top512", "blocks": ["morgan", "mordred", "jeremy_raw", "jeremy_scores", "anchor_raw", "anchor_scores", "pub030_raw", "owned_raw", "owned_scores", "scratch_raw"], "importance_top_k": 512, "endpoints": ["CYP1A2_pIC50_direct_inhibition"], "backends": ["tabpfn35fast"]},
+    {"name": "dense_pool_top512", "blocks": ["mordred", "jeremy_raw", "jeremy_scores", "anchor_raw", "anchor_scores", "pub030_raw", "owned_raw", "owned_scores", "scratch_raw"], "importance_top_k": 512, "endpoints": ["CYP2C9_pIC50_direct_inhibition", "CYP3A4_pIC50_direct_inhibition"], "backends": ["tabpfn35fast", "tabicl"]}
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "ensemble_method": "equal_all",
+  "components": [
+    "class_quantile_065_lgbm",
+    "morgan_quantile_065_lgbm",
+    "jeremy_scores_log2fc_tabpfn26",
+    "jeremy_finetuned_log2fc_lgbm",
+    "chemeleon_pca256_log2fc_tabicl",
+    "tabpfn35_full_anchor59_raw_scores_logfc",
+    "tdi_continuous_arm_lgbm",
+    "lgbm_dense_pool_top256",
+    "lgbm_jeremy_anchor_all_log2fc",
+    "lgbm_dense_pool_top512",
+    "tabpfn35fast_dense_pool_top512"
+  ],
+  "selection_run": "20260918T034159381060Z-46314b50",
+  "oof_st_rae": 0.386084,
+  "protocol": "Eleven-member flat equal mean; keeps the TDI arm and adds correlated but complementary dense LGBM and TabPFN readouts."
+}

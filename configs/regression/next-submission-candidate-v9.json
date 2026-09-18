@@ -1,0 +1,11 @@
+{
+  "track": "regression",
+  "status": "selected_not_submitted",
+  "selected_at": "2026-09-18T13:59:50+09:00",
+  "candidate_id": "20260918T045702449733Z-825d14db",
+  "candidate_file": "artifacts/candidates/regression/20260918T045702449733Z-825d14db/predictions.csv",
+  "sha256": "68ef80dba0568137e9ff594360c219710e13646366a5a6899caf03ee598edced",
+  "source_run": "20260918T045647622717Z-0891022e",
+  "selection": "Adventurous submission-aware v9 with CYP2D6 mean 3.57 and sample SD 0.80; all other target placements use the foundation-v8 candidate.",
+  "submission_state": "Held as the next candidate during the current cooldown; no upload performed."
+}

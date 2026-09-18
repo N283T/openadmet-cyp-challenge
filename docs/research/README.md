@@ -644,3 +644,9 @@ Reports and research entries default to English; conversation language is indepe
 | [RL0113](2026-09.md#rl0113--three-full-fit-d6-checkpoint-submission-candidates) | Full-fit stable-five, equal-ten and checkpoint-only D6 candidates |
 | [RL0114](2026-09.md#rl0114--tabpfn-35-target-specific-flat-banks-and-all-target-candidates) | TabPFN 3.5 target-specific flat banks and all-target submission candidates |
 | [RL0115](2026-09.md#rl0115--continuous-tdi-representations-improve-the-3a4-regression-bank) | Continuous TDI representations in the target-specific 3A4 regression bank |
+| [RL0116](2026-09.md#rl0116--heterogeneous-lightgbm-feature-combinations-restore-tabular-diversity) | Heterogeneous LightGBM feature combinations and restored tabular diversity |
+| [RL0117](2026-09.md#rl0117--correlation-audited-regression-banks-remove-near-duplicate-peers) | Correlation-audited regression banks and duplicate removal |
+| [RL0118](2026-09.md#rl0118--regression-adopts-a-parent-retained-dual-split-readout) | Parent-retained dual-split regression readout |
+| [RL0119](2026-09.md#rl0119--foundation-readouts-and-lgbm-swaps-produce-v8-submission-candidate) | Foundation readouts, LGBM swaps and v8 candidate |
+| [RL0120](2026-09.md#rl0120--submission-aware-placement-produces-an-adaptive-d6-v9-candidate) | Submission-aware adaptive-D6 placement v9 |
+| [RL0121](2026-09.md#rl0121--adaptive-d6-v9-selected-as-the-next-regression-submission-candidate) | Adaptive-D6 v9 selected as next regression candidate |

@@ -1,0 +1,6 @@
+{
+  "primary_split": "parent-retained series 20260911T104703655337Z-a3923255",
+  "secondary_split": "parent-retained scaffold 20260918T021731984021Z-11c1a26e",
+  "control": "morgan_mordred",
+  "policy": "Use series as primary and scaffold as a prespecified secondary ordering check. Report both; do not choose the better split post hoc."
+}
