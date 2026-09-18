@@ -1,0 +1,15 @@
+{
+  "endpoint": "CYP2C9_pIC50_direct_inhibition",
+  "ensemble_method": "mean_outer_fold_simplex_interval",
+  "components": [
+    "jeremy_scores_log2fc_tabpfn26",
+    "jeremy_finetuned_log2fc_lgbm",
+    "chemeleon_pca256_log2fc_tabicl",
+    "owned_broad5_2c9_specialist_lgbm",
+    "tabpfn35_full_chemeleon_raw_logfc",
+    "lgbm_owned_scratch_anchor"
+  ],
+  "selection_run": "20260918T020647743819Z-10fdb14b",
+  "oof_st_rae": 0.4453718756519094,
+  "protocol": "Reviewed six-member flat bank; fast/full duplicates and inactive peers removed."
+}

@@ -1,0 +1,17 @@
+{
+  "endpoint": "CYP1A2_pIC50_direct_inhibition",
+  "ensemble_method": "equal_all",
+  "components": [
+    "jeremy_frozen_tabpfn26",
+    "jeremy_scores_log2fc_tabpfn26",
+    "jeremy_finetuned_log2fc_lgbm",
+    "chemeleon_pca256_log2fc_tabicl",
+    "tabpfn35_fast_pub030_raw",
+    "tabpfn35_fast_anchor59_raw_scores_logfc",
+    "lgbm_all_pool_top512",
+    "lgbm_jeremy_all_log2fc"
+  ],
+  "selection_run": "20260918T020647743819Z-10fdb14b",
+  "oof_st_rae": 0.6747191234967813,
+  "protocol": "Reviewed eight-member flat bank; equal weights and no fast/full duplicate pairs."
+}

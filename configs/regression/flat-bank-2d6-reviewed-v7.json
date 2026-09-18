@@ -1,0 +1,23 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "ensemble_method": "mean_outer_fold_caruana",
+  "components": [
+    "jeremy_frozen_tabpfn26",
+    "jeremy_finetuned_log2fc_lgbm",
+    "chemeleon_raw2048_log2fc_tabicl",
+    "owned_raw_scores_lgbm",
+    "anchor59_raw_scores_lgbm",
+    "anchor59_scores_lgbm",
+    "pubonly_raw_lgbm",
+    "scratch_raw_catboost",
+    "anchor59_raw_scores_catboost",
+    "tabpfn35_fast_jeremy_scores_logfc",
+    "tabpfn35_fast_anchor59_raw_scores_logfc",
+    "tabpfn35_fast_chemeleon_raw_logfc",
+    "lgbm_jeremy_anchor_all_log2fc"
+  ],
+  "selection_run": "20260918T020647743819Z-10fdb14b",
+  "oof_st_rae": 0.8147059486384094,
+  "deployment_status": "hold_due_to_prior_lb_divergence",
+  "protocol": "Reviewed duplicate-pruned flat bank; not approved for deployment."
+}
