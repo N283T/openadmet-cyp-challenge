@@ -247,7 +247,10 @@ def test_submission_attempt_persists_and_prevents_implicit_retries(registry, mon
 
     monkeypatch.setattr(gradio_client, "Client", FakeClient)
     monkeypatch.setattr(gradio_client, "handle_file", lambda p: p)
-    args = Namespace(id="s", profile=profile_path, dry_run=True, retry_rejected=False)
+    args = Namespace(
+        id="s", profile=profile_path, dry_run=True,
+        retry_rejected=False, resubmit_sent=False,
+    )
     submission.submit(args)
     assert not calls
     args.dry_run = False

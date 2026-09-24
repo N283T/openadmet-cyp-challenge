@@ -57,10 +57,14 @@ attempt's profile copy is mode 0600 for audit/recovery.
 A recognized receipt is `sent`, not `accepted`: backend scoring has not been
 confirmed. Explicit API validation/cooldown errors are `rejected`; exceptions or
 unrecognized responses remain `unknown`. Raw responses and outcome records live
-under `artifacts/submission-attempts/<track>/<id>/`. Sent or uncertain payloads
-cannot be submitted again through the command, even via another prepared ID.
-Rejected payloads require an explicit `--retry-rejected` after inspecting the
-saved receipt. There is no automatic retry or scheduled retry.
+under `artifacts/submission-attempts/<track>/<id>/`. An uncertain payload cannot
+be resubmitted until its delivery has been independently reconciled. A sent
+payload can be deliberately submitted again after the competition cooldown
+using a new prepared submission ID and `--resubmit-sent`; reusing the same
+submission ID is blocked. This supports returning to a previously scored vector
+without changing its prediction file. Rejected payloads require an explicit
+`--retry-rejected` after inspecting the saved receipt. There is no automatic
+retry or scheduled retry.
 
 `cyp submission-event` still records subsequent scoring evidence. It does not
 clear uncertain attempt guards: independently reconcile remote delivery before

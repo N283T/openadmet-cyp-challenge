@@ -61,6 +61,19 @@ def snapshot_leaderboards(track):
     return snapshots
 
 
+def check_previous_attempts(previous, submission_id, resubmit_sent, retry_rejected):
+    """Require an explicit, separate submission for a known sent payload."""
+
+    if any(status == "unknown" for _, status in previous):
+        raise ValueError("Payload delivery uncertain; inspect receipts before any resubmission")
+    if any(prior_id == submission_id and status == "sent" for prior_id, status in previous):
+        raise ValueError("This prepared submission has already been attempted")
+    if any(status == "sent" for _, status in previous) and not resubmit_sent:
+        raise ValueError("Payload already sent; use a new prepared ID and --resubmit-sent")
+    if any(status == "rejected" for _, status in previous) and not retry_rejected:
+        raise ValueError("Previously rejected payload; inspect receipt before --retry-rejected")
+
+
 def submit(args):
     profile_path = args.profile.resolve()
     profile = load_profile(profile_path)
@@ -103,15 +116,11 @@ def submit(args):
         # Session lock survives the commit that makes intent durable before network I/O.
         conn.execute("SELECT pg_advisory_lock(hashtext(%s))", ("cyp-submit:" + track,))
         previous = conn.execute(
-            "SELECT status FROM submission_attempts WHERE track=%s AND file_sha256=%s",
+            "SELECT submission_id,status FROM submission_attempts "
+            "WHERE track=%s AND file_sha256=%s",
             (track, manifest["sha256"]),
         ).fetchall()
-        if any(r[0] in ("sent", "unknown") for r in previous):
-            raise ValueError(
-                "Payload already sent or delivery uncertain; inspect receipts, do not retry"
-            )
-        if previous and not args.retry_rejected:
-            raise ValueError("Previously rejected payload; inspect receipt before --retry-rejected")
+        check_previous_attempts(previous, args.id, args.resubmit_sent, args.retry_rejected)
         # These network reads happen before any upload intent or submission API call.
         # A failure propagates and prevents the live upload.
         pre_submission_leaderboards = snapshot_leaderboards(track)
