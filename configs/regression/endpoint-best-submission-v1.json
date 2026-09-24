@@ -1,0 +1,30 @@
+{
+  "reference": "reference.csv",
+  "sources": {
+    "source-placement": "source-placement.csv",
+    "flat-bank-v7": "flat-bank-v7.csv",
+    "foundation-v8-adaptive-d6": "foundation-v8-adaptive-d6.csv"
+  },
+  "endpoint_selection": {
+    "CYP1A2_pIC50_direct_inhibition": {
+      "source": "foundation-v8-adaptive-d6",
+      "submission_id": "20260918T121343664656Z-cf7be0d2",
+      "observed_st_rae": 0.5085300555337245
+    },
+    "CYP2C9_pIC50_direct_inhibition": {
+      "source": "flat-bank-v7",
+      "submission_id": "20260917T132706271289Z-193de057",
+      "observed_st_rae": 0.3593578956523321
+    },
+    "CYP2D6_pIC50_direct_inhibition": {
+      "source": "source-placement",
+      "submission_id": "20260914T024743176950Z-8ef21e06",
+      "observed_st_rae": 0.5655200037077417
+    },
+    "CYP3A4_pIC50_direct_inhibition": {
+      "source": "flat-bank-v7",
+      "submission_id": "20260917T132706271289Z-193de057",
+      "observed_st_rae": 0.4312525270426474
+    }
+  }
+}
