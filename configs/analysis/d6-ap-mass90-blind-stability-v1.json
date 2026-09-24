@@ -1,0 +1,31 @@
+{
+  "outer_details": "outer-details.parquet",
+  "decision_test": "decision-test.parquet",
+  "support_test": "support-test.parquet",
+  "lgbm_test": "lgbm-test.parquet",
+  "readout_test": "readout-test.parquet",
+  "tabpfn_test": "tabpfn-test.parquet",
+  "mace_test": "mace-test.parquet",
+  "activity_test": "activity-test.parquet",
+  "mechanism_test": "mechanism-test.parquet",
+  "pfn_pca_test": "pfn-pca-test.parquet",
+  "pfn_raw_test": "pfn-raw-test.parquet",
+  "pool_definition": "pool-definition.json",
+  "compounds": "compounds.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "complement_models": [
+    "complement-fold0.joblib",
+    "complement-fold1.joblib",
+    "complement-fold2.joblib",
+    "complement-fold3.joblib",
+    "complement-fold4.joblib"
+  ],
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "umap",
+  "outer_method": "ap::mass90",
+  "control_model": "deployed_mean_block",
+  "candidate_model": "ap_mass90_unrestricted_caruana",
+  "support_model": "support6_top_call_vote",
+  "test_positive_calls": 49,
+  "protocol": "Apply each of the five independently selected outer-fold AP-mass90 ensembles to blind predictions. Measure score and call agreement and the fold support for every full-fit control swap. No labels, member cap, swap cap, or manual blend are used."
+}

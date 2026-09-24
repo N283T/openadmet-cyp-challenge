@@ -1,0 +1,14 @@
+{
+  "compounds": "compounds.parquet",
+  "labels": "labels.parquet",
+  "assignments": "assignments.parquet",
+  "class_emb": "class-embeddings.parquet",
+  "mixed_emb": "mixed-embeddings.parquet",
+  "mordred_prefix": "mordred-",
+  "mordred_files": 54,
+  "model_prefix": "model-",
+  "methods": ["morgan_plain", "mordred_plain", "fp_mordred_plain", "external_class_plain", "external_mixed_plain"],
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "umap",
+  "purpose": "Predict all held-fold molecules from frozen September 15 control LightGBM models."
+}

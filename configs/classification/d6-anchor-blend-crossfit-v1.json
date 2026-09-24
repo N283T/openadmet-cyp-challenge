@@ -1,0 +1,10 @@
+{
+  "blend_oof": "blend-oof.parquet",
+  "base_model": "deployed_mean_block",
+  "candidate_prefix": "anchor_pub030_balanced::w",
+  "target_prior": 0.07062568306010919,
+  "call_rate": 0.06533333333333333,
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 20260918,
+  "selection": "Fold-excluded selection among the already prespecified deployed control and five anchor+pub030 blend weights. Optimize target-prior MCC on the other four folds, breaking ties toward the smaller candidate weight."
+}

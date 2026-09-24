@@ -17,5 +17,9 @@ artifacts/*
 !artifacts/tracked/
 !artifacts/tracked/**
 references/**/source*
+references/community/**/snapshot.md
+
+# Project environment is locked by pixi.lock; uv.lock is incidental.
+uv.lock
 
 .private/

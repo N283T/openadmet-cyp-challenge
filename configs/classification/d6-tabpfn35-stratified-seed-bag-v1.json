@@ -1,0 +1,14 @@
+{
+  "primary_oof": "primary-oof.parquet",
+  "primary_test": "primary-test.parquet",
+  "followup_oof": "followup-oof.parquet",
+  "followup_test": "followup-test.parquet",
+  "deployed_oof": "deployed-oof.parquet",
+  "deployed_test": "deployed-test.parquet",
+  "selected_seeds": [498, 275, 201, 93, 497],
+  "methods": ["anchor_pub030_top512", "jeremy_anchor_top512"],
+  "oof_positive_calls": 98,
+  "test_positive_calls": 49,
+  "target_prior": 0.07062568306010919,
+  "protocol": "Equal-rank bagging across the five support-selected stratified-random seeds chosen without labels. Evaluate each atomic seed and the complete five-seed bag separately for the anchor+pub030 and Jeremy+anchor standalone feature pools. No seed or feature-pool weight is fitted."
+}

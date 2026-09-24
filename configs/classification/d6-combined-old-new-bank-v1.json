@@ -1,0 +1,41 @@
+{
+  "legacy_bank": "legacy-bank.parquet",
+  "new_lgbm_oof": "new-lgbm-oof.parquet",
+  "new_readout_oof": "new-readout-oof.parquet",
+  "new_tabpfn_oof": "new-tabpfn-oof.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "umap",
+  "legacy_control": "current_fixed_ratio",
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "correlation_ceiling": 0.97,
+  "quality_floor": {
+    "AUROC": 0.54,
+    "AP": 0.25,
+    "MCC_target_prior": 0.03
+  },
+  "subset_sizes": [1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20],
+  "meta_Cs": [0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1.0],
+  "meta_penalties": ["l1", "l2"],
+  "bootstrap_seed": 20260924,
+  "bootstrap_replicates": 3000,
+  "new_members": [
+    {"name": "new::lgbm::jeremy_anchor_all_chemeleon::balanced", "source": "new_lgbm", "method": "jeremy_anchor_all_chemeleon::balanced"},
+    {"name": "new::lgbm::jeremy_chemeleon_all_scores::balanced", "source": "new_lgbm", "method": "jeremy_chemeleon_all_scores::balanced"},
+    {"name": "new::lgbm::jeremy_chemeleon_control::balanced", "source": "new_lgbm", "method": "jeremy_chemeleon_control::balanced"},
+    {"name": "new::lgbm::jeremy_chemeleon_anchor_scores::plain", "source": "new_lgbm", "method": "jeremy_chemeleon_anchor_scores::plain"},
+    {"name": "new::lgbm::anchor_all_chemeleon::balanced", "source": "new_lgbm", "method": "anchor_all_chemeleon::balanced"},
+    {"name": "new::cat::jeremy_anchor_all_chemeleon", "source": "new_readout", "method": "jeremy_anchor_all_chemeleon::catboost"},
+    {"name": "new::extra::jeremy_chemeleon_all_scores", "source": "new_readout", "method": "jeremy_chemeleon_all_scores::extra_trees"},
+    {"name": "new::cat::jeremy_chemeleon_all_scores", "source": "new_readout", "method": "jeremy_chemeleon_all_scores::catboost"},
+    {"name": "new::xgb::jeremy_chemeleon_all_scores", "source": "new_readout", "method": "jeremy_chemeleon_all_scores::xgboost"},
+    {"name": "new::cat::anchor_all_chemeleon", "source": "new_readout", "method": "anchor_all_chemeleon::catboost"},
+    {"name": "new::xgb::anchor_all_chemeleon", "source": "new_readout", "method": "anchor_all_chemeleon::xgboost"},
+    {"name": "new::extra::jeremy_anchor_all_chemeleon", "source": "new_readout", "method": "jeremy_anchor_all_chemeleon::extra_trees"},
+    {"name": "new::xgb::jeremy_anchor_all_chemeleon", "source": "new_readout", "method": "jeremy_anchor_all_chemeleon::xgboost"},
+    {"name": "new::extra::anchor_all_chemeleon", "source": "new_readout", "method": "anchor_all_chemeleon::extra_trees"},
+    {"name": "new::tabpfn35::jeremy_chemeleon_all_scores", "source": "new_tabpfn", "method": "jeremy_chemeleon_all_scores_top512"},
+    {"name": "new::tabpfn35::jeremy_anchor_all_chemeleon", "source": "new_tabpfn", "method": "jeremy_anchor_all_chemeleon_top512"}
+  ],
+  "protocol": "Combine every legacy atomic D6 expert except the composite current_fixed_ratio control with all 16 new anchored Jeremy/CheMeleon atoms. Compare unpruned equal means, fold-excluded quality/correlation pruning, nested fold-excluded equal-subset selection, and inner-selected L1/L2 logistic stacks. New versus legacy origin never enters a keep/drop decision."
+}

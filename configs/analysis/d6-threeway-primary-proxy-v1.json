@@ -1,0 +1,8 @@
+{
+  "threeway_test": "threeway-test.parquet",
+  "threeway_oof": "threeway-oof.parquet",
+  "primary_predictions": "all-nested-log2fc.parquet",
+  "primary_column": "aux_2",
+  "permutation_replicates": 10000,
+  "permutation_seed": 20260924
+}

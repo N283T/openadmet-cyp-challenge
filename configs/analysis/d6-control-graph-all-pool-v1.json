@@ -1,0 +1,11 @@
+{
+  "compounds": "compounds.parquet",
+  "labels": "labels.parquet",
+  "assignments": "assignments.parquet",
+  "encoder": "external-best.pt",
+  "refits": ["graph-fold0.pt", "graph-fold1.pt", "graph-fold2.pt", "graph-fold3.pt", "graph-fold4.pt"],
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "umap",
+  "model": "tdi_only",
+  "purpose": "Predict every held-fold molecule with frozen September 15 TDI-only graph refits."
+}

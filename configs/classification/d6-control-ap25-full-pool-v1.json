@@ -1,0 +1,15 @@
+{
+  "predictions": {
+    "umap": ["sep15-umap.parquet", "ap-umap.parquet"],
+    "scaffold": ["sep15-scaffold.parquet", "ap-scaffold.parquet"]
+  },
+  "control_model": "sep15_control_raw_oof_analog",
+  "candidate_models": {
+    "umap": "ap_full7_outer_weight_rank",
+    "scaffold": "ap_full7_scaffold_outer_weight_rank"
+  },
+  "ap_weight": 0.25,
+  "output_model": "sep15_ap25_rank_blend",
+  "expected_pool_rows": 6146,
+  "purpose": "Evaluate a prespecified conservative 75% September 15 plus 25% AP rank blend on both complete-pool folds."
+}

@@ -104,7 +104,7 @@ matrices = {
 method_by_name = {method["name"]: method for method in cfg["methods"]}
 labels = read("labels")
 assignments = read("assignments")
-oof_rows, test_rows, metric_rows = [], [], []
+oof_rows, test_rows, metric_rows, all_pool_rows = [], [], [], []
 for endpoint in cfg["endpoints"]:
     settings = cfg["endpoint_settings"][endpoint]
     endpoint_labels = labels.filter(pl.col("endpoint") == endpoint).select("compound_id", "value")
@@ -112,6 +112,16 @@ for endpoint in cfg["endpoints"]:
         fold_table = assignments.filter(pl.col("strategy") == strategy).select(
             "compound_id", "fold", "group"
         )
+        if fold_table.height != 6146 or fold_table["compound_id"].n_unique() != 6146:
+            raise ValueError(f"Incomplete molecular pool for {strategy}")
+        pool = fold_table.join(
+            endpoint_labels.select("compound_id", pl.col("value").cast(pl.Int64).alias("y_true")),
+            on="compound_id",
+            how="left",
+            validate="1:1",
+        ).sort("compound_id")
+        pool_indices = np.asarray([id_to_index[value] for value in pool["compound_id"]])
+        pool_folds = pool["fold"].to_numpy().astype(int)
         data = endpoint_labels.join(fold_table, on="compound_id", validate="1:1").sort(
             "compound_id"
         )
@@ -124,17 +134,29 @@ for endpoint in cfg["endpoints"]:
             train_rows, heldout_rows = np.flatnonzero(folds != fold), np.flatnonzero(folds == fold)
             for name, matrix in matrices.items():
                 method = method_by_name[name]
-                x_train, x_heldout, x_test = preprocess(
+                pool_valid = pool_folds == fold
+                x_train, x_heldout, x_test, x_pool = preprocess(
                     matrix[indices[train_rows]],
                     matrix[indices[heldout_rows]],
                     matrix[test_indices],
+                    matrix[pool_indices[pool_valid]],
                     scale=method["model"] == "lr",
                 )
-                heldout_pred, test_pred = fit_predict(
-                    method["model"], x_train, y[train_rows], x_heldout, x_test
+                heldout_pred, test_pred, pool_pred = fit_predict(
+                    method["model"], x_train, y[train_rows], x_heldout, x_test, x_pool
                 )
                 predictions[name][heldout_rows] = heldout_pred
                 test_predictions[name].append(test_pred)
+                if not np.isfinite(pool_pred).all():
+                    raise ValueError(f"Nonfinite all-pool score: {endpoint} {strategy} {name}")
+                all_pool_rows.append(
+                    pool.filter(pl.Series(pool_valid)).with_columns(
+                        pl.lit(endpoint).alias("endpoint"),
+                        pl.lit(strategy).alias("split_id"),
+                        pl.lit(name).alias("model"),
+                        pl.Series("score", pool_pred),
+                    )
+                )
             print(f"{endpoint} {strategy} fold {fold} complete", flush=True)
         for name, probability in predictions.items():
             calls = fixed_rate_calls(probability, folds, settings["call_rate"])
@@ -179,6 +201,11 @@ for endpoint in cfg["endpoints"]:
 metrics = pl.DataFrame(metric_rows).sort("endpoint", "strategy", "method")
 metrics.write_csv(out / "metrics.csv")
 pl.DataFrame(oof_rows).write_parquet(out / "oof.parquet")
+all_pool = pl.concat(all_pool_rows).sort("endpoint", "split_id", "model", "compound_id")
+for (endpoint, split_id, model), frame in all_pool.group_by("endpoint", "split_id", "model"):
+    if frame.height != 6146 or frame["compound_id"].n_unique() != 6146:
+        raise ValueError(f"All-pool coverage failed: {endpoint} {split_id} {model}")
+all_pool.write_parquet(out / "all-pool-oof.parquet")
 pl.DataFrame(test_rows).write_parquet(out / "test.parquet")
 (out / "summary.json").write_text(
     json.dumps(

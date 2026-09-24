@@ -56,16 +56,25 @@ morgan = np.stack(
 metric_rows = []
 oof_rows = []
 test_rows = []
+all_pool_rows = []
 for endpoint in cfg["endpoints"]:
     enzyme = endpoint.split("_", 1)[0].lower()
     settings = cfg["endpoint_settings"][endpoint]
-    endpoint_labels = labels.filter(pl.col("endpoint") == endpoint).select(
-        "compound_id", "value"
-    )
+    endpoint_labels = labels.filter(pl.col("endpoint") == endpoint).select("compound_id", "value")
     for strategy in cfg["strategies"]:
         fold_table = assignments.filter(pl.col("strategy") == strategy).select(
             "compound_id", "fold", "group"
         )
+        if fold_table.height != 6146 or fold_table["compound_id"].n_unique() != 6146:
+            raise ValueError(f"Incomplete molecular pool for {strategy}")
+        pool = fold_table.join(
+            endpoint_labels.select("compound_id", pl.col("value").cast(pl.Int64).alias("y_true")),
+            on="compound_id",
+            how="left",
+            validate="1:1",
+        ).sort("compound_id")
+        pool_indices = np.asarray([id_to_index[compound_id] for compound_id in pool["compound_id"]])
+        pool_folds = pool["fold"].to_numpy().astype(int)
         data = endpoint_labels.join(fold_table, on="compound_id", validate="1:1").sort(
             "compound_id"
         )
@@ -76,15 +85,11 @@ for endpoint in cfg["endpoints"]:
         test_predictions = {method: [] for method in cfg["methods"]}
         for fold in range(5):
             fold_features = (
-                activity.filter(
-                    (pl.col("strategy") == strategy) & (pl.col("model_fold") == fold)
-                )
+                activity.filter((pl.col("strategy") == strategy) & (pl.col("model_fold") == fold))
                 .drop("strategy", "model_fold")
                 .sort("compound_id")
             )
-            if not fold_features.select("compound_id").equals(
-                compounds.select("compound_id")
-            ):
+            if not fold_features.select("compound_id").equals(compounds.select("compound_id")):
                 raise ValueError("Activity feature grid does not match compounds")
             all_columns = [column for column in fold_features.columns if column != "compound_id"]
             endpoint_columns = [column for column in all_columns if column.startswith(enzyme)]
@@ -120,6 +125,18 @@ for endpoint in cfg["endpoints"]:
                     matrix[data_indices[heldout_rows]]
                 )[:, 1]
                 test_predictions[method].append(model.predict_proba(matrix[test_indices])[:, 1])
+                pool_valid = pool_folds == fold
+                pool_pred = model.predict_proba(matrix[pool_indices[pool_valid]])[:, 1]
+                if not np.isfinite(pool_pred).all():
+                    raise ValueError(f"Nonfinite all-pool score: {endpoint} {strategy} {method}")
+                all_pool_rows.append(
+                    pool.filter(pl.Series(pool_valid)).with_columns(
+                        pl.lit(endpoint).alias("endpoint"),
+                        pl.lit(strategy).alias("split_id"),
+                        pl.lit(method).alias("model"),
+                        pl.Series("score", pool_pred),
+                    )
+                )
             print(f"{endpoint} {strategy} fold {fold} complete", flush=True)
         for method, probability in predictions.items():
             calls = fixed_rate_calls(probability, folds, settings["call_rate"])
@@ -165,6 +182,11 @@ for endpoint in cfg["endpoints"]:
 metrics = pl.DataFrame(metric_rows).sort("endpoint", "strategy", "method")
 metrics.write_csv(out / "metrics.csv")
 pl.DataFrame(oof_rows).write_parquet(out / "oof.parquet")
+all_pool = pl.concat(all_pool_rows).sort("endpoint", "split_id", "model", "compound_id")
+for (endpoint, split_id, model), frame in all_pool.group_by("endpoint", "split_id", "model"):
+    if frame.height != 6146 or frame["compound_id"].n_unique() != 6146:
+        raise ValueError(f"All-pool coverage failed: {endpoint} {split_id} {model}")
+all_pool.write_parquet(out / "all-pool-oof.parquet")
 pl.DataFrame(test_rows).write_parquet(out / "test.parquet")
 (out / "summary.json").write_text(
     json.dumps(

@@ -1,0 +1,14 @@
+{
+  "predictions": "all-pool-oof.parquet",
+  "assignments": "assignments.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "strategies": ["umap", "scaffold"],
+  "models": ["jeremy_chemeleon_control::balanced", "jeremy_chemeleon_jeremy_scores::balanced"],
+  "historical_rate": 0.06533333333333333,
+  "rates": [0.02, 0.04, 0.06, 0.06533333333333333, 0.08, 0.1, 0.15, 0.2],
+  "target_priors": [0.05, 0.07062568306010919, 0.1],
+  "expected_pool_rows": 6146,
+  "bootstrap_replicates": 1000,
+  "bootstrap_seed": 20260924,
+  "purpose": "Quantify how including unlabeled held-fold molecules changes D6 model/rate selection on two genuinely refit split families. These are static-feature readouts, not historical submission replicas."
+}

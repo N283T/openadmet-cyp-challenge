@@ -1,0 +1,13 @@
+{
+  "compounds": "compounds.parquet",
+  "labels": "classification-labels.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "assignments": "assignments.parquet",
+  "current_bank": "current-prediction-bank.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "strategies": ["umap", "scaffold"],
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "seed": 20260918,
+  "weightings": ["plain", "balanced"]
+}

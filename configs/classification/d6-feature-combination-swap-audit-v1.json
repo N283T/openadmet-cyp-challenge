@@ -1,0 +1,13 @@
+{
+  "endpoint": "CYP2D6_is_TDI",
+  "candidate_strategy": "umap",
+  "reference_method": "all_plain_pfn_graph_mean",
+  "selection_model": "exhaustive_mcc::components_10",
+  "pca_member": "pfn::external_mixed_pca256",
+  "raw_member": "pfn::external_mixed_raw600",
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260918,
+  "selection": "Exploratory exhaustive equal-core-weight add and one-member replacement audit. Candidate ranking is descriptive and requires split robustness and preflight before packaging."
+}

@@ -1,0 +1,19 @@
+{
+  "extra_oof": "extra-all-pool.parquet",
+  "lgbm_oof": "lgbm-all-pool.parquet",
+  "tabpfn_oof": "tabpfn-all-pool.parquet",
+  "ap_summary": "ap-summary.json",
+  "outer_details": "ap-outer-details.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "model": "ap_top3_weighted_rank_proxy",
+  "nested_model": "ap_top3_outer_weight_proxy",
+  "expected_weight_min": 0.75,
+  "expected_weight_max": 0.76,
+  "scope": "partial top-three proxy; not the submitted AP-mass90 ensemble",
+  "members": [
+    {"name": "extra::jeremy_chemeleon_all_scores", "source": "extra_oof", "model": "jeremy_chemeleon_all_scores::extra_trees"},
+    {"name": "tabpfn35::jeremy_chemeleon_all_scores", "source": "tabpfn_oof", "model": "jeremy_chemeleon_all_scores_top512"},
+    {"name": "lgbm::jeremy_chemeleon_anchor_scores::balanced", "source": "lgbm_oof", "model": "jeremy_chemeleon_anchor_scores::balanced"}
+  ],
+  "protocol": "Freeze the three highest-weight nonzero AP-mass90 atomic members (75.68 percent of full-fit weight) and rank each member within its complete held-fold pool. Save both normalized full-fit weights (descriptive) and UMAP outer-excluded adaptive AP-mass90 weights renormalized over these three members (partial nested proxy). Neither is the seven-member submitted ensemble."
+}

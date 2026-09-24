@@ -1,0 +1,13 @@
+{
+  "endpoint_columns": ["CYP2D6_is_TDI", "CYP3A4_is_TDI"],
+  "username": "N283T",
+  "states": [
+    {"date": "2026-09-10", "submission": "submission-0910.parquet", "d6_lb": "d6-0910.csv", "a4_lb": "a4-0910.csv"},
+    {"date": "2026-09-12", "submission": "submission-0912.parquet", "d6_lb": "d6-0912.csv", "a4_lb": "a4-0912.csv"},
+    {"date": "2026-09-13", "submission": "submission-0913.parquet", "d6_lb": "d6-0913.csv", "a4_lb": "a4-0913.csv"},
+    {"date": "2026-09-14", "submission": "submission-0914.parquet", "d6_lb": "d6-0914.csv", "a4_lb": "a4-0914.csv"},
+    {"date": "2026-09-15", "submission": "submission-0915.parquet", "d6_lb": "d6-0915.csv", "a4_lb": "a4-0915.csv"},
+    {"date": "2026-09-18", "submission": "submission-0918.parquet", "d6_lb": "d6-0918.csv", "a4_lb": "a4-0918.csv"},
+    {"date": "2026-09-23", "submission": "submission-0923.parquet", "d6_lb": "d6-0923.csv", "a4_lb": "a4-0923.csv"}
+  ]
+}

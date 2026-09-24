@@ -1,0 +1,49 @@
+"""Launch held-fold Caruana on the one flat D6 candidate pool."""
+
+import json
+import subprocess
+from pathlib import Path
+
+root = Path(__file__).resolve().parents[1]
+runs = root / "artifacts/runs/classification"
+config = root / "configs/classification/d6-flat-common-pool-caruana-v1.json"
+inputs = {
+    "legacy-bank.parquet": runs
+    / "20260915T121009912691Z-73198c15/outputs/prediction-bank.parquet",
+    "lgbm-oof.parquet": runs
+    / "20260919T155849130417Z-0394b600/outputs/oof.parquet",
+    "readout-oof.parquet": runs
+    / "20260923T161449619218Z-a5f9f7ea/outputs/oof.parquet",
+    "tabpfn-oof.parquet": runs
+    / "20260923T161718040624Z-8a9676e7/outputs/oof.parquet",
+}
+declared = json.loads(config.read_text())
+needed = {
+    declared[key]
+    for key in ["legacy_bank", "lgbm_oof", "readout_oof", "tabpfn_oof"]
+}
+if needed != set(inputs):
+    raise ValueError(f"Input mismatch: missing={needed-set(inputs)}, extra={set(inputs)-needed}")
+for path in inputs.values():
+    if not path.is_file():
+        raise FileNotFoundError(path)
+
+command = [
+    "pixi",
+    "run",
+    "cyp",
+    "run",
+    "--track",
+    "classification",
+    "--purpose",
+    "Run held-fold Caruana on one common CYP2D6 pool of legacy and Jeremy-CheMeleon models",
+    "--config",
+    str(config),
+]
+for alias, path in inputs.items():
+    command.extend(["--input", f"{alias}={path}"])
+subprocess.run(
+    command + ["--", "python", "scripts/classification_d6_flat_common_pool_caruana.py"],
+    cwd=root,
+    check=True,
+)

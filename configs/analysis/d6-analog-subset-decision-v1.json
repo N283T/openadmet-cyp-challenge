@@ -1,0 +1,17 @@
+{
+  "analogs": "analog-pairs.parquet",
+  "assignments": "assignments.parquet",
+  "predictions": {
+    "umap": ["sep15-umap.parquet", "ap-umap.parquet"],
+    "scaffold": ["sep15-scaffold.parquet", "ap-scaffold.parquet"]
+  },
+  "models": {
+    "umap": ["sep15_control_raw_oof_analog", "ap_full7_outer_weight_rank"],
+    "scaffold": ["sep15_control_raw_oof_analog", "ap_full7_scaffold_outer_weight_rank"]
+  },
+  "rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260924,
+  "purpose": "Rank only the pseudo analog-expansion subset at the submitted rate, rather than selecting calls across the full training pool."
+}

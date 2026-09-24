@@ -1,0 +1,34 @@
+{
+  "labels": "measurements.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "assignments": "assignments.parquet",
+  "current_bank": "current-bank.parquet",
+  "tabpfn_weights": "tabpfn-v3.5-fast-20260909.safetensors",
+  "tabpfn_version": "v3.5-fast",
+  "tabpfn_estimators": 8,
+  "endpoint": "CYP2D6_is_TDI",
+  "strategies": ["umap", "scaffold"],
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "seed": 20260924,
+  "num_threads": 4,
+  "selector": {
+    "n_estimators": 200,
+    "num_leaves": 15,
+    "max_depth": 4,
+    "min_child_samples": 20,
+    "learning_rate": 0.05,
+    "reg_lambda": 2.0
+  },
+  "blocks": {
+    "morgan": {"file": "fp-mordred.parquet", "prefixes": ["fp_"]},
+    "jeremy_raw": {"file": "jeremy-raw.parquet", "prefixes": ["emb_"]},
+    "jeremy_scores": {"file": "jeremy-scores.parquet", "prefixes": ["score_"]},
+    "anchor_scores": {"file": "anchor-raw-scores.parquet", "prefixes": ["score_"]},
+    "chemeleon_raw": {"file": "chemeleon-raw.parquet", "prefixes": ["emb_"]}
+  },
+  "candidates": [
+    {"name": "jeremy_chemeleon_all_scores_top512", "blocks": ["jeremy_raw", "jeremy_scores", "anchor_scores", "chemeleon_raw"], "importance_top_k": 512}
+  ],
+  "selection": "Exact atomic TabPFN 3.5-fast recipe carrying 21.62 percent of submitted AP-mass90 full-fit weight; all held-fold molecules are scored."
+}

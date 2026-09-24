@@ -1,0 +1,18 @@
+{
+  "base_oof": "base-oof.parquet",
+  "deployed_test": "deployed-test.parquet",
+  "fast_oof": "fast-oof.parquet",
+  "fast_test": "fast-test.parquet",
+  "full_oof": "full-oof.parquet",
+  "full_test": "full-test.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "umap",
+  "method": "jeremy_anchor_top512",
+  "weights": [0.1, 0.2, 0.25, 0.3333333333333333, 0.5],
+  "call_rate": 0.06533333333333333,
+  "test_calls": 49,
+  "target_prior": 0.07062568306010919,
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 20260918,
+  "selection": "Equal rank mean of matched TabPFN 3.5-fast and full Jeremy+anchor predictions, followed by the same prespecified fixed additions to the deployed mean-block D6 score."
+}

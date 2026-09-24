@@ -1,0 +1,20 @@
+{
+  "compounds": "compounds.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "ap_umap": "ap-umap.parquet",
+  "control_umap": "control-umap.parquet",
+  "ap_scaffold": "ap-scaffold.parquet",
+  "control_scaffold": "control-scaffold.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "ap_umap_model": "ap_full7_outer_weight_rank",
+  "ap_scaffold_model": "ap_full7_scaffold_outer_weight_rank",
+  "control_model": "sep15_control_raw_oof_analog",
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "domain_folds": 5,
+  "domain_seed": 20260924,
+  "domain_c": 0.01,
+  "weight_min": 0.2,
+  "weight_max": 5.0,
+  "purpose": "Diagnostic cross-fitted train-to-blind density ratio for the frozen 49-call AP versus September 15 control comparison. No test labels or recipe retuning."
+}

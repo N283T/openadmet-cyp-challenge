@@ -1,0 +1,14 @@
+{
+  "predictions": ["blend.parquet"],
+  "assignments": "assignments.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "strategies": ["umap", "scaffold"],
+  "models": ["sep15_control_raw_oof_analog", "sep15_ap25_rank_blend"],
+  "historical_rate": 0.06533333333333333,
+  "rates": [0.02, 0.04, 0.06, 0.06533333333333333, 0.08, 0.1, 0.15, 0.2],
+  "target_priors": [0.05, 0.07062568306010919, 0.1],
+  "expected_pool_rows": 6146,
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260924,
+  "purpose": "Evaluate prespecified conservative AP rank blend versus September 15 control at historical rate and nested rate on UMAP and scaffold."
+}

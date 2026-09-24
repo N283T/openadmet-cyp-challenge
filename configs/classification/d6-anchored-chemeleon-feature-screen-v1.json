@@ -1,0 +1,47 @@
+{
+  "labels": "measurements.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "assignments": "assignments.parquet",
+  "current_bank": "current-prediction-bank.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "strategies": ["umap", "scaffold"],
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "seed": 20260920,
+  "weightings": ["plain", "balanced"],
+  "lightgbm": {
+    "n_estimators": 400,
+    "num_leaves": 15,
+    "max_depth": 4,
+    "min_child_samples": 20,
+    "learning_rate": 0.03,
+    "reg_lambda": 2.0
+  },
+  "blocks": {
+    "morgan": {"file": "fp-mordred.parquet", "prefixes": ["fp_"]},
+    "mordred": {"file": "fp-mordred.parquet", "prefixes": ["mordred_"]},
+    "jeremy_raw": {"file": "jeremy-raw.parquet", "prefixes": ["emb_"]},
+    "jeremy_scores": {"file": "jeremy-scores.parquet", "prefixes": ["score_"]},
+    "anchor_raw": {"file": "anchor-raw-scores.parquet", "prefixes": ["raw_"]},
+    "anchor_scores": {"file": "anchor-raw-scores.parquet", "prefixes": ["score_"]},
+    "pub030_raw": {"file": "pub030-raw.parquet", "prefixes": ["raw_"]},
+    "chemeleon_raw": {"file": "chemeleon-raw.parquet", "prefixes": ["emb_"]},
+    "owned_raw": {"file": "owned-raw-scores.parquet", "prefixes": ["raw_"]},
+    "owned_scores": {"file": "owned-raw-scores.parquet", "prefixes": ["score_"]},
+    "scratch_raw": {"file": "scratch-raw.parquet", "prefixes": ["raw_"]}
+  },
+  "candidates": [
+    {"name": "jeremy_chemeleon_control", "blocks": ["jeremy_raw", "chemeleon_raw"]},
+    {"name": "anchor_raw_chemeleon", "blocks": ["anchor_raw", "chemeleon_raw"]},
+    {"name": "anchor_all_chemeleon", "blocks": ["anchor_raw", "anchor_scores", "chemeleon_raw"]},
+    {"name": "jeremy_anchor_raw_chemeleon", "blocks": ["jeremy_raw", "anchor_raw", "chemeleon_raw"]},
+    {"name": "jeremy_anchor_all_chemeleon", "blocks": ["jeremy_raw", "anchor_raw", "anchor_scores", "chemeleon_raw"]},
+    {"name": "jeremy_chemeleon_jeremy_scores", "blocks": ["jeremy_raw", "chemeleon_raw", "jeremy_scores"]},
+    {"name": "jeremy_chemeleon_anchor_scores", "blocks": ["jeremy_raw", "chemeleon_raw", "anchor_scores"]},
+    {"name": "jeremy_chemeleon_all_scores", "blocks": ["jeremy_raw", "chemeleon_raw", "jeremy_scores", "anchor_scores"]},
+    {"name": "mordred_jeremy_chemeleon", "blocks": ["mordred", "jeremy_raw", "chemeleon_raw"]},
+    {"name": "pub030_chemeleon", "blocks": ["pub030_raw", "chemeleon_raw"]},
+    {"name": "owned_chemeleon", "blocks": ["owned_raw", "owned_scores", "chemeleon_raw"]},
+    {"name": "scratch_chemeleon", "blocks": ["scratch_raw", "chemeleon_raw"]}
+  ]
+}

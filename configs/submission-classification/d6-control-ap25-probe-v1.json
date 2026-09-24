@@ -1,0 +1,12 @@
+{
+  "base_submission": "base-submission.parquet",
+  "decision_test": "decision-test.parquet",
+  "aliases": "aliases.parquet",
+  "reference": "reference.csv",
+  "control_model": "deployed_mean_block",
+  "ap_model": "ap_mass90_unrestricted_caruana",
+  "ap_weight": 0.25,
+  "positive_calls": 49,
+  "a4_policy": "Bitwise unchanged from the September 15 leaderboard-validated submission.",
+  "status": "Experimental probe only; OOF evidence gate did not pass, so upload needs explicit user approval."
+}

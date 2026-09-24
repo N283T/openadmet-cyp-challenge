@@ -1,0 +1,10 @@
+{
+  "base_submission": "base-submission.parquet",
+  "consensus_test": "consensus-test.parquet",
+  "aliases": "aliases.parquet",
+  "reference": "reference.csv",
+  "d6_model": "support6_top_call_vote",
+  "d6_positive_calls": 49,
+  "a4_policy": "Bitwise unchanged from scored D6 mean-block plus A4 equal-seven submission run 1d921ffc.",
+  "selection": "User-authorized prospective leaderboard probe of the complete unweighted random+scaffold TabPFN 3.5 top-call consensus. Replace only CYP2D6; preserve CYP3A4 exactly."
+}

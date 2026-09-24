@@ -1,0 +1,27 @@
+{
+  "legacy_bank": "legacy-bank.parquet",
+  "lgbm_oof": "lgbm-oof.parquet",
+  "readout_oof": "readout-oof.parquet",
+  "tabpfn_oof": "tabpfn-oof.parquet",
+  "pool_definition": "pool-definition.json",
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "umap",
+  "control": "current_fixed_ratio",
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "steps": 80,
+  "objectives": ["mcc", "ap", "auroc"],
+  "pool_policies": [
+    {"name": "all"},
+    {"name": "stable2", "minimum_inner_frequency": 2},
+    {"name": "stable3", "minimum_inner_frequency": 3},
+    {"name": "mass80", "cumulative_mean_weight": 0.80},
+    {"name": "mass90", "cumulative_mean_weight": 0.90},
+    {"name": "mass95", "cumulative_mean_weight": 0.95},
+    {"name": "stable2_corr98", "minimum_inner_frequency": 2, "max_abs_correlation": 0.98},
+    {"name": "mass95_corr98", "cumulative_mean_weight": 0.95, "max_abs_correlation": 0.98}
+  ],
+  "bootstrap_seed": 20260924,
+  "bootstrap_replicates": 3000,
+  "protocol": "For each outer fold and objective, run unrestricted Caruana on each inner training split. Adjust the common pool using only inner selection frequency, mean weight, and training-only prediction correlation. Refit unrestricted Caruana on the adjusted pool; no fixed ensemble-size cap is used."
+}

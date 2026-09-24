@@ -1,0 +1,37 @@
+{
+  "status": "superseded_manual_blend",
+  "selected_at_jst": "2026-09-18",
+  "trigger": "Revisit only when a primary CYP2D6 classification candidate is ready for submission.",
+  "base_model": {
+    "name": "scored_equal7",
+    "source_run": "20260915T125001009276Z-d5adff22",
+    "method": "exhaustive_mcc::components_7"
+  },
+  "companion_model": {
+    "name": "tabpfn35fast_all_pool_top512",
+    "source_run": "20260918T065130619201Z-c6b07258",
+    "method": "all_pool_top512",
+    "split_id": "umap"
+  },
+  "recipe": {
+    "score": "two-thirds scored_equal7 rank plus one-third tabpfn35fast_all_pool_top512 rank",
+    "positive_calls": 249,
+    "audit_run": "20260918T071118329750Z-6628e253",
+    "oof_AUROC": 0.8161651535405294,
+    "oof_AP": 0.5454988635471696,
+    "oof_MCC_target_prior": 0.47458475695895347,
+    "test_swaps_each_way": 13,
+    "grouped_MCC_delta_mean": 0.00898129890658939,
+    "grouped_MCC_delta_ci025": -0.0034904487344871366,
+    "grouped_MCC_delta_ci975": 0.021033001159555816,
+    "grouped_improvement_probability": 0.9224
+  },
+  "controls": {
+    "keep_current_a4_if_d6_candidate_is_not_ready": true,
+    "do_not_submit_a4_alone": true,
+    "manual_blend_is_not_a_candidate": true,
+    "future_use_requires_prespecified_common_bank_selection": true,
+    "upload_authorized": false
+  },
+  "decision": "Superseded by RL0127. Preserve the current rank-1 A4 vector. Retain this recipe only as an immutable diagnostic audit; do not package or submit the manually weighted companion."
+}

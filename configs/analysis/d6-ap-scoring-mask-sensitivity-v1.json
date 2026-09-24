@@ -1,0 +1,11 @@
+{
+  "decisions": "decisions.parquet",
+  "assay_route": "assay-route.parquet",
+  "assignments": "assignments.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "shift_threshold": 0.3010299956639812,
+  "prior": 0.07062568306010919,
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260924,
+  "purpose": "Test whether using only training D6 labels whose shift interval excludes log10(2) changes the AP/control full-pool OOF decision."
+}

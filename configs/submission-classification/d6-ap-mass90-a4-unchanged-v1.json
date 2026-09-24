@@ -1,0 +1,10 @@
+{
+  "base_submission": "base-submission.parquet",
+  "decision_test": "decision-test.parquet",
+  "aliases": "aliases.parquet",
+  "reference": "reference.csv",
+  "d6_model": "ap_mass90_unrestricted_caruana",
+  "d6_positive_calls": 49,
+  "a4_policy": "Bitwise unchanged from the leaderboard-validated September 15 submission run 1d921ffc.",
+  "selection": "Prospective challenge submission of the unrestricted AP-Caruana fit on the inner-weight 90-percent common D6 pool. Five independently selected outer ensembles support 10/15 additions and 12/15 removals at least four of five times; the support6-only removed high-neighborhood subset is retained. Replace only CYP2D6."
+}

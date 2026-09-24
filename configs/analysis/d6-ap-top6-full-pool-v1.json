@@ -1,0 +1,23 @@
+{
+  "extra_oof": "extra-all-pool.parquet",
+  "lgbm_oof": "lgbm-all-pool.parquet",
+  "tabpfn_oof": "tabpfn-all-pool.parquet",
+  "mechanism_oof": "mechanism-all-pool.parquet",
+  "activity_oof": "activity-all-pool.parquet",
+  "ap_summary": "ap-summary.json",
+  "outer_details": "ap-outer-details.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "model": "ap_top6_weighted_rank_proxy",
+  "nested_model": "ap_top6_outer_weight_proxy",
+  "expected_weight_min": 0.97,
+  "expected_weight_max": 0.98,
+  "scope": "partial six-member proxy capturing 97.3% of submitted weight; omits legacy TabPFN 2.6 atom",
+  "members": [
+    {"name": "extra::jeremy_chemeleon_all_scores", "source": "extra_oof", "model": "jeremy_chemeleon_all_scores::extra_trees"},
+    {"name": "tabpfn35::jeremy_chemeleon_all_scores", "source": "tabpfn_oof", "model": "jeremy_chemeleon_all_scores_top512"},
+    {"name": "lgbm::jeremy_chemeleon_anchor_scores::balanced", "source": "lgbm_oof", "model": "jeremy_chemeleon_anchor_scores::balanced"},
+    {"name": "new::mace", "source": "mechanism_oof", "model": "morgan_mace_off_emb_lr"},
+    {"name": "new::product_activity", "source": "activity_oof", "model": "morgan_activity_endpoint_lgbm"},
+    {"name": "new::smartcyp", "source": "mechanism_oof", "model": "morgan_smartcyp_lgbm"}
+  ]
+}

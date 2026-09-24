@@ -1,0 +1,12 @@
+{
+  "labels": "labels.parquet",
+  "assignments": "assignments.parquet",
+  "features": "external-embeddings.parquet",
+  "weights": "tabpfn-v2.6.ckpt",
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "umap",
+  "model": "external_mixed_pca256",
+  "feature_prefix": "emb_",
+  "preprocess_aliases": ["pca-fold0.joblib", "pca-fold1.joblib", "pca-fold2.joblib", "pca-fold3.joblib", "pca-fold4.joblib"],
+  "purpose": "Refit the exact legacy TabPFN 2.6 fold recipe and predict every held-fold molecule."
+}

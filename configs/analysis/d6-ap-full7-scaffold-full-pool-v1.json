@@ -1,0 +1,28 @@
+{
+  "extra_oof": "extra-all-pool.parquet",
+  "lgbm_oof": "lgbm-all-pool.parquet",
+  "tabpfn_oof": "tabpfn-all-pool.parquet",
+  "mechanism_oof": "mechanism-all-pool.parquet",
+  "activity_oof": "activity-all-pool.parquet",
+  "legacy_pfn_oof": "legacy-pfn-all-pool.parquet",
+  "ap_summary": "ap-summary.json",
+  "outer_details": "ap-outer-details.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "strategies": ["scaffold"],
+  "model": "ap_full7_scaffold_frozen_weight_rank",
+  "nested_model": "ap_full7_scaffold_outer_weight_rank",
+  "nested_selection": "caruana_ap",
+  "nested_steps": 80,
+  "expected_weight_min": 0.999999,
+  "expected_weight_max": 1.000001,
+  "scope": "all seven submitted AP atoms refit on scaffold folds; UMAP-selected full-fit weights are frozen but not label-independent",
+  "members": [
+    {"name": "extra::jeremy_chemeleon_all_scores", "source": "extra_oof", "model": "jeremy_chemeleon_all_scores::extra_trees"},
+    {"name": "tabpfn35::jeremy_chemeleon_all_scores", "source": "tabpfn_oof", "model": "jeremy_chemeleon_all_scores_top512"},
+    {"name": "lgbm::jeremy_chemeleon_anchor_scores::balanced", "source": "lgbm_oof", "model": "jeremy_chemeleon_anchor_scores::balanced"},
+    {"name": "new::mace", "source": "mechanism_oof", "model": "morgan_mace_off_emb_lr"},
+    {"name": "new::product_activity", "source": "activity_oof", "model": "morgan_activity_endpoint_lgbm"},
+    {"name": "new::smartcyp", "source": "mechanism_oof", "model": "morgan_smartcyp_lgbm"},
+    {"name": "pfn::external_mixed_pca256", "source": "legacy_pfn_oof", "model": "external_mixed_pca256"}
+  ]
+}

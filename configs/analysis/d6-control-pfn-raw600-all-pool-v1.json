@@ -1,0 +1,13 @@
+{
+  "labels": "labels.parquet",
+  "assignments": "assignments.parquet",
+  "features": "external-embeddings.parquet",
+  "weights": "tabpfn-v2.6.ckpt",
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "umap",
+  "model": "external_mixed_raw600",
+  "feature_prefix": "emb_",
+  "n_estimators": 4,
+  "preprocess_aliases": ["raw-fold0.joblib", "raw-fold1.joblib", "raw-fold2.joblib", "raw-fold3.joblib", "raw-fold4.joblib"],
+  "purpose": "Refit the frozen external-mixed raw600 TabPFN 2.6 control atom on complete held-fold pools."
+}

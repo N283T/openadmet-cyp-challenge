@@ -1,0 +1,21 @@
+{
+  "legacy_bank": "legacy-bank.parquet",
+  "deployed_oof": "deployed-oof.parquet",
+  "tabpfn35_oof": "tabpfn35-fast-oof.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "deployed_model": "deployed_mean_block",
+  "replace_legacy_model": "current_fixed_ratio",
+  "new_methods": [
+    "morgan_top512",
+    "jeremy_anchor_top512",
+    "anchor_pub030_top512",
+    "owned_scratch_anchor_top512",
+    "all_pool_top512"
+  ],
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "subset_sizes": [1, 2, 4, 6, 8, 10, 12, 16, 20, 24, 29],
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 20260918,
+  "protocol": "Replace the obsolete current_fixed_ratio bank expert with the scored deployed_mean_block control, then append five TabPFN 3.5-fast feature-pool predictions as ordinary keyed experts. Compare the legacy and extended banks using only all-expert equal means and nested fold-excluded forward-selected equal-weight subsets. Inner held-fold predictions select subset size; the outer held fold is untouched by member and size selection. No manual blend location or percentage is searched. Full TabPFN 3.5 is excluded as a near-duplicate confirmation backend (fast/full OOF Spearman 0.97142)."
+}

@@ -1,0 +1,16 @@
+{
+  "split_bag_oof": "split-bag-oof.parquet",
+  "split_bag_test": "split-bag-test.parquet",
+  "support": "random-oof-support.parquet",
+  "target_prior": 0.07062568306010919,
+  "oof_positive_calls": 97,
+  "test_positive_calls": 49,
+  "support6_suffixes": ["scaffold", "random"],
+  "all9_suffixes": ["umap", "scaffold", "random"],
+  "method_roots": [
+    "tabpfn35fast::anchor_pub030_top512",
+    "tabpfn35fast::jeremy_anchor_top512",
+    "tabpfn35fast::all_pool_top512"
+  ],
+  "protocol": "Unweighted top-call consensus across the complete 3x2 support-relevant random/scaffold TabPFN grid, with the complete 3x3 UMAP/scaffold/random grid as a stress-test control. Each member casts one top-K vote; ties are broken by the equal mean of member ranks. Also report the equal-rank mean. No member or score weight is fitted or hand-selected."
+}

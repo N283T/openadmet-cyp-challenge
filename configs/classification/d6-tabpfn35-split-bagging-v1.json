@@ -1,0 +1,22 @@
+{
+  "dual_oof": "dual-oof.parquet",
+  "dual_test": "dual-test.parquet",
+  "random_oof": "random-oof.parquet",
+  "random_test": "random-test.parquet",
+  "support": "random-oof-support.parquet",
+  "deployed_oof": "deployed-oof.parquet",
+  "deployed_test": "deployed-test.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "deployed_model": "deployed_mean_block",
+  "methods": [
+    "anchor_pub030_top512",
+    "jeremy_anchor_top512",
+    "all_pool_top512"
+  ],
+  "oof_positive_calls": 97,
+  "test_positive_calls": 49,
+  "target_prior": 0.07062568306010919,
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 20260918,
+  "protocol": "Equal-weight bagging across independently assigned honest outer-split predictions of the same TabPFN 3.5-fast standalone model. Compare UMAP, scaffold, random, UMAP+random and all-three split bags after within-fold rank normalization. Also report the prespecified random-support post-stratified readout. No live-score blend or fitted mixture weight is used."
+}

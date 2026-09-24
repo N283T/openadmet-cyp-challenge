@@ -1,0 +1,10 @@
+{
+  "compounds": "compounds.parquet",
+  "labels": "labels.parquet",
+  "assignments": "assignments.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "scaffold",
+  "refit": true,
+  "methods": ["logistic_c0.05", "rbf_svm_c1", "complement_nb_a1"],
+  "purpose": "Refit the three September 15 Morgan tail models on complete scaffold held-fold pools."
+}

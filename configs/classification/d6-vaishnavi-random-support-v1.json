@@ -1,0 +1,14 @@
+{
+  "compounds": "compounds.parquet",
+  "labels": "classification-labels.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "assignments": "assignments.parquet",
+  "current_bank": "current-prediction-bank.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "strategies": ["random"],
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "seed": 20260918,
+  "weightings": ["plain", "balanced"],
+  "selection": "Random-fold diagnostic of the disclosed shallow RF, ExtraTrees and LightGBM recipe under a validation support distribution closer to blind test. No blend with the live score and no submission decision from this diagnostic alone."
+}

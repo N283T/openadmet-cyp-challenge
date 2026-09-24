@@ -1,0 +1,30 @@
+{
+  "labels": "measurements.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "assignments": "assignments.parquet",
+  "current_bank": "current-bank.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "strategies": ["umap", "scaffold"],
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "seed": 20260924,
+  "weightings": ["balanced"],
+  "lightgbm": {
+    "n_estimators": 400,
+    "num_leaves": 15,
+    "max_depth": 4,
+    "min_child_samples": 20,
+    "learning_rate": 0.03,
+    "reg_lambda": 2.0
+  },
+  "blocks": {
+    "jeremy_raw": {"file": "jeremy-raw.parquet", "prefixes": ["emb_"]},
+    "jeremy_scores": {"file": "jeremy-scores.parquet", "prefixes": ["score_"]},
+    "chemeleon_raw": {"file": "chemeleon-raw.parquet", "prefixes": ["emb_"]}
+  },
+  "candidates": [
+    {"name": "jeremy_chemeleon_control", "blocks": ["jeremy_raw", "chemeleon_raw"]},
+    {"name": "jeremy_chemeleon_jeremy_scores", "blocks": ["jeremy_raw", "chemeleon_raw", "jeremy_scores"]}
+  ],
+  "protocol": "Fixed external representations only. Refit two prespecified D6 LightGBM readouts on the same UMAP and scaffold outer folds. Predict all 6146 held-fold molecules, including null-labelled rows. These models are a bounded transfer probe, not replicas of the submitted September 15 or AP-mass90 ensembles."
+}

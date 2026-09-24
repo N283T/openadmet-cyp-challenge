@@ -1,0 +1,14 @@
+{
+  "predictions": ["extra-all-pool.parquet", "ap-top6-all-pool.parquet"],
+  "assignments": "assignments.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "strategies": ["umap", "scaffold"],
+  "models": ["jeremy_chemeleon_all_scores::extra_trees", "ap_top6_weighted_rank_proxy"],
+  "historical_rate": 0.06533333333333333,
+  "rates": [0.02, 0.04, 0.06, 0.06533333333333333, 0.08, 0.1, 0.15, 0.2],
+  "target_priors": [0.05, 0.07062568306010919, 0.1],
+  "expected_pool_rows": 6146,
+  "bootstrap_replicates": 1000,
+  "bootstrap_seed": 20260924,
+  "purpose": "Evaluate the frozen six-atom AP proxy against the leading atom at the full-molecule boundary. Omits the 2.7 percent legacy TabPFN atom."
+}

@@ -1,0 +1,35 @@
+{
+  "legacy_bank": "legacy-bank.parquet",
+  "new_lgbm_oof": "new-lgbm-oof.parquet",
+  "new_readout_oof": "new-readout-oof.parquet",
+  "new_tabpfn_oof": "new-tabpfn-oof.parquet",
+  "combined_definition": "combined-definition.json",
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "umap",
+  "legacy_control": "current_fixed_ratio",
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "support_sizes": [0, 1, 2, 3, 4, 6, 8],
+  "bootstrap_seed": 20260924,
+  "bootstrap_replicates": 3000,
+  "anchors": {
+    "new_equal16": "all",
+    "new_lgbm5": [
+      "new::lgbm::jeremy_anchor_all_chemeleon::balanced",
+      "new::lgbm::jeremy_chemeleon_all_scores::balanced",
+      "new::lgbm::jeremy_chemeleon_control::balanced",
+      "new::lgbm::jeremy_chemeleon_anchor_scores::plain",
+      "new::lgbm::anchor_all_chemeleon::balanced"
+    ],
+    "new_umap_forward6": [
+      "new::lgbm::jeremy_chemeleon_all_scores::balanced",
+      "new::extra::jeremy_chemeleon_all_scores",
+      "new::cat::anchor_all_chemeleon",
+      "new::tabpfn35::jeremy_chemeleon_all_scores",
+      "new::lgbm::anchor_all_chemeleon::balanced",
+      "new::extra::jeremy_anchor_all_chemeleon"
+    ]
+  },
+  "weighting_modes": ["atomic", "family_block"],
+  "protocol": "Treat each promoted new-family recipe as a fixed anchor, then select only legacy support members with two-level held-fold exclusion. Atomic mode gives every underlying model one vote; family-block mode first collapses the new anchor to one conceptual vote. Support count, identity and weighting mode are never selected on the reported outer fold."
+}

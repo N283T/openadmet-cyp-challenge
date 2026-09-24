@@ -1,0 +1,23 @@
+{
+  "compounds": "compounds.parquet",
+  "labels": "measurements.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "assignments": "assignments.parquet",
+  "feature_sources": {
+    "mace_off_emb": "mace-off-embeddings.parquet",
+    "smartcyp": "smartcyp-features.parquet"
+  },
+  "methods": [
+    {"name": "morgan_mace_off_emb_lr", "blocks": ["morgan", "mace_off_emb"], "model": "lr"},
+    {"name": "morgan_smartcyp_lgbm", "blocks": ["morgan", "smartcyp"], "model": "lgbm"}
+  ],
+  "endpoints": ["CYP2D6_is_TDI"],
+  "strategies": ["umap", "scaffold"],
+  "endpoint_settings": {
+    "CYP2D6_is_TDI": {"call_rate": 0.06533333333333333, "target_prior": 0.07062568306010919}
+  },
+  "lr_c": 0.03,
+  "seed": 20260914,
+  "lgbm": {"n_estimators": 300, "learning_rate": 0.03, "num_leaves": 15, "min_child_samples": 30, "reg_lambda": 2.0},
+  "selection": "Reproduce two fixed submitted AP atoms on the complete held-fold pool."
+}

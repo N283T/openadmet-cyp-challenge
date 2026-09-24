@@ -1,0 +1,11 @@
+{
+  "lgbm": "lgbm-all-pool.parquet",
+  "pfn_pca": "pfn-pca-all-pool.parquet",
+  "pfn_raw": "pfn-raw-all-pool.parquet",
+  "graph": "graph-all-pool.parquet",
+  "fixed": "fixed-all-pool.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "umap",
+  "models": ["sep15_control_raw_oof_analog", "sep15_control_rank_oof_analog"],
+  "purpose": "Recompose September 15 blind control on full UMAP held-fold pools, preserving both raw-score and labelled-OOF rank analogs."
+}

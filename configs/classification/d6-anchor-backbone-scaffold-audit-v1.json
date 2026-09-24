@@ -1,0 +1,47 @@
+{
+  "lgbm_oof": "lgbm-oof.parquet",
+  "readout_oof": "readout-oof.parquet",
+  "tabpfn_oof": "tabpfn-oof.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "scaffold",
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "bootstrap_seed": 20260924,
+  "bootstrap_replicates": 3000,
+  "reference": "lgbm::jeremy_chemeleon_control::balanced",
+  "members": [
+    {"name": "lgbm::jeremy_anchor_all_chemeleon::balanced", "source": "lgbm", "method": "jeremy_anchor_all_chemeleon::balanced"},
+    {"name": "lgbm::jeremy_chemeleon_all_scores::balanced", "source": "lgbm", "method": "jeremy_chemeleon_all_scores::balanced"},
+    {"name": "lgbm::jeremy_chemeleon_control::balanced", "source": "lgbm", "method": "jeremy_chemeleon_control::balanced"},
+    {"name": "lgbm::jeremy_chemeleon_anchor_scores::plain", "source": "lgbm", "method": "jeremy_chemeleon_anchor_scores::plain"},
+    {"name": "lgbm::anchor_all_chemeleon::balanced", "source": "lgbm", "method": "anchor_all_chemeleon::balanced"},
+    {"name": "cat::jeremy_anchor_all_chemeleon", "source": "readout", "method": "jeremy_anchor_all_chemeleon::catboost"},
+    {"name": "extra::jeremy_chemeleon_all_scores", "source": "readout", "method": "jeremy_chemeleon_all_scores::extra_trees"},
+    {"name": "cat::jeremy_chemeleon_all_scores", "source": "readout", "method": "jeremy_chemeleon_all_scores::catboost"},
+    {"name": "xgb::jeremy_chemeleon_all_scores", "source": "readout", "method": "jeremy_chemeleon_all_scores::xgboost"},
+    {"name": "cat::anchor_all_chemeleon", "source": "readout", "method": "anchor_all_chemeleon::catboost"},
+    {"name": "xgb::anchor_all_chemeleon", "source": "readout", "method": "anchor_all_chemeleon::xgboost"},
+    {"name": "extra::jeremy_anchor_all_chemeleon", "source": "readout", "method": "jeremy_anchor_all_chemeleon::extra_trees"},
+    {"name": "xgb::jeremy_anchor_all_chemeleon", "source": "readout", "method": "jeremy_anchor_all_chemeleon::xgboost"},
+    {"name": "extra::anchor_all_chemeleon", "source": "readout", "method": "anchor_all_chemeleon::extra_trees"},
+    {"name": "tabpfn35::jeremy_chemeleon_all_scores", "source": "tabpfn", "method": "jeremy_chemeleon_all_scores_top512"},
+    {"name": "tabpfn35::jeremy_anchor_all_chemeleon", "source": "tabpfn", "method": "jeremy_anchor_all_chemeleon_top512"}
+  ],
+  "subsets": {
+    "new_equal_all": "all",
+    "new_umap_consensus3": [
+      "lgbm::jeremy_chemeleon_all_scores::balanced",
+      "lgbm::anchor_all_chemeleon::balanced",
+      "extra::jeremy_chemeleon_all_scores"
+    ],
+    "new_umap_forward6": [
+      "lgbm::jeremy_chemeleon_all_scores::balanced",
+      "extra::jeremy_chemeleon_all_scores",
+      "cat::anchor_all_chemeleon",
+      "tabpfn35::jeremy_chemeleon_all_scores",
+      "lgbm::anchor_all_chemeleon::balanced",
+      "extra::jeremy_anchor_all_chemeleon"
+    ]
+  },
+  "protocol": "Evaluate UMAP-prespecified new-family subsets on independently trained scaffold-fold predictions. No scaffold label is used to change subset membership or weight."
+}

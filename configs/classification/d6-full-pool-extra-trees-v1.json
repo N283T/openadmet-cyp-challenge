@@ -1,0 +1,31 @@
+{
+  "labels": "measurements.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "assignments": "assignments.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "strategies": ["umap", "scaffold"],
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "seed": 20260924,
+  "num_threads": 4,
+  "importance_top_k": 256,
+  "selector": {
+    "n_estimators": 120,
+    "num_leaves": 15,
+    "max_depth": 4,
+    "min_child_samples": 20,
+    "learning_rate": 0.05,
+    "reg_lambda": 2.0
+  },
+  "blocks": {
+    "jeremy_raw": {"file": "jeremy-raw.parquet", "prefixes": ["emb_"]},
+    "jeremy_scores": {"file": "jeremy-scores.parquet", "prefixes": ["score_"]},
+    "chemeleon_raw": {"file": "chemeleon-raw.parquet", "prefixes": ["emb_"]}
+  },
+  "candidates": [
+    {"name": "jeremy_chemeleon_control", "blocks": ["jeremy_raw", "chemeleon_raw"]},
+    {"name": "jeremy_chemeleon_jeremy_scores", "blocks": ["jeremy_raw", "chemeleon_raw", "jeremy_scores"]}
+  ],
+  "readouts": ["extra_trees"],
+  "protocol": "Fixed external representations, fold-local LightGBM feature selection, ExtraTrees readout, complete held-fold molecule prediction. This is a second bounded transfer probe, not an exact historical submission replica."
+}

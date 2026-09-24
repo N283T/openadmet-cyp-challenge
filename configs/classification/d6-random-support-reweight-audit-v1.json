@@ -1,0 +1,15 @@
+{
+  "compounds": "compounds.parquet",
+  "labels": "measurements.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "assignments": "assignments.parquet",
+  "tabpfn_oof": "tabpfn-random-oof.parquet",
+  "tree_oof": "tree-random-oof.parquet",
+  "deployed_oof": "deployed-oof.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "deployed_model": "deployed_mean_block",
+  "support_bins": [0.0, 0.3, 0.4, 0.5, 0.6, 1.000001],
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "protocol": "Compute Morgan radius-2/2048-bit nearest-training support under each existing random fold and full-training support for blind test. Post-stratify random-fold OOF rows to the blind-test support histogram, fold-rank each standalone model, and evaluate weighted AUROC, AP and fixed-call target-prior MCC. This is a covariate-shift diagnostic using no test labels and no model blending. The deployed UMAP mean-block is shown only as a cross-split reference because it was not refit on random folds."
+}

@@ -1,0 +1,5 @@
+{
+  "aliases": "aliases.parquet",
+  "test_prefix": "253",
+  "purpose": "Inventory the blind OCNT-253 analog-expansion cohort and its absence from training aliases."
+}

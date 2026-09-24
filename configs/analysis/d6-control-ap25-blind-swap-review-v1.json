@@ -1,0 +1,9 @@
+{
+  "control": "control.parquet",
+  "candidate": "candidate.parquet",
+  "decision": "decision.parquet",
+  "diagnostics": "diagnostics.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "expected_swaps_each_way": 4,
+  "purpose": "Review exact blind call changes and known training-label neighbor evidence for the unsubmitted 75/25 control/AP probe."
+}

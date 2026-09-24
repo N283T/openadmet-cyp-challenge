@@ -1,0 +1,13 @@
+{
+  "labels": "labels.parquet",
+  "assignments": "assignments.parquet",
+  "features": "external-embeddings.parquet",
+  "weights": "tabpfn-v2.6.ckpt",
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "scaffold",
+  "model": "external_mixed_pca256",
+  "feature_prefix": "emb_",
+  "preprocessing": "pca256",
+  "n_estimators": 4,
+  "purpose": "Refit external-mixed PCA256 TabPFN 2.6 control atom on scaffold complete-pool folds."
+}

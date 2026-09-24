@@ -1,0 +1,10 @@
+{
+  "compounds": "compounds.parquet",
+  "labels": "labels.parquet",
+  "assignments": "assignments.parquet",
+  "encoder": "external-best.pt",
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "scaffold",
+  "model": "tdi_only",
+  "purpose": "Refit TDI-only graph control with inner epoch selection on scaffold folds and predict complete held-fold pools."
+}

@@ -1,0 +1,21 @@
+{
+  "endpoint": "CYP2D6_is_TDI",
+  "username": "N283T",
+  "estimated_hidden_prevalence": 0.07062568306010919,
+  "control_submission": "control-submission.parquet",
+  "support_submission": "support-submission.parquet",
+  "ap_submission": "ap-submission.parquet",
+  "test_diagnostics": "test-diagnostics.parquet",
+  "support_oof": "support-oof.parquet",
+  "ap_oof": "ap-oof.parquet",
+  "ap_test": "ap-test.parquet",
+  "assignments": "assignments.parquet",
+  "control_leaderboard": "control-leaderboard.csv",
+  "support_leaderboard": "support-leaderboard.csv",
+  "ap_leaderboard": "ap-leaderboard.csv",
+  "control_model": "deployed_mean_block",
+  "support_model": "support6_top_call_vote",
+  "ap_model": "ap_mass90_unrestricted_caruana",
+  "permutation_replicates": 10000,
+  "permutation_seed": 20260924
+}

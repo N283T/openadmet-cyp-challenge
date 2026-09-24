@@ -1,0 +1,27 @@
+{
+  "consensus_test": "consensus-test.parquet",
+  "consensus_oof": "consensus-oof.parquet",
+  "member_test": "member-test.parquet",
+  "member_oof": "member-oof.parquet",
+  "oof_support": "oof-support.parquet",
+  "test_support": "test-support.parquet",
+  "compounds": "compounds.parquet",
+  "measurements": "measurements.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "pre_d6_leaderboard": "pre-d6-leaderboard.csv",
+  "post_d6_leaderboard": "post-d6-leaderboard.csv",
+  "our_username": "N283T",
+  "endpoint": "CYP2D6_is_TDI",
+  "deployed_model": "deployed_mean_block",
+  "candidate_model": "support6_top_call_vote",
+  "hidden_prevalence": 0.07062568306010919,
+  "member_roots": [
+    "tabpfn35fast::anchor_pub030_top512",
+    "tabpfn35fast::jeremy_anchor_top512",
+    "tabpfn35fast::all_pool_top512"
+  ],
+  "member_splits": ["random", "scaffold"],
+  "morgan_radius": 2,
+  "morgan_bits": 2048,
+  "knn_k": 10
+}

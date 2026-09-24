@@ -1,0 +1,13 @@
+{
+  "compounds": "compounds.parquet",
+  "labels": "measurements.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "n_folds": 5,
+  "candidate_seeds": 500,
+  "selected_seeds": 5,
+  "baseline_seed": 42,
+  "fingerprint_radius": 2,
+  "fingerprint_size": 2048,
+  "selection": "Search KFold shuffle seeds 0..499 using only the Wasserstein distance between honest OOF nearest-training Morgan support and unlabeled blind-test-to-full-training support. Labels are used only after seed selection to report fold balance; they do not enter the seed objective. Retain the five closest seeds plus seed 42 as a baseline."
+}

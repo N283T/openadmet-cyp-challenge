@@ -1,0 +1,40 @@
+{
+  "labels": "measurements.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "assignments": "assignments.parquet",
+  "current_bank": "current-prediction-bank.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "strategies": ["umap", "scaffold"],
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "seed": 20260918,
+  "weightings": ["plain", "balanced"],
+  "lightgbm": {
+    "n_estimators": 400,
+    "num_leaves": 15,
+    "max_depth": 4,
+    "min_child_samples": 20,
+    "learning_rate": 0.03,
+    "reg_lambda": 2.0
+  },
+  "blocks": {
+    "morgan": {"file": "fp-mordred.parquet", "prefixes": ["fp_"]},
+    "mordred": {"file": "fp-mordred.parquet", "prefixes": ["mordred_"]},
+    "jeremy_raw": {"file": "jeremy-raw.parquet", "prefixes": ["emb_"]},
+    "jeremy_scores": {"file": "jeremy-scores.parquet", "prefixes": ["score_"]},
+    "anchor_raw": {"file": "anchor-raw-scores.parquet", "prefixes": ["raw_"]},
+    "anchor_scores": {"file": "anchor-raw-scores.parquet", "prefixes": ["score_"]},
+    "pub030_raw": {"file": "pub030-raw.parquet", "prefixes": ["raw_"]},
+    "owned_raw": {"file": "owned-raw-scores.parquet", "prefixes": ["raw_"]},
+    "owned_scores": {"file": "owned-raw-scores.parquet", "prefixes": ["score_"]},
+    "scratch_raw": {"file": "scratch-raw.parquet", "prefixes": ["raw_"]}
+  },
+  "candidates": [
+    {"name": "jeremy_anchor_all", "blocks": ["jeremy_raw", "jeremy_scores", "anchor_raw", "anchor_scores"]},
+    {"name": "anchor_all_pub030_raw", "blocks": ["anchor_raw", "anchor_scores", "pub030_raw"]},
+    {"name": "checkpoint_raw_trio", "blocks": ["jeremy_raw", "anchor_raw", "pub030_raw"]},
+    {"name": "owned_scratch_anchor", "blocks": ["owned_raw", "owned_scores", "scratch_raw", "anchor_raw", "anchor_scores"]},
+    {"name": "dense_pool_top256", "blocks": ["mordred", "jeremy_raw", "jeremy_scores", "anchor_raw", "anchor_scores", "pub030_raw", "owned_raw", "owned_scores", "scratch_raw"], "importance_top_k": 256},
+    {"name": "all_pool_top256", "blocks": ["morgan", "mordred", "jeremy_raw", "jeremy_scores", "anchor_raw", "anchor_scores", "pub030_raw", "owned_raw", "owned_scores", "scratch_raw"], "importance_top_k": 256}
+  ]
+}

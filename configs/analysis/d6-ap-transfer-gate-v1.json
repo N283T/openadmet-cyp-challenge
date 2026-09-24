@@ -1,0 +1,13 @@
+{
+  "umap_fixed": "umap-fixed-rate.csv",
+  "umap_nested": "umap-rate-selection.csv",
+  "scaffold_fixed": "scaffold-fixed-rate.csv",
+  "scaffold_nested": "scaffold-rate-selection.csv",
+  "strategies": ["umap", "scaffold"],
+  "scope": "full_pool",
+  "historical_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "expected_pool_rows": 6146,
+  "minimum_lower_ci": 0.0,
+  "purpose": "Conservative pre-probe evidence gate: require positive paired lower intervals at the historical rate and nested rate selection on both complete-pool split families."
+}

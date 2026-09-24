@@ -1,0 +1,27 @@
+{
+  "compounds": "compounds.parquet",
+  "regression_labels": "regression-labels.parquet",
+  "assignments": "assignments.parquet",
+  "predictions": {
+    "umap": ["sep15-umap.parquet", "ap-umap.parquet"],
+    "scaffold": ["sep15-scaffold.parquet", "ap-scaffold.parquet"]
+  },
+  "models": {
+    "umap": ["sep15_control_raw_oof_analog", "ap_full7_outer_weight_rank"],
+    "scaffold": ["sep15_control_raw_oof_analog", "ap_full7_scaffold_outer_weight_rank"]
+  },
+  "anchor_heads": [
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "anchors_per_head": 25,
+  "analogs_per_anchor": 10,
+  "morgan_radius": 2,
+  "morgan_bits": 2048,
+  "historical_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260924,
+  "purpose": "Test a pseudo analog-expansion validation subset selected from top measured 1A2, 2C9 and 3A4 direct-inhibition anchors without using D6 labels."
+}

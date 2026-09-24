@@ -1,0 +1,36 @@
+{
+  "decision_test": "decision-test.parquet",
+  "decision_oof": "decision-oof.parquet",
+  "member_test": "member-test.parquet",
+  "member_oof": "member-oof.parquet",
+  "compounds": "compounds.parquet",
+  "measurements": "measurements.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "control_model": "deployed_mean_block",
+  "candidate_model": "ap_mass90_unrestricted_caruana",
+  "member_models": [
+    "extra::jeremy_chemeleon_all_scores",
+    "lgbm::jeremy_chemeleon_anchor_scores::balanced",
+    "tabpfn35::jeremy_chemeleon_all_scores",
+    "new::mace",
+    "new::product_activity",
+    "new::smartcyp",
+    "pfn::external_mixed_pca256"
+  ],
+  "expected_positive_calls": 49,
+  "morgan_radius": 2,
+  "morgan_bits": 2048,
+  "knn_k": 10,
+  "permutation_replicates": 10000,
+  "random_seed": 20260924,
+  "enforce": true,
+  "thresholds": {
+    "max_swap_fraction": 0.25,
+    "max_mean_member_score_spearman": 0.95,
+    "min_effective_vote_count": 2.0,
+    "min_oof_swap_positive_rate_advantage": 0.02,
+    "max_oof_swap_fisher_p_two_sided": 0.1,
+    "max_test_minus_oof_member_spearman": 0.05,
+    "label_neighborhood_veto_p": 0.05
+  }
+}

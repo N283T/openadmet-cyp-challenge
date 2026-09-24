@@ -1,0 +1,35 @@
+{
+  "labels": "measurements.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "assignments": "assignments.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "strategies": ["umap", "scaffold"],
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "seed": 20260924,
+  "num_threads": 4,
+  "importance_top_k": 256,
+  "selector": {
+    "n_estimators": 120,
+    "num_leaves": 15,
+    "max_depth": 4,
+    "min_child_samples": 20,
+    "learning_rate": 0.05,
+    "reg_lambda": 2.0
+  },
+  "blocks": {
+    "jeremy_raw": {"file": "jeremy-raw.parquet", "prefixes": ["emb_"]},
+    "jeremy_scores": {"file": "jeremy-scores.parquet", "prefixes": ["score_"]},
+    "anchor_raw": {"file": "anchor-raw-scores.parquet", "prefixes": ["raw_"]},
+    "anchor_scores": {"file": "anchor-raw-scores.parquet", "prefixes": ["score_"]},
+    "pub030_raw": {"file": "pub030-raw.parquet", "prefixes": ["raw_"]},
+    "chemeleon_raw": {"file": "chemeleon-raw.parquet", "prefixes": ["emb_"]}
+  },
+  "candidates": [
+    {"name": "jeremy_anchor_all_chemeleon", "blocks": ["jeremy_raw", "anchor_raw", "anchor_scores", "chemeleon_raw"]},
+    {"name": "jeremy_chemeleon_all_scores", "blocks": ["jeremy_raw", "jeremy_scores", "anchor_scores", "chemeleon_raw"]},
+    {"name": "anchor_all_chemeleon", "blocks": ["anchor_raw", "anchor_scores", "chemeleon_raw"]}
+  ],
+  "readouts": ["catboost", "xgboost", "extra_trees"],
+  "protocol": "Fold-local balanced LightGBM gain selection to 256 dimensions, followed by heterogeneous fixed readouts on the UMAP folds. No challenge-label information crosses an outer fold; scaffold confirmation is reserved for promoted readouts."
+}

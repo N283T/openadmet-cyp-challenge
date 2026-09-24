@@ -1,0 +1,19 @@
+{
+  "base_oof": "equal7-oof.parquet",
+  "base_test": "equal7-test.parquet",
+  "new_oof": "tabpfn35-oof.parquet",
+  "new_test": "tabpfn35-test.parquet",
+  "assignments": "assignments.parquet",
+  "endpoint": "CYP3A4_is_TDI",
+  "split_id": "umap",
+  "base_model": "exhaustive_mcc::components_7",
+  "new_method": "all_pool_top512",
+  "new_label": "tabpfn35full_all_pool",
+  "weights": [0.1, 0.2, 0.25, 0.3333333333333333, 0.5],
+  "call_rate": 0.332,
+  "test_calls": 249,
+  "target_prior": 0.2916,
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 20260918,
+  "selection": "Matched fixed additions of the full TabPFN 3.5 all-pool rank to the scored A4 equal-seven score."
+}

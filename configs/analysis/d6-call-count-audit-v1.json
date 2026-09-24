@@ -1,0 +1,17 @@
+{
+  "oof": "blend-oof.parquet",
+  "assignments": "assignments.parquet",
+  "blind_scores": "blind-scores.parquet",
+  "base_submission": "base-submission.parquet",
+  "aliases": "aliases.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "strategies": ["umap", "scaffold"],
+  "oof_models": ["sep15_control_raw_oof_analog", "sep15_ap25_rank_blend"],
+  "blind_models": ["deployed_mean_block", "ap_mass90_unrestricted_caruana"],
+  "ap_weight": 0.25,
+  "call_counts": [15, 25, 35, 49, 65, 80, 110, 150],
+  "historical_calls": 49,
+  "blind_pool_rows": 750,
+  "target_priors": [0.05, 0.07062568306010919, 0.1],
+  "purpose": "Audit D6 control and conservative blend across positive-call counts without treating historical 49 calls as optimal."
+}

@@ -1,0 +1,16 @@
+{
+  "predictions": {
+    "umap": ["sep15-umap.parquet", "ap-umap.parquet"],
+    "scaffold": ["sep15-scaffold.parquet", "ap-scaffold.parquet"]
+  },
+  "assignments": "assignments.parquet",
+  "assay_route": "assay-route.parquet",
+  "endpoint": "CYP2D6_is_TDI",
+  "models": {
+    "umap": ["sep15_control_raw_oof_analog", "ap_full7_outer_weight_rank"],
+    "scaffold": ["sep15_control_raw_oof_analog", "ap_full7_scaffold_outer_weight_rank"]
+  },
+  "rate": 0.06533333333333333,
+  "expected_pool_rows": 6146,
+  "purpose": "Locate September 15 versus AP full-pool fixed-rate swaps in training assay-label provenance strata."
+}

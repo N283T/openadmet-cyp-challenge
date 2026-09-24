@@ -1,0 +1,44 @@
+{
+  "reference_oof": "reference-oof.parquet",
+  "lgbm_oof": "lgbm-oof.parquet",
+  "pfn_oof": "pfn-oof.parquet",
+  "graph_oof": "graph-oof.parquet",
+  "fixed_oof": "fixed-oof.parquet",
+  "raw600_oof": "raw600-oof.parquet",
+  "selections": "selections.parquet",
+  "vaishnavi_oof": "vaishnavi-oof.parquet",
+  "vaishnavi_test": "vaishnavi-test.parquet",
+  "regression_oof": "regression-oof.parquet",
+  "regression_test": "regression-test.parquet",
+  "deployed_test": "deployed-test-scores.parquet",
+  "reference_method": "all_plain_pfn_graph_mean",
+  "selection_model": "exhaustive_mcc::components_10",
+  "pca_member": "pfn::external_mixed_pca256",
+  "raw_member": "pfn::external_mixed_raw600",
+  "endpoint": "CYP2D6_is_TDI",
+  "split_id": "umap",
+  "candidates": [
+    {
+      "name": "alert_balanced_rf",
+      "source": "vaishnavi",
+      "method": "morgan_alert13::balanced::random_forest"
+    },
+    {
+      "name": "anchor_pub030_balanced",
+      "source": "regression",
+      "method": "anchor_all_pub030_raw::balanced"
+    },
+    {
+      "name": "owned_scratch_anchor_balanced",
+      "source": "regression",
+      "method": "owned_scratch_anchor::balanced"
+    }
+  ],
+  "candidate_weights": [0.1, 0.2, 0.25, 0.3333333333333333, 0.5],
+  "call_rate": 0.06533333333333333,
+  "test_calls": 49,
+  "target_prior": 0.07062568306010919,
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 20260918,
+  "selection": "Prospective fixed-weight rank-blend audit against the currently deployed D6 mean-block score. Candidate families and weights were fixed before inspecting blend results."
+}
