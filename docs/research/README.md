@@ -687,3 +687,5 @@ Reports and research entries default to English; conversation language is indepe
 | [RL0156](2026-09.md#rl0156--analog-expansion-selection-exposes-the-validation-population-gap) | Blind analog-expansion selection and sparse D6 validation coverage |
 | [RL0157](2026-09.md#rl0157--forty-nine-d6-calls-are-a-historical-comparator-not-a-constraint) | D6 model/rate audit rejects treating 49 calls as fixed |
 | [RL0158](2026-09.md#rl0158--select-the-september-15-classification-vector-for-the-interim-submission) | September 15 classification vector selected for the pre-interim submission after cooldown |
+| [RL0159](2026-09.md#rl0159--endpoint-wise-leaderboard-best-regression-submission) | Endpoint-wise leaderboard-best regression submission and exact scored confirmation |
+| [RL0160](2026-09.md#rl0160--resubmit-the-exact-september-15-classification-vector) | Exact September 15 classification vector resent after cooldown; scoring pending |
