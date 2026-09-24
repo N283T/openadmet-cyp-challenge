@@ -1,11 +1,15 @@
 {
   "track": "regression",
-  "status": "selected_not_submitted",
+  "status": "submitted_and_scored",
   "selected_at": "2026-09-18T13:59:50+09:00",
   "candidate_id": "20260918T045702449733Z-825d14db",
   "candidate_file": "artifacts/candidates/regression/20260918T045702449733Z-825d14db/predictions.csv",
   "sha256": "68ef80dba0568137e9ff594360c219710e13646366a5a6899caf03ee598edced",
   "source_run": "20260918T045647622717Z-0891022e",
   "selection": "Adventurous submission-aware v9 with CYP2D6 mean 3.57 and sample SD 0.80; all other target placements use the foundation-v8 candidate.",
-  "submission_state": "Held as the next candidate during the current cooldown; no upload performed."
+  "submission_id": "20260918T121343664656Z-cf7be0d2",
+  "attempt_id": "20260918T121416622686Z-60da7e28",
+  "submitted_at": "2026-09-18T12:14:16+00:00",
+  "submission_state": "Sent once and scored. Macro ST-RAE .47581 to .47731 and rank 22 to 23; CYP1A2 improved (.52984 to .50853, rank 48 to 38) while CYP2C9, CYP2D6 and CYP3A4 regressed. The correlation-adaptive CYP2D6 spread is rejected; see RL0136.",
+  "verdict": "rejected_for_reuse"
 }
