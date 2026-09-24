@@ -1,0 +1,21 @@
+{
+  "distinct_states": 7,
+  "endpoint_transitions": 12,
+  "molecule_count": 750,
+  "d6_directions": [
+    "gain",
+    "gain",
+    "gain",
+    "gain",
+    "loss",
+    "gain"
+  ],
+  "a4_directions": [
+    "loss",
+    "gain",
+    "gain",
+    "gain",
+    "tie",
+    "tie"
+  ]
+}

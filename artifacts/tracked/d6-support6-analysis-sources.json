@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "d6-support6-failure",
+      "title": "Why did the support6 CYP2D6 probe fail?",
+      "assumptions": [
+        "The fixed 7.0626% hidden-prevalence estimate is used only to translate leaderboard bootstrap means into aggregate true-positive equivalents."
+      ],
+      "queries": [
+        {
+          "id": "leaderboard-movement",
+          "source": {
+            "label": "Official CYP classification leaderboards",
+            "files": [
+              {"label": "classification_leaderboard_h4jdnqvl.csv"},
+              {"label": "classification_leaderboard_zjwkce97.csv"}
+            ],
+            "metricDefinitions": [
+              {
+                "label": "CYP2D6 MCC",
+                "definition": "CYP2D6 MCC is the official bootstrap-mean Matthews correlation coefficient on confidently scored hidden labels."
+              }
+            ],
+            "filters": ["Username: N283T", "Endpoint: CYP2D6_is_TDI"],
+            "caveats": [
+              "Official precision, recall and accuracy are bootstrap means and cannot be inverted into exact per-compound hidden labels."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "Submission comparison",
+                "detail": "The control and support6 rows use the same endpoint and each submitted vector contains 49 positive calls."
+              }
+            ]
+          },
+          "sourceRoles": [
+            {
+              "kind": "file",
+              "label": "classification_leaderboard_h4jdnqvl.csv",
+              "role": "Official pre-submission D6 metrics."
+            },
+            {
+              "kind": "file",
+              "label": "classification_leaderboard_zjwkce97.csv",
+              "role": "Official post-submission D6 metrics."
+            }
+          ],
+          "columns": ["generation", "rank", "mcc", "precision", "recall", "f1"],
+          "rows": [
+            {"generation": "control", "rank": 20, "mcc": 0.308635, "precision": 0.341206, "recall": 0.383490, "f1": 0.357087},
+            {"generation": "support6", "rank": 88, "mcc": 0.109729, "precision": 0.165454, "recall": 0.191361, "f1": 0.175038}
+          ],
+          "methods": [
+            {
+              "language": "calculation",
+              "code": "Estimated TP share = 0.0706257 × recall\nEstimated TP-equivalent loss per 750 = 750 × (0.0270843 − 0.0135150) = 10.18"
+            }
+          ]
+        },
+        {
+          "id": "swap-neighborhoods",
+          "source": {
+            "label": "Recorded swap-neighborhood diagnosis",
+            "files": [
+              {"label": "test-swap-contrasts.csv"},
+              {"label": "oof-swap-cohort-summary.csv"}
+            ],
+            "metricDefinitions": [
+              {
+                "label": "Morgan support",
+                "definition": "Morgan support is the maximum radius-2, 2,048-bit Tanimoto similarity to any labeled training compound."
+              },
+              {
+                "label": "Label-aware neighborhood rate",
+                "definition": "The top-k positive rate is the fraction of the k most Morgan-similar labeled training compounds carrying the positive D6 label."
+              }
+            ],
+            "filters": ["Comparison: control-only versus support6-only calls", "Swapped compounds per cohort: 27"],
+            "caveats": [
+              "Training-neighbor diagnostics are descriptive and do not identify which individual blind compounds are hidden positives."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "method",
+                "title": "Uncertainty check",
+                "detail": "Two-sided 10,000-permutation tests compare the 27 control-only and 27 support6-only compounds; 10,000 within-cohort bootstrap resamples provide the reported intervals."
+              }
+            ]
+          },
+          "sourceRoles": [
+            {
+              "kind": "file",
+              "label": "test-swap-contrasts.csv",
+              "role": "Blind-test structural and label-neighborhood contrasts."
+            },
+            {
+              "kind": "file",
+              "label": "oof-swap-cohort-summary.csv",
+              "role": "Observed-label OOF swap yields."
+            }
+          ],
+          "columns": ["metric", "control_only", "support6_only", "difference", "permutation_p"],
+          "rows": [
+            {"metric": "Nearest-any support", "control_only": 0.4854, "support6_only": 0.4810, "difference": 0.0043, "permutation_p": 0.9126},
+            {"metric": "Nearest-positive similarity", "control_only": 0.4456, "support6_only": 0.3600, "difference": 0.0856, "permutation_p": 0.0280},
+            {"metric": "Nearest-neighbor positive rate", "control_only": 0.7407, "support6_only": 0.4074, "difference": 0.3333, "permutation_p": 0.0281},
+            {"metric": "Top-10 weighted positive rate", "control_only": 0.4222, "support6_only": 0.2810, "difference": 0.1412, "permutation_p": 0.0003}
+          ]
+        },
+        {
+          "id": "member-dependence",
+          "source": {
+            "label": "Recorded member-call dependence",
+            "files": [{"label": "member-call-dependence.csv"}],
+            "metricDefinitions": [
+              {
+                "label": "Member call dependence",
+                "definition": "Pairwise phi and Jaccard measure agreement among the six fixed-rate TabPFN 3.5-fast member call vectors."
+              }
+            ],
+            "filters": ["Domain: 750 blind-test compounds", "Members: three feature pools across random and scaffold splits"],
+            "evidenceFlow": [
+              {
+                "kind": "calculation",
+                "title": "Effective vote count",
+                "detail": "Under an exchangeable-correlation approximation, 6 / (1 + 5 × 0.8646) = 1.13 independent votes."
+              }
+            ]
+          },
+          "sourceRoles": [
+            {
+              "kind": "file",
+              "label": "member-call-dependence.csv",
+              "role": "Pairwise call overlap for the six support6 members."
+            }
+          ],
+          "columns": ["measure", "value"],
+          "rows": [
+            {"measure": "Mean pairwise phi", "value": 0.8646},
+            {"measure": "Mean pairwise Jaccard", "value": 0.7774},
+            {"measure": "Approximate effective votes", "value": 1.1272}
+          ]
+        }
+      ]
+    }
+  ]
+}

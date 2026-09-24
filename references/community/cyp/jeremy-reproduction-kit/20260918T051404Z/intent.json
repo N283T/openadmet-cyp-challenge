@@ -1,0 +1,32 @@
+{
+  "url": "https://github.com/jeremycheminf/openadmet_scripts/tree/main/CYP_Challenge",
+  "title": "OpenADMET CYP Inhibition Challenge — submission reproduction kit",
+  "participant": "jeremy",
+  "fetched_at": "2026-09-18T05:14:05.740150+00:00",
+  "local_repository": "/home/nagaet/ghq/github.com/jeremycheminf/openadmet_scripts",
+  "commit": "d3a5549e0c98167435cbf8f5115c68a9a184ed7a",
+  "commit_date": "2026-09-04T10:20:52+01:00",
+  "tracked_source_files": [
+    {
+      "path": "CYP_Challenge/README.md",
+      "sha256": "62d7e0055a756266fda52c8ca12184a69640183ba02d7a0c3626fac1def608ad",
+      "bytes": 12143
+    },
+    {
+      "path": "CYP_Challenge/scripts/02_baseline_lgb.py",
+      "sha256": "ad9353a7611ddac8a8df6cad76cbec7011542c95653e5886974d7e32a870018b",
+      "bytes": 4546
+    },
+    {
+      "path": "CYP_Challenge/scripts/05_run_tabicl_tdi.py",
+      "sha256": "cdde3466c6a05221fe9f288bfa8cd023f6035dff895004c4ba655d88b5422c14",
+      "bytes": 1221
+    },
+    {
+      "path": "CYP_Challenge/scripts/07_build_submission.py",
+      "sha256": "8f2117507975c3f1639e4142b1752a42be2d8368ed60af99f3c0a910fe112a41",
+      "bytes": 8363
+    }
+  ],
+  "extraction": "README preserved as the report; relevant executable files are pinned by commit and SHA-256 but not duplicated because the repository has no license file."
+}

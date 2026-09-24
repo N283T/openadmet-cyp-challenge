@@ -125,6 +125,17 @@ recorded run first. Classification probabilities belong to run outputs; upload
 files contain booleans. A preparation creates a separate immutable file copy;
 **it does not call the remote submission API**.
 
+For classification replacements, use the
+[candidate evaluation protocol](docs/classification-evaluation.md) to select the
+score recipe and positive-call rate on held-out folds. The earlier
+[candidate preflight](docs/classification-preflight.md) remains available as a
+diagnostic for fixed-rate swaps; its thresholds do not establish the best rate
+or whether a candidate is worth a prospective test.
+The [AP-mass90 full-pool replay](docs/analysis/2026-09-24-d6-ap-full-pool-replay.md)
+shows how labelled-only call selection and full-fit ensemble weights can
+overstate D6 OOF gains. The evaluator requires complete-pool predictions for
+deployment decisions; labelled-only results need an explicit diagnostic opt-in.
+
 Use `pixi run cyp submit SUBMISSION_ID --dry-run` to validate the prepared file and
 private profile, then `pixi run cyp submit SUBMISSION_ID` to upload once. The sender
 reads `.private/submission-profile.json` (Git-ignored), saves the MA and every

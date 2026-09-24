@@ -1,0 +1,17 @@
+model,blind_call_count,retained_from_sep15,removed_from_sep15,added_to_sep15
+sep15_control_raw_oof_analog,15,15,34,0
+sep15_control_raw_oof_analog,25,25,24,0
+sep15_control_raw_oof_analog,35,35,14,0
+sep15_control_raw_oof_analog,49,49,0,0
+sep15_control_raw_oof_analog,65,49,0,16
+sep15_control_raw_oof_analog,80,49,0,31
+sep15_control_raw_oof_analog,110,49,0,61
+sep15_control_raw_oof_analog,150,49,0,101
+sep15_ap25_rank_blend,15,15,34,0
+sep15_ap25_rank_blend,25,25,24,0
+sep15_ap25_rank_blend,35,34,15,1
+sep15_ap25_rank_blend,49,45,4,4
+sep15_ap25_rank_blend,65,48,1,17
+sep15_ap25_rank_blend,80,49,0,31
+sep15_ap25_rank_blend,110,49,0,61
+sep15_ap25_rank_blend,150,49,0,101

@@ -1,0 +1,39 @@
+{
+  "status": "INSUFFICIENT_EVIDENCE",
+  "checks": [
+    {
+      "strategy": "umap",
+      "decision": "fixed",
+      "candidate_minus_control": 0.0071063189095397356,
+      "lower_ci": -0.03669623659455606,
+      "upper_ci": 0.046214856389110534,
+      "positive_lower_interval": false
+    },
+    {
+      "strategy": "umap",
+      "decision": "nested",
+      "candidate_minus_control": 0.04106930560889589,
+      "lower_ci": -0.019865959740998793,
+      "upper_ci": 0.0961902709424624,
+      "positive_lower_interval": false
+    },
+    {
+      "strategy": "scaffold",
+      "decision": "fixed",
+      "candidate_minus_control": 0.04547777562295306,
+      "lower_ci": 0.0013667998908302621,
+      "upper_ci": 0.09008402963854137,
+      "positive_lower_interval": true
+    },
+    {
+      "strategy": "scaffold",
+      "decision": "nested",
+      "candidate_minus_control": -0.0013027715614954694,
+      "lower_ci": -0.044551669745032496,
+      "upper_ci": 0.041487088786440376,
+      "positive_lower_interval": false
+    }
+  ],
+  "minimum_lower_ci": 0.0,
+  "meaning": "conservative evidence requirement for considering a new blind probe; not a guarantee of leaderboard gain"
+}

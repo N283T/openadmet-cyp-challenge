@@ -650,3 +650,40 @@ Reports and research entries default to English; conversation language is indepe
 | [RL0119](2026-09.md#rl0119--foundation-readouts-and-lgbm-swaps-produce-v8-submission-candidate) | Foundation readouts, LGBM swaps and v8 candidate |
 | [RL0120](2026-09.md#rl0120--submission-aware-placement-produces-an-adaptive-d6-v9-candidate) | Submission-aware adaptive-D6 placement v9 |
 | [RL0121](2026-09.md#rl0121--adaptive-d6-v9-selected-as-the-next-regression-submission-candidate) | Adaptive-D6 v9 selected as next regression candidate |
+| [RL0122](2026-09.md#rl0122--public-classification-reports-leave-one-bounded-d6-tree-ensemble-test) | Public classification report review and bounded D6 tree-ensemble follow-up |
+| [RL0123](2026-09.md#rl0123--public-tree-recipe-and-regression-feature-d6-transfer-do-not-clear-the-operating-boundary) | D6 public tree reproduction, regression-feature transfer and fixed-rank audit |
+| [RL0124](2026-09.md#rl0124--newly-released-tabpfn-35-improves-d6-ranking-but-ties-the-operating-boundary) | TabPFN 3.5-fast/full D6 classification screen and blend audit |
+| [RL0125](2026-09.md#rl0125--tabpfn-35-also-improves-a4-cv-but-does-not-displace-the-rank-1-vector) | TabPFN 3.5-fast/full A4 symmetry check and equal-seven blend audit |
+| [RL0126](2026-09.md#rl0126--superseded-deferred-a4-tabpfn-35-manual-blend) | Superseded deferred A4 TabPFN 3.5 manual blend |
+| [RL0127](2026-09.md#rl0127--restore-the-no-manual-blend-rule-for-new-classification-experts) | Withdraw manual TabPFN blend candidates and restore common-bank selection |
+| [RL0128](2026-09.md#rl0128--bank-level-tabpfn-35-addition-and-estimator-stabilization-both-fail-d6) | D6 TabPFN 3.5 bank extension and 32-estimator stability rejection |
+| [RL0129](2026-09.md#rl0129--test-like-validation-reverses-the-d6-tabpfn-conclusion) | Random/test-support D6 validation and equal-vote TabPFN probes |
+| [RL0130](2026-09.md#rl0130--support-selected-stratified-random-folds-expose-large-d6-split-variance) | Support-selected stratified-random D6 folds and multiseed TabPFN audit |
+| [RL0131](2026-09.md#rl0131--support6-d6-consensus-submitted-as-a-prospective-leaderboard-probe) | Submitted support6 D6 consensus leaderboard probe |
+| [RL0132](2026-09.md#rl0132--support6-d6-leaderboard-probe-fails-decisively) | Support6 D6 leaderboard failure and candidate rejection |
+| [RL0133](2026-09.md#rl0133--label-aware-neighborhoods-explain-the-support6-d6-failure) | Label-aware neighborhood and correlated-vote diagnosis of the D6 failure |
+| [RL0134](2026-09.md#rl0134--fail-closed-classification-candidate-preflight) | Fail-closed classification candidate safety gate |
+| [RL0135](2026-09.md#rl0135--regression-style-heterogeneous-feature-combinations-for-d6) | Expanded D6 heterogeneous feature combinations and controlled add/swap audit |
+| [RL0136](2026-09.md#rl0136--regression-trained-jeremy-anchoring-transfers-to-d6-classification) | Jeremy-anchored external adaptation with a new CheMeleon-backed D6 family |
+| [RL0137](2026-09.md#rl0137--direct-d6-jeremy-anchoring-does-not-improve-the-representation) | Negative fold-safe D6-label Jeremy anchoring experiment |
+| [RL0138](2026-09.md#rl0138--submission-aware-v9-regression-upload-and-its-leaderboard-verdict) | Submission-aware v9 regression upload, 1A2 gain and D6 spread rejection |
+| [RL0139](2026-09.md#rl0139--new-anchored-jeremychemeleon-d6-bank-is-stronger-but-not-selection-stable) | New-family-only anchored Jeremy/CheMeleon D6 bank and scaffold confirmation |
+| [RL0140](2026-09.md#rl0140--combined-oldnew-d6-selection-retains-the-new-family-without-legacy-support) | Combined legacy/new D6 pool, flexible anchor-support selection and legacy rejection |
+| [RL0141](2026-09.md#rl0141--one-flat-oldjeremy-chemeleon-pool-does-not-yield-an-mcc-caruana-gain) | One flat 43-member D6 pool and held-fold Caruana comparison |
+| [RL0142](2026-09.md#rl0142--weight-guided-pool-adjustment-improves-d6-without-a-member-cap) | Weight-guided pool adjustment and unrestricted D6 Caruana improvement |
+| [RL0143](2026-09.md#rl0143--ap-mass90-full-fit-is-diverse-but-fails-enforced-preflight) | AP-mass90 full fit, seven-member weights and enforced preflight failure |
+| [RL0144](2026-09.md#rl0144--blind-stable-ap-mass90-d6-challenge-candidate-submitted) | Blind-stable AP-mass90 D6 challenge submission with A4 unchanged |
+| [RL0145](2026-09.md#rl0145--ap-mass90-leaderboard-result-confirms-d6-oof-to-blind-mismatch) | AP-mass90 D6 leaderboard loss and OOF transfer failure |
+| [RL0146](2026-09.md#rl0146--rebuild-classification-evaluation-around-model-and-call-rate-selection) | Classification model and call-rate evaluation protocol |
+| [RL0147](2026-09.md#rl0147--three-accepted-d6-submissions-expose-two-distinct-oof-transfer-failures) | Three exact D6 submission comparison and primary proxy audit |
+| [RL0148](2026-09.md#rl0148--historical-lb-concordance-is-the-criterion-for-a-replacement-oof) | Historical LB concordance as the OOF design target |
+| [RL0149](2026-09.md#rl0149--exact-historical-classification-benchmark-frozen) | Seven exact classification submissions and endpoint LB transitions |
+| [RL0150](2026-09.md#rl0150--full-molecule-d6-oof-changes-decisions-but-split-instability-remains) | Complete-pool D6 OOF refits and split-sensitive decision analysis |
+| [RL0151](2026-09.md#rl0151--seven-member-ap-replay-removes-the-apparent-d6-oof-gain) | Seven-member AP-mass90 complete-pool replay and decision correction |
+| [RL0152](2026-09.md#rl0152--direct-full-pool-control-replay-still-misses-the-lb-reversal) | Direct AP versus September 15 full-pool replay and unresolved LB reversal |
+| [RL0153](2026-09.md#rl0153--scaffold-refit-and-blind-domain-weighting-do-not-restore-lb-concordance) | Scaffold refits and rejected train-to-blind density weighting |
+| [RL0154](2026-09.md#rl0154--extratrees-and-assay-route-sensitivity-remain-split-dependent) | ExtraTrees direct comparison and rejected assay-route scoring-mask hypothesis |
+| [RL0155](2026-09.md#rl0155--conservative-controlap-rank-blend-remains-uncertain) | Conservative control/AP rank blend and uncertain full-pool decision |
+| [RL0156](2026-09.md#rl0156--analog-expansion-selection-exposes-the-validation-population-gap) | Blind analog-expansion selection and sparse D6 validation coverage |
+| [RL0157](2026-09.md#rl0157--forty-nine-d6-calls-are-a-historical-comparator-not-a-constraint) | D6 model/rate audit rejects treating 49 calls as fixed |
+| [RL0158](2026-09.md#rl0158--select-the-september-15-classification-vector-for-the-interim-submission) | September 15 classification vector selected for the pre-interim submission after cooldown |

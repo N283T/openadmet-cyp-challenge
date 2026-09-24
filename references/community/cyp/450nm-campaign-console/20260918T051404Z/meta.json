@@ -1,0 +1,59 @@
+{
+  "url": "https://openadmet-cyp-dashboard.vercel.app/operating_dashboard",
+  "title": "CYP Campaign Console",
+  "participant": "450nm",
+  "fetched_at": "2026-09-18T05:14:05.726128+00:00",
+  "dashboard_generated": "2026-09-18",
+  "source_sha256": "37bad16ce70924bf6b007960506e11b3372c92169634681dbdf2b1e274fad511",
+  "extraction": "Classification leaderboard rows plus every source experiment record whose track is tdi and whose fields mention 2D6; full HTML retained locally.",
+  "selected_experiment_ids": [
+    "E006",
+    "E012",
+    "E029",
+    "E030",
+    "E046",
+    "E047",
+    "E061",
+    "E062",
+    "E064",
+    "E066",
+    "E091",
+    "E092",
+    "E106",
+    "E126",
+    "E128",
+    "E155",
+    "E164",
+    "E206",
+    "E210",
+    "E212",
+    "E215",
+    "E222",
+    "E224",
+    "E265",
+    "E276",
+    "E283",
+    "E284",
+    "E295",
+    "E301"
+  ],
+  "snapshot_sha256": "57dbae8d813087bfc24ae10f39bbb6d2ef90d9e7b2ee5e78f0c9192b07d424f3",
+  "files": [
+    {
+      "path": "intent.json",
+      "sha256": "abf67dbf8e550716ba926c8e03fa0302ba53d8f0c26e1fc589afd4956e8bcb7b",
+      "bytes": 864
+    },
+    {
+      "path": "snapshot.md",
+      "sha256": "57dbae8d813087bfc24ae10f39bbb6d2ef90d9e7b2ee5e78f0c9192b07d424f3",
+      "bytes": 87064
+    },
+    {
+      "path": "source.html",
+      "sha256": "37bad16ce70924bf6b007960506e11b3372c92169634681dbdf2b1e274fad511",
+      "bytes": 3628721
+    }
+  ],
+  "status": "completed"
+}
