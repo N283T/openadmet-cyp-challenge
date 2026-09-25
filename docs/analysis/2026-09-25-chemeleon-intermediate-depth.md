@@ -70,6 +70,34 @@ rows overlap by only 27 between depths 1 and 6. Pooled OOF top-call overlap
 does not reproduce deployment's fold averaging or establish which calls would
 improve the blinded score.
 
+## Fixed blend follow-up
+
+Recorded run `20260925T070604392889Z-6f643137` reads the saved, keyed OOF
+predictions and evaluates two fixed arithmetic means: depths 1+6 at 50:50 and
+depths 1+3+6 at one third each. It fits no blend weights and uses no blinded
+labels. Because this follow-up was motivated by the earlier depth screen, its
+numbers are exploratory rather than an independent evaluation of a selected
+recipe.
+
+| Endpoint / metric | Final depth 6 | Depths 1+6 | Depths 1+3+6 |
+|---|---:|---:|---:|
+| Regression 1A2 ST-RAE | .83912 | .82422 | **.81913** |
+| Regression 2C9 ST-RAE | .73858 | .72763 | **.71969** |
+| Regression 2D6 ST-RAE | .91246 | **.89681** | .90188 |
+| Regression 3A4 ST-RAE | .62548 | .59976 | **.59581** |
+| Regression macro ST-RAE | .77891 | .76210 | **.75913** |
+| Classification 2D6 AUROC / AP | .53712 / .25133 | **.54311** / .27385 | .53516 / **.27637** |
+| Classification 3A4 AUROC / AP | .72705 / .42105 | **.74908** / .44022 | .74784 / **.44356** |
+
+The fixed depth blends improve regression ST-RAE on every endpoint and improve
+classification AP on both endpoints versus the final depth alone. This is
+evidence of complementary OOF errors within these simple CheMeleon readouts.
+It does not measure incremental value when added to the current multi-family
+submitted ensembles, nor does it establish blinded-test benefit. No candidate
+or submission was changed. Compact [blend metrics](../../artifacts/tracked/chemeleon-depth-probe-20260925/blend-metrics.csv)
+and [keyed blend OOF](../../artifacts/tracked/chemeleon-depth-probe-20260925/oof-blends.parquet)
+are tracked with the standalone results.
+
 ## Interpretation and limits
 
 The result supports the possibility of task-dependent transfer from earlier
@@ -79,8 +107,8 @@ independent split confirmation or multiplicity-adjusted uncertainty estimate.
 The frozen `W_o` was trained on the final state, which makes intermediate
 extraction a practical probe but not a fully optimized intermediate readout.
 Pooling, feature dimension and downstream learner were held fixed. A next
-focused test, if warranted, would check whether an intermediate representation
-adds residual value to the current final embedding on held-out folds.
+focused test, if warranted, would check whether this depth blend adds residual
+value to the current submitted ensembles on matched held-out folds.
 
 The compact [metrics](../../artifacts/tracked/chemeleon-depth-probe-20260925/metrics.csv)
 and [keyed OOF predictions](../../artifacts/tracked/chemeleon-depth-probe-20260925/oof.parquet)

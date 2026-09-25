@@ -690,3 +690,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL0159](2026-09.md#rl0159--endpoint-wise-leaderboard-best-regression-submission) | Endpoint-wise leaderboard-best regression submission and exact scored confirmation |
 | [RL0160](2026-09.md#rl0160--resubmit-the-exact-september-15-classification-vector) | Exact September 15 classification vector resent and scored at its prior MCC |
 | [RL0161](2026-09.md#rl0161--intermediate-chemeleon-states-show-task-dependent-standalone-signal) | Intermediate CheMeleon depth screen across both tracks |
+| [RL0162](2026-09.md#rl0162--fixed-intermediatefinal-chemeleon-blends-improve-simple-readouts) | Fixed intermediate/final CheMeleon OOF blends |

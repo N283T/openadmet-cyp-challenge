@@ -1,0 +1,7 @@
+{
+  "oof": "oof.parquet",
+  "measurements": "measurements.parquet",
+  "scorer": "custom_scoring_functions.py",
+  "blends": ["depth_1_6_equal", "depth_1_3_6_equal"],
+  "selection": "Prespecified equal means; no weights, thresholds or endpoint choices fitted"
+}
