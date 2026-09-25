@@ -180,19 +180,21 @@ def main():
             pl.concat(tt).write_parquet(out / "fold-test-probabilities.parquet")
             pl.DataFrame(metrics).write_csv(out / "metrics.csv")
             pl.DataFrame(thresholds).write_csv(out / "thresholds.csv")
-    assert pl.concat(oo).height == pl.concat(ii).height == 15243
-    assert pl.concat(tt).height == 22500
+    expected_oof = len(cfg["views"]) * sum(cfg["expected_counts"].values())
+    assert pl.concat(oo).height == pl.concat(ii).height == expected_oof
+    assert pl.concat(tt).height == len(cfg["views"]) * len(cfg["expected_counts"]) * 5 * 750
     mean = (
         pl.concat(tt)
         .group_by("compound_id", "endpoint", "method", "split_id")
         .agg(pl.col("probability").mean(), pl.len().alias("n_folds"))
     )
-    assert mean.height == 4500 and (mean["n_folds"] == 5).all()
+    assert mean.height == len(cfg["views"]) * len(cfg["expected_counts"]) * 750
+    assert (mean["n_folds"] == 5).all()
     mean.write_parquet(out / "test-probabilities.parquet")
     (out / "summary.json").write_text(
         json.dumps(
             dict(
-                fits=60,
+                fits=len(cfg["views"]) * len(cfg["expected_counts"]) * 10,
                 config=cfg,
                 threshold_policy="Independent next-fold inner labels; same 0.01..0.99 grid as PFN",
             ),

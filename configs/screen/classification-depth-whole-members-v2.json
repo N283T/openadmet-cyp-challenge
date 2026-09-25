@@ -1,0 +1,10 @@
+{
+  "d6": {"call_rate": 0.06533333333333333, "target_prior": 0.07062568306010919},
+  "a4": {"call_rate": 0.332, "target_prior": 0.2916},
+  "depth_sets": [[1], [3], [6], [1, 6], [1, 3, 6]],
+  "backends": {
+    "tabpfn": "tabpfn-oof.parquet",
+    "tabicl": "tabicl-oof.parquet"
+  },
+  "scope": "Labelled UMAP OOF screen of whole depth readouts; no deployment decision"
+}

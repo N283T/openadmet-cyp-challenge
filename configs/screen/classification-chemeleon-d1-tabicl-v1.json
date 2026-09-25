@@ -1,0 +1,8 @@
+{
+  "labels": "classification-labels.parquet",
+  "assignments": "umap-assignments.parquet",
+  "test_mapping": "test_mapping.parquet",
+  "weights": "tabicl-classifier.ckpt",
+  "expected_counts": {"CYP2D6_is_TDI": 1497, "CYP3A4_is_TDI": 3584},
+  "views": [{"name": "chemeleon_depth1_pca256", "prefix": "emb_", "files": ["depth-1.parquet"]}]
+}

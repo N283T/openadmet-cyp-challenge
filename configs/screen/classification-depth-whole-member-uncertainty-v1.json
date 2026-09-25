@@ -1,0 +1,11 @@
+{
+  "scenario_oof": "scenario-oof.parquet",
+  "assignments": "umap-assignments.parquet",
+  "candidates": {
+    "d6": ["add_d1_tabpfn", "replace_pca_raw_block_depth_3"],
+    "a4": ["add_depth_1+6", "add_depth_6"]
+  },
+  "target_prior": {"d6": 0.07062568306010919, "a4": 0.2916},
+  "replicates": 3000,
+  "seed": 20260925
+}

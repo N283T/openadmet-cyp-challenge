@@ -694,3 +694,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL0163](2026-09.md#rl0163--intermediate-depths-add-little-to-submitted-regression-possible-classification-signal) | Matched-depth incremental ensemble screen |
 | [RL0164](2026-09.md#rl0164--whole-member-cyp2d6-intermediate-depth-test-favors-jeremy-replacement-weakly) | Whole-member D6 depth comparison |
 | [RL0165](2026-09.md#rl0165--intermediate-depth-members-do-not-improve-the-other-submitted-regression-targets) | Whole-member intermediate-depth tests on 1A2, 2C9 and 3A4 |
+| [RL0166](2026-09.md#rl0166--whole-chemeleon-depth-members-do-not-clear-the-tdi-decision-boundary) | Whole-member CheMeleon depth screen on D6 and A4 TDI |
