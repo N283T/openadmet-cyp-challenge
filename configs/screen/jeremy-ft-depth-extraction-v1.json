@@ -1,0 +1,24 @@
+{
+  "depths": [1, 2, 4],
+  "width": 600,
+  "batch_size": 128,
+  "device": "cuda",
+  "threads": 4,
+  "validation_atol": 0.00001,
+  "compounds": "compounds.parquet",
+  "checkpoints": {
+    "0": "fold0-best.pt",
+    "1": "fold1-best.pt",
+    "2": "fold2-best.pt",
+    "3": "fold3-best.pt",
+    "4": "fold4-best.pt"
+  },
+  "reference_embeddings": {
+    "0": "fold0-final.parquet",
+    "1": "fold1-final.parquet",
+    "2": "fold2-final.parquet",
+    "3": "fold3-final.parquet",
+    "4": "fold4-final.parquet"
+  },
+  "split_id": "20260911T104703655337Z-a3923255"
+}

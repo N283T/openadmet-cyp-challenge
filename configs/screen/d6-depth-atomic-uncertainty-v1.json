@@ -1,0 +1,15 @@
+{
+  "scorer": "custom_scoring_functions.py",
+  "assignments": "parent-assignments.parquet",
+  "labels": "current-ft-lgbm.parquet",
+  "scenario_oof": "scenario-oof.parquet",
+  "control": "current_two",
+  "candidates": [
+    "replace_ft_jeremy_1_2_4",
+    "replace_ft_jeremy_1_4",
+    "add_jeremy_1_2_4",
+    "add_chemeleon_d1_lgbm"
+  ],
+  "bootstrap_replicates": 2000,
+  "seed": 20260925
+}

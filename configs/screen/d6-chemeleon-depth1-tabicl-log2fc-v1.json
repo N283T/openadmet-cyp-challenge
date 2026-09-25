@@ -1,0 +1,24 @@
+{
+  "method": "d6_chemeleon_depth1_log2fc_tabicl_pca256",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "assignments": "parent-assignments.parquet",
+  "measurements": "measurements.parquet",
+  "weights": "tabicl-regressor.ckpt",
+  "fold_specific": false,
+  "prepare_only": false,
+  "pca": 256,
+  "threads": 2,
+  "feature_prefix": "emb_",
+  "n_estimators": 8,
+  "device": "cuda",
+  "expected_oof_rows": 1457,
+  "endpoints": ["CYP2D6_pIC50_direct_inhibition"],
+  "nested_file": "nested-log2fc.parquet",
+  "feature_files": {
+    "0": "depth-1.parquet",
+    "1": "depth-1.parquet",
+    "2": "depth-1.parquet",
+    "3": "depth-1.parquet",
+    "4": "depth-1.parquet"
+  }
+}

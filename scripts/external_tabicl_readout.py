@@ -85,9 +85,10 @@ def main():
         )
     )
     rows, fits, members = [], [], []
-    for (endpoint,), base in labels.filter(
-        pl.col("endpoint").str.ends_with("_pIC50_direct_inhibition")
-    ).group_by("endpoint", maintain_order=True):
+    endpoint_labels = labels.filter(pl.col("endpoint").str.ends_with("_pIC50_direct_inhibition"))
+    if cfg.get("endpoints"):
+        endpoint_labels = endpoint_labels.filter(pl.col("endpoint").is_in(cfg["endpoints"]))
+    for (endpoint,), base in endpoint_labels.group_by("endpoint", maintain_order=True):
         base = base.join(a, on="compound_id", validate="1:1").sort("compound_id")
         for fold in range(5):
             emb = features[fold]
@@ -189,13 +190,15 @@ def main():
                 )
                 print(json.dumps(meta | dict(prediction_mean=float(prediction.mean()))), flush=True)
             fits.append(meta)
-    assert sum(r["validation_n"] for r in fits) == 6384
+    expected_rows = cfg.get("expected_oof_rows", 6384)
+    assert sum(r["validation_n"] for r in fits) == expected_rows
     pl.concat(members).write_parquet(out / "readout-membership.parquet")
     (out / "fits.json").write_text(json.dumps(fits, indent=2))
     if not cfg.get("prepare_only", False):
         oof = pl.concat(rows).sort("compound_id", "endpoint", "fold")
         assert (
-            oof.height == 6384 and oof.select("compound_id", "endpoint", "fold").n_unique() == 6384
+            oof.height == expected_rows
+            and oof.select("compound_id", "endpoint", "fold").n_unique() == expected_rows
         )
         oof.write_parquet(out / "external-oof.parquet")
     (out / "summary.json").write_text(
@@ -203,8 +206,8 @@ def main():
             dict(
                 config=cfg,
                 prepared_fits=len(fits),
-                oof_rows=0 if cfg.get("prepare_only", False) else 6384,
-                expected_oof_rows=6384,
+                oof_rows=0 if cfg.get("prepare_only", False) else expected_rows,
+                expected_oof_rows=expected_rows,
                 fold_specific=cfg["fold_specific"],
                 features=(
                     "Train-only embedding scaling with optional PCA, then four optional keyed "

@@ -1,0 +1,11 @@
+{
+  "method": "d6_chemeleon_depth1_tabpfn_pca256",
+  "backend": "tabpfn",
+  "feature_file": "depth-1.parquet",
+  "feature_prefix": "emb_",
+  "pca": 256,
+  "mask_observed_validation": false,
+  "split_run": "20260911T104703655337Z-a3923255",
+  "endpoints": ["CYP2D6_pIC50_direct_inhibition"],
+  "weights": "tabpfn-regressor.ckpt"
+}

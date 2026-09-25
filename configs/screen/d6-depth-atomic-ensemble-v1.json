@@ -1,0 +1,41 @@
+{
+  "scorer": "custom_scoring_functions.py",
+  "sources": {
+    "current_tabpfn": {"file": "current-tabpfn.parquet"},
+    "current_ft_lgbm": {"file": "current-ft-lgbm.parquet"},
+    "chemeleon_d1_lgbm": {"file": "chemeleon-depth-oof.parquet", "depth": 1},
+    "chemeleon_d3_lgbm": {"file": "chemeleon-depth-oof.parquet", "depth": 3},
+    "chemeleon_d6_lgbm": {"file": "chemeleon-depth-oof.parquet", "depth": 6},
+    "chemeleon_d1_tabpfn": {"file": "chemeleon-d1-tabpfn.parquet"},
+    "chemeleon_d1_tabicl": {"file": "chemeleon-d1-tabicl.parquet"},
+    "chemeleon_d1_tabpfn_log2fc": {"file": "chemeleon-d1-tabpfn-log2fc.parquet"},
+    "chemeleon_d1_tabicl_log2fc": {"file": "chemeleon-d1-tabicl-log2fc.parquet"},
+    "jeremy_ft_d1_lgbm": {"file": "jeremy-depth-oof.parquet", "depth": 1},
+    "jeremy_ft_d2_lgbm": {"file": "jeremy-depth-oof.parquet", "depth": 2},
+    "jeremy_ft_d4_lgbm": {"file": "jeremy-depth-oof.parquet", "depth": 4}
+  },
+  "blocks": {
+    "chemeleon_1_6": ["chemeleon_d1_lgbm", "chemeleon_d6_lgbm"],
+    "chemeleon_1_3_6": ["chemeleon_d1_lgbm", "chemeleon_d3_lgbm", "chemeleon_d6_lgbm"],
+    "jeremy_1_4": ["jeremy_ft_d1_lgbm", "jeremy_ft_d4_lgbm"],
+    "jeremy_1_2_4": ["jeremy_ft_d1_lgbm", "jeremy_ft_d2_lgbm", "jeremy_ft_d4_lgbm"]
+  },
+  "scenarios": {
+    "current_two": ["current_tabpfn", "current_ft_lgbm"],
+    "add_chemeleon_d1_lgbm": ["current_tabpfn", "current_ft_lgbm", "chemeleon_d1_lgbm"],
+    "add_chemeleon_d1_tabpfn": ["current_tabpfn", "current_ft_lgbm", "chemeleon_d1_tabpfn"],
+    "add_chemeleon_d1_tabicl": ["current_tabpfn", "current_ft_lgbm", "chemeleon_d1_tabicl"],
+    "add_chemeleon_d1_tabpfn_log2fc": ["current_tabpfn", "current_ft_lgbm", "chemeleon_d1_tabpfn_log2fc"],
+    "add_chemeleon_d1_tabicl_log2fc": ["current_tabpfn", "current_ft_lgbm", "chemeleon_d1_tabicl_log2fc"],
+    "add_chemeleon_1_6": ["current_tabpfn", "current_ft_lgbm", "chemeleon_1_6"],
+    "add_chemeleon_1_3_6": ["current_tabpfn", "current_ft_lgbm", "chemeleon_1_3_6"],
+    "replace_ft_jeremy_d1": ["current_tabpfn", "jeremy_ft_d1_lgbm"],
+    "replace_ft_jeremy_d2": ["current_tabpfn", "jeremy_ft_d2_lgbm"],
+    "replace_ft_jeremy_1_4": ["current_tabpfn", "jeremy_1_4"],
+    "replace_ft_jeremy_1_2_4": ["current_tabpfn", "jeremy_1_2_4"],
+    "add_jeremy_d1": ["current_tabpfn", "current_ft_lgbm", "jeremy_ft_d1_lgbm"],
+    "add_jeremy_d2": ["current_tabpfn", "current_ft_lgbm", "jeremy_ft_d2_lgbm"],
+    "add_jeremy_1_4": ["current_tabpfn", "current_ft_lgbm", "jeremy_1_4"],
+    "add_jeremy_1_2_4": ["current_tabpfn", "current_ft_lgbm", "jeremy_1_2_4"]
+  }
+}
