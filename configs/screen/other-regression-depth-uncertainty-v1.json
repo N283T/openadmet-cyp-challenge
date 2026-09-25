@@ -1,0 +1,15 @@
+{
+  "scorer": "custom_scoring_functions.py",
+  "assignments": "parent-assignments.parquet",
+  "labels": "current-ft-lgbm.parquet",
+  "scenario_oof": "scenario-oof.parquet",
+  "endpoint": "CYP1A2_pIC50_direct_inhibition",
+  "expected_rows": 1372,
+  "control": "current",
+  "candidates": [
+    "add_chemeleon_1_3_6",
+    "replace_chemeleon_pca256_log2fc_tabicl__chemeleon_1_3_6"
+  ],
+  "bootstrap_replicates": 2000,
+  "seed": 20260925
+}

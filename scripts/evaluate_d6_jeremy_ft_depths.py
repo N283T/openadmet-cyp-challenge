@@ -78,7 +78,7 @@ def main():
             )
             print(f"fold={fold} depth={depth} n={validation.sum()}", flush=True)
     oof = pl.concat(predictions).sort("depth", "compound_id")
-    assert oof.height == 3 * 1457
+    assert oof.height == len(cfg["depths"]) * cfg.get("expected_oof_rows", 1457)
     final = oof.filter(pl.col("depth") == 4).sort("compound_id")
     original = original.sort("compound_id")
     assert final.select("compound_id", "fold", "y_true").equals(

@@ -1,0 +1,12 @@
+{
+  "depths": [1, 2, 4],
+  "dimensions": 600,
+  "endpoint": "CYP1A2_pIC50_direct_inhibition",
+  "expected_oof_rows": 1372,
+  "split_id": "20260911T104703655337Z-a3923255",
+  "assignments": "parent-assignments.parquet",
+  "measurements": "measurements.parquet",
+  "nested": "nested-log2fc.parquet",
+  "original_oof": "original-ft-oof.parquet",
+  "scorer": "custom_scoring_functions.py"
+}

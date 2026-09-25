@@ -1,4 +1,4 @@
-"""Conditional parent-group bootstrap for selected fixed D6 depth scenarios."""
+"""Conditional parent-group bootstrap for selected fixed depth scenarios."""
 
 import importlib.util
 import json
@@ -24,7 +24,7 @@ def main():
     keys = ["compound_id", "endpoint", "fold"]
     labels = (
         pl.read_parquet(inp / cfg["labels"])
-        .filter(pl.col("endpoint") == "CYP2D6_pIC50_direct_inhibition")
+        .filter(pl.col("endpoint") == cfg.get("endpoint", "CYP2D6_pIC50_direct_inhibition"))
         .select(*keys, "y_true", "conf_low", "conf_high")
     )
     groups = (
@@ -40,7 +40,7 @@ def main():
             *keys, pl.col("prediction").alias(name)
         )
         table = table.join(part, on=keys, validate="1:1")
-        assert table.height == 1457
+        assert table.height == cfg.get("expected_rows", 1457)
     y = table["y_true"].to_numpy()
     low = table["conf_low"].to_numpy()
     high = table["conf_high"].to_numpy()

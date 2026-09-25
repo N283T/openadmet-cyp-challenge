@@ -1,0 +1,33 @@
+{
+  "scorer": "custom_scoring_functions.py",
+  "chemeleon_depths": "chemeleon-depth-oof.parquet",
+  "chemeleon_tabicl": "chemeleon-depth1-tabicl.parquet",
+  "targets": {
+    "2c9": {
+      "endpoint": "CYP2C9_pIC50_direct_inhibition",
+      "bank_summary": "2c9-summary.json",
+      "bank_oof": "2c9-bank-oof.parquet",
+      "method": "equal_subset",
+      "jeremy_oof": "2c9-jeremy-depth-oof.parquet",
+      "expected_rows": 1255,
+      "ft_member": "jeremy_finetuned_log2fc_lgbm",
+      "chemeleon_member": "chemeleon_pca256_log2fc_tabicl"
+    },
+    "3a4": {
+      "endpoint": "CYP3A4_pIC50_direct_inhibition",
+      "bank_summary": "3a4-summary.json",
+      "bank_oof": "3a4-bank-oof.parquet",
+      "method": "caruana",
+      "jeremy_oof": "3a4-jeremy-depth-oof.parquet",
+      "expected_rows": 2300,
+      "ft_member": "jeremy_finetuned_log2fc_lgbm",
+      "chemeleon_member": "chemeleon_pca256_log2fc_tabicl"
+    }
+  },
+  "candidate_names": [
+    "chemeleon_d1_tabicl",
+    "chemeleon_1_3_6_lgbm",
+    "jeremy_1_2_4_lgbm"
+  ],
+  "caruana_steps": [5, 10, 20, 50]
+}

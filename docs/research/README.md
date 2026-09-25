@@ -691,3 +691,6 @@ Reports and research entries default to English; conversation language is indepe
 | [RL0160](2026-09.md#rl0160--resubmit-the-exact-september-15-classification-vector) | Exact September 15 classification vector resent and scored at its prior MCC |
 | [RL0161](2026-09.md#rl0161--intermediate-chemeleon-states-show-task-dependent-standalone-signal) | Intermediate CheMeleon depth screen across both tracks |
 | [RL0162](2026-09.md#rl0162--fixed-intermediatefinal-chemeleon-blends-improve-simple-readouts) | Fixed intermediate/final CheMeleon OOF blends |
+| [RL0163](2026-09.md#rl0163--intermediate-depths-add-little-to-submitted-regression-possible-classification-signal) | Matched-depth incremental ensemble screen |
+| [RL0164](2026-09.md#rl0164--whole-member-cyp2d6-intermediate-depth-test-favors-jeremy-replacement-weakly) | Whole-member D6 depth comparison |
+| [RL0165](2026-09.md#rl0165--intermediate-depth-members-do-not-improve-the-other-submitted-regression-targets) | Whole-member intermediate-depth tests on 1A2, 2C9 and 3A4 |
