@@ -1,0 +1,18 @@
+{
+  "reference_oof": "reference-oof.parquet",
+  "lgbm_oof": "lgbm-oof.parquet",
+  "pfn_oof": "pfn-oof.parquet",
+  "graph_oof": "graph-oof.parquet",
+  "fixed_oof": "fixed-oof.parquet",
+  "raw600_oof": "raw600-oof.parquet",
+  "selections": "selections.parquet",
+  "reference_method": "all_plain_pfn_graph_mean",
+  "selection_model": "exhaustive_mcc::components_10",
+  "pca_member": "pfn::external_mixed_pca256",
+  "raw_member": "pfn::external_mixed_raw600",
+  "call_rate": 0.06533333333333333,
+  "target_prior": 0.07062568306010919,
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 20260915,
+  "selection": "Reproduce controlled replacement and export keyed cross-fitted mean-block OOF for fixed incremental screening."
+}

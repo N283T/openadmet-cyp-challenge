@@ -76,9 +76,11 @@ specs = {
     "lgbm::fp_mordred_plain": ("lgbm_oof", "fp_mordred_plain", "prediction"),
     "lgbm::external_class_plain": ("lgbm_oof", "external_class_plain", "prediction"),
     "lgbm::external_mixed_plain": ("lgbm_oof", "external_mixed_plain", "prediction"),
-    (
-        "lgbm::external_class_mordred_plain"
-    ): ("lgbm_oof", "external_class_mordred_plain", "prediction"),
+    ("lgbm::external_class_mordred_plain"): (
+        "lgbm_oof",
+        "external_class_mordred_plain",
+        "prediction",
+    ),
     "pfn::external_class_pca256": ("pfn_oof", "external_class_pca256", "probability"),
     "pfn::external_mixed_pca256": ("pfn_oof", "external_mixed_pca256", "probability"),
     "pfn::chemeleon_pca256": ("pfn_oof", "chemeleon_pca256", "probability"),
@@ -125,16 +127,12 @@ def recipe_prediction(members: list[str], recipe: str, mode: str) -> np.ndarray:
     return recipes[recipe]
 
 
-selection = read("selections").filter(pl.col("model") == cfg["selection_model"]).row(
-    0, named=True
-)
+selection = read("selections").filter(pl.col("model") == cfg["selection_model"]).row(0, named=True)
 choices = json.loads(selection["selection"])
 predictions = {}
 for scope in ("crossfit", "full"):
     selected = [
-        choice
-        for choice in choices
-        if (choice["held_fold"] == "full") == (scope == "full")
+        choice for choice in choices if (choice["held_fold"] == "full") == (scope == "full")
     ]
     for mode in ("pca256", "raw600", "mean_block"):
         prediction = np.empty(len(y), dtype=float)
@@ -191,5 +189,15 @@ for scope in ("crossfit", "full"):
 
 pl.DataFrame(rows).write_csv(out / "metrics.csv")
 pl.DataFrame(bootstrap_rows).write_csv(out / "bootstrap.csv")
+pl.DataFrame(
+    {
+        "compound_id": reference["compound_id"],
+        "endpoint": [endpoint] * len(y),
+        "fold": folds,
+        "y_true": y,
+        "prediction": predictions["crossfit::mean_block"],
+        "call": call_map["crossfit::mean_block"],
+    }
+).write_parquet(out / "crossfit-mean-block-oof.parquet")
 (out / "summary.json").write_text(json.dumps({"selection": cfg["selection"]}, indent=2) + "\n")
 print(pl.DataFrame(rows), flush=True)

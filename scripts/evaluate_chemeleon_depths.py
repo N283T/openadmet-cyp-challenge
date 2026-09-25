@@ -24,21 +24,30 @@ def main():
     out = Path(os.environ["CYP_OUTPUT_DIR"])
     cfg = json.loads(Path(os.environ["CYP_CONFIG_PATH"]).read_text())
     scorer = scorer_module(inp / cfg["scorer"])
-    split = (
-        pl.read_parquet(inp / cfg["assignments"])
-        .filter(pl.col("strategy") == "umap")
-        .select("compound_id", "fold")
+    assignments = pl.read_parquet(inp / cfg["assignments"]).filter(
+        pl.col("strategy") == cfg.get("strategy", "umap")
     )
-    regression = pl.read_parquet(inp / cfg["regression_labels"]).filter(
-        pl.col("endpoint").str.ends_with("_pIC50_direct_inhibition")
-    )
-    classification = pl.read_parquet(inp / cfg["classification_labels"]).filter(
-        pl.col("strategy") == "umap"
-    )
-    labels = [
-        ("regression", regression.join(split, on="compound_id", validate="m:1")),
-        ("classification", classification.select("compound_id", "endpoint", "value", "fold")),
-    ]
+    if "is_anchor" not in assignments.columns:
+        assignments = assignments.with_columns(pl.lit(False).alias("is_anchor"))
+    split = assignments.select("compound_id", "fold", "is_anchor")
+    labels = []
+    if "regression" in cfg.get("tracks", ["regression", "classification"]):
+        regression = pl.read_parquet(inp / cfg["regression_labels"]).filter(
+            pl.col("endpoint").str.ends_with("_pIC50_direct_inhibition")
+        )
+        labels.append(("regression", regression.join(split, on="compound_id", validate="m:1")))
+    if "classification" in cfg.get("tracks", ["regression", "classification"]):
+        classification = pl.read_parquet(inp / cfg["classification_labels"]).filter(
+            pl.col("strategy") == "umap"
+        )
+        labels.append(
+            (
+                "classification",
+                classification.select("compound_id", "endpoint", "value", "fold").with_columns(
+                    pl.lit(False).alias("is_anchor")
+                ),
+            )
+        )
     predictions = []
     metrics = []
     for depth in cfg["depths"]:
@@ -58,55 +67,66 @@ def main():
                 y = table["value"].to_numpy()
                 folds = table["fold"].to_numpy()
                 assert np.isfinite(x).all() and np.isfinite(y).all()
-                endpoint_predictions = np.empty(len(y), dtype=np.float64)
+                anchors = table["is_anchor"].to_numpy()
+                endpoint_predictions = np.full(len(y), np.nan, dtype=np.float64)
                 for fold in range(5):
-                    train = folds != fold
+                    validation = (folds == fold) & ~anchors
+                    train = ~validation
                     if track == "regression":
                         model = lgb.LGBMRegressor(
                             objective="regression_l1", **cfg["lightgbm"], random_state=42 + fold
                         )
                         model.fit(x[train], y[train])
-                        values = model.predict(x[~train])
+                        values = model.predict(x[validation])
                     else:
                         model = lgb.LGBMClassifier(
                             objective="binary", **cfg["lightgbm"], random_state=42 + fold
                         )
                         model.fit(x[train], y[train].astype(int))
-                        values = model.predict_proba(x[~train])[:, 1]
-                    endpoint_predictions[~train] = values
+                        values = model.predict_proba(x[validation])[:, 1]
+                    endpoint_predictions[validation] = values
                     print(
                         f"depth={depth} track={track} endpoint={endpoint} fold={fold}",
                         flush=True,
                     )
-                assert np.isfinite(endpoint_predictions).all()
+                evaluated = ~anchors
+                assert np.isfinite(endpoint_predictions[evaluated]).all()
+                assert np.isnan(endpoint_predictions[anchors]).all()
+                observed = table.filter(pl.Series(evaluated))
+                observed_y = y[evaluated]
+                observed_prediction = endpoint_predictions[evaluated]
                 predictions.append(
-                    table.select("compound_id", "endpoint", "fold")
-                    .with_columns(
+                    observed.select("compound_id", "endpoint", "fold").with_columns(
                         pl.lit(track).alias("track"),
                         pl.lit(depth).alias("depth"),
                         pl.lit(cfg["split_id"]).alias("split_id"),
-                        pl.Series("y_true", y),
-                        pl.Series("prediction", endpoint_predictions),
+                        pl.Series("y_true", observed_y),
+                        pl.Series("prediction", observed_prediction),
                     )
                 )
-                row = {"track": track, "endpoint": endpoint, "depth": depth, "n": len(y)}
+                row = {
+                    "track": track,
+                    "endpoint": endpoint,
+                    "depth": depth,
+                    "n": len(observed_y),
+                }
                 if track == "regression":
                     row.update(
                         ST_RAE=float(
                             scorer.rae_soft_threshold_absolute_error(
-                                y,
-                                endpoint_predictions,
-                                y_true_lower=table["conf_low"].to_numpy(),
-                                y_true_upper=table["conf_high"].to_numpy(),
+                                observed_y,
+                                observed_prediction,
+                                y_true_lower=observed["conf_low"].to_numpy(),
+                                y_true_upper=observed["conf_high"].to_numpy(),
                             )
                         ),
-                        MAE=float(np.abs(y - endpoint_predictions).mean()),
-                        Spearman=float(spearmanr(y, endpoint_predictions).statistic),
+                        MAE=float(np.abs(observed_y - observed_prediction).mean()),
+                        Spearman=float(spearmanr(observed_y, observed_prediction).statistic),
                     )
                 else:
                     row.update(
-                        AUROC=float(roc_auc_score(y, endpoint_predictions)),
-                        AP=float(average_precision_score(y, endpoint_predictions)),
+                        AUROC=float(roc_auc_score(observed_y, observed_prediction)),
+                        AP=float(average_precision_score(observed_y, observed_prediction)),
                     )
                 metrics.append(row)
     pl.concat(predictions, how="diagonal").write_parquet(out / "oof.parquet")

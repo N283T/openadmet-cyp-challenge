@@ -1,0 +1,8 @@
+{
+  "depth_oof": "depth-oof.parquet",
+  "base_d6": "base-d6.parquet",
+  "base_a4": "base-a4.parquet",
+  "a4_model": "exhaustive_mcc::components_7",
+  "weights": [0.0, 0.05, 0.1, 0.2],
+  "depth_sets": [[1], [3], [6], [1, 6], [1, 3, 6]]
+}

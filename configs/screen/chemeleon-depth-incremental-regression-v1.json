@@ -1,0 +1,16 @@
+{
+  "depth_oof": "depth-oof.parquet",
+  "scorer": "custom_scoring_functions.py",
+  "base_1a2": "base-1a2.parquet",
+  "base_2c9": "base-2c9.parquet",
+  "base_3a4": "base-3a4.parquet",
+  "base_d6_tabpfn": "base-d6-tabpfn.parquet",
+  "base_d6_lgbm": "base-d6-lgbm.parquet",
+  "methods": {
+    "base_1a2": "equal_all",
+    "base_2c9": "equal_subset",
+    "base_3a4": "caruana"
+  },
+  "weights": [0.0, 0.05, 0.1, 0.2],
+  "depth_sets": [[1], [3], [6], [1, 6], [1, 3, 6]]
+}
