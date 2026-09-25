@@ -689,3 +689,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL0158](2026-09.md#rl0158--select-the-september-15-classification-vector-for-the-interim-submission) | September 15 classification vector selected for the pre-interim submission after cooldown |
 | [RL0159](2026-09.md#rl0159--endpoint-wise-leaderboard-best-regression-submission) | Endpoint-wise leaderboard-best regression submission and exact scored confirmation |
 | [RL0160](2026-09.md#rl0160--resubmit-the-exact-september-15-classification-vector) | Exact September 15 classification vector resent and scored at its prior MCC |
+| [RL0161](2026-09.md#rl0161--intermediate-chemeleon-states-show-task-dependent-standalone-signal) | Intermediate CheMeleon depth screen across both tracks |

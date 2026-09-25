@@ -1,0 +1,25 @@
+{
+  "depths": [1, 3, 6],
+  "dimensions": 2048,
+  "features": {
+    "1": "depth-1.parquet",
+    "3": "depth-3.parquet",
+    "6": "depth-6.parquet"
+  },
+  "assignments": "assignments.parquet",
+  "regression_labels": "measurements.parquet",
+  "classification_labels": "classification-labels.parquet",
+  "scorer": "custom_scoring_functions.py",
+  "split_id": "20260909T135130268493Z-edba6fc0:umap",
+  "lightgbm": {
+    "n_estimators": 200,
+    "num_leaves": 15,
+    "min_child_samples": 20,
+    "learning_rate": 0.05,
+    "reg_lambda": 1.0,
+    "n_jobs": 4,
+    "verbosity": -1,
+    "deterministic": true,
+    "force_col_wise": true
+  }
+}

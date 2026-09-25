@@ -1,0 +1,9 @@
+{
+  "compounds": "compounds.parquet",
+  "checkpoint": "chemeleon_mp.pt",
+  "depths": [1, 3, 6],
+  "batch_size": 64,
+  "threads": 4,
+  "device": "cuda",
+  "validation_atol": 0.00001
+}
