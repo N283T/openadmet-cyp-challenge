@@ -47,6 +47,29 @@ Depth 1 gives the clearest exploratory classification D6 AP gain (`+.02176`
 versus final), while 3A4 AP favors the final representation. This screen does
 not justify replacing a submitted component or predicting leaderboard benefit.
 
+## Similarity of held-fold predictions
+
+The table uses pooled OOF Spearman correlation after joining on compound ID,
+endpoint and fold. Pearson correlations lead to the same qualitative conclusion.
+
+| Endpoint | Depth 1 vs 3 | Depth 1 vs 6 | Depth 3 vs 6 |
+|---|---:|---:|---:|
+| Regression CYP1A2 | .848 | .820 | .829 |
+| Regression CYP2C9 | .843 | .817 | .844 |
+| Regression CYP2D6 | .807 | .769 | .805 |
+| Regression CYP3A4 | .897 | .867 | .887 |
+| Classification CYP2D6 | .484 | .388 | .406 |
+| Classification CYP3A4 | .709 | .652 | .666 |
+
+Regression depths are related but not redundant; classification D6 rankings
+are substantially different. Within-fold Spearman means preserve this pattern:
+depth 1 versus 6 is `.756–.870` across regression endpoints, `.385` for
+classification D6 and `.648` for classification 3A4. For a descriptive D6
+top-call comparison at the historical `49/750` rate, the top 98 of 1,497 OOF
+rows overlap by only 27 between depths 1 and 6. Pooled OOF top-call overlap
+does not reproduce deployment's fold averaging or establish which calls would
+improve the blinded score.
+
 ## Interpretation and limits
 
 The result supports the possibility of task-dependent transfer from earlier
