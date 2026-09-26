@@ -1,0 +1,7 @@
+{
+  "endpoint": "CYP1A2_pIC50_direct_inhibition",
+  "existing_members": 10,
+  "scenarios": ["current", "add_jeremy_anchor", "add_pair_block"],
+  "pair_members": ["jeremy_anchor_lgbm", "all_pool_tabpfn"],
+  "scope": "Parent-only screen; scaffold refit required before a deployment decision"
+}

@@ -1,0 +1,8 @@
+{
+  "endpoint": "CYP1A2_pIC50_direct_inhibition",
+  "target_recipe": "jeremy_plus_tabpfn",
+  "references": ["jeremy_anchor_lgbm", "all_pool_tabpfn", "all_dense_tabpfn"],
+  "replicates": 2000,
+  "seed": 20260926,
+  "qualification": "Conditional on saved OOF; contrasts follow an eight-recipe screen"
+}

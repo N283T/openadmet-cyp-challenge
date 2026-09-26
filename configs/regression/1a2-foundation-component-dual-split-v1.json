@@ -1,0 +1,15 @@
+{
+  "endpoint": "CYP1A2_pIC50_direct_inhibition",
+  "components": ["all_pool_lgbm", "dense_pool_lgbm", "all_pool_tabpfn", "jeremy_anchor_lgbm"],
+  "recipes": {
+    "all_pool_lgbm": ["all_pool_lgbm"],
+    "dense_pool_lgbm": ["dense_pool_lgbm"],
+    "all_pool_tabpfn": ["all_pool_tabpfn"],
+    "jeremy_anchor_lgbm": ["jeremy_anchor_lgbm"],
+    "all_plus_dense": ["all_pool_lgbm", "dense_pool_lgbm"],
+    "all_plus_tabpfn": ["all_pool_lgbm", "all_pool_tabpfn"],
+    "all_dense_tabpfn": ["all_pool_lgbm", "dense_pool_lgbm", "all_pool_tabpfn"],
+    "jeremy_plus_tabpfn": ["jeremy_anchor_lgbm", "all_pool_tabpfn"]
+  },
+  "scope": "Fixed-component comparison; not a reconstruction of the submitted ten-member bank"
+}
