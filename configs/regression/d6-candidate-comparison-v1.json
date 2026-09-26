@@ -1,0 +1,7 @@
+{
+  "squared_constraint_weight": 0.25,
+  "robust_delta": 0.5,
+  "robust_constraint_weight": 0.35,
+  "bootstrap_draws": 3000,
+  "seed": 92
+}

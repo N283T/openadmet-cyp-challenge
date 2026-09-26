@@ -1,0 +1,35 @@
+{
+  "config": {
+    "endpoint": "CYP2D6_pIC50_direct_inhibition",
+    "primary_head": "CYP2D6@0.0000495049505",
+    "primary_weak_cutoff": -0.5,
+    "direct_upper_bound": 4.0,
+    "robust_delta": 0.5,
+    "constraint_weight": 0.35,
+    "blend_weight": 0.5,
+    "placement": "match_current_test_moments",
+    "selection_run": "20260926T085959697226Z-0dbf57d4",
+    "audit_run": "20260926T090048786219Z-8a2ca577",
+    "model": {
+      "n_estimators": 300,
+      "num_leaves": 15,
+      "learning_rate": 0.05,
+      "min_child_samples": 20,
+      "reg_lambda": 1.0,
+      "num_threads": 3,
+      "seed": 42
+    }
+  },
+  "direct_train": 1493,
+  "upper_bound_train": 2823,
+  "test_n": 750,
+  "current_mean": 3.57,
+  "current_sd": 0.8993997998665555,
+  "raw_mean": 4.35078972757543,
+  "raw_sd": 0.5683579018985704,
+  "candidate_mean": 3.57,
+  "candidate_sd": 0.8828875352744177,
+  "candidate_vs_current_spearman": 0.953185282107168,
+  "mean_absolute_delta": 0.13230298276855074,
+  "max_absolute_delta": 0.6604343907033265
+}
