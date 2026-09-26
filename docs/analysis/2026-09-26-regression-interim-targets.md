@@ -81,8 +81,10 @@ consistent, although individual ranks and target scores move. Candidate
 selection should remain based on fold-safe internal evaluation, not repeated
 adjustment to this one-time full-test reveal.
 
-For the next regression diagnosis, start with D6: compare the exact submitted
-prediction vector against its keyed out-of-fold predictions on held-out,
-test-like analog groups, including Spearman, ST-RAE, activity strata and
-prediction spread. Then review 1A2 and 3A4. There is no evidence from these
-aggregate tables to replace 2C9 or submit a new regression candidate now.
+For the next regression diagnosis, start with D6 validation design. Existing
+parent-retained OOF and a pseudo analog subset do not fully mimic D6's
+other-CYP-selected, weaker-activity test population. Audit label coverage
+before treating any subset as a model-selection gate; see the
+[D6 OOF design note](2026-09-26-regression-d6-oof-design.md). Then review
+1A2 and 3A4. There is no evidence from these aggregate tables to replace
+2C9 or submit a new regression candidate now.

@@ -698,3 +698,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL0167](2026-09.md#rl0167--close-the-intermediate-depth-ensemble-direction) | Close intermediate-depth ensemble work without changing submissions |
 | [RL0168](2026-09.md#rl0168--full-test-interim-leaderboard-shows-a-d6-gap-and-strong-a4-tdi) | Full-test interim leaderboard comparison across both tracks and all endpoints |
 | [RL0169](2026-09.md#rl0169--regression-target-audit-prioritizes-d6-ordering-diagnostics) | Target-wise regression interim audit and D6 ordering priority |
+| [RL0170](2026-09.md#rl0170--reconsider-the-d6-regression-oof-evaluation-population) | D6-specific OOF population design and analog-label coverage audit |
