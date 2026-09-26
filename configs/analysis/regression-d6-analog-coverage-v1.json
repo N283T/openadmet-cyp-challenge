@@ -1,0 +1,7 @@
+{
+  "analog_pairs": "analog-pairs.parquet",
+  "regression_labels": "regression-labels.parquet",
+  "d6_head": "CYP2D6_pIC50_direct_inhibition",
+  "source_analog_run": "classification/20260924T044113708854Z-1294f049",
+  "purpose": "Check whether the existing other-CYP pseudo analog-expansion subset covers weak CYP2D6 direct-inhibition labels"
+}

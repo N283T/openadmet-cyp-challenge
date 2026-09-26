@@ -1,0 +1,5 @@
+{
+  "n283t_exact_test_positive_calls": 249,
+  "n283t_exact_test_call_fraction": 0.332,
+  "caveat": "Leaderboard metrics are separate bootstrap means; derived prevalence and scored-subset call fractions are approximations, not recovered labels or exact submitted counts for other teams."
+}

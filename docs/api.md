@@ -52,13 +52,13 @@ schema or count for infrastructure decisions.
 
 ## Leaderboard artifacts
 
-The live API currently exposes `/partial` through `/partial_8` for CSV downloads,
-and `/partial_9` through `/partial_17` for leaderboard display refreshes. These are
-generated names, not stable semantic API identifiers. The client resolves the
-track and endpoint from the live component/tab layout each time and fails if
-resolution is ambiguous. It saves the live contract, returned response and actual
-CSV under a fresh directory via Gradio's `download_files` parameter.
+The API exposes separate Live and Interim leaderboard tabs. Generated `/partial`
+names are not stable semantic identifiers. The client resolves the selected board,
+track and endpoint from the current component/tab layout and fails if resolution is
+ambiguous. It saves the live contract, returned response and actual CSV under a fresh
+directory via Gradio's `download_files` parameter.
 
 Use `cyp leaderboard --track regression` or `--track classification`; `--endpoint`
-defaults to `MA`. Do not assume that a remote temporary path will remain available
-later. Saved manifests contain file hashes and failed requests remain visible.
+defaults to `MA` and `--board` defaults to `live`. Use `--board interim` for the frozen
+full-test interim board. Do not assume that a remote temporary path will remain
+available later. Saved manifests contain file hashes and failed requests remain visible.
