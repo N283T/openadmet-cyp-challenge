@@ -1,0 +1,11 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "robust_delta": 0.5,
+  "constraint_weight": 0.35,
+  "blend_weight": 0.5,
+  "placement": "fold_moment_match",
+  "source_run": "20260926T085959697226Z-0dbf57d4",
+  "submitted_sha256": "399cd07c66c0d4e7e1fb468b6a36a471d1572951e7f10e324e0b597d216c7b29",
+  "variant_sha256": "25074ee65b258b24eda2dabf268b12eabb91a813a5abeb65f605735dcbc400fc",
+  "target_sample_sd": 0.9
+}

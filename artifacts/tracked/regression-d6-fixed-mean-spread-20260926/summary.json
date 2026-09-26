@@ -1,0 +1,20 @@
+{
+  "config": {
+    "endpoint": "CYP2D6_pIC50_direct_inhibition",
+    "robust_delta": 0.5,
+    "constraint_weight": 0.35,
+    "blend_weight": 0.5,
+    "placement": "fold_moment_match",
+    "source_run": "20260926T085959697226Z-0dbf57d4",
+    "submitted_sha256": "399cd07c66c0d4e7e1fb468b6a36a471d1572951e7f10e324e0b597d216c7b29",
+    "variant_sha256": "25074ee65b258b24eda2dabf268b12eabb91a813a5abeb65f605735dcbc400fc",
+    "target_sample_sd": 0.9
+  },
+  "blind_mean": 3.57,
+  "blind_original_sample_sd": 0.8834767162110454,
+  "blind_variant_sample_sd": 0.9000000000000001,
+  "spread_ratio": 1.0187025684839979,
+  "blind_mean_absolute_change": 0.01242369747576326,
+  "blind_maximum_absolute_change": 0.06436043620097376,
+  "other_endpoints_exactly_unchanged": true
+}
