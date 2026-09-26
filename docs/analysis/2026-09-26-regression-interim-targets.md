@@ -54,10 +54,15 @@ compared with .5982 for the interim endpoint leader. MAE ranks 36. Thus the
 available aggregate metrics point to weak **ordering** as well as point-error
 room; a simple output-scale adjustment alone cannot raise Spearman. This is a
 diagnostic clue, not proof that a ranking-focused model will improve ST-RAE.
-The official halfway post describes a train/test activity-distribution shift
-for D6 because D6 hits were not prioritized in test analog expansion. That
-mechanism needs validation against available labelled analogs before changing
-the model.
+The [official halfway post](https://openadmet.ghost.io/halfway-through-the-openadmet-cyp-challenge/)
+explains the sampling asymmetry precisely: the **same 750 test molecules** are
+evaluated for all four isoforms, but the analog expansion selected the top 25
+training hits for each of 1A2, 2C9 and 3A4, then ten similar analogs per hit.
+D6 hits were not a selection anchor, so the D6 test measurements skew toward
+weaker activity relative to its training data. This can change the activity
+range and affect a rank correlation; N283T's low D6 Spearman cannot be
+attributed to its model alone from these aggregate scores. Inspect labelled
+test-like analog groups before changing the model.
 
 ### CYP3A4
 
