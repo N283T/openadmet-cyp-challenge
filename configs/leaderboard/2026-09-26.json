@@ -1,0 +1,134 @@
+{
+  "source_manifest": "artifacts/tracked/leaderboard-snapshot-20260926/manifest.json",
+  "subject": "N283T",
+  "entries": [
+    {
+      "board": "interim",
+      "track": "classification",
+      "endpoint": "CYP2D6_is_TDI",
+      "alias": "interim_classification_CYP2D6_is_TDI.csv",
+      "sha256": "91e6ea1225965089fa873fc0ee5322519a2c9fe9f75556f7298da75eb34618aa",
+      "source_csv": "artifacts/api/classification/20260926T001946955634Z-044a1693/downloads/91e6ea1225965089fa873fc0ee5322519a2c9fe9f75556f7298da75eb34618aa/classification_leaderboard_e8upvwm3.csv"
+    },
+    {
+      "board": "interim",
+      "track": "classification",
+      "endpoint": "CYP3A4_is_TDI",
+      "alias": "interim_classification_CYP3A4_is_TDI.csv",
+      "sha256": "544893776cdc0514d72cfb303b5e87e7968a3334594fa8dd98ebd67b1de9c35d",
+      "source_csv": "artifacts/api/classification/20260926T001951338594Z-19f44815/downloads/544893776cdc0514d72cfb303b5e87e7968a3334594fa8dd98ebd67b1de9c35d/classification_leaderboard_lagiiqu7.csv"
+    },
+    {
+      "board": "interim",
+      "track": "classification",
+      "endpoint": "MA",
+      "alias": "interim_classification_MA.csv",
+      "sha256": "65dd8e62ae65a46e37b6e754c30ae1ec21cc0906b4d304bd7ff947a8e5ea1d87",
+      "source_csv": "artifacts/api/classification/20260926T001826505043Z-088d559e/downloads/65dd8e62ae65a46e37b6e754c30ae1ec21cc0906b4d304bd7ff947a8e5ea1d87/classification_leaderboard_k64ru3hh.csv"
+    },
+    {
+      "board": "interim",
+      "track": "regression",
+      "endpoint": "CYP1A2_pIC50_direct_inhibition",
+      "alias": "interim_regression_CYP1A2_pIC50_direct_inhibition.csv",
+      "sha256": "9fc849e20463ab16422f1e5ab5d2537f39742910dbbc42980ab4521937d3d5dc",
+      "source_csv": "artifacts/api/regression/20260926T001928686336Z-edfa1902/downloads/9fc849e20463ab16422f1e5ab5d2537f39742910dbbc42980ab4521937d3d5dc/regression_leaderboard_far9l5jb.csv"
+    },
+    {
+      "board": "interim",
+      "track": "regression",
+      "endpoint": "CYP2C9_pIC50_direct_inhibition",
+      "alias": "interim_regression_CYP2C9_pIC50_direct_inhibition.csv",
+      "sha256": "dfdd55e74e031ca5f442e5920eb18329b10e9a5d4d434330d3459ee3fe23ab2e",
+      "source_csv": "artifacts/api/regression/20260926T001933409917Z-c538c8ed/downloads/dfdd55e74e031ca5f442e5920eb18329b10e9a5d4d434330d3459ee3fe23ab2e/regression_leaderboard_0a28gh4f.csv"
+    },
+    {
+      "board": "interim",
+      "track": "regression",
+      "endpoint": "CYP2D6_pIC50_direct_inhibition",
+      "alias": "interim_regression_CYP2D6_pIC50_direct_inhibition.csv",
+      "sha256": "1c7805c3e032809cafdff000881adbe40384ba69b963d5c1955d0cbfacf43a71",
+      "source_csv": "artifacts/api/regression/20260926T001937894873Z-23253b3e/downloads/1c7805c3e032809cafdff000881adbe40384ba69b963d5c1955d0cbfacf43a71/regression_leaderboard_s94pclyx.csv"
+    },
+    {
+      "board": "interim",
+      "track": "regression",
+      "endpoint": "CYP3A4_pIC50_direct_inhibition",
+      "alias": "interim_regression_CYP3A4_pIC50_direct_inhibition.csv",
+      "sha256": "2ea51e6cf6b2f9e59851db4ff6eac1a28e4f0c6ef02671a8e5e7b135da45b97a",
+      "source_csv": "artifacts/api/regression/20260926T001942432364Z-b9a4baa4/downloads/2ea51e6cf6b2f9e59851db4ff6eac1a28e4f0c6ef02671a8e5e7b135da45b97a/regression_leaderboard_vfuac6id.csv"
+    },
+    {
+      "board": "interim",
+      "track": "regression",
+      "endpoint": "MA",
+      "alias": "interim_regression_MA.csv",
+      "sha256": "83a0dc25c9c26a347a893038849d3de9fa117bd2a74032df6bfbb1ea3f9a031c",
+      "source_csv": "artifacts/api/regression/20260926T001924098067Z-02dcfe88/downloads/83a0dc25c9c26a347a893038849d3de9fa117bd2a74032df6bfbb1ea3f9a031c/regression_leaderboard_e3219198.csv"
+    },
+    {
+      "board": "live",
+      "track": "classification",
+      "endpoint": "CYP2D6_is_TDI",
+      "alias": "live_classification_CYP2D6_is_TDI.csv",
+      "sha256": "a8b8cae2ee05a612a52a006b72eca3bf2457215b701ba5b43844eb42df51327a",
+      "source_csv": "artifacts/api/classification/20260926T001915310713Z-c9c2c8e5/downloads/a8b8cae2ee05a612a52a006b72eca3bf2457215b701ba5b43844eb42df51327a/classification_leaderboard_6xhyv75f.csv"
+    },
+    {
+      "board": "live",
+      "track": "classification",
+      "endpoint": "CYP3A4_is_TDI",
+      "alias": "live_classification_CYP3A4_is_TDI.csv",
+      "sha256": "c8c241e5e0f8d75368ec9dc64ec496b2522ca11f42bce57c5cdc27eec9b1af44",
+      "source_csv": "artifacts/api/classification/20260926T001919860383Z-58e63f72/downloads/c8c241e5e0f8d75368ec9dc64ec496b2522ca11f42bce57c5cdc27eec9b1af44/classification_leaderboard_dvvui32a.csv"
+    },
+    {
+      "board": "live",
+      "track": "classification",
+      "endpoint": "MA",
+      "alias": "live_classification_MA.csv",
+      "sha256": "b24d14b78463ad019f6797961e5ae0ad603fd41f8b4f3baa605470c92ff82425",
+      "source_csv": "artifacts/api/classification/20260926T001910749563Z-e5ea6039/downloads/b24d14b78463ad019f6797961e5ae0ad603fd41f8b4f3baa605470c92ff82425/classification_leaderboard_n9bbauf6.csv"
+    },
+    {
+      "board": "live",
+      "track": "regression",
+      "endpoint": "CYP1A2_pIC50_direct_inhibition",
+      "alias": "live_regression_CYP1A2_pIC50_direct_inhibition.csv",
+      "sha256": "e7eb44ad788f640af0c245133393ba611523d69ba295bb0100204f8afa8c9b2e",
+      "source_csv": "artifacts/api/regression/20260926T001852488947Z-d32c903a/downloads/e7eb44ad788f640af0c245133393ba611523d69ba295bb0100204f8afa8c9b2e/regression_leaderboard_b3lb61x5.csv"
+    },
+    {
+      "board": "live",
+      "track": "regression",
+      "endpoint": "CYP2C9_pIC50_direct_inhibition",
+      "alias": "live_regression_CYP2C9_pIC50_direct_inhibition.csv",
+      "sha256": "f602eb5f7845eb2ede8ddd4d9be11dceeffd4c0de778e4eb667afd49d0e7c028",
+      "source_csv": "artifacts/api/regression/20260926T001856900110Z-503ccbfb/downloads/f602eb5f7845eb2ede8ddd4d9be11dceeffd4c0de778e4eb667afd49d0e7c028/regression_leaderboard_cgp2ws4z.csv"
+    },
+    {
+      "board": "live",
+      "track": "regression",
+      "endpoint": "CYP2D6_pIC50_direct_inhibition",
+      "alias": "live_regression_CYP2D6_pIC50_direct_inhibition.csv",
+      "sha256": "a39e32281ff393aff00aba96ff9f01d4646242d4e645578693cfd75d907d8ee9",
+      "source_csv": "artifacts/api/regression/20260926T001901653081Z-4b40d3ce/downloads/a39e32281ff393aff00aba96ff9f01d4646242d4e645578693cfd75d907d8ee9/regression_leaderboard_xmp2eki4.csv"
+    },
+    {
+      "board": "live",
+      "track": "regression",
+      "endpoint": "CYP3A4_pIC50_direct_inhibition",
+      "alias": "live_regression_CYP3A4_pIC50_direct_inhibition.csv",
+      "sha256": "4e97dd4131627d95bc207f5233362c0ec458c1403f43f780bd2261751ba61b32",
+      "source_csv": "artifacts/api/regression/20260926T001906179399Z-50976578/downloads/4e97dd4131627d95bc207f5233362c0ec458c1403f43f780bd2261751ba61b32/regression_leaderboard_dl180_q4.csv"
+    },
+    {
+      "board": "live",
+      "track": "regression",
+      "endpoint": "MA",
+      "alias": "live_regression_MA.csv",
+      "sha256": "9d1fd41fa2a94eafade1c10115c65f9033a74620c5adc12cf80ab1d7357a8db6",
+      "source_csv": "artifacts/api/regression/20260926T001848211549Z-eb554814/downloads/9d1fd41fa2a94eafade1c10115c65f9033a74620c5adc12cf80ab1d7357a8db6/regression_leaderboard_xjmfki24.csv"
+    }
+  ]
+}

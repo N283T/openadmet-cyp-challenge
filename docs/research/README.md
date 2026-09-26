@@ -696,3 +696,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL0165](2026-09.md#rl0165--intermediate-depth-members-do-not-improve-the-other-submitted-regression-targets) | Whole-member intermediate-depth tests on 1A2, 2C9 and 3A4 |
 | [RL0166](2026-09.md#rl0166--whole-chemeleon-depth-members-do-not-clear-the-tdi-decision-boundary) | Whole-member CheMeleon depth screen on D6 and A4 TDI |
 | [RL0167](2026-09.md#rl0167--close-the-intermediate-depth-ensemble-direction) | Close intermediate-depth ensemble work without changing submissions |
+| [RL0168](2026-09.md#rl0168--full-test-interim-leaderboard-shows-a-d6-gap-and-strong-a4-tdi) | Full-test interim leaderboard comparison across both tracks and all endpoints |
