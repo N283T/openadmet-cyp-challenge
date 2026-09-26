@@ -154,6 +154,7 @@ Never automatically retry a potentially successful upload.
 pixi run api-inspect
 pixi run cyp leaderboard --track regression
 pixi run cyp leaderboard --track classification
+pixi run cyp leaderboard --track regression --board interim
 ```
 
 Inspection persists live schema/config plus revision-pinned public source.

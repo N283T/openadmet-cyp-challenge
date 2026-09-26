@@ -16,6 +16,7 @@ def main():
     lb = sub.add_parser("leaderboard")
     lb.add_argument("--track", choices=ENDPOINTS, required=True)
     lb.add_argument("--endpoint", default="MA")
+    lb.add_argument("--board", choices=["live", "interim"], default="live")
     sub.add_parser("register-raw")
     sub.add_parser("reconcile")
     note = sub.add_parser("note")
@@ -74,7 +75,7 @@ def main():
     elif args.action == "api-inspect":
         api.inspect_api()
     elif args.action == "leaderboard":
-        api.leaderboard(args.track, args.endpoint)
+        api.leaderboard(args.track, args.endpoint, args.board)
     elif args.action == "register-raw":
         api.register_raw()
     elif args.action == "run":

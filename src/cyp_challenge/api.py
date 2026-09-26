@@ -76,8 +76,8 @@ def register_raw():
     print(path)
 
 
-def leaderboard(track, endpoint):
-    """Resolve a download endpoint from the live layout and retain the actual CSV."""
+def leaderboard(track, endpoint, board="live"):
+    """Resolve a download endpoint from the selected board and retain the actual CSV."""
 
     from gradio_client import Client
 
@@ -85,6 +85,8 @@ def leaderboard(track, endpoint):
 
     if endpoint != "MA" and endpoint not in ENDPOINTS[track]:
         raise ValueError("Endpoint does not belong to this track")
+    if board not in ("live", "interim"):
+        raise ValueError("Board must be live or interim")
     with connect():
         pass
     identifier, path = allocate("api", track)
@@ -93,6 +95,7 @@ def leaderboard(track, endpoint):
         "created_at": now(),
         "track": track,
         "endpoint": endpoint,
+        "board": board,
         "operation": "leaderboard-download",
         "space": SPACE,
     }
@@ -120,6 +123,10 @@ def leaderboard(track, endpoint):
             "regression": "Direct Inhibition Prediction (Regression)",
             "classification": "TDI Prediction (Classification)",
         }[track]
+        board_label = {
+            "live": "🏎️ Live Leaderboard",
+            "interim": "⏱️ Interim Leaderboard",
+        }[board]
         endpoint_label = "🏆 Overall" if endpoint == "MA" else endpoint.replace("_", " ")
         matches = []
         for dep in config["dependencies"]:
@@ -127,6 +134,7 @@ def leaderboard(track, endpoint):
                 labels = ancestors.get(output, [])
                 if (
                     components[output]["type"] == "downloadbutton"
+                    and board_label in labels
                     and track_label in labels
                     and endpoint_label in labels
                     and not dep["inputs"]
