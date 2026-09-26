@@ -1,0 +1,9 @@
+{
+  "endpoint": "CYP1A2_pIC50_direct_inhibition",
+  "scale": 0.925,
+  "source_submission": "20260926T090548323924Z-46188564",
+  "source_sha256": "399cd07c66c0d4e7e1fb468b6a36a471d1572951e7f10e324e0b597d216c7b29",
+  "d6_sd90_submission": "20260926T120124524160Z-01cea54f",
+  "d6_sd90_sha256": "25074ee65b258b24eda2dabf268b12eabb91a813a5abeb65f605735dcbc400fc",
+  "screen_run": "20260926T121803762252Z-15616963"
+}

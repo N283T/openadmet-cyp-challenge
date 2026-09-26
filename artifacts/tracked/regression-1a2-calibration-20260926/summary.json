@@ -1,0 +1,22 @@
+{
+  "config": {
+    "endpoint": "CYP1A2_pIC50_direct_inhibition",
+    "scale": 0.925,
+    "source_submission": "20260926T090548323924Z-46188564",
+    "source_sha256": "399cd07c66c0d4e7e1fb468b6a36a471d1572951e7f10e324e0b597d216c7b29",
+    "d6_sd90_submission": "20260926T120124524160Z-01cea54f",
+    "d6_sd90_sha256": "25074ee65b258b24eda2dabf268b12eabb91a813a5abeb65f605735dcbc400fc",
+    "screen_run": "20260926T121803762252Z-15616963"
+  },
+  "rows": 750,
+  "original_mean": 4.411999999999999,
+  "original_sample_sd": 1.169409,
+  "adjusted_mean": 4.411999999999999,
+  "adjusted_sample_sd": 1.0817033249999999,
+  "mean_absolute_change": 0.07262798003288078,
+  "maximum_absolute_change": 0.23379219786990868,
+  "a1_only_sha256": "e48e653f9191026e66cd05b9585f7459b45679d2d057a72c36cd7eacba9562ab",
+  "combined_sha256": "41be58c13c6266cc3db322c4bc45175874025805b40f0d5518f59b395d538827",
+  "other_endpoints_unchanged_in_a1_only": true,
+  "combined_changes_only_a1_and_d6": true
+}
