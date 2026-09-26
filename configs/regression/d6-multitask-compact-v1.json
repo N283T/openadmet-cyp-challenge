@@ -1,0 +1,24 @@
+{
+  "target": "CYP2D6",
+  "donors": ["CYP1A2", "CYP2C9", "CYP3A4"],
+  "splits": ["parent", "scaffold"],
+  "primary_weak_cutoff": -0.5,
+  "arms": [
+    {"name": "d6_only", "donor_labels": "none", "donor_weight": 0.0},
+    {"name": "joint_all_025", "donor_labels": "all", "donor_weight": 0.25},
+    {"name": "joint_all_100", "donor_labels": "all", "donor_weight": 1.0}
+  ],
+  "model": {
+    "score_dim": 47,
+    "pca_medium": 64,
+    "hidden": [64, 16],
+    "dropout": 0.35,
+    "epochs": 40,
+    "prediction_epochs": [20, 30, 40],
+    "batch_size": 128,
+    "learning_rate": 0.0007,
+    "weight_decay": 0.05,
+    "huber_beta": 0.5,
+    "seed": 20260926
+  }
+}

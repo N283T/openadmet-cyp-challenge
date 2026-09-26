@@ -1,0 +1,8 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "constraint_weights": [0.05, 0.1, 0.25],
+  "blend_weights": [0.1, 0.25, 0.5],
+  "placements": ["raw", "fold_moment_match"],
+  "parent_control_scenario": "current_two",
+  "scaffold_control_method": "jeremy_anchor_all"
+}

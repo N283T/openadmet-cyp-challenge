@@ -1,0 +1,8 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "constraint_weight": 0.25,
+  "placement": "fold_moment_match",
+  "candidate_blend_weight": 0.5,
+  "bootstrap_draws": 3000,
+  "seed": 20260926
+}

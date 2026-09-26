@@ -1,0 +1,20 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "primary_head": "CYP2D6@0.0000495049505",
+  "primary_weak_cutoff": -0.5,
+  "direct_upper_bound": 4.0,
+  "constraint_weight": 0.25,
+  "blend_weight": 0.5,
+  "placement": "match_current_test_moments",
+  "selection_run": "20260926T041934073362Z-5e9e8cb8",
+  "audit_run": "20260926T042057198235Z-174084b3",
+  "model": {
+    "n_estimators": 300,
+    "num_leaves": 15,
+    "learning_rate": 0.05,
+    "min_child_samples": 20,
+    "reg_lambda": 1.0,
+    "num_threads": 3,
+    "seed": 42
+  }
+}
