@@ -1,0 +1,19 @@
+{
+  "config": {
+    "username": "N283T",
+    "before_submitted": "2026-09-24 05:44 UTC",
+    "after_submitted": "2026-09-26 10:00 UTC",
+    "endpoint": "CYP2D6_pIC50_direct_inhibition",
+    "submission_id": "20260926T090548323924Z-46188564",
+    "attempt_id": "20260926T100008522917Z-0ab7c954",
+    "file_sha256": "399cd07c66c0d4e7e1fb468b6a36a471d1572951e7f10e324e0b597d216c7b29"
+  },
+  "rows": 750,
+  "d6_st_rae_delta": -0.016178742353025632,
+  "ma_st_rae_delta": -0.00404468558825638,
+  "other_endpoints_exactly_unchanged": true,
+  "before_d6_rank": 31,
+  "after_d6_rank": 22,
+  "before_ma_rank": 27,
+  "after_ma_rank": 25
+}

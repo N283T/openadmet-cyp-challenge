@@ -25,4 +25,6 @@ is sorted `score_` columns followed by sorted `emb_` columns. Full deployment
 is defined in `scripts/regression_d6_primary_robust_fullfit.py`: match the
 new raw D6 vector's mean and SD to the September 24 submitted D6 vector,
 then blend equally. Prepared submission `20260926T090548323924Z-46188564`
-has not been uploaded.
+was later uploaded. Its reflected
+[Live D6 result](../../../docs/analysis/2026-09-26-regression-d6-robust-live-result.md)
+is ST-RAE `.549341` versus the previous `.565520`.

@@ -121,3 +121,11 @@ control, and test calibration relies on matching the old submitted vector.
 Do not replace the scored control on OOF evidence alone. Compact evidence,
 model weights and prepared payload are in
 [`artifacts/tracked/regression-d6-primary-robust-20260926/`](../../artifacts/tracked/regression-d6-primary-robust-20260926/README.md).
+
+## Prospective result (recorded after the original analysis)
+
+The prepared candidate was subsequently submitted at the user's direction.
+The [Live result](2026-09-26-regression-d6-robust-live-result.md) confirms D6
+ST-RAE `.565520→.549341` and Spearman `.431249→.441151` against the previous
+scored D6 column. This is evidence on the Live scored half, not a full-test
+result or proof that the untested final-SD correction is beneficial.
