@@ -1,0 +1,6 @@
+{
+  "leaderboard": "interim-a4.csv",
+  "submission": "n283t-submission.parquet",
+  "users": ["N283T", "EleanorRigby", "CYPblend", "nova"],
+  "purpose": "Estimate scored-subset A4 positive-call fractions from bootstrap-mean interim metrics; compare N283T with its exact submitted count"
+}

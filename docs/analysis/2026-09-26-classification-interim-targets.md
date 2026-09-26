@@ -56,9 +56,62 @@ EleanorRigby, has `.5633/.8623`; the second-place CYPblend has
 `.6673/.6591`. N283T's F1 is `.6608` (rank 5) and accuracy is `.7828`
 (rank 2), versus EleanorRigby's `.6810` and `.7503`. N283T is only `.0185`
 MCC behind the endpoint leader.
+Individual Precision and Recall ranks are affected by where entrants place
+their decision boundaries; neither alone means the current A4 operating point
+is poor. Its top-five MCC and F1 support a fairly strong balance.
+
 The Live top-10 overlap with the Interim top 10 is only 3, and rank Spearman
 among the 114 common entrants is `.756`. A4's half-test ranking is particularly
 unstable, so the Live rank 1 should not be treated as the full-test result.
+
+### Is the fixed A4 positive count appropriate?
+
+The exact submitted vector calls **249 of 750** blind compounds positive
+(33.2%). This count was retained through the September 13 and September 15
+model changes; those changes swapped the identity of positive calls at the
+same count. An earlier 249-call A4 vector scored Live MCC `.4307`, while a
+later 378-call vector scored `.3750`; their rankings also differed. A recorded
+counterfactual decomposition attributed `.0278` of the subsequent macro-MCC
+recovery to restoring the A4 call rate
+([analysis](2026-09-13-classification-diverse-lb-result.md)). This establishes
+that call rate matters, but does not prove 249 is the full-test optimum for the
+current score vector. The interim table provides
+one point on its Precision/Recall curve, not the curve itself. EleanorRigby's
+higher recall and lower precision could reflect a different call rate, ranking,
+or both; individual predictions and labels are unavailable.
+
+Recorded run `classification/20260926T011101091386Z-618feba5` uses the
+Interim Accuracy, Precision and Recall means to infer approximate positive
+call fractions **within the scored subset**. The identity is
+`prevalence ≈ (1 − accuracy) / (1 − 2 × recall + recall / precision)` and
+`call fraction ≈ prevalence × recall / precision`. The compact
+[derived table](../../artifacts/tracked/classification-a4-interim-operating-points-20260926/operating_points.csv)
+preserves the estimates.
+
+| Entrant | A4 MCC rank | Precision | Recall | Approx. scored positive-call fraction |
+|---|---:|---:|---:|---:|
+| N283T | 4 | .6393 | .6848 | 33.2% |
+| EleanorRigby | 1 | .5633 | .8623 | 47.4% |
+| CYPblend | 2 | .6673 | .6591 | 30.6% |
+| nova | 24 | .6472 | .5772 | 27.6% |
+
+The metric columns are separately averaged bootstrap estimates, so these
+fractions are approximations. They are not the other teams' exact 750-row
+submission counts. Different call fractions coexist among leading A4 entries;
+the comparison cannot isolate the effect of call count because their rankings
+and models also differ. N283T's estimated scored fraction agrees with its
+exact 33.2% full-pool call fraction, but that agreement does not establish
+an optimal threshold.
+
+The saved equal-seven OOF uses the same 249/750 rate. Its scored rows cover
+only the 3,584 labelled A4 training molecules, whereas the blind decision is
+made on all 750 molecules before the scoring mask is applied. A labelled-only
+rate sweep would be diagnostic, not a reliable way to choose a new blind count.
+The project's [classification evaluation protocol](../classification-evaluation.md)
+therefore calls for complete-pool OOF scores and selecting the model and call
+rate jointly outside each evaluated fold. Keep 249 as the submitted reference;
+test a prespecified rate grid under that protocol before considering a new
+threshold or top-K count. Do not choose a rate from the one-time Interim score.
 
 ## Macro decomposition and interpretation
 
