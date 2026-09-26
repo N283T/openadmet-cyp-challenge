@@ -1,0 +1,8 @@
+{
+  "endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "current_submission_id": "20260926T090548323924Z-46188564",
+  "oof_run": "20260917T130718808881Z-dfa02730",
+  "oof_method": "caruana",
+  "shifts": [-0.2, -0.1, -0.05, 0.0, 0.05, 0.1, 0.2],
+  "scales": [0.85, 0.925, 1.0, 1.075, 1.15]
+}

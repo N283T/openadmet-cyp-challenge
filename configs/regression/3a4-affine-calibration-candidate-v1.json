@@ -1,0 +1,11 @@
+{
+  "endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "shift": 0.05,
+  "scale": 0.9625,
+  "source_submission": "20260926T090548323924Z-46188564",
+  "source_sha256": "399cd07c66c0d4e7e1fb468b6a36a471d1572951e7f10e324e0b597d216c7b29",
+  "combined_submission": "20260926T121941727761Z-5ec77801",
+  "combined_sha256": "41be58c13c6266cc3db322c4bc45175874025805b40f0d5518f59b395d538827",
+  "screen_run": "20260926T140255759268Z-7ddd1205",
+  "audit_run": "20260926T140426997076Z-e44344d9"
+}

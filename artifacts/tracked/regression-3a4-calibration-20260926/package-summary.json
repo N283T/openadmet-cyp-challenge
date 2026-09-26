@@ -1,0 +1,24 @@
+{
+  "config": {
+    "endpoint": "CYP3A4_pIC50_direct_inhibition",
+    "shift": 0.05,
+    "scale": 0.9625,
+    "source_submission": "20260926T090548323924Z-46188564",
+    "source_sha256": "399cd07c66c0d4e7e1fb468b6a36a471d1572951e7f10e324e0b597d216c7b29",
+    "combined_submission": "20260926T121941727761Z-5ec77801",
+    "combined_sha256": "41be58c13c6266cc3db322c4bc45175874025805b40f0d5518f59b395d538827",
+    "screen_run": "20260926T140255759268Z-7ddd1205",
+    "audit_run": "20260926T140426997076Z-e44344d9"
+  },
+  "rows": 750,
+  "original_mean": 4.879999999999999,
+  "original_sample_sd": 1.0824720000000003,
+  "adjusted_mean": 4.929999999999999,
+  "adjusted_sample_sd": 1.0418793000000004,
+  "mean_absolute_change": 0.05222720784440135,
+  "maximum_absolute_change": 0.16844605135467416,
+  "only_sha256": "86580f25afaaa1a3c65dc920da4cb278e4fa9f0d0c6eeb50875fc88b4f24f852",
+  "combined_sha256": "ea5151a2be100576a70cda36ae600ebb8871aff565cab93789236879307dc20d",
+  "other_endpoints_unchanged_in_only": true,
+  "existing_1a2_d6_changes_preserved_in_combined": true
+}

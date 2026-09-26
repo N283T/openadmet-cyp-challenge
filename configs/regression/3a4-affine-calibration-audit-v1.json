@@ -1,0 +1,12 @@
+{
+  "endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "oof_method": "caruana",
+  "screen_run": "20260926T140255759268Z-7ddd1205",
+  "candidates": [
+    {"name": "shift_005", "shift": 0.05, "scale": 1.0},
+    {"name": "shift_010_narrow_0925", "shift": 0.1, "scale": 0.925},
+    {"name": "half_shift_005_narrow_09625", "shift": 0.05, "scale": 0.9625}
+  ],
+  "bootstrap_repeats": 1000,
+  "seed": 20260926
+}

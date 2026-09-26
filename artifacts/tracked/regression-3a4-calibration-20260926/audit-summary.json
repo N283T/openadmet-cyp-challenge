@@ -1,0 +1,40 @@
+{
+  "n": 2300,
+  "n_groups": 1083,
+  "bootstrap_repeats": 1000,
+  "candidates": {
+    "shift_005": {
+      "shift": 0.05,
+      "scale": 1.0,
+      "overall_delta_ST_RAE": -0.005484710749287247,
+      "folds_improved": 5,
+      "bootstrap_delta_95pct": [
+        -0.009152685967675458,
+        -0.0020310228319353895
+      ],
+      "bootstrap_fraction_improved": 0.999
+    },
+    "shift_010_narrow_0925": {
+      "shift": 0.1,
+      "scale": 0.925,
+      "overall_delta_ST_RAE": -0.008484034546378305,
+      "folds_improved": 4,
+      "bootstrap_delta_95pct": [
+        -0.014792599889639947,
+        -0.002644375687614677
+      ],
+      "bootstrap_fraction_improved": 0.999
+    },
+    "half_shift_005_narrow_09625": {
+      "shift": 0.05,
+      "scale": 0.9625,
+      "overall_delta_ST_RAE": -0.006658816455017369,
+      "folds_improved": 5,
+      "bootstrap_delta_95pct": [
+        -0.009834971039665843,
+        -0.003809124781871236
+      ],
+      "bootstrap_fraction_improved": 1.0
+    }
+  }
+}
