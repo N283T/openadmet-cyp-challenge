@@ -699,3 +699,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL0168](2026-09.md#rl0168--full-test-interim-leaderboard-shows-a-d6-gap-and-strong-a4-tdi) | Full-test interim leaderboard comparison across both tracks and all endpoints |
 | [RL0169](2026-09.md#rl0169--regression-target-audit-prioritizes-d6-ordering-diagnostics) | Target-wise regression interim audit and D6 ordering priority |
 | [RL0170](2026-09.md#rl0170--reconsider-the-d6-regression-oof-evaluation-population) | D6-specific OOF population design and analog-label coverage audit |
+| [RL0171](2026-09.md#rl0171--tdi-interim-endpoint-audit-confirms-a4-strength-and-d6-deficit) | TDI interim endpoint audit and macro decomposition |

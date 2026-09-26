@@ -60,3 +60,4 @@ that changes the validation population, with the following constraints:
 
 This is a design proposal, not a new model or a promoted selection rule. No
 submitted vector, OOF fold map or candidate changes in this audit.
+Follow-up is tracked in [Issue #3](https://github.com/N283T/openadmet-cyp-challenge/issues/3).
