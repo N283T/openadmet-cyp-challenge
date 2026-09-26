@@ -697,3 +697,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL0166](2026-09.md#rl0166--whole-chemeleon-depth-members-do-not-clear-the-tdi-decision-boundary) | Whole-member CheMeleon depth screen on D6 and A4 TDI |
 | [RL0167](2026-09.md#rl0167--close-the-intermediate-depth-ensemble-direction) | Close intermediate-depth ensemble work without changing submissions |
 | [RL0168](2026-09.md#rl0168--full-test-interim-leaderboard-shows-a-d6-gap-and-strong-a4-tdi) | Full-test interim leaderboard comparison across both tracks and all endpoints |
+| [RL0169](2026-09.md#rl0169--regression-target-audit-prioritizes-d6-ordering-diagnostics) | Target-wise regression interim audit and D6 ordering priority |
