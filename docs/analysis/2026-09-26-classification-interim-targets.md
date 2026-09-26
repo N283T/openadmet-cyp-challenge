@@ -23,10 +23,26 @@ differences are not statistically resolved by that tier test. N283T is in this
 group; rank 5 alone does not support a claim that it is better or worse than
 another Tier 1 entry.
 
+## Secondary metrics for N283T
+
+| Interim board | Accuracy (rank) | Precision (rank) | Recall (rank) | F1 (rank) |
+|---|---:|---:|---:|---:|
+| CYP2D6 | .9128 (29) | .2878 (22) | .3224 (66) | .3018 (23) |
+| CYP3A4 | .7828 (2) | .6393 (23) | .6848 (46) | .6608 (5) |
+| Macro average | .8478 (6) | .4635 (18) | .5036 (55) | .4813 (5) |
+
+These ranks compare the corresponding metric across all 114 Interim entries;
+they are separate from the official MCC ranking. F1 broadly supports the same
+picture as MCC: A4 is strong, D6 has more room. Accuracy needs care because
+the D6 positive class is rare; a high accuracy can coexist with poor positive
+class identification. Precision and recall are more informative about that
+tradeoff, but neither alone is the challenge objective.
+
 ### CYP2D6
 
 N283T's interim precision/recall are `.2878/.3224`, versus `.4725/.3006` for
-nova. N283T is `.0877` MCC behind nova on D6. This comparison suggests a
+nova. N283T's F1 is `.3018` versus nova's `.3641`, and accuracy is `.9128`
+versus `.9388`. N283T is `.0877` MCC behind nova on D6. This comparison suggests a
 different precision/recall operating point but does not reveal the identities
 or labels of individual errors. Other high-scoring D6 entries make different
 tradeoffs: jeremy has precision/recall `.3232/.3887`, while newcyp has
@@ -37,7 +53,9 @@ threshold for N283T's fixed score vector.
 
 N283T's interim precision/recall are `.6393/.6848`. The endpoint leader,
 EleanorRigby, has `.5633/.8623`; the second-place CYPblend has
-`.6673/.6591`. N283T is only `.0185` MCC behind the endpoint leader.
+`.6673/.6591`. N283T's F1 is `.6608` (rank 5) and accuracy is `.7828`
+(rank 2), versus EleanorRigby's `.6810` and `.7503`. N283T is only `.0185`
+MCC behind the endpoint leader.
 The Live top-10 overlap with the Interim top 10 is only 3, and rank Spearman
 among the 114 common entrants is `.756`. A4's half-test ranking is particularly
 unstable, so the Live rank 1 should not be treated as the full-test result.
