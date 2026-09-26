@@ -1,0 +1,16 @@
+{
+  "direct_endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "primary_head": "CYP2D6@0.0000495049505",
+  "splits": ["parent", "scaffold"],
+  "pseudo_weights": [0.25, 1.0],
+  "mappings": ["linear", "isotonic"],
+  "model": {
+    "n_estimators": 300,
+    "num_leaves": 15,
+    "learning_rate": 0.05,
+    "min_child_samples": 20,
+    "reg_lambda": 1.0,
+    "n_jobs": 3,
+    "seed": 42
+  }
+}
