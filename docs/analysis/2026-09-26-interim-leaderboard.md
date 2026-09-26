@@ -5,6 +5,8 @@
 Recorded analysis run `shared/20260926T002255140309Z-2e7b1859` uses all 16
 downloaded leaderboard CSVs indexed in
 [`artifacts/tracked/leaderboard-snapshot-20260926/manifest.json`](../../artifacts/tracked/leaderboard-snapshot-20260926/manifest.json).
+The [portable CSV copies](../../artifacts/tracked/leaderboard-snapshot-20260926/README.md)
+allow the same aggregate analysis from a fresh checkout.
 The run snapshots each CSV as an explicit input and checks its SHA-256. It compares
 the September 26 Live and Interim boards for both inhibition tracks, including
 their macro and every endpoint table. The Interim board scores the September 24
