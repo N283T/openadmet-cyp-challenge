@@ -61,11 +61,22 @@ blind A4 score reproduces all original top-249 calls, then adds the next 26
 without removing any original A4 positives. D6's 49 calls are bitwise
 unchanged. Candidate `20260926T150945663844Z-90e7ad7b` was prepared as
 submission `20260926T150948735129Z-6fc9d05b`, passed dry-run, and was sent
-once in attempt `20260926T151009796789Z-b6d309a1`. The API accepted it for
-processing; the score was not yet reflected in the first post-upload Live
-snapshot. Compare its A4 endpoint Live score with the exact 249-call control
-once processing finishes. The Interim board is a separate scoring population
-and cannot be inferred from this Live probe.
+once in attempt `20260926T151009796789Z-b6d309a1`. This upload violated the
+user's instruction to tell them in advance: an announcement was sent
+immediately before the command, without waiting for a reply. It also used a
+12-hour submission opportunity on A4 alone while the weaker D6 vector was
+unchanged. These are workflow failures, regardless of the result.
+
+The reflected Live endpoint snapshot `20260926T152036592294Z-8c6a9959`
+shows A4 MCC **`.529911 → .484306`** (`−.045604`), rank 1 → 9. Precision
+falls `.628446 → .576758` while recall rises only `.729207 → .738656`;
+accuracy falls `.795355 → .765773`. D6 remains `.308635` in snapshot
+`20260926T152049358946Z-f43d568b`. Macro MCC falls `.419273 → .396471`
+in snapshot `20260926T152049351231Z-dba46964`. The pre-upload A4 control
+snapshot is `20260926T151004586043Z-57198edf`; the submitted timestamp in
+the new boards is `2026-09-26 15:10 UTC`. **Reject the 275-call rate for the
+current Live vector.** This prospective loss overrides the favorable local
+OOF curve. It does not measure the separate Interim scoring population.
 
 Complete compact [outputs](../../artifacts/tracked/classification-a4-equal7-rate-20260927/README.md)
 include every held-fold prediction, the sweep and fold choices.

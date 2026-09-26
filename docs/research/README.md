@@ -6,11 +6,12 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
-- **The submitted A4 equal-seven ensemble favors a modestly higher call rate:**
-  complete-pool OOF raises projected MCC by `.0245` when its A4 calls change
-  from 249 to 275 per 750, with a positive conditional group-bootstrap
-  interval at the working scored-population prior. A count-only 275-call
-  candidate preserving D6 was submitted once; Live scoring is pending. See
+- **The A4 275-call rate failed on the Live leaderboard:** complete-pool OOF
+  had favored 275 over the submitted 249 calls by `.0245` projected MCC, but
+  the prospective Live A4 MCC fell `.529911→.484306`; macro fell
+  `.419273→.396471`, with D6 unchanged. Reject this rate change for the
+  current vector. The upload also violated the user's advance-notice
+  instruction and consumed a 12-hour submission opportunity. See
   [RL0188](2026-09.md#rl0188--exact-a4-equal-seven-full-pool-replay-favors-275-calls).
 
 - **Checkpoint predictor views produce a stronger D6 flat bank:** six

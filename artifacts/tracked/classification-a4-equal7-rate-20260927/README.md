@@ -20,5 +20,9 @@ The 275-call candidate was recorded in `classification/20260926T150937578353Z-d4
 candidate `20260926T150945663844Z-90e7ad7b`, submission
 `20260926T150948735129Z-6fc9d05b`, sent attempt
 `20260926T151009796789Z-b6d309a1`.
+The reflected Live A4 MCC was `.484306`, below the `.529911` 249-call
+control; this 275-call rate is rejected for the current vector.
+The `before-*-live.csv` and `after-*-live.csv` files preserve the complete
+official Live leaderboard snapshots for A4, D6, and macro classification.
 
 See [the analysis](../../../docs/analysis/2026-09-27-classification-a4-equal7-rate.md).
