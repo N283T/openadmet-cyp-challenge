@@ -1,0 +1,13 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "submissions": [
+    {"alias": "s0910.parquet", "id": "20260910T132854718239Z-4766cd9f"},
+    {"alias": "s0911.parquet", "id": "20260911T132711430401Z-f3149927"},
+    {"alias": "s0912.parquet", "id": "20260912T074802231782Z-eaafa860"},
+    {"alias": "s0914a.csv", "id": "20260914T024743176950Z-8ef21e06"},
+    {"alias": "s0914b.parquet", "id": "20260914T150145548210Z-1ab27b1d"},
+    {"alias": "s0917.csv", "id": "20260917T132706271289Z-193de057"},
+    {"alias": "s0918.csv", "id": "20260918T121343664656Z-cf7be0d2"},
+    {"alias": "s0924.csv", "id": "20260924T054343781258Z-db4d3cf3"}
+  ]
+}

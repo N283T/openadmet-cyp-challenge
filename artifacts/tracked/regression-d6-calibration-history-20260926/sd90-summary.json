@@ -1,0 +1,17 @@
+{
+  "config": {
+    "endpoint": "CYP2D6_pIC50_direct_inhibition",
+    "target_mean": 3.57,
+    "target_sample_sd": 0.9,
+    "source_run": "20260926T090408836539Z-239369e6",
+    "placement_screen_run": "20260926T094321680608Z-a298391f"
+  },
+  "rows": 750,
+  "original_mean": 3.57,
+  "original_sample_sd": 0.8834767162110454,
+  "placed_mean": 3.57,
+  "placed_sample_sd": 0.9000000000000001,
+  "mean_absolute_delta": 0.01242369747576326,
+  "maximum_absolute_delta": 0.06436043620097376,
+  "spearman_vs_current": 0.953185282107168
+}

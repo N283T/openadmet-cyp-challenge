@@ -1,0 +1,8 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "robust_delta": 0.5,
+  "constraint_weight": 0.35,
+  "blend_weight": 0.5,
+  "placement": "fold_moment_match",
+  "methods": ["identity", "restore_control_sd", "match_control_quantiles"]
+}
