@@ -70,6 +70,12 @@ Before a live send, the submission command downloads MA and every endpoint
 leaderboard for the selected track. All downloads must finish successfully before
 the upload intent is created or the submission API is called; their artifact paths
 are stored in the attempt record.
+Live sending also requires explicit user approval for the specific prepared payload
+and an interactive terminal confirmation. The dry run reports changed molecule counts
+per target against the most recent sent payload, when that file is available. An
+unchanged target is advisory: combine worthwhile changes across targets when practical.
+The sender blocks a new attempt within 12 hours of the latest locally recorded sent
+attempt on the same track. Manual or unrecorded remote sends must be checked separately.
 SHA-256 verification catches accidental changes; chmod is not a security boundary
 against the file owner. Run output files are inventoried rather than OS-locked.
 

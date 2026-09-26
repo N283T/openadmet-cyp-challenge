@@ -212,6 +212,7 @@ def test_submission_attempt_persists_and_prevents_implicit_retries(registry, mon
         return [{"endpoint": "MA", "path": "/saved/pre-submission/ma"}]
 
     monkeypatch.setattr(submission, "snapshot_leaderboards", fake_snapshot_leaderboards)
+    monkeypatch.setattr(submission, "confirm_live_submission", lambda *args: None)
 
     class FakeClient:
         def __init__(self, *args, **kwargs):

@@ -29,6 +29,13 @@
   outputs to `artifacts/tracked/`; keep oversized or external payloads local with
   provenance and checksums. Inspect ignored files before any targeted cleanup.
 - Use feature branches. Run `pixi run check` and `pixi run test` for infrastructure edits.
+- Never upload a submission, through `cyp submit`, the Space UI/API, or another route,
+  without explicit user approval for that specific payload immediately beforehand.
+  Preparing, validating, and dry-running a submission do not authorize upload.
+  A successful upload consumes a 12-hour submission opportunity for its track.
+  Before seeking approval, show the prepared ID, target-wise changes versus the
+  last sent payload, and cooldown timing. Prefer combining worthwhile changes
+  across all targets when practical; unchanged targets do not block submission.
 - Official source snapshots: [references/official/README.md](references/official/README.md).
   Keep source text separate from interpretations; preserve previous versions on refresh.
 - Read [README.md](README.md) and [docs/infrastructure.md](docs/infrastructure.md).
