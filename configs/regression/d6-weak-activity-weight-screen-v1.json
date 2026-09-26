@@ -1,0 +1,22 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "feature_view": "frozen external score47",
+  "splits": ["parent", "scaffold"],
+  "weak_cutoff": 4.0,
+  "recipes": [
+    {"name": "uniform", "rule": "none", "weight": 1.0},
+    {"name": "point_below4_x2", "rule": "point", "weight": 2.0},
+    {"name": "point_below4_x4", "rule": "point", "weight": 4.0},
+    {"name": "upper_below4_x2", "rule": "upper", "weight": 2.0},
+    {"name": "upper_below4_x4", "rule": "upper", "weight": 4.0}
+  ],
+  "model": {
+    "iterations": 400,
+    "depth": 5,
+    "learning_rate": 0.04,
+    "l2_leaf_reg": 5.0,
+    "loss_function": "MAE",
+    "thread_count": 4,
+    "seed": 20260926
+  }
+}

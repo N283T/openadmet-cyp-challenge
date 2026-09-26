@@ -1,0 +1,22 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "splits": ["parent", "scaffold"],
+  "weak_cutoff": 4.0,
+  "inner_group_folds": 3,
+  "feature_view": "frozen score47 plus medium600",
+  "classifier": {
+    "iterations": 250,
+    "depth": 5,
+    "learning_rate": 0.04,
+    "l2_leaf_reg": 5.0
+  },
+  "regressor": {
+    "iterations": 400,
+    "depth": 5,
+    "learning_rate": 0.04,
+    "l2_leaf_reg": 5.0,
+    "loss_function": "MAE"
+  },
+  "threads": 4,
+  "seed": 20260926
+}

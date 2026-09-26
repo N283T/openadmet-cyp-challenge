@@ -1,0 +1,7 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "control_scenario": "current_two",
+  "low_activity_cutoff": 4.0,
+  "high_activity_cutoff": 5.0,
+  "source_oof_run": "20260925T133357806640Z-49fea86a"
+}

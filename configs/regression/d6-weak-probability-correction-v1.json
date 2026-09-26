@@ -1,0 +1,9 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "classification_view": "scores47_medium600",
+  "label_rules": ["point", "upper"],
+  "strengths": [0.25, 0.5, 1.0],
+  "weak_cutoff": 4.0,
+  "formula": "base + strength * (weak_probability - outer_train_prevalence) * (outer_train_weak_mean - outer_train_other_mean)",
+  "baseline": "Jeremy anchor-all LightGBM refit on each split"
+}

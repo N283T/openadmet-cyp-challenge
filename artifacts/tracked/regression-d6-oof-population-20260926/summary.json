@@ -1,0 +1,14 @@
+{
+  "purpose": "Descriptive only; proxy and outcome strata cannot select a candidate",
+  "st_rae_policy": "Omit ST-RAE on outcome-conditioned activity strata, where the mean baseline denominator can collapse",
+  "oof_rows": 1457,
+  "proxy_rows": 163,
+  "split_id": "20260911T104703655337Z-a3923255",
+  "config": {
+    "endpoint": "CYP2D6_pIC50_direct_inhibition",
+    "control_scenario": "current_two",
+    "low_activity_cutoff": 4.0,
+    "high_activity_cutoff": 5.0,
+    "source_oof_run": "20260925T133357806640Z-49fea86a"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "endpoint": "CYP2D6_pIC50_direct_inhibition",
+  "weak_cutoff": 4.0,
+  "splits": ["parent", "scaffold"],
+  "feature_views": ["scores47", "scores47_medium600"],
+  "label_rules": ["point", "upper"],
+  "model": {
+    "iterations": 400,
+    "depth": 5,
+    "learning_rate": 0.04,
+    "l2_leaf_reg": 5.0,
+    "thread_count": 4,
+    "seed": 20260926
+  }
+}
