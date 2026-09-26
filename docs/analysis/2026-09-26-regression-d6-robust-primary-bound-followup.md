@@ -1,5 +1,11 @@
 # CYP2D6 robust primary-bound follow-up
 
+**Scope.** This is a CYP2D6 direct-inhibition regression experiment. Only the
+D6 column changes in the prepared submission. The 1A2/2C9/3A4 masking
+experiment below is a transfer stress test because D6 has no measured direct
+labels in the weak-primary cohort. It is not D6 validation and is not part of
+the D6 candidate model or its ensemble.
+
 ## Why this follow-up was necessary
 
 The [first one-sided-bound candidate](2026-09-26-regression-d6-primary-bound-candidate.md)
@@ -66,7 +72,7 @@ ST-RAE `−.00252` parent and `−.00400` scaffold. Group-bootstrap 95% interval
 are `[-.00902,+.00436]` and `[-.00969,+.00190]`. The robust version is the
 better point estimate but is **not conclusively better than the first candidate**.
 
-## Synthetic test of the missing weak-label region
+## Other-CYP proxy test, not D6 validation
 
 Run `regression/20260926T090111824366Z-5a9f046c` hides measured weak-primary
 direct labels from training for 1A2, 2C9 and 3A4, then evaluates those values.
@@ -82,7 +88,10 @@ robust control. Weak-screen mean soft error changes as follows:
 Strong-primary selected-like error worsens on 1A2 and 2C9. This supports a
 real weak-region tradeoff and shows that the constraint is not universally
 helpful. Those targets have measured hidden weak-region labels; D6 does not.
-Transfer to the blind D6 distribution is an unverified assumption.
+Transfer to the blind D6 distribution is an unverified assumption. The D6
+decision must therefore rest on the D6 parent/scaffold OOF, its selection
+audit, and ultimately a prospective D6 leaderboard result. These proxy
+numbers should not be counted as additional D6 validation folds.
 
 ## Full fit and decision
 
@@ -104,8 +113,8 @@ Replay `regression/20260926T090601408220Z-5b3cc170` matches the CSV to
 within `8e-15` pIC50; 94 rows differ only at floating-point rounding and
 the model/CSV hashes are not byte-identical across threaded LightGBM runs.
 
-The robust candidate improves the available OOF evidence and is ready for a
-prospective D6-only leaderboard probe. It remains **uncertain** as an upgrade:
+The robust candidate improves the available **D6** OOF evidence and is ready
+for a prospective D6-only leaderboard probe. It remains **uncertain** as an upgrade:
 the independent weak-D6 labels are absent, the head-to-head gain over the
 first candidate is small, the parent fold-excluded score regresses toward the
 control, and test calibration relies on matching the old submitted vector.
