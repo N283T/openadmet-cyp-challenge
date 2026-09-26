@@ -1,0 +1,16 @@
+{
+  "target": "CYP2D6",
+  "donors": ["CYP1A2", "CYP2C9", "CYP3A4"],
+  "splits": ["parent", "scaffold"],
+  "primary_weak_cutoff": -0.5,
+  "donor_weights": [0.0, 0.1, 0.25, 0.5],
+  "model": {
+    "n_estimators": 300,
+    "num_leaves": 15,
+    "learning_rate": 0.05,
+    "min_child_samples": 20,
+    "reg_lambda": 1.0,
+    "n_jobs": 3,
+    "seed": 42
+  }
+}
