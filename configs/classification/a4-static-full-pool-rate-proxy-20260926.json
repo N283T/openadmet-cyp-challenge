@@ -1,0 +1,28 @@
+{
+  "labels": "measurements.parquet",
+  "test_mapping": "test-mapping.parquet",
+  "assignments": "assignments.parquet",
+  "current_bank": "current-bank.parquet",
+  "endpoint": "CYP3A4_is_TDI",
+  "strategies": ["umap", "scaffold"],
+  "call_rate": 0.332,
+  "target_prior": 0.2916,
+  "seed": 20260926,
+  "weightings": ["balanced"],
+  "lightgbm": {
+    "n_estimators": 400,
+    "num_leaves": 15,
+    "max_depth": 4,
+    "min_child_samples": 20,
+    "learning_rate": 0.03,
+    "reg_lambda": 2.0
+  },
+  "blocks": {
+    "jeremy_raw": {"file": "jeremy-raw.parquet", "prefixes": ["emb_"]},
+    "chemeleon_raw": {"file": "chemeleon-raw.parquet", "prefixes": ["emb_"]}
+  },
+  "candidates": [
+    {"name": "a4_static_proxy", "blocks": ["jeremy_raw", "chemeleon_raw"]}
+  ],
+  "protocol": "A4 rate-sensitivity proxy only; this is not the submitted equal-seven model. Fit the prespecified static-feature LightGBM on UMAP and scaffold folds, exclude held-fold labels and predict all 6146 held-fold molecules."
+}

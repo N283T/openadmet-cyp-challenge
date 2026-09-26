@@ -1,0 +1,15 @@
+{
+  "endpoint": "CYP3A4_is_TDI",
+  "oof": {
+    "umap": "umap-proxy.parquet",
+    "scaffold": "scaffold-proxy.parquet"
+  },
+  "model": "a4_static_proxy::balanced",
+  "expected_pool_rows": 6146,
+  "reference_count": 249,
+  "counts_per_750": [150, 200, 249, 300, 350, 400, 450],
+  "scored_population_priors": [0.2, 0.2916, 0.4],
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260926,
+  "protocol": "Prespecified A4 static-feature proxy sensitivity analysis. This proxy is not the submitted equal-seven model. Rank all held-fold molecules, score only supplied A4 labels, select rates outside the evaluated fold, and compare each rate with 249/750 using paired group bootstrap. UMAP and scaffold are sensitivity families, not independent data sets."
+}

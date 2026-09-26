@@ -263,7 +263,10 @@ pl.DataFrame(selection_rows).write_parquet(out / "feature-selections.parquet")
                 for candidate in cfg["candidates"]
             },
             "selection": "Importance selection is repeated inside each outer-training fold.",
-            "test_policy": "49 highest mean fold probabilities; no threshold tuning.",
+            "test_policy": (
+                f"Top {int(round(cfg['call_rate'] * len(test)))} mean fold probabilities "
+                "at the configured call rate; no threshold tuning."
+            ),
         },
         indent=2,
     )

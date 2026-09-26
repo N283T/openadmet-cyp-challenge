@@ -14,6 +14,10 @@ finds different pooled OOF optima across UMAP and scaffold. Treat 49 as the
 leaderboard-validated reference count, never as a fixed requirement for a new
 model. Select the model and call count jointly outside each evaluated fold;
 report instability and do not deploy the pooled OOF maximum as an optimum.
+The September 26 [complete-pool rate audit](analysis/2026-09-26-classification-rate-robustness.md)
+confirms that the D6 control analog's 49 versus 110 optimum changes by split.
+An A4 static-feature proxy also has split-dependent rate selection; it cannot
+set the rate for the submitted equal-seven ensemble.
 
 This protocol evaluates candidate generation, call-rate selection and final
 deployment separately. It ranks opportunities by estimated MCC improvement and

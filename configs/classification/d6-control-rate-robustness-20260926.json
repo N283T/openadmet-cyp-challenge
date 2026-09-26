@@ -1,0 +1,15 @@
+{
+  "endpoint": "CYP2D6_is_TDI",
+  "oof": {
+    "umap": "umap-control.parquet",
+    "scaffold": "scaffold-control.parquet"
+  },
+  "model": "sep15_control_raw_oof_analog",
+  "expected_pool_rows": 6146,
+  "reference_count": 49,
+  "counts_per_750": [15, 25, 35, 49, 65, 80, 110, 150],
+  "scored_population_priors": [0.05, 0.07062568306010919, 0.1],
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260926,
+  "protocol": "Prespecified sensitivity analysis of the September 15 control analog. Rank all held-fold molecules, score only supplied D6 labels, select rates outside the evaluated fold, and compare each rate with 49/750 using paired group bootstrap. UMAP and scaffold are sensitivity families, not independent data sets."
+}

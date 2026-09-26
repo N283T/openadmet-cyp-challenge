@@ -700,3 +700,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL0169](2026-09.md#rl0169--regression-target-audit-prioritizes-d6-ordering-diagnostics) | Target-wise regression interim audit and D6 ordering priority |
 | [RL0170](2026-09.md#rl0170--reconsider-the-d6-regression-oof-evaluation-population) | D6-specific OOF population design and analog-label coverage audit |
 | [RL0171](2026-09.md#rl0171--tdi-interim-endpoint-audit-confirms-a4-strength-and-d6-deficit) | TDI interim endpoint audit and macro decomposition |
+| [RL0187](2026-09.md#rl0187--complete-pool-call-rate-audit-retains-the-classification-control) | Full-pool D6 and A4 proxy call-rate robustness |
