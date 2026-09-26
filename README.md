@@ -137,7 +137,12 @@ overstate D6 OOF gains. The evaluator requires complete-pool predictions for
 deployment decisions; labelled-only results need an explicit diagnostic opt-in.
 
 Use `pixi run cyp submit SUBMISSION_ID --dry-run` to validate the prepared file and
-private profile, then `pixi run cyp submit SUBMISSION_ID` to upload once. The sender
+private profile and review per-target changes and cooldown timing. Obtain explicit
+user approval for that specific payload before running the live
+`pixi run cyp submit SUBMISSION_ID` command in an interactive terminal. It requires typing the full
+prepared ID, and a successful upload consumes a 12-hour opportunity for that track.
+Prefer combining worthwhile changes across all targets when practical; an unchanged
+target is advisory, not a blocker. The sender
 reads `.private/submission-profile.json` (Git-ignored), saves the MA and every
 endpoint leaderboard before upload, and saves the API receipt. If any leaderboard
 snapshot fails, the command stops before calling the submission API.

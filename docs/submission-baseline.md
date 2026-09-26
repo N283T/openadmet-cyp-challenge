@@ -43,13 +43,17 @@ this repository is private. A blank example is tracked in
 # Validate the prepared file and private profile; do not contact the submit endpoint.
 pixi run cyp submit SUBMISSION_ID --dry-run
 
-# Send exactly once and persist the official response.
+# After explicit user approval for this exact payload, confirm interactively.
 pixi run cyp submit SUBMISSION_ID
 ```
 
 The default profile path can be replaced with `--profile PATH`. Sending acquires a
 per-track database lock, snapshots the payload and profile in an ignored 0700
 attempt directory, and commits an `unknown` attempt before any network operation.
+The live command requires an interactive terminal and the exact prepared ID typed
+at the prompt. It reports target-wise changes versus the last sent payload and the
+12-hour per-track cooldown; unchanged targets are advisory. Obtain user approval
+before invoking it. Locally recorded sent attempts inside the cooldown are blocked.
 It compares the live endpoint field names with the expected contract, then makes
 one `/submit_predictions` call. Profiles are not echoed in CLI output. The
 attempt's profile copy is mode 0600 for audit/recovery.

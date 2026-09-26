@@ -2,12 +2,14 @@
 
 import json
 import shutil
+import sys
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 from .api import SPACE, leaderboard
 from .database import connect
 from .storage import allocate, digest, now, snapshot_source, write_json
-from .tracks import ENDPOINTS, validate
+from .tracks import ENDPOINTS, read_table, validate
 
 TEXT_FIELDS = {
     "username",
@@ -23,6 +25,77 @@ TRACK_LABELS = {
     "regression": "Regression Prediction",
     "classification": "Classification Prediction",
 }
+COOLDOWN = timedelta(hours=12)
+
+
+def target_changes(file, previous_file, track):
+    """Count changed molecule predictions per target against the last sent payload."""
+
+    if previous_file is None or not previous_file.is_file():
+        return None
+    current = read_table(file).sort("Molecule_Name")
+    previous = read_table(previous_file).sort("Molecule_Name")
+    if not current.select("Molecule_Name", "SMILES").equals(
+        previous.select("Molecule_Name", "SMILES")
+    ):
+        return None
+    return {
+        endpoint: int((current[endpoint] != previous[endpoint]).sum())
+        for endpoint in ENDPOINTS[track]
+    }
+
+
+def last_sent(conn, track):
+    row = conn.execute(
+        "SELECT a.created_at,s.manifest,a.file_sha256 FROM submission_attempts a "
+        "JOIN submissions s ON s.id=a.submission_id "
+        "WHERE a.track=%s AND a.status='sent' ORDER BY a.created_at DESC LIMIT 1",
+        (track,),
+    ).fetchone()
+    if not row:
+        return None, None
+    sent_at, manifest, expected_hash = row
+    prior_file = Path(manifest["file"])
+    if not prior_file.is_file() or digest(prior_file) != expected_hash:
+        prior_file = None
+    return sent_at, prior_file
+
+
+def check_cooldown(sent_at, current_time):
+    next_eligible = sent_at + COOLDOWN if sent_at is not None else None
+    if next_eligible is not None and current_time < next_eligible:
+        raise ValueError(f"12-hour track cooldown lasts until {next_eligible.isoformat()}")
+    return next_eligible
+
+
+def confirm_live_submission(submission_id, track, changes, next_eligible):
+    """Require a deliberate confirmation from an interactive terminal."""
+
+    if not sys.stdin.isatty():
+        raise ValueError("Live submission requires an interactive terminal and user approval")
+    print(f"Prepared submission: {submission_id} ({track})")
+    if changes is None:
+        print("Target changes versus last sent payload: unavailable")
+    else:
+        print("Target changes versus last sent payload (molecules):")
+        for endpoint, count in changes.items():
+            print(f"  {endpoint}: {count}")
+        if any(count == 0 for count in changes.values()):
+            print(
+                "Some targets are unchanged. Consider combining worthwhile changes "
+                "across targets."
+            )
+    if next_eligible is not None:
+        print(f"Last submission uses a 12-hour window; next eligible: {next_eligible.isoformat()}")
+    else:
+        print("A successful submission starts a 12-hour cooldown for this track.")
+    expected = f"SUBMIT {submission_id}"
+    try:
+        answer = input(f"After explicit user approval, type '{expected}' to upload: ")
+    except EOFError as exc:
+        raise ValueError("Live submission confirmation was not received") from exc
+    if answer != expected:
+        raise ValueError("Live submission confirmation did not match")
 
 
 def load_profile(path):
@@ -98,6 +171,9 @@ def submit(args):
         if digest(reference) != candidate["reference_sha256"]:
             raise ValueError("Reference changed")
         report = validate(file, track, reference)
+        sent_at, prior_file = last_sent(conn, track)
+        changes = target_changes(file, prior_file, track)
+        next_eligible = sent_at + COOLDOWN if sent_at is not None else None
         if args.dry_run:
             print(
                 json.dumps(
@@ -108,6 +184,8 @@ def submit(args):
                         validation=report,
                         profile_fields=sorted(profile),
                         report_url_present=bool(profile["model_tag"]),
+                        target_changes=changes,
+                        next_eligible_at=next_eligible.isoformat() if next_eligible else None,
                         sent=False,
                     )
                 )
@@ -121,6 +199,11 @@ def submit(args):
             (track, manifest["sha256"]),
         ).fetchall()
         check_previous_attempts(previous, args.id, args.resubmit_sent, args.retry_rejected)
+        # Recheck under the track lock in case another process sent after the dry run.
+        sent_at, prior_file = last_sent(conn, track)
+        changes = target_changes(file, prior_file, track)
+        next_eligible = check_cooldown(sent_at, datetime.now(UTC))
+        confirm_live_submission(args.id, track, changes, next_eligible)
         # These network reads happen before any upload intent or submission API call.
         # A failure propagates and prevents the live upload.
         pre_submission_leaderboards = snapshot_leaderboards(track)
