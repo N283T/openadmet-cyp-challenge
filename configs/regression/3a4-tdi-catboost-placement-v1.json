@@ -1,0 +1,8 @@
+{
+  "endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "base_method": "caruana",
+  "base_run": "20260917T130718808881Z-dfa02730",
+  "catboost_run": "20260926T132534292013Z-dc82a774",
+  "weights": [0.1, 0.25, 0.5],
+  "placement": "match_scored_bank_held_fold_prediction_mean_sd"
+}

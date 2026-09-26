@@ -1,0 +1,21 @@
+{
+  "config": {
+    "endpoint": "CYP3A4_pIC50_direct_inhibition",
+    "base_method": "caruana",
+    "tdi_model": "exhaustive_mcc::components_7",
+    "repeats": 5,
+    "ridge_alpha": 10.0,
+    "correction_strengths": [
+      0.5,
+      1.0
+    ],
+    "base_run": "20260917T130718808881Z-dfa02730",
+    "tdi_run": "20260915T125001009276Z-d5adff22"
+  },
+  "rows": 2300,
+  "regression_folds": 5,
+  "group_disjoint_within_fold": true,
+  "tdi_probability_is_classification_oof": true,
+  "classification_regression_fold_maps_differ": true,
+  "qualification": "Within-fold calibration/evaluation labels are disjoint. OOF classifier scores exclude each compound's own TDI label. Multiple repeats and fixed models remain exploratory; test transfer unverified."
+}

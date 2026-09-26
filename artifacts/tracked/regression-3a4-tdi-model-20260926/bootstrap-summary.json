@@ -1,0 +1,25 @@
+{
+  "n": 2300,
+  "n_groups": 1083,
+  "bootstrap_repeats": 1000,
+  "weights": {
+    "0.1": {
+      "overall_delta_ST_RAE": -0.0008776982146296297,
+      "folds_improved": 4,
+      "bootstrap_delta_95pct": [
+        -0.001870364181568461,
+        0.0002692276346430336
+      ],
+      "bootstrap_fraction_improved": 0.946
+    },
+    "0.25": {
+      "overall_delta_ST_RAE": -0.0006382831570733716,
+      "folds_improved": 4,
+      "bootstrap_delta_95pct": [
+        -0.003499641918054362,
+        0.0021207517915948584
+      ],
+      "bootstrap_fraction_improved": 0.678
+    }
+  }
+}

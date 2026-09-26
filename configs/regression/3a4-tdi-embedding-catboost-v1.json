@@ -1,0 +1,19 @@
+{
+  "endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "split_run": "20260911T104703655337Z-a3923255",
+  "representation_run": "20260912T092823518869Z-8e57e8e7",
+  "baseline_arm_run": "20260912T093415808252Z-708fd656",
+  "scored_bank_run": "20260917T130718808881Z-dfa02730",
+  "blend_weights": [0.0, 0.1, 0.25, 0.5],
+  "catboost": {
+    "iterations": 500,
+    "depth": 6,
+    "learning_rate": 0.03,
+    "l2_leaf_reg": 5.0,
+    "loss_function": "MAE",
+    "thread_count": 4,
+    "verbose": false,
+    "allow_writing_files": false,
+    "task_type": "CPU"
+  }
+}
