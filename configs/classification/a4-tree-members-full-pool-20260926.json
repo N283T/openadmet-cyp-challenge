@@ -1,0 +1,16 @@
+{
+  "compounds": "compounds.parquet",
+  "assignments": "assignments.parquet",
+  "labels": "measurements.parquet",
+  "class_embeddings": "class-embeddings.parquet",
+  "mordred_files": "mordred-*.parquet",
+  "pxr_features": "pxr-features.parquet",
+  "admetica_features": "admetica-features.parquet",
+  "lgbm_oof": "lgbm-oof.parquet",
+  "pxr_oof": "pxr-oof.parquet",
+  "endpoint": "CYP3A4_is_TDI",
+  "split_id": "umap",
+  "expected_pool_rows": 6146,
+  "pxr_random_seed": 20260913,
+  "selection": "Infer saved external-class-plus-Mordred LightGBM fold models; exactly refit the submitted Morgan/PXR/Admetica LightGBM fold recipe, verifying all labelled OOF rows before retaining complete-pool predictions."
+}

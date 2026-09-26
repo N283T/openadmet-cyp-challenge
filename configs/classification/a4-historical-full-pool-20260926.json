@@ -1,0 +1,11 @@
+{
+  "baseline_config": "baseline-config.json",
+  "assignments": "assignments.parquet",
+  "labels": "measurements.parquet",
+  "endpoint": "CYP3A4_is_TDI",
+  "split_id": "umap",
+  "expected_pool_rows": 6146,
+  "expected_labelled_rows": 3584,
+  "method": "historical",
+  "selection": "Reload the exact five submitted historical-stack TabPFN2.6 fold fits, apply each to every held-fold training molecule, and verify its existing labelled OOF probabilities. The four fold-excluded auxiliary predictions, PCA and Mordred imputers come from the original baseline inference snapshots."
+}

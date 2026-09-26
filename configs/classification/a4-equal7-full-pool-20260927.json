@@ -1,0 +1,16 @@
+{
+  "historical": "historical-all-pool.parquet",
+  "jeremy": "jeremy-all-pool.parquet",
+  "trees": "trees-all-pool.parquet",
+  "selection": "equal7-selections.parquet",
+  "saved_labelled_oof": "equal7-labelled-oof.parquet",
+  "saved_test": "equal7-test.parquet",
+  "submitted_test": "submitted-test-scores.parquet",
+  "endpoint": "CYP3A4_is_TDI",
+  "split_id": "umap",
+  "model": "exhaustive_mcc::components_7",
+  "reference_count": 249,
+  "expected_pool_rows": 6146,
+  "expected_test_rows": 750,
+  "composition": "Use the exact seven fully selected members, rank each member separately within every complete held-out UMAP fold, then take the equal mean. The full-pool fold rank mirrors the blind 750-molecule rank composition. Separately audit the original labelled-only OOF composition and exact submitted blind call vector."
+}

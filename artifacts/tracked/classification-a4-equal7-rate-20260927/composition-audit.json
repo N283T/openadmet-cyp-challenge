@@ -1,0 +1,18 @@
+{
+  "members": [
+    "historical",
+    "jeremy_tabicl_pca256",
+    "jeremy_tabicl_raw600",
+    "jeremy_tabpfn_pca256",
+    "jeremy_tabpfn_raw600",
+    "external_class_mordred",
+    "pxr_admetica"
+  ],
+  "pool_rows": 6146,
+  "labelled_rows": 3584,
+  "labelled_recomposition_max_abs_diff": 0.0009678686214333876,
+  "labelled_recomposition_mae": 1.4706628868448912e-05,
+  "labelled_recomposition_spearman": 0.9999998895445903,
+  "submitted_test_calls_exact": true,
+  "submitted_test_count": 249
+}

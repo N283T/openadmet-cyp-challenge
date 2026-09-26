@@ -1,0 +1,12 @@
+{
+  "endpoint": "CYP3A4_is_TDI",
+  "oof": {"umap": "equal7-full-pool.parquet"},
+  "model": "submitted_equal7_full_pool",
+  "expected_pool_rows": 6146,
+  "reference_count": 249,
+  "counts_per_750": [150, 200, 249, 275, 300, 325, 350, 375, 400, 450],
+  "scored_population_priors": [0.2, 0.2916, 0.4],
+  "bootstrap_replicates": 3000,
+  "bootstrap_seed": 20260927,
+  "protocol": "Prespecified exact submitted equal-seven A4 complete-pool UMAP rate sensitivity. Rank all molecules in each held fold, score only supplied labels, compare to 249/750, and select rate outside each evaluated fold. This one split family cannot estimate split-transfer uncertainty; compare with separate A4 proxy scaffold only as a sensitivity check."
+}

@@ -1,0 +1,19 @@
+{
+  "assignments": "assignments.parquet",
+  "labels": "measurements.parquet",
+  "features": "jeremy-features.parquet",
+  "pca_oof": "pca-oof.parquet",
+  "raw_oof": "raw-oof.parquet",
+  "pfn_weights": "pfn-weights.ckpt",
+  "icl_weights": "icl-weights.ckpt",
+  "endpoint": "CYP3A4_is_TDI",
+  "split_id": "umap",
+  "expected_pool_rows": 6146,
+  "views": [
+    {"name": "jeremy_tabicl_pca256", "phase": "pca", "backend": "tabicl", "method": "tabicl_jeremy_pca256"},
+    {"name": "jeremy_tabpfn_pca256", "phase": "pca", "backend": "tabpfn", "method": "tabpfn_jeremy_pca256"},
+    {"name": "jeremy_tabicl_raw600", "phase": "raw", "backend": "tabicl", "method": "tabicl_jeremy_raw600"},
+    {"name": "jeremy_tabpfn_raw600", "phase": "raw", "backend": "tabpfn", "method": "tabpfn_jeremy_raw600"}
+  ],
+  "selection": "Reload the exact submitted fold fits for all four Jeremy600 equal-seven members; predict every UMAP held-fold molecule and verify labelled OOF against saved source predictions."
+}

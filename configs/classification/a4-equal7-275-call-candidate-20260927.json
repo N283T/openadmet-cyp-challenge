@@ -1,0 +1,10 @@
+{
+  "current_candidate": "current-candidate.parquet",
+  "submitted_scores": "submitted-test-scores.parquet",
+  "aliases": "test-aliases.parquet",
+  "reference": "blind-reference.csv",
+  "rate_curve": "a4-rate-curve.csv",
+  "a4_positive_calls": 275,
+  "reference_a4_calls": 249,
+  "selection": "Prespecified full-pool equal-seven UMAP rate audit: 275/750 is superior to submitted 249/750 at 20%, 29.16%, and 40% scored-population priors. Keep exact submitted D6 calls."
+}

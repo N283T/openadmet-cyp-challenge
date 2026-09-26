@@ -6,6 +6,13 @@ used in PXR issues #100 and #208, without requiring an Issue for each experiment
 
 ## Current direction
 
+- **The submitted A4 equal-seven ensemble favors a modestly higher call rate:**
+  complete-pool OOF raises projected MCC by `.0245` when its A4 calls change
+  from 249 to 275 per 750, with a positive conditional group-bootstrap
+  interval at the working scored-population prior. A count-only 275-call
+  candidate preserving D6 was submitted once; Live scoring is pending. See
+  [RL0188](2026-09.md#rl0188--exact-a4-equal-seven-full-pool-replay-favors-275-calls).
+
 - **Checkpoint predictor views produce a stronger D6 flat bank:** six
   distillation/adaptation checkpoints now expose raw600, final-hidden,
   external-task score and raw-plus-score views. Across 32 atomic readouts, the
@@ -701,3 +708,4 @@ Reports and research entries default to English; conversation language is indepe
 | [RL0170](2026-09.md#rl0170--reconsider-the-d6-regression-oof-evaluation-population) | D6-specific OOF population design and analog-label coverage audit |
 | [RL0171](2026-09.md#rl0171--tdi-interim-endpoint-audit-confirms-a4-strength-and-d6-deficit) | TDI interim endpoint audit and macro decomposition |
 | [RL0187](2026-09.md#rl0187--complete-pool-call-rate-audit-retains-the-classification-control) | Full-pool D6 and A4 proxy call-rate robustness |
+| [RL0188](2026-09.md#rl0188--exact-a4-equal-seven-full-pool-replay-favors-275-calls) | Submitted A4 equal-seven full-pool rate audit and prospective 275-call probe |
