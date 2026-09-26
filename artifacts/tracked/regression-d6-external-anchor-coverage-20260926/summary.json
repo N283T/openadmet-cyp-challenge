@@ -1,0 +1,7 @@
+{
+  "anchors": 70,
+  "measured_external_compounds": 23664,
+  "external_observations": 30464,
+  "fingerprint": "Morgan radius 2, 2048 bits",
+  "scope": "Source-specific exact and interval-censored coverage; no cross-assay label pooling"
+}

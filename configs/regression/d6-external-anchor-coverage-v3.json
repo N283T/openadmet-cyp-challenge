@@ -1,0 +1,9 @@
+{
+  "isoform": "CYP2D6",
+  "sources": ["chembl36", "polaris_novartis_cyp", "pubchem1851", "tox21_p450_glo"],
+  "measurement_types": ["IC50", "Ki", "pIC50", "AC50"],
+  "weak_pic50_cutoff": 4.0,
+  "tanimoto_thresholds": [0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
+  "fingerprint": "Morgan radius 2, 2048 bits",
+  "scope": "Source-specific exact and interval-censored coverage; no cross-assay label pooling"
+}
