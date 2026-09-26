@@ -1,0 +1,31 @@
+{
+  "config": {
+    "endpoint": "CYP2D6_pIC50_direct_inhibition",
+    "splits": [
+      "parent",
+      "scaffold"
+    ],
+    "fingerprint": "Morgan radius 2, 2048 bits",
+    "neighbors": 5,
+    "latent_components": 32,
+    "error_features": [
+      "tanimoto_top5_dissimilarity",
+      "latent_top5_distance",
+      "prediction_abs_z"
+    ],
+    "error_model": {
+      "n_estimators": 300,
+      "min_samples_leaf": 20,
+      "max_features": 0.75,
+      "n_jobs": 3,
+      "seed": 42
+    },
+    "sources": {
+      "unique_docs": "https://opensource.nibr.com/UNIQUE/",
+      "openadmet_article": "https://openadmet.ghost.io/applicability-domain-how-to-know-when-your-model-is-actually-relevant/"
+    }
+  },
+  "oof_rows": 2914,
+  "test_fold_rows": 7500,
+  "scope": "UNIQUE-style indicators without calibrated uncertainty"
+}
