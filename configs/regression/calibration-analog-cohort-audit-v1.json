@@ -1,0 +1,27 @@
+{
+  "cohorts": [
+    {
+      "name": "1A2",
+      "endpoint": "CYP1A2_pIC50_direct_inhibition",
+      "method": "equal_all",
+      "variants": [
+        {"name": "control", "shift": 0.0, "scale": 1.0},
+        {"name": "submitted_narrow", "shift": 0.0, "scale": 0.925},
+        {"name": "wider_1075", "shift": 0.0, "scale": 1.075}
+      ]
+    },
+    {
+      "name": "3A4",
+      "endpoint": "CYP3A4_pIC50_direct_inhibition",
+      "method": "caruana",
+      "variants": [
+        {"name": "control", "shift": 0.0, "scale": 1.0},
+        {"name": "submitted_shift_narrow", "shift": 0.05, "scale": 0.9625},
+        {"name": "shift_only", "shift": 0.05, "scale": 1.0},
+        {"name": "narrow_only", "shift": 0.0, "scale": 0.9625}
+      ]
+    }
+  ],
+  "bootstrap_repeats": 1000,
+  "seed": 20260927
+}
