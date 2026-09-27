@@ -1,0 +1,17 @@
+{
+  "collected_at_utc": "2026-09-27T16:55:05.588076+00:00",
+  "dataset": "LiteFold/human-proteome-wide-msa",
+  "revision": "632cfc87f567e429570897c3addd80665a697f3e",
+  "generation": "ColabFold/MMseqs2 GPU; UniRef30 2023-02 and ColabFold environmental 2021-08",
+  "license": "cc-by-4.0",
+  "accession": "P08684",
+  "sequence_length": 503,
+  "n_sequences": 14300,
+  "aligned_columns": 503,
+  "query_header": ">101",
+  "manifest_url": "https://huggingface.co/datasets/LiteFold/human-proteome-wide-msa/resolve/632cfc87f567e429570897c3addd80665a697f3e/manifest.tsv",
+  "manifest_sha256": "4c0afcaa134a9c41f86a6262e7d5da2dfd96ea68e91688d0ebd5badd91c9d2eb",
+  "a3m_url": "https://huggingface.co/datasets/LiteFold/human-proteome-wide-msa/resolve/632cfc87f567e429570897c3addd80665a697f3e/a3m/shard-002/P08684.a3m",
+  "a3m_bytes": 8300528,
+  "a3m_sha256": "809d4744a32a1291b14e2940d88662e7e68389a6872353a9fb707737ca219071"
+}

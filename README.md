@@ -17,6 +17,8 @@ for structural inspection.
 The [AFDB v6 CYP3A4 MSA](https://alphafold.ebi.ac.uk/files/msa/AF-P08684-F1-msa_v6.a3m)
 is selected for full-length modeling, but its download currently returns HTTP 403;
 see [RL0195](docs/research/2026-09.md#rl0195--afdb-cyp3a4-msa-download-is-currently-denied).
+A [separate full-length P08684 ColabFold MSA](artifacts/tracked/structure-cyp3a4-msa-20260928/README.md)
+is available locally as a documented alternative.
 Pandas may exist transitively; project table processing uses Polars.
 
 For new regression work, use the explicit [current auxiliary configuration](configs/regression/current-log2fc.json)
