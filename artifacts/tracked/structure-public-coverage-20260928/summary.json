@@ -1,0 +1,16 @@
+{
+  "completed_at_utc": "2026-09-27T16:18:01.238606+00:00",
+  "source_run_id": "20260927T154642066309Z-7c506d38",
+  "afdb_run_id": "20260927T160005116456Z-de79ae45",
+  "alignment_run_id": "20260927T160227340394Z-eb38b998",
+  "structure_count": 122,
+  "reference_residues": 503,
+  "mapped_min": 415,
+  "mapped_median": 454.0,
+  "mapped_max": 470,
+  "first_mapped_median": 28.0,
+  "last_mapped_median": 496.0,
+  "structures_at_least_90_percent": 74,
+  "positions_in_all_structures": 387,
+  "method": "Gemmi sequence-to-polymer alignment with BLOSUM62; coordinate residues only"
+}
