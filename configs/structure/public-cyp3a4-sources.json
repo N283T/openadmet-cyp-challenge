@@ -1,0 +1,10 @@
+{
+  "query": "CYP3A4",
+  "search_limit": 300,
+  "protein_name": "Cytochrome P450 3A4",
+  "heme_name": "PROTOPORPHYRIN IX CONTAINING FE",
+  "official_dataset_revision": "146282d2ce1532f1803679a834a9bec9dac1e482",
+  "official_tutorial_revision": "832ae6d",
+  "download_url_template": "https://files.rcsb.org/download/{pdb_id}.cif",
+  "max_workers": 6
+}
