@@ -12,6 +12,8 @@ Structure support and Boltz are deferred. No Jupyter dependency is declared.
 An initial [public CYP3A4/HEM structure source pool](artifacts/tracked/structure-cyp3a4-public-sources-20260928/README.md)
 is available for the newly announced structure track; ligand-pose curation and
 prediction infrastructure have not yet been built.
+The 122 public complexes are also [superposed onto the AFDB CYP3A4 model](artifacts/tracked/structure-afdb-superposition-20260928/README.md)
+for structural inspection.
 Pandas may exist transitively; project table processing uses Polars.
 
 For new regression work, use the explicit [current auxiliary configuration](configs/regression/current-log2fc.json)
