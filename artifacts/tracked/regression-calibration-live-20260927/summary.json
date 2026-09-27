@@ -1,0 +1,60 @@
+{
+  "config": {
+    "submission_id": "20260926T140601457029Z-bd3a1e40",
+    "attempt_id": "20260927T051423190683Z-117605b9",
+    "file_sha256": "ea5151a2be100576a70cda36ae600ebb8871aff565cab93789236879307dc20d",
+    "username": "N283T",
+    "before_submitted": "2026-09-26 10:00 UTC",
+    "after_submitted": "2026-09-27 05:14 UTC",
+    "boards": [
+      "MA",
+      "1A2",
+      "2C9",
+      "2D6",
+      "3A4"
+    ]
+  },
+  "target_changes": {
+    "CYP1A2_pIC50_direct_inhibition": 750,
+    "CYP2C9_pIC50_direct_inhibition": 0,
+    "CYP2D6_pIC50_direct_inhibition": 750,
+    "CYP3A4_pIC50_direct_inhibition": 750
+  },
+  "boards": {
+    "MA": {
+      "before_rank": 24,
+      "after_rank": 24,
+      "before_st_rae": 0.462120434895855,
+      "after_st_rae": 0.4632945859669106,
+      "delta_st_rae": 0.0011741510710555625
+    },
+    "1A2": {
+      "before_rank": 40,
+      "after_rank": 42,
+      "before_st_rae": 0.5085300555337245,
+      "after_st_rae": 0.5123449335741672,
+      "delta_st_rae": 0.0038148780404426708
+    },
+    "2C9": {
+      "before_rank": 11,
+      "after_rank": 11,
+      "before_st_rae": 0.3593578956523321,
+      "after_st_rae": 0.3593578956523321,
+      "delta_st_rae": 0.0
+    },
+    "2D6": {
+      "before_rank": 22,
+      "after_rank": 25,
+      "before_st_rae": 0.5493412613547161,
+      "after_st_rae": 0.5497880710590353,
+      "delta_st_rae": 0.0004468097043192065
+    },
+    "3A4": {
+      "before_rank": 36,
+      "after_rank": 36,
+      "before_st_rae": 0.4312525270426474,
+      "after_st_rae": 0.4316874435821078,
+      "delta_st_rae": 0.0004349165394604282
+    }
+  }
+}
