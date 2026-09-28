@@ -10,7 +10,8 @@ modeling; none is a predicted complex for a blinded ligand.
 | 122 public CYP3A4/HEM X-ray mmCIFs | `shared/20260927T154642066309Z-7c506d38` | [Source pool](../artifacts/tracked/structure-cyp3a4-public-sources-20260928/README.md) | `outputs/pdb/{pdb_id}.cif` |
 | AFDB v6 full-length CYP3A4 model | `shared/20260927T160005116456Z-de79ae45` | [AFDB and alignment](../artifacts/tracked/structure-afdb-superposition-20260928/README.md) | `outputs/afdb_model.cif`, `outputs/afdb_model.pdb` |
 | Public structures superposed onto AFDB | `shared/20260927T160227340394Z-eb38b998` | [Alignment manifest](../artifacts/tracked/structure-afdb-superposition-20260928/alignment_manifest.csv) | `outputs/aligned/{pdb_id}.cif` |
-| Original aligned CIFs concatenated as separate data blocks | `shared/20260928T083019116710Z-45e44833` | [Concatenated CIF](../artifacts/tracked/structure-concatenated-cifs-20260928/README.md) | `outputs/cyp3a4_aligned_122.cif` |
+| AFDB plus all aligned CIFs, unchanged separate data blocks | `shared/20260928T084148280156Z-34becdd5` | [Complete concatenated CIF](../artifacts/tracked/structure-concatenated-afdb-cifs-20260928/README.md) | `outputs/cyp3a4_afdb_aligned_123.cif` |
+| Earlier aligned CIFs concatenated without AFDB | `shared/20260928T083019116710Z-45e44833` | [122-block CIF](../artifacts/tracked/structure-concatenated-cifs-20260928/README.md) | `outputs/cyp3a4_aligned_122.cif` |
 | All structures copied into one coordinate model | `shared/20260928T082350706757Z-7e279917` | [Alternative overlay](../artifacts/tracked/structure-combined-overlay-20260928/README.md) | `outputs/cyp3a4_public_overlay_122.cif` |
 | Coordinate coverage against P08684 | `shared/20260927T161758979224Z-4d82a646` | [Coverage tables](../artifacts/tracked/structure-public-coverage-20260928/README.md) | `outputs/structure_coverage.csv`, `outputs/residue_coverage.csv` |
 | Alternative full-length P08684 MSA | `shared/20260927T165502581117Z-7ca2b7c0` | [MSA provenance](../artifacts/tracked/structure-cyp3a4-msa-20260928/README.md) | `outputs/P08684.a3m` |
@@ -21,8 +22,8 @@ provenance and analysis tables are tracked in Git. The public structure search
 is a source pool, not a curated set of ligand poses. The superposition places
 protein, HEM, and ligands in a common coordinate frame, but does not establish
 pose suitability for any target.
-The plain concatenation preserves each original aligned CIF as its own
-`data_` block. The separate overlay copies all atoms into one coordinate
+The complete concatenation preserves AFDB and each original aligned CIF as
+separate `data_` blocks. The separate overlay copies all atoms into one coordinate
 model for simultaneous display and renames chains; its chain map identifies
 each source. Neither file is a single biological complex.
 

@@ -1,4 +1,4 @@
-"""Declare all aligned CIF inputs for the plain concatenation run."""
+"""Declare AFDB and all aligned CIF inputs for the plain concatenation run."""
 
 from __future__ import annotations
 
@@ -24,11 +24,13 @@ def main() -> None:
         "--track",
         "shared",
         "--purpose",
-        "Concatenate 122 aligned CYP3A4 mmCIF data blocks without coordinate or chain changes",
+        "Concatenate AFDB reference and 122 aligned CYP3A4 mmCIF data blocks unchanged",
         "--config",
         str(config_path),
         "--input",
         f"alignment_manifest.csv={manifest_path}",
+        "--input",
+        f"afdb_reference.cif={outputs / 'afdb_reference.cif'}",
     ]
     for row in manifest.iter_rows(named=True):
         pdb_id = row["pdb_id"]

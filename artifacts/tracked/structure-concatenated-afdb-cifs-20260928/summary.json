@@ -1,0 +1,13 @@
+{
+  "completed_at_utc": "2026-09-28T08:41:50.892265+00:00",
+  "alignment_run_id": "20260927T160227340394Z-eb38b998",
+  "afdb_reference_block": "AF-P08684-F1",
+  "afdb_reference_atoms": 4034,
+  "aligned_source_blocks": 122,
+  "data_blocks": 123,
+  "atoms_across_blocks": 535651,
+  "file": "cyp3a4_afdb_aligned_123.cif",
+  "bytes": 74262970,
+  "sha256": "fe36c877e1b74cdbbd01c52130bbc49685e9e939357253d8768653fb0222c4ab",
+  "method": "Byte-for-byte concatenation of source blocks, with newline separators only"
+}

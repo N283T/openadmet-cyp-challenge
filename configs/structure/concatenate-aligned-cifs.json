@@ -1,4 +1,6 @@
 {
   "alignment_run_id": "20260927T160227340394Z-eb38b998",
-  "expected_source_count": 122
+  "expected_source_count": 122,
+  "reference_atoms": 4034,
+  "reference_sha256": "4c7939d24b4a441f1d3552fbaed07590ae7fd834f78a47e2e8f2a85f1ff24658"
 }
