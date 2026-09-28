@@ -1,5 +1,9 @@
 # Concatenated aligned CYP3A4 mmCIFs
 
+This earlier file contains only the 122 experimental structures. For the file
+that also includes the AFDB reference, use the
+[123-block concatenation](../structure-concatenated-afdb-cifs-20260928/README.md).
+
 Recorded run: `shared/20260928T083019116710Z-45e44833`.
 The requested single file is `outputs/cyp3a4_aligned_122.cif` in that run,
 73,788,955 bytes, SHA-256
