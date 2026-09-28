@@ -10,7 +10,8 @@ modeling; none is a predicted complex for a blinded ligand.
 | 122 public CYP3A4/HEM X-ray mmCIFs | `shared/20260927T154642066309Z-7c506d38` | [Source pool](../artifacts/tracked/structure-cyp3a4-public-sources-20260928/README.md) | `outputs/pdb/{pdb_id}.cif` |
 | AFDB v6 full-length CYP3A4 model | `shared/20260927T160005116456Z-de79ae45` | [AFDB and alignment](../artifacts/tracked/structure-afdb-superposition-20260928/README.md) | `outputs/afdb_model.cif`, `outputs/afdb_model.pdb` |
 | Public structures superposed onto AFDB | `shared/20260927T160227340394Z-eb38b998` | [Alignment manifest](../artifacts/tracked/structure-afdb-superposition-20260928/alignment_manifest.csv) | `outputs/aligned/{pdb_id}.cif` |
-| **Every source chain independently fitted to AFDB in one model** | `shared/20260928T085009144228Z-c9f9fe2d` | [Corrected all-chain overlay](../artifacts/tracked/structure-all-chains-afdb-20260928/README.md) | `outputs/cyp3a4_all_142_chains_on_afdb.cif` |
+| **One CIF; AFDB and each of 142 fitted chains in separate data blocks** | `shared/20260928T090028397804Z-e19d26c5` | [Current multi-block CIF](../artifacts/tracked/structure-multiblock-superposed-20260928/README.md) | `outputs/cyp3a4_all_chains_143_data_blocks.cif` |
+| Earlier all-chain fit in one data block | `shared/20260928T085009144228Z-c9f9fe2d` | [One-model source](../artifacts/tracked/structure-all-chains-afdb-20260928/README.md) | `outputs/cyp3a4_all_142_chains_on_afdb.cif` |
 | AFDB plus all aligned CIFs, unchanged separate data blocks | `shared/20260928T084148280156Z-34becdd5` | [Complete concatenated CIF](../artifacts/tracked/structure-concatenated-afdb-cifs-20260928/README.md) | `outputs/cyp3a4_afdb_aligned_123.cif` |
 | Earlier aligned CIFs concatenated without AFDB | `shared/20260928T083019116710Z-45e44833` | [122-block CIF](../artifacts/tracked/structure-concatenated-cifs-20260928/README.md) | `outputs/cyp3a4_aligned_122.cif` |
 | Earlier one-model overlay with 20 extra chains not individually fitted | `shared/20260928T082350706757Z-7e279917` | [Earlier overlay](../artifacts/tracked/structure-combined-overlay-20260928/README.md) | `outputs/cyp3a4_public_overlay_122.cif` |
@@ -23,7 +24,11 @@ provenance and analysis tables are tracked in Git. The public structure search
 is a source pool, not a curated set of ligand poses. The superposition places
 protein, HEM, and ligands in a common coordinate frame, but does not establish
 pose suitability for any target.
-The corrected all-chain overlay places the AFDB reference and all 142 source
+The current CIF has one file with 143 separate `data_` blocks. Each block
+contains exactly one chain, and all 142 source chains were fitted independently
+to the AFDB reference. This supports selecting blocks in a viewer without
+loading one giant coordinate model.
+The earlier all-chain overlay places the AFDB reference and all 142 source
 chains in one coordinate model after fitting each source chain independently.
 The complete concatenation instead preserves AFDB and each earlier aligned CIF
 as separate `data_` blocks; many viewers show only one block at a time. The

@@ -126,6 +126,7 @@ def main() -> None:
     )
     overlay.make_mmcif_document(groups).write_file(str(output_path))
     checked = gemmi.read_structure(str(output_path))
+    checked.setup_entities()
     if len(checked) != 1 or len(checked[0]) != len(rows) + 1:
         raise ValueError("Combined mmCIF model/chain count failed round-trip validation")
     if checked[0].count_atom_sites() != total_atoms or count_hemes(checked[0]) != total_hemes:
@@ -143,7 +144,9 @@ def main() -> None:
         )
         translation, rotation = residual_transform(fit.transform)
         if (
-            translation > config["max_residual_translation_angstrom"]
+            fit.count < config["min_matched_ca"]
+            or fit.rmsd * math.sqrt(3) > config["max_core_rmsd_angstrom"]
+            or translation > config["max_residual_translation_angstrom"]
             or rotation > config["max_residual_rotation_element"]
         ):
             raise ValueError(f"Chain is not superposed onto AFDB: {row['overlay_chain']}")
