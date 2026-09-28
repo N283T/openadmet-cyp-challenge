@@ -1,0 +1,7 @@
+{
+  "dataset": "LiteFold/human-proteome-wide-msa",
+  "revision": "632cfc87f567e429570897c3addd80665a697f3e",
+  "accession": "P08684",
+  "expected_a3m_path": "a3m/shard-002/P08684.a3m",
+  "expected_a3m_bytes": 8300528
+}

@@ -32,6 +32,7 @@ markdownify = ">=1.2.3,<2"
 chembl_structure_pipeline = ">=1.2.4,<2"
 mordredcommunity = ">=2.0.7,<3"
 umap-learn = ">=0.5.12,<0.6"
+gemmi = ">=0.7.5,<0.8"
 
 [activation.env]
 PYTHONPATH = "$PIXI_PROJECT_ROOT/src"

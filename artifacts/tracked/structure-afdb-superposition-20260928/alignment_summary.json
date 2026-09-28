@@ -1,0 +1,16 @@
+{
+  "completed_at_utc": "2026-09-27T16:02:29.399966+00:00",
+  "source_run_id": "20260927T154642066309Z-7c506d38",
+  "afdb_run_id": "20260927T160005116456Z-de79ae45",
+  "reference_sha256": "4c7939d24b4a441f1d3552fbaed07590ae7fd834f78a47e2e8f2a85f1ff24658",
+  "source_count": 122,
+  "aligned_count": 122,
+  "matched_ca_min": 319,
+  "matched_ca_median": 343.0,
+  "core_rmsd_min_angstrom": 0.626614205576254,
+  "core_rmsd_median_angstrom": 0.8379989231397765,
+  "core_rmsd_max_angstrom": 1.652631164441332,
+  "method": "Gemmi sequence alignment + CA superposition, five outlier-trim cycles",
+  "rmsd_note": "Reported core RMSD is Gemmi RMSD multiplied by sqrt(3)",
+  "coordinate_note": "Aligned mmCIF omits crystallographic cell/symmetry metadata"
+}

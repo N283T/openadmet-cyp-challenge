@@ -8,7 +8,10 @@ Polars. The two active tracks share molecular data and feature code:
 
 Official [Space](https://huggingface.co/spaces/openadmet/cyp-challenge) and
 [tutorial](https://github.com/OpenADMET/CYP-Challenge-Tutorial).
-Structure support and Boltz are deferred. No Jupyter dependency is declared.
+The newly announced structure track has a [public CYP3A4 source-data inventory](docs/structure-data.md):
+experimental CYP3A4/HEM structures, an AFDB full-length reference, coordinate
+coverage, and a separately generated full-length MSA. Ligand-pose curation and
+prediction infrastructure remain future work. Boltz and Jupyter are not declared.
 Pandas may exist transitively; project table processing uses Polars.
 
 For new regression work, use the explicit [current auxiliary configuration](configs/regression/current-log2fc.json)

@@ -1,0 +1,17 @@
+{
+  "collected_at_utc": "2026-09-27T15:46:52.997820+00:00",
+  "togo_server": {
+    "name": "TogoMCP: RDF Portal MCP Server",
+    "version": "2.7.4"
+  },
+  "search_query": "CYP3A4",
+  "search_total": 202,
+  "search_returned": 202,
+  "selected_cyp3a4_with_heme": 122,
+  "downloaded": 122,
+  "total_bytes": 102836041,
+  "target_count": 20,
+  "official_dataset_revision": "146282d2ce1532f1803679a834a9bec9dac1e482",
+  "official_tutorial_revision": "832ae6d",
+  "selection_rule": "PDBj ligands summary contains exact CYP3A4 protein and HEM names"
+}

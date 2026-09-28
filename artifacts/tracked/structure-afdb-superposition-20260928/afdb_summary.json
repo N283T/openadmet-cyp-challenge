@@ -1,0 +1,22 @@
+{
+  "collected_at_utc": "2026-09-27T16:00:09.756741+00:00",
+  "entry_id": "AF-P08684-F1",
+  "accession": "P08684",
+  "model_created_date": "2025-08-01T00:00:00Z",
+  "api_url": "https://alphafold.ebi.ac.uk/api/prediction/P08684",
+  "metadata_sha256": "e5703b36dd00b66531878c35a409b9c89a8dcf06e65aee448cb728c3910eec1f",
+  "sequence_length": 503,
+  "ca_count": 503,
+  "files": {
+    "afdb_model.cif": {
+      "url": "https://alphafold.ebi.ac.uk/files/AF-P08684-F1-model_v6.cif",
+      "bytes": 474014,
+      "sha256": "4c7939d24b4a441f1d3552fbaed07590ae7fd834f78a47e2e8f2a85f1ff24658"
+    },
+    "afdb_model.pdb": {
+      "url": "https://alphafold.ebi.ac.uk/files/AF-P08684-F1-model_v6.pdb",
+      "bytes": 333800,
+      "sha256": "a40c9e4e4d35fb4a90b38a90c64e47386493cc0fd13bbcf5d65fb3a0b8d1ea92"
+    }
+  }
+}
