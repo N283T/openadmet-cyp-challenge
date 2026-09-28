@@ -8,17 +8,10 @@ Polars. The two active tracks share molecular data and feature code:
 
 Official [Space](https://huggingface.co/spaces/openadmet/cyp-challenge) and
 [tutorial](https://github.com/OpenADMET/CYP-Challenge-Tutorial).
-Structure support and Boltz are deferred. No Jupyter dependency is declared.
-An initial [public CYP3A4/HEM structure source pool](artifacts/tracked/structure-cyp3a4-public-sources-20260928/README.md)
-is available for the newly announced structure track; ligand-pose curation and
-prediction infrastructure have not yet been built.
-The 122 public complexes are also [superposed onto the AFDB CYP3A4 model](artifacts/tracked/structure-afdb-superposition-20260928/README.md)
-for structural inspection.
-The [AFDB v6 CYP3A4 MSA](https://alphafold.ebi.ac.uk/files/msa/AF-P08684-F1-msa_v6.a3m)
-is selected for full-length modeling, but its download currently returns HTTP 403;
-see [RL0195](docs/research/2026-09.md#rl0195--afdb-cyp3a4-msa-download-is-currently-denied).
-A [separate full-length P08684 ColabFold MSA](artifacts/tracked/structure-cyp3a4-msa-20260928/README.md)
-is available locally as a documented alternative.
+The newly announced structure track has a [public CYP3A4 source-data inventory](docs/structure-data.md):
+experimental CYP3A4/HEM structures, an AFDB full-length reference, coordinate
+coverage, and a separately generated full-length MSA. Ligand-pose curation and
+prediction infrastructure remain future work. Boltz and Jupyter are not declared.
 Pandas may exist transitively; project table processing uses Polars.
 
 For new regression work, use the explicit [current auxiliary configuration](configs/regression/current-log2fc.json)
