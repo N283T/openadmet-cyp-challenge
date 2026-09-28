@@ -1,5 +1,9 @@
 # Every public CYP3A4 chain independently superposed onto AFDB
 
+This earlier file has all chains in one data block. For the requested **one
+CIF with one chain per `data_` block**, use the
+[143-block file](../structure-multiblock-superposed-20260928/README.md).
+
 Recorded run: `shared/20260928T085009144228Z-c9f9fe2d`.
 The corrected simultaneous-display file is
 `outputs/cyp3a4_all_142_chains_on_afdb.cif` in that run. It is 87,549,404
@@ -17,8 +21,10 @@ and 142 HEM residues. Unique PDB-prefixed chain names make simultaneous
 display possible; `chain_alignment.csv` maps them to original PDB IDs and
 chain IDs.
 
-After mmCIF read-back, every source protein was aligned again to AFDB as an
-independent check. All 142 residual rigid transforms were identity to the
-reported precision. The trimmed core RMSD spans 0.62–1.65 Å (median 0.83 Å).
+The original run's residual-transform check did not reconstruct polymer
+entities after mmCIF parsing, so its reported zero residuals were not a valid
+independent check. The subsequent 143-block run reconstructed those entities
+and verified all 142 fits. The trimmed core RMSD spans 0.62–1.65 Å
+(median 0.83 Å).
 This verifies protein-core placement, not that all ligand poses coincide or
 that the ensemble represents a single biological complex.

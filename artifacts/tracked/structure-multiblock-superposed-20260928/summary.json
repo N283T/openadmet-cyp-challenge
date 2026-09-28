@@ -1,0 +1,14 @@
+{
+  "completed_at_utc": "2026-09-28T09:00:31.335457+00:00",
+  "all_chain_run_id": "20260928T085009144228Z-c9f9fe2d",
+  "data_blocks": 143,
+  "source_chains_fitted": 142,
+  "chains_per_block": 1,
+  "atoms_across_blocks": 535651,
+  "heme_residues_across_blocks": 142,
+  "max_residual_translation_angstrom": 3.9908078018092995e-09,
+  "max_residual_rotation_element": 2.3127701820515382e-10,
+  "file": "cyp3a4_all_chains_143_data_blocks.cif",
+  "bytes": 72281870,
+  "sha256": "455ee7c1f2665af68bdf3f8b9f85ad118ee2d0d637e808329d0f4a1f0b0fbf73"
+}
