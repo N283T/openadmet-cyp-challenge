@@ -1,5 +1,10 @@
 # Combined CYP3A4 public structure overlay
 
+This earlier overlay fitted only one CYP3A4 chain per PDB entry; 20 additional
+protein chains retained their original offsets. For an overlay in which every
+source chain is independently fitted to AFDB, use the
+[corrected all-chain file](../structure-all-chains-afdb-20260928/README.md).
+
 Recorded run: `shared/20260928T082350706757Z-7e279917`.
 The single combined mmCIF is
 `outputs/cyp3a4_public_overlay_122.cif` in that run. It is 87,571,855 bytes
@@ -9,8 +14,8 @@ The coordinate payload remains local; this directory tracks its compact
 summary and chain map.
 
 The file places the unmodified AFDB P08684 reference and all 122 previously
-superposed public source structures into **one coordinate model** so they can
-be displayed together. It contains 535,651 atoms in 143 uniquely named chains,
+transformed public source structures into **one coordinate model**. It contains
+535,651 atoms in 143 uniquely named chains,
 including 142 HEM residues. Multiple protein copies, original bound ligands,
 and other deposited atoms from each source are retained. `chain_map.csv` maps
 each overlay chain back to its PDB entry and original chain ID; the AFDB
