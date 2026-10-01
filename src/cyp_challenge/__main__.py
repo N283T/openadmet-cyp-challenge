@@ -19,6 +19,9 @@ def main():
     lb.add_argument("--board", choices=["live", "interim"], default="live")
     sub.add_parser("register-raw")
     sub.add_parser("reconcile")
+    prune = sub.add_parser("prune-runs")
+    prune.add_argument("--status", choices=["failed"], default="failed")
+    prune.add_argument("--execute", action="store_true")
     note = sub.add_parser("note")
     note.add_argument("id")
     note.add_argument("--decision", choices=["observation", "keep", "discard"], required=True)
@@ -31,6 +34,15 @@ def main():
     run.add_argument("--purpose", required=True)
     run.add_argument("--issue")
     run.add_argument("--config", type=Path)
+    run.add_argument(
+        "--input-mode",
+        choices=["copy", "hardlink"],
+        default="copy",
+        help=(
+            "Hardlink retained immutable large inputs on the same filesystem; "
+            "copies remain the default."
+        ),
+    )
     run.add_argument(
         "--input",
         action="append",
@@ -86,6 +98,8 @@ def main():
         return runs.replay(args.id)
     elif args.action == "reconcile":
         runs.reconcile()
+    elif args.action == "prune-runs":
+        runs.prune(args)
     elif args.action == "candidate":
         candidates.candidate(args)
     elif args.action == "prepare-submission":

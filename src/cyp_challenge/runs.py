@@ -11,6 +11,7 @@ from pathlib import Path
 
 from psycopg.types.json import Jsonb
 
+from . import storage
 from .database import connect
 from .storage import ROOT, allocate, digest, inventory, now, snapshot_source, write_json
 
@@ -34,6 +35,17 @@ def resolve_inputs(specs, replay=False):
         names.add(name)
         resolved.append((source, name))
     return resolved
+
+
+def snapshot_input(source, target, mode="copy"):
+    """Link retained immutable assets explicitly; never chmod the shared inode."""
+    if mode == "hardlink":
+        os.link(source, target)
+    elif mode == "copy":
+        shutil.copy2(source, target)
+        target.chmod(0o444)
+    else:
+        raise ValueError(f"Unknown input storage mode: {mode}")
 
 
 def run(args):
@@ -84,10 +96,15 @@ def run(args):
             (path / name).mkdir()
         for source, name in resolved_inputs:
             target = path / "inputs" / name
-            shutil.copy2(source, target)
-            target.chmod(0o444)
+            mode = getattr(args, "input_mode", "copy")
+            snapshot_input(source, target, mode)
             manifest["inputs"].append(
-                {"original": str(source), "snapshot": str(target), "sha256": digest(target)}
+                {
+                    "original": str(source),
+                    "snapshot": str(target),
+                    "sha256": digest(target),
+                    "storage": mode,
+                }
             )
         if config:
             target = path / ("config" + config.suffix)
@@ -142,6 +159,13 @@ def run(args):
         print(f"Run failed: {exc}", file=sys.stderr)
     finally:
         result.update(finished_at=now(), files=inventory(path))
+        hashes = {entry["path"]: entry["sha256"] for entry in result["files"]}
+        for item in manifest["inputs"]:
+            key = str(Path(item["snapshot"]).relative_to(path))
+            if hashes.get(key) != item["sha256"]:
+                result.update(
+                    status="failed", exit_code=1, error=f"Input changed during run: {key}"
+                )
         write_json(path / "result.json", result)
         with connect() as conn:
             conn.execute(
@@ -178,6 +202,9 @@ def replay(identifier):
             config=Path(manifest["config"]["path"]) if "config" in manifest else None,
             replay_of=identifier,
             source_snapshot=path / "source",
+            input_mode="hardlink"
+            if all(v.get("storage") == "hardlink" for v in manifest["inputs"])
+            else "copy",
         )
     )
 
@@ -198,6 +225,126 @@ def reconcile():
                 print(f"Reconciled {identifier}")
             else:
                 print(f"Needs inspection (possibly still running): {identifier} {manifest_path}")
+
+
+def _directory_bytes(path):
+    return sum(entry.stat().st_size for entry in path.rglob("*") if entry.is_file())
+
+
+def _read_json(path):
+    try:
+        return json.loads(path.read_text())
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+
+def _console_tail(path, limit=4096):
+    try:
+        with path.open("rb") as stream:
+            stream.seek(0, os.SEEK_END)
+            size = stream.tell()
+            stream.seek(max(0, size - limit))
+            return stream.read().decode(errors="replace")
+    except FileNotFoundError:
+        return ""
+
+
+def prune(args):
+    """Remove failed run payloads while retaining a compact failure tombstone."""
+    with connect() as conn:
+        rows = conn.execute(
+            "SELECT id,track,purpose,status,issue,manifest_path,created_at,finished_at "
+            "FROM runs WHERE status=%s ORDER BY created_at",
+            (args.status,),
+        ).fetchall()
+        note_rows = (
+            conn.execute(
+                "SELECT run_id,decision,notes,issue,created_at FROM run_notes "
+                "WHERE run_id = ANY(%s) ORDER BY created_at",
+                ([row[0] for row in rows],),
+            ).fetchall()
+            if rows
+            else []
+        )
+
+    notes_by_run = {}
+    for run_id, decision, notes, issue, created_at in note_rows:
+        notes_by_run.setdefault(run_id, []).append(
+            {
+                "decision": decision,
+                "notes": notes,
+                "issue": issue,
+                "created_at": created_at.isoformat(),
+            }
+        )
+
+    planned = []
+    runs_root = (storage.ROOT / "artifacts" / "runs").resolve()
+    for identifier, track, purpose, status, issue, manifest_path, created_at, finished_at in rows:
+        manifest_file = Path(manifest_path).resolve()
+        tombstone_file = (
+            storage.ROOT / "artifacts" / "pruned-runs" / track / f"{identifier}.json"
+        ).resolve()
+        if manifest_file == tombstone_file:
+            continue
+        path = manifest_file.parent
+        expected = (runs_root / track / identifier).resolve()
+        if path != expected or path.parent.parent != runs_root:
+            raise ValueError(f"Refusing unexpected run path for {identifier}: {path}")
+        if path.is_dir():
+            planned.append(
+                (identifier, track, purpose, status, issue, path, created_at, finished_at)
+            )
+
+    sizes = {identifier: _directory_bytes(path) for identifier, _, _, _, _, path, _, _ in planned}
+    total = sum(sizes.values())
+    mode = "PRUNE" if args.execute else "DRY-RUN"
+    for identifier, track, purpose, _, _, _, _, _ in planned:
+        print(f"{mode}\t{sizes[identifier]}\t{track}\t{identifier}\t{purpose}")
+    print(f"{mode} runs={len(planned)} bytes={total}")
+    if not args.execute:
+        return
+
+    pruned_at = now()
+    for identifier, track, purpose, status, issue, path, created_at, finished_at in planned:
+        intent = _read_json(path / "intent.json")
+        result = _read_json(path / "result.json")
+        tombstone_path = storage.ROOT / "artifacts" / "pruned-runs" / track / f"{identifier}.json"
+        tombstone_path.parent.mkdir(parents=True, exist_ok=True)
+        tombstone = {
+            "id": identifier,
+            "track": track,
+            "purpose": purpose,
+            "status": status,
+            "issue": issue,
+            "created_at": created_at.isoformat(),
+            "finished_at": finished_at.isoformat() if finished_at else result.get("finished_at"),
+            "command": intent.get("command"),
+            "failure": {
+                "exit_code": result.get("exit_code"),
+                "error": result.get("error"),
+                "console_tail": _console_tail(path / "console.log"),
+            },
+            "notes": notes_by_run.get(identifier, []),
+            "pruned_at": pruned_at,
+            "prune_reason": "Failed run payload removed by retention policy",
+            "reclaimed_bytes": sizes[identifier],
+            "original_path": str(path),
+            "tombstone_path": str(tombstone_path),
+        }
+        write_json(tombstone_path, tombstone)
+        with connect() as conn:
+            conn.execute(
+                "UPDATE runs SET manifest_path=%s,manifest=%s WHERE id=%s AND status=%s",
+                (str(tombstone_path), Jsonb(tombstone), identifier, status),
+            )
+            conn.execute(
+                "UPDATE run_notes SET record_path=%s WHERE run_id=%s",
+                (str(tombstone_path), identifier),
+            )
+        shutil.rmtree(path)
+
+    print(f"PRUNED runs={len(planned)} bytes={total}")
 
 
 def note(args):
