@@ -1,0 +1,49 @@
+{
+  "target": "cyp3a4",
+  "track": "regression",
+  "endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "split_id": "20260909T135130268493Z-edba6fc0:umap",
+  "folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "seed": 20261001,
+  "threads": 4,
+  "tabpfn_version": "2.6",
+  "tabpfn_estimators": 8,
+  "feature_selection": "LGBM training-fold gain top500, no outer-label use",
+  "views": [
+    "ligand_only",
+    "pxr_protein",
+    "pxr_core",
+    "pxr_extended",
+    "core_mixed_hem",
+    "core_separate_hem",
+    "extended_mixed_hem",
+    "extended_separate_hem",
+    "core_separate_fe",
+    "core_bidirectional_hem",
+    "core_separate_hem_s",
+    "core_distribution_hem"
+  ],
+  "feature_modes": [
+    "trunk",
+    "trunk_molecular"
+  ],
+  "molecular_control": "frozen CheMeleon2048 + Mordred1613",
+  "readouts": [
+    "lgbm_l1",
+    "lgbm_l2",
+    "tabpfn_top500"
+  ],
+  "blend_weights": [
+    0.1,
+    0.25,
+    0.5
+  ],
+  "selection": "Exploratory fixed grid; no candidate promotion",
+  "classification_scope": "Incomplete all-molecule pool: diagnostic only; no call-rate selection"
+}

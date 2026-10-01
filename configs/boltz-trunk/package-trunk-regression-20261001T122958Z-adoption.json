@@ -1,0 +1,37 @@
+{
+  "targets": {
+    "cyp1a2": {
+      "endpoint": "CYP1A2_pIC50_direct_inhibition",
+      "bank_oof": "cyp1a2-bank.parquet",
+      "bank_summary": "cyp1a2-summary.json",
+      "bank_fits": "cyp1a2-fits.csv",
+      "method": "equal_all",
+      "filter": {
+        "method": "equal_all"
+      },
+      "expected_rows": 1372,
+      "predictions": "cyp1a2-trunk.parquet",
+      "cohort": "cyp1a2-cohort.parquet"
+    },
+    "cyp2d6": {
+      "endpoint": "CYP2D6_pIC50_direct_inhibition",
+      "bank_oof": "cyp2d6-bank.parquet",
+      "method": "equal_all",
+      "expected_rows": 1457,
+      "filter": {
+        "split_id": "parent",
+        "robust_delta": 0.5,
+        "constraint_weight": 0.35,
+        "placement": "fold_moment_match",
+        "blend_weight": 0.5
+      },
+      "predictions": "cyp2d6-trunk.parquet",
+      "cohort": "cyp2d6-cohort.parquet"
+    }
+  },
+  "attribution_control": "Same bank reselection algorithm without trunk",
+  "best_submission": "20260926T090548323924Z-46188564",
+  "last_submission": "20260926T140601457029Z-bd3a1e40",
+  "multi_analysis": "20261001T113601716233Z-bf06a273",
+  "deployment_policy": "1A2 multiple replacement; D6 single trunk bank extension; final best moments"
+}

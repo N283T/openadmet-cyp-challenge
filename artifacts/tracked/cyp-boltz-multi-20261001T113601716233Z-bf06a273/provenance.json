@@ -1,0 +1,30 @@
+{
+  "run": "20261001T113601716233Z-bf06a273",
+  "source_placement_run": "20261001T111723965954Z-04ff278c",
+  "files": [
+    {
+      "file": "oof.parquet",
+      "sha256": "acb5ef0c3314215db6d7720d84cc8c5c89683b78007917b4d821cad6333f08a2"
+    },
+    {
+      "file": "paired-uncertainty.parquet",
+      "sha256": "160f3eea72952a460eeffbb8365b2050202904e68afb5594537071197bb80428"
+    },
+    {
+      "file": "selections.parquet",
+      "sha256": "fab5056c172401837b5d76720a6093836179b276d1dfa54b956ac23555ead3aa"
+    },
+    {
+      "file": "metrics.parquet",
+      "sha256": "91c0a63c99d581341821f80e9ca78133b9221c4b7c933b61735ecffe4c51197e"
+    },
+    {
+      "file": "summary.json",
+      "sha256": "8ca433d9a4ac9ace4b68ff5bcf2117a45843d8f4f5782aed1b1cc80750fcb1a7"
+    },
+    {
+      "file": "trunk-pair-correlations.parquet",
+      "sha256": "683dbd259c5feab229b9939a105615409e376a549148457fd9ac94c2847a12ee"
+    }
+  ]
+}

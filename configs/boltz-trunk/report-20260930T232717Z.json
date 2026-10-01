@@ -1,0 +1,55 @@
+{
+  "screens": [
+    {
+      "target": "cyp1a2",
+      "track": "regression",
+      "run": "20260930T233551833106Z-e209b403",
+      "exit_code": 1,
+      "recovery_run": "20261001T004229979336Z-f08b913c"
+    },
+    {
+      "target": "cyp2c9",
+      "track": "regression",
+      "run": "20261001T003655120573Z-71cfd9cb",
+      "exit_code": 1,
+      "recovery_run": "20261001T014152092601Z-b821c02a"
+    },
+    {
+      "target": "cyp2d6",
+      "track": "regression",
+      "run": "20261001T013519598681Z-c88f83bd",
+      "exit_code": 0
+    },
+    {
+      "target": "cyp2d6",
+      "track": "classification",
+      "run": "20261001T023655009132Z-91096754",
+      "exit_code": 0
+    },
+    {
+      "target": "cyp3a4",
+      "track": "regression",
+      "run": "20261001T031820053553Z-73768adb",
+      "exit_code": 0
+    },
+    {
+      "target": "cyp3a4",
+      "track": "classification",
+      "run": "20261001T043809889682Z-cd81b014",
+      "exit_code": 0
+    }
+  ],
+  "failures": [],
+  "source_failures": [
+    {
+      "target": "cyp1a2",
+      "track": "regression",
+      "log": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/boltz-trunk/experiments/20260930T232717Z/screen-cyp1a2-regression.log"
+    },
+    {
+      "target": "cyp2c9",
+      "track": "regression",
+      "log": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/boltz-trunk/experiments/20260930T232717Z/screen-cyp2c9-regression.log"
+    }
+  ]
+}

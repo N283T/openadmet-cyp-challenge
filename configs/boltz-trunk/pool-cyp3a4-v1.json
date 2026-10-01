@@ -1,0 +1,7 @@
+{
+  "target": "cyp3a4",
+  "protein_length": 503,
+  "workers": 8,
+  "representation": "post-r1",
+  "input_storage": "hardlinks to retained frozen canonical tensors"
+}

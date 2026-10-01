@@ -1,0 +1,43 @@
+{
+  "report_run": "20261001T111204293973Z-f42493e5",
+  "regression_run": "20261001T111149171232Z-180b5141",
+  "tdi_run": "20261001T065532999859Z-47297bc3",
+  "suite": "artifacts/boltz-trunk/experiments/20261001T065518Z-incumbent",
+  "files": [
+    {
+      "file": "paired-uncertainty.parquet",
+      "bytes": 2943,
+      "sha256": "0c8bf45ee740fcbbcaf6d16150b34f7f286a12c51ebccc4bc7e894d9b6de31a2"
+    },
+    {
+      "file": "report.md",
+      "bytes": 3954,
+      "sha256": "ef27318837b078cdaccac3a8754faead1d1124f768f853fa2a74449bb94c4381"
+    },
+    {
+      "file": "d6-trunk-selections.parquet",
+      "bytes": 1559,
+      "sha256": "3358ea17ddc3f0a7778bddf65b007fa32d655ecbaecf1e48344235baa55ea7cf"
+    },
+    {
+      "file": "tdi-metrics.csv",
+      "bytes": 92045,
+      "sha256": "fae6ca40919e971f3bdf15f069faffec423801e0178296c1f5f48d7fc1515031"
+    },
+    {
+      "file": "regression-metrics.parquet",
+      "bytes": 209901,
+      "sha256": "8ac85149ae600e74f62a9a35428e42075986095fddb7637beb17b409e0ab2ff8"
+    },
+    {
+      "file": "regression-selections.parquet",
+      "bytes": 2985,
+      "sha256": "c069baed810cdfe13b0045c4c6377f067f7740ed4ea87f118c77f747973f3d8f"
+    },
+    {
+      "file": "a4-trunk-selections.parquet",
+      "bytes": 1748,
+      "sha256": "48b75f730a7f0f1f90331fa17968c559806db959b3958f3823cbb363c21a4163"
+    }
+  ]
+}

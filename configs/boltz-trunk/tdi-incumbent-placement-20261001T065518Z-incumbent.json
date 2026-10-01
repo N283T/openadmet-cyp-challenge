@@ -1,0 +1,17 @@
+{
+  "d6": {
+    "call_rate": 0.06533333333333333,
+    "target_prior": 0.07062568306010919
+  },
+  "a4": {
+    "call_rate": 0.332,
+    "target_prior": 0.2916
+  },
+  "depth_sets": [],
+  "backends": {},
+  "scope": "Exact submitted UMAP OOF whole-member addition/replacement; AP-selected placement excludes held fold; labelled diagnostic only; no deployment threshold selection",
+  "trunk_predictions": {
+    "d6": "d6-trunk.parquet",
+    "a4": "a4-trunk.parquet"
+  }
+}
