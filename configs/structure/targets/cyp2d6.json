@@ -1,0 +1,17 @@
+{
+  "target": "CYP2D6",
+  "accession": "P10635",
+  "expected_length": 497,
+  "togo_query": "CYP2D6",
+  "pdb_protein_name": "Cytochrome P450 2D6",
+  "pdb_heme_names": ["PROTOPORPHYRIN IX CONTAINING FE", "HEME C"],
+  "search_limit": 100,
+  "max_workers": 6,
+  "download_url_template": "https://files.rcsb.org/download/{pdb_id}.cif",
+  "afdb_api_url": "https://alphafold.ebi.ac.uk/api/prediction/P10635",
+  "afdb_entry_id": "AF-P10635-F1",
+  "msa_dataset": "LiteFold/human-proteome-wide-msa",
+  "msa_revision": "632cfc87f567e429570897c3addd80665a697f3e",
+  "msa_path": "a3m/shard-002/P10635.a3m",
+  "msa_bytes": 9103258
+}

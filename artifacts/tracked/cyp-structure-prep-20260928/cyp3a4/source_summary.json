@@ -1,0 +1,16 @@
+{
+  "collected_at_utc": "2026-09-28T11:18:18.702427+00:00",
+  "target": "CYP3A4",
+  "accession": "P08684",
+  "togo_server": {
+    "name": "TogoMCP: RDF Portal MCP Server",
+    "version": "2.7.4"
+  },
+  "search_query": "CYP3A4",
+  "search_total": 202,
+  "search_returned": 202,
+  "selection_rule": "PDBj summary contains the exact target protein and HEM names",
+  "selected": 122,
+  "downloaded": 122,
+  "total_bytes": 102836041
+}

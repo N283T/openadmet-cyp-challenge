@@ -1,0 +1,17 @@
+{
+  "target": "CYP2C9",
+  "accession": "P11712",
+  "expected_length": 490,
+  "togo_query": "CYP2C9",
+  "pdb_protein_name": "Cytochrome P450 2C9",
+  "pdb_heme_names": ["PROTOPORPHYRIN IX CONTAINING FE", "HEME C"],
+  "search_limit": 100,
+  "max_workers": 6,
+  "download_url_template": "https://files.rcsb.org/download/{pdb_id}.cif",
+  "afdb_api_url": "https://alphafold.ebi.ac.uk/api/prediction/P11712",
+  "afdb_entry_id": "AF-P11712-F1",
+  "msa_dataset": "LiteFold/human-proteome-wide-msa",
+  "msa_revision": "632cfc87f567e429570897c3addd80665a697f3e",
+  "msa_path": "a3m/shard-002/P11712.a3m",
+  "msa_bytes": 8806469
+}

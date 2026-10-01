@@ -1,0 +1,21 @@
+{
+  "completed_at_utc": "2026-09-28T11:31:44.853068+00:00",
+  "target": "CYP3A4",
+  "accession": "P08684",
+  "source_structures": 122,
+  "experimental_chains": 142,
+  "data_blocks": 143,
+  "protein_chains_per_block": 1,
+  "afdb_block_has_heme": false,
+  "retained_heme_residues": 142,
+  "retained_active_site_ligands": 138,
+  "retained_water_or_configured_artifact_residues": 0,
+  "holo_chains_for_pocket": 129,
+  "accepted_ligand_instances": 138,
+  "core_pocket_residues": 11,
+  "extended_pocket_residues": 33,
+  "all_contact_residues": 55,
+  "ensemble_file": "cyp3a4_aligned_complex_ensemble.cif",
+  "ensemble_bytes": 71658807,
+  "ensemble_sha256": "ece6a05d0d4e2fa8fdd2c43a2a82951e45ae3ca6ce7a190d7b767d3009b7272e"
+}

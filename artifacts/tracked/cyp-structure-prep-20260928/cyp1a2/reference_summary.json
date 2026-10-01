@@ -1,0 +1,22 @@
+{
+  "collected_at_utc": "2026-09-28T11:16:58.703619+00:00",
+  "target": "CYP1A2",
+  "accession": "P05177",
+  "sequence_length": 516,
+  "afdb_entry_id": "AF-P05177-F1",
+  "afdb_model_created_date": "2025-08-01T00:00:00Z",
+  "afdb_metadata_url": "https://alphafold.ebi.ac.uk/api/prediction/P05177",
+  "afdb_metadata_sha256": "c856b0863e193217027202d09b81d8be9324644a8b6c6a3e6ef83d2fd3a3c6da",
+  "afdb_cif_url": "https://alphafold.ebi.ac.uk/files/AF-P05177-F1-model_v6.cif",
+  "afdb_cif_bytes": 485504,
+  "afdb_cif_sha256": "6e0bc431aa94f468eec45c33e78f553a5869bbe33c9188bf94d5b81fa3766987",
+  "msa_dataset": "LiteFold/human-proteome-wide-msa",
+  "msa_revision": "632cfc87f567e429570897c3addd80665a697f3e",
+  "msa_manifest_url": "https://us.aws.cdn.hf.co/xet-bridge-us/6a9d5109cea011fe64794657/a483d51acf8d8125b24510ff29d3ea84affcacbfac7cf24dde49d79d026b4681?xip=SbECUL3ZUzI&user_id=public&response-content-type=text%2Ftab-separated-values%3B+charset%3Dutf-8&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27manifest.tsv%3B+filename%3D%22manifest.tsv%22%3B&Expires=1790597814&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmE5ZDUxMDljZWEwMTFmZTY0Nzk0NjU3L2E0ODNkNTFhY2Y4ZDgxMjViMjQ1MTBmZjI5ZDNlYTg0YWZmY2FjYmZhYzdjZjI0ZGRlNDlkNzlkMDI2YjQ2ODFcXD94aXA9U2JFQ1VMM1pVekkmdXNlcl9pZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC10eXBlPXRleHQlMkZ0YWItc2VwYXJhdGVkLXZhbHVlcyUzQitjaGFyc2V0JTNEdXRmLTgmWC1YZXQtQ2FzLVVpZD1wdWJsaWMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21hbmlmZXN0LnRzdiUzQitmaWxlbmFtZSUzRCUyMm1hbmlmZXN0LnRzdiUyMiUzQiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiRXBvY2hUaW1lIjoxNzkwNTk3ODE0fX19XX0_&Signature=MEYCIQDm26S%7EKQ3hFIhHiCmrADah-swfWxY7xmpUnskkGJ7aFgIhAJUQ0dTrNcoQ2zAirmFrJLK4qOFl7PD0ZV2HidoP4MZs&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256",
+  "msa_manifest_sha256": "4c0afcaa134a9c41f86a6262e7d5da2dfd96ea68e91688d0ebd5badd91c9d2eb",
+  "msa_url": "https://huggingface.co/api/resolve-cache/datasets/LiteFold/human-proteome-wide-msa/632cfc87f567e429570897c3addd80665a697f3e/a3m%2Fshard-002%2FP05177.a3m?%2Fdatasets%2FLiteFold%2Fhuman-proteome-wide-msa%2Fresolve%2F632cfc87f567e429570897c3addd80665a697f3e%2Fa3m%2Fshard-002%2FP05177.a3m=&etag=%222fc3440aa4a963f307808ce67b8a743d56928445%22",
+  "msa_bytes": 7350423,
+  "msa_sha256": "ec2d33eaed35bf123a86c93d3d9091ad70d182920bbc3f4e828e4bf1a21a8aed",
+  "msa_sequences": 12515,
+  "msa_aligned_columns": 516
+}

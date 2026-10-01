@@ -1,0 +1,3 @@
+target,pdb_id,auth_chain,data_block,polymer_residues,atoms,matched_ca,sequence_identity_percent,core_rmsd_angstrom,heme_ccd_id,heme_source_chain,retained_ligand_ccd_ids,retained_ligands,source_sha256
+CYP1A2,AFDB,A,CYP1A2_AFDB,516,4123,516,100.0,0.0,,,,0,6e0bc431aa94f468eec45c33e78f553a5869bbe33c9188bf94d5b81fa3766987
+CYP1A2,2hi4,A,CYP1A2_2HI4_A_1,480,3909,435,100.0,0.46840673082846207,HEM,A,BHF,1,7a45a3e2e36d74b4a2e90d798105ba005efdff52cb259eb127aec62ad04bdc8f

@@ -1,0 +1,16 @@
+{
+  "collected_at_utc": "2026-09-28T11:18:12.350379+00:00",
+  "target": "CYP2D6",
+  "accession": "P10635",
+  "togo_server": {
+    "name": "TogoMCP: RDF Portal MCP Server",
+    "version": "2.7.4"
+  },
+  "search_query": "CYP2D6",
+  "search_total": 33,
+  "search_returned": 33,
+  "selection_rule": "PDBj summary contains the exact target protein and HEM names",
+  "selected": 14,
+  "downloaded": 14,
+  "total_bytes": 22427510
+}
