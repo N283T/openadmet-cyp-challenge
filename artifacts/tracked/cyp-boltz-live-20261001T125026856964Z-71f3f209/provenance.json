@@ -1,0 +1,18 @@
+{
+  "run": "20261001T125026856964Z-71f3f209",
+  "submission": "20261001T123022061267Z-ad1689ae",
+  "files": [
+    {
+      "file": "report.md",
+      "sha256": "107f74e4cfe6f2b7d9e1ee03c142269e4625ecc9c8563e626df96520048d9638"
+    },
+    {
+      "file": "summary.json",
+      "sha256": "4eeff354abcac88f5b8b9d8a8a3ebf045d09cac1706f3b9a3a5d5e76d15b0592"
+    },
+    {
+      "file": "metrics.csv",
+      "sha256": "369a30ce08a34d7f7414db4e2d5153c33d9b74b3386af76b32b14724db8856b1"
+    }
+  ]
+}

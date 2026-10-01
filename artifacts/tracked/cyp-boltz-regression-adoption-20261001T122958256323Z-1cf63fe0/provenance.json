@@ -1,0 +1,28 @@
+{
+  "run": "20261001T122958256323Z-1cf63fe0",
+  "candidate": "20261001T123003757010Z-e61d651c",
+  "prepared_submission": "20261001T123022061267Z-ad1689ae",
+  "submission_sha256": "0cc78087990bdd27ef1bdfdedc135a05d6f79dd8dc02208c14a183d977734559",
+  "files": [
+    {
+      "file": "predictions.csv",
+      "sha256": "0cc78087990bdd27ef1bdfdedc135a05d6f79dd8dc02208c14a183d977734559"
+    },
+    {
+      "file": "predictions.parquet",
+      "sha256": "a9199d1d17cba91e9cc366db9d7083268ca045c10ebce2671b33c62b5675c772"
+    },
+    {
+      "file": "changed-target-test-predictions.parquet",
+      "sha256": "e3bea871f51bb554a9b39f460081dc639d964530e3cfaa15ac85bf2ff203ed6e"
+    },
+    {
+      "file": "target-comparison.csv",
+      "sha256": "f4fdfa314fcf7a9eb1d4593a824f0a0f6e098071bf51242f34ebdca392001cf4"
+    },
+    {
+      "file": "summary.json",
+      "sha256": "2f539e55045a48a0e0afc87b70976c6135d6c7c3eedf214a6017dcf8b0c98536"
+    }
+  ]
+}

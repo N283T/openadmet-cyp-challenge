@@ -4,7 +4,17 @@ The canonical research narrative lives here, in English, tracked in this private
 Git repository. This carries forward the dated research-log format previously
 used in PXR issues #100 and #208, without requiring an Issue for each experiment.
 
+The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experiment.
+
 ## Current direction
+
+- **Boltz trunk regression is adopted and scored:** two TabPFN member replacements
+  improve Live 1A2 ST-RAE `.508530→.506911`; a 20% pocket-plus-molecular LGBM
+  improves D6 `.549341→.535721`. C9/A4 retain their best submitted vectors.
+  Macro is `.458311`. See the [adoption record](../analysis/2026-10-01-boltz-regression-adoption.md)
+  and [current composition](../../configs/regression/current-boltz-adoption.json).
+  Trunk TDI remains exploratory until complete-pool features and deployment
+  evaluation are available; classification has not changed in this experiment.
 
 - **The A4 275-call rate failed on the Live leaderboard:** complete-pool OOF
   had favored 275 over the submitted 249 calls by `.0245` projected MCC, but

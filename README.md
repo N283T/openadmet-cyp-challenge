@@ -8,10 +8,17 @@ Polars. The two active tracks share molecular data and feature code:
 
 Official [Space](https://huggingface.co/spaces/openadmet/cyp-challenge) and
 [tutorial](https://github.com/OpenADMET/CYP-Challenge-Tutorial).
-The newly announced structure track has a [public CYP3A4 source-data inventory](docs/structure-data.md):
-experimental CYP3A4/HEM structures, an AFDB full-length reference, coordinate
-coverage, and a separately generated full-length MSA. Ligand-pose curation and
-prediction infrastructure remain future work. Boltz and Jupyter are not declared.
+Prospective structure-aware modeling has a [four-target structure-data inventory](docs/structure-data.md):
+TogoMCP-discovered experimental CYP/HEM structures, canonical AFDB references,
+pinned LiteFold full-length MSAs, HEM/ligand-preserving AFDB-aligned multi-block CIFs,
+and ligand-contact pocket definitions. Frozen `boltz-trunk` extraction is complete for 10,779 CYP/HEM/ligand complexes;
+the first [pooling/readout experiment](docs/analysis/2026-10-01-boltz-trunk-pooling-protocol.md)
+is complete. The [incumbent-matched redo](docs/analysis/2026-10-01-boltz-incumbent-redo.md)
+is complete on the submitted regression cohorts and folds, including whole-member
+ensemble placement and bank reselection. The user-adopted [1A2/D6 trunk regression
+composition](docs/analysis/2026-10-01-boltz-regression-adoption.md) was submitted on
+October 1 and improves Live ST-RAE for both changed targets against the previous
+best scored submission. Boltz and Jupyter are not declared in this environment.
 Pandas may exist transitively; project table processing uses Polars.
 
 For new regression work, use the explicit [current auxiliary configuration](configs/regression/current-log2fc.json)
