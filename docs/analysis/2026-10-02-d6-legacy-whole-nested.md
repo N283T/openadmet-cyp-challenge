@@ -35,6 +35,19 @@ size 64. TabPFN scalers/PCA fit only current observed-D6 training rows.
 The complete legacy recipe therefore needs 400 ensemble fits (4 per bag x
 5 bags x 5 outer folds x 2 seeds x 2 strategies), not frozen OOF regrouping.
 
+After measuring runtime and resource availability, computation is partitioned
+by the four predetermined split/seed blocks. The initial run supplies its first
+complete UMAP/20261002 block; the other blocks run concurrently as
+`20261002T101409635209Z-967b7499` (UMAP/20261017),
+`20261002T101409621831Z-5bf54a17` (scaffold/20261002), and
+`20261002T101409637266Z-41e6beb1` (scaffold/20261017).
+The initial process will be interrupted after that complete block to avoid
+duplicating the other three blocks. Its immutable scientific results remain
+retained. The merge requires identical feature/input hashes and common model
+settings, exactly 100 fits and five complete outer folds in each block, and
+exactly 400 total fits. No block is chosen by its score. This is a computational
+change, not a scientific protocol change.
+
 The final decision averages the ten outer scores minus their independently
 trained cuts, exactly as in the new candidate. No 49-call budget is imposed.
 Full-pool rank transforms see the prediction batch's molecules but never their
@@ -70,6 +83,14 @@ not verification of the architecture of any official leaderboard entry. The
 new CheMeleon readout is still a single molecular representation family even
 though its two-seed five-fold policy has ten fitted models. Architecture alone
 is not evidence of improvement over the stronger historical composite.
+
+The reused preprocessing script's generic `representation.json` initially marked
+`no_pretrained_assets=true` when no fresh CheMeleon `embedding_file` was configured.
+That generic flag omits the legacy branch's explicitly declared pretrained
+external encoders/features and TabPFN checkpoint. Source manifests/configuration
+and the fitting code identify these assets; the merged record corrects the flag
+without altering the source records or any fits. Future preprocessing metadata
+also recognizes the legacy branch.
 
 ## Results
 

@@ -464,8 +464,11 @@ def main():
                 descriptors=descriptor_names,
                 fingerprint_bits=2048,
                 radius=2,
-                no_pretrained_assets=not bool(cfg.get("embedding_file")),
+                no_pretrained_assets=not (
+                    bool(cfg.get("embedding_file")) or cfg.get("legacy_ensemble_validation", False)
+                ),
                 pretrained_features=cfg.get("embedding_file"),
+                legacy_external_pretraining=cfg.get("legacy_ensemble_validation", False),
             ),
             indent=2,
         )
