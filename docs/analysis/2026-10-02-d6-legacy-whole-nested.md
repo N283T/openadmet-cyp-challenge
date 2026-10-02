@@ -1,5 +1,10 @@
 # Complete historical ensemble under the new D6 evaluation procedure
 
+**Prospective outcome:** [the candidate is now scored](2026-10-02-d6-chemeleon-live-result.md).
+D6 Live MCC .117740060 remains below historical best .308635 despite the
+observed-label decision advantage reported here. The recommendation below
+records the pre-submission judgment, not a post-result endorsement.
+
 **Subsequent submission:** the user approved the unchanged 175-call candidate
 after this comparison. [Remote receipt is confirmed](2026-10-02-d6-chemeleon-submission-receipt.md);
 scoring remains pending. The unsent statements below describe the comparison stage.

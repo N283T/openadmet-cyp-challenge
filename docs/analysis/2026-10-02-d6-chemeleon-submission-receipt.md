@@ -1,5 +1,10 @@
 # Authorized CheMeleon-primary classification submission
 
+**Scoring update:** the October 2 21:52 JST check confirms all three Live boards
+show this submission. D6 MCC is .117740060, A4 .529910537 and MA .323825299.
+See [the scored result](2026-10-02-d6-chemeleon-live-result.md); the receipt-stage
+pending statements below are retained as history.
+
 The user explicitly approved sending the previously reviewed 175-call candidate
 on October 2, 2026. Preflight confirmed the unchanged prepared payload, 750 valid
 rows, 140 D6 changes (+133/-7) versus the last sent payload, unchanged A4 (249

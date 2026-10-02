@@ -70,8 +70,13 @@ The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experimen
   49/750 fraction, while the selected recipe wins at 175/750. Retain the exact
   175-call candidate as the next improvement attempt. The user then explicitly
   approved this exact payload; [remote receipt is confirmed](../analysis/2026-10-02-d6-chemeleon-submission-receipt.md)
-  on October 2 at approximately 21:08 JST. Scoring is pending, and the next
-  classification opportunity starts October 3 at 09:08:22.746783 JST.
+  on October 2 at approximately 21:08 JST. [Live scoring is now confirmed](../analysis/2026-10-02-d6-chemeleon-live-result.md):
+  D6 .117740060 recovers slightly versus last sent .104985814, but remains
+  below historical best .308635. A4 .529910537 retains rank 1. The known-label
+  advantage has not established Live superiority. Preserve this candidate as
+  informative evidence; the earlier recommendation is superseded by this
+  outcome. No rollback or additional upload occurred. The next classification
+  opportunity starts October 3 at 09:08:22.746783 JST.
   This comparison does not alone establish past-LB concordance or recover
   missing D6 outcomes. See
   [RL0207](2026-10.md#rl0207--complete-legacy-refits-support-the-new-decision-policy-but-preserve-a-narrow-ranking-advantage).

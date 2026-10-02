@@ -1,5 +1,10 @@
 # Fresh CheMeleon readout: selected D6 submission candidate
 
+**Scored outcome:** [Live evaluation](2026-10-02-d6-chemeleon-live-result.md)
+gives D6 MCC .117740060, above the immediately previous .104985814 but well
+below historical best .308635. The preparation-stage recommendation below is
+now historical; observed-label superiority did not establish Live superiority.
+
 **Submission update:** after explicit approval on October 2, the unchanged
 prepared payload was sent and remote receipt confirmed. Scoring is pending;
 see [the submission record](2026-10-02-d6-chemeleon-submission-receipt.md).
