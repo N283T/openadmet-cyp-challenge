@@ -1,0 +1,18 @@
+{
+  "version": 4,
+  "seed": 20261002,
+  "endpoint": "CYP2D6_is_TDI",
+  "outer_folds": 4,
+  "inner_folds": 3,
+  "bootstrap_samples": 1000,
+  "split_strategies": ["random", "scaffold"],
+  "models": ["fresh_d6_network"],
+  "network_epochs": 100,
+  "other_enzyme_weight": 0.0,
+  "continuous_aux_weight": 0.0,
+  "representation": "Fresh Morgan 2048-bit input, same random 256/64 network, dropout, optimizer and training budget as multiassay v3",
+  "loss": "D6 BCE only; auxiliary losses exactly zero. No trained assets are reused.",
+  "threshold_policy": "Maximize inner OOF bootstrap mean MCC; no positive-count constraint",
+  "excluded_inputs": "All prior fitted weights, predictions, thresholds and submission counts",
+  "status": "Ablation to distinguish cross-enzyme supervision from network capacity; no upload"
+}

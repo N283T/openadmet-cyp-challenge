@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "seed": 20261002,
+  "seeds": [20261002, 20261017],
+  "endpoint": "CYP2D6_is_TDI",
+  "outer_folds": 5,
+  "bag_folds": 5,
+  "inner_folds": 3,
+  "bootstrap_samples": 1000,
+  "split_strategies": ["umap", "scaffold"],
+  "fixed_assignments": "assignments.parquet",
+  "models": ["historical_morgan_lr_c005", "historical_morgan_rbf_c1", "historical_morgan_complement_a1", "fresh_d6_network"],
+  "network_epochs": 100,
+  "nested_bag_validation": true,
+  "threshold_grid": "inner_quantiles",
+  "cpu_threads": 4,
+  "policies": ["centered_fold_mean", "majority_vote", "pooled_oof_cut", "single_refit"],
+  "historical_comparisons": ["control-umap.parquet", "control-scaffold.parquet", "ap-umap.parquet", "ap-scaffold.parquet"],
+  "scientific_purpose": "Evaluate the actual five-model threshold-margin averaging algorithm on untouched outer folds; separate model, aggregation and decision transfer, repeat fitting seeds, compare matched historical whole-ensemble ranking diagnostics, and assess information value before consuming a twelve-hour submission opportunity.",
+  "selection_rule": "Freeze all policies and model settings before this run. Report every result; do not pick a new blind payload by the maximum observed result. Positive counts are outputs, never prescribed. Original 77-call payload remains unsent.",
+  "limitations": "Each outer evaluation excludes all test-group measurements before five-model construction and threshold fitting. Effective model training size is 64 percent of development versus 80 percent for blind deployment; same relative algorithm, smaller evaluation sample. Historical cached whole-ensemble scores are used only for matching retrospective rank-rate diagnostics, never to select nested thresholds. Resampled conditional intervals omit training and protocol-selection uncertainty."
+}

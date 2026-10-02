@@ -1,0 +1,149 @@
+{
+  "source_run": "classification/20261002T043637506788Z-2f9a88ee",
+  "outputs": {
+    "known-label-coverage.csv": "4b659f86bfabd6ca48c8de285a550bd9f6dba5d80360d5eee48e470491e3409f",
+    "paired-population-contrasts.csv": "9607773caed19391b17128ebf52438dab9c81b1e9f95623570c27f5178d57c54",
+    "population-metrics.csv": "5f43b24134c12502ab807d3e3260ec5573a981b6cf0ab54f3454acfca56a908c",
+    "seed-stability.csv": "080aa614f73d70e5458c8286b463c979ec31228b4696d9517e445236c5ec1e14",
+    "summary.json": "cbba78eef71b9df7e45ce0f5e3e20bb0b14056d54389fec643ae97df7cbba3a8"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T042715697470Z-2f48e876/outputs/nested-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043637506788Z-2f9a88ee/inputs/d6-selection-oof.parquet",
+      "sha256": "3b4543de84378f0af043d30273f258f8e0522020d38872024f200de9c8b19efc",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T042715697470Z-2f48e876/outputs/selection-control-source.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043637506788Z-2f9a88ee/inputs/d6-selection-source.parquet",
+      "sha256": "f1d2f66e403e322f6a8859e3794a94653b7e8b023693ac03d2a3eb5491c69a1a",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T042725116238Z-fe96ab3c/outputs/nested-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043637506788Z-2f9a88ee/inputs/a4-selection-oof.parquet",
+      "sha256": "12ef2222b53802f6151cce69dcb70f989b35e41f69ad0cd005e6da975119817e",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T042725116238Z-fe96ab3c/outputs/selection-control-source.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043637506788Z-2f9a88ee/inputs/a4-selection-source.parquet",
+      "sha256": "db7bfd771a293c0d151fc7307e686e42439a3e188b7de622add86021bbd964da",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043025957609Z-a3d07bb8/outputs/nested-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043637506788Z-2f9a88ee/inputs/d6-potency-oof.parquet",
+      "sha256": "8f79e2895fafaaf458e58dd20a3ffb196a2d0ff958f56a9da3e54accb3f60371",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043025957609Z-a3d07bb8/outputs/source-audit.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043637506788Z-2f9a88ee/inputs/d6-potency-source.parquet",
+      "sha256": "a4cecf003c307d53295278f55d20918028fe0c7ca6cffa8bb1b5b48c623b5a05",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043105536476Z-8e0b5aca/outputs/nested-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043637506788Z-2f9a88ee/inputs/a4-potency-oof.parquet",
+      "sha256": "3427c9fda7016037b38b8eca395eca91eda3406ff791b223ed03e1664846f869",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043105536476Z-8e0b5aca/outputs/source-audit.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043637506788Z-2f9a88ee/inputs/a4-potency-source.parquet",
+      "sha256": "fa411f2b5657b5203d7838844bd164d3bfd36b9acfab7edd901385a74c34f5b8",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "bootstrap_samples": 1000,
+    "cases": [
+      {
+        "name": "d6-selection",
+        "run_id": "20261002T042715697470Z-2f48e876",
+        "predictions": "d6-selection-oof.parquet",
+        "source": "d6-selection-source.parquet",
+        "selection_control": true,
+        "contrasts": [
+          [
+            "activity_selected",
+            "activity_all"
+          ],
+          [
+            "gate_selected",
+            "activity_selected"
+          ],
+          [
+            "gate_selected",
+            "activity_all"
+          ]
+        ]
+      },
+      {
+        "name": "a4-selection",
+        "run_id": "20261002T042725116238Z-fe96ab3c",
+        "predictions": "a4-selection-oof.parquet",
+        "source": "a4-selection-source.parquet",
+        "selection_control": true,
+        "contrasts": [
+          [
+            "activity_selected",
+            "activity_all"
+          ],
+          [
+            "gate_selected",
+            "activity_selected"
+          ],
+          [
+            "gate_selected",
+            "activity_all"
+          ]
+        ]
+      },
+      {
+        "name": "d6-potency",
+        "run_id": "20261002T043025957609Z-a3d07bb8",
+        "predictions": "d6-potency-oof.parquet",
+        "source": "d6-potency-source.parquet",
+        "selection_control": false,
+        "contrasts": [
+          [
+            "potency_conditional",
+            "potency_all"
+          ],
+          [
+            "potency_gate",
+            "potency_conditional"
+          ],
+          [
+            "potency_gate",
+            "potency_all"
+          ]
+        ]
+      },
+      {
+        "name": "a4-potency",
+        "run_id": "20261002T043105536476Z-8e0b5aca",
+        "predictions": "a4-potency-oof.parquet",
+        "source": "a4-potency-source.parquet",
+        "selection_control": false,
+        "contrasts": [
+          [
+            "potency_conditional",
+            "potency_all"
+          ],
+          [
+            "potency_gate",
+            "potency_conditional"
+          ],
+          [
+            "potency_gate",
+            "potency_all"
+          ]
+        ]
+      }
+    ]
+  }
+}

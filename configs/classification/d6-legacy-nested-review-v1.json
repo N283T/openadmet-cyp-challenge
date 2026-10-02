@@ -1,0 +1,9 @@
+{
+  "legacy_model": "sep15_whole_fresh_nested",
+  "bootstrap_samples": 1000,
+  "population_diagnostic": "Report calls in measured-primary selected, weak and missing regions alongside class coverage. Unknown calls are not errors or negatives; this diagnostic cannot select a winner or blind positive budget.",
+  "missing_outcome_bounds": "Compute exact feasible MCC-difference bounds for the complete held-out development population at its actual unequal learned call counts. This quantifies unidentified outcome uncertainty; it does not reconstruct blind labels or override the known-label comparison.",
+  "diagnostic_rank_fractions": [0.03, 0.06533333333333334, 0.12, 0.23333333333333334, 0.3],
+  "comparison": "Same outer groups and fold IDs, seeds, bag splits, deeper cut splits, threshold objective and ten-bag margin aggregation. Compare complete eleven-atom historical recipe with the fresh primary-supervised CheMeleon and matched Morgan/class-only variants.",
+  "selection_rule": "Report every model on both splits. Do not select blind call counts. No upload is authorized by this comparison. A new model beating the old recipe on observed labels does not validate past LB direction or recover missing weak-primary outcomes."
+}

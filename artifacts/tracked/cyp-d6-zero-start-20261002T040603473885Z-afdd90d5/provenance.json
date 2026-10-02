@@ -1,0 +1,117 @@
+{
+  "source_run": "classification/20261002T040603473885Z-afdd90d5",
+  "outputs": {
+    "aggregate-metrics.csv": "45c2bcf256aef9400833b1e6c201b418bd85a61adb0e3de07d69c69855e8fd7f",
+    "fold-metrics.csv": "cc914dc65dfff219d31563a390bc47630e1042d3bf611d9e6edf5975ff682904",
+    "leakage-and-operating-points.csv": "bf57a6b5dd9d1f5047daa521a9ada16efc7893635823f2975176aac1faa6effd",
+    "nested-oof.parquet": "12051d037ae9a2859014e94f6a39e4ac8cab367ede17bb4313c0860e1b214a41",
+    "paired-group-intervals.csv": "cf83fb1ebed23bb4879dc3ae8e163ff4223b92d7c980c1f99351c2dd5775bbe6",
+    "primary-source-audit.parquet": "f5fd3f57eea61d9ece22fc7ca09ef961a958b66a452c08861f32d5a0b60ddea0",
+    "representation.json": "42d9eec04f9d5589b0f643ab4c98df2c7e3be0ad33402e07f51e8824a1b10838",
+    "source-audit.parquet": "a4cecf003c307d53295278f55d20918028fe0c7ca6cffa8bb1b5b48c623b5a05",
+    "summary.json": "9c18ded3631eb4c7a0f76d8e289005d0c2a9373bca8339058068ca90008f0f29",
+    "threshold-scale-audit.csv": "fd5789ca4958f5a99ce87de3bb30cbf559c54e9f3b5f1ed55208eefa116ef1bb",
+    "whole-ensemble-ranking-diagnostics.csv": "39d94595ea9528d3c0187033d66be827e166c1cc00f45b893f8c78e6c8804868"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T040603473885Z-afdd90d5/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T040603473885Z-afdd90d5/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T040603473885Z-afdd90d5/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T040603473885Z-afdd90d5/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/data/raw/cyp-challenge-single-concentration-TRAIN.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T040603473885Z-afdd90d5/inputs/primary-screen.csv",
+      "sha256": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T040301085704Z-914bb06c/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T040603473885Z-afdd90d5/inputs/control-umap.parquet",
+      "sha256": "c7b568d1f21827e3ba7f6c8b09f5ee5f95dcf2c61e4beeb159ed2c2b56b6acf3",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T041452692950Z-e17778e3/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T040603473885Z-afdd90d5/inputs/control-scaffold.parquet",
+      "sha256": "35ca4779e545ccee8c157a6e92826fa138da1cbf64f5d9f7f342dc53adb98956",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T035023873825Z-b719ba35/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T040603473885Z-afdd90d5/inputs/ap-umap.parquet",
+      "sha256": "a9e4cf548bb631daba88f466d498825c3d49944528e57d15e04006eb489c8e68",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T041348966036Z-8db19b4b/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T040603473885Z-afdd90d5/inputs/ap-scaffold.parquet",
+      "sha256": "dafd3eded66592d0aa692b33e505c94e9e86bb4fbc843018e6a361c9016af5e6",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 4,
+    "seed": 20261002,
+    "seeds": [
+      20261002,
+      20261017
+    ],
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 5,
+    "bag_folds": 5,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "umap",
+      "scaffold"
+    ],
+    "fixed_assignments": "assignments.parquet",
+    "models": [
+      "fresh_d6_network",
+      "primary_d6_network",
+      "primary_cross_cyp_network",
+      "primary_selection_network"
+    ],
+    "network_epochs": 100,
+    "nested_bag_validation": true,
+    "threshold_grid": "inner_quantiles",
+    "cpu_threads": 4,
+    "policies": [
+      "centered_fold_mean",
+      "majority_vote",
+      "pooled_oof_cut",
+      "single_refit"
+    ],
+    "historical_comparisons": [
+      "control-umap.parquet",
+      "control-scaffold.parquet",
+      "ap-umap.parquet",
+      "ap-scaffold.parquet"
+    ],
+    "scientific_purpose": "Test primary-screen selection as a source of D6 transfer failure: matched baseline, D6 primary auxiliary supervision, cross-CYP primary supervision and D6-primary plus selection-propensity-weighted labels. No unlabeled class is assigned negative. All primary assay values are excluded at each fitting boundary. Evaluate the complete five-model decision procedure on original UMAP/scaffold folds and repeated seeds.",
+    "selection_rule": "Four prespecified matched model arms, no auxiliary-weight grid or historical-score blend. Label-selection weighting is explicitly conditional on missing-at-random, with cap5. Report actual-policy and historical-ranking comparisons; no automatic candidate veto and no upload.",
+    "limitations": "Each outer evaluation excludes all test-group measurements before five-model construction and threshold fitting. Effective model training size is 64 percent of development versus 80 percent for blind deployment; same relative algorithm, smaller evaluation sample. Historical cached whole-ensemble scores are used only for matching retrospective rank-rate diagnostics, never to select nested thresholds. Resampled conditional intervals omit training and protocol-selection uncertainty. Primary-screen values are training-only auxiliary targets or training-only selection-weight covariates, not features available for held-out/blind predictions. Primary coverage is partial and selection weighting cannot identify unseen weak-compound outcomes.",
+    "primary_screen": "primary-screen.csv",
+    "propensity_weight_cap": 5.0
+  }
+}

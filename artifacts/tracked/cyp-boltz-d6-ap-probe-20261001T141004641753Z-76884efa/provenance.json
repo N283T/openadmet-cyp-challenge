@@ -1,0 +1,109 @@
+{
+  "package_run": "20261001T141004641753Z-76884efa",
+  "selection_run": "20261001T135322663569Z-94d28c32",
+  "candidate_id": "20261001T141033295310Z-d8c08df3",
+  "prepared_id": "20261001T141041310215Z-c7faa79f",
+  "uploaded": false,
+  "frozen_manifests": {
+    "candidates": {
+      "id": "20261001T141033295310Z-d8c08df3",
+      "track": "classification",
+      "created_at": "2026-10-01T14:10:33.312698+00:00",
+      "runs": [
+        "20261001T141004641753Z-76884efa"
+      ],
+      "notes": "Local preparation only; no upload authorization. Exact reviewed D6 AP-trunk 50% rank blend with 49 calls, plus exact best-scored A4 249-call restoration. Versus last sent: D6 21 added/21 removed, A4 26 removed/0 added.",
+      "file": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/candidates/classification/20261001T141033295310Z-d8c08df3/predictions.parquet",
+      "sha256": "67dbe95a6f9c307c5c8cea6746c1d993e08ecc854393052babf35be38bb6ba19",
+      "reference_sha256": "a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9",
+      "validation": {
+        "track": "classification",
+        "rows": 750,
+        "columns": [
+          "SMILES",
+          "Molecule_Name",
+          "CYP2D6_is_TDI",
+          "CYP3A4_is_TDI"
+        ],
+        "valid": true
+      }
+    },
+    "submissions": {
+      "id": "20261001T141041310215Z-c7faa79f",
+      "candidate_id": "20261001T141033295310Z-d8c08df3",
+      "track": "classification",
+      "status": "prepared",
+      "created_at": "2026-10-01T14:10:41.311409+00:00",
+      "file": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20261001T141041310215Z-c7faa79f/predictions.parquet",
+      "sha256": "67dbe95a6f9c307c5c8cea6746c1d993e08ecc854393052babf35be38bb6ba19"
+    }
+  },
+  "package_inputs": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20261001T135846483051Z-64386ab4/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T141004641753Z-76884efa/inputs/d6-probe.parquet",
+      "sha256": "5bb177ecfbfabf4c57828fe4b63b181768209cd0b344ec4242e97c59c7e55621",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20260924T050705396203Z-10e1d3ad/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T141004641753Z-76884efa/inputs/best-control.parquet",
+      "sha256": "f42170784d0e23515141fb0fcb952b5596d69b55d951c69e26204839fc12e496",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20260926T150948735129Z-6fc9d05b/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T141004641753Z-76884efa/inputs/last-sent.parquet",
+      "sha256": "6ef5ddc004ab058c9135370b24760f2922ed66d59f72da64a47f0e5dfa1570bf",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/data/raw/cyp-challenge-TEST-BLINDED.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T141004641753Z-76884efa/inputs/reference.csv",
+      "sha256": "a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9",
+      "storage": "copy"
+    }
+  ],
+  "files": {
+    "changed-calls.csv": {
+      "sha256": "daed1b17aecd541616fcea4fbe87e8dd9d915fe1127f1983cbe8d720811c8d78",
+      "bytes": 13291
+    },
+    "predictions.csv": {
+      "sha256": "96968b1ce55687ba6619e5719bc4271569fbca9b7ebabb2b7bb4f24cf3c4388f",
+      "bytes": 53665
+    },
+    "predictions.parquet": {
+      "sha256": "67dbe95a6f9c307c5c8cea6746c1d993e08ecc854393052babf35be38bb6ba19",
+      "bytes": 12111
+    },
+    "prepared-dry-run.json": {
+      "sha256": "67e7620d8b68963b8671a580c73fde3cc7ae76cf61fdf42ba2d4b3f003d0c8f4",
+      "bytes": 804
+    },
+    "report.md": {
+      "sha256": "30fa1acaf545b3ccf8eeeb7e8c19c7a0435012e630dbc6da580b67a871d8b319",
+      "bytes": 814
+    },
+    "selection-decision.json": {
+      "sha256": "a4c3bbd2f21d2f3b00c469c5bcff664de2ee44f54686a71c0841df144137d670",
+      "bytes": 623
+    },
+    "selection-inner-block-choices.parquet": {
+      "sha256": "e982a902020c5b0b6e8c0be293964988c2b59a7938aad6ab8de7400faa3d5243",
+      "bytes": 1909
+    },
+    "selection-inner-selection-metrics.parquet": {
+      "sha256": "86cfde69b121b847f9be640c03d0ac0b2467270b4e9f23a22e16316d0866a5b5",
+      "bytes": 1758
+    },
+    "summary.json": {
+      "sha256": "c5eca483f67294bbeada0fc1ee4a4135fc0bd784175ec453fc08002cfab7def7",
+      "bytes": 2275
+    },
+    "target-changes.csv": {
+      "sha256": "2929fe4bf823ad6db0d707ed80b83613bd19d218a96d9904e9fa3b3b176d0c9e",
+      "bytes": 313
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "source_run": "classification/20261002T004016766672Z-e2d420d4",
+  "outputs": {
+    "assignments.parquet": "59da3f8708fd8122e649412cc6a8e89fe30053ee0ad942f9857175be918eb733",
+    "blind-random-morgan_logistic.parquet": "276909452d6d4154dbeabaa27724284076e9e58ef3ae18c930d4ca4e895cc0f3",
+    "blind-random-morgan_rdkit_classifier.parquet": "3bdccf009ce5caeccbd30a44fe8335deff9be936d36e8d40d0e020508aad63b4",
+    "blind-random-paired_measurement_margin.parquet": "cbb495af9318b1b5b5abadb19b4ec9644851939f33bfbcc344dd5437d354c8ee",
+    "blind-scaffold-morgan_logistic.parquet": "f98d2b40b0d4d5b0226cd771a543ea985ab04d4bfb75489694ceb40c50146f30",
+    "blind-scaffold-morgan_rdkit_classifier.parquet": "2c1854b61796943f1b8ad1684fefe23bc325c583a61d17880eefa69a4e4813d4",
+    "blind-scaffold-paired_measurement_margin.parquet": "0c6a8a650c03899761c384318efb139d92ad6fbe7cd16b0d25c4b187bce65241",
+    "metrics.csv": "76d5dea4ee54e9327e64d5a2bdef540ddd34dbe24d58f0f1c5a3b82e4ccf6e28",
+    "model-random-morgan_logistic.joblib": "38ac561cef84f567db0eba4e8f99761191f74f47723163018d30b1979a1409bb",
+    "model-random-morgan_rdkit_classifier.joblib": "57fe768b1b54c11978cf57f2030652cfe3bba771fb4b0e385f17b868417fdf44",
+    "model-random-paired_measurement_margin.joblib": "138a683b843e227dd813e604a62be55bbc4a3a5d84ac5eb323afb0315e2b1455",
+    "model-scaffold-morgan_logistic.joblib": "38ac561cef84f567db0eba4e8f99761191f74f47723163018d30b1979a1409bb",
+    "model-scaffold-morgan_rdkit_classifier.joblib": "57fe768b1b54c11978cf57f2030652cfe3bba771fb4b0e385f17b868417fdf44",
+    "model-scaffold-paired_measurement_margin.joblib": "138a683b843e227dd813e604a62be55bbc4a3a5d84ac5eb323afb0315e2b1455",
+    "oof.parquet": "ba0421613e959a04d57e59980a772fcae1d50a95faf1e887e9f091d33cfc3afa",
+    "operating-points.csv": "2a4e6682e2dedb43a762720ba239f97cdc418f53f2c3fde5e0a8f3c4d32cec9d",
+    "representation.json": "42d9eec04f9d5589b0f643ab4c98df2c7e3be0ad33402e07f51e8824a1b10838",
+    "source-audit.parquet": "28c0e059dfac03e7d0b288d1774989c041d2f68cb314dc9bd5cb0cde559895bb",
+    "summary.json": "605ddc6104571db0f6ec4aeca8ee6c93a4defd96e3a4143c24ce880b279a57c5"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004016766672Z-e2d420d4/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004016766672Z-e2d420d4/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004016766672Z-e2d420d4/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seed": 20261002,
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 4,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "random",
+      "scaffold"
+    ],
+    "models": [
+      "morgan_logistic",
+      "morgan_rdkit_classifier",
+      "paired_measurement_margin"
+    ],
+    "representation": "Fresh Morgan radius 2 / 2048 bits and RDKit 2D descriptors",
+    "threshold_policy": "Maximize inner OOF bootstrap mean MCC; no positive-count constraint",
+    "excluded_inputs": "All previous fitted models, predictions, ensembles, and submission call counts",
+    "measurement_rule": "margin = min(predicted TDI pIC50 - (4 + log10(2)), predicted paired shift - log10(2))",
+    "status": "Foundational pilot; no upload or incumbent blend"
+  }
+}

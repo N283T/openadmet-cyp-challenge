@@ -1,0 +1,32 @@
+{
+  "track": "regression",
+  "package_run": "20261001T122958256323Z-1cf63fe0",
+  "candidate": "20261001T123003757010Z-e61d651c",
+  "submission": "20261001T123022061267Z-ad1689ae",
+  "attempt": "20261001T123118187956Z-b567481f",
+  "delivery_status": "sent",
+  "scoring_status": "accepted_live",
+  "best_scored_control": "20261001T123022061267Z-ad1689ae",
+  "CYP1A2": {
+    "strategy": "replace_two_members_of_ten_equal_members",
+    "replacements": {
+      "tabpfn35_fast_anchor59_raw_scores_logfc": "ligand_only--trunk--tabpfn_top500",
+      "jeremy_frozen_tabpfn26": "core_bidirectional_hem--trunk--tabpfn_top500"
+    },
+    "weight_per_member": 0.1
+  },
+  "CYP2D6": {
+    "strategy": "single_trunk_bank_extension",
+    "weights": {
+      "submitted_two_member_core": 0.4,
+      "moment_matched_robust_branch": 0.4,
+      "pxr_core--trunk_molecular--lgbm_l1": 0.2
+    }
+  },
+  "CYP2C9_and_CYP3A4": "Exact columns from best_scored_control; originally September 17 vectors",
+  "test_inference": "Five-fold mean for trunk readouts; retained full-fit original members",
+  "placement": "Match each changed endpoint's final mean and SD to best_scored_control",
+  "classification": "unchanged",
+  "scored_audit_run": "20261001T125026856964Z-71f3f209",
+  "previous_best_scored_control": "20260926T090548323924Z-46188564"
+}

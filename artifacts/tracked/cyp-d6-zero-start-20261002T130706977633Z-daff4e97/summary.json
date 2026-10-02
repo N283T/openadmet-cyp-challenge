@@ -1,0 +1,116 @@
+{
+  "config": {
+    "legacy_model": "sep15_whole_fresh_nested",
+    "selected_model": "chemeleon_primary_network",
+    "historical_fraction": 0.06533333333333334,
+    "bootstrap_samples": 1000,
+    "purpose": "Audit the inference behind the submitted recommendation, not search for another model or optimize a count.",
+    "historical_fraction_role": "The prior submitted 49/750 policy is a comparator diagnostic only, never a new-model count constraint. Nested refits are recipe analogs, not exact reproductions of historical discovery and deployment.",
+    "timing": "Post-result diagnostic: cannot claim independent predictive validation.",
+    "limits": "Conditional group bootstrap omits fitting and protocol-selection uncertainty. History contains shared Live outcomes and unequal evaluation scopes. No unknown labels imputed or upload authorized."
+  },
+  "comparisons": [
+    {
+      "split_id": "umap",
+      "comparator": "legacy_new_trained_threshold",
+      "known_n": 1497,
+      "reference_mcc": 0.0906730339182894,
+      "selected_mcc": 0.145295146432246,
+      "delta_mcc": 0.0546221125139566,
+      "ci_low": 0.0030576489418820186,
+      "ci_high": 0.10954779889950682,
+      "changed_known_calls": 303
+    },
+    {
+      "split_id": "umap",
+      "comparator": "legacy_historical_rank_fraction",
+      "known_n": 1497,
+      "reference_mcc": 0.14674481527112007,
+      "selected_mcc": 0.145295146432246,
+      "delta_mcc": -0.0014496688388740686,
+      "ci_low": -0.06785960508889265,
+      "ci_high": 0.06298116976553329,
+      "changed_known_calls": 180
+    },
+    {
+      "split_id": "scaffold",
+      "comparator": "legacy_new_trained_threshold",
+      "known_n": 1497,
+      "reference_mcc": 0.1675863310086262,
+      "selected_mcc": 0.23066070353474366,
+      "delta_mcc": 0.06307437252611747,
+      "ci_low": 0.006559202429992621,
+      "ci_high": 0.11948412453407953,
+      "changed_known_calls": 403
+    },
+    {
+      "split_id": "scaffold",
+      "comparator": "legacy_historical_rank_fraction",
+      "known_n": 1497,
+      "reference_mcc": 0.1450079290416961,
+      "selected_mcc": 0.23066070353474366,
+      "delta_mcc": 0.08565277449304756,
+      "ci_low": 0.013090948443073317,
+      "ci_high": 0.14764451878540882,
+      "changed_known_calls": 272
+    }
+  ],
+  "prior_full_pool_concordance": [
+    {
+      "case": "sep15_to_sep23_umap",
+      "split_id": "umap",
+      "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+      "weighting": "uniform",
+      "lb_delta": -0.07381,
+      "oof_delta": 0.007084937649977391,
+      "concordant": false,
+      "ci_low": -0.03868864915175336,
+      "ci_high": 0.044391860336173955,
+      "effective_labelled_n": 1497.0,
+      "assumptions": "MAR given measured primary response; hypothetical prior.07; conditional cached fits"
+    },
+    {
+      "case": "sep15_to_sep23_umap",
+      "split_id": "umap",
+      "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+      "weighting": "selection_ipw",
+      "lb_delta": -0.07381,
+      "oof_delta": 0.0007757016119977617,
+      "concordant": false,
+      "ci_low": -0.04474059276792327,
+      "ci_high": 0.039429212063217235,
+      "effective_labelled_n": 1442.397334547997,
+      "assumptions": "MAR given measured primary response; hypothetical prior.07; conditional cached fits"
+    },
+    {
+      "case": "sep15_to_sep23_scaffold",
+      "split_id": "scaffold",
+      "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+      "weighting": "uniform",
+      "lb_delta": -0.07381,
+      "oof_delta": 0.045360296020161464,
+      "concordant": false,
+      "ci_low": -0.0012745786011841207,
+      "ci_high": 0.09623717744642198,
+      "effective_labelled_n": 1497.0,
+      "assumptions": "MAR given measured primary response; hypothetical prior.07; conditional cached fits"
+    },
+    {
+      "case": "sep15_to_sep23_scaffold",
+      "split_id": "scaffold",
+      "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+      "weighting": "selection_ipw",
+      "lb_delta": -0.07381,
+      "oof_delta": 0.04288131028174537,
+      "concordant": false,
+      "ci_low": -0.004311892011077738,
+      "ci_high": 0.09378705116957246,
+      "effective_labelled_n": 1442.2581862486434,
+      "assumptions": "MAR given measured primary response; hypothetical prior.07; conditional cached fits"
+    }
+  ],
+  "conclusion": "Whole-recipe same-threshold comparison was not validation of prospective Live model selection. Previously measured historical discordance remained unresolved. UMAP advantage disappears against the legacy historical-fraction diagnostic; scaffold advantage remains. This isolates a comparator-policy weakness, not the exact molecular cause of the Live failure or a validated replacement selector.",
+  "no_training": true,
+  "no_new_candidate": true,
+  "no_upload": true
+}

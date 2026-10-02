@@ -1,0 +1,5 @@
+split_id,model,comparator,delta,ci_low,ci_high
+umap,chemeleon_primary_network,fresh_d6_network,0.019577885400063416,-0.0445041517745416,0.08213706535448954
+umap,chemeleon_primary_network,chemeleon_class_network,0.013512001524468492,-0.04359136907235762,0.055977187592111524
+scaffold,chemeleon_primary_network,fresh_d6_network,0.06195244423103946,-0.0017335136980436239,0.12174165485477112
+scaffold,chemeleon_primary_network,chemeleon_class_network,0.0162710227333126,-0.013167706307475421,0.04797801021430927

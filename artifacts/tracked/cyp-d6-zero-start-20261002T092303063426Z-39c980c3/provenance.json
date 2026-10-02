@@ -1,0 +1,53 @@
+{
+  "source_run": "classification/20261002T092303063426Z-39c980c3",
+  "outputs": {
+    "blind-seed-agreement.csv": "891d921dcdb390c7286ab92a9fc11fbd9b0d5e73f045c6ca571b68b0765910a8",
+    "historical-full-pool-curves.csv": "7dbd23c53bf15484238a1b5410336c0759a2f9510d1f4b8e8dd679a749b56418",
+    "paired-fresh-policy-contrasts.csv": "30f9633f934cdbe1ce5193bcdd064c809944a1a118e02ce545c550e31278409a",
+    "summary.json": "b6ad0b3793dd712951bf338302b731500fe2808ab3c59da77d57169a2508b16e"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T085604402591Z-f4729cb1/outputs/combined-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T092303063426Z-39c980c3/inputs/combined-oof.parquet",
+      "sha256": "5d12268e62fbb2acabef619117b5ac72b9e0522a7154985a2a6fe678c3457f8c",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T040301085704Z-914bb06c/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T092303063426Z-39c980c3/inputs/control-umap.parquet",
+      "sha256": "c7b568d1f21827e3ba7f6c8b09f5ee5f95dcf2c61e4beeb159ed2c2b56b6acf3",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T041452692950Z-e17778e3/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T092303063426Z-39c980c3/inputs/control-scaffold.parquet",
+      "sha256": "35ca4779e545ccee8c157a6e92826fa138da1cbf64f5d9f7f342dc53adb98956",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T090029588080Z-2a20da72/outputs/blind-fold-predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T092303063426Z-39c980c3/inputs/blind-folds.parquet",
+      "sha256": "922fde77d5b68e30b8ffcd38d00b6d8faa2b012667b248240e84398a04fe6784",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "bootstrap_samples": 1000,
+    "rates": [
+      0.03,
+      0.05,
+      0.06533333333333333,
+      0.1,
+      0.15,
+      0.2,
+      0.33
+    ],
+    "priors": [
+      0.03,
+      0.07,
+      0.12
+    ],
+    "selection_rule": "Compare complete ten-model held-out policies at matched molecules/folds, plus frozen historical analog rank-rate sensitivity. Never choose deployment count from the rate grid or blind seed counts."
+  }
+}

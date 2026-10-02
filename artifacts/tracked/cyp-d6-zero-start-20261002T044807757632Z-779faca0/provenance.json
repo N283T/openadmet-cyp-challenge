@@ -1,0 +1,33 @@
+{
+  "source_run": "classification/20261002T044807757632Z-779faca0",
+  "outputs": {
+    "combined-oof.parquet": "11646f4374f4db02ca080b95af79ae2262f9a85e86eb4e946bb245b487139d60",
+    "seed-averaging-metrics.csv": "7ae8be22130c5a22774162a8291fadde8f7cd3ed949f972f650d705b32b071da",
+    "summary.json": "52c5c083e13fa6de52b7016c94143da44bcf618cb71f4f23c44f136bf0d5299a"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043618387974Z-bc88d8eb/outputs/nested-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T044807757632Z-779faca0/inputs/nested-oof.parquet",
+      "sha256": "a3f1a8f8cd3ef470070fee9e768a26dc1acc35f71207e9ef44d2267e2e74769f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043618387974Z-bc88d8eb/outputs/threshold-scale-audit.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T044807757632Z-779faca0/inputs/cuts.csv",
+      "sha256": "8a0d44b03bccde9c00bd22021ce5abc75d59cf4a0e8f5b8f35d3d4c75d8da159",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043618387974Z-bc88d8eb/config.json",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T044807757632Z-779faca0/inputs/model-config.json",
+      "sha256": "a33eb91386e6a62853ac64263b503ce51d71944ad1e27e2e229f640c2d791031",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "source_run": "20261002T043618387974Z-bc88d8eb",
+    "bootstrap_samples": 1000,
+    "selection_rule": "Equal average of two prespecified seeds, no fitted weights or call budget. Reconstruct exact original calls before evaluating combined margins. No historical-model inputs or upload."
+  }
+}

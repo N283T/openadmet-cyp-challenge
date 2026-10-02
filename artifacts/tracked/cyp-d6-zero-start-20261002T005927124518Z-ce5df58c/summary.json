@@ -1,0 +1,101 @@
+{
+  "config": {
+    "version": 5,
+    "seed": 20261002,
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 4,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "similarity"
+    ],
+    "similarity_threshold": 0.6,
+    "models": [
+      "morgan_logistic",
+      "fresh_d6_network",
+      "fresh_multiassay_network"
+    ],
+    "network_epochs": 100,
+    "representation": "Fresh Morgan fingerprints, independent logistic and random-initialized neural models",
+    "groups": "Connected components of development-only Morgan Tanimoto >= 0.6 graph. All assay records of all held-out molecules are excluded at every fitting boundary.",
+    "ablation_policy": "D6-only network auxiliary loss weights zero; multiassay uses .3 other binary and .2 continuous auxiliary weights",
+    "threshold_policy": "Inner OOF bootstrap mean MCC, no positive-count budget",
+    "motivation": "Exact Murcko scaffolds yielded 1450 distinct labelled groups for 1497 D6 labels; enforce actual molecular-neighbor separation instead",
+    "excluded_inputs": "Every prior model, score, call count and representation weight. Source molecule and assay tables only.",
+    "status": "New validation-population test; no upload"
+  },
+  "aggregate": [
+    {
+      "split_id": "similarity",
+      "fold": -1,
+      "model": "morgan_logistic",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 436,
+      "ap": 0.29073549833076506,
+      "auc": 0.6118741645880037,
+      "mcc": 0.048681405891022156,
+      "bootstrap_mcc": 0.04819605638553612,
+      "bootstrap_std": 0.026298924142831446
+    },
+    {
+      "split_id": "similarity",
+      "fold": -1,
+      "model": "fresh_d6_network",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 388,
+      "ap": 0.3037547244289022,
+      "auc": 0.6134371086061907,
+      "mcc": 0.11854817775224359,
+      "bootstrap_mcc": 0.11842224368497287,
+      "bootstrap_std": 0.027223251918250695
+    },
+    {
+      "split_id": "similarity",
+      "fold": -1,
+      "model": "fresh_multiassay_network",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 333,
+      "ap": 0.30158223747094787,
+      "auc": 0.6123898834896278,
+      "mcc": 0.08942627117175393,
+      "bootstrap_mcc": 0.08807262056994856,
+      "bootstrap_std": 0.02807830180145031
+    }
+  ],
+  "operating_points": [
+    {
+      "split_id": "similarity",
+      "fold": -1,
+      "model": "morgan_logistic",
+      "threshold": 0.21000000000000002,
+      "blind_positive": 209,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "similarity",
+      "fold": -1,
+      "model": "fresh_d6_network",
+      "threshold": 0.01,
+      "blind_positive": 227,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "similarity",
+      "fold": -1,
+      "model": "fresh_multiassay_network",
+      "threshold": 0.02,
+      "blind_positive": 219,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    }
+  ],
+  "caveats": [
+    "Scored blind label mask unknown",
+    "Pilot cannot establish transfer to Live",
+    "Regression point estimates below pIC50 4 are censored/noisy",
+    "Scaffold split leaves acyclic compounds as singletons",
+    "Bootstrap resamples use NumPy generator rather than official sklearn RNG"
+  ]
+}

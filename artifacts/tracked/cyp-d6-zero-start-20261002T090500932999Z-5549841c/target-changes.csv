@@ -1,0 +1,5 @@
+reference,endpoint,positives,added,removed,retained
+last_sent,CYP2D6_is_TDI,175,133,7,42
+last_sent,CYP3A4_is_TDI,249,0,0,249
+historical_best,CYP2D6_is_TDI,175,132,6,43
+historical_best,CYP3A4_is_TDI,249,0,0,249

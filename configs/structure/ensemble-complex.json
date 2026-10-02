@@ -1,0 +1,21 @@
+{
+  "min_matched_ca": 200,
+  "min_sequence_identity_percent": 70.0,
+  "max_core_rmsd_angstrom": 6.0,
+  "trim_cycles": 5,
+  "trim_cutoff": 2.0,
+  "protein_ligand_contact_angstrom": 4.5,
+  "max_ligand_heme_distance_angstrom": 12.0,
+  "min_ligand_heavy_atoms": 6,
+  "core_contact_fraction": 0.5,
+  "extended_contact_fraction": 0.1,
+  "extended_min_holo_chains": 2,
+  "heme_ccd_ids": ["HEM", "HEC"],
+  "artifact_ccd_ids": [
+    "ACE", "ACT", "BMA", "BME", "BOG", "CA", "CD", "CL", "CO", "CIT",
+    "CU", "DMS", "DOD", "EDO", "EPE", "FE", "FMT", "FUC", "GAL", "GLC",
+    "GOL", "HEC", "HEM", "HEP", "IPA", "K", "LDA", "MAN", "MES", "MG", "MN",
+    "MPD", "NA", "NAG", "NDG", "NI", "OG", "P6G", "PEG", "PGE", "PG4",
+    "PO4", "SO4", "TAR", "TRS", "ZN"
+  ]
+}

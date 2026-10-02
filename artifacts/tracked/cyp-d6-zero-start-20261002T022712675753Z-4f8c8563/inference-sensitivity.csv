@@ -1,0 +1,9 @@
+split_id,model,full_refit_calls,centered_fold_calls,majority_vote_calls,full_vs_centered_changed,full_vs_fold_rank_correlation
+umap,historical_morgan_lr_c005,107,51,63,56,0.9974178868733236
+umap,historical_morgan_rbf_c1,102,78,95,24,0.9961547592221749
+umap,historical_morgan_complement_a1,133,178,168,45,0.9879622038636384
+umap,fresh_d6_network,158,77,94,81,0.9753928085373081
+scaffold,historical_morgan_lr_c005,84,98,148,16,0.997531949302379
+scaffold,historical_morgan_rbf_c1,104,70,78,34,0.9955976168745949
+scaffold,historical_morgan_complement_a1,67,244,250,177,0.9932018791799541
+scaffold,fresh_d6_network,215,173,160,50,0.9692794036304163

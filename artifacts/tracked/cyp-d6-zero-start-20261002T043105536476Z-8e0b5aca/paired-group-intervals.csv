@@ -1,0 +1,11 @@
+split_id,baseline,comparator_model,comparator_policy,delta,ci_low,ci_high,limits
+umap,network_centered_fold_mean,potency_all,single_refit,0.031000049175841433,0.0013388619631208656,0.05967028475817258,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"
+umap,network_centered_fold_mean,potency_all,majority_vote,0.0036254529872509905,-0.015246031365745767,0.024372169457191065,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"
+umap,network_centered_fold_mean,potency_all,pooled_oof_cut,0.003407542040699721,-0.01831662491146515,0.02525748262961763,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"
+umap,network_centered_fold_mean,potency_conditional,centered_fold_mean,-0.03018066688031633,-0.06472019622470515,0.00624261679267743,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"
+umap,network_centered_fold_mean,potency_gate,centered_fold_mean,-0.02927472488443142,-0.058014618163203725,-0.004732875238356298,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"
+scaffold,network_centered_fold_mean,potency_all,single_refit,0.013787808905821014,-0.011231102556558665,0.036947419123517955,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"
+scaffold,network_centered_fold_mean,potency_all,majority_vote,-0.0035281899044387333,-0.012918049125964849,0.0061117441161213015,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"
+scaffold,network_centered_fold_mean,potency_all,pooled_oof_cut,0.005698299743482127,-0.010131515730342221,0.022793862658161353,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"
+scaffold,network_centered_fold_mean,potency_conditional,centered_fold_mean,-0.037828748943554896,-0.06267079646071423,-0.014304510978893082,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"
+scaffold,network_centered_fold_mean,potency_gate,centered_fold_mean,-0.03840448980756683,-0.060111553542553736,-0.019906981966085847,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"

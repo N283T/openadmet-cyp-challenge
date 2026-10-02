@@ -1,0 +1,96 @@
+{
+  "source_run": "classification/20261002T043618387974Z-bc88d8eb",
+  "outputs": {
+    "aggregate-metrics.csv": "55be80ecaa5804824ed332840382a4ff2d16ae7d8e0d9a7d8ac6bf931e460cf8",
+    "fold-metrics.csv": "1563f1e4820103b221ce1cb65d12448dc64628d1035b6b363e4b87ce717e2a0a",
+    "leakage-and-operating-points.csv": "285438cf8d402659610a30b17f30503b36c08d34e308e35b2b7ab6c5688d7198",
+    "nested-oof.parquet": "a3f1a8f8cd3ef470070fee9e768a26dc1acc35f71207e9ef44d2267e2e74769f",
+    "paired-group-intervals.csv": "51e114737d18798639294ab3ee24944685f02a3b93afc5baee0f4c4c3710e67d",
+    "primary-source-audit.parquet": "21269742bd5a6ef771871f3990a69dca39f02943108db0c1a30a5b426a002942",
+    "representation.json": "42d9eec04f9d5589b0f643ab4c98df2c7e3be0ad33402e07f51e8824a1b10838",
+    "source-audit.parquet": "a4cecf003c307d53295278f55d20918028fe0c7ca6cffa8bb1b5b48c623b5a05",
+    "summary.json": "272130a24c248abb973fc13d45aa46eadf7256f4a8dfc66a42bc04b59f24c421",
+    "threshold-scale-audit.csv": "8a0d44b03bccde9c00bd22021ce5abc75d59cf4a0e8f5b8f35d3d4c75d8da159"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043618387974Z-bc88d8eb/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043618387974Z-bc88d8eb/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043618387974Z-bc88d8eb/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043618387974Z-bc88d8eb/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/data/raw/cyp-challenge-single-concentration-TRAIN.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043618387974Z-bc88d8eb/inputs/primary-screen.csv",
+      "sha256": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seed": 20261002,
+    "seeds": [
+      20261002,
+      20261017
+    ],
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 5,
+    "bag_folds": 5,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "umap",
+      "scaffold"
+    ],
+    "fixed_assignments": "assignments.parquet",
+    "models": [
+      "fresh_d6_network",
+      "potency_gate"
+    ],
+    "network_epochs": 20,
+    "nested_bag_validation": true,
+    "threshold_grid": "inner_quantiles",
+    "cpu_threads": 4,
+    "policies": [
+      "centered_fold_mean",
+      "majority_vote",
+      "pooled_oof_cut",
+      "single_refit"
+    ],
+    "historical_comparisons": [],
+    "scientific_purpose": "Separate training class prevalence from the decision objective: prespecified bootstrap-MCC thresholds at hypothetical priors .03/.07/.12 and observed-label prevalence, using the same fresh 20-epoch class network and potency gate fits. Fully nested five-model decision transfer, no 49-call constraint, no old model inputs.",
+    "selection_rule": "Report every prior policy with matching hypothetical held-out prior-adjusted MCC; no scenario is asserted to be the unknown blind prevalence. Model/threshold fitting excludes held-out groups and all their assays. Outputs include fitted inner cuts and keyed calls. No upload.",
+    "limitations": "Label-shift calculations require class-conditional score transfer; primary selection violates coverage, so hypothetical projected MCC is not identified blind accuracy. No unknown labels are assigned negative. Protocol/fit uncertainty exceeds conditional bootstrap intervals.",
+    "primary_screen": "primary-screen.csv",
+    "propensity_weight_cap": 5.0,
+    "baseline_model": "fresh_d6_network",
+    "selection_control": false,
+    "primary_enzyme_index": 0,
+    "primary_activity_cut": -0.5,
+    "primary_activity_loss_weight": 1.0,
+    "skip_historical_diagnostics": true,
+    "threshold_priors": [
+      0.03,
+      0.07,
+      0.12
+    ]
+  }
+}

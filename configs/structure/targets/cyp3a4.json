@@ -1,0 +1,17 @@
+{
+  "target": "CYP3A4",
+  "accession": "P08684",
+  "expected_length": 503,
+  "togo_query": "CYP3A4",
+  "pdb_protein_name": "Cytochrome P450 3A4",
+  "pdb_heme_names": ["PROTOPORPHYRIN IX CONTAINING FE", "HEME C"],
+  "search_limit": 300,
+  "max_workers": 6,
+  "download_url_template": "https://files.rcsb.org/download/{pdb_id}.cif",
+  "afdb_api_url": "https://alphafold.ebi.ac.uk/api/prediction/P08684",
+  "afdb_entry_id": "AF-P08684-F1",
+  "msa_dataset": "LiteFold/human-proteome-wide-msa",
+  "msa_revision": "632cfc87f567e429570897c3addd80665a697f3e",
+  "msa_path": "a3m/shard-002/P08684.a3m",
+  "msa_bytes": 8300528
+}

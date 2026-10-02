@@ -1,0 +1,7 @@
+{
+  "target": "cyp2d6",
+  "protein_length": 497,
+  "workers": 8,
+  "representation": "post-r1",
+  "input_storage": "hardlinks to retained frozen canonical tensors"
+}

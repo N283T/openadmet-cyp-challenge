@@ -1,0 +1,14 @@
+{
+  "kind": "blend",
+  "count": 1,
+  "weight": 0.5,
+  "models": [
+    "core_separate_fe--trunk--lgbm_binary"
+  ],
+  "inner_AP": 0.3247491052953275,
+  "diagnostic_source": "20261001T133225940252Z-502d403a",
+  "positive_calls": 49,
+  "rate_policy": "Keep historical 49/750 to isolate score-recipe changes; no rate optimization",
+  "test_aggregation": "Average five raw fold predictions per readout, rank across 750, then average selected readout ranks",
+  "scope": "Full-development selection of the previously diagnosed AP-block procedure; selection score is descriptive, not independent validation; no upload authorized"
+}

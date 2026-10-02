@@ -7,6 +7,14 @@ is recorded; cleanup must be targeted rather than a broad deletion of ignored fi
 
 - `runs/<track>/<id>/`: intent, source/environment/input snapshots, manifest, console,
   outputs, persistent scratch, result (including failure).
+- `pruned-runs/<track>/<id>.json`: compact tombstones retained after failed run payloads
+  are pruned with `pixi run cyp prune-runs --status failed --execute`.
+- `boltz-trunk/post-r1/<target>/`: canonical per-record post-trunk recycle-one tensors
+  and keyed Parquet manifests; legacy run output paths are non-duplicating symlinks.
+- `tracked/cyp-boltz-*`: compact pooling, incumbent comparison, diversity, adoption
+  and Live audit outputs. The canonical final incumbent comparison ends in
+  `04ff278c`; earlier comparison snapshots are retained provenance, not separate
+  current model recommendations. See [current adoption](../docs/analysis/2026-10-01-boltz-regression-adoption.md).
 - `candidates/<track>/<id>/`: validated frozen prediction file and source run IDs.
 - `submissions/<track>/<id>/`: separate frozen upload file, initial manifest and events.
   A prepared file is not a sent or accepted submission.

@@ -1,0 +1,139 @@
+{
+  "config": {
+    "deployment_run": "20261002T090029588080Z-2a20da72",
+    "model_files": [
+      "model-20261002-bag0.pt",
+      "model-20261002-bag1.pt",
+      "model-20261002-bag2.pt",
+      "model-20261002-bag3.pt",
+      "model-20261002-bag4.pt",
+      "model-20261017-bag0.pt",
+      "model-20261017-bag1.pt",
+      "model-20261017-bag2.pt",
+      "model-20261017-bag3.pt",
+      "model-20261017-bag4.pt"
+    ],
+    "selection_rule": "Package the predefined ten-model UMAP margin-average D6 policy. Verify restored model scores and exact final calls. Keep A4 equal to the last sent payload. Compare target-wise changes against last sent and historical best. No upload."
+  },
+  "validation": {
+    "track": "classification",
+    "rows": 750,
+    "columns": [
+      "SMILES",
+      "Molecule_Name",
+      "CYP2D6_is_TDI",
+      "CYP3A4_is_TDI"
+    ],
+    "valid": true
+  },
+  "target_changes": [
+    {
+      "reference": "last_sent",
+      "endpoint": "CYP2D6_is_TDI",
+      "positives": 175,
+      "added": 133,
+      "removed": 7,
+      "retained": 42
+    },
+    {
+      "reference": "last_sent",
+      "endpoint": "CYP3A4_is_TDI",
+      "positives": 249,
+      "added": 0,
+      "removed": 0,
+      "retained": 249
+    },
+    {
+      "reference": "historical_best",
+      "endpoint": "CYP2D6_is_TDI",
+      "positives": 175,
+      "added": 132,
+      "removed": 6,
+      "retained": 43
+    },
+    {
+      "reference": "historical_best",
+      "endpoint": "CYP3A4_is_TDI",
+      "positives": 249,
+      "added": 0,
+      "removed": 0,
+      "retained": 249
+    }
+  ],
+  "model_roundtrip_verified": true,
+  "models": [
+    {
+      "file": "model-20261002-bag0.pt",
+      "sha256": "01841530b5eb03f0e72a1c334bbff0bed259d6b71b8502a50db15009baa5bb7a",
+      "seed": 20261002,
+      "fold": 0,
+      "cut": 0.07204611375927926
+    },
+    {
+      "file": "model-20261002-bag1.pt",
+      "sha256": "24a0a15f50a3b7d5c2c9100a3f2c8be13dd341e7811dc37b13bd5c99e635d17c",
+      "seed": 20261002,
+      "fold": 1,
+      "cut": 0.11991381098826732
+    },
+    {
+      "file": "model-20261002-bag2.pt",
+      "sha256": "22f6ad8bc592e00ed05e2ba4f611df7dcb0c78df1c1f72fdedc9e684748b946b",
+      "seed": 20261002,
+      "fold": 2,
+      "cut": 0.07096721231937408
+    },
+    {
+      "file": "model-20261002-bag3.pt",
+      "sha256": "4fe43922f97e6197b7268edbd842c4ad42408ac3997915f2f12357b815a02492",
+      "seed": 20261002,
+      "fold": 3,
+      "cut": 0.789357453584671
+    },
+    {
+      "file": "model-20261002-bag4.pt",
+      "sha256": "dbc5190f15a6e0a17c6399f6f453cf709064f0ed9ca3337bd0bae9b54b730bca",
+      "seed": 20261002,
+      "fold": 4,
+      "cut": 0.8256609467665355
+    },
+    {
+      "file": "model-20261017-bag0.pt",
+      "sha256": "bee7d0be5ce2b38329bc4c3461e53d31b0fea81580190b42303ce7ae96fe724d",
+      "seed": 20261017,
+      "fold": 0,
+      "cut": 0.21372024292747194
+    },
+    {
+      "file": "model-20261017-bag1.pt",
+      "sha256": "96ad395bd0fdd57adb351c3a3953811ecd4792bed58cd7ce13bf8c4aa0665fee",
+      "seed": 20261017,
+      "fold": 1,
+      "cut": 0.0018957470706664034
+    },
+    {
+      "file": "model-20261017-bag2.pt",
+      "sha256": "5c9e8433e7f6667f75ed972cf6eca719b4467f7a82760b82408adb5a6d246e19",
+      "seed": 20261017,
+      "fold": 2,
+      "cut": 0.06873697042465211
+    },
+    {
+      "file": "model-20261017-bag3.pt",
+      "sha256": "3b95d94bfbdb6ba2cd90a284660399359947a68229e07aa9fedc2a6c6f6f1ae6",
+      "seed": 20261017,
+      "fold": 3,
+      "cut": 0.2980245423316956
+    },
+    {
+      "file": "model-20261017-bag4.pt",
+      "sha256": "194b7690376efe4ce92d0e6af3439abeac346cb647f0882c3cd6007ce4308bed",
+      "seed": 20261017,
+      "fold": 4,
+      "cut": 0.6497362184524546
+    }
+  ],
+  "no_upload": true,
+  "decision": "Fresh CheMeleon plus four-primary-assay 20-epoch readout, ten equal-margin bag models. A4 retains the latest exact leaderboard-best payload. No D6 incumbent score or positive budget.",
+  "limits": "Not a demonstrated Live improvement or identification of historical hidden labels. Encoder original pretraining corpus unknown; source provenance retained."
+}

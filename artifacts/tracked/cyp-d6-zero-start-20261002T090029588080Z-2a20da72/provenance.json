@@ -1,0 +1,110 @@
+{
+  "source_run": "classification/20261002T090029588080Z-2a20da72",
+  "outputs": {
+    "blind-fold-predictions.parquet": "922fde77d5b68e30b8ffcd38d00b6d8faa2b012667b248240e84398a04fe6784",
+    "blind-policy.parquet": "4b75c09299401b37477597956842a9c7ef2514a060855f8cafeaddf7cc4be183",
+    "keyed-fit-memberships.parquet": "579fcdce2393544bbbd2add890d6d7959bba2a7a99c59f4e14685a81151db8a7",
+    "models/20261002-bag0.pt": "01841530b5eb03f0e72a1c334bbff0bed259d6b71b8502a50db15009baa5bb7a",
+    "models/20261002-bag1.pt": "24a0a15f50a3b7d5c2c9100a3f2c8be13dd341e7811dc37b13bd5c99e635d17c",
+    "models/20261002-bag2.pt": "22f6ad8bc592e00ed05e2ba4f611df7dcb0c78df1c1f72fdedc9e684748b946b",
+    "models/20261002-bag3.pt": "4fe43922f97e6197b7268edbd842c4ad42408ac3997915f2f12357b815a02492",
+    "models/20261002-bag4.pt": "dbc5190f15a6e0a17c6399f6f453cf709064f0ed9ca3337bd0bae9b54b730bca",
+    "models/20261017-bag0.pt": "bee7d0be5ce2b38329bc4c3461e53d31b0fea81580190b42303ce7ae96fe724d",
+    "models/20261017-bag1.pt": "96ad395bd0fdd57adb351c3a3953811ecd4792bed58cd7ce13bf8c4aa0665fee",
+    "models/20261017-bag2.pt": "5c9e8433e7f6667f75ed972cf6eca719b4467f7a82760b82408adb5a6d246e19",
+    "models/20261017-bag3.pt": "3b95d94bfbdb6ba2cd90a284660399359947a68229e07aa9fedc2a6c6f6f1ae6",
+    "models/20261017-bag4.pt": "194b7690376efe4ce92d0e6af3439abeac346cb647f0882c3cd6007ce4308bed",
+    "primary-source-audit.parquet": "4aacb29bf99ee72f83faa4025bb15a7fb635207f8e10ac08e01096f0b5f8738c",
+    "representation.json": "50dbf0ffe145d63e9d2ef342c669dcfc55718cf248fb4d599732ee44b33dcbc0",
+    "source-audit.parquet": "a4cecf003c307d53295278f55d20918028fe0c7ca6cffa8bb1b5b48c623b5a05",
+    "summary.json": "9aa5cd9ba9806310a11e994ae9c14861914ad19b6b3f7adc40f0b4aa6ca0ccce",
+    "trained-cuts.csv": "b5d145ff0cd3e474852e8f5b0b187a6dd6e5378cd5272837b16541cd382c4320"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T090029588080Z-2a20da72/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T090029588080Z-2a20da72/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T090029588080Z-2a20da72/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T090029588080Z-2a20da72/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/data/raw/cyp-challenge-single-concentration-TRAIN.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T090029588080Z-2a20da72/inputs/primary-screen.csv",
+      "sha256": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260912T061231617816Z-299439e8/outputs/external-embeddings.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T090029588080Z-2a20da72/inputs/chemeleon-features.parquet",
+      "sha256": "6d173163edfc7d0cd5354f893e76070c626e19a1aa5a9790dfc4b537070c1e91",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seed": 20261002,
+    "seeds": [
+      20261002,
+      20261017
+    ],
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 5,
+    "bag_folds": 5,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "umap",
+      "scaffold"
+    ],
+    "fixed_assignments": "assignments.parquet",
+    "models": [
+      "chemeleon_primary_network"
+    ],
+    "network_epochs": 20,
+    "nested_bag_validation": false,
+    "threshold_grid": "inner_quantiles",
+    "cpu_threads": 4,
+    "policies": [
+      "centered_fold_mean",
+      "majority_vote",
+      "pooled_oof_cut",
+      "single_refit"
+    ],
+    "historical_comparisons": [],
+    "scientific_purpose": "Fit and persist the selected fresh CheMeleon plus four-primary-assay D6 readout as the validated two-seed five-bag margin policy, then score all 750 blind molecules. No incumbent scores, no fixed call count, no upload.",
+    "selection_rule": "Choose the primary-supervised fresh CheMeleon learner: equal-seed combined held-out MCC .14530 UMAP/.23066 scaffold versus matched Morgan .12572/.16871 and class-only CheMeleon .13178/.21439. Use UMAP as routine deployment split, both prespecified seeds and learned bag cuts; no blind-output-based tuning.",
+    "limitations": "Model/policy chosen after development inspections. Ten-model bag policy is evaluated inside untouched outer fitting boundaries but deployment bag models use 80 percent rather than 64 percent of development. Generic upstream 47-head ADME encoder original corpus manifest unknown; features are not prior challenge scores. Weak-primary D6 class outcomes remain unidentified; historical ensemble superiority on Live is not established.",
+    "primary_screen": "primary-screen.csv",
+    "propensity_weight_cap": 5.0,
+    "baseline_model": "chemeleon_class_network",
+    "selection_control": false,
+    "primary_enzyme_index": 0,
+    "primary_activity_cut": -0.5,
+    "primary_activity_loss_weight": 1.0,
+    "skip_historical_diagnostics": true,
+    "float32_matmul_precision": "high",
+    "embedding_file": "chemeleon-features.parquet",
+    "embedding_dimensions": 2048,
+    "deploy_nested_policy": true,
+    "deployment_split": "umap",
+    "deployment_model": "chemeleon_primary_network"
+  }
+}

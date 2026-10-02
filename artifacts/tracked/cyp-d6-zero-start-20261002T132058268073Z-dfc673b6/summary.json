@@ -1,0 +1,30 @@
+{
+  "config": {
+    "endpoint": "CYP2D6_is_TDI",
+    "diagnostic_top_k": 49,
+    "submitted_positives": 175,
+    "purpose": "Answer the user-requested counterfactual call-set comparison: top 49 of the exact submitted new model versus the historical best 49-call payload.",
+    "ranking": "Descending ten-model mean trained margin; molecule name breaks ties. Verify raw-score top set agrees.",
+    "limits": "Compare actual blinded call identities, not OOF analogs or hypothetical LB scores. No hidden labels, new candidate or submission."
+  },
+  "comparisons": [
+    {
+      "policy": "counterfactual_top49",
+      "positives": 49,
+      "shared": 22,
+      "added": 27,
+      "removed": 27,
+      "changed": 54
+    },
+    {
+      "policy": "submitted175",
+      "positives": 175,
+      "shared": 43,
+      "added": 132,
+      "removed": 6,
+      "changed": 138
+    }
+  ],
+  "no_upload": true,
+  "no_lb_estimate": true
+}

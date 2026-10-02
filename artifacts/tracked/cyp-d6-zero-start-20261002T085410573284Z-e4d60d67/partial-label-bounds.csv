@@ -1,0 +1,13 @@
+case,split_id,seed,scope,transport_calibration_eligible,actual_delta,population_n,known_n,unknown_n,before_calls,after_calls,known_tp_delta,removed_unknown,added_unknown,lower_delta,upper_delta,lower_unknown_positives,upper_unknown_positives,possible_negative,possible_positive,equal_count_reversal_witness
+sep12_to_sep13,umap,,historical labelled-only diagnostic; not deployment rate selection,false,,1497,1497,0,86,97,11,0,0,0.052071758219965444,0.052071758219965444,0,0,false,true,
+sep13_to_sep14,umap,,historical labelled-only diagnostic; not deployment rate selection,false,,1497,1497,0,97,97,3,0,0,0.01976840631776878,0.01976840631776878,0,0,false,true,
+sep15_to_sep23_umap,umap,,complete-pool frozen recipe analog; conditional outer AP weights,true,,6146,1497,4649,401,401,2,172,170,-0.41120578165839655,0.4168110740046022,172,170,true,true,3
+sep15_to_sep23_scaffold,scaffold,,complete-pool frozen recipe analog; conditional outer AP weights,true,,6146,1497,4649,400,400,7,136,140,-0.3233606105716046,0.36701809712550376,136,140,true,true,8
+a4_selection_reversal,umap,20261002,known A4 population; weak classes hidden only for bounds,true,-0.15642757073934133,3584,1291,2293,2383,2300,-104,366,534,-0.59030900907109,0.628499841990659,366,1927,true,true,
+a4_selection_reversal,umap,20261017,known A4 population; weak classes hidden only for bounds,true,-0.15880549291955134,3584,1291,2293,2483,2608,-64,290,588,-0.5541943294381209,0.62657840579003,1705,588,true,true,
+a4_selection_reversal,scaffold,20261002,known A4 population; weak classes hidden only for bounds,true,-0.15297905640139786,3584,1291,2293,2313,2767,-15,208,759,-0.6057196522816866,0.7193642688750813,1534,759,true,true,
+a4_selection_reversal,scaffold,20261017,known A4 population; weak classes hidden only for bounds,true,-0.16682269522762033,3584,1291,2293,2253,2629,-23,298,792,-0.6525086358202327,0.7633211115706106,1501,792,true,true,
+a4_primary_gate,umap,20261002,known A4 population; weak classes hidden only for bounds,true,-0.16051588040994802,3584,1291,2293,2383,2384,-85,360,578,-0.5934352516580657,0.6401749631505177,360,1933,true,true,
+a4_primary_gate,umap,20261017,known A4 population; weak classes hidden only for bounds,true,-0.15187389526964884,3584,1291,2293,2483,2596,-59,289,572,-0.5383799758110225,0.6197314844081228,1721,572,true,true,
+a4_primary_gate,scaffold,20261002,known A4 population; weak classes hidden only for bounds,true,-0.1655288425789791,3584,1291,2293,2313,2290,-85,379,610,-0.597046796911265,0.6891155063978989,379,1914,true,true,
+a4_primary_gate,scaffold,20261017,known A4 population; weak classes hidden only for bounds,true,-0.17727075035108214,3584,1291,2293,2253,2555,-37,334,786,-0.6575172797011186,0.7689980454763348,1507,786,true,true,

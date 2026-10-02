@@ -1,0 +1,165 @@
+{
+  "config": {
+    "purpose": "Use four predetermined complete split/seed blocks with identical scientific protocol and feature input hashes. Verify 400 complete ensemble fits and twenty complete outer predictions. No result-dependent block selection.",
+    "partitions": [
+      {
+        "run_id": "20261002T095304331805Z-fad722ec",
+        "split_id": "umap",
+        "seed": 20261002,
+        "allow_completed_interrupted_block": true
+      },
+      {
+        "run_id": "20261002T101409635209Z-967b7499",
+        "split_id": "umap",
+        "seed": 20261017
+      },
+      {
+        "run_id": "20261002T101409621831Z-5bf54a17",
+        "split_id": "scaffold",
+        "seed": 20261002
+      },
+      {
+        "run_id": "20261002T101409637266Z-41e6beb1",
+        "split_id": "scaffold",
+        "seed": 20261017
+      }
+    ]
+  },
+  "common_protocol": {
+    "endpoint": "CYP2D6_is_TDI",
+    "fixed_assignments": "assignments.parquet",
+    "outer_folds": 5,
+    "bag_folds": 5,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "cpu_threads": 4,
+    "mordred_files": 54,
+    "graph_max_epochs": 80,
+    "graph_patience": 10,
+    "model_name": "sep15_whole_fresh_nested",
+    "members": [
+      "morgan_plain",
+      "mordred_plain",
+      "fp_mordred_plain",
+      "external_class_plain",
+      "external_mixed_plain",
+      "external_mixed_pca256",
+      "external_mixed_raw600",
+      "tdi_only",
+      "logistic_c0.05",
+      "rbf_svm_c1",
+      "complement_nb_a1"
+    ]
+  },
+  "partitions": [
+    {
+      "run_id": "20261002T095304331805Z-fad722ec",
+      "split_id": "umap",
+      "seed": 20261002,
+      "allow_completed_interrupted_block": true,
+      "exit_code": -15,
+      "retained_complete_folds": 5,
+      "retained_fits": 100
+    },
+    {
+      "run_id": "20261002T101409635209Z-967b7499",
+      "split_id": "umap",
+      "seed": 20261017,
+      "exit_code": 0,
+      "retained_complete_folds": 5,
+      "retained_fits": 100
+    },
+    {
+      "run_id": "20261002T101409621831Z-5bf54a17",
+      "split_id": "scaffold",
+      "seed": 20261002,
+      "exit_code": 0,
+      "retained_complete_folds": 5,
+      "retained_fits": 100
+    },
+    {
+      "run_id": "20261002T101409637266Z-41e6beb1",
+      "split_id": "scaffold",
+      "seed": 20261017,
+      "exit_code": 0,
+      "retained_complete_folds": 5,
+      "retained_fits": 100
+    }
+  ],
+  "fits": 400,
+  "complete_outer_blocks": 20,
+  "unchanged_input_hashes": {
+    "compounds.parquet": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+    "measurements.parquet": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+    "aliases.parquet": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+    "assignments.parquet": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+    "class-embeddings.parquet": "8d77fe8f93e65b532328da8ffd3635718eed4acf7a7f0678b11513faac121df3",
+    "mixed-embeddings.parquet": "8e0002b306fa41f95b48afea8edba9e3bdc06f79ba705e63feb20b6ec0c7bf81",
+    "external-best.pt": "133a31309d8f293cad716d451bb8624ac588bb5193ce3d559cd4bac3b1833e7c",
+    "tabpfn-v2.6.ckpt": "0578fa56f97e11024e31735aaec2c4e7332584b7730242fbaf6c0bbd0299206a",
+    "mordred-00000.parquet": "1df0ac4174d5002e350fc5a8129e391ee0b8c8ac927ed1e6d26a127eaeeaaf16",
+    "mordred-00001.parquet": "d282f479b0c470fb0b5c99d5b1d6f2c81d281eef227e5ec11b8feee99eec8232",
+    "mordred-00002.parquet": "4ab0457bb4f404aea9722e5a8c98eec2edd9f5b6598b049da3ee0d58c7628c40",
+    "mordred-00003.parquet": "a8b44a1dc67ebb9cc8299aaa43ceaa917c942eae791b11ea40b30090590c6a17",
+    "mordred-00004.parquet": "5559a195846f7a95d9659e1ff9df5ac6e69d7822f05f22464a5ebcdc8f90e369",
+    "mordred-00005.parquet": "b75fc83a3f92f9447b00ef333eb7bd8c8e44565ef0ba1cf1f95fe0d15949f581",
+    "mordred-00006.parquet": "c0e20de2ef1d6ef39e783bfc2b3c0c12bb00b43cc481ab0f4b2eddcfbd6ff5c9",
+    "mordred-00007.parquet": "913e2816921be52c11bdef3b331bfb128b770f54c1c83f4245ee6acb489825e7",
+    "mordred-00008.parquet": "10e6b8d3158008bb11d874db693323614e87ab79263be665aaae7d3f9c2874f3",
+    "mordred-00009.parquet": "9b0af7d2269cdd98d2b6e597d33a1f267900271c8e4a335b6f9cfab0a075fa5c",
+    "mordred-00010.parquet": "f18d0dbb4a9afea5fdf4c1868448f870166dc6a70071079052c253b012d7f26b",
+    "mordred-00011.parquet": "386aa384d9aad79f6300b086faf5580c91fa33db86c0de02b24bfd3e68d65279",
+    "mordred-00012.parquet": "ddb34cb9409d64066a1e7fd02cdf34cdeeebbe2b9390adb5d38949f22f0080ed",
+    "mordred-00013.parquet": "8e05379be5008832738d9644663fbfa23915f3c751cfccc5b0469945ca67ca71",
+    "mordred-00014.parquet": "8b2549ee218c40de7407d1818b027ecceaa295459135a080e99adc416f25b137",
+    "mordred-00015.parquet": "2cc512268e79b31a2a65a286d56bd957c2336c76e0407d88182b75ba3c2a3279",
+    "mordred-00016.parquet": "589cd4917c5ecedead193a4c2e65430351de0fd64af2440686974e93d98fd8b8",
+    "mordred-00017.parquet": "50e6d59e2fe7413cfe5c386828ac1cac9f5fd31fbbc708bcb0705d6424ea4027",
+    "mordred-00018.parquet": "0b60dbc5c02621a6c4d243d7f63e494cb2afde857826edc5e1259b520710251e",
+    "mordred-00019.parquet": "222442c57951fe62d00b1b4387d65ed514fa672ab274615074a4aaec1d762a2b",
+    "mordred-00020.parquet": "7f50c86e21bb50c15804cb955ed49acfebc61f0a0e56ce61b81feff87fc1f868",
+    "mordred-00021.parquet": "2355f9ff34cb415f92dbb6ab5938dff071efc075cb1f2c74a558acfee4fffa86",
+    "mordred-00022.parquet": "7224c1c74da1b914cefd472e0f8d60866b45560ac6e712c99abbd8abd34bbf44",
+    "mordred-00023.parquet": "306e8555f75780325917212a4f9616bb54a695941978a191d0a73abfc4925982",
+    "mordred-00024.parquet": "c0f2aa970c262c81d68999db4c856d6b808cad29101dfd5ae21f5103942bf36c",
+    "mordred-00025.parquet": "342fc86f0b393dfa4486df331e196daebc067155e11a4a2ee5808c64229f5342",
+    "mordred-00026.parquet": "93598eee6ab7669a96468505821a6425ea9edcbc1bc22ff8c9af50854b854508",
+    "mordred-00027.parquet": "725cd8d4d602b3bab0c33f8aabf92198f4e1298db3decfc48caeb455a153c6f3",
+    "mordred-00028.parquet": "13bd6de307cff0bc56f219d2d27d6aae04851d2e96ea7ee66cf33f6b8cdfa30f",
+    "mordred-00029.parquet": "52765a45b2ad3729bf6dd2d80694b7e67d3c4822a21246d6b8e5d537c9a759ce",
+    "mordred-00030.parquet": "466625c2a0aebe6877ae6528973d8711df13fc6d15dacf0f41d8c001b3729b54",
+    "mordred-00031.parquet": "387e96ac449965f7fcdad2449f310fa273d10ddb823272fc42f5f86243c0a952",
+    "mordred-00032.parquet": "b9fe6032ae4743fb8ac3436bb1e97f142e9aeb9b4d7d04aece30e0df139e8081",
+    "mordred-00033.parquet": "02ac505440c2568a075d9369ddb0873eea638c0ff17a48ae478c43089691c416",
+    "mordred-00034.parquet": "f0896fec03be544cacaf9d8abb72dbf49a656c7193f88ec1734758f17d942d44",
+    "mordred-00035.parquet": "e44d8cb69f358f43c854c4cc2d1ff3ff79bdc75894d63fc939683d23ebea0ab0",
+    "mordred-00036.parquet": "39e69455b78a1fae99b6f192a64d551d9c65b9418155a26c842390192a5da7ec",
+    "mordred-00037.parquet": "be60c57f92d785f8f9c5059cca1408f3f491ce3aa1ebb8308781af5a7133d48f",
+    "mordred-00038.parquet": "54b5946d9e19c3297e8f83a1893f6980e30b7d0db641f1274534ce84a4787583",
+    "mordred-00039.parquet": "9a9a68ee7de0cc764a0c1e81ef20ba01883be72a66a14782473e3bdeb49e2261",
+    "mordred-00040.parquet": "c940f7657a1202d77a63ac2c4ec23745129813bee794aca1da7a219ab9fc7030",
+    "mordred-00041.parquet": "690d0077685d3a57aed1d627bfac4570a3b486ec3ecfce5579f108f32eca1da9",
+    "mordred-00042.parquet": "47c3f934cfd545db030fc3ffe55175d32100c4e70189241e156183a5a4ab4316",
+    "mordred-00043.parquet": "507e68c8af567a52f376b5a910f78a06ec6510c31ca4b047dd8b9389ab780c85",
+    "mordred-00044.parquet": "78c4938575d234bf705d813d2dcef63d98f5106bce4b53ce7ebda5ab6fd559df",
+    "mordred-00045.parquet": "53989671b95c844f5d1a679c89553f3d71f37cb68917b9771588c44e72cfa955",
+    "mordred-00046.parquet": "e0347e4584bb42c995f3b235b2e2ab7fa4dd8291d357421aa57ba97fc075e89a",
+    "mordred-00047.parquet": "91e3235d44d4ca28d50d9c080822600dcbfb3782e4e5b6ec1a1421f837748875",
+    "mordred-00048.parquet": "3febe32c0a832d0136cb588ab628e3567f85229b5d1265e7d1296641596883f4",
+    "mordred-00049.parquet": "11ed59bf471b6662ba529d402331cf90921c742b01880becb234b263f8fbea18",
+    "mordred-00050.parquet": "36a53d0b597c3c7eed3213af41b40bb80691ea5a5250c66ae72e9deeb8082bb8",
+    "mordred-00051.parquet": "d1b0fc1e6cad25c860ea96adcd4ef178c3173105135b8f07db34786fd9998044",
+    "mordred-00052.parquet": "b00c3e3faa188843fa8971cdf7b95eea57fbe4b58bbfdec44e8925eae1e0d881",
+    "mordred-00053.parquet": "6fe6491fa96e68a1b164a2efc87d6eb2228f8edc302c5809dcb9233d1fcf148a"
+  },
+  "no_upload": true,
+  "no_pretrained_assets": false,
+  "reused_external_assets": [
+    "class-embeddings.parquet",
+    "mixed-embeddings.parquet",
+    "external-best.pt",
+    "tabpfn-v2.6.ckpt"
+  ],
+  "metadata_correction": "The generic source representation.json flag inspected only the fresh embedding_file option. The legacy manifests explicitly declare external pretrained assets. Corrected here without altering source outputs or fitted models.",
+  "reason": "Predetermined compute blocks; no metric-dependent selection."
+}

@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "seed": 20261002,
+  "seeds": [
+    20261002,
+    20261017
+  ],
+  "endpoint": "CYP3A4_is_TDI",
+  "outer_folds": 5,
+  "bag_folds": 5,
+  "inner_folds": 3,
+  "bootstrap_samples": 1000,
+  "split_strategies": [
+    "umap",
+    "scaffold"
+  ],
+  "fixed_assignments": "assignments.parquet",
+  "models": [
+    "chemeleon_class_network",
+    "chemeleon_primary_network",
+    "chemeleon_selected_network",
+    "chemeleon_selected_primary_network"
+  ],
+  "network_epochs": 20,
+  "nested_bag_validation": true,
+  "threshold_grid": "inner_quantiles",
+  "cpu_threads": 4,
+  "policies": [
+    "centered_fold_mean",
+    "majority_vote",
+    "pooled_oof_cut",
+    "single_refit"
+  ],
+  "historical_comparisons": [],
+  "scientific_purpose": "Controlled broad-population A4 test of fresh CheMeleon readouts: full versus primary-selected class supervision, each with/without all-primary auxiliary targets. Hidden weak class labels excluded from both losses and threshold selection; restore only outer evaluation. Test whether representation/auxiliary learning addresses the observed selection reversal.",
+  "selection_rule": "Prespecified 20-epoch matched architecture and all-primary weight .2, no epoch/weight grid. Compare model decisions and population coverage before preparing a payload. Counts remain outputs.",
+  "limitations": "Frozen generic molecular encoder features are reused, never prior challenge predictions. Feature standardization and class/primary supervision exclude all held-out groups. D6 weak-primary labels remain unavailable; A4 population control does not prove D6 transport. Conditional intervals omit protocol selection and fitting uncertainty.",
+  "primary_screen": "primary-screen.csv",
+  "propensity_weight_cap": 5.0,
+  "baseline_model": "chemeleon_class_network",
+  "selection_control": true,
+  "primary_enzyme_index": 1,
+  "primary_activity_cut": -0.5,
+  "primary_activity_loss_weight": 1.0,
+  "skip_historical_diagnostics": true,
+  "float32_matmul_precision": "high",
+  "embedding_file": "chemeleon-features.parquet",
+  "embedding_dimensions": 2048
+}

@@ -1,0 +1,111 @@
+{
+  "config": {
+    "priors": [
+      0.03,
+      0.07,
+      0.12
+    ],
+    "bootstrap_samples": 1000,
+    "source_run": "20261002T043618387974Z-bc88d8eb"
+  },
+  "contrasts": [
+    {
+      "split_id": "umap",
+      "model": "fresh_d6_network",
+      "assumed_prior": 0.03,
+      "delta": -0.006928642153069538,
+      "ci_low": -0.025027339508348144,
+      "ci_high": 0.009136836015631273
+    },
+    {
+      "split_id": "umap",
+      "model": "fresh_d6_network",
+      "assumed_prior": 0.07,
+      "delta": -0.00031624767431743736,
+      "ci_low": -0.02105632323227442,
+      "ci_high": 0.017591914137192976
+    },
+    {
+      "split_id": "umap",
+      "model": "fresh_d6_network",
+      "assumed_prior": 0.12,
+      "delta": -0.012946939462546027,
+      "ci_low": -0.03159526282861338,
+      "ci_high": 0.0037305102965584083
+    },
+    {
+      "split_id": "scaffold",
+      "model": "potency_gate",
+      "assumed_prior": 0.03,
+      "delta": -0.013352732966440392,
+      "ci_low": -0.03933038350873196,
+      "ci_high": 0.01501574553974744
+    },
+    {
+      "split_id": "scaffold",
+      "model": "potency_gate",
+      "assumed_prior": 0.07,
+      "delta": -0.03909322090530712,
+      "ci_low": -0.06299751590994694,
+      "ci_high": -0.01356038134586725
+    },
+    {
+      "split_id": "scaffold",
+      "model": "potency_gate",
+      "assumed_prior": 0.12,
+      "delta": -0.017768616986970458,
+      "ci_low": -0.036494273924927136,
+      "ci_high": 0.0033813228792359535
+    },
+    {
+      "split_id": "umap",
+      "model": "potency_gate",
+      "assumed_prior": 0.03,
+      "delta": -0.004546652585003376,
+      "ci_low": -0.016619835725465187,
+      "ci_high": 0.00781759741532501
+    },
+    {
+      "split_id": "umap",
+      "model": "potency_gate",
+      "assumed_prior": 0.07,
+      "delta": -0.0076409838310455,
+      "ci_low": -0.025157235271194407,
+      "ci_high": 0.013347035143995614
+    },
+    {
+      "split_id": "umap",
+      "model": "potency_gate",
+      "assumed_prior": 0.12,
+      "delta": -0.02229236339901608,
+      "ci_low": -0.0402015552797407,
+      "ci_high": -0.0023447994099566752
+    },
+    {
+      "split_id": "scaffold",
+      "model": "fresh_d6_network",
+      "assumed_prior": 0.03,
+      "delta": -0.0212005774835116,
+      "ci_low": -0.03675405233152696,
+      "ci_high": -0.004214975193842877
+    },
+    {
+      "split_id": "scaffold",
+      "model": "fresh_d6_network",
+      "assumed_prior": 0.07,
+      "delta": -0.038840109062923005,
+      "ci_low": -0.06121469508231562,
+      "ci_high": -0.01517778927987487
+    },
+    {
+      "split_id": "scaffold",
+      "model": "fresh_d6_network",
+      "assumed_prior": 0.12,
+      "delta": -0.00916541707970902,
+      "ci_low": -0.028447358178487328,
+      "ci_high": 0.009692370950568489
+    }
+  ],
+  "no_upload": true,
+  "limits": "Hypothetical label shift, not known blind prevalence or blind accuracy. Conditional group intervals exclude fit and protocol uncertainty; unseen weak-primary D6 class outcomes remain unidentified."
+}

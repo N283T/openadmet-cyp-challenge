@@ -1,0 +1,62 @@
+{
+  "selection_run": "20261001T135322663569Z-94d28c32",
+  "decision": {
+    "kind": "blend",
+    "count": 1,
+    "weight": 0.5,
+    "models": [
+      "core_separate_fe--trunk--lgbm_binary"
+    ],
+    "inner_AP": 0.3247491052953275,
+    "diagnostic_source": "20261001T133225940252Z-502d403a",
+    "positive_calls": 49,
+    "rate_policy": "Keep historical 49/750 to isolate score-recipe changes; no rate optimization",
+    "test_aggregation": "Average five raw fold predictions per readout, rank across 750, then average selected readout ranks",
+    "scope": "Full-development selection of the previously diagnosed AP-block procedure; selection score is descriptive, not independent validation; no upload authorized"
+  },
+  "last_sent_submission": "20260926T150948735129Z-6fc9d05b",
+  "performance_control_submission": "20260924T050705396203Z-10e1d3ad",
+  "d6_positive_calls": 49,
+  "d6_swaps": {
+    "added": 21,
+    "removed": 21,
+    "retained": 28
+  },
+  "a4_positive_calls": 275,
+  "a4_changed_vs_last_sent": 0,
+  "a4_changed_vs_performance_control": 26,
+  "score_spearman_vs_control": 0.8705805323496978,
+  "trunk_score_spearman_vs_control": 0.5246290846343669,
+  "neighbor_summary": [
+    {
+      "change": "added",
+      "n": 21,
+      "mean_neighbor_positive_rate": 0.31820760866173564,
+      "mean_nearest_positive_similarity": 0.4969588840307839,
+      "mean_nearest_negative_similarity": 0.34545940050532303,
+      "mean_trunk_fold_positive_votes": 3.7142857142857144
+    },
+    {
+      "change": "removed",
+      "n": 21,
+      "mean_neighbor_positive_rate": 0.4074103031546477,
+      "mean_nearest_positive_similarity": 0.41576788644724255,
+      "mean_nearest_negative_similarity": 0.3798293903986431,
+      "mean_trunk_fold_positive_votes": 0.7142857142857143
+    }
+  ],
+  "validation": {
+    "track": "classification",
+    "rows": 750,
+    "columns": [
+      "SMILES",
+      "Molecule_Name",
+      "CYP2D6_is_TDI",
+      "CYP3A4_is_TDI"
+    ],
+    "valid": true
+  },
+  "uploaded": false,
+  "prediction_sha256": "5bb177ecfbfabf4c57828fe4b63b181768209cd0b344ec4242e97c59c7e55621",
+  "limitations": "AP-ranked exploratory probe; incomplete-pool conditional OOF. Neighbor summaries are descriptive, not hidden-label estimates. Fold sensitivity varies the trunk inference only with the original blind control fixed."
+}

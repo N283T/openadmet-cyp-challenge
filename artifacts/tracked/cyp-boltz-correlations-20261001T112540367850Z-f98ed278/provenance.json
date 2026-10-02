@@ -1,0 +1,18 @@
+{
+  "run": "20261001T112540367850Z-f98ed278",
+  "source_placement_run": "20261001T111723965954Z-04ff278c",
+  "files": [
+    {
+      "file": "selected-models.parquet",
+      "sha256": "0932a0210bf46c4b46ae8446ac147dfd8a9c18e4b02cc90f8ac2046fffca568c"
+    },
+    {
+      "file": "correlations.parquet",
+      "sha256": "be5a4ef111abf6d7b78ba9f27b12b56c9deef0a0ab37e4469c4739bd71625bc9"
+    },
+    {
+      "file": "summary.json",
+      "sha256": "e27667c7d93e3fa7b34e7e051e933727a4debdbaa881943da8a2a60e623ccbcd"
+    }
+  ]
+}

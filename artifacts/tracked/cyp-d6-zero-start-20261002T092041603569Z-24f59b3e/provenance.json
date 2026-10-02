@@ -1,0 +1,32 @@
+{
+  "source_run": "classification/20261002T092041603569Z-24f59b3e",
+  "outputs": {
+    "combined-policy-metrics.csv": "39ea251cf74baf904a99f606114b89b1a57dd2e4c748a7b4ae3c41712f8c6389",
+    "combined-policy-predictions.parquet": "4b490b96a7e50a9dfaeacbca1e6c02ec9216e9a8debb482f955dbf2f3dc12cf3",
+    "summary.json": "cbb973b20f4642a7ae21e4f5c07a37de69169d675ac71d55f1d556f1dcfa3c06"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T091033216489Z-692441d6/outputs/nested-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T092041603569Z-24f59b3e/inputs/predictions.parquet",
+      "sha256": "5f2292ec733df1c0134bdff0146555153ce32144f77d08e5a942080a35a24842",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T091033216489Z-692441d6/outputs/threshold-scale-audit.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T092041603569Z-24f59b3e/inputs/cuts.csv",
+      "sha256": "66a4e084ee9a207c6ddf28374399581f6d110b19355026d8dd7d351446e09710",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084852768236Z-ef8d81ed/outputs/nested-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T092041603569Z-24f59b3e/inputs/original-predictions.parquet",
+      "sha256": "d74bea35dfe58fbeffbcc20ba1aa33a2300d52f67c01a0a367b9d176a3b57739",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "source_run": "20261002T091033216489Z-692441d6",
+    "selection_rule": "Choose equal-mean prior utility only if equal-seed combined projected MCC at .07 improves in BOTH splits and mean over .03/.07/.12 improves in both. Otherwise retain observed-label cuts. No blind count is read by this script."
+  }
+}

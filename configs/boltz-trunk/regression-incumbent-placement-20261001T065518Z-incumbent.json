@@ -1,0 +1,58 @@
+{
+  "targets": {
+    "cyp1a2": {
+      "endpoint": "CYP1A2_pIC50_direct_inhibition",
+      "bank_oof": "cyp1a2-bank.parquet",
+      "bank_summary": "cyp1a2-summary.json",
+      "bank_fits": "cyp1a2-fits.csv",
+      "method": "equal_all",
+      "filter": {
+        "method": "equal_all"
+      },
+      "expected_rows": 1372,
+      "predictions": "cyp1a2-trunk.parquet",
+      "cohort": "cyp1a2-cohort.parquet"
+    },
+    "cyp2c9": {
+      "endpoint": "CYP2C9_pIC50_direct_inhibition",
+      "bank_oof": "cyp2c9-bank.parquet",
+      "bank_summary": "cyp2c9-summary.json",
+      "bank_fits": "cyp2c9-fits.csv",
+      "method": "equal_subset",
+      "filter": {
+        "method": "equal_subset"
+      },
+      "expected_rows": 1255,
+      "predictions": "cyp2c9-trunk.parquet",
+      "cohort": "cyp2c9-cohort.parquet"
+    },
+    "cyp3a4": {
+      "endpoint": "CYP3A4_pIC50_direct_inhibition",
+      "bank_oof": "cyp3a4-bank.parquet",
+      "bank_summary": "cyp3a4-summary.json",
+      "bank_fits": "cyp3a4-fits.csv",
+      "method": "caruana",
+      "filter": {
+        "method": "caruana"
+      },
+      "expected_rows": 2300,
+      "predictions": "cyp3a4-trunk.parquet",
+      "cohort": "cyp3a4-cohort.parquet"
+    },
+    "cyp2d6": {
+      "endpoint": "CYP2D6_pIC50_direct_inhibition",
+      "bank_oof": "cyp2d6-bank.parquet",
+      "method": "equal_all",
+      "expected_rows": 1457,
+      "filter": {
+        "split_id": "parent",
+        "robust_delta": 0.5,
+        "constraint_weight": 0.35,
+        "placement": "fold_moment_match",
+        "blend_weight": 0.5
+      },
+      "predictions": "cyp2d6-trunk.parquet",
+      "cohort": "cyp2d6-cohort.parquet"
+    }
+  }
+}

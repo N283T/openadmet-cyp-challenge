@@ -1,0 +1,15 @@
+{
+  "seed": 20261002,
+  "bootstrap_samples": 1000,
+  "split_strategies": ["random", "scaffold", "similarity"],
+  "assignment_aliases": {"similarity": "similarity-assignments.parquet"},
+  "extra_assignments": {"similarity-assignments.parquet": "20261002T005927124518Z-ce5df58c"},
+  "sources": {
+    "v1": "20261002T004016766672Z-e2d420d4",
+    "v2": "20261002T004536560534Z-21c1509c",
+    "v3": "20261002T005041934540Z-c62b6e78",
+    "v4": "20261002T005413496423Z-f92f58e6",
+    "v5": "20261002T005927124518Z-ce5df58c"
+  },
+  "method": "Paired chemical-group bootstrap on observed D6 labels; conditional on saved nested OOF predictions; no historical model inputs"
+}

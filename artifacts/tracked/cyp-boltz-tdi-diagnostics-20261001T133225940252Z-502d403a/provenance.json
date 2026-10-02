@@ -1,0 +1,162 @@
+{
+  "diagnostic_run": "20261001T133225940252Z-502d403a",
+  "report_run": "20261001T133723258661Z-7983eb18",
+  "source_inputs": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/depth-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/depth-oof.parquet",
+      "sha256": "6c99b36c1e77729967817ab4c83f87559e6d76463fd70170d8589bd8bd136964",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/d6-current.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/d6-current.parquet",
+      "sha256": "797d83d140d04da208ea6b486cd2bc4bddbe0a3067d6dda51d2abc968823b917",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/d6-lgbm.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/d6-lgbm.parquet",
+      "sha256": "7beaf76dbd44e9f0832e74fb2edd951c7c7f93c6c9f3e9eb30ecc7d38c7100ed",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/d6-pfn.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/d6-pfn.parquet",
+      "sha256": "856380440e85d41c92b421309107110b7787aa47892cf91eabfe344e61f52c1a",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/d6-graph.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/d6-graph.parquet",
+      "sha256": "7b9100b341d2e57995d9dee012b69c4c63f7e61deea82cc0b97163531e13d8cc",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/d6-fixed.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/d6-fixed.parquet",
+      "sha256": "25f9ed512dd9258ef384f78253c6c12fab911a8a8311c37e04167ca3299618f2",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/d6-raw600.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/d6-raw600.parquet",
+      "sha256": "57e38bf421b6be68c45c81dd407429b508e307ff41ec6b42d4be01491877e15b",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/d6-selections.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/d6-selections.parquet",
+      "sha256": "3d577ec45bda2da6668d065e8927be1ae9bc888c1725cff00ad1e8e7e6c248d6",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/a4-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/a4-oof.parquet",
+      "sha256": "b429b47f7329eb659a6135066fa6d3c2a54aa62790e41289381d913c1fb69c04",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/a4-member.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/a4-member.parquet",
+      "sha256": "c5ac3e8e238ad33cabed85faa4850cfd521ea82288e0141ea68f76cf36a21c6b",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/a4-raw.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/a4-raw.parquet",
+      "sha256": "51c51070d13b08c843e56c0f8b098afc85211698a82e2ba6e8093aebc275233d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/a4-aux.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/a4-aux.parquet",
+      "sha256": "f0769834b24dc4716baa84179c6dd5b13d37025dd936600f6ff06f2ef5bb6ebb",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/a4-selections.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/a4-selections.parquet",
+      "sha256": "bbdace694c0bbe951a19d09205fec92cb4bcb6cb33d260c695d17880d13cb9ae",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/d6-trunk.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/d6-trunk.parquet",
+      "sha256": "9aedf3caa7addf0a3702f02cc0c526f750a8ddf4ffcf33eb58f2c0f2e953ed73",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/inputs/a4-trunk.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/a4-trunk.parquet",
+      "sha256": "8e7b8cf6616347cb8c5ca7375a97827a86802ecd2379c2983a825221749aebc7",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T065532999859Z-47297bc3/outputs/oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/placement-oof.parquet",
+      "sha256": "af1ae2d743749c910f706a10adf18dc04aece7301380fc64ce053711894a7b41",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T023655009132Z-91096754/inputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T023655009132Z-91096754/inputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/boltz-trunk/post-r1/manifest.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T133225940252Z-502d403a/inputs/tensor-manifest.parquet",
+      "sha256": "02ee275d1131f71744d01e658954f7c73b2294d0c5ebea39c9a37da87482723a",
+      "storage": "copy"
+    }
+  ],
+  "files": {
+    "changed-labelled-calls.parquet": {
+      "sha256": "f47943b54aeb9e5e372ed629f9dc79a0d78594ed422dc8616bf22f12f178c1e2",
+      "bytes": 33524
+    },
+    "incumbent-correlations.parquet": {
+      "sha256": "f3c58164e12e7f4804b2a8d78ede04b9610469600c61e941f58b123eec0951f7",
+      "bytes": 165149
+    },
+    "intervals.parquet": {
+      "sha256": "1d8c2968a7b7fca9344154281080b538a8f37c944723e9236d417af4bfe6dea4",
+      "bytes": 4782
+    },
+    "metrics.parquet": {
+      "sha256": "232e47afd9cc1df1a64c009d08e175d9df8d7c09de5f1e5fb53bdebd64e6d748",
+      "bytes": 26822
+    },
+    "rate-curves.parquet": {
+      "sha256": "0c731d611939ca39fb6a2baab7c5f871fc634918ad2c8bf1deeae15b1c39bbf7",
+      "bytes": 41010
+    },
+    "report.md": {
+      "sha256": "7fae1378b90628fb962f91c8336999849fc7b57ab5e0b51280e08a533dc715ea",
+      "bytes": 25926
+    },
+    "selected-oof.parquet": {
+      "sha256": "29ea882cd90d8c1d3e6364628b9ca12660570087b3b217dd7fb789b3de3d3fd3",
+      "bytes": 395745
+    },
+    "selections.parquet": {
+      "sha256": "9d1715daf5652fc00f546787db935feb2838a97b31aead53b9b90854e54e0cb8",
+      "bytes": 3578
+    },
+    "summary.json": {
+      "sha256": "3beb2fe34f3079e6b15a6f51e58dd3d07ffeac841ec645521f824bc25b52b1ac",
+      "bytes": 2391
+    },
+    "trunk-correlations.parquet": {
+      "sha256": "a6531518b858d3608d6245cea5872c8459e5d29c24559f909eedba8515672363",
+      "bytes": 37033
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "deployment_run": "20261002T090029588080Z-2a20da72",
+  "model_files": [
+    "model-20261002-bag0.pt",
+    "model-20261002-bag1.pt",
+    "model-20261002-bag2.pt",
+    "model-20261002-bag3.pt",
+    "model-20261002-bag4.pt",
+    "model-20261017-bag0.pt",
+    "model-20261017-bag1.pt",
+    "model-20261017-bag2.pt",
+    "model-20261017-bag3.pt",
+    "model-20261017-bag4.pt"
+  ],
+  "selection_rule": "Package the predefined ten-model UMAP margin-average D6 policy. Verify restored model scores and exact final calls. Keep A4 equal to the last sent payload. Compare target-wise changes against last sent and historical best. No upload."
+}

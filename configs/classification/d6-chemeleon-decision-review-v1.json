@@ -1,0 +1,4 @@
+{
+  "source_run": "20261002T091033216489Z-692441d6",
+  "selection_rule": "Choose equal-mean prior utility only if equal-seed combined projected MCC at .07 improves in BOTH splits and mean over .03/.07/.12 improves in both. Otherwise retain observed-label cuts. No blind count is read by this script."
+}

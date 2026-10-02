@@ -1,0 +1,7 @@
+split_id,baseline,comparator_model,comparator_policy,delta,ci_low,ci_high,limits
+umap,network_centered_fold_mean,chemeleon_primary_network,single_refit,0.04558629570085231,-0.0016273454356494584,0.08835089726169718,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"
+umap,network_centered_fold_mean,chemeleon_primary_network,majority_vote,-0.012568374491285311,-0.04313473481309331,0.019654886593754486,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"
+umap,network_centered_fold_mean,chemeleon_primary_network,pooled_oof_cut,0.011014946943959533,-0.044818482706990785,0.06558367059099356,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"
+scaffold,network_centered_fold_mean,chemeleon_primary_network,single_refit,0.05579682311776696,0.015525722617153756,0.09977376815792373,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"
+scaffold,network_centered_fold_mean,chemeleon_primary_network,majority_vote,0.011853938799145966,-0.02061212029266124,0.038589895258608016,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"
+scaffold,network_centered_fold_mean,chemeleon_primary_network,pooled_oof_cut,0.035190416821270276,0.005090870022110029,0.06609351721242375,"conditional group bootstrap; seeds paired, training/selection uncertainty omitted"

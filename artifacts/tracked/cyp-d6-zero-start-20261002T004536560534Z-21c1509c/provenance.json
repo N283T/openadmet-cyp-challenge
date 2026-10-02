@@ -1,0 +1,68 @@
+{
+  "source_run": "classification/20261002T004536560534Z-21c1509c",
+  "outputs": {
+    "assignments.parquet": "59da3f8708fd8122e649412cc6a8e89fe30053ee0ad942f9857175be918eb733",
+    "blind-random-confidence_weighted_logistic.parquet": "91161cef117686ca63598a07f25eb38968a04e661f9c660b1ebdeed914a0d802",
+    "blind-random-confidence_weighted_regime.parquet": "8b2d525bd45d9ecbd49b6a8e0915ae0542804d8ff7b56d5f6b60968b3dc43fa3",
+    "blind-random-regime_multiclass.parquet": "866a1b2213aebbf73caecef01edaae89998a97db1d444dab527a9f0abcd3454b",
+    "blind-scaffold-confidence_weighted_logistic.parquet": "cb3e121f83fbbe0209f6b557e38c157c08a9aff4f261f469fa822c80ac04ef32",
+    "blind-scaffold-confidence_weighted_regime.parquet": "a45f5d484d6dea732b2a4fc758f9720ffd8c7b52e1ae7ce9498205218a67af9c",
+    "blind-scaffold-regime_multiclass.parquet": "c69509a431109105cfd02f0afed1fc7725559612ccff04499a7b83d3d0e78749",
+    "metrics.csv": "a0c4374dc903e7a3f11e9b1af3e1c4ed1cf39c99b88694ee9629126a2e0a229d",
+    "model-random-confidence_weighted_logistic.joblib": "982e82712a640980aa2100909768637df4e8671160029e2cf37a5e3d268c32f6",
+    "model-random-confidence_weighted_regime.joblib": "90285cb0488f835ad4006ada3274ff96ba01c276e71c76307f7497eb1c6cb4db",
+    "model-random-regime_multiclass.joblib": "c66b6e61160107d51f3b98d06a68dbe4231e6b1189cc4b773c1763a8b840ee43",
+    "model-scaffold-confidence_weighted_logistic.joblib": "982e82712a640980aa2100909768637df4e8671160029e2cf37a5e3d268c32f6",
+    "model-scaffold-confidence_weighted_regime.joblib": "90285cb0488f835ad4006ada3274ff96ba01c276e71c76307f7497eb1c6cb4db",
+    "model-scaffold-regime_multiclass.joblib": "c66b6e61160107d51f3b98d06a68dbe4231e6b1189cc4b773c1763a8b840ee43",
+    "oof.parquet": "5f707a8b3ad2f3a19ebfc433cb380586bdf2944807b0eddc5faa9fee107da764",
+    "operating-points.csv": "ff22f91fc78759789c81276b627e4ccec737cdce0107585558d55cbf44aed8ae",
+    "representation.json": "42d9eec04f9d5589b0f643ab4c98df2c7e3be0ad33402e07f51e8824a1b10838",
+    "source-audit.parquet": "a4cecf003c307d53295278f55d20918028fe0c7ca6cffa8bb1b5b48c623b5a05",
+    "summary.json": "cea1b8ffb88da80ba7f0956a11716d8341cf6cdcca6de3d6690b1aeead7e7b5e"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004536560534Z-21c1509c/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004536560534Z-21c1509c/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004536560534Z-21c1509c/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 2,
+    "seed": 20261002,
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 4,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "random",
+      "scaffold"
+    ],
+    "models": [
+      "confidence_weighted_logistic",
+      "regime_multiclass",
+      "confidence_weighted_regime"
+    ],
+    "ambiguous_weight": 0.25,
+    "representation": "Fresh Morgan radius 2 / 2048 bits; no prior model assets",
+    "threshold_policy": "Maximize inner OOF bootstrap mean MCC on all supplied labels; no positive-count constraint",
+    "training_policy": "Keep all supplied labels. Weight interval-supported training labels 1; unresolved labels 0.25. Multiclass distinguishes ordinary and inferred positives, then sums their molecular probabilities.",
+    "diagnostic_motivation": "903 of 1364 direct-active D6 labels have paired marginal shift intervals crossing log10(2); test whether confidence weighting and separate positive mechanisms improve new learning.",
+    "excluded_inputs": "Every prior model and prediction, including pilot model assets. Only source compounds, measurements and aliases are allowed.",
+    "status": "Sequential foundational hypothesis test; validation labels are never reweighted or relabelled; no upload"
+  }
+}

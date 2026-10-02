@@ -1,0 +1,33 @@
+{
+  "source_run": "classification/20261002T085604402591Z-f4729cb1",
+  "outputs": {
+    "combined-oof.parquet": "5d12268e62fbb2acabef619117b5ac72b9e0522a7154985a2a6fe678c3457f8c",
+    "seed-averaging-metrics.csv": "0154c38197a51936ea1a9ad5b67adf027bea63532583178d6cd230c693bc9a8d",
+    "summary.json": "07343cae3b8131cbefd81b035b946799af17932bbcbda2a790997e5b18208c68"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084852768236Z-ef8d81ed/outputs/nested-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T085604402591Z-f4729cb1/inputs/nested-oof.parquet",
+      "sha256": "d74bea35dfe58fbeffbcc20ba1aa33a2300d52f67c01a0a367b9d176a3b57739",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084852768236Z-ef8d81ed/outputs/threshold-scale-audit.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T085604402591Z-f4729cb1/inputs/cuts.csv",
+      "sha256": "772b07e95812c851511185bf0a271af19d3431baa6d815a43d03755a0861f185",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084852768236Z-ef8d81ed/config.json",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T085604402591Z-f4729cb1/inputs/model-config.json",
+      "sha256": "45b9e6bd8629ffa5e2b2c244f7f31aefad72e4c8b5b1f4f5b7afa12e12871343",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "source_run": "20261002T084852768236Z-ef8d81ed",
+    "bootstrap_samples": 1000,
+    "selection_rule": "Equal average of the two prespecified seeds, no fitted weights. Exact original-call reconstruction. Compare the matched fresh Morgan and CheMeleon class/primary learners before blind deployment; no fixed count or upload."
+  }
+}

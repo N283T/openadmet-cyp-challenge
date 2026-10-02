@@ -1,4 +1,38 @@
-# CYP3A4 structure-track source data
+# CYP structure and MSA source data
+
+Four CYP targets are now prepared for prospective `boltz-trunk` models. The
+[compact four-target record](../artifacts/tracked/cyp-structure-prep-20260928/README.md)
+links immutable runs and contains source manifests, chain maps, ligand audits,
+contact tables, and pocket definitions.
+
+The initial trunk input and runtime settings are recorded separately in
+[Boltz trunk input configuration](boltz-trunk.md). This route uses fixed HEM,
+the extended pocket, MSA, and no template or affinity head.
+
+| Target | Blocks | PDB entries | Retained HEM / ligands | Holo chains | Core / extended residues | MSA rows |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| CYP1A2 / P05177 | 2 | 1 | 1 / 1 | 1 | 20 / 20 | 12,515 |
+| CYP2C9 / P11712 | 26 | 15 | 25 / 25 | 23 | 21 / 33 | 15,696 |
+| CYP2D6 / P10635 | 49 | 14 | 48 / 54 | 44 | 18 / 33 | 16,017 |
+| CYP3A4 / P08684 | 143 | 122 | 142 / 138 | 129 | 11 / 33 | 14,300 |
+
+Each new ensemble is one CIF with multiple `data_` blocks for convenient
+viewer selection. Every experimental block retains one AFDB-aligned CYP chain,
+its corresponding HEM or older HEC/`HEME C` cofactor, and accepted active-site
+co-crystal ligands. HOH, configured crystallization factors, and unrelated
+non-polymers are removed. Accepted ligands have at least six heavy atoms,
+contact protein within 4.5 Å, lie within 12 Å of a heme iron, and are not in
+the configured artifact list. Residues are mapped by sequence alignment to
+canonical 1-based UniProt numbering. The AFDB reference blocks have no HEM or
+ligand because the source AFDB models contain neither.
+
+The A3Ms are from pinned LiteFold revision
+`632cfc87f567e429570897c3addd80665a697f3e`; they are not AFDB's own model-input
+MSAs. Query sequences match their canonical AFDB model exactly. CYP1A2 has only
+one exact CYP1A2/HEME structure in the current TogoMCP result, so its pocket is
+not yet a frequency-stable structural consensus.
+
+## Earlier CYP3A4 structure-track work
 
 The blinded structure track has 20 ligand targets for human CYP3A4 (UniProt
 P08684). The official tutorial FASTA and the AFDB v6 model use the same

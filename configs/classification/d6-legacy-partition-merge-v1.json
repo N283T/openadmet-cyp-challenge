@@ -1,0 +1,9 @@
+{
+  "purpose": "Use four predetermined complete split/seed blocks with identical scientific protocol and feature input hashes. Verify 400 complete ensemble fits and twenty complete outer predictions. No result-dependent block selection.",
+  "partitions": [
+    {"run_id": "20261002T095304331805Z-fad722ec", "split_id": "umap", "seed": 20261002, "allow_completed_interrupted_block": true},
+    {"run_id": "20261002T101409635209Z-967b7499", "split_id": "umap", "seed": 20261017},
+    {"run_id": "20261002T101409621831Z-5bf54a17", "split_id": "scaffold", "seed": 20261002},
+    {"run_id": "20261002T101409637266Z-41e6beb1", "split_id": "scaffold", "seed": 20261017}
+  ]
+}

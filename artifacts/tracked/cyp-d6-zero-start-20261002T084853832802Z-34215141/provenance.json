@@ -1,0 +1,104 @@
+{
+  "source_run": "classification/20261002T084853832802Z-34215141",
+  "outputs": {
+    "aggregate-metrics.csv": "eefaf389160154791c87ea9184bc0e035f6cc0465ea509b390e533178fca2f32",
+    "fold-metrics.csv": "372b9098f8ae477146ecd5d3353cd243c951360420193581a15885d553c80b7e",
+    "leakage-and-operating-points.csv": "da512f06d525dda464ecce084dc108499d0824134e0be59a488a343ad08ae1c5",
+    "nested-oof.parquet": "8f0103f1e4242787ef72e1b210c1d65ce47cfbdd2d01296d25f5b5490a0208c7",
+    "paired-group-intervals.csv": "b7da7dea3662bad1a148a599bb9d4f9ae54fd98ef2100281ea6be8109c35c9a7",
+    "primary-source-audit.parquet": "3baa1efc4d6af903f714111f443a5e0faed7be0485314419e60169a1484b0ba9",
+    "representation.json": "50dbf0ffe145d63e9d2ef342c669dcfc55718cf248fb4d599732ee44b33dcbc0",
+    "selected-only-metrics.csv": "a096f6616950bbb39013af960d752d3a1f12ec087bc030dd5f32d87498fea84d",
+    "selection-control-source.parquet": "db7bfd771a293c0d151fc7307e686e42439a3e188b7de622add86021bbd964da",
+    "source-audit.parquet": "fa411f2b5657b5203d7838844bd164d3bfd36b9acfab7edd901385a74c34f5b8",
+    "summary.json": "d0be2a522be7f1585fbe9a9dfc735d2ad4d08d704fa8b4bb682f9c71493d88e9",
+    "threshold-scale-audit.csv": "4bbad4641f303e889a8390430a62c7ca51b728f365814fda6d53b445a06ffd74"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084853832802Z-34215141/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084853832802Z-34215141/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084853832802Z-34215141/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084853832802Z-34215141/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/data/raw/cyp-challenge-single-concentration-TRAIN.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084853832802Z-34215141/inputs/primary-screen.csv",
+      "sha256": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260912T061231617816Z-299439e8/outputs/external-embeddings.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084853832802Z-34215141/inputs/chemeleon-features.parquet",
+      "sha256": "6d173163edfc7d0cd5354f893e76070c626e19a1aa5a9790dfc4b537070c1e91",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seed": 20261002,
+    "seeds": [
+      20261002,
+      20261017
+    ],
+    "endpoint": "CYP3A4_is_TDI",
+    "outer_folds": 5,
+    "bag_folds": 5,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "umap",
+      "scaffold"
+    ],
+    "fixed_assignments": "assignments.parquet",
+    "models": [
+      "chemeleon_class_network",
+      "chemeleon_primary_network",
+      "chemeleon_selected_network",
+      "chemeleon_selected_primary_network"
+    ],
+    "network_epochs": 20,
+    "nested_bag_validation": true,
+    "threshold_grid": "inner_quantiles",
+    "cpu_threads": 4,
+    "policies": [
+      "centered_fold_mean",
+      "majority_vote",
+      "pooled_oof_cut",
+      "single_refit"
+    ],
+    "historical_comparisons": [],
+    "scientific_purpose": "Controlled broad-population A4 test of fresh CheMeleon readouts: full versus primary-selected class supervision, each with/without all-primary auxiliary targets. Hidden weak class labels excluded from both losses and threshold selection; restore only outer evaluation. Test whether representation/auxiliary learning addresses the observed selection reversal.",
+    "selection_rule": "Prespecified 20-epoch matched architecture and all-primary weight .2, no epoch/weight grid. Compare model decisions and population coverage before preparing a payload. Counts remain outputs.",
+    "limitations": "Frozen generic molecular encoder features are reused, never prior challenge predictions. Feature standardization and class/primary supervision exclude all held-out groups. D6 weak-primary labels remain unavailable; A4 population control does not prove D6 transport. Conditional intervals omit protocol selection and fitting uncertainty.",
+    "primary_screen": "primary-screen.csv",
+    "propensity_weight_cap": 5.0,
+    "baseline_model": "chemeleon_class_network",
+    "selection_control": true,
+    "primary_enzyme_index": 1,
+    "primary_activity_cut": -0.5,
+    "primary_activity_loss_weight": 1.0,
+    "skip_historical_diagnostics": true,
+    "float32_matmul_precision": "high",
+    "embedding_file": "chemeleon-features.parquet",
+    "embedding_dimensions": 2048
+  }
+}

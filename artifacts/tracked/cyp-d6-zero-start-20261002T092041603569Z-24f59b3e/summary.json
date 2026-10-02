@@ -1,0 +1,73 @@
+{
+  "config": {
+    "source_run": "20261002T091033216489Z-692441d6",
+    "selection_rule": "Choose equal-mean prior utility only if equal-seed combined projected MCC at .07 improves in BOTH splits and mean over .03/.07/.12 improves in both. Otherwise retain observed-label cuts. No blind count is read by this script."
+  },
+  "selected_policy": "centered_fold_mean",
+  "selection_rule_passed": {
+    "umap": false,
+    "scaffold": false
+  },
+  "metrics": [
+    {
+      "split_id": "umap",
+      "assumed_prior": null,
+      "observed_cut_mcc": 0.145295146432246,
+      "mean_prior_cut_mcc": 0.1187006081819896,
+      "delta": -0.0265945382502564
+    },
+    {
+      "split_id": "umap",
+      "assumed_prior": 0.03,
+      "observed_cut_mcc": 0.0649629052118678,
+      "mean_prior_cut_mcc": 0.05316597742090159,
+      "delta": -0.011796927790966215
+    },
+    {
+      "split_id": "umap",
+      "assumed_prior": 0.07,
+      "observed_cut_mcc": 0.09544998526808995,
+      "mean_prior_cut_mcc": 0.07809402725760399,
+      "delta": -0.017355958010485964
+    },
+    {
+      "split_id": "umap",
+      "assumed_prior": 0.12,
+      "observed_cut_mcc": 0.11902915502953133,
+      "mean_prior_cut_mcc": 0.09734326403322015,
+      "delta": -0.021685890996311186
+    },
+    {
+      "split_id": "scaffold",
+      "assumed_prior": null,
+      "observed_cut_mcc": 0.23066070353474366,
+      "mean_prior_cut_mcc": 0.2012675878528758,
+      "delta": -0.029393115681867865
+    },
+    {
+      "split_id": "scaffold",
+      "assumed_prior": 0.03,
+      "observed_cut_mcc": 0.10433503762254956,
+      "mean_prior_cut_mcc": 0.094519637253103,
+      "delta": -0.009815400369446559
+    },
+    {
+      "split_id": "scaffold",
+      "assumed_prior": 0.07,
+      "observed_cut_mcc": 0.15276863486751108,
+      "mean_prior_cut_mcc": 0.13711894341546751,
+      "delta": -0.015649691452043563
+    },
+    {
+      "split_id": "scaffold",
+      "assumed_prior": 0.12,
+      "observed_cut_mcc": 0.18983915097044407,
+      "mean_prior_cut_mcc": 0.16860902250835633,
+      "delta": -0.021230128462087744
+    }
+  ],
+  "original_scores_exactly_reproduced": true,
+  "individual_calls_exactly_reconstructed": true,
+  "no_upload": true,
+  "limits": "Predeclared decision on conditional class-label-shift scenarios, not known blind prevalence or identified weak-primary outcomes. No candidate count was used in the choice."
+}

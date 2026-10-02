@@ -1,0 +1,153 @@
+{
+  "config": {
+    "targets": {
+      "cyp1a2": {
+        "endpoint": "CYP1A2_pIC50_direct_inhibition",
+        "bank_oof": "cyp1a2-bank.parquet",
+        "bank_summary": "cyp1a2-summary.json",
+        "bank_fits": "cyp1a2-fits.csv",
+        "method": "equal_all",
+        "filter": {
+          "method": "equal_all"
+        },
+        "expected_rows": 1372,
+        "predictions": "cyp1a2-trunk.parquet",
+        "cohort": "cyp1a2-cohort.parquet"
+      },
+      "cyp2d6": {
+        "endpoint": "CYP2D6_pIC50_direct_inhibition",
+        "bank_oof": "cyp2d6-bank.parquet",
+        "method": "equal_all",
+        "expected_rows": 1457,
+        "filter": {
+          "split_id": "parent",
+          "robust_delta": 0.5,
+          "constraint_weight": 0.35,
+          "placement": "fold_moment_match",
+          "blend_weight": 0.5
+        },
+        "predictions": "cyp2d6-trunk.parquet",
+        "cohort": "cyp2d6-cohort.parquet"
+      }
+    },
+    "attribution_control": "Same bank reselection algorithm without trunk",
+    "best_submission": "20260926T090548323924Z-46188564",
+    "last_submission": "20260926T140601457029Z-bd3a1e40",
+    "multi_analysis": "20261001T113601716233Z-bf06a273",
+    "deployment_policy": "1A2 multiple replacement; D6 single trunk bank extension; final best moments"
+  },
+  "decisions": [
+    {
+      "target": "cyp1a2",
+      "method": "multiple_replaced",
+      "cap": 2,
+      "inner_scores": [
+        [
+          0.31477534404043156,
+          0
+        ],
+        [
+          0.3139301479571046,
+          1
+        ],
+        [
+          0.31263378459522867,
+          2
+        ],
+        [
+          0.3128376510151378,
+          3
+        ]
+      ],
+      "replacements": [
+        {
+          "old": "tabpfn35_fast_anchor59_raw_scores_logfc",
+          "new": "ligand_only--trunk--tabpfn_top500",
+          "weight": 0.1
+        },
+        {
+          "old": "jeremy_frozen_tabpfn26",
+          "new": "core_bidirectional_hem--trunk--tabpfn_top500",
+          "weight": 0.1
+        }
+      ]
+    },
+    {
+      "target": "cyp2d6",
+      "method": "single_trunk_bank_extension",
+      "trunk": "pxr_core--trunk_molecular--lgbm_l1",
+      "weights": [
+        0.4,
+        0.4,
+        0.2
+      ],
+      "members": [
+        "submitted_two_member_core",
+        "moment_matched_robust_branch",
+        "pxr_core--trunk_molecular--lgbm_l1"
+      ]
+    }
+  ],
+  "baseline_checks": [
+    {
+      "target": "cyp1a2",
+      "baseline_max_absolute_difference": 3.552713678800501e-15
+    },
+    {
+      "target": "cyp2d6",
+      "baseline_max_absolute_difference": 1.7763568394002505e-15
+    }
+  ],
+  "comparison": [
+    {
+      "endpoint": "CYP1A2_pIC50_direct_inhibition",
+      "changed_vs_best": 750,
+      "changed_vs_last_sent": 750,
+      "mean": 4.411999999999997,
+      "sample_sd": 1.169409,
+      "mean_absolute_delta_vs_last": 0.11367450448728182,
+      "spearman_vs_best": 0.9952837036154729
+    },
+    {
+      "endpoint": "CYP2C9_pIC50_direct_inhibition",
+      "changed_vs_best": 0,
+      "changed_vs_last_sent": 0,
+      "mean": 4.83,
+      "sample_sd": 0.9226380000000001,
+      "mean_absolute_delta_vs_last": 0.0,
+      "spearman_vs_best": 0.9999999999999999
+    },
+    {
+      "endpoint": "CYP2D6_pIC50_direct_inhibition",
+      "changed_vs_best": 750,
+      "changed_vs_last_sent": 750,
+      "mean": 3.5699999999999976,
+      "sample_sd": 0.8834767162110455,
+      "mean_absolute_delta_vs_last": 0.05366489757723022,
+      "spearman_vs_best": 0.991827669026967
+    },
+    {
+      "endpoint": "CYP3A4_pIC50_direct_inhibition",
+      "changed_vs_best": 0,
+      "changed_vs_last_sent": 750,
+      "mean": 4.879999999999999,
+      "sample_sd": 1.0824720000000003,
+      "mean_absolute_delta_vs_last": 0.05222720784440135,
+      "spearman_vs_best": 0.9999999999999999
+    }
+  ],
+  "validation": {
+    "track": "regression",
+    "rows": 750,
+    "columns": [
+      "SMILES",
+      "Molecule_Name",
+      "CYP1A2_pIC50_direct_inhibition",
+      "CYP2C9_pIC50_direct_inhibition",
+      "CYP2D6_pIC50_direct_inhibition",
+      "CYP3A4_pIC50_direct_inhibition"
+    ],
+    "valid": true
+  },
+  "deployment": "Select composition on all development OOF; average five trunk test folds. Original atoms use retained full-fit predictions. Match final moments to the best submitted endpoint, without new calibration search. Development selection is conditional, not independent validation."
+}

@@ -1,0 +1,105 @@
+{
+  "source_run": "classification/20261002T032805271125Z-bdf341bd",
+  "outputs": {
+    "aggregate-metrics.csv": "dfac5d04ba5a3d38bca4da88659392b11e1ebc25582ed75c1338f531450dff67",
+    "fold-metrics.csv": "6becc8ca5fd4459eb90c21daad3d94ce2374cd55f28c460a00fdcd89e7a98b1a",
+    "leakage-and-operating-points.csv": "bfe708e8da698daef13b9e274b6d299a8fc889354f508c0b0cabebb97bebaca0",
+    "nested-oof.parquet": "61e1d249105f59fc0a9fb1544fe7dd5223438e5014ceb0424fbb7b92caadb878",
+    "paired-group-intervals.csv": "e11bf33bbc6ec690bf2a03ec1b2f7a979f7d0ce7ca1a48e7ce8f95cbef0111f3",
+    "representation.json": "42d9eec04f9d5589b0f643ab4c98df2c7e3be0ad33402e07f51e8824a1b10838",
+    "source-audit.parquet": "a4cecf003c307d53295278f55d20918028fe0c7ca6cffa8bb1b5b48c623b5a05",
+    "summary.json": "4c4bb95b792a3a76978a182094c8f396596e05556cfd6fb71224f99fd0e88f38",
+    "threshold-scale-audit.csv": "0c6836b406d033daf351aa8e18700c5d68ee72f99d456e9ccbc2d691606cf11e",
+    "whole-ensemble-ranking-diagnostics.csv": "448a73feddd8b843e8f362f5f7649fc502e5b136ea3f4017057b754c5b244c73"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032805271125Z-bdf341bd/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032805271125Z-bdf341bd/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032805271125Z-bdf341bd/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032805271125Z-bdf341bd/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T040301085704Z-914bb06c/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032805271125Z-bdf341bd/inputs/control-umap.parquet",
+      "sha256": "c7b568d1f21827e3ba7f6c8b09f5ee5f95dcf2c61e4beeb159ed2c2b56b6acf3",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T041452692950Z-e17778e3/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032805271125Z-bdf341bd/inputs/control-scaffold.parquet",
+      "sha256": "35ca4779e545ccee8c157a6e92826fa138da1cbf64f5d9f7f342dc53adb98956",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T035023873825Z-b719ba35/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032805271125Z-bdf341bd/inputs/ap-umap.parquet",
+      "sha256": "a9e4cf548bb631daba88f466d498825c3d49944528e57d15e04006eb489c8e68",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T041348966036Z-8db19b4b/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032805271125Z-bdf341bd/inputs/ap-scaffold.parquet",
+      "sha256": "dafd3eded66592d0aa692b33e505c94e9e86bb4fbc843018e6a361c9016af5e6",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 2,
+    "seed": 20261002,
+    "seeds": [
+      20261002,
+      20261017
+    ],
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 5,
+    "bag_folds": 5,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "umap",
+      "scaffold"
+    ],
+    "fixed_assignments": "assignments.parquet",
+    "models": [
+      "fresh_d6_network"
+    ],
+    "network_epochs": 20,
+    "nested_bag_validation": true,
+    "threshold_grid": "inner_quantiles",
+    "cpu_threads": 4,
+    "policies": [
+      "centered_fold_mean",
+      "majority_vote",
+      "pooled_oof_cut",
+      "single_refit"
+    ],
+    "historical_comparisons": [
+      "control-umap.parquet",
+      "control-scaffold.parquet",
+      "ap-umap.parquet",
+      "ap-scaffold.parquet"
+    ],
+    "scientific_purpose": "Controlled duration ablation after completed 100-epoch nested validation: same network, splits, seeds, thresholds and aggregation policies, only 20 versus 100 training epochs. Test whether probability-scale instability is related to extended fitting rather than use a twelve-hour Live opportunity to guess.",
+    "selection_rule": "Predeclare 20 epochs as one duration ablation, no hyperparameter search. Compare every policy with its matching 100-epoch result. Do not select a blind payload from post-hoc maxima or treat probability calibration alone as evidence of ranking improvement.",
+    "limitations": "Each outer evaluation excludes all test-group measurements before five-model construction and threshold fitting. Effective model training size is 64 percent of development versus 80 percent for blind deployment; same relative algorithm, smaller evaluation sample. Historical cached whole-ensemble scores are used only for matching retrospective rank-rate diagnostics, never to select nested thresholds. Resampled conditional intervals omit training and protocol-selection uncertainty."
+  }
+}

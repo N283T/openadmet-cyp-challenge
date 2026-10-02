@@ -1,0 +1,563 @@
+{
+  "comparisons": [
+    {
+      "split_id": "random",
+      "comparison": "multiassay minus morgan_logistic",
+      "metric": "AP",
+      "groups": 1450,
+      "bootstrap_mean": 0.024301411029544553,
+      "lower95": 0.0022434081980577244,
+      "upper95": 0.045742802274493746
+    },
+    {
+      "split_id": "random",
+      "comparison": "multiassay minus morgan_logistic",
+      "metric": "nested_calls_MCC",
+      "groups": 1450,
+      "bootstrap_mean": 0.012673235133728216,
+      "lower95": -0.043515273928747565,
+      "upper95": 0.06466076587359981
+    },
+    {
+      "split_id": "random",
+      "comparison": "multiassay minus fresh_d6_network",
+      "metric": "AP",
+      "groups": 1450,
+      "bootstrap_mean": -0.0010019935072019353,
+      "lower95": -0.01696632021730579,
+      "upper95": 0.016522754068532722
+    },
+    {
+      "split_id": "random",
+      "comparison": "multiassay minus fresh_d6_network",
+      "metric": "nested_calls_MCC",
+      "groups": 1450,
+      "bootstrap_mean": -0.022141122991740494,
+      "lower95": -0.06366260913318086,
+      "upper95": 0.020684069758448363
+    },
+    {
+      "split_id": "scaffold",
+      "comparison": "multiassay minus morgan_logistic",
+      "metric": "AP",
+      "groups": 1450,
+      "bootstrap_mean": 0.037044243008265865,
+      "lower95": 0.01194449047735265,
+      "upper95": 0.06225484606451255
+    },
+    {
+      "split_id": "scaffold",
+      "comparison": "multiassay minus morgan_logistic",
+      "metric": "nested_calls_MCC",
+      "groups": 1450,
+      "bootstrap_mean": 0.02502900141082255,
+      "lower95": -0.026116009315175437,
+      "upper95": 0.07691808271197301
+    },
+    {
+      "split_id": "scaffold",
+      "comparison": "multiassay minus fresh_d6_network",
+      "metric": "AP",
+      "groups": 1450,
+      "bootstrap_mean": 0.006316690876596284,
+      "lower95": -0.011770730624043222,
+      "upper95": 0.023752098327611194
+    },
+    {
+      "split_id": "scaffold",
+      "comparison": "multiassay minus fresh_d6_network",
+      "metric": "nested_calls_MCC",
+      "groups": 1450,
+      "bootstrap_mean": -0.017026469182198488,
+      "lower95": -0.0646961264885411,
+      "upper95": 0.031213886846457897
+    }
+  ],
+  "sources": {
+    "v1": "20261002T004016766672Z-e2d420d4",
+    "v2": "20261002T004536560534Z-21c1509c",
+    "v3": "20261002T005041934540Z-c62b6e78",
+    "v4": "20261002T005413496423Z-f92f58e6"
+  },
+  "results": [
+    {
+      "config": {
+        "version": 1,
+        "seed": 20261002,
+        "endpoint": "CYP2D6_is_TDI",
+        "outer_folds": 4,
+        "inner_folds": 3,
+        "bootstrap_samples": 1000,
+        "split_strategies": [
+          "random",
+          "scaffold"
+        ],
+        "models": [
+          "morgan_logistic",
+          "morgan_rdkit_classifier",
+          "paired_measurement_margin"
+        ],
+        "representation": "Fresh Morgan radius 2 / 2048 bits and RDKit 2D descriptors",
+        "threshold_policy": "Maximize inner OOF bootstrap mean MCC; no positive-count constraint",
+        "excluded_inputs": "All previous fitted models, predictions, ensembles, and submission call counts",
+        "measurement_rule": "margin = min(predicted TDI pIC50 - (4 + log10(2)), predicted paired shift - log10(2))",
+        "status": "Foundational pilot; no upload or incumbent blend"
+      },
+      "aggregate": [
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "morgan_logistic",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 369,
+          "ap": 0.31360122848732264,
+          "auc": 0.625690694957532,
+          "mcc": 0.11719232661955281,
+          "bootstrap_mcc": 0.11594298331729261,
+          "bootstrap_std": 0.0281831522694644
+        },
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "morgan_rdkit_classifier",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 495,
+          "ap": 0.26116665044458676,
+          "auc": 0.5690037152810667,
+          "mcc": 0.06849650138919201,
+          "bootstrap_mcc": 0.06721657721074602,
+          "bootstrap_std": 0.027107627903094525
+        },
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "paired_measurement_margin",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 914,
+          "ap": 0.252051157628573,
+          "auc": 0.5342163703914202,
+          "mcc": 0.027212307426911875,
+          "bootstrap_mcc": 0.02810828120390066,
+          "bootstrap_std": 0.0258044717736055
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "morgan_logistic",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 596,
+          "ap": 0.28693348898205717,
+          "auc": 0.5923636765495248,
+          "mcc": 0.08617643477612637,
+          "bootstrap_mcc": 0.08609012724164902,
+          "bootstrap_std": 0.02720494193195968
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "morgan_rdkit_classifier",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 756,
+          "ap": 0.27073985548272045,
+          "auc": 0.5776709502910128,
+          "mcc": 0.06286534482351348,
+          "bootstrap_mcc": 0.06364720167165847,
+          "bootstrap_std": 0.024772743863460428
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "paired_measurement_margin",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 476,
+          "ap": 0.2647495990165893,
+          "auc": 0.5580631071537578,
+          "mcc": 0.04868863600401991,
+          "bootstrap_mcc": 0.0495213420500493,
+          "bootstrap_std": 0.026780485760382222
+        }
+      ],
+      "operating_points": [
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "morgan_logistic",
+          "threshold": 0.12,
+          "blind_positive": 300,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        },
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "morgan_rdkit_classifier",
+          "threshold": 0.08,
+          "blind_positive": 592,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        },
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "paired_measurement_margin",
+          "threshold": 0.17999999999999994,
+          "blind_positive": 61,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "morgan_logistic",
+          "threshold": 0.17,
+          "blind_positive": 238,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "morgan_rdkit_classifier",
+          "threshold": 0.24000000000000002,
+          "blind_positive": 192,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "paired_measurement_margin",
+          "threshold": -0.040000000000000036,
+          "blind_positive": 382,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        }
+      ],
+      "caveats": [
+        "Scored blind label mask unknown",
+        "Pilot cannot establish transfer to Live",
+        "Regression point estimates below pIC50 4 are censored/noisy",
+        "Scaffold split leaves acyclic compounds as singletons",
+        "Bootstrap resamples use NumPy generator rather than official sklearn RNG"
+      ]
+    },
+    {
+      "config": {
+        "version": 2,
+        "seed": 20261002,
+        "endpoint": "CYP2D6_is_TDI",
+        "outer_folds": 4,
+        "inner_folds": 3,
+        "bootstrap_samples": 1000,
+        "split_strategies": [
+          "random",
+          "scaffold"
+        ],
+        "models": [
+          "confidence_weighted_logistic",
+          "regime_multiclass",
+          "confidence_weighted_regime"
+        ],
+        "ambiguous_weight": 0.25,
+        "representation": "Fresh Morgan radius 2 / 2048 bits; no prior model assets",
+        "threshold_policy": "Maximize inner OOF bootstrap mean MCC on all supplied labels; no positive-count constraint",
+        "training_policy": "Keep all supplied labels. Weight interval-supported training labels 1; unresolved labels 0.25. Multiclass distinguishes ordinary and inferred positives, then sums their molecular probabilities.",
+        "diagnostic_motivation": "903 of 1364 direct-active D6 labels have paired marginal shift intervals crossing log10(2); test whether confidence weighting and separate positive mechanisms improve new learning.",
+        "excluded_inputs": "Every prior model and prediction, including pilot model assets. Only source compounds, measurements and aliases are allowed.",
+        "status": "Sequential foundational hypothesis test; validation labels are never reweighted or relabelled; no upload"
+      },
+      "aggregate": [
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "confidence_weighted_logistic",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 215,
+          "ap": 0.3115193176564835,
+          "auc": 0.6259564480650015,
+          "mcc": 0.0946650858135766,
+          "bootstrap_mcc": 0.09349586411833805,
+          "bootstrap_std": 0.02944158867866644
+        },
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "regime_multiclass",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 370,
+          "ap": 0.31189560338675193,
+          "auc": 0.6246934629998,
+          "mcc": 0.11627188211851423,
+          "bootstrap_mcc": 0.1161227358509789,
+          "bootstrap_std": 0.027775807806295776
+        },
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "confidence_weighted_regime",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 225,
+          "ap": 0.309168793219346,
+          "auc": 0.625288118467999,
+          "mcc": 0.09669370322207482,
+          "bootstrap_mcc": 0.09617180903649375,
+          "bootstrap_std": 0.028637152017567502
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "confidence_weighted_logistic",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 450,
+          "ap": 0.294084558691601,
+          "auc": 0.5964446970414574,
+          "mcc": 0.11180967306112524,
+          "bootstrap_mcc": 0.11241281224732076,
+          "bootstrap_std": 0.026787798912032885
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "regime_multiclass",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 618,
+          "ap": 0.2804451039876152,
+          "auc": 0.585206761180049,
+          "mcc": 0.05681486029956235,
+          "bootstrap_mcc": 0.055953118303575064,
+          "bootstrap_std": 0.026392674617037204
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "confidence_weighted_regime",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 471,
+          "ap": 0.28328842442917224,
+          "auc": 0.5873248923831476,
+          "mcc": 0.09103168265597952,
+          "bootstrap_mcc": 0.09109898144206201,
+          "bootstrap_std": 0.02750955896298501
+        }
+      ],
+      "operating_points": [
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "confidence_weighted_logistic",
+          "threshold": 0.09999999999999999,
+          "blind_positive": 339,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        },
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "regime_multiclass",
+          "threshold": 0.060000000000000005,
+          "blind_positive": 347,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        },
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "confidence_weighted_regime",
+          "threshold": 0.06999999999999999,
+          "blind_positive": 346,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "confidence_weighted_logistic",
+          "threshold": 0.16,
+          "blind_positive": 257,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "regime_multiclass",
+          "threshold": 0.09,
+          "blind_positive": 303,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "confidence_weighted_regime",
+          "threshold": 0.09,
+          "blind_positive": 304,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        }
+      ],
+      "caveats": [
+        "Scored blind label mask unknown",
+        "Pilot cannot establish transfer to Live",
+        "Regression point estimates below pIC50 4 are censored/noisy",
+        "Scaffold split leaves acyclic compounds as singletons",
+        "Bootstrap resamples use NumPy generator rather than official sklearn RNG"
+      ]
+    },
+    {
+      "config": {
+        "version": 3,
+        "seed": 20261002,
+        "endpoint": "CYP2D6_is_TDI",
+        "outer_folds": 4,
+        "inner_folds": 3,
+        "bootstrap_samples": 1000,
+        "split_strategies": [
+          "random",
+          "scaffold"
+        ],
+        "models": [
+          "fresh_multiassay_network"
+        ],
+        "network_epochs": 100,
+        "representation": "Fresh Morgan 2048-bit molecular input; randomly initialized shared 256/64 hidden layers",
+        "tasks": "Four official TDI booleans plus direct pIC50, TDI pIC50 and paired difference for each enzyme. Potencies are floored at the assay boundary 4 before continuous auxiliary learning; missing measurements are masked, never imputed as inactive.",
+        "loss": "D6 BCE + 0.3 * mean other-enzyme BCE + 0.2 * mean per-task standardized continuous MSE; AdamW lr .002 decay .001 dropout .15 full batch 100 epochs",
+        "threshold_policy": "Maximize inner OOF bootstrap mean MCC; no positive-count constraint",
+        "excluded_inputs": "All prior trained models, encoders, predictions, thresholds and submission counts; only source molecule and assay tables",
+        "status": "Foundational cross-enzyme learning test; no upload, no historical blend"
+      },
+      "aggregate": [
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "fresh_multiassay_network",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 262,
+          "ap": 0.33823581462483443,
+          "auc": 0.6323239977687264,
+          "mcc": 0.12932462631270453,
+          "bootstrap_mcc": 0.1281904771376789,
+          "bootstrap_std": 0.02806242293097483
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "fresh_multiassay_network",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 263,
+          "ap": 0.3243348119213558,
+          "auc": 0.6092876764232263,
+          "mcc": 0.11115825469145862,
+          "bootstrap_mcc": 0.1122558248217149,
+          "bootstrap_std": 0.028786863356370804
+        }
+      ],
+      "operating_points": [
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "fresh_multiassay_network",
+          "threshold": 0.14,
+          "blind_positive": 153,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "fresh_multiassay_network",
+          "threshold": 0.9,
+          "blind_positive": 58,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        }
+      ],
+      "caveats": [
+        "Scored blind label mask unknown",
+        "Pilot cannot establish transfer to Live",
+        "Regression point estimates below pIC50 4 are censored/noisy",
+        "Scaffold split leaves acyclic compounds as singletons",
+        "Bootstrap resamples use NumPy generator rather than official sklearn RNG"
+      ]
+    },
+    {
+      "config": {
+        "version": 4,
+        "seed": 20261002,
+        "endpoint": "CYP2D6_is_TDI",
+        "outer_folds": 4,
+        "inner_folds": 3,
+        "bootstrap_samples": 1000,
+        "split_strategies": [
+          "random",
+          "scaffold"
+        ],
+        "models": [
+          "fresh_d6_network"
+        ],
+        "network_epochs": 100,
+        "other_enzyme_weight": 0.0,
+        "continuous_aux_weight": 0.0,
+        "representation": "Fresh Morgan 2048-bit input, same random 256/64 network, dropout, optimizer and training budget as multiassay v3",
+        "loss": "D6 BCE only; auxiliary losses exactly zero. No trained assets are reused.",
+        "threshold_policy": "Maximize inner OOF bootstrap mean MCC; no positive-count constraint",
+        "excluded_inputs": "All prior fitted weights, predictions, thresholds and submission counts",
+        "status": "Ablation to distinguish cross-enzyme supervision from network capacity; no upload"
+      },
+      "aggregate": [
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "fresh_d6_network",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 306,
+          "ap": 0.3383234784093082,
+          "auc": 0.6385757738414743,
+          "mcc": 0.1519317088831763,
+          "bootstrap_mcc": 0.15144682363044737,
+          "bootstrap_std": 0.02864573581584933
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "fresh_d6_network",
+          "n": 1497,
+          "positives": 324,
+          "predicted_positive": 196,
+          "ap": 0.31744775283784143,
+          "auc": 0.608698283392799,
+          "mcc": 0.12781294131343177,
+          "bootstrap_mcc": 0.1275975610935333,
+          "bootstrap_std": 0.029237933324111853
+        }
+      ],
+      "operating_points": [
+        {
+          "split_id": "random",
+          "fold": -1,
+          "model": "fresh_d6_network",
+          "threshold": 0.04,
+          "blind_positive": 203,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        },
+        {
+          "split_id": "scaffold",
+          "fold": -1,
+          "model": "fresh_d6_network",
+          "threshold": 0.92,
+          "blind_positive": 94,
+          "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+        }
+      ],
+      "caveats": [
+        "Scored blind label mask unknown",
+        "Pilot cannot establish transfer to Live",
+        "Regression point estimates below pIC50 4 are censored/noisy",
+        "Scaffold split leaves acyclic compounds as singletons",
+        "Bootstrap resamples use NumPy generator rather than official sklearn RNG"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+target,pdb_id,protein_chain,ligand_chain,ligand_seqid,ccd_id,heavy_atoms,min_protein_distance_angstrom,min_heme_iron_distance_angstrom,decision
+CYP1A2,2hi4,A,A,900,HEM,43,2.3475930226510715,0.0,configured_artifact_or_cofactor
+CYP1A2,2hi4,A,A,800,BHF,21,3.34047481654929,4.723462395319771,accepted_active_site_ligand

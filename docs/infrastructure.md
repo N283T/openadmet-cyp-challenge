@@ -11,6 +11,11 @@ final DB states from saved results after a DB outage; records without a result a
 printed for human inspection because they may still be running. SIGKILL/power failure
 cannot execute finalizers; intent, process identity and console logs remain available.
 
+`pixi run cyp prune-runs --status failed` previews failed run payload cleanup. Adding
+`--execute` replaces each run directory with a compact tombstone under
+`artifacts/pruned-runs/`; the database keeps the failure status, command, failure detail,
+notes, reclaimed size and tombstone path. Runs without a terminal result are not pruned.
+
 Each run contains:
 
 - Intent, purpose, track, optional Issue, command, timestamp and process identity.
@@ -103,3 +108,15 @@ PyTorch and Chemprop are now installed through pixi for frozen CheMeleon extract
 the extraction run records the resolved versions and GPU runtime. Other foundation
 model libraries can be added when the model choices are known. Boltz and Jupyter are not declared.
 The lock is the resolved environment authority; do not use ad-hoc pip installs.
+
+### Large retained immutable inputs
+
+`cyp run --input-mode hardlink` explicitly creates same-filesystem hardlink
+snapshots instead of copying large retained immutable assets. Each input still
+has an alias and SHA-256 in the run manifest. Source permissions are unchanged.
+The ordinary copy mode remains the default. Hardlinks share an inode, so callers
+must preserve source immutability; they protect against path removal, not in-place
+writes. Completion compares re-inventoried input hashes against initial hashes
+and marks a changed input as a failed run. Replay retains hardlink storage when
+all original input snapshots used it. Cross-filesystem linking fails rather than
+silently allocating a large copy.

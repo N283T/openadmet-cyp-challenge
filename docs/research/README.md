@@ -4,7 +4,92 @@ The canonical research narrative lives here, in English, tracked in this private
 Git repository. This carries forward the dated research-log format previously
 used in PXR issues #100 and #208, without requiring an Issue for each experiment.
 
+The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experiment.
+
 ## Current direction
+
+- **D6 investigation priority is validation transfer and explanation of scored
+  failures.** The [recommendation audit](../analysis/2026-10-02-d6-validator-decision-audit.md)
+  shows that prior historical sign reversals remained unresolved when fresh
+  CheMeleon CV superiority was promoted to submission confidence. The UMAP
+  advantage also disappears against the legacy historical operating-fraction
+  diagnostic; scaffold still favors the new model. This is a comparator-policy
+  defect, not a validated new selector, an exact Live cause or a 49-call constraint.
+  Model changes may test explanations; producing another CV winner does not
+  fulfill the user's diagnosis request. No further candidate or upload is created.
+
+- **Boltz trunk regression is adopted and scored:** two TabPFN member replacements
+  improve Live 1A2 ST-RAE `.508530→.506911`; a 20% pocket-plus-molecular LGBM
+  improves D6 `.549341→.535721`. C9/A4 retain their best submitted vectors.
+  Macro is `.458311`. See the [adoption record](../analysis/2026-10-01-boltz-regression-adoption.md)
+  and [current composition](../../configs/regression/current-boltz-adoption.json).
+  Trunk TDI remains exploratory. The user deferred complete-pool extraction;
+  [labelled-only integration diagnostics](../analysis/2026-10-01-boltz-tdi-partial-pool-diagnostics.md)
+  show ranking gains without a selected call-boundary MCC gain. Classification
+  has not changed in these experiments. A subsequent user-authorized
+  [D6 blind review](../analysis/2026-10-01-boltz-d6-ap-blind-probe.md) freezes an
+  AP-selected 50% rank blend with 21 additions and 21 removals. The recommended
+  new prepared payload `20261001T141041310215Z-c7faa79f` also restores the exact
+  best-scored A4 249-call vector. The user approved this exact payload; it was
+  sent on October 1 at 23:13 JST. Live scoring shows D6 MCC
+  `.308635→.104986`, while exact A4 restoration recovers `.529911` and rank 1.
+  Reject this D6 blend for current Live. The user subsequently rejected the original
+  ensemble and its call count as modeling anchors. The [independent D6 restart](../analysis/2026-10-02-d6-zero-start.md)
+  uses source molecules and measurements, fresh fitting, nested unconstrained thresholds,
+  and structural holdouts. No rollback upload has occurred. Earlier probes remain unsent.
+  The user subsequently resumed the investigation, asking for cause-linked
+  experiments and a concrete submission candidate. The
+  [failure-linked probe](../analysis/2026-10-02-d6-failure-linked-probe.md) compares
+  historical recipes on exact splits and audits decision versus ranking objectives.
+  An independent network with inner-selected thresholds and centered fold inference
+  yields 77 D6 calls; it has not established superiority to the historical whole
+  ensemble. Prepared payload `20261002T023446563579Z-e264a4bf` changes 80 D6 calls
+  versus the last sent payload and keeps A4 exactly unchanged. It is a prospective
+  submission candidate. The user requested further validation before spending a
+  twelve-hour opportunity. The [complete-policy validation](../analysis/2026-10-02-d6-submission-value-validation.md)
+  evaluates the five-model algorithm, repeated seeds, duration and rank-transfer
+  controls. It does not demonstrate a repeatable advantage; the 77-call payload
+  remains preserved but is not recommended for upload on this evidence. No
+  rollback, replacement payload or challenge upload has occurred.
+  Continued [primary-selection experiments](../analysis/2026-10-02-d6-primary-selection-mechanism.md)
+  find 2,823 weak-primary development molecules with no D6 class labels and
+  reproduce selected-only gains reversing on broader known A4 outcomes.
+  Selection weighting, primary and potency gates, and train-selected prior
+  thresholds are completed; none establishes a new D6 decision advantage.
+  This identifies a possible failure mechanism, not the precise cause of D6
+  Live swaps or validation of the incumbent. Equal-seed margin averaging is also
+  completed: small fresh-network gains, without a material new decision advantage.
+  Eleven further complete records are retained.
+  The next completed continuation selects a
+  [fresh CheMeleon readout candidate](../analysis/2026-10-02-d6-chemeleon-submission-candidate.md):
+  two seeds times five models, four primary-assay auxiliary targets, and trained
+  margin decisions improve nested MCC to .14530 UMAP / .23066 scaffold.
+  Prepared payload `20261002T092348406577Z-4ea606c1` has 175 D6 positives
+  (+133/-7 versus last sent) and exactly unchanged A4. It supersedes the earlier
+  77-call candidate as the recommended new-pipeline submission attempt; sparse
+  class coverage and unfavorable historical-rate comparisons remain explicit.
+  All nine further completed records and own readout weights are retained.
+  Dry run is valid; this exact payload is not approved or uploaded. See
+  [RL0206](2026-10.md#rl0206--fresh-chemeleon-readouts-yield-a-complete-175-call-d6-candidate).
+  The user identifies the missing complete existing-model comparison. The
+  [whole-legacy nested refit](../analysis/2026-10-02-d6-legacy-whole-nested.md)
+  completes all 400 fits and 20 outer folds inside the same outer/bag/cut
+  boundaries. The selected recipe's decision MCC .14530/.23066 exceeds the
+  whole legacy recipe's .09067/.16759; paired conditional intervals exclude
+  zero in both splits. The legacy recipe remains stronger at a matched narrow
+  49/750 fraction, while the selected recipe wins at 175/750. Retain the exact
+  175-call candidate as the next improvement attempt. The user then explicitly
+  approved this exact payload; [remote receipt is confirmed](../analysis/2026-10-02-d6-chemeleon-submission-receipt.md)
+  on October 2 at approximately 21:08 JST. [Live scoring is now confirmed](../analysis/2026-10-02-d6-chemeleon-live-result.md):
+  D6 .117740060 recovers slightly versus last sent .104985814, but remains
+  below historical best .308635. A4 .529910537 retains rank 1. The known-label
+  advantage has not established Live superiority. Preserve this candidate as
+  informative evidence; the earlier recommendation is superseded by this
+  outcome. No rollback or additional upload occurred. The next classification
+  opportunity starts October 3 at 09:08:22.746783 JST.
+  This comparison does not alone establish past-LB concordance or recover
+  missing D6 outcomes. See
+  [RL0207](2026-10.md#rl0207--complete-legacy-refits-support-the-new-decision-policy-but-preserve-a-narrow-ranking-advantage).
 
 - **The A4 275-call rate failed on the Live leaderboard:** complete-pool OOF
   had favored 275 over the submitted 249 calls by `.0245` projected MCC, but

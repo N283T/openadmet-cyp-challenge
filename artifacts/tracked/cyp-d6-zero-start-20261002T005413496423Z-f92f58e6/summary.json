@@ -1,0 +1,78 @@
+{
+  "config": {
+    "version": 4,
+    "seed": 20261002,
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 4,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "random",
+      "scaffold"
+    ],
+    "models": [
+      "fresh_d6_network"
+    ],
+    "network_epochs": 100,
+    "other_enzyme_weight": 0.0,
+    "continuous_aux_weight": 0.0,
+    "representation": "Fresh Morgan 2048-bit input, same random 256/64 network, dropout, optimizer and training budget as multiassay v3",
+    "loss": "D6 BCE only; auxiliary losses exactly zero. No trained assets are reused.",
+    "threshold_policy": "Maximize inner OOF bootstrap mean MCC; no positive-count constraint",
+    "excluded_inputs": "All prior fitted weights, predictions, thresholds and submission counts",
+    "status": "Ablation to distinguish cross-enzyme supervision from network capacity; no upload"
+  },
+  "aggregate": [
+    {
+      "split_id": "random",
+      "fold": -1,
+      "model": "fresh_d6_network",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 306,
+      "ap": 0.3383234784093082,
+      "auc": 0.6385757738414743,
+      "mcc": 0.1519317088831763,
+      "bootstrap_mcc": 0.15144682363044737,
+      "bootstrap_std": 0.02864573581584933
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "fresh_d6_network",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 196,
+      "ap": 0.31744775283784143,
+      "auc": 0.608698283392799,
+      "mcc": 0.12781294131343177,
+      "bootstrap_mcc": 0.1275975610935333,
+      "bootstrap_std": 0.029237933324111853
+    }
+  ],
+  "operating_points": [
+    {
+      "split_id": "random",
+      "fold": -1,
+      "model": "fresh_d6_network",
+      "threshold": 0.04,
+      "blind_positive": 203,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "fresh_d6_network",
+      "threshold": 0.92,
+      "blind_positive": 94,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    }
+  ],
+  "caveats": [
+    "Scored blind label mask unknown",
+    "Pilot cannot establish transfer to Live",
+    "Regression point estimates below pIC50 4 are censored/noisy",
+    "Scaffold split leaves acyclic compounds as singletons",
+    "Bootstrap resamples use NumPy generator rather than official sklearn RNG"
+  ]
+}

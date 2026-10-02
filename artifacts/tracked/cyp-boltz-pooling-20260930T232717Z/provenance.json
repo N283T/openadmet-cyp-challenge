@@ -1,0 +1,92 @@
+{
+  "report_run": "20261001T055224509373Z-0e408efe",
+  "suite": "artifacts/boltz-trunk/experiments/20260930T232717Z",
+  "screens": [
+    {
+      "target": "cyp1a2",
+      "track": "regression",
+      "run": "20260930T233551833106Z-e209b403",
+      "exit_code": 1,
+      "recovery_run": "20261001T004229979336Z-f08b913c"
+    },
+    {
+      "target": "cyp2c9",
+      "track": "regression",
+      "run": "20261001T003655120573Z-71cfd9cb",
+      "exit_code": 1,
+      "recovery_run": "20261001T014152092601Z-b821c02a"
+    },
+    {
+      "target": "cyp2d6",
+      "track": "regression",
+      "run": "20261001T013519598681Z-c88f83bd",
+      "exit_code": 0
+    },
+    {
+      "target": "cyp2d6",
+      "track": "classification",
+      "run": "20261001T023655009132Z-91096754",
+      "exit_code": 0
+    },
+    {
+      "target": "cyp3a4",
+      "track": "regression",
+      "run": "20261001T031820053553Z-73768adb",
+      "exit_code": 0
+    },
+    {
+      "target": "cyp3a4",
+      "track": "classification",
+      "run": "20261001T043809889682Z-cd81b014",
+      "exit_code": 0
+    }
+  ],
+  "files": [
+    {
+      "file": "all-metrics.parquet",
+      "sha256": "312db72c2977c46793c49f29c8e834b20b02bac8b29f0a2a3a9ef7b3c3cdb8cc",
+      "bytes": 24773
+    },
+    {
+      "file": "paired-uncertainty.parquet",
+      "sha256": "6da5de31879bea72834b4fc35bc36cf2ccf764aad8f05ee77a5b64db22ff0d9d",
+      "bytes": 30154
+    },
+    {
+      "file": "report.md",
+      "sha256": "a7cd6c538274f42b712f3f82cb56fcc9b2ffdead7f20196037b2b8943049b944",
+      "bytes": 38830
+    },
+    {
+      "file": "screen-0-fold-metrics.parquet",
+      "sha256": "61a0bd0020c094d727bc627a316ed891fe59e9d9f3101b44d2e5c9a3bd7f6132",
+      "bytes": 11015
+    },
+    {
+      "file": "screen-1-fold-metrics.parquet",
+      "sha256": "52beda6bb3afaf07d9e6035f32b02940d60722f2fd18fd84893dd42b459de21f",
+      "bytes": 12942
+    },
+    {
+      "file": "screen-2-fold-metrics.parquet",
+      "sha256": "e0ad16c55c6797b348772de8ab6d3f0df2a2bba11c74a4770c953c2df9eaa5e9",
+      "bytes": 12961
+    },
+    {
+      "file": "screen-3-fold-metrics.parquet",
+      "sha256": "cd56f70a808f0fff196f57af3fdb58bf578ddcc7da526858180a4dfd76d8667e",
+      "bytes": 9305
+    },
+    {
+      "file": "screen-4-fold-metrics.parquet",
+      "sha256": "a4e486de20f98a15d4c5e1fe45f5b73198d3920f70d7bbc8395c111eb7a26926",
+      "bytes": 12905
+    },
+    {
+      "file": "screen-5-fold-metrics.parquet",
+      "sha256": "5c67524caf2c10518a39ecc6045dec023937a421b2721ae847611bc88291acf1",
+      "bytes": 10090
+    }
+  ],
+  "large_features_and_model_assets": "Retained in source runs; not copied into ordinary Git"
+}

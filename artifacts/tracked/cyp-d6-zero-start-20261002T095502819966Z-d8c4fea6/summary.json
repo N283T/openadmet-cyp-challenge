@@ -1,0 +1,11 @@
+{
+  "config": {
+    "purpose": "Verify exact raw-core and ranked-tail composition against the historical complete-pool UMAP record, before interpreting the newly refitted legacy comparator.",
+    "scope": "Formula check only; cached predictions are not nested refit evidence."
+  },
+  "rows": 6146,
+  "atoms": 11,
+  "max_absolute_error": 0.0,
+  "exact_composition_verified": true,
+  "fitting_or_decision_claim": false
+}

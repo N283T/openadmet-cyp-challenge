@@ -1,0 +1,6 @@
+split_id,seed,fold,model,policy,outer_test_used_in_fit_or_cut,mean_bag_threshold
+umap,20261017,0,sep15_whole_fresh_nested,centered_fold_mean,false,0.6377766576962481
+umap,20261017,1,sep15_whole_fresh_nested,centered_fold_mean,false,0.6088587026111387
+umap,20261017,2,sep15_whole_fresh_nested,centered_fold_mean,false,0.8307621032469055
+umap,20261017,3,sep15_whole_fresh_nested,centered_fold_mean,false,0.6882482025212333
+umap,20261017,4,sep15_whole_fresh_nested,centered_fold_mean,false,0.6301316072337514

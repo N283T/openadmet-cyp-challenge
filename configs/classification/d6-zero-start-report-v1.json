@@ -1,0 +1,11 @@
+{
+  "seed": 20261002,
+  "bootstrap_samples": 1000,
+  "sources": {
+    "v1": "20261002T004016766672Z-e2d420d4",
+    "v2": "20261002T004536560534Z-21c1509c",
+    "v3": "20261002T005041934540Z-c62b6e78",
+    "v4": "20261002T005413496423Z-f92f58e6"
+  },
+  "method": "Paired scaffold-group bootstrap on all observed D6 labels; conditional on fixed saved nested-OOF predictions; no historical model inputs"
+}

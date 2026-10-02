@@ -1,0 +1,66 @@
+{
+  "config": {
+    "bootstrap_samples": 1000,
+    "rates": [
+      0.03,
+      0.05,
+      0.06533333333333333,
+      0.1,
+      0.15,
+      0.2,
+      0.33
+    ],
+    "priors": [
+      0.03,
+      0.07,
+      0.12
+    ],
+    "selection_rule": "Compare complete ten-model held-out policies at matched molecules/folds, plus frozen historical analog rank-rate sensitivity. Never choose deployment count from the rate grid or blind seed counts."
+  },
+  "contrasts": [
+    {
+      "split_id": "umap",
+      "model": "chemeleon_primary_network",
+      "comparator": "fresh_d6_network",
+      "delta": 0.019577885400063416,
+      "ci_low": -0.0445041517745416,
+      "ci_high": 0.08213706535448954
+    },
+    {
+      "split_id": "umap",
+      "model": "chemeleon_primary_network",
+      "comparator": "chemeleon_class_network",
+      "delta": 0.013512001524468492,
+      "ci_low": -0.04359136907235762,
+      "ci_high": 0.055977187592111524
+    },
+    {
+      "split_id": "scaffold",
+      "model": "chemeleon_primary_network",
+      "comparator": "fresh_d6_network",
+      "delta": 0.06195244423103946,
+      "ci_low": -0.0017335136980436239,
+      "ci_high": 0.12174165485477112
+    },
+    {
+      "split_id": "scaffold",
+      "model": "chemeleon_primary_network",
+      "comparator": "chemeleon_class_network",
+      "delta": 0.0162710227333126,
+      "ci_low": -0.013167706307475421,
+      "ci_high": 0.04797801021430927
+    }
+  ],
+  "blind_seed_agreement": [
+    {
+      "seed_a": 20261002,
+      "seed_b": 20261017,
+      "a_positives": 142,
+      "b_positives": 206,
+      "changed": 64,
+      "positive_jaccard": 0.6893203883495146
+    }
+  ],
+  "no_upload": true,
+  "limits": "Historical recipe is a frozen analog, not exact nested historical model selection. Rate curves are sensitivity diagnostics, not a fitted call budget. Conditional group intervals omit protocol and training uncertainty. Missing weak-primary outcomes and unknown blind scored mask remain unidentified."
+}

@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "seed": 20261002,
+  "seeds": [
+    20261002,
+    20261017
+  ],
+  "endpoint": "CYP3A4_is_TDI",
+  "outer_folds": 5,
+  "bag_folds": 5,
+  "inner_folds": 3,
+  "bootstrap_samples": 1000,
+  "split_strategies": [
+    "umap",
+    "scaffold"
+  ],
+  "fixed_assignments": "assignments.parquet",
+  "models": [
+    "potency_all",
+    "potency_conditional",
+    "potency_gate"
+  ],
+  "network_epochs": 20,
+  "nested_bag_validation": true,
+  "threshold_grid": "inner_quantiles",
+  "cpu_threads": 4,
+  "policies": [
+    "centered_fold_mean",
+    "majority_vote",
+    "pooled_oof_cut",
+    "single_refit"
+  ],
+  "historical_comparisons": [],
+  "scientific_purpose": "Test an assay-compatible TDI potency gate versus flat and conditional class training; measured TDI pIC50 above 4+log10(2) is satisfied by every known positive, unlike a primary-screen cutoff. Primary regression auxiliary supervision supplies broad measured-screen targets. Fully nested five-bag decisions, two seeds and two splits. CYP3A4_is_TDI",
+  "selection_rule": "Three prespecified matched 20-epoch Morgan neural arms, shared architecture and measurements. Conditional and gated arms use identical fits; thresholds are tuned on all known inner class labels. No unknown TDI labels imputed, no historical model scores or fixed positive count.",
+  "limitations": "Necessary potency condition verified on observed outcomes, not a guarantee of transport to blind compounds. Primary auxiliary values excluded from all fitting boundaries for held-out molecules. D6 still has no class labels in weak primary region; the potency gate alone cannot remove that identifiability gap. Repeated seeds, conditional group intervals omit training and protocol-selection uncertainty.",
+  "primary_screen": "primary-screen.csv",
+  "propensity_weight_cap": 5.0,
+  "baseline_model": "potency_all",
+  "selection_control": false,
+  "primary_enzyme_index": 1,
+  "primary_activity_cut": -0.5,
+  "primary_activity_loss_weight": 1.0,
+  "skip_historical_diagnostics": true,
+  "float32_matmul_precision": "highest"
+}

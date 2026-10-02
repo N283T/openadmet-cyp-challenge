@@ -81,6 +81,35 @@ def test_failed_command_is_recorded_but_missing_input_is_preflight(registry):
         assert json.loads(Path(path).with_name("result.json").read_text())["status"] == "failed"
 
 
+def test_prune_failed_run_retains_compact_tombstone(registry, capsys):
+    connect, _ = registry
+    assert launch(["python", "-c", "print('failure detail'); raise SystemExit(7)"]) == 7
+    with connect() as conn:
+        identifier, original_path = conn.execute(
+            "SELECT id,manifest_path FROM runs WHERE status='failed'"
+        ).fetchone()
+    run_path = Path(original_path).parent
+
+    runs.prune(Namespace(status="failed", execute=False))
+    assert run_path.is_dir()
+    assert "DRY-RUN runs=1" in capsys.readouterr().out
+
+    runs.prune(Namespace(status="failed", execute=True))
+    assert not run_path.exists()
+    with connect() as conn:
+        status, tombstone_path, manifest = conn.execute(
+            "SELECT status,manifest_path,manifest FROM runs WHERE id=%s", (identifier,)
+        ).fetchone()
+    assert status == "failed"
+    assert Path(tombstone_path).is_file()
+    assert manifest["reclaimed_bytes"] > 0
+    assert manifest["failure"]["exit_code"] == 7
+    assert "failure detail" in manifest["failure"]["console_tail"]
+
+    runs.prune(Namespace(status="failed", execute=False))
+    assert "DRY-RUN runs=0 bytes=0" in capsys.readouterr().out
+
+
 def test_replay_and_tampering(registry):
     connect, root = registry
     command = [

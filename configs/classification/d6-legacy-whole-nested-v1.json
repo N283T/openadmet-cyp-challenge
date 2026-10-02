@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "seed": 20261002,
+  "seeds": [20261002, 20261017],
+  "endpoint": "CYP2D6_is_TDI",
+  "split_strategies": ["umap", "scaffold"],
+  "fixed_assignments": "assignments.parquet",
+  "outer_folds": 5,
+  "bag_folds": 5,
+  "inner_folds": 3,
+  "bootstrap_samples": 1000,
+  "cpu_threads": 4,
+  "mordred_files": 54,
+  "legacy_ensemble_validation": true,
+  "graph_max_epochs": 80,
+  "graph_patience": 10,
+  "model_name": "sep15_whole_fresh_nested",
+  "scientific_purpose": "Refit all eleven September 15 D6 ensemble atoms inside the identical outer and bag/cut boundaries used for the new CheMeleon candidate. Include fresh CYP graph fine-tuning and nested epoch selection, train-only TabPFN scalers/PCA and unconstrained bootstrap MCC cuts. Compare complete two-seed margin policies; no upload or prescribed 49 calls.",
+  "selection_rule": "Freeze historical architecture, atom hyperparameters and composition before new results. This is the complete fixed-recipe comparator, not reselected historical model search. Report all results including failure to distinguish old LB deteriorations.",
+  "limitations": "Historical recipe was developed on this development set, so its original discovery is not retrospectively nested. Challenge-independent external features/encoder and third-party TabPFN checkpoint are reused; all challenge-trained weights and preprocessing are refitted within each current boundary. Each graph fit adds internal group-excluded epoch selection. No positive-count constraint. Weak-primary D6 labels are unavailable. No new all-pool Boltz extraction.",
+  "members": ["morgan_plain", "mordred_plain", "fp_mordred_plain", "external_class_plain", "external_mixed_plain", "external_mixed_pca256", "external_mixed_raw600", "tdi_only", "logistic_c0.05", "rbf_svm_c1", "complement_nb_a1"]
+}

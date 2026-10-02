@@ -1,0 +1,163 @@
+{
+  "config": {
+    "version": 2,
+    "seed": 20261002,
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 4,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "random",
+      "scaffold"
+    ],
+    "models": [
+      "confidence_weighted_logistic",
+      "regime_multiclass",
+      "confidence_weighted_regime"
+    ],
+    "ambiguous_weight": 0.25,
+    "representation": "Fresh Morgan radius 2 / 2048 bits; no prior model assets",
+    "threshold_policy": "Maximize inner OOF bootstrap mean MCC on all supplied labels; no positive-count constraint",
+    "training_policy": "Keep all supplied labels. Weight interval-supported training labels 1; unresolved labels 0.25. Multiclass distinguishes ordinary and inferred positives, then sums their molecular probabilities.",
+    "diagnostic_motivation": "903 of 1364 direct-active D6 labels have paired marginal shift intervals crossing log10(2); test whether confidence weighting and separate positive mechanisms improve new learning.",
+    "excluded_inputs": "Every prior model and prediction, including pilot model assets. Only source compounds, measurements and aliases are allowed.",
+    "status": "Sequential foundational hypothesis test; validation labels are never reweighted or relabelled; no upload"
+  },
+  "aggregate": [
+    {
+      "split_id": "random",
+      "fold": -1,
+      "model": "confidence_weighted_logistic",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 215,
+      "ap": 0.3115193176564835,
+      "auc": 0.6259564480650015,
+      "mcc": 0.0946650858135766,
+      "bootstrap_mcc": 0.09349586411833805,
+      "bootstrap_std": 0.02944158867866644
+    },
+    {
+      "split_id": "random",
+      "fold": -1,
+      "model": "regime_multiclass",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 370,
+      "ap": 0.31189560338675193,
+      "auc": 0.6246934629998,
+      "mcc": 0.11627188211851423,
+      "bootstrap_mcc": 0.1161227358509789,
+      "bootstrap_std": 0.027775807806295776
+    },
+    {
+      "split_id": "random",
+      "fold": -1,
+      "model": "confidence_weighted_regime",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 225,
+      "ap": 0.309168793219346,
+      "auc": 0.625288118467999,
+      "mcc": 0.09669370322207482,
+      "bootstrap_mcc": 0.09617180903649375,
+      "bootstrap_std": 0.028637152017567502
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "confidence_weighted_logistic",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 450,
+      "ap": 0.294084558691601,
+      "auc": 0.5964446970414574,
+      "mcc": 0.11180967306112524,
+      "bootstrap_mcc": 0.11241281224732076,
+      "bootstrap_std": 0.026787798912032885
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "regime_multiclass",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 618,
+      "ap": 0.2804451039876152,
+      "auc": 0.585206761180049,
+      "mcc": 0.05681486029956235,
+      "bootstrap_mcc": 0.055953118303575064,
+      "bootstrap_std": 0.026392674617037204
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "confidence_weighted_regime",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 471,
+      "ap": 0.28328842442917224,
+      "auc": 0.5873248923831476,
+      "mcc": 0.09103168265597952,
+      "bootstrap_mcc": 0.09109898144206201,
+      "bootstrap_std": 0.02750955896298501
+    }
+  ],
+  "operating_points": [
+    {
+      "split_id": "random",
+      "fold": -1,
+      "model": "confidence_weighted_logistic",
+      "threshold": 0.09999999999999999,
+      "blind_positive": 339,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "random",
+      "fold": -1,
+      "model": "regime_multiclass",
+      "threshold": 0.060000000000000005,
+      "blind_positive": 347,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "random",
+      "fold": -1,
+      "model": "confidence_weighted_regime",
+      "threshold": 0.06999999999999999,
+      "blind_positive": 346,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "confidence_weighted_logistic",
+      "threshold": 0.16,
+      "blind_positive": 257,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "regime_multiclass",
+      "threshold": 0.09,
+      "blind_positive": 303,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "confidence_weighted_regime",
+      "threshold": 0.09,
+      "blind_positive": 304,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    }
+  ],
+  "caveats": [
+    "Scored blind label mask unknown",
+    "Pilot cannot establish transfer to Live",
+    "Regression point estimates below pIC50 4 are censored/noisy",
+    "Scaffold split leaves acyclic compounds as singletons",
+    "Bootstrap resamples use NumPy generator rather than official sklearn RNG"
+  ]
+}

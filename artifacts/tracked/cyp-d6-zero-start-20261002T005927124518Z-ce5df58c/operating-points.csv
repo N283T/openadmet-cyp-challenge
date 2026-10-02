@@ -1,0 +1,16 @@
+split_id,fold,model,threshold,inner_bootstrap_mcc,inner_bootstrap_std,fitting_molecules,blind_positive,note
+similarity,0,morgan_logistic,0.74,0.11488117371937488,0.03555191220678376,4609,,
+similarity,0,fresh_d6_network,0.02,0.0783996444355241,0.030510996323588193,4609,,
+similarity,0,fresh_multiassay_network,0.9500000000000001,0.0991901013726318,0.03679971471180133,4609,,
+similarity,1,morgan_logistic,0.76,0.15660399929672253,0.036880794769888495,4609,,
+similarity,1,fresh_d6_network,0.060000000000000005,0.13599899513151015,0.032628467520545615,4609,,
+similarity,1,fresh_multiassay_network,0.03,0.1325978222606977,0.03249113420576589,4609,,
+similarity,2,morgan_logistic,0.26,0.11434449145574505,0.03178009730726239,4610,,
+similarity,2,fresh_d6_network,0.01,0.10458832436794983,0.03132026849781306,4610,,
+similarity,2,fresh_multiassay_network,0.01,0.10990750441332821,0.0312250350489195,4610,,
+similarity,3,morgan_logistic,0.02,0.12863331029473313,0.024002026356677725,4610,,
+similarity,3,fresh_d6_network,0.01,0.14127706931768744,0.03076605032099627,4610,,
+similarity,3,fresh_multiassay_network,0.17,0.1599981726141445,0.03386259811152356,4610,,
+similarity,-1,morgan_logistic,0.21000000000000002,,,,209,Full-development threshold; pooled OOF fit is an optimistic MCC estimate
+similarity,-1,fresh_d6_network,0.01,,,,227,Full-development threshold; pooled OOF fit is an optimistic MCC estimate
+similarity,-1,fresh_multiassay_network,0.02,,,,219,Full-development threshold; pooled OOF fit is an optimistic MCC estimate

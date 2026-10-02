@@ -1,0 +1,92 @@
+{
+  "source_run": "classification/20261002T043105536476Z-8e0b5aca",
+  "outputs": {
+    "aggregate-metrics.csv": "099cc4276a4e3ea097e4f9c40dc315d83fea67bb801370b33c87fbc51931d1d8",
+    "fold-metrics.csv": "58dd32008f755539579d73e1987b7deb1890386c03c3ec53a4429d3a73fadfab",
+    "leakage-and-operating-points.csv": "65e2f9fc2cb871fac0000ec35d95a342250c8486a61e374ce56699fc993085e1",
+    "nested-oof.parquet": "3427c9fda7016037b38b8eca395eca91eda3406ff791b223ed03e1664846f869",
+    "paired-group-intervals.csv": "00d033a4a43385c1f2b4092a8446a98d1f3209e8253c45010f99552306e9db7c",
+    "primary-source-audit.parquet": "ebbb57658c18ad0fcd9b2e28f6f635e81bf8e36472b9fab47aa867dbecd91032",
+    "representation.json": "42d9eec04f9d5589b0f643ab4c98df2c7e3be0ad33402e07f51e8824a1b10838",
+    "source-audit.parquet": "fa411f2b5657b5203d7838844bd164d3bfd36b9acfab7edd901385a74c34f5b8",
+    "summary.json": "0cee6388a997ff67658d4ec90d5d605f86339dcbcb205b65bb3e42df45cdebdc",
+    "threshold-scale-audit.csv": "e85d149810b9376d5b39fcb6fa83d1944315bf486a87c1e1f133e77d75103851"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043105536476Z-8e0b5aca/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043105536476Z-8e0b5aca/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043105536476Z-8e0b5aca/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043105536476Z-8e0b5aca/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/data/raw/cyp-challenge-single-concentration-TRAIN.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043105536476Z-8e0b5aca/inputs/primary-screen.csv",
+      "sha256": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seed": 20261002,
+    "seeds": [
+      20261002,
+      20261017
+    ],
+    "endpoint": "CYP3A4_is_TDI",
+    "outer_folds": 5,
+    "bag_folds": 5,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "umap",
+      "scaffold"
+    ],
+    "fixed_assignments": "assignments.parquet",
+    "models": [
+      "potency_all",
+      "potency_conditional",
+      "potency_gate"
+    ],
+    "network_epochs": 20,
+    "nested_bag_validation": true,
+    "threshold_grid": "inner_quantiles",
+    "cpu_threads": 4,
+    "policies": [
+      "centered_fold_mean",
+      "majority_vote",
+      "pooled_oof_cut",
+      "single_refit"
+    ],
+    "historical_comparisons": [],
+    "scientific_purpose": "Test an assay-compatible TDI potency gate versus flat and conditional class training; measured TDI pIC50 above 4+log10(2) is satisfied by every known positive, unlike a primary-screen cutoff. Primary regression auxiliary supervision supplies broad measured-screen targets. Fully nested five-bag decisions, two seeds and two splits. CYP3A4_is_TDI",
+    "selection_rule": "Three prespecified matched 20-epoch Morgan neural arms, shared architecture and measurements. Conditional and gated arms use identical fits; thresholds are tuned on all known inner class labels. No unknown TDI labels imputed, no historical model scores or fixed positive count.",
+    "limitations": "Necessary potency condition verified on observed outcomes, not a guarantee of transport to blind compounds. Primary auxiliary values excluded from all fitting boundaries for held-out molecules. D6 still has no class labels in weak primary region; the potency gate alone cannot remove that identifiability gap. Repeated seeds, conditional group intervals omit training and protocol-selection uncertainty.",
+    "primary_screen": "primary-screen.csv",
+    "propensity_weight_cap": 5.0,
+    "baseline_model": "potency_all",
+    "selection_control": false,
+    "primary_enzyme_index": 1,
+    "primary_activity_cut": -0.5,
+    "primary_activity_loss_weight": 1.0,
+    "skip_historical_diagnostics": true
+  }
+}

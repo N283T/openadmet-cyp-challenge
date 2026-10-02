@@ -1,0 +1,49 @@
+{
+  "source_run": "classification/20261002T095502819966Z-d8c4fea6",
+  "outputs": {
+    "composition-audit.parquet": "34787beb565bce30098720f627466316de3ee13bd7c156751c1cd9a790f4cdf3",
+    "summary.json": "99e72200c2dc0828a13aec61a6539b30b7aecdf294c0c972ee1ac9c1fe366908"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T035725764059Z-9b7d6d23/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T095502819966Z-d8c4fea6/inputs/lgbm.parquet",
+      "sha256": "da6b30592fef18fba475ed85b850292a546cda01d61c6d7ef03ba869adaa47a2",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T034908336839Z-ec9287a1/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T095502819966Z-d8c4fea6/inputs/pfn_pca.parquet",
+      "sha256": "68c23d3ba894867aca4af2edf45fc018ad514f022b28bd24e585f34bf90ef113",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T035915695580Z-7dd31f09/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T095502819966Z-d8c4fea6/inputs/pfn_raw.parquet",
+      "sha256": "da93a722a034db29a73401ef6c628b5fcd13a1da3f3be3a3cc32d9f6cdbe891f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T040130129624Z-558f74b9/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T095502819966Z-d8c4fea6/inputs/graph.parquet",
+      "sha256": "2613bba55a3f9f169cc3140b73d9ba5b17074ebf40d61dd0348b014573d21122",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T040107573312Z-887ed73b/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T095502819966Z-d8c4fea6/inputs/fixed.parquet",
+      "sha256": "81b871679be3754455fafb5f26469d6e8f19cfbde07195aa9814169ac3f38bf5",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T040301085704Z-914bb06c/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T095502819966Z-d8c4fea6/inputs/control.parquet",
+      "sha256": "c7b568d1f21827e3ba7f6c8b09f5ee5f95dcf2c61e4beeb159ed2c2b56b6acf3",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "purpose": "Verify exact raw-core and ranked-tail composition against the historical complete-pool UMAP record, before interpreting the newly refitted legacy comparator.",
+    "scope": "Formula check only; cached predictions are not nested refit evidence."
+  }
+}

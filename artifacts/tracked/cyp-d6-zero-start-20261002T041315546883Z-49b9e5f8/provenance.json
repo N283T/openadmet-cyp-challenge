@@ -1,0 +1,168 @@
+{
+  "source_run": "classification/20261002T041315546883Z-49b9e5f8",
+  "outputs": {
+    "historical-concordance.csv": "875eba4dab2d950291a60aa4ff24719a24e214822569f005796cdf54cede0477",
+    "keyed-historical-swaps.parquet": "773959716404969b1bae1c35f14c1bfe2811b97cedf68a76c52a90b20d676a05",
+    "primary-conditioned-swap-yields.csv": "fac58d167f1e00d11ef3e004ad55bbeef560fd407a44a2b7a829757df4552da0",
+    "selection-coverage-by-primary.csv": "f25195d23008163f1bc6878529cc11c915303dc14bcbd3a936b0060a3ed46ae7",
+    "selection-propensity-scaffold.parquet": "d20d9bae5f590a3787569bdbe4c36e44d695aa2fd4f5a4c4fe2b1e53a237f458",
+    "selection-propensity-umap.parquet": "ea341894d54df5b81bf403d746162aa5786e7ed3b537c049ed5110e556a7b52e",
+    "selection-source.parquet": "dacf88b87bf3f0b5c6df9206a0052568d04896c379410ec16c8c193812c41ff3",
+    "summary.json": "bf3e4b78eca289a7413eefad1ff4d1f9088c18575f80b9d1939f41e7143717b2"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T041315546883Z-49b9e5f8/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T041315546883Z-49b9e5f8/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T041315546883Z-49b9e5f8/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T041315546883Z-49b9e5f8/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/data/raw/cyp-challenge-single-concentration-TRAIN.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T041315546883Z-49b9e5f8/inputs/primary-screen.csv",
+      "sha256": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260913T112957931554Z-32d00f6e/outputs/oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T041315546883Z-49b9e5f8/inputs/diverse-oof.parquet",
+      "sha256": "61fa90dedd7e024aae598b7585c55acfa6f838af829f319ddefae6415d37ec7d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260913T123045515718Z-0df22d54/outputs/oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T041315546883Z-49b9e5f8/inputs/fixed-oof.parquet",
+      "sha256": "25f9ed512dd9258ef384f78253c6c12fab911a8a8311c37e04167ca3299618f2",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T040301085704Z-914bb06c/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T041315546883Z-49b9e5f8/inputs/control-umap.parquet",
+      "sha256": "c7b568d1f21827e3ba7f6c8b09f5ee5f95dcf2c61e4beeb159ed2c2b56b6acf3",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T041452692950Z-e17778e3/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T041315546883Z-49b9e5f8/inputs/control-scaffold.parquet",
+      "sha256": "35ca4779e545ccee8c157a6e92826fa138da1cbf64f5d9f7f342dc53adb98956",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T035023873825Z-b719ba35/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T041315546883Z-49b9e5f8/inputs/ap-umap.parquet",
+      "sha256": "a9e4cf548bb631daba88f466d498825c3d49944528e57d15e04006eb489c8e68",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T041348966036Z-8db19b4b/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T041315546883Z-49b9e5f8/inputs/ap-scaffold.parquet",
+      "sha256": "dafd3eded66592d0aa692b33e505c94e9e86bb4fbc843018e6a361c9016af5e6",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/references/official/cyp/assay-dataset/20260907T135802Z/snapshot.md",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T041315546883Z-49b9e5f8/inputs/official-assay.md",
+      "sha256": "cca0fcd8bd38b5391645e362e3e55aecb91c0491008b9ffd01460daf7e4e97b3",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "weight_cap": 5.0,
+    "bootstrap_samples": 1000,
+    "cases": [
+      {
+        "name": "sep12_to_sep13",
+        "split": "umap",
+        "scope": "historical labelled-only diagnostic; not deployment rate selection",
+        "lb_delta": 0.09426,
+        "before": {
+          "file": "diverse-oof.parquet",
+          "model": "current",
+          "rate": 0.05733333333333333
+        },
+        "after": {
+          "file": "diverse-oof.parquet",
+          "model": "current2_logistic_morgan_c0.05_rank_mean",
+          "rate": 0.06533333333333333
+        }
+      },
+      {
+        "name": "sep13_to_sep14",
+        "split": "umap",
+        "scope": "historical labelled-only diagnostic; not deployment rate selection",
+        "lb_delta": 0.00761,
+        "before": {
+          "file": "fixed-oof.parquet",
+          "model": "live",
+          "rate": 0.06533333333333333
+        },
+        "after": {
+          "file": "fixed-oof.parquet",
+          "model": "live2_complement_nb_a1",
+          "rate": 0.06533333333333333
+        }
+      },
+      {
+        "name": "sep15_to_sep23_umap",
+        "split": "umap",
+        "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+        "lb_delta": -0.07381,
+        "before": {
+          "file": "control-umap.parquet",
+          "model": "sep15_control_raw_oof_analog",
+          "rate": 0.06533333333333333
+        },
+        "after": {
+          "file": "ap-umap.parquet",
+          "model": "ap_full7_outer_weight_rank",
+          "rate": 0.06533333333333333
+        }
+      },
+      {
+        "name": "sep15_to_sep23_scaffold",
+        "split": "scaffold",
+        "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+        "lb_delta": -0.07381,
+        "before": {
+          "file": "control-scaffold.parquet",
+          "model": "sep15_control_raw_oof_analog",
+          "rate": 0.06533333333333333
+        },
+        "after": {
+          "file": "ap-scaffold.parquet",
+          "model": "ap_full7_scaffold_outer_weight_rank",
+          "rate": 0.06533333333333333
+        }
+      }
+    ],
+    "primary_bins": [
+      "below -2",
+      "-2 to -1",
+      "-1 to -.5",
+      "-.5 to 0",
+      "at least0",
+      "missing"
+    ],
+    "purpose": "Separate primary activity from TDI shift among selected hits; test whether correction for primary-conditioned label availability changes historical concordance.",
+    "limits": "Fit availability propensity on outer-training measured primary response and missingness only. Missing class labels are selection outcomes, never TDI-negative outcomes. MAR and positivity are unverified; clipping does not fill absent weak-activity labels. Primary response is used for evaluation weighting, not a deployable hidden assay feature."
+  }
+}

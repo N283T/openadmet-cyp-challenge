@@ -28,7 +28,9 @@ def aligned(ids, frame, method, endpoint, column="prediction"):
         part = part.filter(pl.col("strategy") == "umap")
     result = ids.join(
         part.select("compound_id", pl.col(column).alias("value")),
-        on="compound_id", validate="1:1", maintain_order="left",
+        on="compound_id",
+        validate="1:1",
+        maintain_order="left",
     )
     assert result.height == ids.height and result["value"].is_finite().all(), method
     return result["value"].to_numpy()
@@ -58,9 +60,7 @@ def fixed_calls(score, folds, rate):
     return calls
 
 
-depth_frame = pl.read_parquet(inp / "depth-oof.parquet").filter(
-    pl.col("track") == "classification"
-)
+depth_frame = pl.read_parquet(inp / "depth-oof.parquet").filter(pl.col("track") == "classification")
 rows, prediction_frames = [], []
 
 # D6: preserve the submitted fold-selected core, its fixed-model tail and the
@@ -77,25 +77,19 @@ d6_specs = {
     "lgbm::external_class_plain": ("d6-lgbm.parquet", "external_class_plain", "prediction"),
     "lgbm::external_mixed_plain": ("d6-lgbm.parquet", "external_mixed_plain", "prediction"),
     "lgbm::external_class_mordred_plain": (
-        "d6-lgbm.parquet", "external_class_mordred_plain", "prediction"
+        "d6-lgbm.parquet",
+        "external_class_mordred_plain",
+        "prediction",
     ),
-    "pfn::external_class_pca256": (
-        "d6-pfn.parquet", "external_class_pca256", "probability"
-    ),
-    "pfn::external_mixed_pca256": (
-        "d6-pfn.parquet", "external_mixed_pca256", "probability"
-    ),
+    "pfn::external_class_pca256": ("d6-pfn.parquet", "external_class_pca256", "probability"),
+    "pfn::external_mixed_pca256": ("d6-pfn.parquet", "external_mixed_pca256", "probability"),
     "pfn::chemeleon_pca256": ("d6-pfn.parquet", "chemeleon_pca256", "probability"),
     "graph::tdi_only": ("d6-graph.parquet", "tdi_only", "probability"),
     "graph::tdi_aux": ("d6-graph.parquet", "tdi_aux", "probability"),
-    "pfn::external_mixed_raw600": (
-        "d6-raw600.parquet", "external_mixed_raw600", "probability"
-    ),
+    "pfn::external_mixed_raw600": ("d6-raw600.parquet", "external_mixed_raw600", "probability"),
 }
 d6_atoms = {
-    name: aligned(
-        d6_ids, pl.read_parquet(inp / file), method, d6_endpoint, column
-    )
+    name: aligned(d6_ids, pl.read_parquet(inp / file), method, d6_endpoint, column)
     for name, (file, method, column) in d6_specs.items()
 }
 d6_fixed = pl.read_parquet(inp / "d6-fixed.parquet")
@@ -108,8 +102,9 @@ d6_tail = {
     }.items()
 }
 d6_choices = json.loads(
-    pl.read_parquet(inp / "d6-selections.parquet")
-    .filter(pl.col("model") == "exhaustive_mcc::components_10")["selection"][0]
+    pl.read_parquet(inp / "d6-selections.parquet").filter(
+        pl.col("model") == "exhaustive_mcc::components_10"
+    )["selection"][0]
 )
 d6_choices = [item for item in d6_choices if item["held_fold"] != "full"]
 
@@ -121,9 +116,7 @@ def d6_predict(depth=None, replace=False):
         core_members = []
         for member in members:
             if member == "pfn::external_mixed_pca256":
-                block = (
-                    d6_atoms[member] + d6_atoms["pfn::external_mixed_raw600"]
-                ) / 2
+                block = (d6_atoms[member] + d6_atoms["pfn::external_mixed_raw600"]) / 2
                 core_members.append(depth if replace else block)
             else:
                 core_members.append(d6_atoms[member])
@@ -137,9 +130,7 @@ def d6_predict(depth=None, replace=False):
             "tail_rbf": (2 * live + d6_tail["rbf"]) / 3,
             "tail_complement": (2 * live + d6_tail["complement"]) / 3,
         }
-        recipes["tail_average"] = (
-            recipes["tail_rbf"] + recipes["tail_complement"]
-        ) / 2
+        recipes["tail_average"] = (recipes["tail_rbf"] + recipes["tail_complement"]) / 2
         result[d6_folds == int(choice["held_fold"])] = recipes[choice["recipe"]][
             d6_folds == int(choice["held_fold"])
         ]
@@ -162,7 +153,9 @@ def backend_values(endpoint, ids, folds, filename):
     frame = pl.read_parquet(inp / filename).filter(pl.col("endpoint") == endpoint)
     part = ids.join(
         frame.select("compound_id", "fold", "probability"),
-        on="compound_id", validate="1:1", maintain_order="left",
+        on="compound_id",
+        validate="1:1",
+        maintain_order="left",
     )
     assert part.height == ids.height and np.array_equal(part["fold"].to_numpy(), folds)
     assert part["probability"].is_finite().all()
@@ -180,15 +173,32 @@ for levels in cfg["depth_sets"]:
 for backend, filename in cfg.get("backends", {}).items():
     depth = backend_values(d6_endpoint, d6_ids, d6_folds, filename)
     d6_scenarios[f"add_d1_{backend}"] = d6_predict(depth)
-    d6_scenarios[f"replace_pca_raw_block_d1_{backend}"] = d6_predict(
-        depth, replace=True
-    )
+    d6_scenarios[f"replace_pca_raw_block_d1_{backend}"] = d6_predict(depth, replace=True)
+if cfg.get("trunk_predictions"):
+    trunk = pl.read_parquet(inp / cfg["trunk_predictions"]["d6"])
+    for name in sorted(trunk["model"].unique()):
+        part = trunk.filter((pl.col("model") == name) & (pl.col("role") == "train"))
+        part = d6_saved.select("compound_id", "fold").join(
+            part.select("compound_id", "fold", "prediction"),
+            on=["compound_id", "fold"],
+            validate="1:1",
+            maintain_order="left",
+        )
+        assert part.height == d6_saved.height and part["prediction"].is_finite().all()
+        candidate = fold_rank(part["prediction"].to_numpy(), d6_folds)
+        d6_scenarios[f"standalone::{name}"] = candidate
+        if name.startswith("molecular_only"):
+            continue
+        d6_scenarios[f"add::{name}"] = d6_predict(candidate)
+        d6_scenarios[f"replace_pca_raw::{name}"] = d6_predict(candidate, replace=True)
 
 # A4: reconstruct the seven rank-normalized atomic members and the saved
 # held-fold-selected seven-member OOF before addition/replacement.
-a4_saved = pl.read_parquet(inp / "a4-oof.parquet").filter(
-    pl.col("model") == "exhaustive_mcc::components_7"
-).sort("compound_id")
+a4_saved = (
+    pl.read_parquet(inp / "a4-oof.parquet")
+    .filter(pl.col("model") == "exhaustive_mcc::components_7")
+    .sort("compound_id")
+)
 a4_ids = a4_saved.select("compound_id")
 a4_folds = a4_saved["fold"].to_numpy()
 a4_y = a4_saved["y_true"].to_numpy().astype(int)
@@ -209,14 +219,15 @@ for name, method in {
     "jeremy_tabicl_raw600": "tabicl_jeremy_raw600",
     "jeremy_tabpfn_raw600": "tabpfn_jeremy_raw600",
 }.items():
-    a4_atoms[name] = fold_rank(
-        aligned(a4_ids, raw, method, a4_endpoint, "probability"), a4_folds
-    )
+    a4_atoms[name] = fold_rank(aligned(a4_ids, raw, method, a4_endpoint, "probability"), a4_folds)
 a4_atoms["pxr_admetica"] = fold_rank(
     aligned(
-        a4_ids, pl.read_parquet(inp / "a4-aux.parquet"),
-        "morgan_pxr_admetica_lgbm", a4_endpoint,
-    ), a4_folds
+        a4_ids,
+        pl.read_parquet(inp / "a4-aux.parquet"),
+        "morgan_pxr_admetica_lgbm",
+        a4_endpoint,
+    ),
+    a4_folds,
 )
 a4_selections = pl.read_parquet(inp / "a4-selections.parquet")
 a4_choices = json.loads(
@@ -233,9 +244,7 @@ def a4_predict(depth=None, replaced=None):
         if depth is not None and replaced is None:
             values.append(depth)
         prediction = np.mean(values, axis=0)
-        result[a4_folds == choice["held_fold"]] = prediction[
-            a4_folds == choice["held_fold"]
-        ]
+        result[a4_folds == choice["held_fold"]] = prediction[a4_folds == choice["held_fold"]]
     return result
 
 
@@ -252,24 +261,70 @@ for backend, filename in cfg.get("backends", {}).items():
     depth = backend_values(a4_endpoint, a4_ids, a4_folds, filename)
     a4_scenarios[f"add_d1_{backend}"] = a4_predict(depth)
     a4_scenarios[f"replace_historical_d1_{backend}"] = a4_predict(depth, "historical")
+if cfg.get("trunk_predictions"):
+    trunk = pl.read_parquet(inp / cfg["trunk_predictions"]["a4"])
+    for name in sorted(trunk["model"].unique()):
+        part = trunk.filter((pl.col("model") == name) & (pl.col("role") == "train"))
+        part = a4_saved.select("compound_id", "fold").join(
+            part.select("compound_id", "fold", "prediction"),
+            on=["compound_id", "fold"],
+            validate="1:1",
+            maintain_order="left",
+        )
+        assert part.height == a4_saved.height and part["prediction"].is_finite().all()
+        candidate = fold_rank(part["prediction"].to_numpy(), a4_folds)
+        a4_scenarios[f"standalone::{name}"] = candidate
+        if name.startswith("molecular_only"):
+            continue
+        a4_scenarios[f"add::{name}"] = a4_predict(candidate)
+        for replaced in a4_atoms:
+            a4_scenarios[f"replace_{replaced}::{name}"] = a4_predict(candidate, replaced)
 
 for target, ids, folds, y, scenarios in [
     ("d6", d6_ids, d6_folds, d6_y, d6_scenarios),
     ("a4", a4_ids, a4_folds, a4_y, a4_scenarios),
 ]:
     setting = cfg[target]
+    if cfg.get("trunk_predictions"):
+        selected = np.empty(len(y))
+        selections = []
+        candidates = {
+            name: score for name, score in scenarios.items() if not name.startswith("standalone::")
+        }
+        for held in range(5):
+            train = folds != held
+            name = min(
+                candidates,
+                key=lambda name: (
+                    -average_precision_score(y[train], candidates[name][train]),
+                    name,
+                ),
+            )
+            selected[~train] = candidates[name][~train]
+            selections.append({"target": target, "held_fold": held, "scenario": name})
+        scenarios["outer_selected_AP_placement"] = selected
+        pl.DataFrame(selections).write_parquet(out / f"{target}-trunk-selections.parquet")
     for name, score in scenarios.items():
         calls = fixed_calls(score, folds, setting["call_rate"])
-        rows.append({
-            "target": target, "scenario": name, "n": len(y),
-            "calls": int(calls.sum()),
-            **metrics(y, score, calls, setting["target_prior"]),
-        })
-        prediction_frames.append(ids.with_columns(
-            pl.lit(target).alias("target"), pl.Series("fold", folds),
-            pl.Series("y_true", y), pl.lit(name).alias("scenario"),
-            pl.Series("prediction", score), pl.Series("call", calls),
-        ))
+        rows.append(
+            {
+                "target": target,
+                "scenario": name,
+                "n": len(y),
+                "calls": int(calls.sum()),
+                **metrics(y, score, calls, setting["target_prior"]),
+            }
+        )
+        prediction_frames.append(
+            ids.with_columns(
+                pl.lit(target).alias("target"),
+                pl.Series("fold", folds),
+                pl.Series("y_true", y),
+                pl.lit(name).alias("scenario"),
+                pl.Series("prediction", score),
+                pl.Series("call", calls),
+            )
+        )
 pl.DataFrame(rows).write_csv(out / "metrics.csv")
 pl.concat(prediction_frames).write_parquet(out / "oof.parquet")
 (out / "summary.json").write_text(json.dumps({"config": cfg}, indent=2) + "\n")

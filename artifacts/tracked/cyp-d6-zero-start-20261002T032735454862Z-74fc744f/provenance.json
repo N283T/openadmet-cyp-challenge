@@ -1,0 +1,75 @@
+{
+  "source_run": "classification/20261002T032735454862Z-74fc744f",
+  "outputs": {
+    "actual-policy-prior-sensitivity.csv": "b49908a3d073481b48bc49012b96981afd11b80db15566a41f1bce19eb26567f",
+    "label-regime-decision-audit.csv": "ef67f29e0a5a34aeebc53ebcf8a0d022ecb2bb79fe9e695a4a6bf6888f1996d6",
+    "seed-call-agreement.csv": "5f5f3f91f0c2ea066f27a01f8fdb4323d55468d320960e0df215c43ec50b9960",
+    "summary.json": "8cc205613feb6fea8695ff13166e7ebd9bb209ac17af52216f0a28fc0a6561c9",
+    "threshold-scale-summary.csv": "f4e169a07ad684700ed0155eab6abf286397964ae30ac54d71a93f420087ebe8"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T031830189787Z-23751617/outputs/nested-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032735454862Z-74fc744f/inputs/nested-oof.parquet",
+      "sha256": "1b20e558c6a5cf3d725b11bd4d8c4da3ac280cf0b3967d16c83c40ff70bbbc44",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T031830189787Z-23751617/outputs/source-audit.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032735454862Z-74fc744f/inputs/source-audit.parquet",
+      "sha256": "a4cecf003c307d53295278f55d20918028fe0c7ca6cffa8bb1b5b48c623b5a05",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T031830189787Z-23751617/outputs/threshold-scale-audit.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032735454862Z-74fc744f/inputs/threshold-scale-audit.csv",
+      "sha256": "efc9e04489def69033b491485d1b7c122fbf4c2ea30abf58a263c094b8bb121f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T031830189787Z-23751617/outputs/leakage-and-operating-points.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032735454862Z-74fc744f/inputs/leakage-and-operating-points.csv",
+      "sha256": "21fdaeab6c4759ce3792cff874d2e9c456fc52a05833c60802aa5dba3bb3e8c3",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T031830189787Z-23751617/outputs/summary.json",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032735454862Z-74fc744f/inputs/summary.json",
+      "sha256": "aeab8d89957d6ca3e30cfcf2ad6d6af41dc38c06071fd1697aec6515347bea0b",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T031830189787Z-23751617/outputs/aggregate-metrics.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032735454862Z-74fc744f/inputs/aggregate-metrics.csv",
+      "sha256": "958f47df0884b6b7c0f1909b10aaaa2d48f8260dc94e776b851fe15a496b0322",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T031830189787Z-23751617/outputs/whole-ensemble-ranking-diagnostics.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032735454862Z-74fc744f/inputs/whole-ensemble-ranking-diagnostics.csv",
+      "sha256": "dd0c9de4d783f169368c51d2b7509a61f1fad6fc466e148367e420896754e077",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T031830189787Z-23751617/outputs/paired-group-intervals.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T032735454862Z-74fc744f/inputs/paired-group-intervals.csv",
+      "sha256": "15b93bd9182bf76379389f2e7c9f0e6d75a5ffd3d0fb761acccdab8ae2ea46e6",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seeds": [
+      20261002,
+      20261017
+    ],
+    "priors": [
+      0.03,
+      0.07,
+      0.12,
+      0.21643286573146292
+    ],
+    "purpose": "Quantify repeated-seed decision agreement, actual-policy prior sensitivity and label-regime error contributions from completed nested bag validation. No hidden labels, rate optimization or payload creation.",
+    "selection_rule": "Report all strata and prior scenarios, retaining small-sample limitations. Do not infer a blind scored mask or change the frozen candidate from subgroup maxima."
+  }
+}

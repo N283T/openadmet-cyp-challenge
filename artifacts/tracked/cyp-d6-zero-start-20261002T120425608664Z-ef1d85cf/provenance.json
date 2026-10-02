@@ -1,0 +1,59 @@
+{
+  "source_run": "classification/20261002T120425608664Z-ef1d85cf",
+  "outputs": {
+    "combined-oof.parquet": "697484077a0c510b011f0e86bb38298af214783a129117cd4c8b9fc278c5194d",
+    "matched-rank-fractions.csv": "e306680185326e1f88ddf18291e14ffe5fc46f8fc1606affe917215815368838",
+    "paired-contrasts.csv": "f7f57703cee8cb2b3c6678abebe749e5a22edc356d8010522cb13cbd2365cef3",
+    "partial-label-bounds.csv": "d09192a307e02308000504f1452eed0e7b589503cb51f2fbd3cad76d7f7bcd18",
+    "policy-comparison.csv": "465645c9de7406a9e5fdcfc8fcef5b50b029970166e463b06e4ba3104f9b77d7",
+    "primary-region-calls.csv": "072b3e5c6c99bb21e410b654f18a09202728ebb4813c3b4b1258c0efdc09f973",
+    "summary.json": "8b047cca9ad4a1ca772a3bd94feb4cf33d768ec54d58e7789672ebaefd9021ec"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T120413515280Z-f2330789/outputs/nested-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T120425608664Z-ef1d85cf/inputs/legacy.parquet",
+      "sha256": "bbf5ac6a2628b0c49fb5112358b126f9a4d2410382dd0a03ca345db276ca1a99",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084852768236Z-ef8d81ed/outputs/nested-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T120425608664Z-ef1d85cf/inputs/fresh.parquet",
+      "sha256": "d74bea35dfe58fbeffbcc20ba1aa33a2300d52f67c01a0a367b9d176a3b57739",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084852768236Z-ef8d81ed/outputs/threshold-scale-audit.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T120425608664Z-ef1d85cf/inputs/fresh-cuts.csv",
+      "sha256": "772b07e95812c851511185bf0a271af19d3431baa6d815a43d03755a0861f185",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T120413515280Z-f2330789/result.json",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T120425608664Z-ef1d85cf/inputs/legacy-result.json",
+      "sha256": "bb5bd1093e6b00839a993148152883cf6e3ca065988048ad8681140c3a1535dc",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T042715697470Z-2f48e876/outputs/selection-control-source.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T120425608664Z-ef1d85cf/inputs/primary-source.parquet",
+      "sha256": "f1d2f66e403e322f6a8859e3794a94653b7e8b023693ac03d2a3eb5491c69a1a",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "legacy_model": "sep15_whole_fresh_nested",
+    "bootstrap_samples": 1000,
+    "population_diagnostic": "Report calls in measured-primary selected, weak and missing regions alongside class coverage. Unknown calls are not errors or negatives; this diagnostic cannot select a winner or blind positive budget.",
+    "missing_outcome_bounds": "Compute exact feasible MCC-difference bounds for the complete held-out development population at its actual unequal learned call counts. This quantifies unidentified outcome uncertainty; it does not reconstruct blind labels or override the known-label comparison.",
+    "diagnostic_rank_fractions": [
+      0.03,
+      0.06533333333333334,
+      0.12,
+      0.23333333333333334,
+      0.3
+    ],
+    "comparison": "Same outer groups and fold IDs, seeds, bag splits, deeper cut splits, threshold objective and ten-bag margin aggregation. Compare complete eleven-atom historical recipe with the fresh primary-supervised CheMeleon and matched Morgan/class-only variants.",
+    "selection_rule": "Report every model on both splits. Do not select blind call counts. No upload is authorized by this comparison. A new model beating the old recipe on observed labels does not validate past LB direction or recover missing weak-primary outcomes."
+  }
+}
