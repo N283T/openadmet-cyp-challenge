@@ -1,0 +1,25 @@
+{
+  "source_run": "classification/20261002T231843369550Z-3db76e6a",
+  "purpose": "A4 TDI: stratify the submitted equal-seven complete-pool UMAP OOF by primary log2fc bin, label provenance and nearest-blind Tanimoto quartile, then reweight to the blind population with nearest-neighbour transfer and a fold-excluded log2fc gate; report reweighted prevalence, AUROC, AP and the 200-350 call curve",
+  "config_sha256": "110661126f9c37f74cbbcb4690b8f13e5d680a997484798b4610c75ae71f44b6",
+  "outputs": {
+    "blind_gate.csv": "e85cdc5eb7f24779fab9b05a3baff0ad51120dff5d412c121118cf2f46d01d92",
+    "report.md": "a2a999645f60b3cad440c7386756f60ad1627ee56cf948f42576340eb387ce3f",
+    "reweighted_metrics.csv": "6cc64865940f2e7d06b4d8dda643ea62a2a0b7d4f92cc14377f0838f74928cbe",
+    "reweighted_rate_curves.csv": "c909f024ed698e41c127a3b211fcb061ebc9b59a0a62f1ed6588dc39f9c492f9",
+    "strata.csv": "cae0232b6e1e45a9423d35d15e6f6d8629fee9796b6f0ea24cbbe013abc32501",
+    "stratum_mix.csv": "974dcaa2c6391fccbb7ec8c60fdb500af33db27123e1e2af5be1bb1f8e647438",
+    "summary.json": "383a5279666099e4563435c3064eb6224a189fc7517744afc875ec8eac810fe8"
+  },
+  "input_sha256": {
+    "compounds.parquet": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+    "measurements.parquet": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+    "aliases.parquet": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+    "test_mapping.parquet": "135ba78ae49abf46a5c3351e5d681b2352d767c1a4d5b7294117ec6d6e3775f7",
+    "assignments.parquet": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+    "primary-screen.csv": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a",
+    "equal7-all-pool-oof.parquet": "221f93fb1abe590ac800e3cd33f6cde1341a439f7f8108301e5d5d5841244e0a",
+    "equal7-blind-scores.parquet": "63ac4bb77f7be058e8ecf70be1d638d5084e8318401ba975d373f8443f2f2e87",
+    "sep15-submission.parquet": "6b23e212457c0f86556dbb200df008a64fb782d46b09659b762608104fb6228d"
+  }
+}
