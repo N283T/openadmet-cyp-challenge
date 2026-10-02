@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "seed": 20261002,
+  "endpoint": "CYP2D6_is_TDI",
+  "outer_folds": 4,
+  "inner_folds": 3,
+  "bootstrap_samples": 1000,
+  "split_strategies": ["random", "scaffold"],
+  "models": ["fresh_multiassay_network"],
+  "network_epochs": 100,
+  "representation": "Fresh Morgan 2048-bit molecular input; randomly initialized shared 256/64 hidden layers",
+  "tasks": "Four official TDI booleans plus direct pIC50, TDI pIC50 and paired difference for each enzyme. Potencies are floored at the assay boundary 4 before continuous auxiliary learning; missing measurements are masked, never imputed as inactive.",
+  "loss": "D6 BCE + 0.3 * mean other-enzyme BCE + 0.2 * mean per-task standardized continuous MSE; AdamW lr .002 decay .001 dropout .15 full batch 100 epochs",
+  "threshold_policy": "Maximize inner OOF bootstrap mean MCC; no positive-count constraint",
+  "excluded_inputs": "All prior trained models, encoders, predictions, thresholds and submission counts; only source molecule and assay tables",
+  "status": "Foundational cross-enzyme learning test; no upload, no historical blend"
+}

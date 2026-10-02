@@ -1,0 +1,31 @@
+split_id,fold,model,threshold,inner_bootstrap_mcc,inner_bootstrap_std,fitting_molecules,blind_positive,note
+random,0,confidence_weighted_logistic,0.35000000000000003,0.13279066173126644,0.0326710120313712,4609,,
+random,0,regime_multiclass,0.91,0.13168868905648487,0.038543480253300205,4609,,
+random,0,confidence_weighted_regime,0.49,0.12859977428091643,0.03437436466703268,4609,,
+random,1,confidence_weighted_logistic,0.43,0.16155798080792355,0.033340809006463606,4609,,
+random,1,regime_multiclass,0.21000000000000002,0.12277352027419478,0.031911054673272043,4609,,
+random,1,confidence_weighted_regime,0.64,0.15158907610942357,0.036043460915715954,4609,,
+random,2,confidence_weighted_logistic,0.53,0.13863554453347915,0.03604440365952406,4610,,
+random,2,regime_multiclass,0.06999999999999999,0.12768217651296235,0.029924452322104847,4610,,
+random,2,confidence_weighted_regime,0.48000000000000004,0.12248244451854404,0.03376411974203733,4610,,
+random,3,confidence_weighted_logistic,0.61,0.1461405110526032,0.03749486383986577,4610,,
+random,3,regime_multiclass,0.38,0.13921483603921758,0.03246653300563616,4610,,
+random,3,confidence_weighted_regime,0.22,0.14258349209219404,0.032782333538127414,4610,,
+random,-1,confidence_weighted_logistic,0.09999999999999999,,,,339,Full-development threshold; pooled OOF fit is an optimistic MCC estimate
+random,-1,regime_multiclass,0.060000000000000005,,,,347,Full-development threshold; pooled OOF fit is an optimistic MCC estimate
+random,-1,confidence_weighted_regime,0.06999999999999999,,,,346,Full-development threshold; pooled OOF fit is an optimistic MCC estimate
+scaffold,0,confidence_weighted_logistic,0.64,0.10888139757177959,0.034766085280555394,4610,,
+scaffold,0,regime_multiclass,0.01,0.0807151811782388,0.02791978156295277,4610,,
+scaffold,0,confidence_weighted_regime,0.36000000000000004,0.07938929150692371,0.033224189118297325,4610,,
+scaffold,1,confidence_weighted_logistic,0.13,0.16520416588729778,0.031201695028398334,4608,,
+scaffold,1,regime_multiclass,0.12,0.1555201785833024,0.030863874873034026,4608,,
+scaffold,1,confidence_weighted_regime,0.15000000000000002,0.17927001961778927,0.03191836324840402,4608,,
+scaffold,2,confidence_weighted_logistic,0.37,0.14495412551663497,0.03427837442066644,4610,,
+scaffold,2,regime_multiclass,0.23,0.1418398168963515,0.03201943780742331,4610,,
+scaffold,2,confidence_weighted_regime,0.27,0.14370145173654522,0.032929168900106345,4610,,
+scaffold,3,confidence_weighted_logistic,0.11,0.12003476569407545,0.029828049801171312,4610,,
+scaffold,3,regime_multiclass,0.55,0.103717822643545,0.034599142196167866,4610,,
+scaffold,3,confidence_weighted_regime,0.09,0.11551795850487764,0.028935092390350654,4610,,
+scaffold,-1,confidence_weighted_logistic,0.16,,,,257,Full-development threshold; pooled OOF fit is an optimistic MCC estimate
+scaffold,-1,regime_multiclass,0.09,,,,303,Full-development threshold; pooled OOF fit is an optimistic MCC estimate
+scaffold,-1,confidence_weighted_regime,0.09,,,,304,Full-development threshold; pooled OOF fit is an optimistic MCC estimate

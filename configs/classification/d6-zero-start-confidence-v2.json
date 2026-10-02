@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "seed": 20261002,
+  "endpoint": "CYP2D6_is_TDI",
+  "outer_folds": 4,
+  "inner_folds": 3,
+  "bootstrap_samples": 1000,
+  "split_strategies": ["random", "scaffold"],
+  "models": ["confidence_weighted_logistic", "regime_multiclass", "confidence_weighted_regime"],
+  "ambiguous_weight": 0.25,
+  "representation": "Fresh Morgan radius 2 / 2048 bits; no prior model assets",
+  "threshold_policy": "Maximize inner OOF bootstrap mean MCC on all supplied labels; no positive-count constraint",
+  "training_policy": "Keep all supplied labels. Weight interval-supported training labels 1; unresolved labels 0.25. Multiclass distinguishes ordinary and inferred positives, then sums their molecular probabilities.",
+  "diagnostic_motivation": "903 of 1364 direct-active D6 labels have paired marginal shift intervals crossing log10(2); test whether confidence weighting and separate positive mechanisms improve new learning.",
+  "excluded_inputs": "Every prior model and prediction, including pilot model assets. Only source compounds, measurements and aliases are allowed.",
+  "status": "Sequential foundational hypothesis test; validation labels are never reweighted or relabelled; no upload"
+}

@@ -1,0 +1,86 @@
+{
+  "config": {
+    "depth_sets": [],
+    "backends": {},
+    "trunk_predictions": {
+      "d6": "d6-trunk.parquet",
+      "a4": "a4-trunk.parquet"
+    },
+    "d6": {
+      "call_rate": 0.06533333333333333,
+      "target_prior": 0.07062568306010919,
+      "rates": [
+        0.02,
+        0.04,
+        0.06533333333333333,
+        0.1,
+        0.15,
+        0.2
+      ],
+      "priors": [
+        0.05,
+        0.07062568306010919,
+        0.1,
+        0.2
+      ]
+    },
+    "a4": {
+      "call_rate": 0.332,
+      "target_prior": 0.2916,
+      "rates": [
+        0.2,
+        0.26666666666666666,
+        0.332,
+        0.36666666666666664,
+        0.4,
+        0.43333333333333335,
+        0.5
+      ],
+      "priors": [
+        0.2,
+        0.2916,
+        0.4
+      ]
+    },
+    "block_sizes": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "blend_weights": [
+      0.1,
+      0.25,
+      0.5
+    ],
+    "replacement_cap": 3,
+    "bootstrap_draws": 2000,
+    "seed": 20261002,
+    "scope": "User-authorized labelled-only diagnostics before considering additional full-pool extraction. Conditional saved-OOF selection, not fully nested base-model refits. No deployment rate or upload supported. Multiple trunks mean multiple readouts of the same frozen trunk extraction, not new Boltz runs."
+  },
+  "coverage": [
+    {
+      "target": "d6",
+      "labelled_rows": 1497,
+      "total_pool_rows": 6146,
+      "trunk_covered_rows": 1497,
+      "missing_rows": 4649,
+      "reconstruction_max_diff": 0.0,
+      "deployment_decision_supported": false
+    },
+    {
+      "target": "a4",
+      "labelled_rows": 3584,
+      "total_pool_rows": 6146,
+      "trunk_covered_rows": 3584,
+      "missing_rows": 2562,
+      "reconstruction_max_diff": 0.0,
+      "deployment_decision_supported": false
+    }
+  ],
+  "new_model_fits": 0,
+  "new_trunk_extractions": 0,
+  "error_definition": "Residual and squared loss of within-fold ranks versus binary labels; not calibrated-probability residuals. Raw Brier scores descriptive only.",
+  "uncertainty": "Paired UMAP-group bootstrap conditional on saved scores and selected calls; no reranking or selector refit in bootstrap; no multiplicity correction.",
+  "limitations": "Labelled-only operating pool; conditional saved-OOF selection, not fully nested base-model fitting. Multiple views reuse the same frozen trunk. No submission or deployment rate."
+}

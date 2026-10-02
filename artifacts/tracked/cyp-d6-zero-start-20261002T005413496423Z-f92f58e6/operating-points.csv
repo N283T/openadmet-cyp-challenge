@@ -1,0 +1,11 @@
+split_id,fold,model,threshold,inner_bootstrap_mcc,inner_bootstrap_std,fitting_molecules,blind_positive,note
+random,0,fresh_d6_network,0.15000000000000002,0.12886660131550257,0.0322925128209695,4609,,
+random,1,fresh_d6_network,0.04,0.17144909284839316,0.03267248996032559,4609,,
+random,2,fresh_d6_network,0.11,0.13140821542492567,0.03326968336871165,4610,,
+random,3,fresh_d6_network,0.09999999999999999,0.18335046619711143,0.033845774229522535,4610,,
+random,-1,fresh_d6_network,0.04,,,,203,Full-development threshold; pooled OOF fit is an optimistic MCC estimate
+scaffold,0,fresh_d6_network,0.99,0.0985720661776366,0.03506043668575718,4610,,
+scaffold,1,fresh_d6_network,0.87,0.14683728240966917,0.03542517373763211,4608,,
+scaffold,2,fresh_d6_network,0.02,0.15283573807386402,0.03366383814646616,4610,,
+scaffold,3,fresh_d6_network,0.99,0.12396103092165593,0.03637971617751701,4610,,
+scaffold,-1,fresh_d6_network,0.92,,,,94,Full-development threshold; pooled OOF fit is an optimistic MCC estimate

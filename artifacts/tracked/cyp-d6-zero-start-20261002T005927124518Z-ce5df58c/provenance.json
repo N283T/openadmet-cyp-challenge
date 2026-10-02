@@ -1,0 +1,66 @@
+{
+  "source_run": "classification/20261002T005927124518Z-ce5df58c",
+  "outputs": {
+    "assignments.parquet": "4c62096d9f66268726629b179ed7e7cb025fa7c05e28171fd9d5780612f17691",
+    "blind-similarity-fresh_d6_network.parquet": "eb32c7cbffebb49066a65dc2021f3b3e5433b526476b8372b667de54094bfa7d",
+    "blind-similarity-fresh_multiassay_network.parquet": "10e28c7b806dd04f23be001b4463e1cf30bb5838ce00d54a275b49e941c18a1e",
+    "blind-similarity-morgan_logistic.parquet": "06c7eea955c8b1605c8120d7c6d33aa99f1436d16a3c5710a221023a9825f9b0",
+    "chemical-group-sizes.csv": "0c34d2f86c322628327973de36f2e05575f572c9f798d2b092cf42cc664a202d",
+    "chemical-group-summary.json": "0643c01993522b28b816a56abb4ecd44c0e7f95c7e37634f45e8c20702f3ae83",
+    "chemical-groups.parquet": "c0f4409119b275fef942bc9d018cd57a8cb09e5a74ad10985c9a863c058ae4b8",
+    "metrics.csv": "27689f34426b24132340aa83994e2333e4cfb0f31fd9b477d5d0f161442c210c",
+    "model-similarity-fresh_d6_network.joblib": "8b831733a50a918f97fe7c40b81b8244bc620561e188f9f238d97817a146aa75",
+    "model-similarity-fresh_multiassay_network.joblib": "3d760bbc16a23e59278330aaa4431a809881b3dcf89b9ae030c8dba4b57c33d2",
+    "model-similarity-morgan_logistic.joblib": "38ac561cef84f567db0eba4e8f99761191f74f47723163018d30b1979a1409bb",
+    "oof.parquet": "a14558bcd91436efb711eae1d3682d53c4ce843a6c2685e140becba53ac42b79",
+    "operating-points.csv": "d114e2c0298ffbcc7abf26fc22871c7e4baf68cc38cfc9fb443aca369c329dd8",
+    "representation.json": "42d9eec04f9d5589b0f643ab4c98df2c7e3be0ad33402e07f51e8824a1b10838",
+    "source-audit.parquet": "a4cecf003c307d53295278f55d20918028fe0c7ca6cffa8bb1b5b48c623b5a05",
+    "summary.json": "2b031e6d594fa2f12128ee65dea576f2f93d6aa844c68a8371572f840641bc9f"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T005927124518Z-ce5df58c/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T005927124518Z-ce5df58c/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T005927124518Z-ce5df58c/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 5,
+    "seed": 20261002,
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 4,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "similarity"
+    ],
+    "similarity_threshold": 0.6,
+    "models": [
+      "morgan_logistic",
+      "fresh_d6_network",
+      "fresh_multiassay_network"
+    ],
+    "network_epochs": 100,
+    "representation": "Fresh Morgan fingerprints, independent logistic and random-initialized neural models",
+    "groups": "Connected components of development-only Morgan Tanimoto >= 0.6 graph. All assay records of all held-out molecules are excluded at every fitting boundary.",
+    "ablation_policy": "D6-only network auxiliary loss weights zero; multiassay uses .3 other binary and .2 continuous auxiliary weights",
+    "threshold_policy": "Inner OOF bootstrap mean MCC, no positive-count budget",
+    "motivation": "Exact Murcko scaffolds yielded 1450 distinct labelled groups for 1497 D6 labels; enforce actual molecular-neighbor separation instead",
+    "excluded_inputs": "Every prior model, score, call count and representation weight. Source molecule and assay tables only.",
+    "status": "New validation-population test; no upload"
+  }
+}

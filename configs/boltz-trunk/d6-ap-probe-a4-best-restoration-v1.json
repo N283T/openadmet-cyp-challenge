@@ -1,0 +1,10 @@
+{
+  "d6_probe_prepared_id": "20261001T135846483051Z-64386ab4",
+  "d6_probe_package_run": "20261001T135736242152Z-113f153e",
+  "selection_run": "20261001T135322663569Z-94d28c32",
+  "a4_performance_control_prepared_id": "20260924T050705396203Z-10e1d3ad",
+  "last_sent_prepared_id": "20260926T150948735129Z-6fc9d05b",
+  "d6_positive_calls": 49,
+  "a4_positive_calls": 249,
+  "scope": "Restore exact best-scored A4 vector; retain exact reviewed D6 AP rank-blend vector with 49 calls. Local preparation only; user has not authorized upload of this new payload."
+}

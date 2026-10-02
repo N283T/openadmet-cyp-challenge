@@ -1,0 +1,106 @@
+{
+  "source_run": "classification/20261002T010208384815Z-78bd6216",
+  "outputs": {
+    "all-independent-oof.parquet": "0177b959ba4766ec327eacaa73c4826de5f4bad664ab1aa30e7c4099ddd64f81",
+    "paired-comparisons.csv": "89d4231b6ffa020edb181f4736cb01a81b7571a1aab2b5eb8dad9afa8393cbc9",
+    "report.md": "0d604a6062c348560847242f4d00b5a7ac452a84e320947f21ce7f87dd363f45",
+    "summary.json": "5ed63292af02211b76e6bddb5f4446ea27502396830366da7537b05c925b4d63"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004016766672Z-e2d420d4/outputs/summary.json",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T010208384815Z-78bd6216/inputs/v1-summary.json",
+      "sha256": "605ddc6104571db0f6ec4aeca8ee6c93a4defd96e3a4143c24ce880b279a57c5",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004016766672Z-e2d420d4/outputs/oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T010208384815Z-78bd6216/inputs/v1-oof.parquet",
+      "sha256": "ba0421613e959a04d57e59980a772fcae1d50a95faf1e887e9f091d33cfc3afa",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004536560534Z-21c1509c/outputs/summary.json",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T010208384815Z-78bd6216/inputs/v2-summary.json",
+      "sha256": "cea1b8ffb88da80ba7f0956a11716d8341cf6cdcca6de3d6690b1aeead7e7b5e",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004536560534Z-21c1509c/outputs/oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T010208384815Z-78bd6216/inputs/v2-oof.parquet",
+      "sha256": "5f707a8b3ad2f3a19ebfc433cb380586bdf2944807b0eddc5faa9fee107da764",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T005041934540Z-c62b6e78/outputs/summary.json",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T010208384815Z-78bd6216/inputs/v3-summary.json",
+      "sha256": "729875901790ab3856e2567c73d5ccad9cad5852d0f16bdb2d19d7c3e442e758",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T005041934540Z-c62b6e78/outputs/oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T010208384815Z-78bd6216/inputs/v3-oof.parquet",
+      "sha256": "0a6d53a9b4dd5b65a7bddd477a66a1177619e00e7ee57bf6bfc3cb3f6db8d5fd",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T005413496423Z-f92f58e6/outputs/summary.json",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T010208384815Z-78bd6216/inputs/v4-summary.json",
+      "sha256": "75aaa6bb7fef3797d9da9cfd46d56a4ad92a4f152fc995f4125be62f97687c6e",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T005413496423Z-f92f58e6/outputs/oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T010208384815Z-78bd6216/inputs/v4-oof.parquet",
+      "sha256": "0d6c61b9d12d4e4f1bd190e286a7b682785de70d652c83db9984333d284629d1",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T005927124518Z-ce5df58c/outputs/summary.json",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T010208384815Z-78bd6216/inputs/v5-summary.json",
+      "sha256": "2b031e6d594fa2f12128ee65dea576f2f93d6aa844c68a8371572f840641bc9f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T005927124518Z-ce5df58c/outputs/oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T010208384815Z-78bd6216/inputs/v5-oof.parquet",
+      "sha256": "a14558bcd91436efb711eae1d3682d53c4ce843a6c2685e140becba53ac42b79",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004016766672Z-e2d420d4/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T010208384815Z-78bd6216/inputs/assignments.parquet",
+      "sha256": "59da3f8708fd8122e649412cc6a8e89fe30053ee0ad942f9857175be918eb733",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T005927124518Z-ce5df58c/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T010208384815Z-78bd6216/inputs/similarity-assignments.parquet",
+      "sha256": "4c62096d9f66268726629b179ed7e7cb025fa7c05e28171fd9d5780612f17691",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "seed": 20261002,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "random",
+      "scaffold",
+      "similarity"
+    ],
+    "assignment_aliases": {
+      "similarity": "similarity-assignments.parquet"
+    },
+    "extra_assignments": {
+      "similarity-assignments.parquet": "20261002T005927124518Z-ce5df58c"
+    },
+    "sources": {
+      "v1": "20261002T004016766672Z-e2d420d4",
+      "v2": "20261002T004536560534Z-21c1509c",
+      "v3": "20261002T005041934540Z-c62b6e78",
+      "v4": "20261002T005413496423Z-f92f58e6",
+      "v5": "20261002T005927124518Z-ce5df58c"
+    },
+    "method": "Paired chemical-group bootstrap on observed D6 labels; conditional on saved nested OOF predictions; no historical model inputs"
+  }
+}

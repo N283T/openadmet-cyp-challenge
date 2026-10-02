@@ -1,0 +1,19 @@
+{
+  "version": 5,
+  "seed": 20261002,
+  "endpoint": "CYP2D6_is_TDI",
+  "outer_folds": 4,
+  "inner_folds": 3,
+  "bootstrap_samples": 1000,
+  "split_strategies": ["similarity"],
+  "similarity_threshold": 0.6,
+  "models": ["morgan_logistic", "fresh_d6_network", "fresh_multiassay_network"],
+  "network_epochs": 100,
+  "representation": "Fresh Morgan fingerprints, independent logistic and random-initialized neural models",
+  "groups": "Connected components of development-only Morgan Tanimoto >= 0.6 graph. All assay records of all held-out molecules are excluded at every fitting boundary.",
+  "ablation_policy": "D6-only network auxiliary loss weights zero; multiassay uses .3 other binary and .2 continuous auxiliary weights",
+  "threshold_policy": "Inner OOF bootstrap mean MCC, no positive-count budget",
+  "motivation": "Exact Murcko scaffolds yielded 1450 distinct labelled groups for 1497 D6 labels; enforce actual molecular-neighbor separation instead",
+  "excluded_inputs": "Every prior model, score, call count and representation weight. Source molecule and assay tables only.",
+  "status": "New validation-population test; no upload"
+}

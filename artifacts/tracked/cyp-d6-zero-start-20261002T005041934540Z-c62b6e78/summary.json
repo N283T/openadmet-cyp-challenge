@@ -1,0 +1,77 @@
+{
+  "config": {
+    "version": 3,
+    "seed": 20261002,
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 4,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "random",
+      "scaffold"
+    ],
+    "models": [
+      "fresh_multiassay_network"
+    ],
+    "network_epochs": 100,
+    "representation": "Fresh Morgan 2048-bit molecular input; randomly initialized shared 256/64 hidden layers",
+    "tasks": "Four official TDI booleans plus direct pIC50, TDI pIC50 and paired difference for each enzyme. Potencies are floored at the assay boundary 4 before continuous auxiliary learning; missing measurements are masked, never imputed as inactive.",
+    "loss": "D6 BCE + 0.3 * mean other-enzyme BCE + 0.2 * mean per-task standardized continuous MSE; AdamW lr .002 decay .001 dropout .15 full batch 100 epochs",
+    "threshold_policy": "Maximize inner OOF bootstrap mean MCC; no positive-count constraint",
+    "excluded_inputs": "All prior trained models, encoders, predictions, thresholds and submission counts; only source molecule and assay tables",
+    "status": "Foundational cross-enzyme learning test; no upload, no historical blend"
+  },
+  "aggregate": [
+    {
+      "split_id": "random",
+      "fold": -1,
+      "model": "fresh_multiassay_network",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 262,
+      "ap": 0.33823581462483443,
+      "auc": 0.6323239977687264,
+      "mcc": 0.12932462631270453,
+      "bootstrap_mcc": 0.1281904771376789,
+      "bootstrap_std": 0.02806242293097483
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "fresh_multiassay_network",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 263,
+      "ap": 0.3243348119213558,
+      "auc": 0.6092876764232263,
+      "mcc": 0.11115825469145862,
+      "bootstrap_mcc": 0.1122558248217149,
+      "bootstrap_std": 0.028786863356370804
+    }
+  ],
+  "operating_points": [
+    {
+      "split_id": "random",
+      "fold": -1,
+      "model": "fresh_multiassay_network",
+      "threshold": 0.14,
+      "blind_positive": 153,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "fresh_multiassay_network",
+      "threshold": 0.9,
+      "blind_positive": 58,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    }
+  ],
+  "caveats": [
+    "Scored blind label mask unknown",
+    "Pilot cannot establish transfer to Live",
+    "Regression point estimates below pIC50 4 are censored/noisy",
+    "Scaffold split leaves acyclic compounds as singletons",
+    "Bootstrap resamples use NumPy generator rather than official sklearn RNG"
+  ]
+}

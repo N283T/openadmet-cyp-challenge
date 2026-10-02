@@ -1,0 +1,86 @@
+{
+  "config": {
+    "d6_probe_prepared_id": "20261001T135846483051Z-64386ab4",
+    "d6_probe_package_run": "20261001T135736242152Z-113f153e",
+    "selection_run": "20261001T135322663569Z-94d28c32",
+    "a4_performance_control_prepared_id": "20260924T050705396203Z-10e1d3ad",
+    "last_sent_prepared_id": "20260926T150948735129Z-6fc9d05b",
+    "d6_positive_calls": 49,
+    "a4_positive_calls": 249,
+    "scope": "Restore exact best-scored A4 vector; retain exact reviewed D6 AP rank-blend vector with 49 calls. Local preparation only; user has not authorized upload of this new payload."
+  },
+  "selection_run": "20261001T135322663569Z-94d28c32",
+  "d6_positive_calls": 49,
+  "a4_positive_calls": 249,
+  "D6_bitwise_equal_reviewed_probe": true,
+  "A4_bitwise_equal_best_control": true,
+  "target_changes": [
+    {
+      "reference": "last_sent",
+      "endpoint": "CYP2D6_is_TDI",
+      "positive_calls": 49,
+      "retained": 28,
+      "added": 21,
+      "removed": 21,
+      "changed": 42
+    },
+    {
+      "reference": "last_sent",
+      "endpoint": "CYP3A4_is_TDI",
+      "positive_calls": 249,
+      "retained": 249,
+      "added": 0,
+      "removed": 26,
+      "changed": 26
+    },
+    {
+      "reference": "best_control",
+      "endpoint": "CYP2D6_is_TDI",
+      "positive_calls": 49,
+      "retained": 28,
+      "added": 21,
+      "removed": 21,
+      "changed": 42
+    },
+    {
+      "reference": "best_control",
+      "endpoint": "CYP3A4_is_TDI",
+      "positive_calls": 249,
+      "retained": 249,
+      "added": 0,
+      "removed": 0,
+      "changed": 0
+    },
+    {
+      "reference": "prior_d6_probe",
+      "endpoint": "CYP2D6_is_TDI",
+      "positive_calls": 49,
+      "retained": 49,
+      "added": 0,
+      "removed": 0,
+      "changed": 0
+    },
+    {
+      "reference": "prior_d6_probe",
+      "endpoint": "CYP3A4_is_TDI",
+      "positive_calls": 249,
+      "retained": 249,
+      "added": 0,
+      "removed": 26,
+      "changed": 26
+    }
+  ],
+  "validation": {
+    "track": "classification",
+    "rows": 750,
+    "columns": [
+      "SMILES",
+      "Molecule_Name",
+      "CYP2D6_is_TDI",
+      "CYP3A4_is_TDI"
+    ],
+    "valid": true
+  },
+  "uploaded": false,
+  "prediction_sha256": "67dbe95a6f9c307c5c8cea6746c1d993e08ecc854393052babf35be38bb6ba19"
+}

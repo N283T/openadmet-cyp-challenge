@@ -1,0 +1,59 @@
+{
+  "source_run": "classification/20261002T005413496423Z-f92f58e6",
+  "outputs": {
+    "assignments.parquet": "59da3f8708fd8122e649412cc6a8e89fe30053ee0ad942f9857175be918eb733",
+    "blind-random-fresh_d6_network.parquet": "e6b60efbab4d93552977504403621242950e9513d8b5bf0c34d8cadbf10ebe42",
+    "blind-scaffold-fresh_d6_network.parquet": "1a10c4198bd118675abc84200fa2caafc2eb0f48b5ed81c4f99bfc2c0fdb67ea",
+    "metrics.csv": "866913c92b89def29949229d8ce0b1d3c6196dcd412afc7cbdf9c09a4a7a08e4",
+    "model-random-fresh_d6_network.joblib": "fef6424c92f7740621fbac24fde017ea8e7221477d5c232b9551a5f289641a7e",
+    "model-scaffold-fresh_d6_network.joblib": "1adb09f6e35b1d46b2a023acb1772024ac7282ce622a6edecc8a7915a727a19b",
+    "oof.parquet": "0d6c61b9d12d4e4f1bd190e286a7b682785de70d652c83db9984333d284629d1",
+    "operating-points.csv": "949af6777e438cb3d7e8ba29c96f13a87b4de1d4583cf603514cc1a75f4436a0",
+    "representation.json": "42d9eec04f9d5589b0f643ab4c98df2c7e3be0ad33402e07f51e8824a1b10838",
+    "source-audit.parquet": "a4cecf003c307d53295278f55d20918028fe0c7ca6cffa8bb1b5b48c623b5a05",
+    "summary.json": "75aaa6bb7fef3797d9da9cfd46d56a4ad92a4f152fc995f4125be62f97687c6e"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T005413496423Z-f92f58e6/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T005413496423Z-f92f58e6/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T005413496423Z-f92f58e6/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 4,
+    "seed": 20261002,
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 4,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "random",
+      "scaffold"
+    ],
+    "models": [
+      "fresh_d6_network"
+    ],
+    "network_epochs": 100,
+    "other_enzyme_weight": 0.0,
+    "continuous_aux_weight": 0.0,
+    "representation": "Fresh Morgan 2048-bit input, same random 256/64 network, dropout, optimizer and training budget as multiassay v3",
+    "loss": "D6 BCE only; auxiliary losses exactly zero. No trained assets are reused.",
+    "threshold_policy": "Maximize inner OOF bootstrap mean MCC; no positive-count constraint",
+    "excluded_inputs": "All prior fitted weights, predictions, thresholds and submission counts",
+    "status": "Ablation to distinguish cross-enzyme supervision from network capacity; no upload"
+  }
+}

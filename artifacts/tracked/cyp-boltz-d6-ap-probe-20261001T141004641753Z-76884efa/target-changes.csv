@@ -1,0 +1,7 @@
+reference,endpoint,positive_calls,retained,added,removed,changed
+last_sent,CYP2D6_is_TDI,49,28,21,21,42
+last_sent,CYP3A4_is_TDI,249,249,0,26,26
+best_control,CYP2D6_is_TDI,49,28,21,21,42
+best_control,CYP3A4_is_TDI,249,249,0,0,0
+prior_d6_probe,CYP2D6_is_TDI,49,49,0,0,0
+prior_d6_probe,CYP3A4_is_TDI,249,249,0,26,26

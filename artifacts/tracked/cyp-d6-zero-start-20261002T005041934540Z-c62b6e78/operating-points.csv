@@ -1,0 +1,11 @@
+split_id,fold,model,threshold,inner_bootstrap_mcc,inner_bootstrap_std,fitting_molecules,blind_positive,note
+random,0,fresh_multiassay_network,0.81,0.1446770207438085,0.03452876688667718,4609,,
+random,1,fresh_multiassay_network,0.54,0.1506795032490273,0.03560970192221985,4609,,
+random,2,fresh_multiassay_network,0.09,0.11500012387336105,0.03247667582881987,4610,,
+random,3,fresh_multiassay_network,0.060000000000000005,0.16626138957467568,0.0320216908054217,4610,,
+random,-1,fresh_multiassay_network,0.14,,,,153,Full-development threshold; pooled OOF fit is an optimistic MCC estimate
+scaffold,0,fresh_multiassay_network,0.16,0.10981594132321518,0.033373150498203046,4610,,
+scaffold,1,fresh_multiassay_network,0.05,0.15437441906349983,0.03266515361884151,4608,,
+scaffold,2,fresh_multiassay_network,0.29000000000000004,0.1572378898358765,0.03375664293836632,4610,,
+scaffold,3,fresh_multiassay_network,0.99,0.1371709273828776,0.03696818808968556,4610,,
+scaffold,-1,fresh_multiassay_network,0.9,,,,58,Full-development threshold; pooled OOF fit is an optimistic MCC estimate

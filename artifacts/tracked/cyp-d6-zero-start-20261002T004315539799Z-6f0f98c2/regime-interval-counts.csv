@@ -1,0 +1,10 @@
+regime,interval_status,n,positive
+measured_direct_active,shift_positive_interval,83,83.0
+measured_direct_active,shift_negative_interval,378,0.0
+assigned_inactive,shift_boundary_overlap,60,0.0
+unresolved_or_unpaired,shift_positive_interval,2,0.0
+inferred_positive,shift_boundary_overlap,29,29.0
+unresolved_or_unpaired,missing_interval,4,0.0
+unresolved_or_unpaired,shift_boundary_overlap,16,0.0
+measured_direct_active,shift_boundary_overlap,903,190.0
+inferred_positive,shift_positive_interval,22,22.0

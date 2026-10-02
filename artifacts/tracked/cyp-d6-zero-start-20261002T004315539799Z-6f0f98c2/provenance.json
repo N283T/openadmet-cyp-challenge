@@ -1,0 +1,72 @@
+{
+  "source_run": "classification/20261002T004315539799Z-6f0f98c2",
+  "outputs": {
+    "assignments.parquet": "59da3f8708fd8122e649412cc6a8e89fe30053ee0ad942f9857175be918eb733",
+    "interval-audit.parquet": "48e60abb63b2be718d0bc53f572e64dad9d013403d4e329bc13fbad071b3e162",
+    "metrics.csv": "76d5dea4ee54e9327e64d5a2bdef540ddd34dbe24d58f0f1c5a3b82e4ccf6e28",
+    "oof.parquet": "ba0421613e959a04d57e59980a772fcae1d50a95faf1e887e9f091d33cfc3afa",
+    "operating-points.csv": "2a4e6682e2dedb43a762720ba239f97cdc418f53f2c3fde5e0a8f3c4d32cec9d",
+    "regime-interval-counts.csv": "38926192b81be5524c866974dd73aafe8c17c27271202c5545a8477ab9198722",
+    "report.md": "f2f9b9cb71e0497ddfa098d27d3b128538d3992591d87b6ce19ec1911d0cd643",
+    "representation.json": "42d9eec04f9d5589b0f643ab4c98df2c7e3be0ad33402e07f51e8824a1b10838",
+    "source-audit.parquet": "28c0e059dfac03e7d0b288d1774989c041d2f68cb314dc9bd5cb0cde559895bb",
+    "subgroup-metrics.csv": "4002dd926f390e80b926b296d0caafe14fde620138417d8ced2dceb3407e45e4",
+    "summary.json": "605ddc6104571db0f6ec4aeca8ee6c93a4defd96e3a4143c24ce880b279a57c5"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004016766672Z-e2d420d4/outputs/summary.json",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004315539799Z-6f0f98c2/inputs/summary.json",
+      "sha256": "605ddc6104571db0f6ec4aeca8ee6c93a4defd96e3a4143c24ce880b279a57c5",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004016766672Z-e2d420d4/outputs/metrics.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004315539799Z-6f0f98c2/inputs/metrics.csv",
+      "sha256": "76d5dea4ee54e9327e64d5a2bdef540ddd34dbe24d58f0f1c5a3b82e4ccf6e28",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004016766672Z-e2d420d4/outputs/operating-points.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004315539799Z-6f0f98c2/inputs/operating-points.csv",
+      "sha256": "2a4e6682e2dedb43a762720ba239f97cdc418f53f2c3fde5e0a8f3c4d32cec9d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004016766672Z-e2d420d4/outputs/oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004315539799Z-6f0f98c2/inputs/oof.parquet",
+      "sha256": "ba0421613e959a04d57e59980a772fcae1d50a95faf1e887e9f091d33cfc3afa",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004016766672Z-e2d420d4/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004315539799Z-6f0f98c2/inputs/assignments.parquet",
+      "sha256": "59da3f8708fd8122e649412cc6a8e89fe30053ee0ad942f9857175be918eb733",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004016766672Z-e2d420d4/outputs/source-audit.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004315539799Z-6f0f98c2/inputs/source-audit.parquet",
+      "sha256": "28c0e059dfac03e7d0b288d1774989c041d2f68cb314dc9bd5cb0cde559895bb",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004016766672Z-e2d420d4/outputs/representation.json",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004315539799Z-6f0f98c2/inputs/representation.json",
+      "sha256": "42d9eec04f9d5589b0f643ab4c98df2c7e3be0ad33402e07f51e8824a1b10838",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004016766672Z-e2d420d4/inputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T004315539799Z-6f0f98c2/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "source_run": "20261002T004016766672Z-e2d420d4",
+    "endpoint": "CYP2D6_is_TDI",
+    "bootstrap_samples": 1000,
+    "purpose": "Inspect independent restart by assay regime and interval uncertainty; retain compact evidence"
+  }
+}

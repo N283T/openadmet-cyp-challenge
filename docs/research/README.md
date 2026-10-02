@@ -13,8 +13,23 @@ The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experimen
   improves D6 `.549341→.535721`. C9/A4 retain their best submitted vectors.
   Macro is `.458311`. See the [adoption record](../analysis/2026-10-01-boltz-regression-adoption.md)
   and [current composition](../../configs/regression/current-boltz-adoption.json).
-  Trunk TDI remains exploratory until complete-pool features and deployment
-  evaluation are available; classification has not changed in this experiment.
+  Trunk TDI remains exploratory. The user deferred complete-pool extraction;
+  [labelled-only integration diagnostics](../analysis/2026-10-01-boltz-tdi-partial-pool-diagnostics.md)
+  show ranking gains without a selected call-boundary MCC gain. Classification
+  has not changed in these experiments. A subsequent user-authorized
+  [D6 blind review](../analysis/2026-10-01-boltz-d6-ap-blind-probe.md) freezes an
+  AP-selected 50% rank blend with 21 additions and 21 removals. The recommended
+  new prepared payload `20261001T141041310215Z-c7faa79f` also restores the exact
+  best-scored A4 249-call vector. The user approved this exact payload; it was
+  sent on October 1 at 23:13 JST. Live scoring shows D6 MCC
+  `.308635→.104986`, while exact A4 restoration recovers `.529911` and rank 1.
+  Reject this D6 blend for current Live. The user subsequently rejected the original
+  ensemble and its call count as modeling anchors. The [independent D6 restart](../analysis/2026-10-02-d6-zero-start.md)
+  uses source molecules and measurements, fresh fitting, nested unconstrained thresholds,
+  and structural holdouts. No rollback upload has occurred. Earlier probes remain unsent.
+  The user ended this investigation after clarifying that creating new models did not
+  address the requested root-cause diagnosis. All exploratory results are retained;
+  no new classification model is adopted and no experiment is running.
 
 - **The A4 275-call rate failed on the Live leaderboard:** complete-pool OOF
   had favored 275 over the submitted 249 calls by `.0245` projected MCC, but

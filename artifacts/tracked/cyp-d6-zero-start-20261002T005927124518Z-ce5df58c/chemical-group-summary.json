@@ -1,0 +1,8 @@
+{
+  "threshold": 0.6,
+  "groups": 5204,
+  "edges": 2077,
+  "largest_group": 21,
+  "labelled_groups": 1473,
+  "guarantee": "No train-validation pair has Morgan Tanimoto >= threshold"
+}

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "seed": 20261002,
+  "endpoint": "CYP2D6_is_TDI",
+  "outer_folds": 4,
+  "inner_folds": 3,
+  "bootstrap_samples": 1000,
+  "split_strategies": ["random", "scaffold"],
+  "models": ["morgan_logistic", "morgan_rdkit_classifier", "paired_measurement_margin"],
+  "representation": "Fresh Morgan radius 2 / 2048 bits and RDKit 2D descriptors",
+  "threshold_policy": "Maximize inner OOF bootstrap mean MCC; no positive-count constraint",
+  "excluded_inputs": "All previous fitted models, predictions, ensembles, and submission call counts",
+  "measurement_rule": "margin = min(predicted TDI pIC50 - (4 + log10(2)), predicted paired shift - log10(2))",
+  "status": "Foundational pilot; no upload or incumbent blend"
+}

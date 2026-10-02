@@ -1,0 +1,13 @@
+{
+  "depth_sets": [],
+  "backends": {},
+  "trunk_predictions": {"d6": "d6-trunk.parquet", "a4": "a4-trunk.parquet"},
+  "d6": {"call_rate": 0.06533333333333333, "target_prior": 0.07062568306010919, "rates": [0.02, 0.04, 0.06533333333333333, 0.10, 0.15, 0.20], "priors": [0.05, 0.07062568306010919, 0.10, 0.20]},
+  "a4": {"call_rate": 0.332, "target_prior": 0.2916, "rates": [0.20, 0.26666666666666666, 0.332, 0.36666666666666664, 0.40, 0.43333333333333335, 0.50], "priors": [0.20, 0.2916, 0.40]},
+  "block_sizes": [1, 2, 3, 5],
+  "blend_weights": [0.10, 0.25, 0.50],
+  "replacement_cap": 3,
+  "bootstrap_draws": 2000,
+  "seed": 20261002,
+  "scope": "User-authorized labelled-only diagnostics before considering additional full-pool extraction. Conditional saved-OOF selection, not fully nested base-model refits. No deployment rate or upload supported. Multiple trunks mean multiple readouts of the same frozen trunk extraction, not new Boltz runs."
+}

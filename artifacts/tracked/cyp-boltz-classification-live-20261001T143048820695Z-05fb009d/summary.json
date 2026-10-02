@@ -1,0 +1,121 @@
+{
+  "submission_id": "20261001T141041310215Z-c7faa79f",
+  "attempt_id": "20261001T141324626858Z-cd9cca73",
+  "sha256": "67dbe95a6f9c307c5c8cea6746c1d993e08ecc854393052babf35be38bb6ba19",
+  "scored_timestamp": "2026-10-01 14:13 UTC",
+  "scored": true,
+  "decision": "Reject D6 50% AP-trunk blend for current Live; retain original D6 performance control",
+  "A4_best_metrics_reproduced": true,
+  "macro_arithmetic_checked": true,
+  "new_upload": false,
+  "metrics": [
+    {
+      "endpoint": "MA",
+      "metric": "MCC",
+      "previous": 0.3964706814770617,
+      "current": 0.317448175466277,
+      "delta": -0.0790225060107847,
+      "previous_rank": 17,
+      "current_rank": 48
+    },
+    {
+      "endpoint": "MA",
+      "metric": "Accuracy",
+      "previous": 0.8349781420765028,
+      "current": 0.8334467213114753,
+      "delta": -0.0015314207650274358,
+      "previous_rank": 17,
+      "current_rank": 48
+    },
+    {
+      "endpoint": "MA",
+      "metric": "Precision",
+      "previous": 0.4589818574147284,
+      "current": 0.3936437681850779,
+      "delta": -0.06533808922965051,
+      "previous_rank": 17,
+      "current_rank": 48
+    },
+    {
+      "endpoint": "MA",
+      "metric": "Recall",
+      "previous": 0.5610731948926146,
+      "current": 0.4608001262220943,
+      "delta": -0.10027306867052033,
+      "previous_rank": 17,
+      "current_rank": 48
+    },
+    {
+      "endpoint": "D6",
+      "metric": "MCC",
+      "previous": 0.3086351784292143,
+      "current": 0.1049858135880931,
+      "delta": -0.20364936484112117,
+      "previous_rank": 25,
+      "current_rank": 110
+    },
+    {
+      "endpoint": "D6",
+      "metric": "Accuracy",
+      "previous": 0.9041830601092896,
+      "current": 0.8715382513661202,
+      "delta": -0.03264480874316944,
+      "previous_rank": 25,
+      "current_rank": 110
+    },
+    {
+      "endpoint": "D6",
+      "metric": "Precision",
+      "previous": 0.3412060699305523,
+      "current": 0.1588410769126605,
+      "delta": -0.1823649930178918,
+      "previous_rank": 25,
+      "current_rank": 110
+    },
+    {
+      "endpoint": "D6",
+      "metric": "Recall",
+      "previous": 0.3834904381397836,
+      "current": 0.1923928365145074,
+      "delta": -0.19109760162527623,
+      "previous_rank": 25,
+      "current_rank": 110
+    },
+    {
+      "endpoint": "A4",
+      "metric": "MCC",
+      "previous": 0.4843061845249091,
+      "current": 0.5299105373444608,
+      "delta": 0.04560435281955172,
+      "previous_rank": 10,
+      "current_rank": 1
+    },
+    {
+      "endpoint": "A4",
+      "metric": "Accuracy",
+      "previous": 0.7657732240437158,
+      "current": 0.7953551912568306,
+      "delta": 0.02958196721311479,
+      "previous_rank": 10,
+      "current_rank": 1
+    },
+    {
+      "endpoint": "A4",
+      "metric": "Precision",
+      "previous": 0.5767576448989045,
+      "current": 0.6284464594574953,
+      "delta": 0.05168881455859087,
+      "previous_rank": 10,
+      "current_rank": 1
+    },
+    {
+      "endpoint": "A4",
+      "metric": "Recall",
+      "previous": 0.7386559516454455,
+      "current": 0.7292074159296813,
+      "delta": -0.009448535715764206,
+      "previous_rank": 10,
+      "current_rank": 1
+    }
+  ]
+}
