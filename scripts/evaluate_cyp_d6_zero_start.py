@@ -471,6 +471,11 @@ def main():
         )
         + "\n"
     )
+    if cfg.get("legacy_ensemble_validation"):
+        from validate_cyp_d6_legacy_ensemble import evaluate
+
+        evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, blind, cfg)
+        return
     if cfg.get("deploy_nested_policy"):
         from deploy_cyp_chemeleon_candidate import deploy
 

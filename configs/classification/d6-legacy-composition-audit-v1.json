@@ -1,0 +1,4 @@
+{
+  "purpose": "Verify exact raw-core and ranked-tail composition against the historical complete-pool UMAP record, before interpreting the newly refitted legacy comparator.",
+  "scope": "Formula check only; cached predictions are not nested refit evidence."
+}

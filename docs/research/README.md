@@ -61,6 +61,12 @@ The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experimen
   All nine further completed records and own readout weights are retained.
   Dry run is valid; this exact payload is not approved or uploaded. See
   [RL0206](2026-10.md#rl0206--fresh-chemeleon-readouts-yield-a-complete-175-call-d6-candidate).
+  The user identifies the missing complete existing-model comparison. The
+  [whole-legacy nested refit](../analysis/2026-10-02-d6-legacy-whole-nested.md)
+  now trains all eleven atoms inside the same outer/bag/cut boundaries. The
+  175-call recommendation is provisional until this comparison is complete;
+  the candidate remains preserved and unsent. A same-method model win would
+  not alone establish past-LB concordance or recover missing D6 outcomes.
 
 - **The A4 275-call rate failed on the Live leaderboard:** complete-pool OOF
   had favored 275 over the submitted 249 calls by `.0245` projected MCC, but

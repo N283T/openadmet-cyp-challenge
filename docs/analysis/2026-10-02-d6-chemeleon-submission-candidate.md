@@ -1,5 +1,11 @@
 # Fresh CheMeleon readout: selected D6 submission candidate
 
+**Subsequent review:** the user identified that this comparison did not refit
+the complete existing eleven-atom ensemble under the new evaluation method.
+That [whole-recipe comparison](2026-10-02-d6-legacy-whole-nested.md) is now running.
+The recommendation below records the earlier judgment and is provisional pending
+those results. The exact candidate remains preserved and unsent.
+
 The continuation produces a concrete new classifier, validates its complete
 decision procedure, persists and restores all ten fitted readouts, and prepares
 the exact submission payload. The selected candidate is an improvement-seeking
