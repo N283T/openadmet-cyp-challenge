@@ -1,0 +1,139 @@
+{
+  "config": {
+    "version": 1,
+    "seed": 20261002,
+    "seeds": [
+      20261002,
+      20261017
+    ],
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 5,
+    "bag_folds": 5,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "umap",
+      "scaffold"
+    ],
+    "fixed_assignments": "assignments.parquet",
+    "models": [
+      "chemeleon_primary_network"
+    ],
+    "network_epochs": 20,
+    "nested_bag_validation": false,
+    "threshold_grid": "inner_quantiles",
+    "cpu_threads": 4,
+    "policies": [
+      "centered_fold_mean",
+      "majority_vote",
+      "pooled_oof_cut",
+      "single_refit"
+    ],
+    "historical_comparisons": [],
+    "scientific_purpose": "Fit and persist the selected fresh CheMeleon plus four-primary-assay D6 readout as the validated two-seed five-bag margin policy, then score all 750 blind molecules. No incumbent scores, no fixed call count, no upload.",
+    "selection_rule": "Choose the primary-supervised fresh CheMeleon learner: equal-seed combined held-out MCC .14530 UMAP/.23066 scaffold versus matched Morgan .12572/.16871 and class-only CheMeleon .13178/.21439. Use UMAP as routine deployment split, both prespecified seeds and learned bag cuts; no blind-output-based tuning.",
+    "limitations": "Model/policy chosen after development inspections. Ten-model bag policy is evaluated inside untouched outer fitting boundaries but deployment bag models use 80 percent rather than 64 percent of development. Generic upstream 47-head ADME encoder original corpus manifest unknown; features are not prior challenge scores. Weak-primary D6 class outcomes remain unidentified; historical ensemble superiority on Live is not established.",
+    "primary_screen": "primary-screen.csv",
+    "propensity_weight_cap": 5.0,
+    "baseline_model": "chemeleon_class_network",
+    "selection_control": false,
+    "primary_enzyme_index": 0,
+    "primary_activity_cut": -0.5,
+    "primary_activity_loss_weight": 1.0,
+    "skip_historical_diagnostics": true,
+    "float32_matmul_precision": "high",
+    "embedding_file": "chemeleon-features.parquet",
+    "embedding_dimensions": 2048,
+    "deploy_nested_policy": true,
+    "deployment_split": "umap",
+    "deployment_model": "chemeleon_primary_network"
+  },
+  "n_models": 10,
+  "positives": 175,
+  "models": [
+    {
+      "seed": 20261002,
+      "fold": 0,
+      "cut": 0.07204611375927926,
+      "train_molecules": 4948,
+      "train_classes": 1202,
+      "model_path": "20261002-bag0.pt"
+    },
+    {
+      "seed": 20261002,
+      "fold": 1,
+      "cut": 0.11991381098826732,
+      "train_molecules": 4886,
+      "train_classes": 1199,
+      "model_path": "20261002-bag1.pt"
+    },
+    {
+      "seed": 20261002,
+      "fold": 2,
+      "cut": 0.07096721231937408,
+      "train_molecules": 4880,
+      "train_classes": 1201,
+      "model_path": "20261002-bag2.pt"
+    },
+    {
+      "seed": 20261002,
+      "fold": 3,
+      "cut": 0.789357453584671,
+      "train_molecules": 4923,
+      "train_classes": 1198,
+      "model_path": "20261002-bag3.pt"
+    },
+    {
+      "seed": 20261002,
+      "fold": 4,
+      "cut": 0.8256609467665355,
+      "train_molecules": 4947,
+      "train_classes": 1188,
+      "model_path": "20261002-bag4.pt"
+    },
+    {
+      "seed": 20261017,
+      "fold": 0,
+      "cut": 0.21372024292747194,
+      "train_molecules": 4948,
+      "train_classes": 1202,
+      "model_path": "20261017-bag0.pt"
+    },
+    {
+      "seed": 20261017,
+      "fold": 1,
+      "cut": 0.0018957470706664034,
+      "train_molecules": 4886,
+      "train_classes": 1199,
+      "model_path": "20261017-bag1.pt"
+    },
+    {
+      "seed": 20261017,
+      "fold": 2,
+      "cut": 0.06873697042465211,
+      "train_molecules": 4880,
+      "train_classes": 1201,
+      "model_path": "20261017-bag2.pt"
+    },
+    {
+      "seed": 20261017,
+      "fold": 3,
+      "cut": 0.2980245423316956,
+      "train_molecules": 4923,
+      "train_classes": 1198,
+      "model_path": "20261017-bag3.pt"
+    },
+    {
+      "seed": 20261017,
+      "fold": 4,
+      "cut": 0.6497362184524546,
+      "train_molecules": 4947,
+      "train_classes": 1188,
+      "model_path": "20261017-bag4.pt"
+    }
+  ],
+  "no_upload": true,
+  "blind_assays_used": false,
+  "count_is_not_prescribed": true,
+  "limits": "Same algorithm as nested validation; each deployed bag has 80 percent of development rather than 64 percent in outer validation. Generic upstream encoder corpus manifest is unknown. Weak-primary D6 class outcomes remain unavailable."
+}

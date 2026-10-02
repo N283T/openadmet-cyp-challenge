@@ -1,0 +1,5 @@
+{
+  "source_run": "20261002T084852768236Z-ef8d81ed",
+  "bootstrap_samples": 1000,
+  "selection_rule": "Equal average of the two prespecified seeds, no fitted weights. Exact original-call reconstruction. Compare the matched fresh Morgan and CheMeleon class/primary learners before blind deployment; no fixed count or upload."
+}

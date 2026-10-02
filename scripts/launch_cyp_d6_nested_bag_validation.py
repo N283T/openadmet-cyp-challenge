@@ -27,6 +27,10 @@ def main():
         inputs[cfg["primary_screen"]] = (
             root / "data/raw/cyp-challenge-single-concentration-TRAIN.csv"
         )
+    if cfg.get("embedding_file"):
+        inputs[cfg["embedding_file"]] = (
+            runs / "shared/20260912T061231617816Z-299439e8/outputs/external-embeddings.parquet"
+        )
     for alias, run in {
         "control-umap.parquet": "20260924T040301085704Z-914bb06c",
         "control-scaffold.parquet": "20260924T041452692950Z-e17778e3",

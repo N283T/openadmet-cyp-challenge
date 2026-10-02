@@ -1,0 +1,101 @@
+{
+  "source_run": "classification/20261002T084852768236Z-ef8d81ed",
+  "outputs": {
+    "aggregate-metrics.csv": "6844ce5ddc81395b9d9b6d421d6c248d134d6a0fec6a6bbdb19bb72446574b02",
+    "fold-metrics.csv": "dc93cb1b5e1e866934960f50838cf9bd8b0ee3f909e0c84ecfceb98a5d314d05",
+    "leakage-and-operating-points.csv": "94780f5c6f1fe80c6372ecf99f54d34711bc2ac16367ab90e89f3938ece9d229",
+    "nested-oof.parquet": "d74bea35dfe58fbeffbcc20ba1aa33a2300d52f67c01a0a367b9d176a3b57739",
+    "paired-group-intervals.csv": "acb518cdcd710ab13297deef155367a2989fce3bb748e6655f5c0389d153e2cb",
+    "primary-source-audit.parquet": "24e7e614e5e13f3df8f5aee50ea92078dcd7777e8f657ea79017a7bc0426331b",
+    "representation.json": "50dbf0ffe145d63e9d2ef342c669dcfc55718cf248fb4d599732ee44b33dcbc0",
+    "source-audit.parquet": "a4cecf003c307d53295278f55d20918028fe0c7ca6cffa8bb1b5b48c623b5a05",
+    "summary.json": "f456342825e7556dc86a92e25dcd1b19437cf8c2a65a5d9a3ab6cb1fed8edd05",
+    "threshold-scale-audit.csv": "772b07e95812c851511185bf0a271af19d3431baa6d815a43d03755a0861f185"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084852768236Z-ef8d81ed/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084852768236Z-ef8d81ed/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084852768236Z-ef8d81ed/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084852768236Z-ef8d81ed/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/data/raw/cyp-challenge-single-concentration-TRAIN.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084852768236Z-ef8d81ed/inputs/primary-screen.csv",
+      "sha256": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260912T061231617816Z-299439e8/outputs/external-embeddings.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T084852768236Z-ef8d81ed/inputs/chemeleon-features.parquet",
+      "sha256": "6d173163edfc7d0cd5354f893e76070c626e19a1aa5a9790dfc4b537070c1e91",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seed": 20261002,
+    "seeds": [
+      20261002,
+      20261017
+    ],
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 5,
+    "bag_folds": 5,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "umap",
+      "scaffold"
+    ],
+    "fixed_assignments": "assignments.parquet",
+    "models": [
+      "fresh_d6_network",
+      "chemeleon_class_network",
+      "chemeleon_primary_network"
+    ],
+    "network_epochs": 20,
+    "nested_bag_validation": true,
+    "threshold_grid": "inner_quantiles",
+    "cpu_threads": 4,
+    "policies": [
+      "centered_fold_mean",
+      "majority_vote",
+      "pooled_oof_cut",
+      "single_refit"
+    ],
+    "historical_comparisons": [],
+    "scientific_purpose": "Fresh molecular readouts on frozen CheMeleon features: matched Morgan class baseline, CheMeleon class-only and all-primary-supervised neural readouts. No historical score or submitted-model initialization. Complete nested five-model decisions on identical folds, two seeds.",
+    "selection_rule": "Prespecified 20-epoch matched architecture and all-primary weight .2, no epoch/weight grid. Compare model decisions and population coverage before preparing a payload. Counts remain outputs.",
+    "limitations": "Frozen generic molecular encoder features are reused, never prior challenge predictions. Feature standardization and class/primary supervision exclude all held-out groups. D6 weak-primary labels remain unavailable; A4 population control does not prove D6 transport. Conditional intervals omit protocol selection and fitting uncertainty.",
+    "primary_screen": "primary-screen.csv",
+    "propensity_weight_cap": 5.0,
+    "baseline_model": "chemeleon_class_network",
+    "selection_control": false,
+    "primary_enzyme_index": 0,
+    "primary_activity_cut": -0.5,
+    "primary_activity_loss_weight": 1.0,
+    "skip_historical_diagnostics": true,
+    "float32_matmul_precision": "high",
+    "embedding_file": "chemeleon-features.parquet",
+    "embedding_dimensions": 2048
+  }
+}

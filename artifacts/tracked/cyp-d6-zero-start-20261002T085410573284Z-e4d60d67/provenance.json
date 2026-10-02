@@ -1,0 +1,136 @@
+{
+  "source_run": "classification/20261002T085410573284Z-e4d60d67",
+  "outputs": {
+    "partial-label-bounds.csv": "b448a5ecac1647adb1870324c13ed1fcbdd7eed80f46a6ca8a5be71094908a39",
+    "summary.json": "7c8f4a1c88f67912bd71dcf6859373893a53122aebe47c43b80ce1da4b686b93"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260913T112957931554Z-32d00f6e/outputs/oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T085410573284Z-e4d60d67/inputs/diverse-oof.parquet",
+      "sha256": "61fa90dedd7e024aae598b7585c55acfa6f838af829f319ddefae6415d37ec7d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260913T123045515718Z-0df22d54/outputs/oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T085410573284Z-e4d60d67/inputs/fixed-oof.parquet",
+      "sha256": "25f9ed512dd9258ef384f78253c6c12fab911a8a8311c37e04167ca3299618f2",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T040301085704Z-914bb06c/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T085410573284Z-e4d60d67/inputs/control-umap.parquet",
+      "sha256": "c7b568d1f21827e3ba7f6c8b09f5ee5f95dcf2c61e4beeb159ed2c2b56b6acf3",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T041452692950Z-e17778e3/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T085410573284Z-e4d60d67/inputs/control-scaffold.parquet",
+      "sha256": "35ca4779e545ccee8c157a6e92826fa138da1cbf64f5d9f7f342dc53adb98956",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T035023873825Z-b719ba35/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T085410573284Z-e4d60d67/inputs/ap-umap.parquet",
+      "sha256": "a9e4cf548bb631daba88f466d498825c3d49944528e57d15e04006eb489c8e68",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T041348966036Z-8db19b4b/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T085410573284Z-e4d60d67/inputs/ap-scaffold.parquet",
+      "sha256": "dafd3eded66592d0aa692b33e505c94e9e86bb4fbc843018e6a361c9016af5e6",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T042725116238Z-fe96ab3c/outputs/nested-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T085410573284Z-e4d60d67/inputs/a4-oof.parquet",
+      "sha256": "12ef2222b53802f6151cce69dcb70f989b35e41f69ad0cd005e6da975119817e",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T042725116238Z-fe96ab3c/outputs/selection-control-source.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T085410573284Z-e4d60d67/inputs/a4-mask.parquet",
+      "sha256": "db7bfd771a293c0d151fc7307e686e42439a3e188b7de622add86021bbd964da",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "seeds": [
+      20261002,
+      20261017
+    ],
+    "cases": [
+      {
+        "name": "sep12_to_sep13",
+        "kind": "history",
+        "split": "umap",
+        "scope": "historical labelled-only diagnostic; not deployment rate selection",
+        "complete_pool": false,
+        "before_file": "diverse-oof.parquet",
+        "after_file": "diverse-oof.parquet",
+        "before_model": "current",
+        "after_model": "current2_logistic_morgan_c0.05_rank_mean",
+        "before_rate": 0.05733333333333333,
+        "after_rate": 0.06533333333333333
+      },
+      {
+        "name": "sep13_to_sep14",
+        "kind": "history",
+        "split": "umap",
+        "scope": "historical labelled-only diagnostic; not deployment rate selection",
+        "complete_pool": false,
+        "before_file": "fixed-oof.parquet",
+        "after_file": "fixed-oof.parquet",
+        "before_model": "live",
+        "after_model": "live2_complement_nb_a1",
+        "before_rate": 0.06533333333333333,
+        "after_rate": 0.06533333333333333
+      },
+      {
+        "name": "sep15_to_sep23_umap",
+        "kind": "history",
+        "split": "umap",
+        "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+        "complete_pool": true,
+        "before_file": "control-umap.parquet",
+        "after_file": "ap-umap.parquet",
+        "before_model": "sep15_control_raw_oof_analog",
+        "after_model": "ap_full7_outer_weight_rank",
+        "before_rate": 0.06533333333333333,
+        "after_rate": 0.06533333333333333
+      },
+      {
+        "name": "sep15_to_sep23_scaffold",
+        "kind": "history",
+        "split": "scaffold",
+        "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+        "complete_pool": true,
+        "before_file": "control-scaffold.parquet",
+        "after_file": "ap-scaffold.parquet",
+        "before_model": "sep15_control_raw_oof_analog",
+        "after_model": "ap_full7_scaffold_outer_weight_rank",
+        "before_rate": 0.06533333333333333,
+        "after_rate": 0.06533333333333333
+      },
+      {
+        "name": "a4_selection_reversal",
+        "kind": "a4_control",
+        "before_file": "a4-oof.parquet",
+        "after_file": "a4-oof.parquet",
+        "source": "a4-mask.parquet",
+        "before_model": "activity_all",
+        "after_model": "activity_selected"
+      },
+      {
+        "name": "a4_primary_gate",
+        "kind": "a4_control",
+        "before_file": "a4-oof.parquet",
+        "after_file": "a4-oof.parquet",
+        "source": "a4-mask.parquet",
+        "before_model": "activity_all",
+        "after_model": "gate_selected"
+      }
+    ],
+    "selection_rule": "Exact feasible intervals without assigning missing classes. Check observed A4 broad-population reversal is admitted when weak labels are hidden. Labelled-only history is ineligible for calibration of complete-population transfer."
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "seeds": [
+    20261002,
+    20261017
+  ],
+  "cases": [
+    {
+      "name": "sep12_to_sep13",
+      "kind": "history",
+      "split": "umap",
+      "scope": "historical labelled-only diagnostic; not deployment rate selection",
+      "complete_pool": false,
+      "before_file": "diverse-oof.parquet",
+      "after_file": "diverse-oof.parquet",
+      "before_model": "current",
+      "after_model": "current2_logistic_morgan_c0.05_rank_mean",
+      "before_rate": 0.05733333333333333,
+      "after_rate": 0.06533333333333333
+    },
+    {
+      "name": "sep13_to_sep14",
+      "kind": "history",
+      "split": "umap",
+      "scope": "historical labelled-only diagnostic; not deployment rate selection",
+      "complete_pool": false,
+      "before_file": "fixed-oof.parquet",
+      "after_file": "fixed-oof.parquet",
+      "before_model": "live",
+      "after_model": "live2_complement_nb_a1",
+      "before_rate": 0.06533333333333333,
+      "after_rate": 0.06533333333333333
+    },
+    {
+      "name": "sep15_to_sep23_umap",
+      "kind": "history",
+      "split": "umap",
+      "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+      "complete_pool": true,
+      "before_file": "control-umap.parquet",
+      "after_file": "ap-umap.parquet",
+      "before_model": "sep15_control_raw_oof_analog",
+      "after_model": "ap_full7_outer_weight_rank",
+      "before_rate": 0.06533333333333333,
+      "after_rate": 0.06533333333333333
+    },
+    {
+      "name": "sep15_to_sep23_scaffold",
+      "kind": "history",
+      "split": "scaffold",
+      "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+      "complete_pool": true,
+      "before_file": "control-scaffold.parquet",
+      "after_file": "ap-scaffold.parquet",
+      "before_model": "sep15_control_raw_oof_analog",
+      "after_model": "ap_full7_scaffold_outer_weight_rank",
+      "before_rate": 0.06533333333333333,
+      "after_rate": 0.06533333333333333
+    },
+    {
+      "name": "a4_selection_reversal",
+      "kind": "a4_control",
+      "before_file": "a4-oof.parquet",
+      "after_file": "a4-oof.parquet",
+      "source": "a4-mask.parquet",
+      "before_model": "activity_all",
+      "after_model": "activity_selected"
+    },
+    {
+      "name": "a4_primary_gate",
+      "kind": "a4_control",
+      "before_file": "a4-oof.parquet",
+      "after_file": "a4-oof.parquet",
+      "source": "a4-mask.parquet",
+      "before_model": "activity_all",
+      "after_model": "gate_selected"
+    }
+  ],
+  "selection_rule": "Exact feasible intervals without assigning missing classes. Check observed A4 broad-population reversal is admitted when weak labels are hidden. Labelled-only history is ineligible for calibration of complete-population transfer."
+}

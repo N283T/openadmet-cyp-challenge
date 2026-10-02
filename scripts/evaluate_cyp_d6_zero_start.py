@@ -118,6 +118,22 @@ def fit_multiassay(train, xfp, tasks, seed, cfg):
 
 
 def fit_model(kind, train, xfp, x, y, tdi, shift, seed, weights, subtype, tasks, cfg):
+    if kind.startswith("chemeleon_"):
+        embedding = x[:, -cfg["embedding_dimensions"] :]
+        mean = embedding[train].mean(axis=0)
+        scale = np.maximum(embedding[train].std(axis=0), 0.01)
+        normalized = ((embedding - mean) / scale).astype(np.float32)
+        network_tasks = tasks.copy()
+        network_tasks[:, 0] = y
+        network_cfg = {
+            **cfg,
+            "other_enzyme_weight": 0.0,
+            "continuous_aux_weight": 0.2 if "primary" in kind else 0.0,
+            "auxiliary_indices": [12, 13, 14, 15],
+        }
+        model = fit_multiassay(train, normalized, network_tasks, seed, network_cfg)
+        model.update(feature_mean=mean, feature_scale=scale)
+        return model
     if kind in {"potency_all", "potency_conditional", "potency_gate"}:
         from cyp_primary_supervision import fit_potency_gate
 
@@ -213,6 +229,15 @@ def fit_model(kind, train, xfp, x, y, tdi, shift, seed, weights, subtype, tasks,
 
 
 def predict(kind, model, rows, xfp, x):
+    if kind.startswith("chemeleon_"):
+        import torch
+
+        dimensions = len(model["feature_mean"])
+        features = (
+            (x[rows, -dimensions:] - model["feature_mean"]) / model["feature_scale"]
+        ).astype(np.float32)
+        with torch.no_grad():
+            return torch.sigmoid(model["network"](torch.as_tensor(features))[:, 0]).numpy()
     if kind in {
         "activity_all",
         "activity_selected",
@@ -378,6 +403,19 @@ def main():
     groups = np.asarray(groups)
     desc[~np.isfinite(desc)] = np.nan
     x = np.concatenate([fp, desc], axis=1)
+    if cfg.get("embedding_file"):
+        embeddings = pl.read_parquet(source / cfg["embedding_file"])
+        columns = [c for c in embeddings.columns if c.startswith("emb_")]
+        assert len(columns) == cfg["embedding_dimensions"] == 2048
+        aligned = (
+            table.select("compound_id")
+            .join(embeddings, on="compound_id", how="left", validate="1:1", maintain_order="left")
+            .select(columns)
+            .to_numpy()
+            .astype(np.float32)
+        )
+        assert np.isfinite(aligned).all() and embeddings.height == len(table)
+        x = np.concatenate([x, aligned], axis=1)
     if "similarity" in cfg["split_strategies"]:
         from scipy.sparse import csr_matrix
         from scipy.sparse.csgraph import connected_components
@@ -426,12 +464,18 @@ def main():
                 descriptors=descriptor_names,
                 fingerprint_bits=2048,
                 radius=2,
-                no_pretrained_assets=True,
+                no_pretrained_assets=not bool(cfg.get("embedding_file")),
+                pretrained_features=cfg.get("embedding_file"),
             ),
             indent=2,
         )
         + "\n"
     )
+    if cfg.get("deploy_nested_policy"):
+        from deploy_cyp_chemeleon_candidate import deploy
+
+        deploy(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, blind, cfg)
+        return
     if cfg.get("nested_bag_validation"):
         from validate_cyp_d6_bag_policy import evaluate
 

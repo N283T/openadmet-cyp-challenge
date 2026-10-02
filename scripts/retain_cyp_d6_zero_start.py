@@ -22,8 +22,8 @@ def main():
             raise FileExistsError(target)
         shutil.copytree(run / "outputs", target)
         hashes = {
-            p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sorted(target.iterdir())
+            p.relative_to(target).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(target.rglob("*"))
             if p.is_file()
         }
         manifest = json.loads((run / "manifest.json").read_text())

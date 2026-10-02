@@ -18,7 +18,7 @@ def select_cut(y, scores, samples):
     return float(cuts[int(np.argmax(values))])
 
 
-def select_prior_cuts(y, scores, priors, samples):
+def select_prior_cuts(y, scores, priors, samples, include_mean=False):
     """Train-only label-shift scenarios; each prior selects a cut, never a call budget."""
     observed = np.isfinite(y)
     truth, score = y[observed].astype(int), scores[observed]
@@ -34,11 +34,15 @@ def select_prior_cuts(y, scores, priors, samples):
     tpr = (cp[:, -1, None] - cp[:, cut_indices]) / np.maximum(cp[:, -1, None], 1)
     fpr = (cn[:, -1, None] - cn[:, cut_indices]) / np.maximum(cn[:, -1, None], 1)
     result = {}
+    utilities = []
     for prior in priors:
         tp, fn, fp, tn = prior * tpr, prior * (1 - tpr), (1 - prior) * fpr, (1 - prior) * (1 - fpr)
         denom = np.sqrt((tp + fp) * (tp + fn) * (tn + fp) * (tn + fn))
         value = np.divide(tp * tn - fp * fn, denom, out=np.zeros_like(denom), where=denom > 0)
         result[prior] = float(thresholds[np.argmax(value.mean(axis=0))])
+        utilities.append(value.mean(axis=0))
+    if include_mean:
+        result["mean"] = float(thresholds[np.argmax(np.mean(utilities, axis=0))])
     return result
 
 
@@ -100,7 +104,13 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
                 for kind in cfg["models"]:
                     fit_y = (
                         np.where(selected, y, np.nan)
-                        if kind in {"activity_selected", "gate_selected"}
+                        if kind
+                        in {
+                            "activity_selected",
+                            "gate_selected",
+                            "chemeleon_selected_network",
+                            "chemeleon_selected_primary_network",
+                        }
                         else y
                     )
                     test_scores, test_margins, test_votes = [], [], []
@@ -108,6 +118,8 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
                     bag_oof = np.full(len(table), np.nan)
                     inner_cuts = []
                     prior_margins = {p: [] for p in cfg.get("threshold_priors", [])}
+                    if cfg.get("mean_prior_policy"):
+                        prior_margins["mean"] = []
                     for bag, (bag_train, bag_valid) in enumerate(bag_splits):
                         assert set(groups[bag_train]).isdisjoint(groups[bag_valid])
                         inner_score = np.full(len(table), np.nan)
@@ -166,6 +178,7 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
                                 inner_score[bag_train],
                                 cfg.get("threshold_priors", []),
                                 cfg["bootstrap_samples"],
+                                cfg.get("mean_prior_policy", False),
                             )
                             if prior_margins
                             else {}

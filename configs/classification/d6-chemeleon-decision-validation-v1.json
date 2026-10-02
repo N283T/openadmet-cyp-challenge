@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "seed": 20261002,
+  "seeds": [
+    20261002,
+    20261017
+  ],
+  "endpoint": "CYP2D6_is_TDI",
+  "outer_folds": 5,
+  "bag_folds": 5,
+  "inner_folds": 3,
+  "bootstrap_samples": 1000,
+  "split_strategies": [
+    "umap",
+    "scaffold"
+  ],
+  "fixed_assignments": "assignments.parquet",
+  "models": [
+    "chemeleon_primary_network"
+  ],
+  "network_epochs": 20,
+  "nested_bag_validation": true,
+  "threshold_grid": "inner_quantiles",
+  "cpu_threads": 4,
+  "policies": [
+    "centered_fold_mean",
+    "majority_vote",
+    "pooled_oof_cut",
+    "single_refit"
+  ],
+  "historical_comparisons": [],
+  "scientific_purpose": "Validate alternate decision objectives on the same fresh CheMeleon primary-supervised learner: observed-label MCC, each hypothetical .03/.07/.12 prior, and equal mean utility across those priors. Same nested fits and untouched outer groups. No blind-count-based threshold choice.",
+  "selection_rule": "Freeze average-prior utility before results. Prefer its equal-seed combined margin policy only if held-out projected MCC improves over observed-label cuts on BOTH UMAP and scaffold under the matching .07 scenario, and mean over .03/.07/.12 improves in both splits. Otherwise retain observed-label policy. This is a decision under explicit scenarios, not a known blind class prevalence or fixed count.",
+  "limitations": "Hypothetical label shift cannot identify absent weak-primary D6 outcomes. Old incumbent not a model base; broad A4 selection bias remains after representation change. Fit and protocol uncertainty exceeds conditional intervals; learner selected after development inspection.",
+  "primary_screen": "primary-screen.csv",
+  "propensity_weight_cap": 5.0,
+  "baseline_model": "chemeleon_primary_network",
+  "selection_control": false,
+  "primary_enzyme_index": 0,
+  "primary_activity_cut": -0.5,
+  "primary_activity_loss_weight": 1.0,
+  "skip_historical_diagnostics": true,
+  "float32_matmul_precision": "high",
+  "embedding_file": "chemeleon-features.parquet",
+  "embedding_dimensions": 2048,
+  "threshold_priors": [
+    0.03,
+    0.07,
+    0.12
+  ],
+  "mean_prior_policy": true
+}

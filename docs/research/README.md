@@ -50,6 +50,17 @@ The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experimen
   Live swaps or validation of the incumbent. Equal-seed margin averaging is also
   completed: small fresh-network gains, without a material new decision advantage.
   Eleven further complete records are retained.
+  The next completed continuation selects a
+  [fresh CheMeleon readout candidate](../analysis/2026-10-02-d6-chemeleon-submission-candidate.md):
+  two seeds times five models, four primary-assay auxiliary targets, and trained
+  margin decisions improve nested MCC to .14530 UMAP / .23066 scaffold.
+  Prepared payload `20261002T092348406577Z-4ea606c1` has 175 D6 positives
+  (+133/-7 versus last sent) and exactly unchanged A4. It supersedes the earlier
+  77-call candidate as the recommended new-pipeline submission attempt; sparse
+  class coverage and unfavorable historical-rate comparisons remain explicit.
+  All nine further completed records and own readout weights are retained.
+  Dry run is valid; this exact payload is not approved or uploaded. See
+  [RL0206](2026-10.md#rl0206--fresh-chemeleon-readouts-yield-a-complete-175-call-d6-candidate).
 
 - **The A4 275-call rate failed on the Live leaderboard:** complete-pool OOF
   had favored 275 over the submitted 249 calls by `.0245` projected MCC, but
