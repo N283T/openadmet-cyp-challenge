@@ -1,0 +1,38 @@
+{
+  "source_run": "classification/20261002T132058268073Z-dfc673b6",
+  "outputs": {
+    "historical-best-new-ranks.csv": "393740f2cec6581c89742bf0b56ebec47d7daa6add1a8996582cbb7af81000fe",
+    "keyed-call-comparison.parquet": "9615b774f47402c807ac5041ecf02159f89671a702873821a1a253eb32fa7ebd",
+    "overlap-summary.csv": "db55a504c621fb1981f0c9ebfca003ae46d9c0f67a9569f0879fcca3457964cf",
+    "summary.json": "fe6f8174098ab6da4e29ada7bd7604154eb69f6a890e456ff2a35cc1be2f98d2",
+    "top49-swaps.csv": "e08284c716bb348af2c564829af459825af481f29761ba7f17d87e762c955d6b"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T090029588080Z-2a20da72/outputs/blind-policy.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T132058268073Z-dfc673b6/inputs/blind-policy.parquet",
+      "sha256": "4b75c09299401b37477597956842a9c7ef2514a060855f8cafeaddf7cc4be183",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20260924T050705396203Z-10e1d3ad/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T132058268073Z-dfc673b6/inputs/best.parquet",
+      "sha256": "f42170784d0e23515141fb0fcb952b5596d69b55d951c69e26204839fc12e496",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20261002T092348406577Z-4ea606c1/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T132058268073Z-dfc673b6/inputs/submitted.parquet",
+      "sha256": "6b23e212457c0f86556dbb200df008a64fb782d46b09659b762608104fb6228d",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "endpoint": "CYP2D6_is_TDI",
+    "diagnostic_top_k": 49,
+    "submitted_positives": 175,
+    "purpose": "Answer the user-requested counterfactual call-set comparison: top 49 of the exact submitted new model versus the historical best 49-call payload.",
+    "ranking": "Descending ten-model mean trained margin; molecule name breaks ties. Verify raw-score top set agrees.",
+    "limits": "Compare actual blinded call identities, not OOF analogs or hypothetical LB scores. No hidden labels, new candidate or submission."
+  }
+}

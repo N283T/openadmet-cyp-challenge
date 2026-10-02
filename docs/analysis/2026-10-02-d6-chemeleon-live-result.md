@@ -1,5 +1,9 @@
 # CheMeleon-primary candidate: small recovery versus last sent, below historical best
 
+**Identity diagnostic:** [the exact model top 49](2026-10-02-d6-chemeleon-top49-overlap.md)
+shares 22 with the historical best and replaces 27 each way. The actual 175-call
+payload shares 43, adds 132 and removes six. No counterfactual Live score is known.
+
 Live leaderboards downloaded October 2 at approximately 21:52 JST show the
 participant row timestamp **2026-10-02 12:08 UTC** in MA, D6 and A4. This matches
 the [authorized 175-call submission](2026-10-02-d6-chemeleon-submission-receipt.md),
