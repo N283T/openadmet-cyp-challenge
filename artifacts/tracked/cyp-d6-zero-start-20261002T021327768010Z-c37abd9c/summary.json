@@ -1,0 +1,207 @@
+{
+  "config": {
+    "version": 1,
+    "seed": 20261002,
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 5,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "umap",
+      "scaffold"
+    ],
+    "fixed_assignments": "assignments.parquet",
+    "models": [
+      "historical_morgan_lr_c005",
+      "historical_morgan_rbf_c1",
+      "historical_morgan_complement_a1",
+      "fresh_d6_network"
+    ],
+    "network_epochs": 100,
+    "threshold_grid": "inner_quantiles",
+    "save_blind_folds": true,
+    "scientific_purpose": "Connect prior AP/LB reversals to ranking, full-pool operating decisions and inference-scale changes. Refit actual historical Morgan recipes and the new network on the exact historical outer assignments; compare against retained complete September-15 and failed-AP ensemble predictions on matching splits.",
+    "threshold_policy": "Train-only inner grouped CV selects bootstrap mean MCC threshold over inner-score quantiles; no call-count constraint or fixed prevalence",
+    "candidate_intent": "Produce a reviewed prospective classification probe from independent models and explicit decision-policy evidence, including uncertainty; uncertainty is quantified rather than an automatic rejection gate.",
+    "limits": "Individual hidden labels cannot be inferred from aggregate Live metrics. Historical full-ensemble OOF data are retrospective controls, not relabelled as a new split or used as features. A specific payload approval is required before upload."
+  },
+  "aggregate": [
+    {
+      "split_id": "umap",
+      "fold": -1,
+      "model": "historical_morgan_lr_c005",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 201,
+      "ap": 0.27096102626851115,
+      "auc": 0.5729321250776209,
+      "mcc": 0.08324596695919827,
+      "bootstrap_mcc": 0.08432515454249657,
+      "bootstrap_std": 0.02854107517633461
+    },
+    {
+      "split_id": "umap",
+      "fold": -1,
+      "model": "historical_morgan_rbf_c1",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 202,
+      "ap": 0.2758393612555746,
+      "auc": 0.5577736730763159,
+      "mcc": 0.07729636828139094,
+      "bootstrap_mcc": 0.07772103002544736,
+      "bootstrap_std": 0.027400129031353488
+    },
+    {
+      "split_id": "umap",
+      "fold": -1,
+      "model": "historical_morgan_complement_a1",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 565,
+      "ap": 0.28978356870327515,
+      "auc": 0.5901218780587919,
+      "mcc": 0.0893985123468087,
+      "bootstrap_mcc": 0.08952156201223445,
+      "bootstrap_std": 0.02652506880229513
+    },
+    {
+      "split_id": "umap",
+      "fold": -1,
+      "model": "fresh_d6_network",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 196,
+      "ap": 0.29388829173272996,
+      "auc": 0.5830241651142475,
+      "mcc": 0.10857787904534688,
+      "bootstrap_mcc": 0.10878786205045299,
+      "bootstrap_std": 0.02943625052115847
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "historical_morgan_lr_c005",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 387,
+      "ap": 0.3072899515351438,
+      "auc": 0.6154420973971982,
+      "mcc": 0.108334760890252,
+      "bootstrap_mcc": 0.10857275367727663,
+      "bootstrap_std": 0.02663509354655323
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "historical_morgan_rbf_c1",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 237,
+      "ap": 0.32842768792874044,
+      "auc": 0.6154552534916274,
+      "mcc": 0.12311343193828071,
+      "bootstrap_mcc": 0.1245569271960164,
+      "bootstrap_std": 0.028918769995145435
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "historical_morgan_complement_a1",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 708,
+      "ap": 0.3303287852138112,
+      "auc": 0.6258775114984265,
+      "mcc": 0.08371133288893204,
+      "bootstrap_mcc": 0.08332518610522736,
+      "bootstrap_std": 0.026259244006472126
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "fresh_d6_network",
+      "n": 1497,
+      "positives": 324,
+      "predicted_positive": 345,
+      "ap": 0.31877256492767203,
+      "auc": 0.6215596813067685,
+      "mcc": 0.17075314531292957,
+      "bootstrap_mcc": 0.16975172557350635,
+      "bootstrap_std": 0.02983070465952323
+    }
+  ],
+  "operating_points": [
+    {
+      "split_id": "umap",
+      "fold": -1,
+      "model": "historical_morgan_lr_c005",
+      "threshold": 0.3096151768313067,
+      "blind_positive": 107,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "umap",
+      "fold": -1,
+      "model": "historical_morgan_rbf_c1",
+      "threshold": -0.6454666034073808,
+      "blind_positive": 102,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "umap",
+      "fold": -1,
+      "model": "historical_morgan_complement_a1",
+      "threshold": 0.735815314909481,
+      "blind_positive": 133,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "umap",
+      "fold": -1,
+      "model": "fresh_d6_network",
+      "threshold": 0.3417680986722336,
+      "blind_positive": 158,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "historical_morgan_lr_c005",
+      "threshold": 0.3272555095873433,
+      "blind_positive": 84,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "historical_morgan_rbf_c1",
+      "threshold": -0.6535802049149808,
+      "blind_positive": 104,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "historical_morgan_complement_a1",
+      "threshold": 0.9167582389269565,
+      "blind_positive": 67,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    },
+    {
+      "split_id": "scaffold",
+      "fold": -1,
+      "model": "fresh_d6_network",
+      "threshold": 0.021655474081635494,
+      "blind_positive": 215,
+      "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+    }
+  ],
+  "caveats": [
+    "Scored blind label mask unknown",
+    "Pilot cannot establish transfer to Live",
+    "Regression point estimates below pIC50 4 are censored/noisy",
+    "Scaffold split leaves acyclic compounds as singletons",
+    "Bootstrap resamples use NumPy generator rather than official sklearn RNG"
+  ]
+}

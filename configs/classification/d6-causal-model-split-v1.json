@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "seed": 20261002,
+  "endpoint": "CYP2D6_is_TDI",
+  "outer_folds": 5,
+  "inner_folds": 3,
+  "bootstrap_samples": 1000,
+  "split_strategies": ["umap", "scaffold"],
+  "fixed_assignments": "assignments.parquet",
+  "models": ["historical_morgan_lr_c005", "historical_morgan_rbf_c1", "historical_morgan_complement_a1", "fresh_d6_network"],
+  "network_epochs": 100,
+  "threshold_grid": "inner_quantiles",
+  "save_blind_folds": true,
+  "scientific_purpose": "Connect prior AP/LB reversals to ranking, full-pool operating decisions and inference-scale changes. Refit actual historical Morgan recipes and the new network on the exact historical outer assignments; compare against retained complete September-15 and failed-AP ensemble predictions on matching splits.",
+  "threshold_policy": "Train-only inner grouped CV selects bootstrap mean MCC threshold over inner-score quantiles; no call-count constraint or fixed prevalence",
+  "candidate_intent": "Produce a reviewed prospective classification probe from independent models and explicit decision-policy evidence, including uncertainty; uncertainty is quantified rather than an automatic rejection gate.",
+  "limits": "Individual hidden labels cannot be inferred from aggregate Live metrics. Historical full-ensemble OOF data are retrospective controls, not relabelled as a new split or used as features. A specific payload approval is required before upload."
+}

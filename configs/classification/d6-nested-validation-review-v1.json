@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "seeds": [20261002, 20261017],
+  "priors": [0.03, 0.07, 0.12, 0.21643286573146292],
+  "purpose": "Quantify repeated-seed decision agreement, actual-policy prior sensitivity and label-regime error contributions from completed nested bag validation. No hidden labels, rate optimization or payload creation.",
+  "selection_rule": "Report all strata and prior scenarios, retaining small-sample limitations. Do not infer a blind scored mask or change the frozen candidate from subgroup maxima."
+}

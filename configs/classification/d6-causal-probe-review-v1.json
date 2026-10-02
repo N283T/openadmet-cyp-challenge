@@ -1,0 +1,13 @@
+{
+  "training_run": "20261002T021327768010Z-c37abd9c",
+  "endpoint": "CYP2D6_is_TDI",
+  "candidate_model": "fresh_d6_network",
+  "candidate_split": "umap",
+  "candidate_policy": "Equal mean over five score-minus-inner-selected-threshold margins; positive if mean margin > 0. No incumbent score, call count or fitted mixture weight.",
+  "rates": [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.06533333333333333, 0.08, 0.10, 0.12, 0.15, 0.20, 0.25, 0.30, 0.40],
+  "prior_sensitivity": [0.03, 0.07, 0.12, 0.21643286573146292],
+  "historical_rate_usage": "6.533 percent appears only to reproduce historical comparisons, never as the candidate call-count constraint.",
+  "scope": "Connect retrospective failures to ranking objectives, full-pool decision scope and inference-scale sensitivity; prepare one prospective probe for human review.",
+  "prospective_question": "Does independent D6 molecular learning with inner-selected probability operating points and fold inference transfer better than the failed AP-rank mixture? This tests the combined policy, not one isolated causal factor.",
+  "status": "Submission candidate; reviewed uncertainty is not an automatic veto. Upload requires separate approval for the exact prepared payload."
+}

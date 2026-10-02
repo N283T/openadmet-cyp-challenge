@@ -1,0 +1,81 @@
+{
+  "source_run": "classification/20261002T021327768010Z-c37abd9c",
+  "outputs": {
+    "assignments.parquet": "9f8bbd0c7b52e4cb019d2b453fc2b15edd6da26143ad02baee23b746575623d4",
+    "blind-folds.parquet": "a6770b308c1e1c54b7118c5385805ac305c0e23583b4e27d2ae5babeacb75d99",
+    "blind-scaffold-fresh_d6_network.parquet": "a6226244c8470939f9f3ce837c53e10a2ee1ab2f143d3694e622060c7a637ded",
+    "blind-scaffold-historical_morgan_complement_a1.parquet": "1474a59efb2423bc3e44d0762238717d8a1f189ea19982248043cd04722a839c",
+    "blind-scaffold-historical_morgan_lr_c005.parquet": "b7823e193336ad02d774767d86036ebdb44e007fed2cbbaf12a8f376f0a94745",
+    "blind-scaffold-historical_morgan_rbf_c1.parquet": "693e08bcdb6507288cb354cd999201c0a1dcdb161de9be475d2b8d18134ab5a0",
+    "blind-umap-fresh_d6_network.parquet": "2c939c6a1b9382fdfcb29598b3224d5c6f2a614256107750639e7bdb3331ed2c",
+    "blind-umap-historical_morgan_complement_a1.parquet": "5a05cd3a85a81a52a7b2e453583b5b46af4d0011bfeb8663ccc62fb5c1407ace",
+    "blind-umap-historical_morgan_lr_c005.parquet": "fe3b537634dfa2fbd1fd96c9ec62e7d1823f1fb2c7f06751bdc4f1c8a879c50c",
+    "blind-umap-historical_morgan_rbf_c1.parquet": "1742f898a888bd87ae0906091c19c7f45257467cbb94db9b1a674428f463d2fb",
+    "metrics.csv": "b79a3b5e7744ca95b90e1be65bc2303204eb894022977b879bb4b5df68abe5b9",
+    "model-scaffold-fresh_d6_network.joblib": "e7974058b7d55b29caaf9b0ebab1cb99ff27a7fa6784a9bc7f1c83b821d95b78",
+    "model-scaffold-historical_morgan_complement_a1.joblib": "2337c0fe0f8cee18cbd51aaf215daf8a16a83fdae1d864deaf36ae9df4d3d76b",
+    "model-scaffold-historical_morgan_lr_c005.joblib": "e6ff84a3c5e534afcf9bfa8e64959831ebd356abec1f9088be3350b1dcf49819",
+    "model-scaffold-historical_morgan_rbf_c1.joblib": "35f1e4477267fcf26044a90edf711b94ecec049cf51e556c70e575a0f60866b4",
+    "model-umap-fresh_d6_network.joblib": "7e2e075e70ab5179a8c6689c605b10fe2dc9b35a1355d610e06714f8efe50bd0",
+    "model-umap-historical_morgan_complement_a1.joblib": "2337c0fe0f8cee18cbd51aaf215daf8a16a83fdae1d864deaf36ae9df4d3d76b",
+    "model-umap-historical_morgan_lr_c005.joblib": "e6ff84a3c5e534afcf9bfa8e64959831ebd356abec1f9088be3350b1dcf49819",
+    "model-umap-historical_morgan_rbf_c1.joblib": "35f1e4477267fcf26044a90edf711b94ecec049cf51e556c70e575a0f60866b4",
+    "oof.parquet": "e4a3dd73357abc29238222911b226945d25c5f56bc887c95fe3b7eeaa452037f",
+    "operating-points.csv": "1cbc42800aaa1cb0bd16b3e28c06ab96c00f0aa0c532747e9e494afac1dd7d01",
+    "representation.json": "42d9eec04f9d5589b0f643ab4c98df2c7e3be0ad33402e07f51e8824a1b10838",
+    "source-audit.parquet": "a4cecf003c307d53295278f55d20918028fe0c7ca6cffa8bb1b5b48c623b5a05",
+    "summary.json": "f1e8c3014114bfab0af34e8a423348a85e59994fcbf3794e2de59bd59da6bc4a"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seed": 20261002,
+    "endpoint": "CYP2D6_is_TDI",
+    "outer_folds": 5,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "umap",
+      "scaffold"
+    ],
+    "fixed_assignments": "assignments.parquet",
+    "models": [
+      "historical_morgan_lr_c005",
+      "historical_morgan_rbf_c1",
+      "historical_morgan_complement_a1",
+      "fresh_d6_network"
+    ],
+    "network_epochs": 100,
+    "threshold_grid": "inner_quantiles",
+    "save_blind_folds": true,
+    "scientific_purpose": "Connect prior AP/LB reversals to ranking, full-pool operating decisions and inference-scale changes. Refit actual historical Morgan recipes and the new network on the exact historical outer assignments; compare against retained complete September-15 and failed-AP ensemble predictions on matching splits.",
+    "threshold_policy": "Train-only inner grouped CV selects bootstrap mean MCC threshold over inner-score quantiles; no call-count constraint or fixed prevalence",
+    "candidate_intent": "Produce a reviewed prospective classification probe from independent models and explicit decision-policy evidence, including uncertainty; uncertainty is quantified rather than an automatic rejection gate.",
+    "limits": "Individual hidden labels cannot be inferred from aggregate Live metrics. Historical full-ensemble OOF data are retrospective controls, not relabelled as a new split or used as features. A specific payload approval is required before upload."
+  }
+}

@@ -1,0 +1,520 @@
+{
+  "config": {
+    "training_run": "20261002T021327768010Z-c37abd9c",
+    "endpoint": "CYP2D6_is_TDI",
+    "candidate_model": "fresh_d6_network",
+    "candidate_split": "umap",
+    "candidate_policy": "Equal mean over five score-minus-inner-selected-threshold margins; positive if mean margin > 0. No incumbent score, call count or fitted mixture weight.",
+    "rates": [
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.06,
+      0.06533333333333333,
+      0.08,
+      0.1,
+      0.12,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.4
+    ],
+    "prior_sensitivity": [
+      0.03,
+      0.07,
+      0.12,
+      0.21643286573146292
+    ],
+    "historical_rate_usage": "6.533 percent appears only to reproduce historical comparisons, never as the candidate call-count constraint.",
+    "scope": "Connect retrospective failures to ranking objectives, full-pool decision scope and inference-scale sensitivity; prepare one prospective probe for human review.",
+    "prospective_question": "Does independent D6 molecular learning with inner-selected probability operating points and fold inference transfer better than the failed AP-rank mixture? This tests the combined policy, not one isolated causal factor.",
+    "status": "Submission candidate; reviewed uncertainty is not an automatic veto. Upload requires separate approval for the exact prepared payload."
+  },
+  "validation": {
+    "track": "classification",
+    "rows": 750,
+    "columns": [
+      "SMILES",
+      "Molecule_Name",
+      "CYP2D6_is_TDI",
+      "CYP3A4_is_TDI"
+    ],
+    "valid": true
+  },
+  "training_summary": {
+    "config": {
+      "version": 1,
+      "seed": 20261002,
+      "endpoint": "CYP2D6_is_TDI",
+      "outer_folds": 5,
+      "inner_folds": 3,
+      "bootstrap_samples": 1000,
+      "split_strategies": [
+        "umap",
+        "scaffold"
+      ],
+      "fixed_assignments": "assignments.parquet",
+      "models": [
+        "historical_morgan_lr_c005",
+        "historical_morgan_rbf_c1",
+        "historical_morgan_complement_a1",
+        "fresh_d6_network"
+      ],
+      "network_epochs": 100,
+      "threshold_grid": "inner_quantiles",
+      "save_blind_folds": true,
+      "scientific_purpose": "Connect prior AP/LB reversals to ranking, full-pool operating decisions and inference-scale changes. Refit actual historical Morgan recipes and the new network on the exact historical outer assignments; compare against retained complete September-15 and failed-AP ensemble predictions on matching splits.",
+      "threshold_policy": "Train-only inner grouped CV selects bootstrap mean MCC threshold over inner-score quantiles; no call-count constraint or fixed prevalence",
+      "candidate_intent": "Produce a reviewed prospective classification probe from independent models and explicit decision-policy evidence, including uncertainty; uncertainty is quantified rather than an automatic rejection gate.",
+      "limits": "Individual hidden labels cannot be inferred from aggregate Live metrics. Historical full-ensemble OOF data are retrospective controls, not relabelled as a new split or used as features. A specific payload approval is required before upload."
+    },
+    "aggregate": [
+      {
+        "split_id": "umap",
+        "fold": -1,
+        "model": "historical_morgan_lr_c005",
+        "n": 1497,
+        "positives": 324,
+        "predicted_positive": 201,
+        "ap": 0.27096102626851115,
+        "auc": 0.5729321250776209,
+        "mcc": 0.08324596695919827,
+        "bootstrap_mcc": 0.08432515454249657,
+        "bootstrap_std": 0.02854107517633461
+      },
+      {
+        "split_id": "umap",
+        "fold": -1,
+        "model": "historical_morgan_rbf_c1",
+        "n": 1497,
+        "positives": 324,
+        "predicted_positive": 202,
+        "ap": 0.2758393612555746,
+        "auc": 0.5577736730763159,
+        "mcc": 0.07729636828139094,
+        "bootstrap_mcc": 0.07772103002544736,
+        "bootstrap_std": 0.027400129031353488
+      },
+      {
+        "split_id": "umap",
+        "fold": -1,
+        "model": "historical_morgan_complement_a1",
+        "n": 1497,
+        "positives": 324,
+        "predicted_positive": 565,
+        "ap": 0.28978356870327515,
+        "auc": 0.5901218780587919,
+        "mcc": 0.0893985123468087,
+        "bootstrap_mcc": 0.08952156201223445,
+        "bootstrap_std": 0.02652506880229513
+      },
+      {
+        "split_id": "umap",
+        "fold": -1,
+        "model": "fresh_d6_network",
+        "n": 1497,
+        "positives": 324,
+        "predicted_positive": 196,
+        "ap": 0.29388829173272996,
+        "auc": 0.5830241651142475,
+        "mcc": 0.10857787904534688,
+        "bootstrap_mcc": 0.10878786205045299,
+        "bootstrap_std": 0.02943625052115847
+      },
+      {
+        "split_id": "scaffold",
+        "fold": -1,
+        "model": "historical_morgan_lr_c005",
+        "n": 1497,
+        "positives": 324,
+        "predicted_positive": 387,
+        "ap": 0.3072899515351438,
+        "auc": 0.6154420973971982,
+        "mcc": 0.108334760890252,
+        "bootstrap_mcc": 0.10857275367727663,
+        "bootstrap_std": 0.02663509354655323
+      },
+      {
+        "split_id": "scaffold",
+        "fold": -1,
+        "model": "historical_morgan_rbf_c1",
+        "n": 1497,
+        "positives": 324,
+        "predicted_positive": 237,
+        "ap": 0.32842768792874044,
+        "auc": 0.6154552534916274,
+        "mcc": 0.12311343193828071,
+        "bootstrap_mcc": 0.1245569271960164,
+        "bootstrap_std": 0.028918769995145435
+      },
+      {
+        "split_id": "scaffold",
+        "fold": -1,
+        "model": "historical_morgan_complement_a1",
+        "n": 1497,
+        "positives": 324,
+        "predicted_positive": 708,
+        "ap": 0.3303287852138112,
+        "auc": 0.6258775114984265,
+        "mcc": 0.08371133288893204,
+        "bootstrap_mcc": 0.08332518610522736,
+        "bootstrap_std": 0.026259244006472126
+      },
+      {
+        "split_id": "scaffold",
+        "fold": -1,
+        "model": "fresh_d6_network",
+        "n": 1497,
+        "positives": 324,
+        "predicted_positive": 345,
+        "ap": 0.31877256492767203,
+        "auc": 0.6215596813067685,
+        "mcc": 0.17075314531292957,
+        "bootstrap_mcc": 0.16975172557350635,
+        "bootstrap_std": 0.02983070465952323
+      }
+    ],
+    "operating_points": [
+      {
+        "split_id": "umap",
+        "fold": -1,
+        "model": "historical_morgan_lr_c005",
+        "threshold": 0.3096151768313067,
+        "blind_positive": 107,
+        "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+      },
+      {
+        "split_id": "umap",
+        "fold": -1,
+        "model": "historical_morgan_rbf_c1",
+        "threshold": -0.6454666034073808,
+        "blind_positive": 102,
+        "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+      },
+      {
+        "split_id": "umap",
+        "fold": -1,
+        "model": "historical_morgan_complement_a1",
+        "threshold": 0.735815314909481,
+        "blind_positive": 133,
+        "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+      },
+      {
+        "split_id": "umap",
+        "fold": -1,
+        "model": "fresh_d6_network",
+        "threshold": 0.3417680986722336,
+        "blind_positive": 158,
+        "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+      },
+      {
+        "split_id": "scaffold",
+        "fold": -1,
+        "model": "historical_morgan_lr_c005",
+        "threshold": 0.3272555095873433,
+        "blind_positive": 84,
+        "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+      },
+      {
+        "split_id": "scaffold",
+        "fold": -1,
+        "model": "historical_morgan_rbf_c1",
+        "threshold": -0.6535802049149808,
+        "blind_positive": 104,
+        "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+      },
+      {
+        "split_id": "scaffold",
+        "fold": -1,
+        "model": "historical_morgan_complement_a1",
+        "threshold": 0.9167582389269565,
+        "blind_positive": 67,
+        "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+      },
+      {
+        "split_id": "scaffold",
+        "fold": -1,
+        "model": "fresh_d6_network",
+        "threshold": 0.021655474081635494,
+        "blind_positive": 215,
+        "note": "Full-development threshold; pooled OOF fit is an optimistic MCC estimate"
+      }
+    ],
+    "caveats": [
+      "Scored blind label mask unknown",
+      "Pilot cannot establish transfer to Live",
+      "Regression point estimates below pIC50 4 are censored/noisy",
+      "Scaffold split leaves acyclic compounds as singletons",
+      "Bootstrap resamples use NumPy generator rather than official sklearn RNG"
+    ]
+  },
+  "failed_trunk_objective": [
+    {
+      "model": "current",
+      "n": 1497,
+      "ap": 0.29685964820805744,
+      "ordinary_mcc": 0.1581868665868753,
+      "projected_mcc_007": 0.10971683752692427
+    },
+    {
+      "model": "single_selected_AP",
+      "n": 1497,
+      "ap": 0.30612351148833356,
+      "ordinary_mcc": 0.1450079290416961,
+      "projected_mcc_007": 0.09951694010368453
+    },
+    {
+      "model": "multi_block_selected_AP",
+      "n": 1497,
+      "ap": 0.31880826818199876,
+      "ordinary_mcc": 0.15159739781428572,
+      "projected_mcc_007": 0.10458807303374595
+    }
+  ],
+  "inference": [
+    {
+      "split_id": "umap",
+      "model": "historical_morgan_lr_c005",
+      "full_refit_calls": 107,
+      "centered_fold_calls": 51,
+      "majority_vote_calls": 63,
+      "full_vs_centered_changed": 56,
+      "full_vs_fold_rank_correlation": 0.9974178868733236
+    },
+    {
+      "split_id": "umap",
+      "model": "historical_morgan_rbf_c1",
+      "full_refit_calls": 102,
+      "centered_fold_calls": 78,
+      "majority_vote_calls": 95,
+      "full_vs_centered_changed": 24,
+      "full_vs_fold_rank_correlation": 0.9961547592221749
+    },
+    {
+      "split_id": "umap",
+      "model": "historical_morgan_complement_a1",
+      "full_refit_calls": 133,
+      "centered_fold_calls": 178,
+      "majority_vote_calls": 168,
+      "full_vs_centered_changed": 45,
+      "full_vs_fold_rank_correlation": 0.9879622038636384
+    },
+    {
+      "split_id": "umap",
+      "model": "fresh_d6_network",
+      "full_refit_calls": 158,
+      "centered_fold_calls": 77,
+      "majority_vote_calls": 94,
+      "full_vs_centered_changed": 81,
+      "full_vs_fold_rank_correlation": 0.9753928085373081
+    },
+    {
+      "split_id": "scaffold",
+      "model": "historical_morgan_lr_c005",
+      "full_refit_calls": 84,
+      "centered_fold_calls": 98,
+      "majority_vote_calls": 148,
+      "full_vs_centered_changed": 16,
+      "full_vs_fold_rank_correlation": 0.997531949302379
+    },
+    {
+      "split_id": "scaffold",
+      "model": "historical_morgan_rbf_c1",
+      "full_refit_calls": 104,
+      "centered_fold_calls": 70,
+      "majority_vote_calls": 78,
+      "full_vs_centered_changed": 34,
+      "full_vs_fold_rank_correlation": 0.9955976168745949
+    },
+    {
+      "split_id": "scaffold",
+      "model": "historical_morgan_complement_a1",
+      "full_refit_calls": 67,
+      "centered_fold_calls": 244,
+      "majority_vote_calls": 250,
+      "full_vs_centered_changed": 177,
+      "full_vs_fold_rank_correlation": 0.9932018791799541
+    },
+    {
+      "split_id": "scaffold",
+      "model": "fresh_d6_network",
+      "full_refit_calls": 215,
+      "centered_fold_calls": 173,
+      "majority_vote_calls": 160,
+      "full_vs_centered_changed": 50,
+      "full_vs_fold_rank_correlation": 0.9692794036304163
+    }
+  ],
+  "target_changes": [
+    {
+      "reference": "last_sent",
+      "endpoint": "CYP2D6_is_TDI",
+      "positives": 77,
+      "added": 54,
+      "removed": 26,
+      "retained": 23
+    },
+    {
+      "reference": "last_sent",
+      "endpoint": "CYP3A4_is_TDI",
+      "positives": 249,
+      "added": 0,
+      "removed": 0,
+      "retained": 249
+    },
+    {
+      "reference": "best_D6",
+      "endpoint": "CYP2D6_is_TDI",
+      "positives": 77,
+      "added": 46,
+      "removed": 18,
+      "retained": 31
+    },
+    {
+      "reference": "best_D6",
+      "endpoint": "CYP3A4_is_TDI",
+      "positives": 249,
+      "added": 0,
+      "removed": 0,
+      "retained": 249
+    }
+  ],
+  "hypotheses": [
+    "October 1 D6 loss changes called identities at fixed count, not only rate",
+    "AP gain did not imply decision gain in labelled-only trunk diagnostics",
+    "Earlier complete-pool UMAP and scaffold still missed the AP-mass90 Live reversal",
+    "New network has inference/threshold sensitivity; this does not explain prior losses"
+  ],
+  "prospective_scope": "Independent-model/variable-decision probe; no causal isolation",
+  "limitations": [
+    "Unknown individual blind labels and scored mask",
+    "No proven Live gain",
+    "TPR/FPR prior projections assume conditional transport that may fail",
+    "Blind five-fold averaging is not directly validated by single-model outer OOF calls",
+    "Candidate model/policy chosen after development inspection"
+  ],
+  "historical_live_summary": {
+    "submission_id": "20261001T141041310215Z-c7faa79f",
+    "attempt_id": "20261001T141324626858Z-cd9cca73",
+    "sha256": "67dbe95a6f9c307c5c8cea6746c1d993e08ecc854393052babf35be38bb6ba19",
+    "scored_timestamp": "2026-10-01 14:13 UTC",
+    "scored": true,
+    "decision": "Reject D6 50% AP-trunk blend for current Live; retain original D6 performance control",
+    "A4_best_metrics_reproduced": true,
+    "macro_arithmetic_checked": true,
+    "new_upload": false,
+    "metrics": [
+      {
+        "endpoint": "MA",
+        "metric": "MCC",
+        "previous": 0.3964706814770617,
+        "current": 0.317448175466277,
+        "delta": -0.0790225060107847,
+        "previous_rank": 17,
+        "current_rank": 48
+      },
+      {
+        "endpoint": "MA",
+        "metric": "Accuracy",
+        "previous": 0.8349781420765028,
+        "current": 0.8334467213114753,
+        "delta": -0.0015314207650274358,
+        "previous_rank": 17,
+        "current_rank": 48
+      },
+      {
+        "endpoint": "MA",
+        "metric": "Precision",
+        "previous": 0.4589818574147284,
+        "current": 0.3936437681850779,
+        "delta": -0.06533808922965051,
+        "previous_rank": 17,
+        "current_rank": 48
+      },
+      {
+        "endpoint": "MA",
+        "metric": "Recall",
+        "previous": 0.5610731948926146,
+        "current": 0.4608001262220943,
+        "delta": -0.10027306867052033,
+        "previous_rank": 17,
+        "current_rank": 48
+      },
+      {
+        "endpoint": "D6",
+        "metric": "MCC",
+        "previous": 0.3086351784292143,
+        "current": 0.1049858135880931,
+        "delta": -0.20364936484112117,
+        "previous_rank": 25,
+        "current_rank": 110
+      },
+      {
+        "endpoint": "D6",
+        "metric": "Accuracy",
+        "previous": 0.9041830601092896,
+        "current": 0.8715382513661202,
+        "delta": -0.03264480874316944,
+        "previous_rank": 25,
+        "current_rank": 110
+      },
+      {
+        "endpoint": "D6",
+        "metric": "Precision",
+        "previous": 0.3412060699305523,
+        "current": 0.1588410769126605,
+        "delta": -0.1823649930178918,
+        "previous_rank": 25,
+        "current_rank": 110
+      },
+      {
+        "endpoint": "D6",
+        "metric": "Recall",
+        "previous": 0.3834904381397836,
+        "current": 0.1923928365145074,
+        "delta": -0.19109760162527623,
+        "previous_rank": 25,
+        "current_rank": 110
+      },
+      {
+        "endpoint": "A4",
+        "metric": "MCC",
+        "previous": 0.4843061845249091,
+        "current": 0.5299105373444608,
+        "delta": 0.04560435281955172,
+        "previous_rank": 10,
+        "current_rank": 1
+      },
+      {
+        "endpoint": "A4",
+        "metric": "Accuracy",
+        "previous": 0.7657732240437158,
+        "current": 0.7953551912568306,
+        "delta": 0.02958196721311479,
+        "previous_rank": 10,
+        "current_rank": 1
+      },
+      {
+        "endpoint": "A4",
+        "metric": "Precision",
+        "previous": 0.5767576448989045,
+        "current": 0.6284464594574953,
+        "delta": 0.05168881455859087,
+        "previous_rank": 10,
+        "current_rank": 1
+      },
+      {
+        "endpoint": "A4",
+        "metric": "Recall",
+        "previous": 0.7386559516454455,
+        "current": 0.7292074159296813,
+        "delta": -0.009448535715764206,
+        "previous_rank": 10,
+        "current_rank": 1
+      }
+    ]
+  }
+}

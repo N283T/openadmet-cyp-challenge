@@ -1,0 +1,197 @@
+{
+  "source_run": "classification/20261002T022503807478Z-ec177efd",
+  "outputs": {
+    "blind-review.parquet": "74c0489b1a4fdb2c9454fd5ed8c5d1828cfdf632a78d329b0bb54013db56e19b",
+    "failed-trunk-objective-audit.csv": "4af751909997c19a4a9e585685c6420d7adeb14810b857a94cd111c4af6a303a",
+    "full-pool-decision-curves.csv": "21b7f0a22da15095d6dba1175d1c9bf96264886cb139e077b2becc6691da9eb5",
+    "inference-scaffold-fresh_d6_network.parquet": "cdddee1243a31e62a43933dcc0b36a9e80706e55d7debb8f44bf6e0bd3df8d74",
+    "inference-scaffold-historical_morgan_complement_a1.parquet": "374b8bfbd9f5adb25cfcbcc303d3e869c744af1dc91847216cbc6a2863496361",
+    "inference-scaffold-historical_morgan_lr_c005.parquet": "268e66c6b11bcacf1f734d913cd4a0895ec3dfe62652e909c639e5868afaaa27",
+    "inference-scaffold-historical_morgan_rbf_c1.parquet": "b77ddbeabb96303930fc95e4340ddf40de87644b1f47a38a27d4b301a9edbaca",
+    "inference-sensitivity.csv": "43226f3be75456c6daeb07718315286a110f79dc6c123759937f85e88c962652",
+    "inference-umap-fresh_d6_network.parquet": "70a27c208d59f08dc0ebf1c1362cd1362055a517055519aa3c9919e2bcce499c",
+    "inference-umap-historical_morgan_complement_a1.parquet": "1f22988d1f9e6ad509d08355a4f2940e0ef108057fdbf051ef72b02f3c7ea311",
+    "inference-umap-historical_morgan_lr_c005.parquet": "f4ffa11b4cf4dbce743037f94ae4841c422d1588ba0ae1df24850d28dc2bb7e6",
+    "inference-umap-historical_morgan_rbf_c1.parquet": "4386706d2cf69336922d2bad0bce8a0052f4449d8dced3574a9ef35f562634f2",
+    "matched-model-split-bank.parquet": "8bba4382e90c12b7232a46d13e19aeee9f3aaf0720cf1c2f23501e19f0c2c6f9",
+    "predictions.csv": "f5d3d3ad94bee3a6baa19247147e483566161f9514adc0dad1ac3610ae57399c",
+    "predictions.parquet": "0ad9d281b58403881500405832a9d5047e0e43f02dfd11659d0ae4729e9a89eb",
+    "report.md": "397b1b88a7281a1318971b5cbe7703694fe64be6dc544644bf245b941c93d566",
+    "summary.json": "865cfc928c13bf524e032c95873cecce1abae6093b8f89613aa8fef61c386dd3",
+    "target-changes.csv": "896395a0d2910431c24543daa510a01b1547daa3b2f6487bad309c881657503d"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/outputs/oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/new-oof.parquet",
+      "sha256": "e4a3dd73357abc29238222911b226945d25c5f56bc887c95fe3b7eeaa452037f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/outputs/summary.json",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/new-summary.json",
+      "sha256": "f1e8c3014114bfab0af34e8a423348a85e59994fcbf3794e2de59bd59da6bc4a",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/outputs/operating-points.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/new-operating-points.csv",
+      "sha256": "1cbc42800aaa1cb0bd16b3e28c06ab96c00f0aa0c532747e9e494afac1dd7d01",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/outputs/blind-folds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/new-blind-folds.parquet",
+      "sha256": "a6770b308c1e1c54b7118c5385805ac305c0e23583b4e27d2ae5babeacb75d99",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T040301085704Z-914bb06c/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/control-umap.parquet",
+      "sha256": "c7b568d1f21827e3ba7f6c8b09f5ee5f95dcf2c61e4beeb159ed2c2b56b6acf3",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T041452692950Z-e17778e3/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/control-scaffold.parquet",
+      "sha256": "35ca4779e545ccee8c157a6e92826fa138da1cbf64f5d9f7f342dc53adb98956",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T035023873825Z-b719ba35/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/ap-umap.parquet",
+      "sha256": "a9e4cf548bb631daba88f466d498825c3d49944528e57d15e04006eb489c8e68",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T041348966036Z-8db19b4b/outputs/all-pool-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/ap-scaffold.parquet",
+      "sha256": "dafd3eded66592d0aa692b33e505c94e9e86bb4fbc843018e6a361c9016af5e6",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/tracked/cyp-boltz-tdi-diagnostics-20261001T133225940252Z-502d403a/selected-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/trunk-oof.parquet",
+      "sha256": "29ea882cd90d8c1d3e6364628b9ca12660570087b3b217dd7fb789b3de3d3fd3",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261001T143048820695Z-05fb009d/outputs/summary.json",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/live-summary.json",
+      "sha256": "0a8381190959957db6cad860995afc98d05decbcf60a43446d57d82e6c1735a7",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20261001T141041310215Z-c7faa79f/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/last-sent.parquet",
+      "sha256": "67dbe95a6f9c307c5c8cea6746c1d993e08ecc854393052babf35be38bb6ba19",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20260924T050705396203Z-10e1d3ad/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/best-control.parquet",
+      "sha256": "f42170784d0e23515141fb0fcb952b5596d69b55d951c69e26204839fc12e496",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/data/raw/cyp-challenge-TEST-BLINDED.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/reference.csv",
+      "sha256": "a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/docs/analysis/2026-09-24-d6-ap-full-pool-replay.md",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/historical-replay.md",
+      "sha256": "8150387dab31141839cab733e1a509b6a3252dd1bb828b26f87e3745dfa5568b",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/outputs/blind-scaffold-historical_morgan_complement_a1.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/blind-scaffold-historical_morgan_complement_a1.parquet",
+      "sha256": "1474a59efb2423bc3e44d0762238717d8a1f189ea19982248043cd04722a839c",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/outputs/blind-umap-fresh_d6_network.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/blind-umap-fresh_d6_network.parquet",
+      "sha256": "2c939c6a1b9382fdfcb29598b3224d5c6f2a614256107750639e7bdb3331ed2c",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/outputs/blind-umap-historical_morgan_complement_a1.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/blind-umap-historical_morgan_complement_a1.parquet",
+      "sha256": "5a05cd3a85a81a52a7b2e453583b5b46af4d0011bfeb8663ccc62fb5c1407ace",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/outputs/blind-scaffold-historical_morgan_lr_c005.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/blind-scaffold-historical_morgan_lr_c005.parquet",
+      "sha256": "b7823e193336ad02d774767d86036ebdb44e007fed2cbbaf12a8f376f0a94745",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/outputs/blind-umap-historical_morgan_lr_c005.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/blind-umap-historical_morgan_lr_c005.parquet",
+      "sha256": "fe3b537634dfa2fbd1fd96c9ec62e7d1823f1fb2c7f06751bdc4f1c8a879c50c",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/outputs/blind-scaffold-fresh_d6_network.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/blind-scaffold-fresh_d6_network.parquet",
+      "sha256": "a6226244c8470939f9f3ce837c53e10a2ee1ab2f143d3694e622060c7a637ded",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/outputs/blind-scaffold-historical_morgan_rbf_c1.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/blind-scaffold-historical_morgan_rbf_c1.parquet",
+      "sha256": "693e08bcdb6507288cb354cd999201c0a1dcdb161de9be475d2b8d18134ab5a0",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T021327768010Z-c37abd9c/outputs/blind-umap-historical_morgan_rbf_c1.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T022503807478Z-ec177efd/inputs/blind-umap-historical_morgan_rbf_c1.parquet",
+      "sha256": "1742f898a888bd87ae0906091c19c7f45257467cbb94db9b1a674428f463d2fb",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "training_run": "20261002T021327768010Z-c37abd9c",
+    "endpoint": "CYP2D6_is_TDI",
+    "candidate_model": "fresh_d6_network",
+    "candidate_split": "umap",
+    "candidate_policy": "Equal mean over five score-minus-inner-selected-threshold margins; positive if mean margin > 0. No incumbent score, call count or fitted mixture weight.",
+    "rates": [
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.06,
+      0.06533333333333333,
+      0.08,
+      0.1,
+      0.12,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.4
+    ],
+    "prior_sensitivity": [
+      0.03,
+      0.07,
+      0.12,
+      0.21643286573146292
+    ],
+    "historical_rate_usage": "6.533 percent appears only to reproduce historical comparisons, never as the candidate call-count constraint.",
+    "scope": "Connect retrospective failures to ranking objectives, full-pool decision scope and inference-scale sensitivity; prepare one prospective probe for human review.",
+    "prospective_question": "Does independent D6 molecular learning with inner-selected probability operating points and fold inference transfer better than the failed AP-rank mixture? This tests the combined policy, not one isolated causal factor.",
+    "status": "Submission candidate; reviewed uncertainty is not an automatic veto. Upload requires separate approval for the exact prepared payload."
+  }
+}

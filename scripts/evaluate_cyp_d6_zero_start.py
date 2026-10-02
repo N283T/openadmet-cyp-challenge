@@ -18,6 +18,8 @@ from rdkit.Chem.Scaffolds import MurckoScaffold
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import average_precision_score, matthews_corrcoef, roc_auc_score
 from sklearn.model_selection import StratifiedGroupKFold, StratifiedKFold
+from sklearn.naive_bayes import ComplementNB
+from sklearn.svm import SVC
 
 
 def bootstrap_mcc(y, score, thresholds, samples, seed):
@@ -40,7 +42,7 @@ def bootstrap_mcc(y, score, thresholds, samples, seed):
 def folds(indices, y, groups, strategy, count, seed):
     # Missing endpoint labels are a distinct stratum, never labelled negatives.
     strata = np.where(np.isfinite(y[indices]), y[indices], 2).astype(int)
-    if strategy in {"scaffold", "similarity"}:
+    if strategy in {"umap", "scaffold", "similarity"}:
         splitter = StratifiedGroupKFold(n_splits=count, shuffle=True, random_state=seed)
         iterator = splitter.split(indices, strata, groups[indices])
     else:
@@ -115,6 +117,22 @@ def fit_model(kind, train, xfp, x, y, tdi, shift, seed, weights, subtype, tasks,
             else {**cfg, "other_enzyme_weight": 0.0, "continuous_aux_weight": 0.0}
         )
         return fit_multiassay(train, xfp, tasks, seed, network_cfg)
+    if kind in {
+        "historical_morgan_lr_c005",
+        "historical_morgan_rbf_c1",
+        "historical_morgan_complement_a1",
+    }:
+        rows = train[np.isfinite(y[train])]
+        factory = {
+            "historical_morgan_lr_c005": lambda: LogisticRegression(
+                C=0.05, max_iter=4000, solver="liblinear", random_state=seed
+            ),
+            "historical_morgan_rbf_c1": lambda: SVC(C=1.0, kernel="rbf"),
+            "historical_morgan_complement_a1": lambda: ComplementNB(alpha=1.0),
+        }
+        model = factory[kind]()
+        model.fit(xfp[rows], y[rows])
+        return model
     params = dict(
         n_estimators=240,
         num_leaves=15,
@@ -168,6 +186,10 @@ def fit_model(kind, train, xfp, x, y, tdi, shift, seed, weights, subtype, tasks,
 
 
 def predict(kind, model, rows, xfp, x):
+    if kind == "historical_morgan_rbf_c1":
+        return model.decision_function(xfp[rows])
+    if kind in {"historical_morgan_lr_c005", "historical_morgan_complement_a1"}:
+        return model.predict_proba(xfp[rows])[:, 1]
     if kind in {"fresh_multiassay_network", "fresh_d6_network"}:
         import torch
 
@@ -348,11 +370,38 @@ def main():
         )
         + "\n"
     )
+    if cfg.get("nested_bag_validation"):
+        from validate_cyp_d6_bag_policy import evaluate
+
+        evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, blind, cfg)
+        return
     results, predictions, operating_points, assignments = [], [], [], []
+    blind_fold_predictions = []
     for strategy in cfg["split_strategies"]:
-        outer = folds(development, y, groups, strategy, cfg["outer_folds"], seed)
+        if cfg.get("fixed_assignments"):
+            saved = pl.read_parquet(source / cfg["fixed_assignments"]).filter(
+                pl.col("strategy") == strategy
+            )
+            ordered = table.select("compound_id").join(
+                saved.select("compound_id", "fold", "group"),
+                on="compound_id",
+                how="left",
+                maintain_order="left",
+            )
+            membership = ordered["fold"].to_numpy()
+            groups = ordered["group"].fill_null("blind").to_numpy()
+            assert np.isfinite(membership[development]).all()
+            outer = [
+                (
+                    development[membership[development] != f],
+                    development[membership[development] == f],
+                )
+                for f in range(cfg["outer_folds"])
+            ]
+        else:
+            outer = folds(development, y, groups, strategy, cfg["outer_folds"], seed)
         for fold, (train, test) in enumerate(outer):
-            if strategy in {"scaffold", "similarity"}:
+            if strategy in {"umap", "scaffold", "similarity"}:
                 assert set(groups[train]).isdisjoint(groups[test])
             for row in test:
                 assignments.append(
@@ -389,6 +438,12 @@ def main():
                     else np.linspace(0.01, 0.99, 99)
                 )
                 grid = np.r_[-np.inf, grid, np.inf]
+                if cfg.get("threshold_grid") == "inner_quantiles":
+                    grid = np.r_[
+                        -np.inf,
+                        np.unique(np.quantile(inner_score[observed], np.linspace(0, 1, 301))),
+                        np.inf,
+                    ]
                 mean, std = bootstrap_mcc(
                     y[observed], inner_score[observed], grid, cfg["bootstrap_samples"], 0
                 )
@@ -398,6 +453,19 @@ def main():
                     kind, train, fp, x, y, tdi, shift, seed + fold, weights, subtype, tasks, cfg
                 )
                 score = predict(kind, model, test, fp, x)
+                if cfg.get("save_blind_folds"):
+                    blind_score = predict(kind, model, blind, fp, x)
+                    for row, s in zip(blind, blind_score, strict=True):
+                        blind_fold_predictions.append(
+                            dict(
+                                compound_id=table["compound_id"][int(row)],
+                                endpoint=endpoint,
+                                split_id=strategy,
+                                fold=fold,
+                                model=kind,
+                                score=float(s),
+                            )
+                        )
                 calls = score > threshold
                 result = metrics(y[test], score, calls, cfg["bootstrap_samples"])
                 results.append(dict(split_id=strategy, fold=fold, model=kind, **result))
@@ -454,6 +522,8 @@ def main():
                 else np.linspace(0.01, 0.99, 99)
             )
             grid = np.r_[-np.inf, grid, np.inf]
+            if cfg.get("threshold_grid") == "inner_quantiles":
+                grid = np.r_[-np.inf, np.unique(np.quantile(score, np.linspace(0, 1, 301))), np.inf]
             means, _ = bootstrap_mcc(labels, score, grid, cfg["bootstrap_samples"], 0)
             threshold = float(grid[int(np.argmax(means))])
             model = fit_model(
@@ -484,6 +554,8 @@ def main():
                 )
             )
     pl.DataFrame(predictions).write_parquet(out / "oof.parquet")
+    if blind_fold_predictions:
+        pl.DataFrame(blind_fold_predictions).write_parquet(out / "blind-folds.parquet")
     pl.DataFrame(assignments).write_parquet(out / "assignments.parquet")
     pl.DataFrame(results).write_csv(out / "metrics.csv")
     pl.DataFrame(operating_points, infer_schema_length=None).write_csv(out / "operating-points.csv")

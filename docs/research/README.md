@@ -27,9 +27,20 @@ The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experimen
   ensemble and its call count as modeling anchors. The [independent D6 restart](../analysis/2026-10-02-d6-zero-start.md)
   uses source molecules and measurements, fresh fitting, nested unconstrained thresholds,
   and structural holdouts. No rollback upload has occurred. Earlier probes remain unsent.
-  The user ended this investigation after clarifying that creating new models did not
-  address the requested root-cause diagnosis. All exploratory results are retained;
-  no new classification model is adopted and no experiment is running.
+  The user subsequently resumed the investigation, asking for cause-linked
+  experiments and a concrete submission candidate. The
+  [failure-linked probe](../analysis/2026-10-02-d6-failure-linked-probe.md) compares
+  historical recipes on exact splits and audits decision versus ranking objectives.
+  An independent network with inner-selected thresholds and centered fold inference
+  yields 77 D6 calls; it has not established superiority to the historical whole
+  ensemble. Prepared payload `20261002T023446563579Z-e264a4bf` changes 80 D6 calls
+  versus the last sent payload and keeps A4 exactly unchanged. It is a prospective
+  submission candidate. The user requested further validation before spending a
+  twelve-hour opportunity. The [complete-policy validation](../analysis/2026-10-02-d6-submission-value-validation.md)
+  evaluates the five-model algorithm, repeated seeds, duration and rank-transfer
+  controls. It does not demonstrate a repeatable advantage; the 77-call payload
+  remains preserved but is not recommended for upload on this evidence. No
+  rollback, replacement payload or challenge upload has occurred.
 
 - **The A4 275-call rate failed on the Live leaderboard:** complete-pool OOF
   had favored 275 over the submitted 249 calls by `.0245` projected MCC, but

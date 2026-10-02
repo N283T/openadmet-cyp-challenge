@@ -1,5 +1,11 @@
 # CYP2D6 TDI: independent restart
 
+Subsequent status: the user resumed the investigation to connect experiments to
+prior failures and carry them through to a concrete candidate. See the
+[failure-linked probe](2026-10-02-d6-failure-linked-probe.md) for the matched
+historical refits, unresolved causes and prepared 77-call D6 candidate. The earlier
+closure below records the disposition at that time, not the current direction.
+
 The user explicitly rejected preserving the historical D6 ensemble or its positive
 call count as design anchors. This decision supersedes the October 1 recommendation
 to use the historical D6 vector as the modeling control. Retained historical runs
