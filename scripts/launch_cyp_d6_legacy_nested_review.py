@@ -14,6 +14,8 @@ inputs = {
     "fresh.parquet": runs / "20261002T084852768236Z-ef8d81ed/outputs/nested-oof.parquet",
     "fresh-cuts.csv": runs / "20261002T084852768236Z-ef8d81ed/outputs/threshold-scale-audit.csv",
     "legacy-result.json": runs / args.legacy_run / "result.json",
+    "primary-source.parquet": runs
+    / "20261002T042715697470Z-2f48e876/outputs/selection-control-source.parquet",
 }
 command = [
     "pixi",

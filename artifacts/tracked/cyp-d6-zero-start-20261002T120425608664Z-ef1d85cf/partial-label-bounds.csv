@@ -1,0 +1,7 @@
+split_id,model,comparator,population_n,known_n,unknown_n,before_calls,after_calls,known_tp_delta,removed_unknown,added_unknown,lower_delta,upper_delta,lower_unknown_positives,upper_unknown_positives,possible_negative,possible_positive,equal_count_reversal_witness
+umap,chemeleon_class_network,sep15_whole_fresh_nested,6146,1497,4649,1659,1233,-25,712,425,-0.6650456615496856,0.572542134607745,712,3937,true,true,
+umap,fresh_d6_network,sep15_whole_fresh_nested,6146,1497,4649,1659,2386,58,363,885,-0.5781653655171618,0.6902454738692305,3764,885,true,true,
+umap,chemeleon_primary_network,sep15_whole_fresh_nested,6146,1497,4649,1659,1189,-27,763,450,-0.6950001830299224,0.6114903725912586,763,3886,true,true,
+scaffold,fresh_d6_network,sep15_whole_fresh_nested,6146,1497,4649,2632,2312,-6,728,435,-0.5972283172463962,0.4750645800800563,728,435,true,true,
+scaffold,chemeleon_primary_network,sep15_whole_fresh_nested,6146,1497,4649,2632,1690,-49,1084,403,-0.739848304574772,0.6801505000793813,1084,3565,true,true,
+scaffold,chemeleon_class_network,sep15_whole_fresh_nested,6146,1497,4649,2632,1585,-61,1142,384,-0.762289302504746,0.7000551395444978,1142,3507,true,true,

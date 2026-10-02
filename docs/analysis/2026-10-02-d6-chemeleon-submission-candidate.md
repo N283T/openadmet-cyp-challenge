@@ -2,9 +2,13 @@
 
 **Subsequent review:** the user identified that this comparison did not refit
 the complete existing eleven-atom ensemble under the new evaluation method.
-That [whole-recipe comparison](2026-10-02-d6-legacy-whole-nested.md) is now running.
-The recommendation below records the earlier judgment and is provisional pending
-those results. The exact candidate remains preserved and unsent.
+That [whole-recipe comparison](2026-10-02-d6-legacy-whole-nested.md) is now complete:
+400 fits and 20 outer folds. The selected recipe's MCC is .14530/.23066 versus
+the refitted historical eleven-atom recipe's .09067/.16759 (UMAP/scaffold).
+This supports the recommendation below on observed-label decisions. At a matched
+49/750 fraction the historical recipe still wins in both splits; missing weak
+outcomes and prospective Live ordering remain unresolved. The exact candidate
+remains preserved and unsent.
 
 The continuation produces a concrete new classifier, validates its complete
 decision procedure, persists and restores all ten fitted readouts, and prepares

@@ -6,6 +6,7 @@ from pathlib import Path
 
 import numpy as np
 import polars as pl
+from evaluate_cyp_partial_label_bounds import bounds, self_check
 from review_cyp_d6_causal_probe import projected
 from sklearn.metrics import average_precision_score, matthews_corrcoef
 
@@ -43,7 +44,39 @@ def main():
     fresh = fresh.with_columns((pl.col("score") - pl.col("cut")).alias("margin"))
     combined = pl.concat([combine(legacy, 2), combine(fresh, 2)], how="vertical_relaxed")
     combined.write_parquet(out / "combined-oof.parquet")
-    rows, contrasts, rate_rows = [], [], []
+    primary = pl.read_parquet(inp / "primary-source.parquet").select(
+        "compound_id", "primary_log2fc"
+    )
+    regions = combined.join(primary, on="compound_id", how="left", validate="m:1")
+    regions = regions.with_columns(
+        pl.when(~pl.col("primary_log2fc").is_finite().fill_null(False))
+        .then(pl.lit("primary_missing"))
+        .when(pl.col("primary_log2fc") < -0.5)
+        .then(pl.lit("primary_selected"))
+        .otherwise(pl.lit("primary_weak"))
+        .alias("primary_region")
+    )
+    region_rows = []
+    for (split, model, region), frame in regions.group_by("split_id", "model", "primary_region"):
+        known = frame.filter(pl.col("label").is_finite())
+        unknown = frame.filter(~pl.col("label").is_finite())
+        region_rows.append(
+            dict(
+                split_id=split,
+                model=model,
+                primary_region=region,
+                molecules=frame.height,
+                known_classes=known.height,
+                known_positives=int(known["label"].sum()),
+                positives=int(frame["call"].sum()),
+                call_rate=float(frame["call"].mean()),
+                unknown_class_calls=int(unknown["call"].sum()),
+                unknown_class_call_rate=float(unknown["call"].mean()) if unknown.height else None,
+            )
+        )
+    pl.DataFrame(region_rows).write_csv(out / "primary-region-calls.csv")
+    exhaustive_checked = self_check()
+    rows, contrasts, rate_rows, partial_bounds = [], [], [], []
     for (split,), block in combined.group_by("split_id"):
         frames = {model: frame.sort("compound_id") for (model,), frame in block.group_by("model")}
         old = frames[cfg["legacy_model"]]
@@ -91,6 +124,20 @@ def main():
             if model == cfg["legacy_model"]:
                 continue
             prior_old = old.filter(pl.col("label").is_finite())
+            population_y = frame["label"].to_numpy()
+            partial_bounds.append(
+                dict(
+                    split_id=split,
+                    model=model,
+                    comparator=cfg["legacy_model"],
+                    **bounds(
+                        population_y,
+                        np.isfinite(population_y),
+                        old["call"].to_numpy(),
+                        frame["call"].to_numpy(),
+                    ),
+                )
+            )
             a, b = calls, prior_old["call"].to_numpy()
             groups = observed["group"].to_numpy()
             members = [np.flatnonzero(groups == g) for g in sorted(set(groups))]
@@ -118,6 +165,7 @@ def main():
     pl.DataFrame(rows).write_csv(out / "policy-comparison.csv")
     pl.DataFrame(contrasts).write_csv(out / "paired-contrasts.csv")
     pl.DataFrame(rate_rows).write_csv(out / "matched-rank-fractions.csv")
+    pl.DataFrame(partial_bounds).write_csv(out / "partial-label-bounds.csv")
     (out / "summary.json").write_text(
         json.dumps(
             dict(
@@ -125,6 +173,9 @@ def main():
                 policies=rows,
                 paired_contrasts=contrasts,
                 exact_identity_fold_label_match=True,
+                primary_region_calls=region_rows,
+                exact_partial_label_bounds=partial_bounds,
+                exhaustive_bound_checks=exhaustive_checked,
                 limits="Conditional intervals omit fitting and recipe selection uncertainty. "
                 "This compares held-out decisions on observed D6 labels, not missing "
                 "weak-primary outcomes or prospective leaderboard ordering.",

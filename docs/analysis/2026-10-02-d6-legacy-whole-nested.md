@@ -1,12 +1,13 @@
 # Complete historical ensemble under the new D6 evaluation procedure
 
 The user asks whether the complete existing classifier has been evaluated under
-the procedure used for the new CheMeleon candidate. It has not: three historical
+the procedure used for the new CheMeleon candidate. At the start it had not: three historical
 Morgan atoms were refitted, but cached whole-ensemble scores were only retrospective
 comparators. This continuation refits the **complete eleven-atom recipe**.
 The 175-call candidate is preserved and unsent. Its earlier recommendation was
-made without this essential whole-model comparison and is provisional pending
-the complete results.
+made without this essential whole-model comparison. The completed comparison
+below now supports that candidate's observed-label decision advantage, with
+explicit limits on interpreting the result as a prospective Live improvement.
 
 ## Frozen comparison and its interpretation
 
@@ -41,9 +42,10 @@ complete UMAP/20261002 block; the other blocks run concurrently as
 `20261002T101409635209Z-967b7499` (UMAP/20261017),
 `20261002T101409621831Z-5bf54a17` (scaffold/20261002), and
 `20261002T101409637266Z-41e6beb1` (scaffold/20261017).
-The initial process will be interrupted after that complete block to avoid
-duplicating the other three blocks. Its immutable scientific results remain
-retained. The merge requires identical feature/input hashes and common model
+The initial process was terminated after that complete block to avoid duplicating
+the other three blocks. Its background process ignored SIGINT; targeted SIGTERM
+produced exit -15, explicitly recorded as computational deduplication. Its
+immutable scientific results remain retained. The merge requires identical feature/input hashes and common model
 settings, exactly 100 fits and five complete outer folds in each block, and
 exactly 400 total fits. No block is chosen by its score. This is a computational
 change, not a scientific protocol change.
@@ -94,8 +96,77 @@ also recognizes the legacy branch.
 
 ## Results
 
-The complete refit is in progress. No interim fold is used to select a recipe,
-change the threshold objective, choose a count, or justify upload. The recorded
-review will compare complete equal-seed decisions, paired conditional group
-intervals and diagnostic matched rank fractions. Diagnostics at 49/750 and
-175/750 are comparisons only, not prescribed new submission counts.
+All 400 fits and 20 outer folds are complete. Merge
+`20261002T120413515280Z-f2330789` verifies all predetermined blocks, identical
+input hashes, finite keyed scores, complete inner/refit records and held-out
+boundaries. Review `20261002T120425608664Z-ef1d85cf` confirms exact molecule,
+endpoint, fold, group and label identity and averages the two seeds before
+evaluation. No interim metric selected a recipe or changed a fitting setting.
+
+### Observed-label decisions, independently trained thresholds
+
+| Recipe | UMAP AP | UMAP MCC | Scaffold AP | Scaffold MCC |
+| --- | ---: | ---: | ---: | ---: |
+| Complete historical eleven-atom recipe, freshly refitted | .30054 | .09067 | .34819 | .16759 |
+| Fresh Morgan network | .29750 | .12572 | .32914 | .16871 |
+| Fresh CheMeleon class-only readout | .30048 | .13178 | .35400 | .21439 |
+| Fresh CheMeleon readout with primary auxiliaries | .30345 | **.14530** | .35805 | **.23066** |
+
+The selected primary-auxiliary recipe improves MCC over the complete historical
+recipe by **.05462 UMAP / .06307 scaffold**. The paired 1,000-group bootstrap
+95% intervals are [.00306, .10955] / [.00656, .11948]. These are conditional on
+the fitted models and inspected recipes: they omit training and selection
+uncertainty, and are not a newly independent confirmatory test. Both corresponding
+class-only intervals include zero. AP differences are small, especially UMAP;
+there is no demonstrated large representation-wide ranking improvement.
+
+The legacy versus selected recipe's full-development positive rates are
+26.99% versus 19.35% UMAP and 42.82% versus 27.50% scaffold. These are development
+OOF rates, not blind predictions or a new prescribed budget. The prepared blind
+candidate remains the original ten-readout policy with 175/750 D6 positives.
+
+### Ranking at matched fractions explains an important qualification
+
+| Split | Fraction per outer fold | Historical recipe MCC | Selected recipe MCC |
+| --- | ---: | ---: | ---: |
+| UMAP | 49/750 (6.53%) | **.14674** | .07471 |
+| Scaffold | 49/750 (6.53%) | **.14501** | .13464 |
+| UMAP | 175/750 (23.33%) | .09977 | **.13516** |
+| Scaffold | 175/750 (23.33%) | .17858 | **.21400** |
+
+Thus the old recipe still identifies a stronger narrow top set; the new recipe
+performs better at a broader operating region and at its trained decisions.
+This strengthens the distinction between ranking quality and an operating
+point. It does **not** establish why specific historical Live swaps failed,
+validate a true Live positive prevalence, or justify tuning a fraction on these
+diagnostics. Both fractions were frozen diagnostic comparisons; neither selects
+the submission policy. The 49-call constraint remains absent from fitting.
+
+### Population coverage remains unresolved
+
+The 2,823 weak-primary development molecules still have zero observed D6 labels.
+On that region the historical versus selected recipe calls 26.67% versus 20.23%
+positive in UMAP and 43.54% versus 28.30% in scaffold. These quantify different
+extrapolation; fewer calls are not evidence of correctness. Including all
+4,649 unlabelled development outcomes, exact feasible MCC-difference bounds are
+[-.69500, .61149] / [-.73985, .68015]. Both directions remain possible. The
+bound calculation passes 768 independent exhaustive tiny assignments; it never
+assigns inferred unknown truth. These are bounds on this development population,
+not forecasts of the separate Live batch.
+
+### Decision and retained evidence
+
+The missing whole-model comparison is now completed. It supports retaining
+prepared `20261002T092348406577Z-4ea606c1` as the concrete next improvement
+candidate: its decision advantage extends to the complete eleven-atom comparator
+under the same protocol. It is a fresh readout family with primary supervision,
+not evidence that a generic single CheMeleon architecture necessarily beats an
+ensemble or the official baseline. Spending one submission opportunity remains
+a reasoned improvement attempt, with stronger comparative evidence than the
+earlier Morgan-only comparison and unresolved population transfer risk.
+
+No payload was changed or uploaded. The original partial run and its intentional
+termination remain recorded locally; its completed scientific block is included
+in the retained merged result. All three completed compute partitions, the
+merge, the review and the exact-composition audit are retained with provenance.
+Infrastructure checks pass; tests report 73 passed and eight skipped.

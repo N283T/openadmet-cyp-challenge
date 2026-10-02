@@ -38,7 +38,7 @@ def main():
         assert current == base and hashes == input_hashes
         assert result["exit_code"] == 0 or (
             spec.get("allow_completed_interrupted_block", False)
-            and result["exit_code"] in [-2, 130]
+            and result["exit_code"] in [-2, 130, -15, 143]
         )
 
         def select(frame, spec=spec):

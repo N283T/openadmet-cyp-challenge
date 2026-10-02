@@ -1,0 +1,6 @@
+split_id,seed,fold,model,policy,outer_test_used_in_fit_or_cut,mean_bag_threshold
+scaffold,20261017,0,sep15_whole_fresh_nested,centered_fold_mean,false,0.6071124493721738
+scaffold,20261017,1,sep15_whole_fresh_nested,centered_fold_mean,false,0.625849429795231
+scaffold,20261017,2,sep15_whole_fresh_nested,centered_fold_mean,false,0.5177865978064797
+scaffold,20261017,3,sep15_whole_fresh_nested,centered_fold_mean,false,0.6219214619808591
+scaffold,20261017,4,sep15_whole_fresh_nested,centered_fold_mean,false,0.37932749791002046

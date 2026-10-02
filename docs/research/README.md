@@ -63,10 +63,15 @@ The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experimen
   [RL0206](2026-10.md#rl0206--fresh-chemeleon-readouts-yield-a-complete-175-call-d6-candidate).
   The user identifies the missing complete existing-model comparison. The
   [whole-legacy nested refit](../analysis/2026-10-02-d6-legacy-whole-nested.md)
-  now trains all eleven atoms inside the same outer/bag/cut boundaries. The
-  175-call recommendation is provisional until this comparison is complete;
-  the candidate remains preserved and unsent. A same-method model win would
-  not alone establish past-LB concordance or recover missing D6 outcomes.
+  completes all 400 fits and 20 outer folds inside the same outer/bag/cut
+  boundaries. The selected recipe's decision MCC .14530/.23066 exceeds the
+  whole legacy recipe's .09067/.16759; paired conditional intervals exclude
+  zero in both splits. The legacy recipe remains stronger at a matched narrow
+  49/750 fraction, while the selected recipe wins at 175/750. Retain the exact
+  175-call candidate as the next improvement attempt; it remains unsent.
+  This comparison does not alone establish past-LB concordance or recover
+  missing D6 outcomes. See
+  [RL0207](2026-10.md#rl0207--complete-legacy-refits-support-the-new-decision-policy-but-preserve-a-narrow-ranking-advantage).
 
 - **The A4 275-call rate failed on the Live leaderboard:** complete-pool OOF
   had favored 275 over the submitted 249 calls by `.0245` projected MCC, but
