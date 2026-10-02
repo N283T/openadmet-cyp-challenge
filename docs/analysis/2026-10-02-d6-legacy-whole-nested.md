@@ -1,5 +1,9 @@
 # Complete historical ensemble under the new D6 evaluation procedure
 
+**Subsequent submission:** the user approved the unchanged 175-call candidate
+after this comparison. [Remote receipt is confirmed](2026-10-02-d6-chemeleon-submission-receipt.md);
+scoring remains pending. The unsent statements below describe the comparison stage.
+
 The user asks whether the complete existing classifier has been evaluated under
 the procedure used for the new CheMeleon candidate. At the start it had not: three historical
 Morgan atoms were refitted, but cached whole-ensemble scores were only retrospective

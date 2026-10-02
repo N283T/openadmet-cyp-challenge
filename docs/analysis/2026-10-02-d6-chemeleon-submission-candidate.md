@@ -1,5 +1,10 @@
 # Fresh CheMeleon readout: selected D6 submission candidate
 
+**Submission update:** after explicit approval on October 2, the unchanged
+prepared payload was sent and remote receipt confirmed. Scoring is pending;
+see [the submission record](2026-10-02-d6-chemeleon-submission-receipt.md).
+The unsent statements below describe the preparation and comparison stages.
+
 **Subsequent review:** the user identified that this comparison did not refit
 the complete existing eleven-atom ensemble under the new evaluation method.
 That [whole-recipe comparison](2026-10-02-d6-legacy-whole-nested.md) is now complete:

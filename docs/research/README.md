@@ -68,7 +68,10 @@ The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experimen
   whole legacy recipe's .09067/.16759; paired conditional intervals exclude
   zero in both splits. The legacy recipe remains stronger at a matched narrow
   49/750 fraction, while the selected recipe wins at 175/750. Retain the exact
-  175-call candidate as the next improvement attempt; it remains unsent.
+  175-call candidate as the next improvement attempt. The user then explicitly
+  approved this exact payload; [remote receipt is confirmed](../analysis/2026-10-02-d6-chemeleon-submission-receipt.md)
+  on October 2 at approximately 21:08 JST. Scoring is pending, and the next
+  classification opportunity starts October 3 at 09:08:22.746783 JST.
   This comparison does not alone establish past-LB concordance or recover
   missing D6 outcomes. See
   [RL0207](2026-10.md#rl0207--complete-legacy-refits-support-the-new-decision-policy-but-preserve-a-narrow-ranking-advantage).
