@@ -21,6 +21,11 @@ October 1 and improves Live ST-RAE for both changed targets against the previous
 best scored submission. Boltz and Jupyter are not declared in this environment.
 Pandas may exist transitively; project table processing uses Polars.
 
+The [October 2 work summary](docs/analysis/2026-10-02-work-summary.md) consolidates
+retained changes and the latest scored state. The D6 CheMeleon submission scored
+.117740 MCC, below historical best .308635; its earlier recommendation is
+superseded by the scored outcome and validation audit. A4 retains .529911 MCC.
+
 For new regression work, use the explicit [current auxiliary configuration](configs/regression/current-log2fc.json)
 and [current parent-CV readout](configs/regression/current-parent-readout.json).
 These select the user-adopted Rustuna log2fc recipe; older experiment reports and
