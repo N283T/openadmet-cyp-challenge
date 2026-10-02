@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "seed": 20261003,
+  "endpoint": "CYP2D6_is_TDI",
+  "inputs": {
+    "compounds": "compounds.parquet",
+    "measurements": "measurements.parquet",
+    "aliases": "aliases.parquet",
+    "test_mapping": "test_mapping.parquet",
+    "assignments": "assignments.parquet",
+    "primary_screen": "primary-screen.csv",
+    "chemeleon": "chemeleon-embeddings.parquet",
+    "sep15_payload": "sep15-d6-payload.parquet",
+    "legacy_oof": "legacy-sep15-nested-oof.parquet"
+  },
+  "pool": {
+    "pseudo_negative_min_log2fc": -0.25,
+    "borderline_min_log2fc": -0.5
+  },
+  "gate_threshold": -1.0,
+  "split_strategies": ["umap", "scaffold"],
+  "outer_folds": 5,
+  "inner_folds": 3,
+  "refit_inner_groups": "umap",
+  "lgbm_seeds": 2,
+  "lgbm": {
+    "n_estimators": 400,
+    "num_leaves": 31,
+    "learning_rate": 0.03,
+    "colsample_bytree": 0.5,
+    "min_child_samples": 20
+  },
+  "lgbm_threads": 3,
+  "task_jobs": 11,
+  "feature_jobs": 16,
+  "lr_C": [0.01, 0.1, 1.0],
+  "lr_max_iter": 3000,
+  "rates": [0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.10],
+  "bootstrap_samples": 1000,
+  "models": {
+    "official_lgbm": "Balanced LightGBM on Morgan+RDKit, official labels only (control)",
+    "pool_lgbm": "Balanced LightGBM on Morgan+RDKit, official + pseudo-negative labels",
+    "gate_x_tdi": "P(log2fc < -1) from calibrated LightGBM log2fc regressor x official_lgbm probability",
+    "pool_chemeleon": "Balanced logistic regression on standardized CheMeleon, C in {0.01, 0.1, 1} by inner group-fold AP, official + pseudo-negative labels",
+    "gate_x_tdi_chemeleon": "As gate_x_tdi with CheMeleon features for gate and TDI head",
+    "rank_mean_gates": "Equal percentile-rank mean of gate_x_tdi and gate_x_tdi_chemeleon",
+    "legacy_sep15_refit": "Comparator: seed-averaged nested OOF of run 20261002T120413515280Z-f2330789"
+  },
+  "rate_selection": "Pooled test-like MCC on the other outer folds; ties go to the lower rate",
+  "status": "Validation-design probe; no candidate, submission or upload"
+}
