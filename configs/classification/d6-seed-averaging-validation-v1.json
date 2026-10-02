@@ -1,0 +1,5 @@
+{
+  "source_run": "20261002T043618387974Z-bc88d8eb",
+  "bootstrap_samples": 1000,
+  "selection_rule": "Equal average of two prespecified seeds, no fitted weights or call budget. Reconstruct exact original calls before evaluating combined margins. No historical-model inputs or upload."
+}

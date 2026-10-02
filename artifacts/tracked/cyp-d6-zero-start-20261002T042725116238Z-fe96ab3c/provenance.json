@@ -1,0 +1,94 @@
+{
+  "source_run": "classification/20261002T042725116238Z-fe96ab3c",
+  "outputs": {
+    "aggregate-metrics.csv": "eb48fd94ab3b4f8f9fa636db9c8bb3c15c69928a4b90e1779421bcddb30169f7",
+    "fold-metrics.csv": "c7c6098245c8a02743a6030176436f60c9bde3a6a8488818e31186934f2f6eba",
+    "leakage-and-operating-points.csv": "07eb13db5becc1740d4c1e57e486b1393cc071d816bddc5f6d3f8b9dc14011d1",
+    "nested-oof.parquet": "12ef2222b53802f6151cce69dcb70f989b35e41f69ad0cd005e6da975119817e",
+    "paired-group-intervals.csv": "8d35899d391d9485a9efc30adf75ddbb285cd46f47b7dfe6d8a645f002b29e95",
+    "primary-source-audit.parquet": "10e11dcedef1144c63e9b5ee9e391b45e07ada079f8e0a23dabca42801015bea",
+    "representation.json": "42d9eec04f9d5589b0f643ab4c98df2c7e3be0ad33402e07f51e8824a1b10838",
+    "selected-only-metrics.csv": "08d5d58a2f134c47bd7486098192286c22aea1508bf131aa5cbc6030947089dd",
+    "selection-control-source.parquet": "db7bfd771a293c0d151fc7307e686e42439a3e188b7de622add86021bbd964da",
+    "source-audit.parquet": "fa411f2b5657b5203d7838844bd164d3bfd36b9acfab7edd901385a74c34f5b8",
+    "summary.json": "9957f4fc76c607c988df0e2c334a5a3918ee45a806a9babce47bbf4f5b79ab6d",
+    "threshold-scale-audit.csv": "8719b5c8602b0a7ae8f70ee0c8b49608f544e99884e2c35a22c686e67085d5b8"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T042725116238Z-fe96ab3c/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T042725116238Z-fe96ab3c/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T042725116238Z-fe96ab3c/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T042725116238Z-fe96ab3c/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/data/raw/cyp-challenge-single-concentration-TRAIN.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T042725116238Z-fe96ab3c/inputs/primary-screen.csv",
+      "sha256": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seed": 20261002,
+    "seeds": [
+      20261002,
+      20261017
+    ],
+    "endpoint": "CYP3A4_is_TDI",
+    "outer_folds": 5,
+    "bag_folds": 5,
+    "inner_folds": 3,
+    "bootstrap_samples": 1000,
+    "split_strategies": [
+      "umap",
+      "scaffold"
+    ],
+    "fixed_assignments": "assignments.parquet",
+    "models": [
+      "activity_all",
+      "activity_selected",
+      "gate_selected"
+    ],
+    "network_epochs": 20,
+    "nested_bag_validation": true,
+    "threshold_grid": "inner_quantiles",
+    "cpu_threads": 4,
+    "policies": [
+      "centered_fold_mean",
+      "majority_vote",
+      "pooled_oof_cut",
+      "single_refit"
+    ],
+    "historical_comparisons": [],
+    "scientific_purpose": "Controlled primary-selection experiment: hide weak-primary class labels from fits AND cuts, evaluate all known outer classes and selected-only classes; compare flat and multiplicative primary-activity gate using identical matched networks. CYP3A4",
+    "selection_rule": "Prespecified primary log2fc below -0.5 from D6 coverage boundary; 20 epochs from previous duration audit. Three arms, matched splits and seeds; no historical scores or fixed call count. Gate is a testable proxy assumption, not an exact physical joint probability.",
+    "limitations": "Nested held-group evaluation, all measurements excluded from fits for outer and inner holdouts. Activity targets derive only from measured primary screen, never imputed TDI labels. A4 is a selection-mechanism control; it cannot establish D6 weak-region accuracy. Conditional group bootstrap omits training and protocol-selection uncertainty. Original development outcomes have already been inspected. Synthetic masking does not replicate every source assay selection rule.",
+    "primary_screen": "primary-screen.csv",
+    "propensity_weight_cap": 5.0,
+    "baseline_model": "activity_all",
+    "selection_control": true,
+    "primary_enzyme_index": 1,
+    "primary_activity_cut": -0.5,
+    "primary_activity_loss_weight": 1.0,
+    "skip_historical_diagnostics": true
+  }
+}

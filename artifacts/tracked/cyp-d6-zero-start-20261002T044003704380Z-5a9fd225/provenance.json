@@ -1,0 +1,37 @@
+{
+  "source_run": "classification/20261002T044003704380Z-5a9fd225",
+  "outputs": {
+    "matching-prior-metrics.csv": "ec38c7d2009cc84c607802c6117ed0cf3634910fe4ac0e2d3c0ff16ac3449e8e",
+    "paired-prior-policy-contrasts.csv": "28cac8fb4dcd8dddc47ab2241f4225b200e09056ff2e253f5b8005d0d977c79c",
+    "summary.json": "46c8662b24d4c5ec52db35744812cfe1a3ea5dd736eae1b51521fc8592c1e441"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043618387974Z-bc88d8eb/outputs/nested-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T044003704380Z-5a9fd225/inputs/nested-oof.parquet",
+      "sha256": "a3f1a8f8cd3ef470070fee9e768a26dc1acc35f71207e9ef44d2267e2e74769f",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043618387974Z-bc88d8eb/outputs/threshold-scale-audit.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T044003704380Z-5a9fd225/inputs/fitted-cuts.csv",
+      "sha256": "8a0d44b03bccde9c00bd22021ce5abc75d59cf4a0e8f5b8f35d3d4c75d8da159",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T043618387974Z-bc88d8eb/config.json",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T044003704380Z-5a9fd225/inputs/model-config.json",
+      "sha256": "a33eb91386e6a62853ac64263b503ce51d71944ad1e27e2e229f640c2d791031",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "priors": [
+      0.03,
+      0.07,
+      0.12
+    ],
+    "bootstrap_samples": 1000,
+    "source_run": "20261002T043618387974Z-bc88d8eb"
+  }
+}

@@ -41,6 +41,15 @@ The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experimen
   controls. It does not demonstrate a repeatable advantage; the 77-call payload
   remains preserved but is not recommended for upload on this evidence. No
   rollback, replacement payload or challenge upload has occurred.
+  Continued [primary-selection experiments](../analysis/2026-10-02-d6-primary-selection-mechanism.md)
+  find 2,823 weak-primary development molecules with no D6 class labels and
+  reproduce selected-only gains reversing on broader known A4 outcomes.
+  Selection weighting, primary and potency gates, and train-selected prior
+  thresholds are completed; none establishes a new D6 decision advantage.
+  This identifies a possible failure mechanism, not the precise cause of D6
+  Live swaps or validation of the incumbent. Equal-seed margin averaging is also
+  completed: small fresh-network gains, without a material new decision advantage.
+  Eleven further complete records are retained.
 
 - **The A4 275-call rate failed on the Live leaderboard:** complete-pool OOF
   had favored 275 over the submitted 249 calls by `.0245` projected MCC, but

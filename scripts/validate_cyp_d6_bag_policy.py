@@ -18,6 +18,30 @@ def select_cut(y, scores, samples):
     return float(cuts[int(np.argmax(values))])
 
 
+def select_prior_cuts(y, scores, priors, samples):
+    """Train-only label-shift scenarios; each prior selects a cut, never a call budget."""
+    observed = np.isfinite(y)
+    truth, score = y[observed].astype(int), scores[observed]
+    order = np.argsort(score, kind="stable")
+    truth, score = truth[order], score[order]
+    thresholds = np.r_[-np.inf, np.unique(np.quantile(score, np.linspace(0, 1, 301))), np.inf]
+    cut_indices = np.searchsorted(score, thresholds, side="right")
+    draws = np.random.default_rng(0).integers(0, len(truth), (samples, len(truth)))
+    weights = np.zeros((samples, len(truth)), dtype=np.int32)
+    np.add.at(weights, (np.arange(samples)[:, None], draws), 1)
+    cp = np.pad(np.cumsum(weights * truth, axis=1), ((0, 0), (1, 0)))
+    cn = np.pad(np.cumsum(weights * (1 - truth), axis=1), ((0, 0), (1, 0)))
+    tpr = (cp[:, -1, None] - cp[:, cut_indices]) / np.maximum(cp[:, -1, None], 1)
+    fpr = (cn[:, -1, None] - cn[:, cut_indices]) / np.maximum(cn[:, -1, None], 1)
+    result = {}
+    for prior in priors:
+        tp, fn, fp, tn = prior * tpr, prior * (1 - tpr), (1 - prior) * fpr, (1 - prior) * (1 - fpr)
+        denom = np.sqrt((tp + fp) * (tp + fn) * (tn + fp) * (tn + fn))
+        value = np.divide(tp * tn - fp * fn, denom, out=np.zeros_like(denom), where=denom > 0)
+        result[prior] = float(thresholds[np.argmax(value.mean(axis=0))])
+    return result
+
+
 def metric(y, score, calls):
     observed = np.isfinite(y)
     truth = y[observed].astype(int)
@@ -39,6 +63,20 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
     inp, out = Path(os.environ["CYP_INPUT_DIR"]), Path(os.environ["CYP_OUTPUT_DIR"])
     assignments = pl.read_parquet(inp / cfg["fixed_assignments"])
     rows, cuts_audit, leakage, fold_metrics = [], [], [], []
+    selected = np.ones(len(y), dtype=bool)
+    if cfg.get("selection_control"):
+        primary = tasks[:, 16 + cfg["primary_enzyme_index"]]
+        selected = np.isfinite(primary) & (primary < cfg["primary_activity_cut"])
+        pl.DataFrame(
+            {
+                "compound_id": table["compound_id"],
+                "endpoint": cfg["endpoint"],
+                "label": y,
+                "primary_log2fc": primary,
+                "selected": selected,
+            }
+        ).write_parquet(out / "selection-control-source.parquet")
+    partition_y = np.where(selected, y, np.nan)
     for strategy in cfg["split_strategies"]:
         ordered = table.select("compound_id").join(
             assignments.filter(pl.col("strategy") == strategy).select(
@@ -56,18 +94,26 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
                 train = development[membership[development] != outer]
                 test = development[membership[development] == outer]
                 assert set(groups[train]).isdisjoint(groups[test])
-                bag_splits = folds(train, y, groups, strategy, cfg["bag_folds"], seed + outer * 100)
+                bag_splits = folds(
+                    train, partition_y, groups, strategy, cfg["bag_folds"], seed + outer * 100
+                )
                 for kind in cfg["models"]:
+                    fit_y = (
+                        np.where(selected, y, np.nan)
+                        if kind in {"activity_selected", "gate_selected"}
+                        else y
+                    )
                     test_scores, test_margins, test_votes = [], [], []
                     rank_scores, rank_margins = [], []
                     bag_oof = np.full(len(table), np.nan)
                     inner_cuts = []
+                    prior_margins = {p: [] for p in cfg.get("threshold_priors", [])}
                     for bag, (bag_train, bag_valid) in enumerate(bag_splits):
                         assert set(groups[bag_train]).isdisjoint(groups[bag_valid])
                         inner_score = np.full(len(table), np.nan)
                         inner_splits = folds(
                             bag_train,
-                            y,
+                            partition_y,
                             groups,
                             strategy,
                             cfg["inner_folds"],
@@ -81,7 +127,7 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
                                 fit,
                                 fp,
                                 x,
-                                y,
+                                fit_y,
                                 tdi,
                                 shift,
                                 seed + outer * 1000 + bag * 10 + inner,
@@ -93,14 +139,14 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
                             inner_score[valid] = predict(kind, fitted, valid, fp, x)
                         assert np.isfinite(inner_score[bag_train]).all()
                         cut = select_cut(
-                            y[bag_train], inner_score[bag_train], cfg["bootstrap_samples"]
+                            fit_y[bag_train], inner_score[bag_train], cfg["bootstrap_samples"]
                         )
                         fitted = fit_model(
                             kind,
                             bag_train,
                             fp,
                             x,
-                            y,
+                            fit_y,
                             tdi,
                             shift,
                             seed + outer * 1000 + bag * 10 + 9,
@@ -114,14 +160,26 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
                         test_scores.append(scores)
                         test_margins.append(scores - cut)
                         test_votes.append(scores > cut)
+                        prior_cuts = (
+                            select_prior_cuts(
+                                fit_y[bag_train],
+                                inner_score[bag_train],
+                                cfg.get("threshold_priors", []),
+                                cfg["bootstrap_samples"],
+                            )
+                            if prior_margins
+                            else {}
+                        )
+                        for prior, prior_cut in prior_cuts.items():
+                            prior_margins[prior].append(scores - prior_cut)
                         if cfg.get("rank_transfer_ablation"):
                             inner_percentile = float((inner_score[bag_train] <= cut).mean())
                             percentile = rankdata(scores, method="average") / (len(scores) + 1)
                             rank_scores.append(percentile)
                             rank_margins.append(percentile - inner_percentile)
                         inner_cuts.append(cut)
-                        labelled_train = bag_train[np.isfinite(y[bag_train])]
-                        labelled_valid = bag_valid[np.isfinite(y[bag_valid])]
+                        labelled_train = bag_train[np.isfinite(fit_y[bag_train])]
+                        labelled_valid = bag_valid[np.isfinite(fit_y[bag_valid])]
                         cuts_audit.append(
                             dict(
                                 split_id=strategy,
@@ -130,6 +188,7 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
                                 model=kind,
                                 bag_fold=bag,
                                 threshold=cut,
+                                **{f"prior_{p}_cut": c for p, c in prior_cuts.items()},
                                 train_labels=len(labelled_train),
                                 inner_score_q10=float(
                                     np.quantile(inner_score[labelled_train], 0.1)
@@ -148,11 +207,18 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
                     assert np.isfinite(bag_oof[train]).all()
                     scores_mean = np.mean(test_scores, axis=0)
                     margin_mean = np.mean(test_margins, axis=0)
-                    pooled_cut = select_cut(y[train], bag_oof[train], cfg["bootstrap_samples"])
+                    pooled_cut = select_cut(fit_y[train], bag_oof[train], cfg["bootstrap_samples"])
                     # Independent full-refit control: tune a cut only on outer-train inner OOF.
                     single_inner = np.full(len(table), np.nan)
                     for number, (fit, valid) in enumerate(
-                        folds(train, y, groups, strategy, cfg["inner_folds"], seed + 100 + outer)
+                        folds(
+                            train,
+                            partition_y,
+                            groups,
+                            strategy,
+                            cfg["inner_folds"],
+                            seed + 100 + outer,
+                        )
                     ):
                         assert set(groups[fit]).isdisjoint(groups[valid])
                         fitted = fit_model(
@@ -160,7 +226,7 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
                             fit,
                             fp,
                             x,
-                            y,
+                            fit_y,
                             tdi,
                             shift,
                             seed + outer * 10 + number,
@@ -170,13 +236,15 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
                             cfg,
                         )
                         single_inner[valid] = predict(kind, fitted, valid, fp, x)
-                    single_cut = select_cut(y[train], single_inner[train], cfg["bootstrap_samples"])
+                    single_cut = select_cut(
+                        fit_y[train], single_inner[train], cfg["bootstrap_samples"]
+                    )
                     fitted = fit_model(
                         kind,
                         train,
                         fp,
                         x,
-                        y,
+                        fit_y,
                         tdi,
                         shift,
                         seed + outer,
@@ -197,6 +265,11 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
                             np.mean(rank_scores, axis=0),
                             np.mean(rank_margins, axis=0) > 0,
                         )
+                    for prior, margins in prior_margins.items():
+                        policies[f"prior_{prior}_centered"] = (
+                            scores_mean,
+                            np.mean(margins, axis=0) > 0,
+                        )
                     for policy, (score, calls) in policies.items():
                         entry = dict(
                             split_id=strategy, seed=seed, fold=outer, model=kind, policy=policy
@@ -211,6 +284,7 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
                                     "endpoint": cfg["endpoint"],
                                     "group": groups[index],
                                     "label": float(y[index]),
+                                    "selected": bool(selected[index]),
                                     "score": float(score[i]),
                                     "call": bool(calls[i]),
                                 }
@@ -259,7 +333,23 @@ def evaluate(table, fp, x, y, tdi, shift, weights, subtype, tasks, development, 
         summaries.append(summary)
     pl.DataFrame(summaries).write_csv(out / "aggregate-metrics.csv")
     pl.DataFrame(fold_metrics).write_csv(out / "fold-metrics.csv")
-    historical_diagnostics(frame, inp, out, cfg)
+    if not cfg.get("skip_historical_diagnostics"):
+        historical_diagnostics(frame, inp, out, cfg)
+    if cfg.get("selection_control"):
+        selection_summaries = []
+        for keys, sub in frame.filter(pl.col("selected")).group_by(
+            "split_id", "seed", "model", "policy", maintain_order=True
+        ):
+            entry = dict(zip(["split_id", "seed", "model", "policy"], keys, strict=True))
+            selection_summaries.append(
+                {
+                    **entry,
+                    **metric(
+                        sub["label"].to_numpy(), sub["score"].to_numpy(), sub["call"].to_numpy()
+                    ),
+                }
+            )
+        pl.DataFrame(selection_summaries).write_csv(out / "selected-only-metrics.csv")
     paired_intervals(frame, out, cfg)
     (out / "summary.json").write_text(
         json.dumps(
@@ -352,16 +442,15 @@ def historical_diagnostics(frame, inp, out, cfg):
 def paired_intervals(frame, out, cfg):
     """Resample molecular groups, keeping repeated seeds paired; conditional on fits."""
     comparisons = []
+    baseline_model = cfg.get("baseline_model", "fresh_d6_network")
     for split in cfg["split_strategies"]:
         source = frame.filter((pl.col("split_id") == split) & pl.col("label").is_finite())
-        targets = [
-            ("fresh_d6_network", p) for p in ["single_refit", "majority_vote", "pooled_oof_cut"]
-        ]
+        targets = [(baseline_model, p) for p in ["single_refit", "majority_vote", "pooled_oof_cut"]]
         if cfg.get("rank_transfer_ablation"):
-            targets.append(("fresh_d6_network", "rank_margin_mean"))
-        targets += [(m, "centered_fold_mean") for m in cfg["models"] if m != "fresh_d6_network"]
+            targets.append((baseline_model, "rank_margin_mean"))
+        targets += [(m, "centered_fold_mean") for m in cfg["models"] if m != baseline_model]
         baseline = source.filter(
-            (pl.col("model") == "fresh_d6_network") & (pl.col("policy") == "centered_fold_mean")
+            (pl.col("model") == baseline_model) & (pl.col("policy") == "centered_fold_mean")
         )
         rng = np.random.default_rng(20261002)
         for model, policy in targets:

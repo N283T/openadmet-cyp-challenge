@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "seed": 20261002,
+  "seeds": [
+    20261002,
+    20261017
+  ],
+  "endpoint": "CYP2D6_is_TDI",
+  "outer_folds": 5,
+  "bag_folds": 5,
+  "inner_folds": 3,
+  "bootstrap_samples": 1000,
+  "split_strategies": [
+    "umap",
+    "scaffold"
+  ],
+  "fixed_assignments": "assignments.parquet",
+  "models": [
+    "activity_all",
+    "activity_selected",
+    "gate_selected"
+  ],
+  "network_epochs": 20,
+  "nested_bag_validation": true,
+  "threshold_grid": "inner_quantiles",
+  "cpu_threads": 4,
+  "policies": [
+    "centered_fold_mean",
+    "majority_vote",
+    "pooled_oof_cut",
+    "single_refit"
+  ],
+  "historical_comparisons": [],
+  "scientific_purpose": "Controlled primary-selection experiment: hide weak-primary class labels from fits AND cuts, evaluate all known outer classes and selected-only classes; compare flat and multiplicative primary-activity gate using identical matched networks. CYP2D6",
+  "selection_rule": "Prespecified primary log2fc below -0.5 from D6 coverage boundary; 20 epochs from previous duration audit. Three arms, matched splits and seeds; no historical scores or fixed call count. Gate is a testable proxy assumption, not an exact physical joint probability.",
+  "limitations": "Nested held-group evaluation, all measurements excluded from fits for outer and inner holdouts. Activity targets derive only from measured primary screen, never imputed TDI labels. A4 is a selection-mechanism control; it cannot establish D6 weak-region accuracy. Conditional group bootstrap omits training and protocol-selection uncertainty. Original development outcomes have already been inspected. Synthetic masking does not replicate every source assay selection rule.",
+  "primary_screen": "primary-screen.csv",
+  "propensity_weight_cap": 5.0,
+  "baseline_model": "activity_all",
+  "selection_control": true,
+  "primary_enzyme_index": 0,
+  "primary_activity_cut": -0.5,
+  "primary_activity_loss_weight": 1.0,
+  "skip_historical_diagnostics": true,
+  "float32_matmul_precision": "highest"
+}

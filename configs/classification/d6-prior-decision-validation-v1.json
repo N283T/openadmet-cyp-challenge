@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "seed": 20261002,
+  "seeds": [
+    20261002,
+    20261017
+  ],
+  "endpoint": "CYP2D6_is_TDI",
+  "outer_folds": 5,
+  "bag_folds": 5,
+  "inner_folds": 3,
+  "bootstrap_samples": 1000,
+  "split_strategies": [
+    "umap",
+    "scaffold"
+  ],
+  "fixed_assignments": "assignments.parquet",
+  "models": [
+    "fresh_d6_network",
+    "potency_gate"
+  ],
+  "network_epochs": 20,
+  "nested_bag_validation": true,
+  "threshold_grid": "inner_quantiles",
+  "cpu_threads": 4,
+  "policies": [
+    "centered_fold_mean",
+    "majority_vote",
+    "pooled_oof_cut",
+    "single_refit"
+  ],
+  "historical_comparisons": [],
+  "scientific_purpose": "Separate training class prevalence from the decision objective: prespecified bootstrap-MCC thresholds at hypothetical priors .03/.07/.12 and observed-label prevalence, using the same fresh 20-epoch class network and potency gate fits. Fully nested five-model decision transfer, no 49-call constraint, no old model inputs.",
+  "selection_rule": "Report every prior policy with matching hypothetical held-out prior-adjusted MCC; no scenario is asserted to be the unknown blind prevalence. Model/threshold fitting excludes held-out groups and all their assays. Outputs include fitted inner cuts and keyed calls. No upload.",
+  "limitations": "Label-shift calculations require class-conditional score transfer; primary selection violates coverage, so hypothetical projected MCC is not identified blind accuracy. No unknown labels are assigned negative. Protocol/fit uncertainty exceeds conditional bootstrap intervals.",
+  "primary_screen": "primary-screen.csv",
+  "propensity_weight_cap": 5.0,
+  "baseline_model": "fresh_d6_network",
+  "selection_control": false,
+  "primary_enzyme_index": 0,
+  "primary_activity_cut": -0.5,
+  "primary_activity_loss_weight": 1.0,
+  "skip_historical_diagnostics": true,
+  "threshold_priors": [
+    0.03,
+    0.07,
+    0.12
+  ],
+  "float32_matmul_precision": "high"
+}

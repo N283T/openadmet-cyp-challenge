@@ -1,0 +1,190 @@
+{
+  "config": {
+    "version": 1,
+    "weight_cap": 5.0,
+    "bootstrap_samples": 1000,
+    "cases": [
+      {
+        "name": "sep12_to_sep13",
+        "split": "umap",
+        "scope": "historical labelled-only diagnostic; not deployment rate selection",
+        "lb_delta": 0.09426,
+        "before": {
+          "file": "diverse-oof.parquet",
+          "model": "current",
+          "rate": 0.05733333333333333
+        },
+        "after": {
+          "file": "diverse-oof.parquet",
+          "model": "current2_logistic_morgan_c0.05_rank_mean",
+          "rate": 0.06533333333333333
+        }
+      },
+      {
+        "name": "sep13_to_sep14",
+        "split": "umap",
+        "scope": "historical labelled-only diagnostic; not deployment rate selection",
+        "lb_delta": 0.00761,
+        "before": {
+          "file": "fixed-oof.parquet",
+          "model": "live",
+          "rate": 0.06533333333333333
+        },
+        "after": {
+          "file": "fixed-oof.parquet",
+          "model": "live2_complement_nb_a1",
+          "rate": 0.06533333333333333
+        }
+      },
+      {
+        "name": "sep15_to_sep23_umap",
+        "split": "umap",
+        "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+        "lb_delta": -0.07381,
+        "before": {
+          "file": "control-umap.parquet",
+          "model": "sep15_control_raw_oof_analog",
+          "rate": 0.06533333333333333
+        },
+        "after": {
+          "file": "ap-umap.parquet",
+          "model": "ap_full7_outer_weight_rank",
+          "rate": 0.06533333333333333
+        }
+      },
+      {
+        "name": "sep15_to_sep23_scaffold",
+        "split": "scaffold",
+        "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+        "lb_delta": -0.07381,
+        "before": {
+          "file": "control-scaffold.parquet",
+          "model": "sep15_control_raw_oof_analog",
+          "rate": 0.06533333333333333
+        },
+        "after": {
+          "file": "ap-scaffold.parquet",
+          "model": "ap_full7_scaffold_outer_weight_rank",
+          "rate": 0.06533333333333333
+        }
+      }
+    ],
+    "primary_bins": [
+      "below -2",
+      "-2 to -1",
+      "-1 to -.5",
+      "-.5 to 0",
+      "at least0",
+      "missing"
+    ],
+    "purpose": "Separate primary activity from TDI shift among selected hits; test whether correction for primary-conditioned label availability changes historical concordance.",
+    "limits": "Fit availability propensity on outer-training measured primary response and missingness only. Missing class labels are selection outcomes, never TDI-negative outcomes. MAR and positivity are unverified; clipping does not fill absent weak-activity labels. Primary response is used for evaluation weighting, not a deployable hidden assay feature."
+  },
+  "comparisons": [
+    {
+      "case": "sep12_to_sep13",
+      "split_id": "umap",
+      "scope": "historical labelled-only diagnostic; not deployment rate selection",
+      "weighting": "uniform",
+      "lb_delta": 0.09426,
+      "oof_delta": 0.03754651454607616,
+      "concordant": true,
+      "ci_low": -0.003213986161721887,
+      "ci_high": 0.07600086977507181,
+      "effective_labelled_n": 1497.0,
+      "assumptions": "MAR given measured primary response; hypothetical prior.07; conditional cached fits"
+    },
+    {
+      "case": "sep12_to_sep13",
+      "split_id": "umap",
+      "scope": "historical labelled-only diagnostic; not deployment rate selection",
+      "weighting": "selection_ipw",
+      "lb_delta": 0.09426,
+      "oof_delta": 0.03999159749565124,
+      "concordant": true,
+      "ci_low": -0.002892718945386392,
+      "ci_high": 0.08123502526197064,
+      "effective_labelled_n": 1442.397334547997,
+      "assumptions": "MAR given measured primary response; hypothetical prior.07; conditional cached fits"
+    },
+    {
+      "case": "sep13_to_sep14",
+      "split_id": "umap",
+      "scope": "historical labelled-only diagnostic; not deployment rate selection",
+      "weighting": "uniform",
+      "lb_delta": 0.00761,
+      "oof_delta": 0.015214876706855979,
+      "concordant": true,
+      "ci_low": -0.013413993021450877,
+      "ci_high": 0.049290360309779735,
+      "effective_labelled_n": 1497.0,
+      "assumptions": "MAR given measured primary response; hypothetical prior.07; conditional cached fits"
+    },
+    {
+      "case": "sep13_to_sep14",
+      "split_id": "umap",
+      "scope": "historical labelled-only diagnostic; not deployment rate selection",
+      "weighting": "selection_ipw",
+      "lb_delta": 0.00761,
+      "oof_delta": 0.016872718777820192,
+      "concordant": true,
+      "ci_low": -0.0109241837281772,
+      "ci_high": 0.04965540757744998,
+      "effective_labelled_n": 1442.397334547997,
+      "assumptions": "MAR given measured primary response; hypothetical prior.07; conditional cached fits"
+    },
+    {
+      "case": "sep15_to_sep23_umap",
+      "split_id": "umap",
+      "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+      "weighting": "uniform",
+      "lb_delta": -0.07381,
+      "oof_delta": 0.007084937649977391,
+      "concordant": false,
+      "ci_low": -0.03868864915175336,
+      "ci_high": 0.044391860336173955,
+      "effective_labelled_n": 1497.0,
+      "assumptions": "MAR given measured primary response; hypothetical prior.07; conditional cached fits"
+    },
+    {
+      "case": "sep15_to_sep23_umap",
+      "split_id": "umap",
+      "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+      "weighting": "selection_ipw",
+      "lb_delta": -0.07381,
+      "oof_delta": 0.0007757016119977617,
+      "concordant": false,
+      "ci_low": -0.04474059276792327,
+      "ci_high": 0.039429212063217235,
+      "effective_labelled_n": 1442.397334547997,
+      "assumptions": "MAR given measured primary response; hypothetical prior.07; conditional cached fits"
+    },
+    {
+      "case": "sep15_to_sep23_scaffold",
+      "split_id": "scaffold",
+      "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+      "weighting": "uniform",
+      "lb_delta": -0.07381,
+      "oof_delta": 0.045360296020161464,
+      "concordant": false,
+      "ci_low": -0.0012745786011841207,
+      "ci_high": 0.09623717744642198,
+      "effective_labelled_n": 1497.0,
+      "assumptions": "MAR given measured primary response; hypothetical prior.07; conditional cached fits"
+    },
+    {
+      "case": "sep15_to_sep23_scaffold",
+      "split_id": "scaffold",
+      "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+      "weighting": "selection_ipw",
+      "lb_delta": -0.07381,
+      "oof_delta": 0.04288131028174537,
+      "concordant": false,
+      "ci_low": -0.004311892011077738,
+      "ci_high": 0.09378705116957246,
+      "effective_labelled_n": 1442.2581862486434,
+      "assumptions": "MAR given measured primary response; hypothetical prior.07; conditional cached fits"
+    }
+  ],
+  "limits": "No weighting recovers unobserved outcomes; label selection can depend on unmeasured outcomes, violating MAR. Historical successes have partial-pool OOF and failures complete-pool OOF, explicitly separate scopes. No blind individual labels are inferred, no candidate is created."
+}

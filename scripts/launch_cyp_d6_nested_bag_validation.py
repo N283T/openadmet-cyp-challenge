@@ -1,6 +1,7 @@
 """Record the full candidate decision algorithm on untouched outer groups."""
 
 import argparse
+import json
 import subprocess
 from pathlib import Path
 
@@ -21,13 +22,19 @@ def main():
     inputs["assignments.parquet"] = (
         runs / "shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet"
     )
+    cfg = json.loads((root / args.config).read_text())
+    if cfg.get("primary_screen"):
+        inputs[cfg["primary_screen"]] = (
+            root / "data/raw/cyp-challenge-single-concentration-TRAIN.csv"
+        )
     for alias, run in {
         "control-umap.parquet": "20260924T040301085704Z-914bb06c",
         "control-scaffold.parquet": "20260924T041452692950Z-e17778e3",
         "ap-umap.parquet": "20260924T035023873825Z-b719ba35",
         "ap-scaffold.parquet": "20260924T041348966036Z-8db19b4b",
     }.items():
-        inputs[alias] = runs / "classification" / run / "outputs/all-pool-oof.parquet"
+        if alias in cfg.get("historical_comparisons", []):
+            inputs[alias] = runs / "classification" / run / "outputs/all-pool-oof.parquet"
     command = [
         "pixi",
         "run",
@@ -36,9 +43,7 @@ def main():
         "--track",
         "classification",
         "--purpose",
-        "Validate full five-model D6 decision pipeline before a twelve-hour submission: "
-        "untouched outer groups, repeated seeds, aggregation ablations and "
-        "historical whole-ensemble diagnostics",
+        cfg.get("scientific_purpose", "Validate the full nested decision pipeline"),
         "--config",
         str(root / args.config),
     ]

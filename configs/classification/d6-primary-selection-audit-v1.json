@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "weight_cap": 5.0,
+  "bootstrap_samples": 1000,
+  "cases": [
+    {
+      "name": "sep12_to_sep13",
+      "split": "umap",
+      "scope": "historical labelled-only diagnostic; not deployment rate selection",
+      "lb_delta": 0.09426,
+      "before": {
+        "file": "diverse-oof.parquet",
+        "model": "current",
+        "rate": 0.05733333333333333
+      },
+      "after": {
+        "file": "diverse-oof.parquet",
+        "model": "current2_logistic_morgan_c0.05_rank_mean",
+        "rate": 0.06533333333333333
+      }
+    },
+    {
+      "name": "sep13_to_sep14",
+      "split": "umap",
+      "scope": "historical labelled-only diagnostic; not deployment rate selection",
+      "lb_delta": 0.00761,
+      "before": {
+        "file": "fixed-oof.parquet",
+        "model": "live",
+        "rate": 0.06533333333333333
+      },
+      "after": {
+        "file": "fixed-oof.parquet",
+        "model": "live2_complement_nb_a1",
+        "rate": 0.06533333333333333
+      }
+    },
+    {
+      "name": "sep15_to_sep23_umap",
+      "split": "umap",
+      "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+      "lb_delta": -0.07381,
+      "before": {
+        "file": "control-umap.parquet",
+        "model": "sep15_control_raw_oof_analog",
+        "rate": 0.06533333333333333
+      },
+      "after": {
+        "file": "ap-umap.parquet",
+        "model": "ap_full7_outer_weight_rank",
+        "rate": 0.06533333333333333
+      }
+    },
+    {
+      "name": "sep15_to_sep23_scaffold",
+      "split": "scaffold",
+      "scope": "complete-pool frozen recipe analog; conditional outer AP weights",
+      "lb_delta": -0.07381,
+      "before": {
+        "file": "control-scaffold.parquet",
+        "model": "sep15_control_raw_oof_analog",
+        "rate": 0.06533333333333333
+      },
+      "after": {
+        "file": "ap-scaffold.parquet",
+        "model": "ap_full7_scaffold_outer_weight_rank",
+        "rate": 0.06533333333333333
+      }
+    }
+  ],
+  "primary_bins": [
+    "below -2",
+    "-2 to -1",
+    "-1 to -.5",
+    "-.5 to 0",
+    "at least0",
+    "missing"
+  ],
+  "purpose": "Separate primary activity from TDI shift among selected hits; test whether correction for primary-conditioned label availability changes historical concordance.",
+  "limits": "Fit availability propensity on outer-training measured primary response and missingness only. Missing class labels are selection outcomes, never TDI-negative outcomes. MAR and positivity are unverified; clipping does not fill absent weak-activity labels. Primary response is used for evaluation weighting, not a deployable hidden assay feature."
+}

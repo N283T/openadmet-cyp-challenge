@@ -64,6 +64,11 @@ def fit_multiassay(train, xfp, tasks, seed, cfg):
     device = "cuda" if torch.cuda.is_available() else "cpu"
     target = tasks[train].copy()
     mask = np.isfinite(target)
+    class_weights = np.ones(len(train), dtype=np.float32)
+    if cfg.get("selection_weighting"):
+        from cyp_primary_supervision import selection_weights
+
+        class_weights = selection_weights(train, tasks, cfg.get("propensity_weight_cap", 5.0))
     means = np.nanmean(target[:, 4:], axis=0)
     scales = np.maximum(np.nanstd(target[:, 4:], axis=0), 0.1)
     target[:, 4:] = (target[:, 4:] - means) / scales
@@ -72,6 +77,7 @@ def fit_multiassay(train, xfp, tasks, seed, cfg):
     target = torch.as_tensor(target, dtype=torch.float32, device=device)
     mask = torch.as_tensor(mask, dtype=torch.float32, device=device)
     denominator = mask.sum(dim=0).clamp_min(1)
+    class_weights = torch.as_tensor(class_weights, device=device)
     network = nn.Sequential(
         nn.Linear(2048, 256),
         nn.ReLU(),
@@ -91,10 +97,12 @@ def fit_multiassay(train, xfp, tasks, seed, cfg):
         regression = (prediction[:, 4:] - target[:, 4:]).square()
         loss_binary = (binary * mask[:, :4]).sum(dim=0) / denominator[:4]
         loss_aux = (regression * mask[:, 4:]).sum(dim=0) / denominator[4:]
+        auxiliary = loss_aux[cfg.get("auxiliary_indices", list(range(len(loss_aux))))].mean()
         loss = (
-            loss_binary[0]
+            (binary[:, 0] * mask[:, 0] * class_weights).sum()
+            / (mask[:, 0] * class_weights).sum().clamp_min(1)
             + cfg.get("other_enzyme_weight", 0.3) * loss_binary[1:].mean()
-            + cfg.get("continuous_aux_weight", 0.2) * loss_aux.mean()
+            + cfg.get("continuous_aux_weight", 0.2) * auxiliary
         )
         loss.backward()
         optimizer.step()
@@ -110,6 +118,25 @@ def fit_multiassay(train, xfp, tasks, seed, cfg):
 
 
 def fit_model(kind, train, xfp, x, y, tdi, shift, seed, weights, subtype, tasks, cfg):
+    if kind in {"potency_all", "potency_conditional", "potency_gate"}:
+        from cyp_primary_supervision import fit_potency_gate
+
+        return fit_potency_gate(kind, train, xfp, y, tasks, seed, cfg)
+    if kind in {"activity_all", "activity_selected", "gate_selected"}:
+        from cyp_primary_supervision import fit_activity_gate
+
+        return fit_activity_gate(train, xfp, y, tasks, seed, cfg)
+    if kind in {"primary_d6_network", "primary_cross_cyp_network", "primary_selection_network"}:
+        network_cfg = {
+            **cfg,
+            "other_enzyme_weight": 0.0,
+            "continuous_aux_weight": 0.2,
+            "auxiliary_indices": (
+                [12] if kind != "primary_cross_cyp_network" else [12, 13, 14, 15]
+            ),
+            "selection_weighting": kind == "primary_selection_network",
+        }
+        return fit_multiassay(train, xfp, tasks, seed, network_cfg)
     if kind in {"fresh_multiassay_network", "fresh_d6_network"}:
         network_cfg = (
             cfg
@@ -186,11 +213,34 @@ def fit_model(kind, train, xfp, x, y, tdi, shift, seed, weights, subtype, tasks,
 
 
 def predict(kind, model, rows, xfp, x):
+    if kind in {
+        "activity_all",
+        "activity_selected",
+        "gate_selected",
+        "potency_all",
+        "potency_conditional",
+        "potency_gate",
+    }:
+        import torch
+
+        with torch.no_grad():
+            probabilities = torch.sigmoid(model["network"](torch.as_tensor(xfp[rows])))
+            return (
+                probabilities[:, 0] * probabilities[:, 1]
+                if kind in {"gate_selected", "potency_gate"}
+                else probabilities[:, 0]
+            ).numpy()
     if kind == "historical_morgan_rbf_c1":
         return model.decision_function(xfp[rows])
     if kind in {"historical_morgan_lr_c005", "historical_morgan_complement_a1"}:
         return model.predict_proba(xfp[rows])[:, 1]
-    if kind in {"fresh_multiassay_network", "fresh_d6_network"}:
+    if kind in {
+        "fresh_multiassay_network",
+        "fresh_d6_network",
+        "primary_d6_network",
+        "primary_cross_cyp_network",
+        "primary_selection_network",
+    }:
         import torch
 
         with torch.no_grad():
@@ -227,6 +277,7 @@ def main():
     source, out = Path(os.environ["CYP_INPUT_DIR"]), Path(os.environ["CYP_OUTPUT_DIR"])
     cfg = json.loads(Path(os.environ["CYP_CONFIG_PATH"]).read_text())
     endpoint, seed = cfg["endpoint"], cfg["seed"]
+    target_prefix = endpoint.removesuffix("_is_TDI")
     compounds = pl.read_parquet(source / "compounds.parquet").sort("compound_id")
     aliases = pl.read_parquet(source / "aliases.parquet")
     names = aliases.group_by("compound_id").agg(pl.col("molecule_name").sort().first())
@@ -238,8 +289,8 @@ def main():
         wide, on="compound_id", how="left"
     )
     y = table[endpoint].to_numpy()
-    direct = table["CYP2D6_pIC50_direct_inhibition"].to_numpy()
-    tdi = table["CYP2D6_pIC50_TDI_condition"].to_numpy()
+    direct = table[f"{target_prefix}_pIC50_direct_inhibition"].to_numpy()
+    tdi = table[f"{target_prefix}_pIC50_TDI_condition"].to_numpy()
     shift = tdi - direct
     blind = np.flatnonzero(table["compound_id"].is_in(test_ids).to_numpy())
     development = np.flatnonzero(~table["compound_id"].is_in(test_ids).to_numpy())
@@ -253,7 +304,9 @@ def main():
     regimes[labelled & paired & (direct < 4) & (tdi > 4 + np.log10(2))] = "inferred_positive"
     bounds = []
     for condition, name in [("direct_inhibition", "direct"), ("TDI_condition", "tdi")]:
-        interval = measured.filter(pl.col("endpoint") == f"CYP2D6_pIC50_{condition}").select(
+        interval = measured.filter(
+            pl.col("endpoint") == f"{target_prefix}_pIC50_{condition}"
+        ).select(
             "compound_id",
             pl.col("conf_low").alias(f"{name}_low"),
             pl.col("conf_high").alias(f"{name}_high"),
@@ -273,13 +326,22 @@ def main():
     )
     weights = np.where(reliable, 1.0, cfg.get("ambiguous_weight", 0.25))
     subtype = np.where(y == 1, np.where(regimes == "inferred_positive", 2, 1), 0)
-    enzymes = ["CYP2D6", "CYP3A4", "CYP1A2", "CYP2C9"]
+    enzymes = [target_prefix] + [
+        e for e in ["CYP2D6", "CYP3A4", "CYP1A2", "CYP2C9"] if e != target_prefix
+    ]
     tasks = [table[f"{enzyme}_is_TDI"].to_numpy() for enzyme in enzymes]
     for enzyme in enzymes:
         active_direct = np.maximum(table[f"{enzyme}_pIC50_direct_inhibition"].to_numpy(), 4)
         active_tdi = np.maximum(table[f"{enzyme}_pIC50_TDI_condition"].to_numpy(), 4)
         tasks.extend([active_direct, active_tdi, active_tdi - active_direct])
     tasks = np.stack(tasks, axis=1)
+    if cfg.get("primary_screen"):
+        from cyp_primary_supervision import load_primary
+
+        primary, primary_rows = load_primary(source / cfg["primary_screen"], aliases, table)
+        assert not np.isfinite(primary[blind]).any()
+        primary_rows.write_parquet(out / "primary-source-audit.parquet")
+        tasks = np.concatenate([tasks, primary], axis=1)
     audit = table.select("compound_id", "molecule_name").with_columns(
         pl.Series("label", y),
         pl.Series("direct_pIC50", direct),

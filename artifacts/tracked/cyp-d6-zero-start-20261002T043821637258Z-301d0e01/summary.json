@@ -1,0 +1,576 @@
+{
+  "config": {
+    "bootstrap_samples": 1000,
+    "cases": [
+      {
+        "name": "d6-selection",
+        "run_id": "20261002T042715697470Z-2f48e876",
+        "predictions": "d6-selection-oof.parquet",
+        "source": "d6-selection-source.parquet",
+        "selection_control": true,
+        "contrasts": [
+          [
+            "activity_selected",
+            "activity_all"
+          ],
+          [
+            "gate_selected",
+            "activity_selected"
+          ],
+          [
+            "gate_selected",
+            "activity_all"
+          ]
+        ]
+      },
+      {
+        "name": "a4-selection",
+        "run_id": "20261002T042725116238Z-fe96ab3c",
+        "predictions": "a4-selection-oof.parquet",
+        "source": "a4-selection-source.parquet",
+        "selection_control": true,
+        "contrasts": [
+          [
+            "activity_selected",
+            "activity_all"
+          ],
+          [
+            "gate_selected",
+            "activity_selected"
+          ],
+          [
+            "gate_selected",
+            "activity_all"
+          ]
+        ]
+      },
+      {
+        "name": "d6-potency",
+        "run_id": "20261002T043025957609Z-a3d07bb8",
+        "predictions": "d6-potency-oof.parquet",
+        "source": "d6-potency-source.parquet",
+        "selection_control": false,
+        "contrasts": [
+          [
+            "potency_conditional",
+            "potency_all"
+          ],
+          [
+            "potency_gate",
+            "potency_conditional"
+          ],
+          [
+            "potency_gate",
+            "potency_all"
+          ]
+        ]
+      },
+      {
+        "name": "a4-potency",
+        "run_id": "20261002T043105536476Z-8e0b5aca",
+        "predictions": "a4-potency-oof.parquet",
+        "source": "a4-potency-source.parquet",
+        "selection_control": false,
+        "contrasts": [
+          [
+            "potency_conditional",
+            "potency_all"
+          ],
+          [
+            "potency_gate",
+            "potency_conditional"
+          ],
+          [
+            "potency_gate",
+            "potency_all"
+          ]
+        ]
+      }
+    ]
+  },
+  "contrasts": [
+    {
+      "case": "d6-selection",
+      "scope": "all_known",
+      "split_id": "scaffold",
+      "model": "activity_selected",
+      "comparator": "activity_all",
+      "delta": 0.001202177374088717,
+      "ci_low": -0.011482306297536198,
+      "ci_high": 0.013689611703255231
+    },
+    {
+      "case": "d6-selection",
+      "scope": "all_known",
+      "split_id": "scaffold",
+      "model": "gate_selected",
+      "comparator": "activity_selected",
+      "delta": -0.05210460737766596,
+      "ci_low": -0.11136969985549275,
+      "ci_high": 0.005852111509952154
+    },
+    {
+      "case": "d6-selection",
+      "scope": "all_known",
+      "split_id": "scaffold",
+      "model": "gate_selected",
+      "comparator": "activity_all",
+      "delta": -0.05090243000357724,
+      "ci_low": -0.1086815294965335,
+      "ci_high": 0.0067343378410726264
+    },
+    {
+      "case": "d6-selection",
+      "scope": "all_known",
+      "split_id": "umap",
+      "model": "activity_selected",
+      "comparator": "activity_all",
+      "delta": -0.0021323607238927025,
+      "ci_low": -0.01558749747955195,
+      "ci_high": 0.012029014194135233
+    },
+    {
+      "case": "d6-selection",
+      "scope": "all_known",
+      "split_id": "umap",
+      "model": "gate_selected",
+      "comparator": "activity_selected",
+      "delta": -0.04003455367381877,
+      "ci_low": -0.11255353202523162,
+      "ci_high": 0.0299979348824447
+    },
+    {
+      "case": "d6-selection",
+      "scope": "all_known",
+      "split_id": "umap",
+      "model": "gate_selected",
+      "comparator": "activity_all",
+      "delta": -0.042166914397711475,
+      "ci_low": -0.11620061487719585,
+      "ci_high": 0.027016846146348576
+    },
+    {
+      "case": "d6-selection",
+      "scope": "selected",
+      "split_id": "scaffold",
+      "model": "activity_selected",
+      "comparator": "activity_all",
+      "delta": 0.001227821182454042,
+      "ci_low": -0.012198054357927594,
+      "ci_high": 0.013248946968909138
+    },
+    {
+      "case": "d6-selection",
+      "scope": "selected",
+      "split_id": "scaffold",
+      "model": "gate_selected",
+      "comparator": "activity_selected",
+      "delta": -0.05326184312283997,
+      "ci_low": -0.11002010047212085,
+      "ci_high": 0.004112231383250341
+    },
+    {
+      "case": "d6-selection",
+      "scope": "selected",
+      "split_id": "scaffold",
+      "model": "gate_selected",
+      "comparator": "activity_all",
+      "delta": -0.05203402194038593,
+      "ci_low": -0.1076357404868157,
+      "ci_high": 0.004607651663108232
+    },
+    {
+      "case": "d6-selection",
+      "scope": "selected",
+      "split_id": "umap",
+      "model": "activity_selected",
+      "comparator": "activity_all",
+      "delta": -0.002203479371913026,
+      "ci_low": -0.015714923716965406,
+      "ci_high": 0.011983444490297344
+    },
+    {
+      "case": "d6-selection",
+      "scope": "selected",
+      "split_id": "umap",
+      "model": "gate_selected",
+      "comparator": "activity_selected",
+      "delta": -0.04083471909989014,
+      "ci_low": -0.1128166619654296,
+      "ci_high": 0.02958126986847365
+    },
+    {
+      "case": "d6-selection",
+      "scope": "selected",
+      "split_id": "umap",
+      "model": "gate_selected",
+      "comparator": "activity_all",
+      "delta": -0.043038198471803166,
+      "ci_low": -0.11757299015316836,
+      "ci_high": 0.02609780593633622
+    },
+    {
+      "case": "d6-selection",
+      "scope": "weak_or_missing",
+      "split_id": "scaffold",
+      "model": "activity_selected",
+      "comparator": "activity_all",
+      "delta": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "case": "d6-selection",
+      "scope": "weak_or_missing",
+      "split_id": "scaffold",
+      "model": "gate_selected",
+      "comparator": "activity_selected",
+      "delta": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "case": "d6-selection",
+      "scope": "weak_or_missing",
+      "split_id": "scaffold",
+      "model": "gate_selected",
+      "comparator": "activity_all",
+      "delta": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "case": "d6-selection",
+      "scope": "weak_or_missing",
+      "split_id": "umap",
+      "model": "activity_selected",
+      "comparator": "activity_all",
+      "delta": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "case": "d6-selection",
+      "scope": "weak_or_missing",
+      "split_id": "umap",
+      "model": "gate_selected",
+      "comparator": "activity_selected",
+      "delta": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "case": "d6-selection",
+      "scope": "weak_or_missing",
+      "split_id": "umap",
+      "model": "gate_selected",
+      "comparator": "activity_all",
+      "delta": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "case": "a4-selection",
+      "scope": "all_known",
+      "split_id": "scaffold",
+      "model": "activity_selected",
+      "comparator": "activity_all",
+      "delta": -0.1599008758145091,
+      "ci_low": -0.1956789601226367,
+      "ci_high": -0.12248159919734922
+    },
+    {
+      "case": "a4-selection",
+      "scope": "all_known",
+      "split_id": "scaffold",
+      "model": "gate_selected",
+      "comparator": "activity_selected",
+      "delta": -0.011498920650521542,
+      "ci_low": -0.027045024573213672,
+      "ci_high": 0.00410299898902721
+    },
+    {
+      "case": "a4-selection",
+      "scope": "all_known",
+      "split_id": "scaffold",
+      "model": "gate_selected",
+      "comparator": "activity_all",
+      "delta": -0.17139979646503062,
+      "ci_low": -0.210487733632126,
+      "ci_high": -0.13376386184625758
+    },
+    {
+      "case": "a4-selection",
+      "scope": "all_known",
+      "split_id": "umap",
+      "model": "activity_selected",
+      "comparator": "activity_all",
+      "delta": -0.15761653182944635,
+      "ci_low": -0.23428482191310318,
+      "ci_high": -0.07613668004188057
+    },
+    {
+      "case": "a4-selection",
+      "scope": "all_known",
+      "split_id": "umap",
+      "model": "gate_selected",
+      "comparator": "activity_selected",
+      "delta": 0.001421643989647906,
+      "ci_low": -0.01397165814631372,
+      "ci_high": 0.0181323912572704
+    },
+    {
+      "case": "a4-selection",
+      "scope": "all_known",
+      "split_id": "umap",
+      "model": "gate_selected",
+      "comparator": "activity_all",
+      "delta": -0.15619488783979843,
+      "ci_low": -0.23613094032904153,
+      "ci_high": -0.07551952325129639
+    },
+    {
+      "case": "a4-selection",
+      "scope": "selected",
+      "split_id": "scaffold",
+      "model": "activity_selected",
+      "comparator": "activity_all",
+      "delta": 0.10436786867584613,
+      "ci_low": 0.0429050182348742,
+      "ci_high": 0.16855827853525954
+    },
+    {
+      "case": "a4-selection",
+      "scope": "selected",
+      "split_id": "scaffold",
+      "model": "gate_selected",
+      "comparator": "activity_selected",
+      "delta": -0.0016173667447985651,
+      "ci_low": -0.026531353956947723,
+      "ci_high": 0.023913176600937447
+    },
+    {
+      "case": "a4-selection",
+      "scope": "selected",
+      "split_id": "scaffold",
+      "model": "gate_selected",
+      "comparator": "activity_all",
+      "delta": 0.10275050193104757,
+      "ci_low": 0.03836906515522007,
+      "ci_high": 0.16664591488294295
+    },
+    {
+      "case": "a4-selection",
+      "scope": "selected",
+      "split_id": "umap",
+      "model": "activity_selected",
+      "comparator": "activity_all",
+      "delta": 0.044840327615537696,
+      "ci_low": -0.022633989228773146,
+      "ci_high": 0.11809403107143635
+    },
+    {
+      "case": "a4-selection",
+      "scope": "selected",
+      "split_id": "umap",
+      "model": "gate_selected",
+      "comparator": "activity_selected",
+      "delta": 0.011516248507722926,
+      "ci_low": -0.013516909169430722,
+      "ci_high": 0.034771803780427005
+    },
+    {
+      "case": "a4-selection",
+      "scope": "selected",
+      "split_id": "umap",
+      "model": "gate_selected",
+      "comparator": "activity_all",
+      "delta": 0.05635657612326062,
+      "ci_low": -0.00997830147668376,
+      "ci_high": 0.1330882936985668
+    },
+    {
+      "case": "a4-selection",
+      "scope": "weak_or_missing",
+      "split_id": "scaffold",
+      "model": "activity_selected",
+      "comparator": "activity_all",
+      "delta": -0.1530401446018709,
+      "ci_low": -0.1923230254737887,
+      "ci_high": -0.11376981936437859
+    },
+    {
+      "case": "a4-selection",
+      "scope": "weak_or_missing",
+      "split_id": "scaffold",
+      "model": "gate_selected",
+      "comparator": "activity_selected",
+      "delta": -0.03639442150824177,
+      "ci_low": -0.05897586973787456,
+      "ci_high": -0.014876408409404858
+    },
+    {
+      "case": "a4-selection",
+      "scope": "weak_or_missing",
+      "split_id": "scaffold",
+      "model": "gate_selected",
+      "comparator": "activity_all",
+      "delta": -0.18943456611011267,
+      "ci_low": -0.23366704048686116,
+      "ci_high": -0.1412878500635252
+    },
+    {
+      "case": "a4-selection",
+      "scope": "weak_or_missing",
+      "split_id": "umap",
+      "model": "activity_selected",
+      "comparator": "activity_all",
+      "delta": -0.12519759017210888,
+      "ci_low": -0.18967364871367118,
+      "ci_high": -0.05566141761772322
+    },
+    {
+      "case": "a4-selection",
+      "scope": "weak_or_missing",
+      "split_id": "umap",
+      "model": "gate_selected",
+      "comparator": "activity_selected",
+      "delta": -0.017587072610479253,
+      "ci_low": -0.033698269832168025,
+      "ci_high": -0.0002718100580255495
+    },
+    {
+      "case": "a4-selection",
+      "scope": "weak_or_missing",
+      "split_id": "umap",
+      "model": "gate_selected",
+      "comparator": "activity_all",
+      "delta": -0.14278466278258814,
+      "ci_low": -0.21202736976321435,
+      "ci_high": -0.06889942559751218
+    },
+    {
+      "case": "d6-potency",
+      "scope": "all_known",
+      "split_id": "scaffold",
+      "model": "potency_conditional",
+      "comparator": "potency_all",
+      "delta": 0.01900934766578201,
+      "ci_low": -0.010272165151302933,
+      "ci_high": 0.04912897332432988
+    },
+    {
+      "case": "d6-potency",
+      "scope": "all_known",
+      "split_id": "scaffold",
+      "model": "potency_gate",
+      "comparator": "potency_conditional",
+      "delta": 0.0023364618740334825,
+      "ci_low": -0.025044465299291833,
+      "ci_high": 0.02839652482370708
+    },
+    {
+      "case": "d6-potency",
+      "scope": "all_known",
+      "split_id": "scaffold",
+      "model": "potency_gate",
+      "comparator": "potency_all",
+      "delta": 0.02134580953981549,
+      "ci_low": -0.009760326482038326,
+      "ci_high": 0.0538749612607338
+    },
+    {
+      "case": "d6-potency",
+      "scope": "all_known",
+      "split_id": "umap",
+      "model": "potency_conditional",
+      "comparator": "potency_all",
+      "delta": 0.007219181109889752,
+      "ci_low": -0.02273996260055101,
+      "ci_high": 0.034944807744140965
+    },
+    {
+      "case": "d6-potency",
+      "scope": "all_known",
+      "split_id": "umap",
+      "model": "potency_gate",
+      "comparator": "potency_conditional",
+      "delta": 0.016319213940347337,
+      "ci_low": -0.01003181426922102,
+      "ci_high": 0.04308238014153698
+    },
+    {
+      "case": "d6-potency",
+      "scope": "all_known",
+      "split_id": "umap",
+      "model": "potency_gate",
+      "comparator": "potency_all",
+      "delta": 0.02353839505023709,
+      "ci_low": -0.010802538453768247,
+      "ci_high": 0.0577624740540249
+    },
+    {
+      "case": "a4-potency",
+      "scope": "all_known",
+      "split_id": "scaffold",
+      "model": "potency_conditional",
+      "comparator": "potency_all",
+      "delta": 0.037828748943554896,
+      "ci_low": 0.012926495148487796,
+      "ci_high": 0.06196193092422393
+    },
+    {
+      "case": "a4-potency",
+      "scope": "all_known",
+      "split_id": "scaffold",
+      "model": "potency_gate",
+      "comparator": "potency_conditional",
+      "delta": 0.0005757408640119366,
+      "ci_low": -0.023373398195809126,
+      "ci_high": 0.02317061769212105
+    },
+    {
+      "case": "a4-potency",
+      "scope": "all_known",
+      "split_id": "scaffold",
+      "model": "potency_gate",
+      "comparator": "potency_all",
+      "delta": 0.03840448980756683,
+      "ci_low": 0.017347609090703018,
+      "ci_high": 0.05973829348535649
+    },
+    {
+      "case": "a4-potency",
+      "scope": "all_known",
+      "split_id": "umap",
+      "model": "potency_conditional",
+      "comparator": "potency_all",
+      "delta": 0.03018066688031633,
+      "ci_low": -0.0062666132733219925,
+      "ci_high": 0.06614148698605124
+    },
+    {
+      "case": "a4-potency",
+      "scope": "all_known",
+      "split_id": "umap",
+      "model": "potency_gate",
+      "comparator": "potency_conditional",
+      "delta": -0.0009059419958849096,
+      "ci_low": -0.023429301292551736,
+      "ci_high": 0.023278987235038427
+    },
+    {
+      "case": "a4-potency",
+      "scope": "all_known",
+      "split_id": "umap",
+      "model": "potency_gate",
+      "comparator": "potency_all",
+      "delta": 0.02927472488443142,
+      "ci_low": 0.004045738516378823,
+      "ci_high": 0.05517351950326802
+    }
+  ],
+  "no_upload": true,
+  "unknown_classes_never_imputed": true,
+  "limits": "Conditional group resampling of saved fits; protocol and training uncertainty omitted. A4 control establishes a possible selection mechanism, not the realized cause of D6 Live failures."
+}

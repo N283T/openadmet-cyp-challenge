@@ -1,0 +1,45 @@
+{
+  "version": 4,
+  "seed": 20261002,
+  "seeds": [
+    20261002,
+    20261017
+  ],
+  "endpoint": "CYP2D6_is_TDI",
+  "outer_folds": 5,
+  "bag_folds": 5,
+  "inner_folds": 3,
+  "bootstrap_samples": 1000,
+  "split_strategies": [
+    "umap",
+    "scaffold"
+  ],
+  "fixed_assignments": "assignments.parquet",
+  "models": [
+    "fresh_d6_network",
+    "primary_d6_network",
+    "primary_cross_cyp_network",
+    "primary_selection_network"
+  ],
+  "network_epochs": 100,
+  "nested_bag_validation": true,
+  "threshold_grid": "inner_quantiles",
+  "cpu_threads": 4,
+  "policies": [
+    "centered_fold_mean",
+    "majority_vote",
+    "pooled_oof_cut",
+    "single_refit"
+  ],
+  "historical_comparisons": [
+    "control-umap.parquet",
+    "control-scaffold.parquet",
+    "ap-umap.parquet",
+    "ap-scaffold.parquet"
+  ],
+  "scientific_purpose": "Test primary-screen selection as a source of D6 transfer failure: matched baseline, D6 primary auxiliary supervision, cross-CYP primary supervision and D6-primary plus selection-propensity-weighted labels. No unlabeled class is assigned negative. All primary assay values are excluded at each fitting boundary. Evaluate the complete five-model decision procedure on original UMAP/scaffold folds and repeated seeds.",
+  "selection_rule": "Four prespecified matched model arms, no auxiliary-weight grid or historical-score blend. Label-selection weighting is explicitly conditional on missing-at-random, with cap5. Report actual-policy and historical-ranking comparisons; no automatic candidate veto and no upload.",
+  "limitations": "Each outer evaluation excludes all test-group measurements before five-model construction and threshold fitting. Effective model training size is 64 percent of development versus 80 percent for blind deployment; same relative algorithm, smaller evaluation sample. Historical cached whole-ensemble scores are used only for matching retrospective rank-rate diagnostics, never to select nested thresholds. Resampled conditional intervals omit training and protocol-selection uncertainty. Primary-screen values are training-only auxiliary targets or training-only selection-weight covariates, not features available for held-out/blind predictions. Primary coverage is partial and selection weighting cannot identify unseen weak-compound outcomes.",
+  "primary_screen": "primary-screen.csv",
+  "propensity_weight_cap": 5.0
+}
