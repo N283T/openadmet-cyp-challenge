@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "seed": 20261003,
+  "endpoint": "CYP2D6_is_TDI",
+  "inputs": {
+    "oof_scores": "oof_scores.parquet",
+    "test_scores": "test_scores.parquet",
+    "sep15_blind_scores": "sep15_blind_scores.parquet",
+    "aliases": "aliases.parquet",
+    "test_mapping": "test_mapping.parquet",
+    "assignments": "assignments.parquet",
+    "primary_screen": "primary-screen.csv"
+  },
+  "payload_inputs": {
+    "sep13": "payload_sep13.parquet",
+    "sep14": "payload_sep14.parquet",
+    "sep15": "payload_sep15.parquet",
+    "sep18": "payload_sep18.parquet",
+    "sep23": "payload_sep23.parquet",
+    "oct01": "payload_oct01.parquet",
+    "oct02": "payload_oct02.parquet"
+  },
+  "live_mcc": {
+    "sep13": 0.271,
+    "sep14": 0.2786,
+    "sep15": 0.3086,
+    "sep18": 0.1097,
+    "sep23": 0.2348,
+    "oct01": 0.105,
+    "oct02": 0.1177
+  },
+  "transitions": [
+    ["sep13", "sep14"],
+    ["sep14", "sep15"],
+    ["sep15", "sep18"],
+    ["sep15", "sep23"],
+    ["sep18", "sep23"],
+    ["sep15", "oct01"],
+    ["sep15", "oct02"]
+  ],
+  "concordance_columns": [
+    "gate_x_tdi.p_active",
+    "gate_x_tdi_chemeleon.p_active",
+    "pool_lgbm.score",
+    "pool_chemeleon.score",
+    "rank_mean_gates.score",
+    "gate_x_tdi.p_tdi",
+    "official_lgbm.score"
+  ],
+  "payload_summary_columns": ["gate_x_tdi.p_active", "gate_x_tdi_chemeleon.p_active"],
+  "payload_gate_column": "gate_x_tdi.p_active",
+  "permutations": 10000,
+  "split_strategies": ["umap", "scaffold"],
+  "rates": [0.03, 0.04, 0.05, 0.08, 0.10],
+  "gate_filter_taus": [0.2, 0.3, 0.4],
+  "bootstrap_samples": 2000,
+  "primary_enzyme": "CYP2D6",
+  "sensitivity_min_log2fc": 0.0,
+  "blind_call_counts": [49, 60],
+  "blind_tau": 0.3,
+  "blind_gate_morgan_column": "gate_x_tdi.p_active",
+  "blind_gate_chemeleon_column": "gate_x_tdi_chemeleon.p_active",
+  "blind_pool_column": "pool_lgbm.score",
+  "sep15_gate_thresholds": [0.2, 0.3, 0.5],
+  "variants": {
+    "L0_legacy": "Control: per-fold percentile rank of the refitted Sep 15 legacy OOF score",
+    "L1_legacy_x_pa_morgan": "legacy rank x P(D6 primary log2fc < -1) from the Morgan gate",
+    "L2_legacy_x_sqrt_pa_morgan": "legacy rank x sqrt(Morgan gate p_active)",
+    "L3_legacy_x_sqrt_pa_both": "legacy rank x sqrt(Morgan x CheMeleon gate p_active)",
+    "L4_rankmean_legacy_pool": "Equal per-fold percentile-rank mean of legacy and pool_lgbm",
+    "L5_gate_filter_tau0.2": "Legacy ranking restricted to Morgan p_active >= 0.2, then filled",
+    "L5_gate_filter_tau0.3": "Legacy ranking restricted to Morgan p_active >= 0.3, then filled",
+    "L5_gate_filter_tau0.4": "Legacy ranking restricted to Morgan p_active >= 0.4, then filled",
+    "B_pool_lgbm": "Reference: per-fold percentile rank of pool_lgbm"
+  },
+  "rate_selection": "Pooled test-like MCC on the other outer folds; ties go to the lower rate",
+  "status": "Read-only concordance and combination diagnostic; no candidate, submission or upload"
+}
