@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "variant": "L2_legacy_x_sqrt_pa_morgan",
+  "d6_endpoint": "CYP2D6_is_TDI",
+  "a4_endpoint": "CYP3A4_is_TDI",
+  "d6_positive_calls": 49,
+  "a4_positive_calls": 249,
+  "selection_run": "20261002T221918697661Z-2d8d20f5",
+  "score_run": "20261002T215345688167Z-7920b49a",
+  "legacy_run": "20260924T045344348206Z-7e2db311",
+  "legacy_model": "deployed_mean_block",
+  "pool_column": "pool_lgbm.score",
+  "gate_column": "gate_x_tdi.p_active",
+  "sep15_submission": "20260924T050705396203Z-10e1d3ad",
+  "last_sent_submission": "20261002T092348406577Z-4ea606c1",
+  "variants": {
+    "L4_rankmean_legacy_pool": {
+      "role": "primary",
+      "formula": "0.5 * (pct_rank(legacy) + pct_rank(pool_lgbm.score))",
+      "expected": {
+        "shared_sep15": 32,
+        "added": 17,
+        "removed": 17
+      }
+    },
+    "L2_legacy_x_sqrt_pa_morgan": {
+      "role": "alternative",
+      "formula": "pct_rank(legacy) * sqrt(gate_x_tdi.p_active)",
+      "expected": {
+        "shared_sep15": 23,
+        "added": 26,
+        "removed": 26
+      }
+    }
+  },
+  "ranking": "Percentile rank (stable argsort, (rank + 0.5) / n) over the 750 blind compounds sorted by compound_id; top-k by stable argsort of the negated score, identical to run 20261002T221918697661Z-2d8d20f5 Part 3",
+  "a4_policy": "Copy the CYP3A4_is_TDI column of the last sent payload unchanged; it must equal the historical best-scored 249-call vector of the Sep 15 payload",
+  "status": "Packaging only: freezes the blind call vector for candidate registration; no fitting, no upload"
+}

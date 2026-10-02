@@ -1,0 +1,35 @@
+{
+  "source_run": "classification/20261002T223515148996Z-ccb05cf3",
+  "purpose": "Read-only diagnostic of the prepared D6 gate candidates L4 (a08301d2) and L2 (16026b6c): legacy, pool_lgbm and combined ranks, Morgan-gate p_active and similarity-weighted top-10 labelled D6 neighbour positive rate for retained, removed and added calls versus the Sep 15 payload; no candidate or upload",
+  "outputs": {
+    "blind_neighbour_rates.parquet": "11f9bec67bbff2f3b137d70d414b028014f8964c17132a9598b5a276f8e6e053",
+    "call_diagnostics.parquet": "77b99d99c5c42fa62444ff2ec839d16390b2e82d14e95e8c53719bcf103c4148",
+    "changed_calls.csv": "31d590074b15523cdbfa4c31e4e41e9bfb73378182b12b35871f41ffa8de2c05",
+    "group_means.csv": "bd3da5d1ef43123e64551ac3f68c5d8e093b947ea33378298188ad06c2810b4a",
+    "summary.json": "ef2662be90fbc25ee516e07523270f41108d1496887ab29d6e1a7b851ddf4659"
+  },
+  "input_sha256": {
+    "sep15_payload.parquet": "f42170784d0e23515141fb0fcb952b5596d69b55d951c69e26204839fc12e496",
+    "test_scores.parquet": "bbf9244249502405f727f639d20453715ee4e466ef7a2a62aee83cb6cfdc5433",
+    "compounds.parquet": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+    "measurements.parquet": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+    "l4_scores.parquet": "43f166cd34823ea374bc2609729d7cb2eca378e4d4054c6e62ba13f9ace510a9",
+    "l4_prepared.parquet": "f6e2ddb44f86ee11aea1877ff07dc79a737f54cb7f9793e63b924af7893af393",
+    "l2_scores.parquet": "19de8c315c1215858d787d29c73e626f3b86f60d0f69c05cea32bbccf3e1f500",
+    "l2_prepared.parquet": "48c57605cca07396e368abacebc66b38a205cdec7a5158d0f7b0ec10879c3c5d"
+  },
+  "input_originals": {
+    "sep15_payload.parquet": "artifacts/submissions/classification/20260924T050705396203Z-10e1d3ad/predictions.parquet",
+    "test_scores.parquet": "artifacts/runs/classification/20261002T215345688167Z-7920b49a/outputs/test_scores.parquet",
+    "compounds.parquet": "artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+    "measurements.parquet": "artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+    "l4_scores.parquet": "artifacts/runs/classification/20261002T223203072149Z-662a599c/outputs/test_scores.parquet",
+    "l4_prepared.parquet": "artifacts/submissions/classification/20261002T223229553466Z-a08301d2/predictions.parquet",
+    "l2_scores.parquet": "artifacts/runs/classification/20261002T223215615405Z-0def2858/outputs/test_scores.parquet",
+    "l2_prepared.parquet": "artifacts/submissions/classification/20261002T223229749698Z-16026b6c/predictions.parquet"
+  },
+  "config": {
+    "path": "artifacts/runs/classification/20261002T223515148996Z-ccb05cf3/config.json",
+    "sha256": "0b8a46b585f4c5670375b8c8b5482ec43c291335465297431ba3109a750bd117"
+  }
+}

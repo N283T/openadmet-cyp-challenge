@@ -1,0 +1,43 @@
+{
+  "variant": "L4_rankmean_legacy_pool",
+  "role": "primary",
+  "formula": "0.5 * (pct_rank(legacy) + pct_rank(pool_lgbm.score))",
+  "selection_run": "20261002T221918697661Z-2d8d20f5",
+  "score_run": "20261002T215345688167Z-7920b49a",
+  "legacy_run": "20260924T045344348206Z-7e2db311",
+  "sep15_submission": "20260924T050705396203Z-10e1d3ad",
+  "last_sent_submission": "20261002T092348406577Z-4ea606c1",
+  "d6_positive_calls": 49,
+  "d6_boundary_gap": 0.0013333333333332975,
+  "d6_vs_sep15": {
+    "shared_sep15": 32,
+    "added": 17,
+    "removed": 17
+  },
+  "d6_vs_last_sent": {
+    "last_sent_positive_calls": 175,
+    "shared": 42,
+    "added": 7,
+    "removed": 133,
+    "changed": 140
+  },
+  "d6_matches_selection_run_vector": true,
+  "mean_p_active_called": 0.3681520821783049,
+  "mean_p_active_sep15": 0.32153316914219016,
+  "a4_positive_calls": 249,
+  "a4_changed_vs_last_sent": 0,
+  "a4_changed_vs_sep15": 0,
+  "validation": {
+    "track": "classification",
+    "rows": 750,
+    "columns": [
+      "SMILES",
+      "Molecule_Name",
+      "CYP2D6_is_TDI",
+      "CYP3A4_is_TDI"
+    ],
+    "valid": true
+  },
+  "uploaded": false,
+  "prediction_sha256": "f6e2ddb44f86ee11aea1877ff07dc79a737f54cb7f9793e63b924af7893af393"
+}
