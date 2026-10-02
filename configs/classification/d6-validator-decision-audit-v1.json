@@ -1,0 +1,10 @@
+{
+  "legacy_model": "sep15_whole_fresh_nested",
+  "selected_model": "chemeleon_primary_network",
+  "historical_fraction": 0.06533333333333334,
+  "bootstrap_samples": 1000,
+  "purpose": "Audit the inference behind the submitted recommendation, not search for another model or optimize a count.",
+  "historical_fraction_role": "The prior submitted 49/750 policy is a comparator diagnostic only, never a new-model count constraint. Nested refits are recipe analogs, not exact reproductions of historical discovery and deployment.",
+  "timing": "Post-result diagnostic: cannot claim independent predictive validation.",
+  "limits": "Conditional group bootstrap omits fitting and protocol-selection uncertainty. History contains shared Live outcomes and unequal evaluation scopes. No unknown labels imputed or upload authorized."
+}

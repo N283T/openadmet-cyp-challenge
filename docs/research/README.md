@@ -8,6 +8,16 @@ The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experimen
 
 ## Current direction
 
+- **D6 investigation priority is validation transfer and explanation of scored
+  failures.** The [recommendation audit](../analysis/2026-10-02-d6-validator-decision-audit.md)
+  shows that prior historical sign reversals remained unresolved when fresh
+  CheMeleon CV superiority was promoted to submission confidence. The UMAP
+  advantage also disappears against the legacy historical operating-fraction
+  diagnostic; scaffold still favors the new model. This is a comparator-policy
+  defect, not a validated new selector, an exact Live cause or a 49-call constraint.
+  Model changes may test explanations; producing another CV winner does not
+  fulfill the user's diagnosis request. No further candidate or upload is created.
+
 - **Boltz trunk regression is adopted and scored:** two TabPFN member replacements
   improve Live 1A2 ST-RAE `.508530→.506911`; a 20% pocket-plus-molecular LGBM
   improves D6 `.549341→.535721`. C9/A4 retain their best submitted vectors.

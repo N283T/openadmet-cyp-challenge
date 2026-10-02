@@ -1,0 +1,44 @@
+{
+  "source_run": "classification/20261002T130706977633Z-daff4e97",
+  "outputs": {
+    "decision-reference-comparisons.csv": "5f8b15d1aca6b5e44cc55e558c64a351757d710a66d4d21f24d7966c7fa09f9d",
+    "prior-historical-concordance.csv": "875eba4dab2d950291a60aa4ff24719a24e214822569f005796cdf54cede0477",
+    "summary.json": "c92f6ea6a7069a5e1687e0177ca14515fed5252d298f201b64f69fdd3a3e9bdb"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T120425608664Z-ef1d85cf/outputs/combined-oof.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T130706977633Z-daff4e97/inputs/combined-oof.parquet",
+      "sha256": "697484077a0c510b011f0e86bb38298af214783a129117cd4c8b9fc278c5194d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T120425608664Z-ef1d85cf/outputs/matched-rank-fractions.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T130706977633Z-daff4e97/inputs/matched-rank-fractions.csv",
+      "sha256": "e306680185326e1f88ddf18291e14ffe5fc46f8fc1606affe917215815368838",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T041315546883Z-49b9e5f8/outputs/historical-concordance.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T130706977633Z-daff4e97/inputs/historical-concordance.csv",
+      "sha256": "875eba4dab2d950291a60aa4ff24719a24e214822569f005796cdf54cede0477",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/docs/analysis/2026-10-02-d6-chemeleon-live-result.md",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T130706977633Z-daff4e97/inputs/live-result.md",
+      "sha256": "17b575635c78f3fcfb14389238cc01cde25f3fb6d221d72d263520add0e478d6",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "legacy_model": "sep15_whole_fresh_nested",
+    "selected_model": "chemeleon_primary_network",
+    "historical_fraction": 0.06533333333333334,
+    "bootstrap_samples": 1000,
+    "purpose": "Audit the inference behind the submitted recommendation, not search for another model or optimize a count.",
+    "historical_fraction_role": "The prior submitted 49/750 policy is a comparator diagnostic only, never a new-model count constraint. Nested refits are recipe analogs, not exact reproductions of historical discovery and deployment.",
+    "timing": "Post-result diagnostic: cannot claim independent predictive validation.",
+    "limits": "Conditional group bootstrap omits fitting and protocol-selection uncertainty. History contains shared Live outcomes and unequal evaluation scopes. No unknown labels imputed or upload authorized."
+  }
+}
