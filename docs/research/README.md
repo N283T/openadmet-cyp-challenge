@@ -35,6 +35,29 @@ The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experimen
   See [RL0218](2026-10.md#rl0218--sizing-the-d6-live-gain-and-attributing-it)
   and the [gain analysis](../analysis/2026-10-03-d6-live-gain-analysis.md).
 
+- **The pseudo-negative device is validated by non-circular evidence; the rate
+  question is not.** The relabelling rule is measured directly where labels
+  exist: 0 positives among 638 labelled 1A2/2C9/3A4 rows at primary
+  `log2fc >= -0.25`, exact 95% upper bound `0.47%`, and the cut sits at the end
+  of a 638-row zero-positive plateau. Inducing the D6 coverage defect on 3A4 and
+  repairing it recovers the whole recoverable gap on labels no arm saw
+  (`+.0425 [+.0099, +.0744]` broad, `+.2197 [+.1721, +.2617]` at the identified
+  composition, against a screened ceiling of `+.0178` and `+.2015`). The
+  label-set conflict resolves as a statement about population: the published
+  `7.06%` prevalence identifies the blind scored set as `phi = .308-.326`
+  strong-primary-like, and at that composition `pool_lgbm` beats the
+  official-only control by `+.064` to `+.114` with intervals excluding zero,
+  crossing over only at `phi >= .85`, which prevalence excludes. Under a
+  strong-primary-only metric it does not beat the control at all, and
+  `legacy_sep15_refit` stays best there. The A4 reversal of RL0205 is located in
+  the missing-primary stratum (`8.94%` positive), not the relabelled one, so it
+  is not evidence against the device. With the rate grid extended to 50% the
+  optimum is interior at 94-112 blind calls under both metrics, but the span from
+  49 calls is only `+.009` to `+.019`, below the Live resolution. The next probe
+  is pre-registered, not sent.
+  See [RL0219](2026-10.md#rl0219--validating-the-pseudo-negative-device-without-using-it-as-the-yardstick)
+  and the [validation](../analysis/2026-10-03-pseudo-negative-validation.md).
+
 - **A4 is diagnosed and deliberately unchanged.** Live rank 1 is `+0.21`
   pooled bootstrap standard deviations over rank 2 and the full-test Interim
   board places the same vector 4th, so the lead is not resolved. The
