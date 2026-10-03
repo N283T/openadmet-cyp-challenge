@@ -1,0 +1,1940 @@
+{
+  "config": {
+    "version": 1,
+    "seed": 20261003,
+    "inputs": {
+      "compounds": "compounds.parquet",
+      "measurements": "measurements.parquet",
+      "aliases": "aliases.parquet",
+      "test_mapping": "test_mapping.parquet",
+      "primary_screen": "primary-screen.csv",
+      "emax": "emax-train.csv",
+      "testlike_oof": "testlike-pool-oof.parquet"
+    },
+    "alpha": 0.05,
+    "pseudo_negative_min_log2fc": -0.25,
+    "borderline_min_log2fc": -0.5,
+    "cut_from": 0.0,
+    "cut_to": -1.5,
+    "cut_step": 0.05,
+    "overturn_rates": [
+      0.0653333333333333,
+      0.1
+    ],
+    "overturn_step": 2,
+    "overturn_limit": 400,
+    "enzymes": [
+      "CYP1A2",
+      "CYP2C9",
+      "CYP2D6",
+      "CYP3A4"
+    ],
+    "validating_enzymes": [
+      "CYP1A2",
+      "CYP2C9",
+      "CYP3A4"
+    ],
+    "question": "Is the pseudo-negative assumption true where it can be measured, and how many hidden D6 positives would overturn the pool-versus-official ranking",
+    "status": "Validation-design probe; nothing fitted, no candidate, submission or upload"
+  },
+  "provenance": [
+    {
+      "enzyme": "CYP1A2",
+      "raw_emax_labelled": 1414,
+      "raw_emax_positive": 23,
+      "raw_emax_unlinked": 1,
+      "raw_emax_without_primary": 1,
+      "canonical_labelled": 1413,
+      "canonical_positive": 23,
+      "canonical_without_primary": 0,
+      "labelled_max_log2fc": 2.702537762,
+      "screened_molecules": 4376
+    },
+    {
+      "enzyme": "CYP2C9",
+      "raw_emax_labelled": 1285,
+      "raw_emax_positive": 38,
+      "raw_emax_unlinked": 0,
+      "raw_emax_without_primary": 0,
+      "canonical_labelled": 1285,
+      "canonical_positive": 38,
+      "canonical_without_primary": 0,
+      "labelled_max_log2fc": 0.2330692382,
+      "screened_molecules": 4376
+    },
+    {
+      "enzyme": "CYP2D6",
+      "raw_emax_labelled": 1498,
+      "raw_emax_positive": 324,
+      "raw_emax_unlinked": 1,
+      "raw_emax_without_primary": 3,
+      "canonical_labelled": 1497,
+      "canonical_positive": 324,
+      "canonical_without_primary": 2,
+      "labelled_max_log2fc": -0.5916683612,
+      "screened_molecules": 4376
+    },
+    {
+      "enzyme": "CYP3A4",
+      "raw_emax_labelled": 3584,
+      "raw_emax_positive": 764,
+      "raw_emax_unlinked": 0,
+      "raw_emax_without_primary": 1768,
+      "canonical_labelled": 3584,
+      "canonical_positive": 764,
+      "canonical_without_primary": 1768,
+      "labelled_max_log2fc": 0.2722846542,
+      "screened_molecules": 4376
+    }
+  ],
+  "primary_source_rows": 17504,
+  "pooled_weak_primary": {
+    "enzyme": "pooled_1A2_2C9_3A4",
+    "stratum": "weak_primary",
+    "n": 638,
+    "positives": 0,
+    "rate": 0.0,
+    "upper_one_sided": 0.0046844984807445575,
+    "ci_low": 0.0,
+    "ci_high": 0.005765259456623519
+  },
+  "strata": [
+    {
+      "enzyme": "CYP1A2",
+      "stratum": "weak_primary",
+      "n": 130,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.02278060709122924,
+      "ci_low": 0.0,
+      "ci_high": 0.027977178415451696
+    },
+    {
+      "enzyme": "CYP1A2",
+      "stratum": "borderline",
+      "n": 122,
+      "positives": 1,
+      "rate": 0.00819672131147541,
+      "upper_one_sided": 0.03829257426380503,
+      "ci_low": 0.00020750148485297826,
+      "ci_high": 0.04482265743309292
+    },
+    {
+      "enzyme": "CYP1A2",
+      "stratum": "primary_hit",
+      "n": 1161,
+      "positives": 22,
+      "rate": 0.018949181739879414,
+      "upper_one_sided": 0.026948506297158163,
+      "ci_low": 0.011912500340242565,
+      "ci_high": 0.028549398136785302
+    },
+    {
+      "enzyme": "CYP1A2",
+      "stratum": "no_primary",
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "enzyme": "CYP2C9",
+      "stratum": "weak_primary",
+      "n": 161,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.018434990637976174,
+      "ci_low": 0.0,
+      "ci_high": 0.022651801413642307
+    },
+    {
+      "enzyme": "CYP2C9",
+      "stratum": "borderline",
+      "n": 249,
+      "positives": 3,
+      "rate": 0.012048192771084338,
+      "upper_one_sided": 0.030843061054801103,
+      "ci_low": 0.002491552186887233,
+      "ci_high": 0.03480422323403794
+    },
+    {
+      "enzyme": "CYP2C9",
+      "stratum": "primary_hit",
+      "n": 875,
+      "positives": 35,
+      "rate": 0.04,
+      "upper_one_sided": 0.05268590177889098,
+      "ci_low": 0.028016841632786643,
+      "ci_high": 0.05519363585833556
+    },
+    {
+      "enzyme": "CYP2C9",
+      "stratum": "no_primary",
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "enzyme": "CYP2D6",
+      "stratum": "weak_primary",
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "enzyme": "CYP2D6",
+      "stratum": "borderline",
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "enzyme": "CYP2D6",
+      "stratum": "primary_hit",
+      "n": 1495,
+      "positives": 324,
+      "rate": 0.21672240802675585,
+      "upper_one_sided": 0.23499011623078095,
+      "ci_low": 0.19607552676261789,
+      "ci_high": 0.2384881533458145
+    },
+    {
+      "enzyme": "CYP2D6",
+      "stratum": "no_primary",
+      "n": 2,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.776393202250021,
+      "ci_low": 0.0,
+      "ci_high": 0.841886116991581
+    },
+    {
+      "enzyme": "CYP3A4",
+      "stratum": "weak_primary",
+      "n": 347,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.00859607486323134,
+      "ci_low": 0.0,
+      "ci_high": 0.01057446952574199
+    },
+    {
+      "enzyme": "CYP3A4",
+      "stratum": "borderline",
+      "n": 178,
+      "positives": 1,
+      "rate": 0.0056179775280898875,
+      "upper_one_sided": 0.026372284802073202,
+      "ci_low": 0.00014222476141578447,
+      "ci_high": 0.030902347952644373
+    },
+    {
+      "enzyme": "CYP3A4",
+      "stratum": "primary_hit",
+      "n": 1291,
+      "positives": 605,
+      "rate": 0.4686289697908598,
+      "upper_one_sided": 0.49189655585346687,
+      "ci_low": 0.4411189111915794,
+      "ci_high": 0.49628216554374854
+    },
+    {
+      "enzyme": "CYP3A4",
+      "stratum": "no_primary",
+      "n": 1768,
+      "positives": 158,
+      "rate": 0.08936651583710407,
+      "upper_one_sided": 0.1013212959461013,
+      "ci_low": 0.07647619453226254,
+      "ci_high": 0.10363763664578286
+    },
+    {
+      "enzyme": "pooled_1A2_2C9_3A4",
+      "stratum": "weak_primary",
+      "n": 638,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.0046844984807445575,
+      "ci_low": 0.0,
+      "ci_high": 0.005765259456623519
+    },
+    {
+      "enzyme": "pooled_1A2_2C9_3A4",
+      "stratum": "borderline",
+      "n": 549,
+      "positives": 5,
+      "rate": 0.009107468123861567,
+      "upper_one_sided": 0.01905340610760491,
+      "ci_low": 0.0029635948922175455,
+      "ci_high": 0.021124972092080935
+    },
+    {
+      "enzyme": "pooled_1A2_2C9_3A4",
+      "stratum": "primary_hit",
+      "n": 3327,
+      "positives": 662,
+      "rate": 0.1989780583107905,
+      "upper_one_sided": 0.21070740872999222,
+      "ci_low": 0.18553108442771143,
+      "ci_high": 0.21295620014676062
+    },
+    {
+      "enzyme": "pooled_1A2_2C9_3A4",
+      "stratum": "no_primary",
+      "n": 1768,
+      "positives": 158,
+      "rate": 0.08936651583710407,
+      "upper_one_sided": 0.1013212959461013,
+      "ci_low": 0.07647619453226254,
+      "ci_high": 0.10363763664578286
+    }
+  ],
+  "cut_curve": [
+    {
+      "scope": "CYP1A2",
+      "cut": 0.0,
+      "n": 30,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.09503385285530411,
+      "ci_low": 0.0,
+      "ci_high": 0.11570330822202778
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": 0.0,
+      "n": 3,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.6315968501359612,
+      "ci_low": 0.0,
+      "ci_high": 0.7075982261787133
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": 0.0,
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": 0.0,
+      "n": 81,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.03630878209190426,
+      "ci_low": 0.0,
+      "ci_high": 0.04452026245632174
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": 0.0,
+      "n": 114,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.02593608201362844,
+      "ci_low": 0.0,
+      "ci_high": 0.031840654083474196
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.05,
+      "n": 30,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.09503385285530411,
+      "ci_low": 0.0,
+      "ci_high": 0.11570330822202778
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.05,
+      "n": 3,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.6315968501359612,
+      "ci_low": 0.0,
+      "ci_high": 0.7075982261787133
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.05,
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.05,
+      "n": 123,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.02406134393764123,
+      "ci_low": 0.0,
+      "ci_high": 0.029545625527072385
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.05,
+      "n": 156,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.019020201125919445,
+      "ci_low": 0.0,
+      "ci_high": 0.023369271591380202
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.1,
+      "n": 30,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.09503385285530411,
+      "ci_low": 0.0,
+      "ci_high": 0.11570330822202778
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.1,
+      "n": 3,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.6315968501359612,
+      "ci_low": 0.0,
+      "ci_high": 0.7075982261787133
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.1,
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.1,
+      "n": 179,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.016596666745133146,
+      "ci_low": 0.0,
+      "ci_high": 0.020397366050582098
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.1,
+      "n": 212,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.014031441295053348,
+      "ci_low": 0.0,
+      "ci_high": 0.017249862516595875
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.15,
+      "n": 43,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.06729675341386782,
+      "ci_low": 0.0,
+      "ci_high": 0.08221112115413848
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.15,
+      "n": 10,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.2588655508930522,
+      "ci_low": 0.0,
+      "ci_high": 0.3084971078187607
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.15,
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.15,
+      "n": 248,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.012006900548183206,
+      "ci_low": 0.0,
+      "ci_high": 0.014764434812554551
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.15,
+      "n": 301,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.00990323570269468,
+      "ci_low": 0.0,
+      "ci_high": 0.01218062173549235
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.2,
+      "n": 89,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.03309972123627414,
+      "ci_low": 0.0,
+      "ci_high": 0.04060085754963183
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.2,
+      "n": 81,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.03630878209190426,
+      "ci_low": 0.0,
+      "ci_high": 0.04452026245632174
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.2,
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.2,
+      "n": 303,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.009838190424385856,
+      "ci_low": 0.0,
+      "ci_high": 0.012100710022079256
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.2,
+      "n": 473,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.006313457878419014,
+      "ci_low": 0.0,
+      "ci_high": 0.00776856696823017
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.25,
+      "n": 130,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.02278060709122924,
+      "ci_low": 0.0,
+      "ci_high": 0.027977178415451696
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.25,
+      "n": 161,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.018434990637976174,
+      "ci_low": 0.0,
+      "ci_high": 0.022651801413642307
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.25,
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.25,
+      "n": 347,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.00859607486323134,
+      "ci_low": 0.0,
+      "ci_high": 0.01057446952574199
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.25,
+      "n": 638,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.0046844984807445575,
+      "ci_low": 0.0,
+      "ci_high": 0.005765259456623519
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.3,
+      "n": 164,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.018100835987050624,
+      "ci_low": 0.0,
+      "ci_high": 0.022242082203801514
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.3,
+      "n": 225,
+      "positives": 1,
+      "rate": 0.0044444444444444444,
+      "upper_one_sided": 0.020909240989946717,
+      "ci_low": 0.00011251726049946525,
+      "ci_high": 0.02451274736060036
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.3,
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.3,
+      "n": 391,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.007632443214129579,
+      "ci_low": 0.0,
+      "ci_high": 0.009390109284315641
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.3,
+      "n": 780,
+      "positives": 1,
+      "rate": 0.001282051282051282,
+      "upper_one_sided": 0.006067301097728053,
+      "ci_low": 3.245820140616886e-05,
+      "ci_high": 0.0071222344353765715
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.35,
+      "n": 192,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.01548167961867405,
+      "ci_low": 0.0,
+      "ci_high": 0.01902952216877982
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.35,
+      "n": 277,
+      "positives": 1,
+      "rate": 0.0036101083032490976,
+      "upper_one_sided": 0.01701056451519871,
+      "ci_low": 9.139585196877252e-05,
+      "ci_high": 0.019949034584804567
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.35,
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.35,
+      "n": 431,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.006926554994181234,
+      "ci_low": 0.0,
+      "ci_high": 0.008522362060695819
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.35,
+      "n": 900,
+      "positives": 1,
+      "rate": 0.0011111111111111111,
+      "upper_one_sided": 0.00526001006242321,
+      "ci_low": 2.8130502090327878e-05,
+      "ci_high": 0.0061750145570810926
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.4,
+      "n": 216,
+      "positives": 1,
+      "rate": 0.004629629629629629,
+      "upper_one_sided": 0.021772917667370443,
+      "ci_low": 0.00011720520493457797,
+      "ci_high": 0.025523321937980025
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.4,
+      "n": 326,
+      "positives": 2,
+      "rate": 0.006134969325153374,
+      "upper_one_sided": 0.019185401898173155,
+      "ci_low": 0.0007438386905400908,
+      "ci_high": 0.02198473929142969
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.4,
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.4,
+      "n": 458,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.0065195550372723595,
+      "ci_low": 0.0,
+      "ci_high": 0.008021972809557413
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.4,
+      "n": 1000,
+      "positives": 3,
+      "rate": 0.003,
+      "upper_one_sided": 0.007735244718479458,
+      "ci_low": 0.0006190999316495713,
+      "ci_high": 0.008742023238478303
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.45,
+      "n": 233,
+      "positives": 1,
+      "rate": 0.004291845493562232,
+      "upper_one_sided": 0.020197090353315884,
+      "ci_low": 0.00010865421680721745,
+      "ci_high": 0.023679354138554612
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.45,
+      "n": 362,
+      "positives": 3,
+      "rate": 0.008287292817679558,
+      "upper_one_sided": 0.021278671723853514,
+      "ci_low": 0.0017123105756847784,
+      "ci_high": 0.024026730650403096
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.45,
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.45,
+      "n": 490,
+      "positives": 0,
+      "rate": 0.0,
+      "upper_one_sided": 0.006095088457684659,
+      "ci_low": 0.0,
+      "ci_high": 0.007500058553297495
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.45,
+      "n": 1085,
+      "positives": 4,
+      "rate": 0.003686635944700461,
+      "upper_one_sided": 0.008416403083440353,
+      "ci_low": 0.0010053697547577967,
+      "ci_high": 0.009412131712906396
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.5,
+      "n": 252,
+      "positives": 1,
+      "rate": 0.003968253968253968,
+      "upper_one_sided": 0.018685599138197548,
+      "ci_low": 0.00010046244531168663,
+      "ci_high": 0.02191018398142621
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.5,
+      "n": 410,
+      "positives": 3,
+      "rate": 0.007317073170731708,
+      "upper_one_sided": 0.018801976204447724,
+      "ci_low": 0.0015115057803889676,
+      "ci_high": 0.0212336571237164
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.5,
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.5,
+      "n": 525,
+      "positives": 1,
+      "rate": 0.0019047619047619048,
+      "upper_one_sided": 0.009003777908416307,
+      "ci_low": 4.8223233383051114e-05,
+      "ci_high": 0.010566562271517742
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.5,
+      "n": 1187,
+      "positives": 5,
+      "rate": 0.004212299915754001,
+      "upper_one_sided": 0.008836256212212519,
+      "ci_low": 0.0013690938832760014,
+      "ci_high": 0.009802516557054382
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.55,
+      "n": 265,
+      "positives": 1,
+      "rate": 0.0037735849056603774,
+      "upper_one_sided": 0.017775418086689046,
+      "ci_low": 9.553433435874135e-05,
+      "ci_high": 0.020844606093431552
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.55,
+      "n": 457,
+      "positives": 4,
+      "rate": 0.0087527352297593,
+      "upper_one_sided": 0.019916855571184132,
+      "ci_low": 0.0023898277781022035,
+      "ci_high": 0.02225783670583688
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.55,
+      "n": 0,
+      "positives": 0,
+      "rate": null,
+      "upper_one_sided": null,
+      "ci_low": null,
+      "ci_high": null
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.55,
+      "n": 554,
+      "positives": 1,
+      "rate": 0.0018050541516245488,
+      "upper_one_sided": 0.008534053085137267,
+      "ci_low": 4.569897018232412e-05,
+      "ci_high": 0.010015720022332943
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.55,
+      "n": 1276,
+      "positives": 6,
+      "rate": 0.004702194357366771,
+      "upper_one_sided": 0.00925963753397351,
+      "ci_low": 0.0017275181780654965,
+      "ci_high": 0.010206407796719925
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.6,
+      "n": 276,
+      "positives": 2,
+      "rate": 0.007246376811594203,
+      "upper_one_sided": 0.02263397440205104,
+      "ci_low": 0.0008787777488155591,
+      "ci_high": 0.025929812134176788
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.6,
+      "n": 492,
+      "positives": 5,
+      "rate": 0.01016260162601626,
+      "upper_one_sided": 0.021248418380236958,
+      "ci_low": 0.0033077722916869563,
+      "ci_high": 0.023555761040289128
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.6,
+      "n": 2,
+      "positives": 1,
+      "rate": 0.5,
+      "upper_one_sided": 0.9746794344808963,
+      "ci_low": 0.01257911709342505,
+      "ci_high": 0.9874208829065749
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.6,
+      "n": 574,
+      "positives": 1,
+      "rate": 0.0017421602787456446,
+      "upper_one_sided": 0.00823766874195351,
+      "ci_low": 4.4106706685749125e-05,
+      "ci_high": 0.009668129236005765
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.6,
+      "n": 1342,
+      "positives": 8,
+      "rate": 0.005961251862891207,
+      "upper_one_sided": 0.01073029280855626,
+      "ci_low": 0.002577054090521978,
+      "ci_high": 0.011712087602802323
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.65,
+      "n": 285,
+      "positives": 2,
+      "rate": 0.007017543859649123,
+      "upper_one_sided": 0.021924607253499612,
+      "ci_low": 0.0008509898389729852,
+      "ci_high": 0.025118482724426048
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.65,
+      "n": 530,
+      "positives": 5,
+      "rate": 0.009433962264150943,
+      "upper_one_sided": 0.01973289205548799,
+      "ci_low": 0.0030700764908516004,
+      "ci_high": 0.021877508635831714
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.65,
+      "n": 20,
+      "positives": 6,
+      "rate": 0.3,
+      "upper_one_sided": 0.5078184066147933,
+      "ci_low": 0.11893159040572769,
+      "ci_high": 0.5427891822762891
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.65,
+      "n": 592,
+      "positives": 2,
+      "rate": 0.0033783783783783786,
+      "upper_one_sided": 0.010596267051461956,
+      "ci_low": 0.00040939947335087533,
+      "ci_high": 0.012150130332348984
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.65,
+      "n": 1407,
+      "positives": 9,
+      "rate": 0.006396588486140725,
+      "upper_one_sided": 0.011135607254843461,
+      "ci_low": 0.0029289758086309932,
+      "ci_high": 0.012107846199192642
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.7,
+      "n": 295,
+      "positives": 2,
+      "rate": 0.006779661016949152,
+      "upper_one_sided": 0.021186814664558195,
+      "ci_low": 0.0008221055389331354,
+      "ci_high": 0.02427455013791224
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.7,
+      "n": 564,
+      "positives": 8,
+      "rate": 0.014184397163120567,
+      "upper_one_sided": 0.02544744346976765,
+      "ci_low": 0.006143179905377818,
+      "ci_high": 0.027756822347802294
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.7,
+      "n": 55,
+      "positives": 17,
+      "rate": 0.3090909090909091,
+      "upper_one_sided": 0.426827443875214,
+      "ci_low": 0.19144641143362157,
+      "ci_high": 0.44812974534377464
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.7,
+      "n": 617,
+      "positives": 2,
+      "rate": 0.0032414910858995136,
+      "upper_one_sided": 0.010168415805933768,
+      "ci_low": 0.0003928009594226644,
+      "ci_high": 0.011659908187079878
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.7,
+      "n": 1476,
+      "positives": 12,
+      "rate": 0.008130081300813009,
+      "upper_one_sided": 0.013139256307678726,
+      "ci_low": 0.004207783599710613,
+      "ci_high": 0.014158509082333952
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.75,
+      "n": 306,
+      "positives": 2,
+      "rate": 0.006535947712418301,
+      "upper_one_sided": 0.020430546177955543,
+      "ci_low": 0.0007925160031020938,
+      "ci_high": 0.02340938643080922
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.75,
+      "n": 600,
+      "positives": 10,
+      "rate": 0.016666666666666666,
+      "upper_one_sided": 0.02810635894210657,
+      "ci_low": 0.008020507036798897,
+      "ci_high": 0.03043645949892882
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.75,
+      "n": 86,
+      "positives": 23,
+      "rate": 0.26744186046511625,
+      "upper_one_sided": 0.3571297661415833,
+      "ci_low": 0.17768961933171232,
+      "ci_high": 0.3737989239361143
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.75,
+      "n": 644,
+      "positives": 5,
+      "rate": 0.007763975155279503,
+      "upper_one_sided": 0.01625479403164998,
+      "ci_low": 0.0025256080674905214,
+      "ci_high": 0.018024882935501106
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.75,
+      "n": 1550,
+      "positives": 17,
+      "rate": 0.01096774193548387,
+      "upper_one_sided": 0.016405980496871794,
+      "ci_low": 0.006401732286802745,
+      "ci_high": 0.017502510682194494
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.8,
+      "n": 325,
+      "positives": 2,
+      "rate": 0.006153846153846154,
+      "upper_one_sided": 0.019244043613569815,
+      "ci_low": 0.0007461301020233598,
+      "ci_high": 0.022051840912452096
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.8,
+      "n": 628,
+      "positives": 11,
+      "rate": 0.01751592356687898,
+      "upper_one_sided": 0.028826455023062296,
+      "ci_low": 0.008775495673990325,
+      "ci_high": 0.031124302845354886
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.8,
+      "n": 121,
+      "positives": 29,
+      "rate": 0.2396694214876033,
+      "upper_one_sided": 0.3120943937314925,
+      "ci_low": 0.16676088726907343,
+      "ci_high": 0.3257378878391537
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.8,
+      "n": 670,
+      "positives": 10,
+      "rate": 0.014925373134328358,
+      "upper_one_sided": 0.025185217476930682,
+      "ci_low": 0.0071798899250436485,
+      "ci_high": 0.027276551356569912
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.8,
+      "n": 1623,
+      "positives": 23,
+      "rate": 0.014171287738755391,
+      "upper_one_sided": 0.020017887399489735,
+      "ci_low": 0.009004023679641862,
+      "ci_high": 0.021188407133638214
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.85,
+      "n": 337,
+      "positives": 3,
+      "rate": 0.008902077151335312,
+      "upper_one_sided": 0.022846061620498636,
+      "ci_low": 0.001839598218657447,
+      "ci_high": 0.025793865817788558
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.85,
+      "n": 668,
+      "positives": 11,
+      "rate": 0.016467065868263474,
+      "upper_one_sided": 0.027109689128044068,
+      "ci_low": 0.008248225657555942,
+      "ci_high": 0.02927275506805867
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.85,
+      "n": 175,
+      "positives": 38,
+      "rate": 0.21714285714285714,
+      "upper_one_sided": 0.27469990864748145,
+      "ci_low": 0.15848052366202678,
+      "ci_high": 0.2856424393166922
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.85,
+      "n": 698,
+      "positives": 15,
+      "rate": 0.02148997134670487,
+      "upper_one_sided": 0.03289830190241048,
+      "ci_low": 0.012076467278105041,
+      "ci_high": 0.03519704182026602
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.85,
+      "n": 1703,
+      "positives": 29,
+      "rate": 0.017028772753963594,
+      "upper_one_sided": 0.02314642496309139,
+      "ci_low": 0.011433336256261634,
+      "ci_high": 0.0243651923523363
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.9,
+      "n": 350,
+      "positives": 3,
+      "rate": 0.008571428571428572,
+      "upper_one_sided": 0.02200326538588863,
+      "ci_low": 0.0017711347806370593,
+      "ci_high": 0.02484371110923991
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.9,
+      "n": 713,
+      "positives": 13,
+      "rate": 0.0182328190743338,
+      "upper_one_sided": 0.02883219340361236,
+      "ci_low": 0.009743028626555315,
+      "ci_high": 0.030976872424927793
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.9,
+      "n": 231,
+      "positives": 46,
+      "rate": 0.19913419913419914,
+      "upper_one_sided": 0.24732190008416913,
+      "ci_low": 0.14963522027528312,
+      "ci_high": 0.25653195177580435
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.9,
+      "n": 720,
+      "positives": 18,
+      "rate": 0.025,
+      "upper_one_sided": 0.03684773911908234,
+      "ci_low": 0.014882361081716292,
+      "ci_high": 0.039223810843150624
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.9,
+      "n": 1783,
+      "positives": 34,
+      "rate": 0.019068984856982614,
+      "upper_one_sided": 0.02530693581931649,
+      "ci_low": 0.013241074663581775,
+      "ci_high": 0.026545824241000195
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -0.95,
+      "n": 362,
+      "positives": 3,
+      "rate": 0.008287292817679558,
+      "upper_one_sided": 0.021278671723853514,
+      "ci_low": 0.0017123105756847784,
+      "ci_high": 0.024026730650403096
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -0.95,
+      "n": 750,
+      "positives": 14,
+      "rate": 0.018666666666666668,
+      "upper_one_sided": 0.029028431484809467,
+      "ci_low": 0.010241878615989448,
+      "ci_high": 0.031121326989161823
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -0.95,
+      "n": 256,
+      "positives": 53,
+      "rate": 0.20703125,
+      "upper_one_sided": 0.25309240532815386,
+      "ci_low": 0.15909676373371912,
+      "ci_high": 0.26188825530273624
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -0.95,
+      "n": 738,
+      "positives": 21,
+      "rate": 0.028455284552845527,
+      "upper_one_sided": 0.04071904368038651,
+      "ci_low": 0.017698711560861505,
+      "ci_high": 0.0431692290163368
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -0.95,
+      "n": 1850,
+      "positives": 38,
+      "rate": 0.02054054054054054,
+      "upper_one_sided": 0.026837331773195524,
+      "ci_low": 0.014575709718041516,
+      "ci_high": 0.028085358853912373
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -1.0,
+      "n": 370,
+      "positives": 3,
+      "rate": 0.008108108108108109,
+      "upper_one_sided": 0.02082155208950512,
+      "ci_low": 0.0016752182115026817,
+      "ci_high": 0.02351128696849875
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -1.0,
+      "n": 790,
+      "positives": 20,
+      "rate": 0.02531645569620253,
+      "upper_one_sided": 0.03657593391423302,
+      "ci_low": 0.015530977751811349,
+      "ci_high": 0.038829391563138325
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -1.0,
+      "n": 297,
+      "positives": 66,
+      "rate": 0.2222222222222222,
+      "upper_one_sided": 0.26557741725477874,
+      "ci_low": 0.1762382543538434,
+      "ci_high": 0.2738427267419502
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -1.0,
+      "n": 763,
+      "positives": 28,
+      "rate": 0.03669724770642202,
+      "upper_one_sided": 0.04996915962488122,
+      "ci_low": 0.024520998985840856,
+      "ci_high": 0.05260296658680305
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -1.0,
+      "n": 1923,
+      "positives": 51,
+      "rate": 0.0265210608424337,
+      "upper_one_sided": 0.03337318241520775,
+      "ci_low": 0.019808983299068706,
+      "ci_high": 0.0347241987801508
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -1.05,
+      "n": 379,
+      "positives": 3,
+      "rate": 0.0079155672823219,
+      "upper_one_sided": 0.020330214106313502,
+      "ci_low": 0.0016353644784863574,
+      "ci_high": 0.022957223999729576
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -1.05,
+      "n": 828,
+      "positives": 20,
+      "rate": 0.024154589371980676,
+      "upper_one_sided": 0.0349066050384575,
+      "ci_low": 0.014815241433917218,
+      "ci_high": 0.037059197156121056
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -1.05,
+      "n": 324,
+      "positives": 71,
+      "rate": 0.2191358024691358,
+      "upper_one_sided": 0.26032964251858187,
+      "ci_low": 0.17529960460577845,
+      "ci_high": 0.26818987039649406
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -1.05,
+      "n": 777,
+      "positives": 33,
+      "rate": 0.04247104247104247,
+      "upper_one_sided": 0.05638031018713663,
+      "ci_low": 0.02941245792988288,
+      "ci_high": 0.05913065777911538
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -1.05,
+      "n": 1984,
+      "positives": 56,
+      "rate": 0.028225806451612902,
+      "upper_one_sided": 0.035137679248888616,
+      "ci_low": 0.021390355546428024,
+      "ci_high": 0.03649848128955369
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -1.1,
+      "n": 389,
+      "positives": 3,
+      "rate": 0.007712082262210797,
+      "upper_one_sided": 0.019810784235992696,
+      "ci_low": 0.001593249285927065,
+      "ci_high": 0.02237144346398195
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -1.1,
+      "n": 872,
+      "positives": 22,
+      "rate": 0.02522935779816514,
+      "upper_one_sided": 0.03583122647519737,
+      "ci_low": 0.015877113229971544,
+      "ci_high": 0.03794946499129469
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -1.1,
+      "n": 367,
+      "positives": 88,
+      "rate": 0.23978201634877383,
+      "upper_one_sided": 0.2793023725695434,
+      "ci_low": 0.19699169141506215,
+      "ci_high": 0.2868265393465252
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -1.1,
+      "n": 793,
+      "positives": 40,
+      "rate": 0.05044136191677175,
+      "upper_one_sided": 0.0651580464301041,
+      "ci_low": 0.03627712928359516,
+      "ci_high": 0.06805635851445418
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -1.1,
+      "n": 2054,
+      "positives": 65,
+      "rate": 0.03164556962025317,
+      "upper_one_sided": 0.03876109943068202,
+      "ci_low": 0.024506502705521453,
+      "ci_high": 0.040158793217257724
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -1.15,
+      "n": 394,
+      "positives": 3,
+      "rate": 0.007614213197969543,
+      "upper_one_sided": 0.019560896969910063,
+      "ci_low": 0.0015729947881730644,
+      "ci_high": 0.02208962179584157
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -1.15,
+      "n": 931,
+      "positives": 24,
+      "rate": 0.02577873254564984,
+      "upper_one_sided": 0.03606355466485379,
+      "ci_low": 0.01658518553193629,
+      "ci_high": 0.038115020634697
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -1.15,
+      "n": 402,
+      "positives": 90,
+      "rate": 0.22388059701492538,
+      "upper_one_sided": 0.26078568135364494,
+      "ci_low": 0.1840509858454477,
+      "ci_high": 0.267829403010048
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -1.15,
+      "n": 807,
+      "positives": 45,
+      "rate": 0.055762081784386616,
+      "upper_one_sided": 0.07092609968708014,
+      "ci_low": 0.04096042883609655,
+      "ci_high": 0.07390561318758558
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -1.15,
+      "n": 2132,
+      "positives": 72,
+      "rate": 0.03377110694183865,
+      "upper_one_sided": 0.040936436844576485,
+      "ci_low": 0.02651570305724867,
+      "ci_high": 0.04234189378014372
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -1.2,
+      "n": 405,
+      "positives": 3,
+      "rate": 0.007407407407407408,
+      "upper_one_sided": 0.01903273547424057,
+      "ci_low": 0.0015301983029345058,
+      "ci_high": 0.021493932940206448
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -1.2,
+      "n": 986,
+      "positives": 27,
+      "rate": 0.02738336713995943,
+      "upper_one_sided": 0.0375662756994921,
+      "ci_low": 0.018121666781708103,
+      "ci_high": 0.039592601152420526
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -1.2,
+      "n": 436,
+      "positives": 96,
+      "rate": 0.22018348623853212,
+      "upper_one_sided": 0.2553429202843634,
+      "ci_low": 0.1821533541314556,
+      "ci_high": 0.2620586202334402
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -1.2,
+      "n": 827,
+      "positives": 54,
+      "rate": 0.06529625151148731,
+      "upper_one_sided": 0.08122312292776745,
+      "ci_low": 0.04942964878219345,
+      "ci_high": 0.08434172276469258
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -1.2,
+      "n": 2218,
+      "positives": 84,
+      "rate": 0.03787195671776375,
+      "upper_one_sided": 0.045234323774813665,
+      "ci_low": 0.030318450533667562,
+      "ci_high": 0.0466753590278716
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -1.25,
+      "n": 418,
+      "positives": 4,
+      "rate": 0.009569377990430622,
+      "upper_one_sided": 0.021763651133159263,
+      "ci_low": 0.002613314402075806,
+      "ci_high": 0.024318998430196036
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -1.25,
+      "n": 1050,
+      "positives": 29,
+      "rate": 0.02761904761904762,
+      "upper_one_sided": 0.037468442890062195,
+      "ci_low": 0.018573226819726875,
+      "ci_high": 0.03942602782047937
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -1.25,
+      "n": 460,
+      "positives": 105,
+      "rate": 0.22826086956521738,
+      "upper_one_sided": 0.2627942516111054,
+      "ci_low": 0.19067149537415304,
+      "ci_high": 0.26938506692864994
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -1.25,
+      "n": 843,
+      "positives": 61,
+      "rate": 0.07236061684460261,
+      "upper_one_sided": 0.08877566754062255,
+      "ci_low": 0.05579897424050102,
+      "ci_high": 0.09198282412162961
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -1.25,
+      "n": 2311,
+      "positives": 94,
+      "rate": 0.04067503245348334,
+      "upper_one_sided": 0.0480971771955981,
+      "ci_low": 0.03299233393296016,
+      "ci_high": 0.04954785775184232
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -1.3,
+      "n": 425,
+      "positives": 4,
+      "rate": 0.009411764705882352,
+      "upper_one_sided": 0.02140736903329035,
+      "ci_low": 0.0025701743111374528,
+      "ci_high": 0.023921396906792514
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -1.3,
+      "n": 1125,
+      "positives": 33,
+      "rate": 0.029333333333333333,
+      "upper_one_sided": 0.039027650819319616,
+      "ci_low": 0.020275912913142097,
+      "ci_high": 0.040949836672229636
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -1.3,
+      "n": 501,
+      "positives": 120,
+      "rate": 0.23952095808383234,
+      "upper_one_sided": 0.27298513278140796,
+      "ci_low": 0.2027818486959747,
+      "ci_high": 0.27936565185481516
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -1.3,
+      "n": 863,
+      "positives": 73,
+      "rate": 0.08458864426419467,
+      "upper_one_sided": 0.10182660883218925,
+      "ci_low": 0.0668880815653474,
+      "ci_high": 0.10518391853601354
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -1.3,
+      "n": 2413,
+      "positives": 110,
+      "rate": 0.04558640696228761,
+      "upper_one_sided": 0.05319963850153184,
+      "ci_low": 0.037612939886245714,
+      "ci_high": 0.05468478602625268
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -1.35,
+      "n": 441,
+      "positives": 4,
+      "rate": 0.009070294784580499,
+      "upper_one_sided": 0.02063523244563123,
+      "ci_low": 0.0024767223178124545,
+      "ci_high": 0.02305965371840493
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -1.35,
+      "n": 1198,
+      "positives": 35,
+      "rate": 0.02921535893155259,
+      "upper_one_sided": 0.038549611561312036,
+      "ci_low": 0.020432133914034936,
+      "ci_high": 0.04039882151255471
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -1.35,
+      "n": 533,
+      "positives": 127,
+      "rate": 0.23827392120075047,
+      "upper_one_sided": 0.27060742826232487,
+      "ci_low": 0.20270399340862677,
+      "ci_high": 0.27677467547783496
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -1.35,
+      "n": 880,
+      "positives": 80,
+      "rate": 0.09090909090909091,
+      "upper_one_sided": 0.10845485689689122,
+      "ci_low": 0.07274235555243702,
+      "ci_high": 0.11186709230296403
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -1.35,
+      "n": 2519,
+      "positives": 119,
+      "rate": 0.04724096863834855,
+      "upper_one_sided": 0.05479385593332783,
+      "ci_low": 0.03928833705813373,
+      "ci_high": 0.056266023304316376
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -1.4,
+      "n": 473,
+      "positives": 4,
+      "rate": 0.008456659619450317,
+      "upper_one_sided": 0.01924681290065478,
+      "ci_low": 0.0023088238874030306,
+      "ci_high": 0.021509905124679235
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -1.4,
+      "n": 1240,
+      "positives": 36,
+      "rate": 0.02903225806451613,
+      "upper_one_sided": 0.03816020980486507,
+      "ci_low": 0.020414901935438913,
+      "ci_high": 0.03996786489605013
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -1.4,
+      "n": 565,
+      "positives": 134,
+      "rate": 0.23716814159292035,
+      "upper_one_sided": 0.2684751831605832,
+      "ci_low": 0.20266220160253606,
+      "ci_high": 0.27444859222660223
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -1.4,
+      "n": 899,
+      "positives": 90,
+      "rate": 0.10011123470522804,
+      "upper_one_sided": 0.11812143901308557,
+      "ci_low": 0.08127084508893868,
+      "ci_high": 0.12161738975560729
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -1.4,
+      "n": 2612,
+      "positives": 130,
+      "rate": 0.04977029096477795,
+      "upper_one_sided": 0.05734498232015204,
+      "ci_low": 0.04174777040982875,
+      "ci_high": 0.058820003032173704
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -1.45,
+      "n": 562,
+      "positives": 6,
+      "rate": 0.010676156583629894,
+      "upper_one_sided": 0.020962469564981295,
+      "ci_low": 0.003927758036292839,
+      "ci_high": 0.023091808523764756
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -1.45,
+      "n": 1270,
+      "positives": 37,
+      "rate": 0.029133858267716535,
+      "upper_one_sided": 0.03815029534930852,
+      "ci_low": 0.020594099018845347,
+      "ci_high": 0.039935117140260816
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -1.45,
+      "n": 591,
+      "positives": 141,
+      "rate": 0.23857868020304568,
+      "upper_one_sided": 0.2692020220109609,
+      "ci_low": 0.20474885297762174,
+      "ci_high": 0.27504501362375283
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -1.45,
+      "n": 918,
+      "positives": 98,
+      "rate": 0.10675381263616558,
+      "upper_one_sided": 0.12501149134989648,
+      "ci_low": 0.08752050937056835,
+      "ci_high": 0.12855100605688927
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -1.45,
+      "n": 2750,
+      "positives": 141,
+      "rate": 0.051272727272727275,
+      "upper_one_sided": 0.05873548982237434,
+      "ci_low": 0.04332915395982851,
+      "ci_high": 0.06018762605539805
+    },
+    {
+      "scope": "CYP1A2",
+      "cut": -1.5,
+      "n": 639,
+      "positives": 8,
+      "rate": 0.012519561815336464,
+      "upper_one_sided": 0.022475761505640207,
+      "ci_low": 0.005420133066428139,
+      "ci_high": 0.024518856058294788
+    },
+    {
+      "scope": "CYP2C9",
+      "cut": -1.5,
+      "n": 1280,
+      "positives": 37,
+      "rate": 0.02890625,
+      "upper_one_sided": 0.037853622415171,
+      "ci_low": 0.020432571922080027,
+      "ci_high": 0.0396248511634815
+    },
+    {
+      "scope": "CYP2D6",
+      "cut": -1.5,
+      "n": 622,
+      "positives": 150,
+      "rate": 0.24115755627009647,
+      "upper_one_sided": 0.2710583391200435,
+      "ci_low": 0.20803066498655012,
+      "ci_high": 0.2767629492564941
+    },
+    {
+      "scope": "CYP3A4",
+      "cut": -1.5,
+      "n": 931,
+      "positives": 106,
+      "rate": 0.11385606874328678,
+      "upper_one_sided": 0.13243223479305305,
+      "ci_low": 0.09416258193481772,
+      "ci_high": 0.1360291413315309
+    },
+    {
+      "scope": "pooled_1A2_2C9_3A4",
+      "cut": -1.5,
+      "n": 2850,
+      "positives": 151,
+      "rate": 0.052982456140350874,
+      "upper_one_sided": 0.06040791531985114,
+      "ci_low": 0.04504589603149435,
+      "ci_high": 0.06185185840485602
+    }
+  ],
+  "overturn": [
+    {
+      "split_id": "scaffold",
+      "rate": 0.0653333333333333,
+      "scored_pool": 4190,
+      "pseudo_negatives": 2693,
+      "delta_mcc": 0.11257089123815697,
+      "calls_control": 400,
+      "calls_pool": 400,
+      "pseudo_both": 36,
+      "pseudo_control_only": 129,
+      "pseudo_pool_only": 53,
+      "pseudo_neither": 2475,
+      "adversarial_k": 30,
+      "adversarial_delta_at_k": -0.00011593370665430314,
+      "adversarial_required_rate": 0.011139992573338284,
+      "proportional_k": null,
+      "proportional_delta_at_k": null,
+      "proportional_required_rate": null
+    },
+    {
+      "split_id": "scaffold",
+      "rate": 0.1,
+      "scored_pool": 4190,
+      "pseudo_negatives": 2693,
+      "delta_mcc": 0.1074488869661813,
+      "calls_control": 615,
+      "calls_pool": 615,
+      "pseudo_both": 71,
+      "pseudo_control_only": 183,
+      "pseudo_pool_only": 72,
+      "pseudo_neither": 2367,
+      "adversarial_k": 36,
+      "adversarial_delta_at_k": -0.0035469012742010975,
+      "adversarial_required_rate": 0.013367991088005942,
+      "proportional_k": null,
+      "proportional_delta_at_k": null,
+      "proportional_required_rate": null
+    },
+    {
+      "split_id": "umap",
+      "rate": 0.0653333333333333,
+      "scored_pool": 4190,
+      "pseudo_negatives": 2693,
+      "delta_mcc": 0.06142387049416856,
+      "calls_control": 401,
+      "calls_pool": 401,
+      "pseudo_both": 27,
+      "pseudo_control_only": 130,
+      "pseudo_pool_only": 49,
+      "pseudo_neither": 2487,
+      "adversarial_k": 18,
+      "adversarial_delta_at_k": -0.0070731121191191515,
+      "adversarial_required_rate": 0.006683995544002971,
+      "proportional_k": null,
+      "proportional_delta_at_k": null,
+      "proportional_required_rate": null
+    },
+    {
+      "split_id": "umap",
+      "rate": 0.1,
+      "scored_pool": 4190,
+      "pseudo_negatives": 2693,
+      "delta_mcc": 0.060302987032953934,
+      "calls_control": 616,
+      "calls_pool": 616,
+      "pseudo_both": 58,
+      "pseudo_control_only": 205,
+      "pseudo_pool_only": 72,
+      "pseudo_neither": 2358,
+      "adversarial_k": 20,
+      "adversarial_delta_at_k": -0.001056814136252443,
+      "adversarial_required_rate": 0.007426661715558856,
+      "proportional_k": 394,
+      "proportional_delta_at_k": -5.432178342054672e-05,
+      "proportional_required_rate": 0.14630523579650948
+    }
+  ],
+  "runtime_seconds": 0.6,
+  "caveats": [
+    "The weak-primary rate is measured on 1A2/2C9/3A4 and transferred to D6 by assumption",
+    "The D6 assay differs in readout, so a shared mechanism is argued, not demonstrated",
+    "Part B conditions on the frozen held-fold scores of one run and two recipes",
+    "The adversarial minimum is a grid search over allocations, not a closed-form proof"
+  ]
+}

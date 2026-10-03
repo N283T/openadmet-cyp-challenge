@@ -1,0 +1,99 @@
+{
+  "source_run": "classification/20261003T025354186349Z-621b6ad3",
+  "purpose": "Pre-register the next D6 call-count probe: reproduce the deployed L4 ordering, count changed calls for each candidate count against the October 3 payload, and write the public-metric prediction as a function of the marginal precision of the added ranks; nothing fitted, no candidate, no prepared submission, no upload",
+  "outputs": {
+    "candidate_vectors.csv": "2824160ba37adee60889c05d3b557e370ae1f2ecb6974f58dbbc51a830032f36",
+    "marginal_precision.csv": "7796b105e9bf41895d7099850e0f8377a9a94204d658c37d9b45e035baa6dc1b",
+    "predictions.csv": "8228e4a7e93766f94df4c07622de8cd7e6e31dbba54cbcf2c523f0c3fcccb12d",
+    "summary.json": "38958933473549d3800b2e49973e97eff8aea6c949c3f5dc917ab15df67024c8"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20261002T223229553466Z-a08301d2/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T025354186349Z-621b6ad3/inputs/payload-oct03.parquet",
+      "sha256": "f6e2ddb44f86ee11aea1877ff07dc79a737f54cb7f9793e63b924af7893af393",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T045344348206Z-7e2db311/inputs/blind-scores.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T025354186349Z-621b6ad3/inputs/sep15-blind-scores.parquet",
+      "sha256": "a22f104fdc17f8b189aeb7d2c80f21ffa6bbd8008c4f06932269ccb23535c023",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/tracked/cyp-d6-testlike-pool-20261002T215345688167Z-7920b49a/test_scores.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T025354186349Z-621b6ad3/inputs/pool-blind-scores.parquet",
+      "sha256": "bbf9244249502405f727f639d20453715ee4e466ef7a2a62aee83cb6cfdc5433",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/test_mapping.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T025354186349Z-621b6ad3/inputs/test_mapping.parquet",
+      "sha256": "135ba78ae49abf46a5c3351e5d681b2352d767c1a4d5b7294117ec6d6e3775f7",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/tracked/cyp-d6-testlike-pool-20261002T215345688167Z-7920b49a/oof_scores.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T025354186349Z-621b6ad3/inputs/testlike-pool-oof.parquet",
+      "sha256": "179fa1e523e07d3511daa10f3b5eb8a31e1f43318275e56f776931468d5b47e3",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seed": 20261003,
+    "inputs": {
+      "payload_oct03": "payload-oct03.parquet",
+      "sep15_blind_scores": "sep15-blind-scores.parquet",
+      "pool_blind_scores": "pool-blind-scores.parquet",
+      "test_mapping": "test_mapping.parquet",
+      "testlike_oof": "testlike-pool-oof.parquet"
+    },
+    "legacy_model": "deployed_mean_block",
+    "deployed_calls": 49,
+    "live_state": {
+      "scored_rows": 374,
+      "scored_positives": 26,
+      "scored_calls": 28,
+      "true_positives": 11,
+      "mcc": 0.364248,
+      "source": "Reconstruction of run 20261003T012000305555Z-bca66716"
+    },
+    "candidates": {
+      "l4_rank_mean": [
+        49,
+        60,
+        75,
+        94,
+        112,
+        150
+      ],
+      "pool_lgbm": [
+        49
+      ]
+    },
+    "marginal_precision_scenarios": [
+      0.0,
+      0.07,
+      0.1,
+      0.17,
+      0.25,
+      0.3,
+      0.393
+    ],
+    "readable_changed_calls": 10,
+    "preregistration": {
+      "question": "Does the interior rate optimum found once the grid is extended past 10% transfer to the public board",
+      "primary_probe": "l4_rank_mean top 94",
+      "prediction": "Recorded in the analysis document before any upload",
+      "status": "Pre-registration only; no candidate, prepared submission or upload"
+    },
+    "l4_components": [
+      "legacy_sep15_refit",
+      "pool_lgbm"
+    ],
+    "identified_phi": 0.3262,
+    "marginal_precision_note": "Offline precision of each added rank band, on officially labelled rows and under the identified mixture; the mixture value is the analogue of the Live marginal precision",
+    "live_break_even_precision": 0.188
+  }
+}

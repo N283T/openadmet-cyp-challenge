@@ -1,0 +1,8 @@
+candidate,score_column,calls,added,removed,changed,monotone_extension,expected_added_scored,readable
+l4_rank_mean_top49,l4_rank_mean,49,0,0,0,true,0.0,false
+l4_rank_mean_top60,l4_rank_mean,60,11,0,11,true,5.485333333333333,true
+l4_rank_mean_top75,l4_rank_mean,75,26,0,26,true,12.965333333333334,true
+l4_rank_mean_top94,l4_rank_mean,94,45,0,45,true,22.439999999999998,true
+l4_rank_mean_top112,l4_rank_mean,112,63,0,63,true,31.416,true
+l4_rank_mean_top150,l4_rank_mean,150,101,0,101,true,50.36533333333333,true
+pool_lgbm_top49,pool_lgbm,49,14,14,28,false,6.981333333333333,true

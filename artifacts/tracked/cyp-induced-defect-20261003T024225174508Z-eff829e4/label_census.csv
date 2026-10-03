@@ -1,0 +1,4 @@
+enzyme,labelled,positives,arms,strong_n,strong_positives,borderline_n,borderline_positives,weak_n,weak_positives,missing_n,missing_positives,weak_any_unlabelled_n,weak_any_unlabelled_positives,device_dose,hidden_from_defect,hidden_positives
+CYP1A2,1413,23,"defect,fixed,fixed_full,ceiling_screened,ceiling",1161,22,122,1,130,0,0,0,1659,0,1.540913006029285,252,1
+CYP2C9,1285,38,"defect,fixed,fixed_full,ceiling_screened,ceiling",875,35,249,3,161,0,0,0,911,0,1.225142857142857,410,3
+CYP3A4,3584,764,"defect,fixed,fixed_full,ceiling_screened,ceiling,fixed_missing",1291,605,178,1,347,0,1768,158,161,0,0.3934934159566228,2293,159
