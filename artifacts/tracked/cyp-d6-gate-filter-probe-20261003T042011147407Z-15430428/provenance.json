@@ -1,0 +1,246 @@
+{
+  "source_run": "classification/20261003T042011147407Z-15430428",
+  "purpose": "Evaluate a gate-filtered D6 call vector offline against the deployed rank-mean recipe at an unchanged call count: four p_active eligibility thresholds plus the product and square-root product forms, scored on a rate grid extended to 50% under an official-labels-only reweighted metric and a composition-matched mixture metric on both fixed split families, with a paired group bootstrap, the eight-transition historical concordance check and a blind swap inventory; read-only, no candidate or upload",
+  "outputs": {
+    "blind_calls.parquet": "8932a59874609c5913d534b5d75af33e11eb4f792103dab2b5d0e14dccfe903d",
+    "blind_swaps.csv": "3461fce3c7c4f89a8e6a36f656fdf467139bbaecd24819158420e955b06f86dc",
+    "bootstrap_deltas.csv": "4e702108b9f7676c06f6f0074e3580080c5741010f2ecda23bf468b1c73e9aff",
+    "concordance_agreement.csv": "26748f2ebca6c1c286f211c13c9273a654546517f1e47102082f410f68534821",
+    "metric_curves.csv": "1689c1df51e6380a8f90e7ef8bb7aabdef3556dbc4cdbf9c08800d81eb7a6191",
+    "nested_selection.csv": "cb2d64e6e4d1480dae8e6e72262057e921cb6dd30143ce0a18bb4b8ac401ec58",
+    "payload_summary.csv": "ac6864e0a3d7e57fc053a5c4f95977dd29c6ded9d62c9c8e3485ab7b62ca3256",
+    "rate_optima.csv": "fd6cf661cf6ef5fd69403bb23057b01c726ebf8337bf95f3b1b71706b41e875d",
+    "report.md": "6c18e157a1bc2822da6fc8ad455fd858a506537bedcc5301b5ea07d3878746c7",
+    "summary.json": "013af290607bd69464cb14c6f3461c3b20e9225d45f58a765ab725da54ddf255",
+    "transitions.csv": "f65b09c6b5f3404d4cba937375f74e88319b9683d26c213c9cd6a510c2d2f184",
+    "verdict.csv": "7733217b43f5f3fc097db98e9eb6136f5691fd0a710afa603e382ada361e9fc0"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/tracked/cyp-d6-testlike-pool-20261002T215345688167Z-7920b49a/oof_scores.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T042011147407Z-15430428/inputs/testlike-pool-oof.parquet",
+      "sha256": "179fa1e523e07d3511daa10f3b5eb8a31e1f43318275e56f776931468d5b47e3",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T215345688167Z-7920b49a/outputs/test_scores.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T042011147407Z-15430428/inputs/test_scores.parquet",
+      "sha256": "bbf9244249502405f727f639d20453715ee4e466ef7a2a62aee83cb6cfdc5433",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20260924T045344348206Z-7e2db311/inputs/blind-scores.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T042011147407Z-15430428/inputs/sep15_blind_scores.parquet",
+      "sha256": "a22f104fdc17f8b189aeb7d2c80f21ffa6bbd8008c4f06932269ccb23535c023",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T042011147407Z-15430428/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/test_mapping.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T042011147407Z-15430428/inputs/test_mapping.parquet",
+      "sha256": "135ba78ae49abf46a5c3351e5d681b2352d767c1a4d5b7294117ec6d6e3775f7",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T223515148996Z-ccb05cf3/outputs/blind_neighbour_rates.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T042011147407Z-15430428/inputs/blind_neighbour_rates.parquet",
+      "sha256": "11f9bec67bbff2f3b137d70d414b028014f8964c17132a9598b5a276f8e6e053",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20260913T113807374506Z-77f4825a/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T042011147407Z-15430428/inputs/payload_sep13.parquet",
+      "sha256": "893b79ec83fb19a20676a43cbedfb753ae3388bbe39c38a0293e3f22f2086f6c",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20260914T020759952207Z-37dd7bd8/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T042011147407Z-15430428/inputs/payload_sep14.parquet",
+      "sha256": "8ee886811bf626025fa3b398b79ffce0ea54dcb2fac7ec91e01cf4c0d46ce6a6",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20260915T130004513006Z-75b25070/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T042011147407Z-15430428/inputs/payload_sep15.parquet",
+      "sha256": "f42170784d0e23515141fb0fcb952b5596d69b55d951c69e26204839fc12e496",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20260918T094451131332Z-f23dd61b/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T042011147407Z-15430428/inputs/payload_sep18.parquet",
+      "sha256": "7092adcd22ce11385588b918758f6b1e21600dca394a5d2a9ae1869fa60a500a",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20260923T180233070503Z-552d9af4/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T042011147407Z-15430428/inputs/payload_sep23.parquet",
+      "sha256": "2a5ee4dd1d7c25c11522bc49af621c9852b863ba6e80e1c2b0fe88449195fa3d",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20261001T141041310215Z-c7faa79f/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T042011147407Z-15430428/inputs/payload_oct01.parquet",
+      "sha256": "67dbe95a6f9c307c5c8cea6746c1d993e08ecc854393052babf35be38bb6ba19",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20261002T092348406577Z-4ea606c1/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T042011147407Z-15430428/inputs/payload_oct02.parquet",
+      "sha256": "6b23e212457c0f86556dbb200df008a64fb782d46b09659b762608104fb6228d",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/submissions/classification/20261002T223229553466Z-a08301d2/predictions.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T042011147407Z-15430428/inputs/payload_oct03.parquet",
+      "sha256": "f6e2ddb44f86ee11aea1877ff07dc79a737f54cb7f9793e63b924af7893af393",
+      "storage": "hardlink"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seed": 20261003,
+    "endpoint": "CYP2D6_is_TDI",
+    "inputs": {
+      "testlike_oof": "testlike-pool-oof.parquet",
+      "test_scores": "test_scores.parquet",
+      "sep15_blind_scores": "sep15_blind_scores.parquet",
+      "assignments": "assignments.parquet",
+      "test_mapping": "test_mapping.parquet",
+      "neighbour_rates": "blind_neighbour_rates.parquet"
+    },
+    "payload_inputs": {
+      "sep13": "payload_sep13.parquet",
+      "sep14": "payload_sep14.parquet",
+      "sep15": "payload_sep15.parquet",
+      "sep18": "payload_sep18.parquet",
+      "sep23": "payload_sep23.parquet",
+      "oct01": "payload_oct01.parquet",
+      "oct02": "payload_oct02.parquet",
+      "oct03": "payload_oct03.parquet"
+    },
+    "live_mcc": {
+      "sep13": 0.271,
+      "sep14": 0.2786,
+      "sep15": 0.3086,
+      "sep18": 0.1097,
+      "sep23": 0.2348,
+      "oct01": 0.105,
+      "oct02": 0.1177,
+      "oct03": 0.3642
+    },
+    "transitions": [
+      [
+        "sep13",
+        "sep14"
+      ],
+      [
+        "sep14",
+        "sep15"
+      ],
+      [
+        "sep15",
+        "sep18"
+      ],
+      [
+        "sep15",
+        "sep23"
+      ],
+      [
+        "sep18",
+        "sep23"
+      ],
+      [
+        "sep15",
+        "oct01"
+      ],
+      [
+        "sep15",
+        "oct02"
+      ],
+      [
+        "sep15",
+        "oct03"
+      ]
+    ],
+    "l4_components": [
+      "legacy_sep15_refit",
+      "pool_lgbm"
+    ],
+    "gate_model": "gate_x_tdi",
+    "legacy_blind_model": "deployed_mean_block",
+    "pool_blind_model": "pool_lgbm",
+    "thresholds": [
+      0.2,
+      0.3,
+      0.4,
+      0.5
+    ],
+    "control": "l4_control",
+    "variants": {
+      "l4_control": "Control: equal per-fold percentile-rank mean of legacy_sep15_refit and pool_lgbm, unfiltered",
+      "l4_filter_tau0.2": "l4 ranking restricted to Morgan gate p_active >= 0.2, calls then filled from the excluded rows by l4",
+      "l4_filter_tau0.3": "l4 ranking restricted to Morgan gate p_active >= 0.3, calls then filled from the excluded rows by l4",
+      "l4_filter_tau0.4": "l4 ranking restricted to Morgan gate p_active >= 0.4, calls then filled from the excluded rows by l4",
+      "l4_filter_tau0.5": "l4 ranking restricted to Morgan gate p_active >= 0.5, calls then filled from the excluded rows by l4",
+      "l4_x_p_active": "l4 x Morgan gate p_active (product form already tested against the legacy control)",
+      "l4_x_sqrt_p_active": "l4 x sqrt(Morgan gate p_active) (square-root product form)"
+    },
+    "rates": [
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.06,
+      0.07,
+      0.08,
+      0.09,
+      0.1,
+      0.125,
+      0.15,
+      0.175,
+      0.2,
+      0.225,
+      0.25,
+      0.275,
+      0.3,
+      0.35,
+      0.4,
+      0.5
+    ],
+    "bootstrap_rates": [
+      0.0653333333333333,
+      0.1,
+      0.2
+    ],
+    "bootstrap_samples": 1000,
+    "metric_o_priors": [
+      0.05,
+      0.0706,
+      0.09
+    ],
+    "metric_m_phi": [
+      0.23,
+      0.3262,
+      0.42
+    ],
+    "identified_phi": 0.3262,
+    "primary_metric_o_prior": 0.0706,
+    "permutations": 10000,
+    "blind_call_counts": [
+      49
+    ],
+    "deployed_payload": "oct03",
+    "sep15_payload": "sep15",
+    "verdict_rule": {
+      "candidate_worthy": "Positive with a 95% interval excluding zero under Metric M at the identified phi on both split families, not significantly negative under Metric O at prior 0.0706 on either family, and not contradicted by the historical transitions",
+      "declared": "before any Part 2 number was read"
+    },
+    "status": "Read-only offline evaluation of a gate-filtered D6 vector; nothing fitted, no candidate, submission or upload in this run"
+  }
+}

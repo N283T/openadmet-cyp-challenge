@@ -1,0 +1,128 @@
+{
+  "source_run": "classification/20261003T041642823714Z-1ab63580",
+  "purpose": "Diagnose the D6 activity gate before trusting or discarding it as a call filter: blind versus development p_active distributions by primary-screen stratum, held-fold reliability of the gate against observed primary activity, the unscreened development stratum, the officially labelled positive rate by p_active bin, a primary-region decomposition giving an implied blind positive rate, and the circularity of a pseudo-negative-labelled metric for judging a gate filter; read-only, no candidate or upload",
+  "outputs": {
+    "gate_reliability.csv": "b72e64f6e22647842c64452084b99980c626fa00d68a5559c69584f24bf1cf50",
+    "gate_reliability_summary.csv": "cd49245b6265feb3ea5da197d393af6110b1ac1dd8fe30fb38752789eb27b1e5",
+    "implied_blind_rate.csv": "d106350b7a64c4bd343a43af1237fac67024234b2b22fbed6ed83b585c9f80c5",
+    "metric_circularity.csv": "ee4141ac9afcb6a8fae335f8646f3dd72f4fc55a43f1291d1b4d8195f7583486",
+    "p_active_distributions.csv": "28767c94f8572f8d29d38e5c8ba09d190f24aaec20dc3ff8a87c081aba84115e",
+    "p_active_shift.csv": "22fe1eadb94910166a53eaed46eeba9f3667f9076d8e09659a9b5bb408a745ba",
+    "region_decomposition.csv": "a8bcfcadafa3b33dfc54cff5549300c9e93f6e92bc06e16da3af5f41b9b93161",
+    "report.md": "7a5c3c6ae66fd665d8b82f4825f03f53eea1d8b41c8dc16e30196a334cfeb386",
+    "summary.json": "2100eeb2803b90d712b529b284a9529f14e66e9e8f0ff4d0aa3bd76c04396c45",
+    "tdi_rate_by_p_active.csv": "e0d74c10c528928e27a139ee0dc9b1a112a87b24d9e3a7eb09ae9cc84ea94748",
+    "tdi_rate_summary.csv": "2695d34b438fb5ff2c3ad482557683b418f8c5074358918d7326cc7ac33afaca",
+    "unscreened_comparison.csv": "11d3cd5235a4ca6a16427ea6848ddc2df7d3753dc754f6ba2d61d1a657872458"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/tracked/cyp-d6-testlike-pool-20261002T215345688167Z-7920b49a/oof_scores.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T041642823714Z-1ab63580/inputs/testlike-pool-oof.parquet",
+      "sha256": "179fa1e523e07d3511daa10f3b5eb8a31e1f43318275e56f776931468d5b47e3",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T215345688167Z-7920b49a/outputs/test_scores.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T041642823714Z-1ab63580/inputs/test_scores.parquet",
+      "sha256": "bbf9244249502405f727f639d20453715ee4e466ef7a2a62aee83cb6cfdc5433",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T041642823714Z-1ab63580/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/data/raw/cyp-challenge-single-concentration-TRAIN.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T041642823714Z-1ab63580/inputs/primary-screen.csv",
+      "sha256": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T041642823714Z-1ab63580/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "hardlink"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seed": 20261003,
+    "inputs": {
+      "testlike_oof": "testlike-pool-oof.parquet",
+      "blind_scores": "test_scores.parquet",
+      "aliases": "aliases.parquet",
+      "primary_screen": "primary-screen.csv",
+      "assignments": "assignments.parquet"
+    },
+    "endpoint": "CYP2D6_is_TDI",
+    "enzyme": "CYP2D6",
+    "gate_model": "gate_x_tdi",
+    "gate_threshold": -1.0,
+    "reliability_bins": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "coarse_bins": [
+      0.0,
+      0.2,
+      0.3,
+      0.5,
+      1.0
+    ],
+    "thresholds": [
+      0.2,
+      0.3,
+      0.4,
+      0.5
+    ],
+    "log2fc_regions": [
+      {
+        "name": "strong_hit",
+        "low": -99.0,
+        "high": -1.0,
+        "rate": 0.215,
+        "rate_source": "D6 labelled rows with log2fc < -1"
+      },
+      {
+        "name": "weak_hit",
+        "low": -1.0,
+        "high": -0.5,
+        "rate": 0.2222,
+        "rate_source": "D6 labelled rows with -1 <= log2fc < -0.5"
+      },
+      {
+        "name": "borderline",
+        "low": -0.5,
+        "high": -0.25,
+        "rate": 0.0091,
+        "rate_source": "pooled 1A2/2C9/3A4 labelled rows, 5 of 549"
+      },
+      {
+        "name": "relabelled",
+        "low": -0.25,
+        "high": 99.0,
+        "rate": 0.0047,
+        "rate_source": "pooled 1A2/2C9/3A4 exact 95% upper bound, 0 of 638"
+      }
+    ],
+    "relabelled_rate_scenarios": {
+      "clean": 0.0,
+      "pooled_upper_bound": 0.0047,
+      "d6_at_blind_base_rate": 0.0706
+    },
+    "published_scored_prevalence": 0.0706,
+    "status": "Read-only diagnosis of the activity gate; nothing fitted, no candidate, submission or upload"
+  }
+}

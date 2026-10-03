@@ -1,0 +1,8 @@
+column,agreeing_transitions,transitions,significant_transitions,min_permutation_p,contains_deployed_components,agrees_on_sep15_to_oct03
+score_l4_filter_tau0.5,8,8,5,0.00009999000099990002,true,true
+score_l4_filter_tau0.4,8,8,6,0.00029997000299970003,true,true
+score_l4_control,8,8,6,0.00009999000099990002,true,true
+score_l4_filter_tau0.2,7,8,5,0.00009999000099990002,true,true
+score_l4_filter_tau0.3,7,8,4,0.00029997000299970003,true,true
+score_l4_x_p_active,7,8,4,0.00009999000099990002,true,true
+score_l4_x_sqrt_p_active,6,8,5,0.00009999000099990002,true,true

@@ -1,0 +1,4 @@
+scenario,added_precision,p_above_plus_080,p_below_minus_080,p_decisive,p_inside
+uncalibrated_mixture,0.133,0.020295,0.189675,0.20997,0.79003
+break_even,0.188,0.102125,0.06194,0.164065,0.835935
+calibrated_by_1_99,0.265,0.359415,0.0103,0.369715,0.630285
