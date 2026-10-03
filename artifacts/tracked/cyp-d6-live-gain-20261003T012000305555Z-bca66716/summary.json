@@ -1,0 +1,219 @@
+{
+  "endpoint": "CYP2D6_is_TDI",
+  "runtime_seconds": 10.38,
+  "scored_subset": 374,
+  "scored_positives": 26,
+  "scored_prevalence": 0.06951871657754011,
+  "sep15": {
+    "scored": 374,
+    "positives": 26,
+    "true_positive": 10,
+    "scored_calls": 30,
+    "false_positive": 20,
+    "false_negative": 16,
+    "true_negative": 328,
+    "total_calls": 49
+  },
+  "oct03": {
+    "scored": 374,
+    "positives": 26,
+    "true_positive": 11,
+    "scored_calls": 28,
+    "false_positive": 17,
+    "false_negative": 15,
+    "true_negative": 331,
+    "total_calls": 49
+  },
+  "true_positive_change": 1,
+  "false_positive_change": -3,
+  "scored_call_change": -2,
+  "observed_mcc_delta": 0.0556124549299607,
+  "null": [
+    {
+      "transition": "sep15->oct03",
+      "swapped_calls": 17,
+      "observed_delta": 0.0556124549299607,
+      "reported_sd_new": 0.0875284309406832,
+      "observed_in_sd": 0.6353644676624957,
+      "null_mean": -0.10684556686195835,
+      "null_sd": 0.057410764157604294,
+      "null_p05": -0.201249223175466,
+      "null_p50": -0.10445170276036331,
+      "null_p95": -0.014086606901893672,
+      "null_fraction_at_least": 0.001795,
+      "null_fraction_as_extreme": 0.82254,
+      "base_mcc_point": 0.30632015031599324,
+      "mean_true_positive": 6.923495,
+      "mean_false_positive": 21.003855
+    },
+    {
+      "transition": "sep14->sep15",
+      "swapped_calls": 9,
+      "observed_delta": 0.0300634040237569,
+      "reported_sd_new": 0.0864444948239321,
+      "observed_in_sd": 0.3477769646868694,
+      "null_mean": -0.05068710983631445,
+      "null_sd": 0.04434351259489995,
+      "null_p05": -0.12302477394492911,
+      "null_p50": -0.045806393001124546,
+      "null_p95": 0.017704478907476506,
+      "null_fraction_at_least": 0.032155,
+      "null_fraction_as_extreme": 0.714945,
+      "base_mcc_point": 0.27452906450662307,
+      "mean_true_positive": 7.563225,
+      "mean_false_positive": 20.541755
+    },
+    {
+      "transition": "sep15->sep18",
+      "swapped_calls": 27,
+      "observed_delta": -0.1989065689233362,
+      "reported_sd_new": 0.0737039525257274,
+      "observed_in_sd": -2.6987232313478042,
+      "null_mean": -0.17343249901059746,
+      "null_sd": 0.06369396552130192,
+      "null_p05": -0.27092775457002377,
+      "null_p50": -0.17435728559450783,
+      "null_p95": -0.06450524805887886,
+      "null_fraction_at_least": 0.648875,
+      "null_fraction_as_extreme": 0.351125,
+      "base_mcc_point": 0.30632015031599324,
+      "mean_true_positive": 5.107005,
+      "mean_false_positive": 21.600135
+    }
+  ],
+  "exchangeable_null": [
+    {
+      "transition": "sep15->oct03",
+      "swapped_calls": 17,
+      "observed_delta": 0.0556124549299607,
+      "scenarios": 110,
+      "pooled_mean": 0.02703621047272372,
+      "pooled_sd": 0.04347473491925862,
+      "pooled_fraction_at_least": 0.193063,
+      "central_fraction_at_least": 0.23811,
+      "min_fraction_at_least": 0.0,
+      "median_fraction_at_least": 0.22376000000000001,
+      "max_fraction_at_least": 0.259485
+    },
+    {
+      "transition": "sep14->sep15",
+      "swapped_calls": 9,
+      "observed_delta": 0.0300634040237569,
+      "scenarios": 45,
+      "pooled_mean": 0.01587169430177903,
+      "pooled_sd": 0.0317432720568108,
+      "pooled_fraction_at_least": 0.4552148888888889,
+      "central_fraction_at_least": 0.427275,
+      "min_fraction_at_least": 0.37632,
+      "median_fraction_at_least": 0.452595,
+      "max_fraction_at_least": 0.50187
+    },
+    {
+      "transition": "sep15->sep18",
+      "swapped_calls": 27,
+      "observed_delta": -0.1989065689233362,
+      "scenarios": 116,
+      "pooled_mean": -0.09989267150242129,
+      "pooled_sd": 0.05123668405645782,
+      "pooled_fraction_at_least": 0.9806384913793104,
+      "central_fraction_at_least": 0.997295,
+      "min_fraction_at_least": 0.957865,
+      "median_fraction_at_least": 0.9807125,
+      "max_fraction_at_least": 1.0
+    }
+  ],
+  "bias_check": {
+    "draws": 2000,
+    "point_mean": -0.10566234698921842,
+    "point_sd": 0.05905497782754148,
+    "bootstrap_mean": -0.10258637911243329,
+    "bootstrap_sd": 0.05880091617543242,
+    "mean_difference": 0.0030759678767851295
+  },
+  "attribution": {
+    "pool_top49_overlap_sep15": 22,
+    "pool_top49_overlap_oct03": 35,
+    "pool_top49_overlap_retained": 22,
+    "additions_in_pool_top49": 13,
+    "removals_in_pool_top49": 0,
+    "closer_vector": "oct03",
+    "legacy_top49_overlap_oct03": 32
+  },
+  "identity_checks": {
+    "group_mismatches": 0,
+    "max_legacy_rank_difference": 0.0,
+    "max_pool_rank_difference": 0.0,
+    "max_combined_rank_difference": 0.0,
+    "max_p_active_difference": 0.0,
+    "changed_calls_rows": 34,
+    "changed_calls_matched": 34,
+    "changed_calls_group_mismatches": 0,
+    "changed_calls_max_rank_difference": 0.0
+  },
+  "concordance": [
+    {
+      "column": "gate_x_tdi.p_active",
+      "transitions": 8,
+      "sign_agreements": 7,
+      "agreements_before": 6,
+      "new_transition_agrees": true,
+      "significant": 4,
+      "selection_component": false
+    },
+    {
+      "column": "gate_x_tdi_chemeleon.p_active",
+      "transitions": 8,
+      "sign_agreements": 7,
+      "agreements_before": 6,
+      "new_transition_agrees": true,
+      "significant": 4,
+      "selection_component": false
+    },
+    {
+      "column": "pool_lgbm.score",
+      "transitions": 8,
+      "sign_agreements": 7,
+      "agreements_before": 6,
+      "new_transition_agrees": true,
+      "significant": 4,
+      "selection_component": true
+    },
+    {
+      "column": "pool_chemeleon.score",
+      "transitions": 8,
+      "sign_agreements": 6,
+      "agreements_before": 6,
+      "new_transition_agrees": false,
+      "significant": 2,
+      "selection_component": false
+    },
+    {
+      "column": "rank_mean_gates.score",
+      "transitions": 8,
+      "sign_agreements": 6,
+      "agreements_before": 6,
+      "new_transition_agrees": false,
+      "significant": 4,
+      "selection_component": false
+    },
+    {
+      "column": "gate_x_tdi.p_tdi",
+      "transitions": 8,
+      "sign_agreements": 5,
+      "agreements_before": 5,
+      "new_transition_agrees": false,
+      "significant": 4,
+      "selection_component": false
+    },
+    {
+      "column": "official_lgbm.score",
+      "transitions": 8,
+      "sign_agreements": 5,
+      "agreements_before": 5,
+      "new_transition_agrees": false,
+      "significant": 4,
+      "selection_component": false
+    }
+  ],
+  "status": "Read-only post-mortem; no candidate, prepared submission or upload"
+}

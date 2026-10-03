@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "seed": 20261003,
+  "endpoint": "CYP2D6_is_TDI",
+  "username": "N283T",
+  "inputs": {
+    "lb_sep13.csv": "lb_sep13.csv",
+    "lb_sep14.csv": "lb_sep14.csv",
+    "lb_sep15.csv": "lb_sep15.csv",
+    "lb_sep18.csv": "lb_sep18.csv",
+    "lb_sep23.csv": "lb_sep23.csv",
+    "lb_oct01.csv": "lb_oct01.csv",
+    "lb_oct02.csv": "lb_oct02.csv",
+    "lb_oct03.csv": "lb_oct03.csv",
+    "test_scores": "test_scores.parquet",
+    "sep15_blind_scores": "sep15_blind_scores.parquet",
+    "test_mapping": "test_mapping.parquet",
+    "call_diagnostics": "call_diagnostics.parquet",
+    "transitions": "transitions.csv",
+    "changed_calls": "changed_calls.csv",
+    "payload_sep15": "payload_sep15.parquet",
+    "payload_oct03": "payload_oct03.parquet"
+  },
+  "live_states": {
+    "sep13": {
+      "leaderboard": "lb_sep13.csv",
+      "submitted": "2026-09-13 11:38 UTC",
+      "calls": 49
+    },
+    "sep14": {
+      "leaderboard": "lb_sep14.csv",
+      "submitted": "2026-09-14 02:08 UTC",
+      "calls": 49
+    },
+    "sep15": {
+      "leaderboard": "lb_sep15.csv",
+      "submitted": "2026-09-15 13:00 UTC",
+      "calls": 49
+    },
+    "sep18": {
+      "leaderboard": "lb_sep18.csv",
+      "submitted": "2026-09-18 09:45 UTC",
+      "calls": 49
+    },
+    "sep23": {
+      "leaderboard": "lb_sep23.csv",
+      "submitted": "2026-09-23 18:03 UTC",
+      "calls": 49
+    },
+    "oct01": {
+      "leaderboard": "lb_oct01.csv",
+      "submitted": "2026-10-01 14:13 UTC",
+      "calls": 49
+    },
+    "oct02": {
+      "leaderboard": "lb_oct02.csv",
+      "submitted": "2026-10-02 12:08 UTC",
+      "calls": 175
+    },
+    "oct03": {
+      "leaderboard": "lb_oct03.csv",
+      "submitted": "2026-10-03 00:29 UTC",
+      "calls": 49
+    }
+  },
+  "scored_grid": [
+    300,
+    520
+  ],
+  "positive_grid": [
+    16,
+    44
+  ],
+  "report_alternatives": 10,
+  "bootstrap_samples": 40000,
+  "sensitivity_states": [
+    "sep15",
+    "oct03"
+  ],
+  "sensitivity_scored": [
+    330,
+    350,
+    366,
+    374,
+    390,
+    410,
+    430
+  ],
+  "null_transitions": [
+    {
+      "from": "sep15",
+      "to": "oct03",
+      "swaps": 17
+    },
+    {
+      "from": "sep14",
+      "to": "sep15",
+      "swaps": 9
+    },
+    {
+      "from": "sep15",
+      "to": "sep18",
+      "swaps": 27
+    }
+  ],
+  "null_draws": 200000,
+  "null_quantiles": [
+    0.01,
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9,
+    0.95,
+    0.99
+  ],
+  "bias_check_draws": 2000,
+  "bias_check_bootstrap": 400,
+  "variant": "L4_rankmean_legacy_pool",
+  "pool_column": "pool_lgbm.score",
+  "score_columns": [
+    "gate_x_tdi.p_active",
+    "gate_x_tdi_chemeleon.p_active",
+    "pool_lgbm.score",
+    "pool_chemeleon.score",
+    "rank_mean_gates.score",
+    "gate_x_tdi.p_tdi",
+    "official_lgbm.score"
+  ],
+  "selection_components": [
+    "pool_lgbm.score"
+  ],
+  "permutations": 10000,
+  "status": "Read-only post-mortem of one scored Live result; no candidate, submission or upload",
+  "exchangeable_draws": 200000
+}

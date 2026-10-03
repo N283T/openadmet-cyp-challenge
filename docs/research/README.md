@@ -20,6 +20,19 @@ The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experimen
   [gate concordance](../analysis/2026-10-03-d6-gate-concordance.md) and the
   [candidate record](../analysis/2026-10-03-d6-gate-candidates.md).
 
+- **The size of that gain is one scored molecule.** Reconstructing the scored
+  subset from the published bootstrap aggregates gives 374 scored rows of 750
+  and 26 scored positives; the move is `+1` true positive and `-3` false
+  positives, and `+.0387` of the `+.0556` is the single extra true positive.
+  An unskilled 17-call swap does not reproduce it (`p = .0018`), but an
+  exchangeable split of the 34 changed calls does (`p = .19-.26`, about the
+  76th percentile), the same position as the September 14 to 15 gain. Three
+  score columns now agree with 7 of 8 Live directions, one of them
+  non-independently. Treat the payload as the retained control, not as a
+  validated recipe improvement.
+  See [RL0218](2026-10.md#rl0218--sizing-the-d6-live-gain-and-attributing-it)
+  and the [gain analysis](../analysis/2026-10-03-d6-live-gain-analysis.md).
+
 - **A4 is diagnosed and deliberately unchanged.** Live rank 1 is `+0.21`
   pooled bootstrap standard deviations over rank 2 and the full-test Interim
   board places the same vector 4th, so the lead is not resolved. The
