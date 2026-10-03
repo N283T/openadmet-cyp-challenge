@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "endpoint": "CYP2D6_is_TDI",
+  "candidates": {
+    "L4_rankmean_legacy_pool": {
+      "role": "primary",
+      "package_run": "20261002T223203072149Z-662a599c",
+      "candidate_id": "20261002T223224277051Z-1168833a",
+      "prepared_id": "20261002T223229553466Z-a08301d2",
+      "scores_input": "l4_scores.parquet",
+      "prepared_input": "l4_prepared.parquet"
+    },
+    "L2_legacy_x_sqrt_pa_morgan": {
+      "role": "alternative",
+      "package_run": "20261002T223215615405Z-0def2858",
+      "candidate_id": "20261002T223224511229Z-f62f5093",
+      "prepared_id": "20261002T223229749698Z-16026b6c",
+      "scores_input": "l2_scores.parquet",
+      "prepared_input": "l2_prepared.parquet"
+    }
+  },
+  "gate_run": "20261002T215345688167Z-7920b49a",
+  "gate_model": "gate_x_tdi",
+  "gate_field": "p_active",
+  "pool_model": "pool_lgbm",
+  "fingerprint": {"type": "morgan", "radius": 2, "fp_size": 2048, "similarity": "tanimoto"},
+  "knn_k": 10,
+  "neighbour_rate": "Similarity-weighted mean label of the 10 most similar labelled CYP2D6_is_TDI training molecules (standardized SMILES from compounds.parquet); stable tie order by compound_id",
+  "groups": ["retained", "removed", "added"],
+  "status": "Read-only diagnostic of the two prepared D6 gate candidates; no fitting, candidate, submission or upload"
+}

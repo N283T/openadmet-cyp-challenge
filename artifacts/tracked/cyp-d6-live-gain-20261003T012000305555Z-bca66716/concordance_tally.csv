@@ -1,0 +1,8 @@
+column,transitions,sign_agreements,agreements_before,new_transition_agrees,significant,selection_component
+gate_x_tdi.p_active,8,7,6,true,4,false
+gate_x_tdi_chemeleon.p_active,8,7,6,true,4,false
+pool_lgbm.score,8,7,6,true,4,true
+pool_chemeleon.score,8,6,6,false,2,false
+rank_mean_gates.score,8,6,6,false,4,false
+gate_x_tdi.p_tdi,8,5,5,false,4,false
+official_lgbm.score,8,5,5,false,4,false

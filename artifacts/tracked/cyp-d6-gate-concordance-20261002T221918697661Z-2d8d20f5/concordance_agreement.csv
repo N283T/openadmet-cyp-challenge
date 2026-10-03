@@ -1,0 +1,8 @@
+column,agreeing_transitions,transitions,min_permutation_p,significant_transitions
+gate_x_tdi.p_active,6,7,0.00009999000099990002,3
+gate_x_tdi_chemeleon.p_active,6,7,0.00009999000099990002,3
+pool_lgbm.score,6,7,0.00009999000099990002,3
+pool_chemeleon.score,6,7,0.0038996100389961006,2
+rank_mean_gates.score,6,7,0.00019998000199980003,4
+official_lgbm.score,5,7,0.0011998800119988001,4
+gate_x_tdi.p_tdi,5,7,0.000999900009999,4

@@ -1,0 +1,32 @@
+{
+  "source_run": "classification/20261002T225609263717Z-1daab817",
+  "purpose": "A4 TDI: compare the September 26 Live and Interim CYP3A4 boards, express the Live rank-1 lead and the Interim deficit in bootstrap std units, infer scored positive counts and call fractions, and list the N283T A4 Live history",
+  "config_sha256": "5e9b58ed6909b8bf11253faf27916010d9ff655278c168b3c1614feb71088f7f",
+  "outputs": {
+    "a4_live_history.csv": "5088cad6965eb3209c907b78a44efa43019e68f9ec505526dcbfeed786ad7442",
+    "live_interim_scatter.csv": "0d1de25800bc6734e847059b48d07599372c4622c63ff61e4dbc4b69a5654ec1",
+    "operating_points.csv": "1b9ced182215523d699b13f0b78117a1455964461cfaf22968c1d4b17af51af2",
+    "separation.csv": "da8a2767d61f728dbf174cfd77dbb95122a98c72cc56b77c51bfec706a0e9a3a",
+    "summary.json": "a1a798a68db70cc1f0febe8084843d9004b0891be92dafc2aaa84b8cf6f4e4ea"
+  },
+  "input_sha256": {
+    "live-a4.csv": "c8c241e5e0f8d75368ec9dc64ec496b2522ca11f42bce57c5cdc27eec9b1af44",
+    "live-d6.csv": "a8b8cae2ee05a612a52a006b72eca3bf2457215b701ba5b43844eb42df51327a",
+    "live-ma.csv": "b24d14b78463ad019f6797961e5ae0ad603fd41f8b4f3baa605470c92ff82425",
+    "interim-a4.csv": "544893776cdc0514d72cfb303b5e87e7968a3334594fa8dd98ebd67b1de9c35d",
+    "interim-d6.csv": "91e6ea1225965089fa873fc0ee5322519a2c9fe9f75556f7298da75eb34618aa",
+    "interim-ma.csv": "65dd8e62ae65a46e37b6e754c30ae1ec21cc0906b4d304bd7ff947a8e5ea1d87",
+    "snapshot-manifest.json": "29706fc941d3ef1b3ffd7a57fb4fd6c492392da8583a1c6193d687b2d10c81fe",
+    "history-a4-20260910.csv": "e436029953c626a50c08a8c7200b073c1b85c1eeefea929b015a9b43968a1e24",
+    "history-a4-20260912.csv": "682a3fcf50b45899acbe8f4fe372db064971407e689d780b1f9c92fb8bbedd14",
+    "history-a4-20260913.csv": "d0a7146fdcd5153018618894d94208e1fcd7c669d5f75655b6a78095e12d4d3e",
+    "history-a4-20260914.csv": "65991b188f12a68012e2e4dd1bec400237a3bde20cfb83863ada96b18ad66513",
+    "history-a4-20260915.csv": "4624e63936755de53709bad35c4e47e22666e71693f8d9c23cc404b626c02bed",
+    "history-a4-20260918.csv": "d4261f8ba291e9c0c42515c256e7c7920449748049e0004e5df95599d51fc152",
+    "history-a4-20260923.csv": "4857fd79eec032923d8c1985500e88b88400751b54bc42a12aab263e937ae463",
+    "history-a4-20260924.csv": "1f87c2740701cc7562d80e1786f856486cadcdc4a74103ce431c2bfa463d664e",
+    "history-a4-20260926.csv": "c010d39bd7d43f1e3805301f1a7985e84204ad1abe67a580ab90925b3566e736",
+    "history-a4-20261001.csv": "3c1f342e1d9b794757920c1ac69eeef96233bb9619b2189ea7d75b2db9e151ec",
+    "history-a4-20261002.csv": "8ba820f88522d216d794eb2989ab56f003bce47727714c83ae3ef4c6bfb446ca"
+  }
+}

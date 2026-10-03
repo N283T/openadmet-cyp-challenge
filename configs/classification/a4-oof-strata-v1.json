@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seed": 20261003,
+  "endpoint": "CYP3A4_is_TDI",
+  "pic50_endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "primary_enzyme": "CYP3A4",
+  "inputs": {
+    "compounds": "compounds.parquet",
+    "measurements": "measurements.parquet",
+    "aliases": "aliases.parquet",
+    "test_mapping": "test_mapping.parquet",
+    "assignments": "assignments.parquet",
+    "primary_screen": "primary-screen.csv",
+    "equal7_oof": "equal7-all-pool-oof.parquet",
+    "equal7_blind": "equal7-blind-scores.parquet",
+    "submission": "sep15-submission.parquet"
+  },
+  "oof_model": "submitted_equal7_full_pool",
+  "split_strategy": "umap",
+  "outer_folds": 5,
+  "inner_folds": 3,
+  "log2fc_bins": [-3.0, -2.0, -1.0, -0.5],
+  "gate_thresholds": [-1.0, -2.0],
+  "morgan_radius": 2,
+  "morgan_bits": 2048,
+  "nn_transfer_k": [1, 5],
+  "lgbm_seeds": 2,
+  "lgbm": {
+    "n_estimators": 400,
+    "num_leaves": 31,
+    "learning_rate": 0.03,
+    "colsample_bytree": 0.5,
+    "min_child_samples": 20
+  },
+  "lgbm_threads": 6,
+  "task_jobs": 6,
+  "feature_jobs": 16,
+  "counts_per_750": [200, 225, 249, 275, 300, 325, 350],
+  "reference_count": 249,
+  "fixed_prior": 0.2916,
+  "status": "Diagnostic stratification and population reweighting; no candidate, submission or upload"
+}

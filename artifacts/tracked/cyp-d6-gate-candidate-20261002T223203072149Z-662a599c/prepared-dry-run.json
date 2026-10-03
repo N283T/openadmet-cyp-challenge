@@ -1,0 +1,36 @@
+{
+  "submission_id": "20261002T223229553466Z-a08301d2",
+  "track": "classification",
+  "sha256": "f6e2ddb44f86ee11aea1877ff07dc79a737f54cb7f9793e63b924af7893af393",
+  "validation": {
+    "track": "classification",
+    "rows": 750,
+    "columns": [
+      "SMILES",
+      "Molecule_Name",
+      "CYP2D6_is_TDI",
+      "CYP3A4_is_TDI"
+    ],
+    "valid": true
+  },
+  "profile_fields": [
+    "affiliation",
+    "anon_checkbox",
+    "discord_username",
+    "email",
+    "model_tag",
+    "open_code_checkbox",
+    "paper_checkbox",
+    "participant_name",
+    "proprietary_data_checkbox",
+    "user_alias",
+    "username"
+  ],
+  "report_url_present": false,
+  "target_changes": {
+    "CYP2D6_is_TDI": 140,
+    "CYP3A4_is_TDI": 0
+  },
+  "next_eligible_at": "2026-10-03T09:08:22.746783+09:00",
+  "sent": false
+}

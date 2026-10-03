@@ -1,0 +1,106 @@
+{
+  "group_counts": {
+    "L4_rankmean_legacy_pool": {
+      "added": 17,
+      "removed": 17,
+      "retained": 32
+    },
+    "L2_legacy_x_sqrt_pa_morgan": {
+      "added": 26,
+      "removed": 26,
+      "retained": 23
+    }
+  },
+  "neighbour_reference": {
+    "labelled_molecules": 1497,
+    "labelled_positives": 324,
+    "test_molecules": 750
+  },
+  "group_means": [
+    {
+      "variant": "L4_rankmean_legacy_pool",
+      "group": "retained",
+      "n": 32,
+      "legacy_rank": 0.9680833333333333,
+      "pool_rank": 0.9477916666666667,
+      "combined_rank": 0.9745833333333334,
+      "legacy_position": 24.4375,
+      "pool_position": 39.65625,
+      "combined_position": 19.5625,
+      "p_active_morgan": 0.39938709322747806,
+      "top10_weighted_positive_rate": 0.46606905679686395,
+      "nearest_positive_similarity": 0.4598429314492197
+    },
+    {
+      "variant": "L4_rankmean_legacy_pool",
+      "group": "removed",
+      "n": 17,
+      "legacy_rank": 0.9659215686274509,
+      "pool_rank": 0.6098431372549019,
+      "combined_rank": 0.830078431372549,
+      "legacy_position": 26.058823529411764,
+      "pool_position": 293.11764705882354,
+      "combined_position": 127.88235294117646,
+      "p_active_morgan": 0.17498460615811892,
+      "top10_weighted_positive_rate": 0.34825025408434285,
+      "nearest_positive_similarity": 0.3918454766244708
+    },
+    {
+      "variant": "L4_rankmean_legacy_pool",
+      "group": "added",
+      "n": 17,
+      "legacy_rank": 0.9015294117647059,
+      "pool_rank": 0.9529803921568627,
+      "combined_rank": 0.9536862745098039,
+      "legacy_position": 74.3529411764706,
+      "pool_position": 35.76470588235294,
+      "combined_position": 35.23529411764706,
+      "p_active_morgan": 0.3093567672622143,
+      "top10_weighted_positive_rate": 0.39299623488523716,
+      "nearest_positive_similarity": 0.46337154751326226
+    },
+    {
+      "variant": "L2_legacy_x_sqrt_pa_morgan",
+      "group": "retained",
+      "n": 23,
+      "legacy_rank": 0.9722608695652173,
+      "pool_rank": 0.9397971014492753,
+      "combined_rank": 0.9747536231884059,
+      "legacy_position": 21.304347826086957,
+      "pool_position": 45.65217391304348,
+      "combined_position": 19.434782608695652,
+      "p_active_morgan": 0.4962078543362723,
+      "top10_weighted_positive_rate": 0.4304101887264113,
+      "nearest_positive_similarity": 0.4690042343062411
+    },
+    {
+      "variant": "L2_legacy_x_sqrt_pa_morgan",
+      "group": "removed",
+      "n": 26,
+      "legacy_rank": 0.9629743589743589,
+      "pool_rank": 0.733897435897436,
+      "combined_rank": 0.8122564102564103,
+      "legacy_position": 28.26923076923077,
+      "pool_position": 200.07692307692307,
+      "combined_position": 141.30769230769232,
+      "p_active_morgan": 0.16701325531665606,
+      "top10_weighted_positive_rate": 0.42057806908561596,
+      "nearest_positive_similarity": 0.40727882769028806
+    },
+    {
+      "variant": "L2_legacy_x_sqrt_pa_morgan",
+      "group": "added",
+      "n": 26,
+      "legacy_rank": 0.8326666666666667,
+      "pool_rank": 0.9036923076923077,
+      "combined_rank": 0.9607692307692308,
+      "legacy_position": 126.0,
+      "pool_position": 72.73076923076923,
+      "combined_position": 29.923076923076923,
+      "p_active_morgan": 0.5517933876491437,
+      "top10_weighted_positive_rate": 0.3165487272971796,
+      "nearest_positive_similarity": 0.3872641882563971
+    }
+  ],
+  "uploaded": false
+}

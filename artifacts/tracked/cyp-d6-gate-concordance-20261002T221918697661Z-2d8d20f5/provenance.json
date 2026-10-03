@@ -1,0 +1,37 @@
+{
+  "source_run": "classification/20261002T221918697661Z-2d8d20f5",
+  "purpose": "D6 activity gate historical LB concordance: permutation test of removed versus added calls across the seven submitted D6 payloads, legacy x gate OOF combinations against the legacy Sep 15 refit control on umap/scaffold, blind swap inventory and a strict pseudo-negative sensitivity; read-only, no candidate or upload",
+  "outputs": {
+    "blind_candidates.parquet": "5e8a0a1b58c7b9f3ea97e67433fa8ee0e365f2d44dfd4a8f3f90aa34bd06b9c9",
+    "blind_swap_summary.csv": "d1ccf082cecb829e11358d142cdbfa5c06680be98e1eb944578bcd8105f2d9c0",
+    "concordance_agreement.csv": "039a48c59326be982744df2bcff1f9378ab39b6dca5889a04b1881b3f431ff33",
+    "oof_bootstrap_deltas.csv": "6bd2e47ff6d6a5cfaa8b04f1abcc52725a5f46c4a6f2fbe8226d972e75ce0142",
+    "oof_nested_selection.csv": "5d0dfa022c8200859e84bde90d8421ebc19b210878f3ff7d8bc6c4b1e0f9e231",
+    "oof_rate_curves.csv": "53cbeec5106ea4a5626287899ad3e2773c82b88780314f8580f7a84a1f168bd0",
+    "payload_summary.csv": "e7a85640c10e3425a05a189e014c540f171713be6170d2069b02bd251c5c5e55",
+    "report.md": "66ddc57cfaa48bc409cebb339bad82da1cd3b7af48cc53c022ec53dfdc83f87c",
+    "summary.json": "8d6535f654a777891a5a8f938e5c0f6cf5718850cf27657a1ccc72e6fd2694a9",
+    "swaps.csv": "36a310a79f16d56bfd0746bb5fa382ef582ab8f0cd3303c743802423ebab5db3",
+    "transitions.csv": "eeead15f43c061912b6cffc1c919d1c677afbe6746fdc61337ae5c8dbbf1ec43"
+  },
+  "input_sha256": {
+    "oof_scores.parquet": "179fa1e523e07d3511daa10f3b5eb8a31e1f43318275e56f776931468d5b47e3",
+    "test_scores.parquet": "bbf9244249502405f727f639d20453715ee4e466ef7a2a62aee83cb6cfdc5433",
+    "sep15_blind_scores.parquet": "a22f104fdc17f8b189aeb7d2c80f21ffa6bbd8008c4f06932269ccb23535c023",
+    "aliases.parquet": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+    "test_mapping.parquet": "135ba78ae49abf46a5c3351e5d681b2352d767c1a4d5b7294117ec6d6e3775f7",
+    "assignments.parquet": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+    "primary-screen.csv": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a",
+    "payload_sep13.parquet": "893b79ec83fb19a20676a43cbedfb753ae3388bbe39c38a0293e3f22f2086f6c",
+    "payload_sep14.parquet": "8ee886811bf626025fa3b398b79ffce0ea54dcb2fac7ec91e01cf4c0d46ce6a6",
+    "payload_sep15.parquet": "f42170784d0e23515141fb0fcb952b5596d69b55d951c69e26204839fc12e496",
+    "payload_sep18.parquet": "7092adcd22ce11385588b918758f6b1e21600dca394a5d2a9ae1869fa60a500a",
+    "payload_sep23.parquet": "2a5ee4dd1d7c25c11522bc49af621c9852b863ba6e80e1c2b0fe88449195fa3d",
+    "payload_oct01.parquet": "67dbe95a6f9c307c5c8cea6746c1d993e08ecc854393052babf35be38bb6ba19",
+    "payload_oct02.parquet": "6b23e212457c0f86556dbb200df008a64fb782d46b09659b762608104fb6228d"
+  },
+  "config": {
+    "path": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261002T221918697661Z-2d8d20f5/config.json",
+    "sha256": "5c1eb3fc78feb537a33da601745075a5821e78fdc32cedd88dac5f9d9525e294"
+  }
+}
