@@ -8,8 +8,34 @@ The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experimen
 
 ## Current direction
 
-- **D6 investigation priority is validation transfer and explanation of scored
-  failures.** The [recommendation audit](../analysis/2026-10-02-d6-validator-decision-audit.md)
+- **D6 has a new Live best from the test-like pool policy.** The adopted
+  payload `20261002T223229553466Z-a08301d2` calls the top 49 of an equal
+  percentile-rank mean of the deployed September 15 score and a LightGBM
+  trained on official labels plus primary-screen pseudo-negatives. Live D6 MCC
+  is `.117740 -> .364248`, above the previous best `.308635`; precision and
+  recall both rose at the unchanged 49 calls. A4 is bitwise unchanged at
+  `.529911`, rank 1, and MA is `.447079`, rank 5. This is the new D6 control.
+  See [RL0217](2026-10.md#rl0217--the-l4-rank-mean-d6-payload-sets-a-new-best-d6-live-score),
+  the [pool evaluation](../analysis/2026-10-03-d6-testlike-pool.md), the
+  [gate concordance](../analysis/2026-10-03-d6-gate-concordance.md) and the
+  [candidate record](../analysis/2026-10-03-d6-gate-candidates.md).
+
+- **A4 is diagnosed and deliberately unchanged.** Live rank 1 is `+0.21`
+  pooled bootstrap standard deviations over rank 2 and the full-test Interim
+  board places the same vector 4th, so the lead is not resolved. The
+  ensemble's measured advantage lies in suppressing weak-primary and assigned
+  negative molecules rather than ranking strong actives, and performance does
+  not decay on blind-like chemistry. Eleven pool/gate variants all fail to
+  beat it, and the only informative historical A4 transition contradicts them.
+  See [RL0215](2026-10.md#rl0215--a4-diagnosis-live-lead-population-composition-and-poolgate-variants)
+  and the [diagnosis](../analysis/2026-10-03-a4-diagnosis.md).
+
+- **Superseded: the earlier D6 investigation priority.** The validation-transfer
+  audit below described the state before the test-like pool result. Its
+  comparator-policy finding still stands as a record of a reasoning defect;
+  its conclusion that no candidate should be created is superseded by RL0217.
+  The audit addressed validation transfer and the explanation of scored
+  failures. The [recommendation audit](../analysis/2026-10-02-d6-validator-decision-audit.md)
   shows that prior historical sign reversals remained unresolved when fresh
   CheMeleon CV superiority was promoted to submission confidence. The UMAP
   advantage also disappears against the legacy historical operating-fraction

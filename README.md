@@ -22,9 +22,12 @@ best scored submission. Boltz and Jupyter are not declared in this environment.
 Pandas may exist transitively; project table processing uses Polars.
 
 The [October 2 work summary](docs/analysis/2026-10-02-work-summary.md) consolidates
-retained changes and the latest scored state. The D6 CheMeleon submission scored
-.117740 MCC, below historical best .308635; its earlier recommendation is
-superseded by the scored outcome and validation audit. A4 retains .529911 MCC.
+retained changes through October 2. On October 3 a D6 payload built from a
+[test-like training pool](docs/analysis/2026-10-03-d6-testlike-pool.md), where
+primary-screen non-hits become assigned negatives, scored .364248 MCC and set a
+new D6 best above the previous .308635. A4 is unchanged at .529911, rank 1, and
+macro MCC is .447079. The [A4 diagnosis](docs/analysis/2026-10-03-a4-diagnosis.md)
+explains why that endpoint is deliberately left alone.
 
 For new regression work, use the explicit [current auxiliary configuration](configs/regression/current-log2fc.json)
 and [current parent-CV readout](configs/regression/current-parent-readout.json).
