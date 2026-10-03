@@ -6,7 +6,7 @@ submission or contacted the challenge API.
 | Part | Run | Seconds | Code |
 | --- | --- | ---: | --- |
 | 1 Gate diagnosis | `20261003T041642823714Z-1ab63580` | 0.2 | `scripts/evaluate_cyp_d6_gate_diagnosis.py`, `scripts/launch_cyp_d6_gate_diagnosis.py`, `configs/classification/d6-gate-diagnosis-v1.json` |
-| 2 Filtered vector | `20261003T042011147407Z-15430428` | 61 | `scripts/evaluate_cyp_d6_gate_filter_probe.py`, `scripts/launch_cyp_d6_gate_filter_probe.py`, `configs/classification/d6-gate-filter-probe-v1.json` |
+| 2 Filtered vector | `20261003T042011147407Z-15430428` | 3.9 | `scripts/evaluate_cyp_d6_gate_filter_probe.py`, `scripts/launch_cyp_d6_gate_filter_probe.py`, `configs/classification/d6-gate-filter-probe-v1.json` |
 | 3 Option comparison | `20261003T042954902078Z-fa7d7e77` | 0.5 | `scripts/evaluate_cyp_d6_option_comparison.py`, `scripts/launch_cyp_d6_option_comparison.py`, `configs/classification/d6-option-comparison-v1.json` |
 
 Outputs with SHA-256 provenance are promoted to
