@@ -8,13 +8,15 @@ The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experimen
 
 ## Current direction
 
-- **D6 has a new Live best from the test-like pool policy.** The adopted
-  payload `20261002T223229553466Z-a08301d2` calls the top 49 of an equal
-  percentile-rank mean of the deployed September 15 score and a LightGBM
-  trained on official labels plus primary-screen pseudo-negatives. Live D6 MCC
-  is `.117740 -> .364248`, above the previous best `.308635`; precision and
-  recall both rose at the unchanged 49 calls. A4 is bitwise unchanged at
-  `.529911`, rank 1, and MA is `.447079`, rank 5. This is the new D6 control.
+- **D6 has a new best observed Live score; the policy behind it is not
+  validated.** The adopted payload `20261002T223229553466Z-a08301d2` calls the
+  top 49 of an equal percentile-rank mean of the deployed September 15 score
+  and a LightGBM trained on official labels plus primary-screen
+  pseudo-negatives. Live D6 MCC is `.117740 -> .364248`, above the previous
+  best `.308635`, at the unchanged 49 calls. A4 is bitwise unchanged at
+  `.529911`, rank 1, and MA is `.447079`, rank 5. Retain this payload as the
+  D6 control because it is the best observed Live score, not because the
+  recipe is demonstrated to be better; see the sizing bullet below.
   See [RL0217](2026-10.md#rl0217--the-l4-rank-mean-d6-payload-sets-a-new-best-d6-live-score),
   the [pool evaluation](../analysis/2026-10-03-d6-testlike-pool.md), the
   [gate concordance](../analysis/2026-10-03-d6-gate-concordance.md) and the

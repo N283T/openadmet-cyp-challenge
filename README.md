@@ -24,8 +24,12 @@ Pandas may exist transitively; project table processing uses Polars.
 The [October 2 work summary](docs/analysis/2026-10-02-work-summary.md) consolidates
 retained changes through October 2. On October 3 a D6 payload built from a
 [test-like training pool](docs/analysis/2026-10-03-d6-testlike-pool.md), where
-primary-screen non-hits become assigned negatives, scored .364248 MCC and set a
-new D6 best above the previous .308635. A4 is unchanged at .529911, rank 1, and
+primary-screen non-hits become assigned negatives, scored .364248 MCC, the best
+D6 score we have observed, above the previous .308635. A
+[sizing analysis](docs/analysis/2026-10-03-d6-live-gain-analysis.md) attributes
+most of that move to one scored molecule and places it inside an exchangeable
+null, so the recipe is retained as the control without being established as
+better. A4 is unchanged at .529911, rank 1, and
 macro MCC is .447079. The [A4 diagnosis](docs/analysis/2026-10-03-a4-diagnosis.md)
 explains why that endpoint is deliberately left alone.
 
