@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seed": 20261003,
+  "endpoint": "CYP2D6_is_TDI",
+  "inputs": {
+    "testlike_oof": "testlike-pool-oof.parquet",
+    "test_scores": "test_scores.parquet",
+    "sep15_blind_scores": "sep15_blind_scores.parquet",
+    "assignments": "assignments.parquet",
+    "test_mapping": "test_mapping.parquet",
+    "neighbour_rates": "blind_neighbour_rates.parquet"
+  },
+  "payload_inputs": {
+    "sep13": "payload_sep13.parquet",
+    "sep14": "payload_sep14.parquet",
+    "sep15": "payload_sep15.parquet",
+    "sep18": "payload_sep18.parquet",
+    "sep23": "payload_sep23.parquet",
+    "oct01": "payload_oct01.parquet",
+    "oct02": "payload_oct02.parquet",
+    "oct03": "payload_oct03.parquet"
+  },
+  "live_mcc": {
+    "sep13": 0.271,
+    "sep14": 0.2786,
+    "sep15": 0.3086,
+    "sep18": 0.1097,
+    "sep23": 0.2348,
+    "oct01": 0.105,
+    "oct02": 0.1177,
+    "oct03": 0.3642
+  },
+  "transitions": [
+    ["sep13", "sep14"],
+    ["sep14", "sep15"],
+    ["sep15", "sep18"],
+    ["sep15", "sep23"],
+    ["sep18", "sep23"],
+    ["sep15", "oct01"],
+    ["sep15", "oct02"],
+    ["sep15", "oct03"]
+  ],
+  "l4_components": ["legacy_sep15_refit", "pool_lgbm"],
+  "gate_model": "gate_x_tdi",
+  "legacy_blind_model": "deployed_mean_block",
+  "pool_blind_model": "pool_lgbm",
+  "thresholds": [0.2, 0.3, 0.4, 0.5],
+  "control": "l4_control",
+  "variants": {
+    "l4_control": "Control: equal per-fold percentile-rank mean of legacy_sep15_refit and pool_lgbm, unfiltered",
+    "l4_filter_tau0.2": "l4 ranking restricted to Morgan gate p_active >= 0.2, calls then filled from the excluded rows by l4",
+    "l4_filter_tau0.3": "l4 ranking restricted to Morgan gate p_active >= 0.3, calls then filled from the excluded rows by l4",
+    "l4_filter_tau0.4": "l4 ranking restricted to Morgan gate p_active >= 0.4, calls then filled from the excluded rows by l4",
+    "l4_filter_tau0.5": "l4 ranking restricted to Morgan gate p_active >= 0.5, calls then filled from the excluded rows by l4",
+    "l4_x_p_active": "l4 x Morgan gate p_active (product form already tested against the legacy control)",
+    "l4_x_sqrt_p_active": "l4 x sqrt(Morgan gate p_active) (square-root product form)"
+  },
+  "rates": [
+    0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1,
+    0.125, 0.15, 0.175, 0.2, 0.225, 0.25, 0.275, 0.3, 0.35, 0.4, 0.5
+  ],
+  "bootstrap_rates": [0.0653333333333333, 0.1, 0.2],
+  "bootstrap_samples": 1000,
+  "metric_o_priors": [0.05, 0.0706, 0.09],
+  "metric_m_phi": [0.23, 0.3262, 0.42],
+  "identified_phi": 0.3262,
+  "primary_metric_o_prior": 0.0706,
+  "permutations": 10000,
+  "blind_call_counts": [49],
+  "deployed_payload": "oct03",
+  "sep15_payload": "sep15",
+  "verdict_rule": {
+    "candidate_worthy": "Positive with a 95% interval excluding zero under Metric M at the identified phi on both split families, not significantly negative under Metric O at prior 0.0706 on either family, and not contradicted by the historical transitions",
+    "declared": "before any Part 2 number was read"
+  },
+  "status": "Read-only offline evaluation of a gate-filtered D6 vector; nothing fitted, no candidate, submission or upload in this run"
+}

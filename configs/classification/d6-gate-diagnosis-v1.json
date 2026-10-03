@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "seed": 20261003,
+  "inputs": {
+    "testlike_oof": "testlike-pool-oof.parquet",
+    "blind_scores": "test_scores.parquet",
+    "aliases": "aliases.parquet",
+    "primary_screen": "primary-screen.csv",
+    "assignments": "assignments.parquet"
+  },
+  "endpoint": "CYP2D6_is_TDI",
+  "enzyme": "CYP2D6",
+  "gate_model": "gate_x_tdi",
+  "gate_threshold": -1.0,
+  "reliability_bins": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "coarse_bins": [
+    0.0,
+    0.2,
+    0.3,
+    0.5,
+    1.0
+  ],
+  "thresholds": [
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "log2fc_regions": [
+    {
+      "name": "strong_hit",
+      "low": -99.0,
+      "high": -1.0,
+      "rate": 0.215,
+      "rate_source": "D6 labelled rows with log2fc < -1"
+    },
+    {
+      "name": "weak_hit",
+      "low": -1.0,
+      "high": -0.5,
+      "rate": 0.2222,
+      "rate_source": "D6 labelled rows with -1 <= log2fc < -0.5"
+    },
+    {
+      "name": "borderline",
+      "low": -0.5,
+      "high": -0.25,
+      "rate": 0.0091,
+      "rate_source": "pooled 1A2/2C9/3A4 labelled rows, 5 of 549"
+    },
+    {
+      "name": "relabelled",
+      "low": -0.25,
+      "high": 99.0,
+      "rate": 0.0047,
+      "rate_source": "pooled 1A2/2C9/3A4 exact 95% upper bound, 0 of 638"
+    }
+  ],
+  "relabelled_rate_scenarios": {
+    "clean": 0.0,
+    "pooled_upper_bound": 0.0047,
+    "d6_at_blind_base_rate": 0.0706
+  },
+  "published_scored_prevalence": 0.0706,
+  "status": "Read-only diagnosis of the activity gate; nothing fitted, no candidate, submission or upload"
+}
