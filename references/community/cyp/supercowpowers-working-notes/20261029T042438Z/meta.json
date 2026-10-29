@@ -1,0 +1,61 @@
+{
+  "url": "https://supercowpowers.github.io/workbench/blogs/cyp_challenge/",
+  "group": "cyp",
+  "slug": "supercowpowers-working-notes",
+  "fetched_at": "2026-10-29T04:24:38.087590+00:00",
+  "requests": [
+    {
+      "url": "https://supercowpowers.github.io/workbench/blogs/cyp_challenge/",
+      "final_url": "https://supercowpowers.github.io/workbench/blogs/cyp_challenge/",
+      "status": 200,
+      "fetched_at": "2026-10-29T04:24:38.283332+00:00",
+      "file": "source.html",
+      "sha256": "c0b4d5450b31606368a8a32f8b05b6b12e29ef8d83d292f5e82d2036c17b8863"
+    },
+    {
+      "url": "https://supercowpowers.github.io/workbench/images/cyp_affine_recalibration.svg",
+      "final_url": "https://supercowpowers.github.io/workbench/images/cyp_affine_recalibration.svg",
+      "status": 200,
+      "fetched_at": "2026-10-29T04:24:38.516712+00:00",
+      "file": "78cf603d6203c721.svg",
+      "sha256": "26d083f7debf0e37ce8791632b7de4f09173635ab9e5d5bc93ec4852e710693d"
+    }
+  ],
+  "title": "OpenADMET CYP Challenge — Working Notes",
+  "authors": [],
+  "published": null,
+  "modified": null,
+  "extraction": "Article body converted to Markdown; figures saved locally",
+  "images": [
+    {
+      "url": "https://supercowpowers.github.io/workbench/images/cyp_affine_recalibration.svg",
+      "file": "assets/78cf603d6203c721.svg",
+      "sha256": "26d083f7debf0e37ce8791632b7de4f09173635ab9e5d5bc93ec4852e710693d",
+      "alt": "Conceptual diagram of affine recalibration. Left panel: raw predictions form a narrow distribution centred to the right of a wider target population. Right panel: after the map y-prime = mu_t + rho times sigma_t times (y-hat minus mu_p) over sigma_p, the predictions are centred on the target mean with spread rho times sigma_t, still narrower than the target. Below, a rank strip connects each raw prediction to its recalibrated value; no lines cross, so Spearman and Kendall are unchanged while R-squared and the error metrics are not."
+    }
+  ],
+  "snapshot_sha256": "8205fd5443225ac2bf4bcfa50fc24da58143b74dafd97ddccf84b56d8d53cb3a",
+  "status": "completed",
+  "files": [
+    {
+      "path": "assets/78cf603d6203c721.svg",
+      "sha256": "26d083f7debf0e37ce8791632b7de4f09173635ab9e5d5bc93ec4852e710693d",
+      "bytes": 15048
+    },
+    {
+      "path": "intent.json",
+      "sha256": "b816d64fee8f626d856d552016defd14323f42b3924b12134d2cddadc9ccd4a9",
+      "bytes": 209
+    },
+    {
+      "path": "snapshot.md",
+      "sha256": "8205fd5443225ac2bf4bcfa50fc24da58143b74dafd97ddccf84b56d8d53cb3a",
+      "bytes": 13672
+    },
+    {
+      "path": "source.html",
+      "sha256": "c0b4d5450b31606368a8a32f8b05b6b12e29ef8d83d292f5e82d2036c17b8863",
+      "bytes": 91422
+    }
+  ]
+}
