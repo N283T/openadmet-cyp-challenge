@@ -91,7 +91,9 @@ def main():
             with torch.no_grad():
                 nodes = model.model(graph)["node_features"].float()
                 charges = model.heads["latent_charges"](nodes, graph).float().reshape(-1)
-            offsets = torch.cumsum(torch.cat([torch.zeros(1, dtype=torch.long), graph.n_node.cpu()]), 0)
+            offsets = torch.cumsum(
+                torch.cat([torch.zeros(1, dtype=torch.long), graph.n_node.cpu()]), 0
+            )
             for i, cid in enumerate(chunk):
                 a, b = int(offsets[i]), int(offsets[i + 1])
                 q = charges[a:b]
@@ -99,7 +101,13 @@ def main():
                 vectors[cid] = torch.cat([nodes[a:b].mean(0), nodes[a:b].max(0).values, stats])
                 vectors[cid] = vectors[cid].cpu().numpy()
         table = pl.DataFrame(
-            {"compound_id": order, **{f"emb_{j:04d}": [vectors[c][j] for c in order] for j in range(len(vectors[order[0]]))}}
+            {
+                "compound_id": order,
+                **{
+                    f"emb_{j:04d}": [vectors[c][j] for c in order]
+                    for j in range(len(vectors[order[0]]))
+                },
+            }
         )
         table.write_parquet(out / f"draw-seed{seed}.parquet")
         draws.append(vectors)
@@ -114,9 +122,14 @@ def main():
     assert not unembedded, f"no conformer for {unembedded}"
     width = len(next(iter(result.values())))
     pl.DataFrame(
-        {"compound_id": ids, **{f"emb_{j:04d}": [float(result[c][j]) for c in ids] for j in range(width)}}
+        {
+            "compound_id": ids,
+            **{f"emb_{j:04d}": [float(result[c][j]) for c in ids] for j in range(width)},
+        }
     ).write_parquet(out / "external-embeddings.parquet")
-    (out / "summary.json").write_text(json.dumps({"compounds": len(ids), "width": width, "seeds": cfg["seeds"]}))
+    (out / "summary.json").write_text(
+        json.dumps({"compounds": len(ids), "width": width, "seeds": cfg["seeds"]})
+    )
 
 
 if __name__ == "__main__":

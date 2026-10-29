@@ -82,9 +82,7 @@ def main():
             "corr_with_fold_mean_screen": float(np.corrcoef(member, reference)[0, 1]),
         }
         members.append(
-            pl.DataFrame(
-                {"compound_id": blind_ids, "endpoint": endpoint, "prediction": member}
-            )
+            pl.DataFrame({"compound_id": blind_ids, "endpoint": endpoint, "prediction": member})
         )
     pl.concat(members).write_parquet(out / "member-blind.parquet")
 
@@ -111,7 +109,9 @@ def main():
             "mean_abs": float(np.abs(new - old).mean()),
             "max_abs": float(np.abs(new - old).max()),
             "spearman": float(
-                pl.DataFrame({"a": old, "b": new}).select(pl.corr("a", "b", method="spearman")).item()
+                pl.DataFrame({"a": old, "b": new})
+                .select(pl.corr("a", "b", method="spearman"))
+                .item()
             ),
             "mean": [float(old.mean()), float(new.mean())],
             "sd": [float(old.std(ddof=1)), float(new.std(ddof=1))],

@@ -129,10 +129,16 @@ def main():
                 symbols, coords = table[cid]
                 coords = coords[:256] - coords[:256].mean(0, keepdims=True)
                 symbols = symbols[:256]
-                tokens = [dictionary.bos()] + [dictionary.index(s) for s in symbols] + [dictionary.eos()]
+                tokens = (
+                    [dictionary.bos()] + [dictionary.index(s) for s in symbols] + [dictionary.eos()]
+                )
                 tokens = torch.tensor(tokens).cuda()[None]
                 xyz = torch.cat(
-                    [torch.zeros(1, 3), torch.tensor(coords, dtype=torch.float32), torch.zeros(1, 3)]
+                    [
+                        torch.zeros(1, 3),
+                        torch.tensor(coords, dtype=torch.float32),
+                        torch.zeros(1, 3),
+                    ]
                 )
                 xyz = xyz.cuda()[None]
                 sample = {
@@ -164,7 +170,9 @@ def main():
         columns[f"cypmol_{name}_prob"] = mean[:, 512]
     pl.DataFrame(columns).write_parquet(out / "external-embeddings.parquet")
     (out / "summary.json").write_text(
-        json.dumps({"compounds": len(ids), "isoforms": list(isoforms), "members": cfg["checkpoints"]})
+        json.dumps(
+            {"compounds": len(ids), "isoforms": list(isoforms), "members": cfg["checkpoints"]}
+        )
     )
 
 

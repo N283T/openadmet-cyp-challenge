@@ -20,7 +20,9 @@ ENDPOINT = "CYP3A4_pIC50_direct_inhibition"
 
 def main():
     inputs, cfg = RUN / "inputs", json.loads((RUN / "config.json").read_text())
-    spec = importlib.util.spec_from_file_location("official", inputs / "custom_scoring_functions.py")
+    spec = importlib.util.spec_from_file_location(
+        "official", inputs / "custom_scoring_functions.py"
+    )
     scorer = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(scorer)
     weights = cfg["weights"]
@@ -35,9 +37,13 @@ def main():
         frame = pl.read_parquet(inputs / file).filter(pl.col("endpoint") == ENDPOINT)
         if method is not None:
             frame = frame.filter(pl.col("method") == method)
-        return cohort.select("compound_id").join(
-            frame.select("compound_id", "prediction"), on="compound_id", how="left"
-        )["prediction"].to_numpy()
+        return (
+            cohort.select("compound_id")
+            .join(frame.select("compound_id", "prediction"), on="compound_id", how="left")[
+                "prediction"
+            ]
+            .to_numpy()
+        )
 
     members = {name: column(file) for name, file in cfg["member_oof"].items()}
     arms = {}
@@ -56,19 +62,20 @@ def main():
             )
         )
 
-    groups = (
-        cohort.join(
-            pl.read_parquet(inputs / "parent-assignments.parquet").select("compound_id", "group"),
-            on="compound_id",
-            how="left",
-        )["group"].to_numpy()
-    )
+    groups = cohort.join(
+        pl.read_parquet(inputs / "parent-assignments.parquet").select("compound_id", "group"),
+        on="compound_id",
+        how="left",
+    )["group"].to_numpy()
     unique = np.unique(groups)
     index = {g: np.flatnonzero(groups == g) for g in unique}
     rng = np.random.default_rng(1)
     delta_pred = arms["proxy"] - arms["baseline"]
     print("dev per-compound |proxy - baseline| mean", float(np.abs(delta_pred).mean()))
-    print("dev corr(proxy-baseline, y - baseline)", float(np.corrcoef(delta_pred, y - arms["baseline"])[0, 1]))
+    print(
+        "dev corr(proxy-baseline, y - baseline)",
+        float(np.corrcoef(delta_pred, y - arms["baseline"])[0, 1]),
+    )
     full = st(np.arange(len(y)), arms["proxy"]) - st(np.arange(len(y)), arms["baseline"])
     print("dev full delta", full)
     for size in (375, 750):
@@ -86,7 +93,8 @@ def main():
         d = np.array(deltas)
         print(
             f"subset ~{size}: sd {d.std():.4f}, mean {d.mean():.4f}, "
-            f"P(delta >= +0.0065) {np.mean(d >= 0.0065):.4f}, 5-95% {np.quantile(d, [.05, .95]).round(4)}"
+            f"P(delta >= +0.0065) {np.mean(d >= 0.0065):.4f}, "
+            f"5-95% {np.quantile(d, [0.05, 0.95]).round(4)}"
         )
 
 

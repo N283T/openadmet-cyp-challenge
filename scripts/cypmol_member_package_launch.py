@@ -7,7 +7,8 @@ root = Path(__file__).resolve().parents[1]
 runs = root / "artifacts/runs"
 regression, shared = runs / "regression", runs / "shared"
 inputs = {
-    "embeddings.parquet": shared / "20261029T142347849581Z-2c6a74f4/outputs/external-embeddings.parquet",
+    "embeddings.parquet": shared
+    / "20261029T142347849581Z-2c6a74f4/outputs/external-embeddings.parquet",
     "screen-blind-mean.parquet": regression
     / "20261029T145728905917Z-9d7ea648/outputs/predictions/blind-mean.parquet",
     "base-predictions.csv": regression / "20261029T054536454025Z-220f26c8/outputs/predictions.csv",
@@ -35,6 +36,4 @@ command = [
 ]
 for alias, path in inputs.items():
     command += ["--input", f"{alias}={path}"]
-subprocess.run(
-    command + ["--", "python", "scripts/cypmol_member_package.py"], cwd=root, check=True
-)
+subprocess.run(command + ["--", "python", "scripts/cypmol_member_package.py"], cwd=root, check=True)

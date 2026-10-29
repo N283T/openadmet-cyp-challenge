@@ -12,7 +12,9 @@ def main():
     cfg = json.loads(Path(os.environ["CYP_CONFIG_PATH"]).read_text())
     base = pl.read_csv(inp / "base.csv")
     new = pl.read_csv(inp / "new.csv")
-    assert base["Molecule_Name"].equals(new["Molecule_Name"]) and base["SMILES"].equals(new["SMILES"])
+    assert base["Molecule_Name"].equals(new["Molecule_Name"]) and base["SMILES"].equals(
+        new["SMILES"]
+    )
     payload = base
     for column in cfg["take_from_new"]:
         payload = payload.with_columns(new[column])

@@ -14,7 +14,10 @@ inputs = {
 }
 members = (0, 1, 2, 3, 4, 7, 9, 10, 12, 15)
 inputs.update(
-    {f"checkpoint-sub{n}.pt": Path.home() / f".cache/cypmol/inhi_seq_pocket_sub{n}.pt" for n in members}
+    {
+        f"checkpoint-sub{n}.pt": Path.home() / f".cache/cypmol/inhi_seq_pocket_sub{n}.pt"
+        for n in members
+    }
 )
 command = [
     "pixi",
@@ -25,8 +28,10 @@ command = [
     "shared",
     "--purpose",
     (
-        "Export frozen CYPMol (CjmTH/CYPMol 0c6657d, inhibitor ensemble of 10) 512-d molecule-by-isoform "
-        "vectors and inhibitor probabilities for all 6896 compounds, mean over 10 ensemble members and three conformers"
+        "Export frozen CYPMol (CjmTH/CYPMol 0c6657d, inhibitor ensemble of 10) 512-d "
+        "molecule-by-isoform "
+        "vectors and inhibitor probabilities for all 6896 compounds, mean over 10 ensemble "
+        "members and three conformers"
     ),
     "--config",
     str(root / "configs/shared/cypmol-embed-ensemble-v1.json"),
