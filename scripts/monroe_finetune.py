@@ -222,10 +222,12 @@ def main():
                     "compound_id", "endpoint", "fold", "y_true", "conf_low", "conf_high"
                 ).with_columns(
                     pl.lit("monroe_ft_head").alias("method"),
-                    pl.Series("prediction", predictions[rows, task]),
+                    pl.Series("prediction", predictions[rows, task].astype(np.float64)),
                 )
             )
-            blind_head[endpoint].append(predictions[[index[c] for c in blind_ids], task])
+            blind_head[endpoint].append(
+                predictions[[index[c] for c in blind_ids], task].astype(np.float64)
+            )
 
             # TabPFN readout on this fold's fine-tuned embedding.
             labelled = (
