@@ -1,0 +1,8 @@
+{
+  "method": "monroe_cached_graph_embedding_v1",
+  "device": "cuda",
+  "graph_files": ["graphs-seed1.pkl", "graphs-seed2.pkl", "graphs-seed3.pkl", "graphs-seed4.pkl", "graphs-seed5.pkl"],
+  "checkpoint": {"config.json": "monroe-config.json", "weights.pt": "monroe-weights.pt"},
+  "embedding_dim": 720,
+  "batch_size": 128
+}
