@@ -87,7 +87,6 @@ def main():
     dictionary = module.Dictionary.load("")
     dictionary.add_symbol("[MASK]", is_special=True)
     n_dict = len(dictionary)
-    model = load_model(module, inp / "checkpoint.pt", dictionary)
 
     archive = zipfile.ZipFile(inp / "inhibitor.zip")
     training = pl.read_csv(io.BytesIO(archive.read("inhibitor.csv")), infer_schema_length=0)
@@ -96,16 +95,6 @@ def main():
         row = training.filter(pl.col("CYP") == name).row(0, named=True)
         isoforms[name] = (row["protein_seq"], row["pocket_site"])
 
-    protein = {}
-    with torch.no_grad():
-        for name, (sequence, pocket) in isoforms.items():
-            _, _, tokens = model.batch_converter([("", sequence)])
-            rep = model.protein_encoder(tokens.cuda(), repr_layers=[33], return_contacts=False)
-            rep = rep["representations"][33]
-            sites = [int(p) for p in pocket.replace("(", "").replace(")", "").split(", ")]
-            pocket_rep = rep[:, [s + 1 for s in sites], :]
-            protein[name] = torch.cat([rep, pocket_rep], dim=1)
-
     compounds = pl.read_parquet(inp / cfg["compounds"]).sort("compound_id")
     if cfg.get("limit"):
         compounds = compounds.head(cfg["limit"])
@@ -113,41 +102,60 @@ def main():
         assert compounds.height == cfg["expected_compounds"]
     items = list(compounds.select("compound_id", "standardized_smiles").iter_rows())
     ids = [cid for cid, _ in items]
-    sums = {n: np.zeros((len(ids), 513)) for n in isoforms}
-    counts = np.zeros(len(ids))
+    conformers = []
     for seed in cfg["seeds"]:
         SEED = seed
         with ProcessPoolExecutor(cfg["workers"], mp_context=mp.get_context("fork")) as pool:
-            built = dict(pool.map(build, items, chunksize=32))
-        for index, cid in enumerate(ids):
-            if built[cid] is None:
-                continue
-            symbols, coords = built[cid]
-            coords = coords[: 256] - coords[:256].mean(0, keepdims=True)
-            symbols = symbols[:256]
-            tokens = [dictionary.bos()] + [dictionary.index(s) for s in symbols] + [dictionary.eos()]
-            tokens = torch.tensor(tokens).cuda()[None]
-            xyz = torch.cat([torch.zeros(1, 3), torch.tensor(coords, dtype=torch.float32), torch.zeros(1, 3)])
-            xyz = xyz.cuda()[None]
-            sample = {
-                "input": {
-                    "src_tokens": tokens,
-                    "src_distance": torch.cdist(xyz, xyz),
-                    "src_coord": xyz,
-                    "src_edge_type": tokens[:, :, None] * n_dict + tokens[:, None, :],
-                    "smiles": [""],
+            conformers.append(dict(pool.map(build, items, chunksize=32)))
+    for cid in ids:
+        assert any(table[cid] is not None for table in conformers), f"no conformer for {cid}"
+
+    sums = {n: np.zeros((len(ids), 513)) for n in isoforms}
+    counts = np.zeros(len(ids))
+    for member in cfg["checkpoints"]:
+        model = load_model(module, inp / member, dictionary)
+        protein = {}
+        with torch.no_grad():
+            for name, (sequence, pocket) in isoforms.items():
+                _, _, tokens = model.batch_converter([("", sequence)])
+                rep = model.protein_encoder(tokens.cuda(), repr_layers=[33], return_contacts=False)
+                rep = rep["representations"][33]
+                sites = [int(p) for p in pocket.replace("(", "").replace(")", "").split(", ")]
+                protein[name] = torch.cat([rep, rep[:, [s + 1 for s in sites], :]], dim=1)
+        for table in conformers:
+            for index, cid in enumerate(ids):
+                if table[cid] is None:
+                    continue
+                symbols, coords = table[cid]
+                coords = coords[:256] - coords[:256].mean(0, keepdims=True)
+                symbols = symbols[:256]
+                tokens = [dictionary.bos()] + [dictionary.index(s) for s in symbols] + [dictionary.eos()]
+                tokens = torch.tensor(tokens).cuda()[None]
+                xyz = torch.cat(
+                    [torch.zeros(1, 3), torch.tensor(coords, dtype=torch.float32), torch.zeros(1, 3)]
+                )
+                xyz = xyz.cuda()[None]
+                sample = {
+                    "input": {
+                        "src_tokens": tokens,
+                        "src_distance": torch.cdist(xyz, xyz),
+                        "src_coord": xyz,
+                        "src_edge_type": tokens[:, :, None] * n_dict + tokens[:, None, :],
+                        "smiles": [""],
+                    }
                 }
-            }
-            with torch.no_grad():
-                molecule = model.molecule_encoder(sample)["molecule_embedding"]
-                for name, memory in protein.items():
-                    x = model.transformer_layer_cross_attention(molecule, memory, None)
-                    x = model.transformer_layer_self_attention(x)[:, 0, :]
-                    prob = torch.softmax(model.mlp(x), dim=1)[:, 1:2]
-                    sums[name][index] += torch.cat([x, prob], dim=1).float().cpu().numpy()[0]
-            counts[index] += 1
-        print(f"seed {seed}: {int((counts > 0).sum())} embedded", flush=True)
-    assert (counts > 0).all(), [c for c, k in zip(ids, counts) if k == 0]
+                with torch.no_grad():
+                    molecule = model.molecule_encoder(sample)["molecule_embedding"]
+                    for name, memory in protein.items():
+                        x = model.transformer_layer_cross_attention(molecule, memory, None)
+                        x = model.transformer_layer_self_attention(x)[:, 0, :]
+                        prob = torch.softmax(model.mlp(x), dim=1)[:, 1:2]
+                        vector = torch.cat([x, prob], dim=1).float().cpu().numpy()[0]
+                        sums[name][index] += vector
+                counts[index] += 1
+        print(f"{member}: done", flush=True)
+        del model
+        torch.cuda.empty_cache()
     columns = {"compound_id": ids}
     for name in isoforms:
         mean = sums[name] / counts[:, None]
@@ -155,7 +163,9 @@ def main():
             columns[f"cypmol_{name}_{j:03d}"] = mean[:, j]
         columns[f"cypmol_{name}_prob"] = mean[:, 512]
     pl.DataFrame(columns).write_parquet(out / "external-embeddings.parquet")
-    (out / "summary.json").write_text(json.dumps({"compounds": len(ids), "isoforms": list(isoforms)}))
+    (out / "summary.json").write_text(
+        json.dumps({"compounds": len(ids), "isoforms": list(isoforms), "members": cfg["checkpoints"]})
+    )
 
 
 if __name__ == "__main__":

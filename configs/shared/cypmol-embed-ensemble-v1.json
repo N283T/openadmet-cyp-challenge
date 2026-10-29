@@ -1,0 +1,29 @@
+{
+  "method": "cypmol_inhibitor_ensemble10_frozen_v1",
+  "compounds": "compounds.parquet",
+  "expected_compounds": 6896,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "workers": 28,
+  "isoforms": [
+    "1A2",
+    "2C9",
+    "2D6",
+    "3A4"
+  ],
+  "checkpoints": [
+    "checkpoint-sub0.pt",
+    "checkpoint-sub1.pt",
+    "checkpoint-sub2.pt",
+    "checkpoint-sub3.pt",
+    "checkpoint-sub4.pt",
+    "checkpoint-sub7.pt",
+    "checkpoint-sub9.pt",
+    "checkpoint-sub10.pt",
+    "checkpoint-sub12.pt",
+    "checkpoint-sub15.pt"
+  ]
+}
