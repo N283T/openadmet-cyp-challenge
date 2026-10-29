@@ -161,8 +161,9 @@ deployment decisions; labelled-only results need an explicit diagnostic opt-in.
 Use `pixi run cyp submit SUBMISSION_ID --dry-run` to validate the prepared file and
 private profile and review per-target changes and cooldown timing. Obtain explicit
 user approval for that specific payload before running the live
-`pixi run cyp submit SUBMISSION_ID` command in an interactive terminal. It requires typing the full
-prepared ID, and a successful upload consumes a 12-hour opportunity for that track.
+`pixi run cyp submit SUBMISSION_ID` command. It requires the full prepared ID: typed in an
+interactive terminal, or passed as `--confirm "SUBMIT SUBMISSION_ID"` when the user has approved
+that exact payload in conversation and no interactive terminal is available. A successful upload consumes a 12-hour opportunity for that track.
 Prefer combining worthwhile changes across all targets when practical; an unchanged
 target is advisory, not a blocker. The sender
 reads `.private/submission-profile.json` (Git-ignored), saves the MA and every

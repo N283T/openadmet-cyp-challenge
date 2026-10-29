@@ -61,6 +61,19 @@ def test_live_confirmation_requires_tty_and_exact_id(monkeypatch):
     submission.confirm_live_submission("prepared-id", "regression", None, None)
 
 
+def test_live_confirmation_accepts_explicit_confirm_without_tty(monkeypatch):
+    monkeypatch.setattr(submission.sys.stdin, "isatty", lambda: False)
+    with pytest.raises(ValueError, match="did not match"):
+        submission.confirm_live_submission(
+            "prepared-id", "regression", None, None, "SUBMIT another-id"
+        )
+    with pytest.raises(ValueError, match="did not match"):
+        submission.confirm_live_submission("prepared-id", "regression", None, None, "")
+    submission.confirm_live_submission(
+        "prepared-id", "regression", None, None, "SUBMIT prepared-id"
+    )
+
+
 def test_cooldown_blocks_until_twelve_hours_have_elapsed():
     sent_at = datetime(2026, 9, 27, tzinfo=UTC)
     with pytest.raises(ValueError, match="12-hour track cooldown"):
