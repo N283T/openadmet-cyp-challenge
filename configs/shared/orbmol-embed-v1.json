@@ -1,0 +1,9 @@
+{
+  "method": "orbmol_v2_pooled_node_features_v1",
+  "compounds": "compounds.parquet",
+  "expected_compounds": 6896,
+  "seeds": [1, 2, 3, 4, 5],
+  "workers": 28,
+  "batch_size": 64,
+  "device": "cuda"
+}
