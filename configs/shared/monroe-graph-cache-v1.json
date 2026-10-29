@@ -1,0 +1,10 @@
+{
+  "method": "monroe_graph_cache_v1",
+  "compounds": "compounds.parquet",
+  "expected_compounds": 6896,
+  "checkpoint": {"config.json": "monroe-config.json", "weights.pt": "monroe-weights.pt"},
+  "seeds": [1, 2, 3, 4, 5],
+  "workers": 28,
+  "batch_size": 64,
+  "device": "cuda"
+}
