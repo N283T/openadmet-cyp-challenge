@@ -70,3 +70,21 @@ jazzy = "==0.1.4"
 
 [environments]
 jazzy = { features = ["jazzy"], no-default-feature = true }
+monroe = { features = ["monroe"] }
+minimol = { features = ["minimol"], no-default-feature = true }
+
+[feature.monroe.dependencies]
+datamol = ">=0.12,<0.13"
+
+[feature.monroe.pypi-dependencies]
+monroe = { git = "https://github.com/blazejba/monroe", rev = "de075ea" }
+
+[feature.minimol.dependencies]
+python = "3.11.*"
+graphium = "==2.4.7"
+pytorch-cpu = "*"
+scipy = "<1.13"
+polars = ">=1,<2"
+
+[feature.minimol.pypi-dependencies]
+minimol = "==1.3.5"
