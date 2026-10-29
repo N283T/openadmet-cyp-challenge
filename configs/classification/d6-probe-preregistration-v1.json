@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seed": 20261003,
+  "inputs": {
+    "payload_oct03": "payload-oct03.parquet",
+    "sep15_blind_scores": "sep15-blind-scores.parquet",
+    "pool_blind_scores": "pool-blind-scores.parquet",
+    "test_mapping": "test_mapping.parquet",
+    "testlike_oof": "testlike-pool-oof.parquet"
+  },
+  "legacy_model": "deployed_mean_block",
+  "deployed_calls": 49,
+  "live_state": {
+    "scored_rows": 374,
+    "scored_positives": 26,
+    "scored_calls": 28,
+    "true_positives": 11,
+    "mcc": 0.364248,
+    "source": "Reconstruction of run 20261003T012000305555Z-bca66716"
+  },
+  "candidates": {
+    "l4_rank_mean": [
+      49,
+      60,
+      75,
+      94,
+      112,
+      150
+    ],
+    "pool_lgbm": [
+      49
+    ]
+  },
+  "marginal_precision_scenarios": [
+    0.0,
+    0.07,
+    0.1,
+    0.17,
+    0.25,
+    0.3,
+    0.393
+  ],
+  "readable_changed_calls": 10,
+  "preregistration": {
+    "question": "Does the interior rate optimum found once the grid is extended past 10% transfer to the public board",
+    "primary_probe": "l4_rank_mean top 94",
+    "prediction": "Recorded in the analysis document before any upload",
+    "status": "Pre-registration only; no candidate, prepared submission or upload"
+  },
+  "l4_components": [
+    "legacy_sep15_refit",
+    "pool_lgbm"
+  ],
+  "identified_phi": 0.3262,
+  "marginal_precision_note": "Offline precision of each added rank band, on officially labelled rows and under the identified mixture; the mixture value is the analogue of the Live marginal precision",
+  "live_break_even_precision": 0.188
+}

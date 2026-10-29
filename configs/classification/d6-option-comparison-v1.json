@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "seed": 20261003,
+  "inputs": {
+    "blind_swaps": "blind_swaps.csv",
+    "marginal_precision": "marginal_precision.csv"
+  },
+  "sizing": {
+    "scored_rows": 374,
+    "scored_positives": 26,
+    "deployed_total_calls": 49,
+    "deployed_scored_calls": 28,
+    "deployed_true_positives": 11,
+    "deployed_false_positives": 17,
+    "deployed_false_negatives": 15,
+    "deployed_point_mcc": 0.36165,
+    "deployed_live_mcc": 0.364248,
+    "source": "20261003T012000305555Z-bca66716 joint integer fit over the eight scored D6 states"
+  },
+  "scored_fraction_swap": 0.5714285714285714,
+  "scored_fraction_extension": 0.499,
+  "scored_fraction_sensitivity": [
+    0.499,
+    0.5714285714285714,
+    0.65
+  ],
+  "removed_precision": 0.39285714285714285,
+  "added_precision_scenarios": {
+    "base_rate": 0.0706,
+    "offline_mixture_ratio": 0.2652,
+    "unchanged": 0.39285714285714285
+  },
+  "extension_precision_scenarios": {
+    "uncalibrated_mixture": 0.133,
+    "break_even": 0.188,
+    "calibrated_by_1_99": 0.265
+  },
+  "extension_added_calls": 45,
+  "simulations": 200000,
+  "interval": 0.8,
+  "options": {
+    "gate_filter": "Replace the lowest-gate calls at an unchanged count of 49",
+    "extension_94": "Pure monotone extension of the deployed vector to the top 94 rows",
+    "hold": "Send nothing; the board keeps displaying the latest submission"
+  },
+  "status": "Read-only arithmetic on the recorded sizing basis; nothing fitted, no candidate, submission or upload",
+  "added_precision_notes": {
+    "base_rate": "the blind scored prevalence implied by the published aggregates",
+    "offline_mixture_ratio": "deployed realised precision 11/28 scaled by the ratio of the offline mixture precision of ranks 50-94 to that of ranks 1-49 (0.133 / 0.197)",
+    "unchanged": "the replacements are exactly as precise as the calls they displace",
+    "neighbour_rate_ratio": "computed per variant from the similarity-weighted top-10 labelled positive rates of the added and removed groups"
+  }
+}

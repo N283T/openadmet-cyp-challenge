@@ -1,0 +1,101 @@
+{
+  "source_run": "classification/20261003T024837735720Z-008f8427",
+  "purpose": "Rescore the frozen D6 held-fold predictions under an official-labels-only prevalence-reweighted metric and a stratified mixture metric whose mixture fraction is identified from the published prevalence, on a rate grid extended to 50%; nothing fitted, no upload",
+  "outputs": {
+    "bootstrap_deltas.csv": "8292c8ba8b29cf19ba41951a0c4e0581b6e0d19bebc35042007e0c32b10fec8b",
+    "crossover.csv": "773845335250305234ebae64e78d88879f39488e69a10f719085b04423cf0a2d",
+    "delta_vs_phi.csv": "daff964c82ffa24303c07eee3b0b3804c7de90a6e328c5e7b453dd532bb0a77c",
+    "metric_curves.csv": "f31f38dc7efc1b56d5ee1427c2fe24e713226eca0714439a77151139cb908914",
+    "phi_identification.csv": "cbbefa218d4a76ef2b68cfdb540fc5d7d6fa29c9d9b7af452a7f697492c9204e",
+    "rate_optima.csv": "f31db27bfaceffccdc3326fd788bdefbd29d3785f23287f5553b4246282dae6f",
+    "report.md": "21544b0816837787e114ecb7bd8443824ca3adb399c7a1b078d057f220ab5f99",
+    "summary.json": "7f3d2c602620ce96fa3c0a0325e5feb49543edfbbe788fade620f7a7454a2b72"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/tracked/cyp-d6-testlike-pool-20261002T215345688167Z-7920b49a/oof_scores.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T024837735720Z-008f8427/inputs/testlike-pool-oof.parquet",
+      "sha256": "179fa1e523e07d3511daa10f3b5eb8a31e1f43318275e56f776931468d5b47e3",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T024837735720Z-008f8427/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seed": 20261003,
+    "inputs": {
+      "testlike_oof": "testlike-pool-oof.parquet",
+      "assignments": "assignments.parquet"
+    },
+    "rates": [
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.06,
+      0.07,
+      0.08,
+      0.09,
+      0.1,
+      0.125,
+      0.15,
+      0.175,
+      0.2,
+      0.225,
+      0.25,
+      0.275,
+      0.3,
+      0.35,
+      0.4,
+      0.5
+    ],
+    "bootstrap_rates": [
+      0.0653333333333333,
+      0.1,
+      0.2
+    ],
+    "bootstrap_samples": 1000,
+    "scored_prevalence_scenarios": [
+      0.05,
+      0.0706,
+      0.09
+    ],
+    "weak_prevalence_scenarios": [
+      0.0,
+      0.0046845,
+      0.0057653
+    ],
+    "phi_grid": [
+      0.0,
+      0.1,
+      0.2,
+      0.25,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "metrics": {
+      "O": "Officially labelled rows only, classes reweighted to the target scored prevalence",
+      "M": "Mixture of the real-label official stratum (mass phi) and the pseudo-negative stratum",
+      "note": "l4_rank_mean is the OOF analogue of the deployed October 3 payload: the equal percentile-rank mean of legacy_sep15_refit and pool_lgbm inside each held fold"
+    },
+    "phi_identification": "0.0706 = phi * p_strong + (1 - phi) * p_weak, with p_weak from the three-enzyme weak-primary bound",
+    "status": "Validation-design probe; nothing fitted, no candidate, submission or upload",
+    "l4_components": [
+      "legacy_sep15_refit",
+      "pool_lgbm"
+    ],
+    "identified_phi": 0.3262
+  }
+}

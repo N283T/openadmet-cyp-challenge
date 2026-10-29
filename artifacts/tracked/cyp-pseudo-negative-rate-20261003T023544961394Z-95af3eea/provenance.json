@@ -1,0 +1,92 @@
+{
+  "source_run": "classification/20261003T023544961394Z-95af3eea",
+  "purpose": "Pseudo-negative assumption, measured directly: positive rate among labelled weak-primary 1A2/2C9/3A4 rows with exact binomial bounds and a log2fc cut sweep, plus the number of hidden D6 positives needed to overturn the pool-versus-official ranking; nothing fitted, no upload",
+  "outputs": {
+    "cut_curve.csv": "fb860453b5f3962a8a6412bc487dc5fd2a426bb26c54fc98530373a5bba261b8",
+    "label_strata.csv": "a9d8989b2618d0902bda94cc9cdb3404c079239b7dd5d05e250aaa23fbe46ac6",
+    "overturn_counts.csv": "471f327d1e04cd73c3a560b8e28ace9bbd66629dafc06d8950b29bba98d8982f",
+    "summary.json": "baab79ceca7d28d954f447b4616df077d4d48f6186ef0e84d3138b30396aba7a"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T023544961394Z-95af3eea/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T023544961394Z-95af3eea/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T023544961394Z-95af3eea/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/test_mapping.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T023544961394Z-95af3eea/inputs/test_mapping.parquet",
+      "sha256": "135ba78ae49abf46a5c3351e5d681b2352d767c1a4d5b7294117ec6d6e3775f7",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/data/raw/cyp-challenge-single-concentration-TRAIN.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T023544961394Z-95af3eea/inputs/primary-screen.csv",
+      "sha256": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/data/raw/cyp-challenge-TRAIN_Emax.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T023544961394Z-95af3eea/inputs/emax-train.csv",
+      "sha256": "70e9eb41f2401d8c79b684c42da3721a7aa4fd5c7f561636025c5b91cc29a3b9",
+      "storage": "copy"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/tracked/cyp-d6-testlike-pool-20261002T215345688167Z-7920b49a/oof_scores.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T023544961394Z-95af3eea/inputs/testlike-pool-oof.parquet",
+      "sha256": "179fa1e523e07d3511daa10f3b5eb8a31e1f43318275e56f776931468d5b47e3",
+      "storage": "copy"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seed": 20261003,
+    "inputs": {
+      "compounds": "compounds.parquet",
+      "measurements": "measurements.parquet",
+      "aliases": "aliases.parquet",
+      "test_mapping": "test_mapping.parquet",
+      "primary_screen": "primary-screen.csv",
+      "emax": "emax-train.csv",
+      "testlike_oof": "testlike-pool-oof.parquet"
+    },
+    "alpha": 0.05,
+    "pseudo_negative_min_log2fc": -0.25,
+    "borderline_min_log2fc": -0.5,
+    "cut_from": 0.0,
+    "cut_to": -1.5,
+    "cut_step": 0.05,
+    "overturn_rates": [
+      0.0653333333333333,
+      0.1
+    ],
+    "overturn_step": 2,
+    "overturn_limit": 400,
+    "enzymes": [
+      "CYP1A2",
+      "CYP2C9",
+      "CYP2D6",
+      "CYP3A4"
+    ],
+    "validating_enzymes": [
+      "CYP1A2",
+      "CYP2C9",
+      "CYP3A4"
+    ],
+    "question": "Is the pseudo-negative assumption true where it can be measured, and how many hidden D6 positives would overturn the pool-versus-official ranking",
+    "status": "Validation-design probe; nothing fitted, no candidate, submission or upload"
+  }
+}

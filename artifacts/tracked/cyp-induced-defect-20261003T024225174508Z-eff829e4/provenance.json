@@ -1,0 +1,136 @@
+{
+  "source_run": "classification/20261003T024225174508Z-eff829e4",
+  "purpose": "Induce the D6 label-coverage defect on 1A2/2C9/3A4 by hiding weak and missing-primary labels from fitting and rate selection, then re-add the weak-primary rows as pseudo-negatives and judge both arms plus a real-complete-label ceiling on the real held-fold labels; no upload",
+  "outputs": {
+    "bootstrap_deltas.csv": "b44cd64741fca5551c97d82b81b7c2434b7801a28fa70b99bd3a61b237e8d5c8",
+    "fit_info.json": "7aa62688a4c39f56d636a9402be5b2851a58d05b07cb6eb17a405f403cc15065",
+    "label_census.csv": "b7bc3cf047cdf6833d23c4a83b8a83661a9e88a08408807b1dcfa5fbf423c45b",
+    "mixture_curves.csv": "cd8a0c7d7105ab1dcc842568483a987bbe57421be1525849764315358d5aec24",
+    "nested_selection.csv": "9f24578406c53cc9d6cac0dbe119e8df03387fd383b591bd1deff646a6659242",
+    "oof_scores.parquet": "b57a76e9b63a4f595840b37568c35da17f29cee42832923e80faf842ec4b27a6",
+    "ranking_metrics.csv": "ddca0e5bf233b04b58069ae112ec24ce842a9a4610989d9528adf3a0b40aedff",
+    "rate_curves.csv": "4c627d0b5341ed16d32c27082b6ccceaa497766a6f31b518ac88c0ff12455999",
+    "recovery.csv": "ddf611845da49faab4a05678f25763c3e80989f9c33633dba63de1993fa249d9",
+    "report.md": "0c0783f3ece328b1f17eadcc122786634be705abacca898bb4e46bc91143a087",
+    "summary.json": "788ed0a8de6e666f017798fb734f779f0ee3a5e67c42c952d8322b25b9380898"
+  },
+  "input_provenance": [
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/compounds.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T024225174508Z-eff829e4/inputs/compounds.parquet",
+      "sha256": "bb4883c77965b95ddbec037890e582035ee10854a8c426c8488b114d487f4f5d",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/measurements.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T024225174508Z-eff829e4/inputs/measurements.parquet",
+      "sha256": "608d49d26d60a058b4c5a57c2a7c6330bcab65443c73b0d23d788794ee01af70",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/aliases.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T024225174508Z-eff829e4/inputs/aliases.parquet",
+      "sha256": "b10c9abeeb62ee1c385147ab82eae636b96f12c2869a0657c62c5593e6224d45",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T132734119233Z-a7063ccd/outputs/test_mapping.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T024225174508Z-eff829e4/inputs/test_mapping.parquet",
+      "sha256": "135ba78ae49abf46a5c3351e5d681b2352d767c1a4d5b7294117ec6d6e3775f7",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/shared/20260909T135130268493Z-edba6fc0/outputs/assignments.parquet",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T024225174508Z-eff829e4/inputs/assignments.parquet",
+      "sha256": "b83cefca16899cd2b5ec48ed18f4f6dedb2459f61d2e04f4297029643101ee2f",
+      "storage": "hardlink"
+    },
+    {
+      "original": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/data/raw/cyp-challenge-single-concentration-TRAIN.csv",
+      "snapshot": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/classification/20261003T024225174508Z-eff829e4/inputs/primary-screen.csv",
+      "sha256": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a",
+      "storage": "hardlink"
+    }
+  ],
+  "config": {
+    "version": 1,
+    "seed": 20261003,
+    "inputs": {
+      "compounds": "compounds.parquet",
+      "measurements": "measurements.parquet",
+      "aliases": "aliases.parquet",
+      "test_mapping": "test_mapping.parquet",
+      "assignments": "assignments.parquet",
+      "primary_screen": "primary-screen.csv"
+    },
+    "enzymes": [
+      "CYP1A2",
+      "CYP2C9",
+      "CYP3A4"
+    ],
+    "pseudo_negative_min_log2fc": -0.25,
+    "borderline_min_log2fc": -0.5,
+    "split_strategies": [
+      "umap",
+      "scaffold"
+    ],
+    "outer_folds": 5,
+    "lgbm_seeds": 2,
+    "lgbm": {
+      "n_estimators": 400,
+      "num_leaves": 31,
+      "learning_rate": 0.03,
+      "colsample_bytree": 0.5,
+      "min_child_samples": 20
+    },
+    "lgbm_threads": 3,
+    "task_jobs": 10,
+    "feature_jobs": 16,
+    "rates": [
+      0.005,
+      0.01,
+      0.015,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.0653333333333333,
+      0.08,
+      0.1,
+      0.125,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.4
+    ],
+    "bootstrap_rates": [
+      0.0653333333333333,
+      0.2
+    ],
+    "bootstrap_samples": 1000,
+    "arms": {
+      "defect": "Fit and select the rate on primary hits only (log2fc < -0.5), mimicking D6 coverage",
+      "fixed": "Add the hidden weak-primary labelled rows back as pseudo-negatives (label False)",
+      "fixed_full": "The D6 device verbatim: every weak-primary row, labelled or not, as a pseudo-negative",
+      "ceiling_screened": "Real labels of every screened row, bounding what a weak-primary repair can close",
+      "ceiling": "Real, complete label set including missing-primary rows",
+      "fixed_missing": "As fixed_full, but also relabel missing-primary rows False (deliberately wrong)"
+    },
+    "judgement": "Real, complete held-fold labels, which no arm except the ceiling ever saw",
+    "status": "Validation-design probe; no candidate, submission or upload",
+    "mixture_phi": [
+      0.2,
+      0.3,
+      0.3333333333333333,
+      0.5,
+      0.7,
+      1.0
+    ],
+    "mixture_note": "Real-label strong and weak strata reweighted to a target strong fraction phi, matching the blind scored composition implied by the 7.06% prevalence identity",
+    "bootstrap_phi": [
+      0.3333333333333333,
+      1.0
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+payload,alias,positives
+sep13,payload_sep13.parquet,49
+sep14,payload_sep14.parquet,49
+sep15,payload_sep15.parquet,49
+sep18,payload_sep18.parquet,49
+sep23,payload_sep23.parquet,49
+oct01,payload_oct01.parquet,49
+oct02,payload_oct02.parquet,175
+oct03,payload_oct03.parquet,49

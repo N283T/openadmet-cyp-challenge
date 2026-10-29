@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "seed": 20261003,
+  "inputs": {
+    "compounds": "compounds.parquet",
+    "measurements": "measurements.parquet",
+    "aliases": "aliases.parquet",
+    "test_mapping": "test_mapping.parquet",
+    "primary_screen": "primary-screen.csv",
+    "emax": "emax-train.csv",
+    "testlike_oof": "testlike-pool-oof.parquet"
+  },
+  "alpha": 0.05,
+  "pseudo_negative_min_log2fc": -0.25,
+  "borderline_min_log2fc": -0.5,
+  "cut_from": 0.0,
+  "cut_to": -1.5,
+  "cut_step": 0.05,
+  "overturn_rates": [0.0653333333333333, 0.1],
+  "overturn_step": 2,
+  "overturn_limit": 400,
+  "enzymes": ["CYP1A2", "CYP2C9", "CYP2D6", "CYP3A4"],
+  "validating_enzymes": ["CYP1A2", "CYP2C9", "CYP3A4"],
+  "question": "Is the pseudo-negative assumption true where it can be measured, and how many hidden D6 positives would overturn the pool-versus-official ranking",
+  "status": "Validation-design probe; nothing fitted, no candidate, submission or upload"
+}
