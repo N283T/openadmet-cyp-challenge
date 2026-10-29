@@ -1,0 +1,28 @@
+{
+  "method": "cyp3a4_tdi_proxy_direct_augmentation_v2_full",
+  "split_id": "20260911T104703655337Z-a3923255:series",
+  "scorer": "custom_scoring_functions.py",
+  "threads": 4,
+  "tabpfn_version": "v3.5",
+  "tabpfn_estimators": 8,
+  "expected_validation_rows": 2300,
+  "expected_proxy_rows": 1249,
+  "proxy_weight": 1.0,
+  "blend_weights": [
+    0.1,
+    0.2,
+    0.3
+  ],
+  "recipes": [
+    {
+      "name": "anchor59_raw_scores_logfc__tabpfn35full",
+      "file": "anchor59-raw-scores.parquet",
+      "prefixes": [
+        "raw_",
+        "score_"
+      ],
+      "nested": true,
+      "readout": "tabpfn35"
+    }
+  ]
+}
