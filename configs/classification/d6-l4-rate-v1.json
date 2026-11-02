@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "d6_endpoint": "CYP2D6_is_TDI",
+  "a4_endpoint": "CYP3A4_is_TDI",
+  "d6_positive_calls": 95,
+  "reference_calls": 49,
+  "a4_positive_calls": 249,
+  "legacy_model": "deployed_mean_block",
+  "pool_column": "pool_lgbm.score"
+}

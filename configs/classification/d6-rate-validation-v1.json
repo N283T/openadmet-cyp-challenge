@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "seed": 20261103,
+  "bootstrap_samples": 2000,
+  "reference_calls": 49,
+  "counts": [
+    60,
+    75,
+    95,
+    112,
+    150
+  ],
+  "decision_calls": 95,
+  "priors": [
+    0.05,
+    0.0706
+  ],
+  "phis": [
+    0.21,
+    0.3262,
+    0.42
+  ],
+  "l4_components": [
+    "legacy_sep15_refit",
+    "pool_lgbm"
+  ]
+}
