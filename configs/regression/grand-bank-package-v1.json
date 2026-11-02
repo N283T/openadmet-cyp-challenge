@@ -1,0 +1,57 @@
+{
+  "method": "regression_grand_bank_package_v1",
+  "seed": 20261102,
+  "runs_root": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression",
+  "controls": {
+    "CYP1A2_pIC50_direct_inhibition": {
+      "file": "control-1a2.parquet",
+      "filter": {
+        "method": "equal_all"
+      },
+      "rows": 1372
+    },
+    "CYP2C9_pIC50_direct_inhibition": {
+      "file": "control-2c9.parquet",
+      "filter": {
+        "method": "equal_subset"
+      },
+      "rows": 1255
+    },
+    "CYP2D6_pIC50_direct_inhibition": {
+      "file": "control-2d6.parquet",
+      "filter": {
+        "split_id": "parent",
+        "robust_delta": 0.5,
+        "constraint_weight": 0.35,
+        "placement": "fold_moment_match",
+        "blend_weight": 0.5
+      },
+      "rows": 1457
+    },
+    "CYP3A4_pIC50_direct_inhibition": {
+      "file": "control-3a4.parquet",
+      "filter": {
+        "method": "caruana"
+      },
+      "rows": 2300
+    }
+  },
+  "k_grid": [
+    1,
+    2,
+    3,
+    5,
+    8,
+    12,
+    20
+  ],
+  "anchor_count": 4,
+  "bootstrap": 1000,
+  "rule": {
+    "max_delta": -0.003,
+    "min_wins": 4
+  },
+  "user_adopted": [
+    "CYP1A2_pIC50_direct_inhibition"
+  ]
+}
