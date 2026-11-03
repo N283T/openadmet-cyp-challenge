@@ -1,0 +1,41 @@
+{
+  "method": "cyp3a4_tdi_proxy_fixed_weight_package_v1",
+  "seed": 20261029,
+  "bootstrap": 2000,
+  "weights": {
+    "class_quantile_065_lgbm": 0.096,
+    "tdi_continuous_delta_lgbm": 0.028000000000000004,
+    "jeremy_finetuned_log2fc_lgbm": 0.12,
+    "chemeleon_pca256_log2fc_tabicl": 0.10400000000000001,
+    "tabpfn35_full_anchor59_raw_scores_logfc": 0.244,
+    "morgan_quantile_065_lgbm": 0.11199999999999999,
+    "tdi_continuous_arm_lgbm": 0.20800000000000002,
+    "tabpfn35_fast_anchor59_raw_scores_logfc": 0.068,
+    "jeremy_scores_log2fc_tabpfn26": 0.02
+  },
+  "member_oof": {
+    "class_quantile_065_lgbm": "3a4-class-quantile-oof.parquet",
+    "morgan_quantile_065_lgbm": "3a4-morgan-quantile-oof.parquet",
+    "jeremy_scores_log2fc_tabpfn26": "jeremy-scores-oof.parquet",
+    "jeremy_finetuned_log2fc_lgbm": "jeremy-finetuned-oof.parquet",
+    "chemeleon_pca256_log2fc_tabicl": "chemeleon-pca-oof.parquet",
+    "tabpfn35_fast_anchor59_raw_scores_logfc": "t35-fast-anchor59-raw-scores-logfc.parquet",
+    "tabpfn35_full_anchor59_raw_scores_logfc": "t35-full-anchor59-raw-scores-logfc.parquet",
+    "tdi_continuous_arm_lgbm": "tdi-continuous-arm-oof.parquet",
+    "tdi_continuous_delta_lgbm": "tdi-continuous-delta-oof.parquet"
+  },
+  "swapped_members": {
+    "tabpfn35_fast_anchor59_raw_scores_logfc": {
+      "file": "proxy-fast-oof.parquet",
+      "method": "anchor59_raw_scores_logfc__tabpfn35"
+    },
+    "tabpfn35_full_anchor59_raw_scores_logfc": {
+      "file": "proxy-full-oof.parquet",
+      "method": "anchor59_raw_scores_logfc__tabpfn35full"
+    }
+  },
+  "proxy_test": {
+    "tabpfn35_fast_anchor59_raw_scores_logfc": "proxy-fast-test.parquet",
+    "tabpfn35_full_anchor59_raw_scores_logfc": "proxy-full-test.parquet"
+  }
+}

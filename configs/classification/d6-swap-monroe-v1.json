@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "seed": 20261103,
+  "threads": 8,
+  "lgbm_seeds": 2,
+  "lgbm": {
+    "n_estimators": 400,
+    "num_leaves": 31,
+    "learning_rate": 0.03,
+    "colsample_bytree": 0.5,
+    "min_child_samples": 20
+  },
+  "d6_endpoint": "CYP2D6_is_TDI",
+  "a4_endpoint": "CYP3A4_is_TDI",
+  "calls": 49,
+  "a4_positive_calls": 249,
+  "legacy_model": "deployed_mean_block",
+  "pool_column": "pool_lgbm.score",
+  "label_split": "umap"
+}

@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "endpoint": "CYP3A4_pIC50_direct_inhibition",
+  "depth": 6,
+  "control": {
+    "file": "control-3a4.parquet",
+    "filter": {
+      "method": "caruana"
+    },
+    "rows": 2300
+  },
+  "runs_root": "/home/nagaet/ghq/github.com/N283T/openadmet-cyp-challenge/artifacts/runs/regression"
+}

@@ -1,0 +1,7 @@
+{
+  "method": "minimol_v1_frozen_cpu",
+  "compounds": "compounds.parquet",
+  "expected_compounds": 6896,
+  "batch_size": 128,
+  "threads": 16
+}

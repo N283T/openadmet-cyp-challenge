@@ -26,7 +26,7 @@ def main():
         pl.col("endpoint").str.ends_with("_pIC50_direct_inhibition")
     )
     assignments = read("assignments")
-    assert labels.height == 6525
+    assert labels.height == cfg.get("expected_label_rows", 6525)
     assert set(labels["compound_id"]).issubset(set(assignments["compound_id"]))
     aliases = (
         read("aliases")

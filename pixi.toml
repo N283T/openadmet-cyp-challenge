@@ -70,3 +70,54 @@ jazzy = "==0.1.4"
 
 [environments]
 jazzy = { features = ["jazzy"], no-default-feature = true }
+monroe = { features = ["monroe"] }
+minimol = { features = ["minimol"], no-default-feature = true }
+orbmol = { features = ["orbmol"], no-default-feature = true }
+cypmol = { features = ["cypmol"], no-default-feature = true }
+
+[feature.monroe.dependencies]
+datamol = ">=0.12,<0.13"
+
+[feature.monroe.pypi-dependencies]
+monroe = { git = "https://github.com/blazejba/monroe", rev = "de075ea" }
+
+[feature.minimol.dependencies]
+python = "3.11.*"
+graphium = "==2.4.7"
+pytorch-cpu = "*"
+scipy = "<1.13"
+polars = ">=1,<2"
+
+[feature.minimol.pypi-dependencies]
+minimol = "==1.3.5"
+
+[feature.orbmol.dependencies]
+python = "3.12.*"
+rdkit = "*"
+polars = ">=1,<2"
+numpy = "*"
+python-dateutil = "<3"
+
+[feature.orbmol.pypi-dependencies]
+orb-models = "==0.7.0"
+
+[feature.cypmol.dependencies]
+python = "3.11.*"
+rdkit = "*"
+polars = ">=1,<2"
+numpy = "<2"
+pandas = "*"
+scikit-learn = "*"
+setuptools = "<81"
+wheel = "*"
+tqdm = "*"
+python-dateutil = "<3"
+
+[feature.cypmol.pypi-dependencies]
+torch = "*"
+fair-esm = "==2.0.0"
+tokenizers = "*"
+lmdb = "*"
+ml-collections = "*"
+iopath = "*"
+unimol = { git = "https://github.com/deepmodeling/Uni-Mol", rev = "90f52c4", subdirectory = "unimol" }

@@ -1,0 +1,8 @@
+{
+  "method": "cypmol_inhibitor_sub0_frozen_v1",
+  "compounds": "compounds.parquet",
+  "expected_compounds": 6896,
+  "seeds": [1, 2, 3],
+  "workers": 28,
+  "isoforms": ["1A2", "2C9", "2D6", "3A4"]
+}

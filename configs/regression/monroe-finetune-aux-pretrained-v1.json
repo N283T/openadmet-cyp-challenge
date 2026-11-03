@@ -1,0 +1,169 @@
+{
+  "method": "monroe_finetune_aux_external_pretrained_v1",
+  "seed": 20261029,
+  "device": "cuda",
+  "checkpoint": {
+    "config.json": "monroe-config.json",
+    "weights.pt": "monroe-weights.pt"
+  },
+  "graph_files": [
+    "graphs-seed1.pkl",
+    "graphs-seed2.pkl",
+    "graphs-seed3.pkl",
+    "graphs-seed4.pkl",
+    "graphs-seed5.pkl"
+  ],
+  "embedding_dim": 720,
+  "head_hidden": 256,
+  "dropout": 0.1,
+  "epochs": 15,
+  "batch_size": 32,
+  "eval_batch_size": 128,
+  "lr_encoder": 3e-05,
+  "lr_head": 0.001,
+  "weight_decay": 0.01,
+  "warmup_fraction": 0.05,
+  "grad_clip": 1.0,
+  "tabpfn_estimators": 8,
+  "blend_weights": [
+    0.1,
+    0.2,
+    0.3
+  ],
+  "controls": {
+    "CYP1A2_pIC50_direct_inhibition": {
+      "file": "control-1a2.parquet",
+      "filter": {
+        "method": "equal_all"
+      },
+      "rows": 1372
+    },
+    "CYP2C9_pIC50_direct_inhibition": {
+      "file": "control-2c9.parquet",
+      "filter": {
+        "method": "equal_subset"
+      },
+      "rows": 1255
+    },
+    "CYP2D6_pIC50_direct_inhibition": {
+      "file": "control-2d6.parquet",
+      "filter": {
+        "split_id": "parent",
+        "robust_delta": 0.5,
+        "constraint_weight": 0.35,
+        "placement": "fold_moment_match",
+        "blend_weight": 0.5
+      },
+      "rows": 1457
+    },
+    "CYP3A4_pIC50_direct_inhibition": {
+      "file": "control-3a4.parquet",
+      "filter": {
+        "method": "caruana"
+      },
+      "rows": 2300
+    }
+  },
+  "tasks": [
+    {
+      "name": "CYP1A2_direct",
+      "source": "measurement",
+      "endpoint": "CYP1A2_pIC50_direct_inhibition",
+      "main": true,
+      "weight": 1.0
+    },
+    {
+      "name": "CYP2C9_direct",
+      "source": "measurement",
+      "endpoint": "CYP2C9_pIC50_direct_inhibition",
+      "main": true,
+      "weight": 1.0
+    },
+    {
+      "name": "CYP2D6_direct",
+      "source": "measurement",
+      "endpoint": "CYP2D6_pIC50_direct_inhibition",
+      "main": true,
+      "weight": 1.0
+    },
+    {
+      "name": "CYP3A4_direct",
+      "source": "measurement",
+      "endpoint": "CYP3A4_pIC50_direct_inhibition",
+      "main": true,
+      "weight": 1.0
+    },
+    {
+      "name": "CYP1A2_tdi",
+      "source": "measurement",
+      "endpoint": "CYP1A2_pIC50_TDI_condition",
+      "weight": 0.5
+    },
+    {
+      "name": "CYP2C9_tdi",
+      "source": "measurement",
+      "endpoint": "CYP2C9_pIC50_TDI_condition",
+      "weight": 0.5
+    },
+    {
+      "name": "CYP2D6_tdi",
+      "source": "measurement",
+      "endpoint": "CYP2D6_pIC50_TDI_condition",
+      "weight": 0.5
+    },
+    {
+      "name": "CYP3A4_tdi",
+      "source": "measurement",
+      "endpoint": "CYP3A4_pIC50_TDI_condition",
+      "weight": 0.5
+    },
+    {
+      "name": "CYP1A2_emax",
+      "source": "measurement",
+      "endpoint": "CYP1A2_EmaxVsPosCtrl_direct_inhibition",
+      "weight": 0.25
+    },
+    {
+      "name": "CYP2C9_emax",
+      "source": "measurement",
+      "endpoint": "CYP2C9_EmaxVsPosCtrl_direct_inhibition",
+      "weight": 0.25
+    },
+    {
+      "name": "CYP2D6_emax",
+      "source": "measurement",
+      "endpoint": "CYP2D6_EmaxVsPosCtrl_direct_inhibition",
+      "weight": 0.25
+    },
+    {
+      "name": "CYP3A4_emax",
+      "source": "measurement",
+      "endpoint": "CYP3A4_EmaxVsPosCtrl_direct_inhibition",
+      "weight": 0.25
+    },
+    {
+      "name": "CYP1A2_primary",
+      "source": "primary",
+      "enzyme": "CYP1A2",
+      "weight": 0.5
+    },
+    {
+      "name": "CYP2C9_primary",
+      "source": "primary",
+      "enzyme": "CYP2C9",
+      "weight": 0.5
+    },
+    {
+      "name": "CYP2D6_primary",
+      "source": "primary",
+      "enzyme": "CYP2D6",
+      "weight": 0.5
+    },
+    {
+      "name": "CYP3A4_primary",
+      "source": "primary",
+      "enzyme": "CYP3A4",
+      "weight": 0.5
+    }
+  ]
+}

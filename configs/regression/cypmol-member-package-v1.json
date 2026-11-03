@@ -1,0 +1,128 @@
+{
+  "method": "cypmol_ensemble_member_package_v1",
+  "split_id": "20260911T104703655337Z-a3923255:series",
+  "seed": 20261029,
+  "threads": 4,
+  "tabpfn_estimators": 8,
+  "tabicl_estimators": 8,
+  "blind_compounds": "test-mapping.parquet",
+  "feature_blocks": {
+    "c1a2": {
+      "files": [
+        "embeddings.parquet"
+      ],
+      "prefixes": [
+        "cypmol_1A2_"
+      ]
+    },
+    "c2c9": {
+      "files": [
+        "embeddings.parquet"
+      ],
+      "prefixes": [
+        "cypmol_2C9_"
+      ]
+    },
+    "c2d6": {
+      "files": [
+        "embeddings.parquet"
+      ],
+      "prefixes": [
+        "cypmol_2D6_"
+      ]
+    },
+    "c3a4": {
+      "files": [
+        "embeddings.parquet"
+      ],
+      "prefixes": [
+        "cypmol_3A4_"
+      ]
+    },
+    "call": {
+      "files": [
+        "embeddings.parquet"
+      ],
+      "prefixes": [
+        "cypmol_"
+      ]
+    }
+  },
+  "recipes": [
+    {
+      "blocks": "c1a2",
+      "selection": "all",
+      "readout": "tabpfn"
+    },
+    {
+      "blocks": "c1a2",
+      "selection": "all",
+      "readout": "lgbm_l1"
+    },
+    {
+      "blocks": "c2c9",
+      "selection": "all",
+      "readout": "tabpfn"
+    },
+    {
+      "blocks": "c2c9",
+      "selection": "all",
+      "readout": "lgbm_l1"
+    },
+    {
+      "blocks": "c2d6",
+      "selection": "all",
+      "readout": "tabpfn"
+    },
+    {
+      "blocks": "c2d6",
+      "selection": "all",
+      "readout": "lgbm_l1"
+    },
+    {
+      "blocks": "c3a4",
+      "selection": "all",
+      "readout": "tabpfn"
+    },
+    {
+      "blocks": "c3a4",
+      "selection": "all",
+      "readout": "lgbm_l1"
+    },
+    {
+      "blocks": "call",
+      "selection": "variance:360",
+      "readout": "tabpfn"
+    }
+  ],
+  "controls": {
+    "CYP1A2_pIC50_direct_inhibition": {
+      "file": "control-1a2.parquet",
+      "filter": {
+        "method": "equal_all"
+      },
+      "rows": 1372
+    },
+    "CYP2D6_pIC50_direct_inhibition": {
+      "file": "control-2d6.parquet",
+      "filter": {
+        "split_id": "parent",
+        "robust_delta": 0.5,
+        "constraint_weight": 0.35,
+        "placement": "fold_moment_match",
+        "blend_weight": 0.5
+      },
+      "rows": 1457
+    }
+  },
+  "blend_weights": [
+    0.1,
+    0.2,
+    0.3,
+    0.5
+  ],
+  "weights": {
+    "CYP1A2_pIC50_direct_inhibition": 0.2,
+    "CYP2D6_pIC50_direct_inhibition": 0.1
+  }
+}

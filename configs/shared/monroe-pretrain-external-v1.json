@@ -1,0 +1,20 @@
+{
+  "method": "monroe_external_cyp_pretrain_v1",
+  "seed": 20261029,
+  "device": "cuda",
+  "graphs": "graphs-seed1.pkl",
+  "checkpoint": {"config.json": "monroe-config.json", "weights.pt": "monroe-weights.pt"},
+  "min_rows": 500,
+  "holdout_fraction": 0.03,
+  "embedding_dim": 720,
+  "head_hidden": 512,
+  "dropout": 0.1,
+  "epochs": 5,
+  "batch_size": 64,
+  "lr_encoder": 5e-5,
+  "lr_head": 1e-3,
+  "weight_decay": 0.01,
+  "warmup_fraction": 0.03,
+  "grad_clip": 1.0,
+  "binary_weight": 0.5
+}

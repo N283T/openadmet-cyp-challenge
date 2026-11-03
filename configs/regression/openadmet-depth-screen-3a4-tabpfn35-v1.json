@@ -1,0 +1,49 @@
+{
+  "method": "openadmet_depth_member_screen_3a4_tabpfn35_v1",
+  "split_id": "20260911T104703655337Z-a3923255:series",
+  "seed": 20261029,
+  "threads": 4,
+  "tabpfn_estimators": 8,
+  "tabicl_estimators": 8,
+  "blind_compounds": "test-mapping.parquet",
+  "feature_blocks": {
+    "emb": {
+      "files": [
+        "embeddings.parquet"
+      ],
+      "prefixes": [
+        "emb_"
+      ]
+    }
+  },
+  "recipes": [
+    {
+      "blocks": "emb",
+      "selection": "variance:360",
+      "readout": "tabpfn"
+    },
+    {
+      "blocks": "emb",
+      "selection": "all",
+      "readout": "tabpfn"
+    }
+  ],
+  "controls": {
+    "CYP3A4_pIC50_direct_inhibition": {
+      "file": "control-3a4.parquet",
+      "filter": {
+        "method": "caruana"
+      },
+      "rows": 2300
+    }
+  },
+  "blend_weights": [
+    0.1,
+    0.2,
+    0.3,
+    0.5
+  ],
+  "tabpfn_version": "v3.5",
+  "tabpfn_weights": "tabpfn-v3.5-20260909.safetensors",
+  "purpose_tag": "TabPFN-3.5 "
+}
