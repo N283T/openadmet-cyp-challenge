@@ -1,0 +1,36 @@
+{
+  "url": "https://github.com/lachrymator/openadmet-cyp-challenge-public",
+  "title": "OpenADMET CYP Inhibition Challenge write-up",
+  "participant": "stir_bar",
+  "fetched_at": "2026-10-29T04:25:25.594647+00:00",
+  "commit": "6afb664e6fb22c516952e020273ba91442f426db",
+  "commit_date": "2026-09-27T20:13:29Z",
+  "source_sha256": "a49e0065a24bf6514303381aae8eca7ca5a2e02491ec464767370782de85c2a7",
+  "figures": [
+    {
+      "path": "leaderboard_history.png",
+      "sha256": "0b3bc893cb12aa59f44b80e6d7e974f2bd1f339e1a797db6f9ab04289fdbb4c0"
+    },
+    {
+      "path": "cv_vs_blind.png",
+      "sha256": "6d69b7db426b5605a661bbdfa4b9831a686d45946f813f26479d95b37156555f"
+    },
+    {
+      "path": "standing_regression.png",
+      "sha256": "47b9633c479bc4e0957e6e91a8a3309d70dcd04524569f82954dce2c7c4051fb"
+    },
+    {
+      "path": "standing_tdi.png",
+      "sha256": "47bf4ba6df9c3e4fefd66840eb322d3f60df74d13a835d02614461dbf3bd11bc"
+    },
+    {
+      "path": "submission_delta.png",
+      "sha256": "ed0f8c8da1dea5f66fb141fd5dea6dc7525cffcb8896ea9e9baa767d43018e6b"
+    },
+    {
+      "path": "chemical_space_tsne.png",
+      "sha256": "a0214a34bfae19d3172178af8345563fb168eefbd9ac4a28c7ce0c662896201a"
+    }
+  ],
+  "extraction": "README at the pinned commit preserved verbatim; figures kept as assets."
+}
