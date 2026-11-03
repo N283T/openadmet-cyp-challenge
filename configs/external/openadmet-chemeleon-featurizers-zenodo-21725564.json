@@ -1,0 +1,88 @@
+{
+  "title": "OpenADMET CheMeleon Featurizer Experiments -- Pretrained Weights",
+  "doi": "10.5281/zenodo.21725564",
+  "record": "https://zenodo.org/records/21725564",
+  "license": "CC-BY-4.0",
+  "published": "2026-07-31",
+  "local_directory": "data/raw/openadmet-chemeleon-featurizers-zenodo-21725564 (git-ignored; 500 MB)",
+  "format": "torch dict with hyper_parameters and state_dict (Chemprop BondMessagePassing, d_h 2048, depth 6); load with weights_only=True",
+  "source_post": "https://openadmet.ghost.io/throwing-everything-and-the-kitchen-sink-at-chemeleon/",
+  "verified": "all 15 md5 checksums match the Zenodo record (2026-11-03)",
+  "files": [
+    {
+      "file": "e3fp__s42.pt",
+      "md5": "b356ba0fdebdae02332b14d297adc5f7",
+      "url": "https://zenodo.org/api/records/21725564/files/e3fp__s42.pt/content"
+    },
+    {
+      "file": "jazzy__s42.pt",
+      "md5": "16a50380fe0bc1ad01db1b9b1e05c083",
+      "url": "https://zenodo.org/api/records/21725564/files/jazzy__s42.pt/content"
+    },
+    {
+      "file": "usrcat__s42.pt",
+      "md5": "2bf4ce68c8ffd1ba6be782a679f28794",
+      "url": "https://zenodo.org/api/records/21725564/files/usrcat__s42.pt/content"
+    },
+    {
+      "file": "rdkit2d__s42.pt",
+      "md5": "10b76c7d72154a02f7f7764325ac4b91",
+      "url": "https://zenodo.org/api/records/21725564/files/rdkit2d__s42.pt/content"
+    },
+    {
+      "file": "surrogate_adme__s42.pt",
+      "md5": "0f9cf45b149117c79dcd8a444402fb14",
+      "url": "https://zenodo.org/api/records/21725564/files/surrogate_adme__s42.pt/content"
+    },
+    {
+      "file": "osmordred__s42.pt",
+      "md5": "7845b22d9024136d0a63a1da410a7165",
+      "url": "https://zenodo.org/api/records/21725564/files/osmordred__s42.pt/content"
+    },
+    {
+      "file": "osmordred_pca95__s42.pt",
+      "md5": "59330d658f612529a638fa3da16de0bc",
+      "url": "https://zenodo.org/api/records/21725564/files/osmordred_pca95__s42.pt/content"
+    },
+    {
+      "file": "erg__s42.pt",
+      "md5": "f123af6c51a619628c9b858cf155608b",
+      "url": "https://zenodo.org/api/records/21725564/files/erg__s42.pt/content"
+    },
+    {
+      "file": "ecfp__s42.pt",
+      "md5": "b5b2e2c88f8d98f4de6c690305d8b742",
+      "url": "https://zenodo.org/api/records/21725564/files/ecfp__s42.pt/content"
+    },
+    {
+      "file": "minimol__s42.pt",
+      "md5": "0f45eefc9e7b67858232e9ac696c64c8",
+      "url": "https://zenodo.org/api/records/21725564/files/minimol__s42.pt/content"
+    },
+    {
+      "file": "osmordred_pca90__s42.pt",
+      "md5": "12a6301c7bf42a8a9096aad0d3c01a65",
+      "url": "https://zenodo.org/api/records/21725564/files/osmordred_pca90__s42.pt/content"
+    },
+    {
+      "file": "atompair__s42.pt",
+      "md5": "226c23cdc0760f12d0510f7ab9fb824b",
+      "url": "https://zenodo.org/api/records/21725564/files/atompair__s42.pt/content"
+    },
+    {
+      "file": "pubchem__s42.pt",
+      "md5": "dbcf5d125ae69da272cd702c50131318",
+      "url": "https://zenodo.org/api/records/21725564/files/pubchem__s42.pt/content"
+    },
+    {
+      "file": "osmordred_pca80__s42.pt",
+      "md5": "b240bb8b8baf83d2bddc3dc1611c90af",
+      "url": "https://zenodo.org/api/records/21725564/files/osmordred_pca80__s42.pt/content"
+    },
+    {
+      "file": "whim__s42.pt",
+      "md5": "7995fa32d0083eb81d986ec0dcb7b293",
+      "url": "https://zenodo.org/api/records/21725564/files/whim__s42.pt/content"
+    }
+  ]
+}

@@ -52,10 +52,10 @@ def lgbm(seed, threads):
 def build_model(readout, seed, cfg, inp):
     if readout == "tabpfn":
         return TabPFNRegressor.create_default_for_version(
-            ModelVersion.V2_6,
+            ModelVersion(cfg.get("tabpfn_version", "v2.6")),
             n_estimators=cfg["tabpfn_estimators"],
             auto_scale_n_estimators=False,
-            model_path=str(inp / "tabpfn.ckpt"),
+            model_path=str(inp / cfg.get("tabpfn_weights", "tabpfn.ckpt")),
             device="cuda",
             random_state=seed,
             n_preprocessing_jobs=1,
