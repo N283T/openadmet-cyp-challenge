@@ -75,6 +75,10 @@ def main():
     send.add_argument("--dry-run", action="store_true")
     send.add_argument("--retry-rejected", action="store_true")
     send.add_argument(
+        "--confirm",
+        help='Non-interactive confirmation "SUBMIT <id>"; use only after explicit user approval',
+    )
+    send.add_argument(
         "--resubmit-sent",
         action="store_true",
         help="Explicitly resubmit a payload sent under a different submission ID",

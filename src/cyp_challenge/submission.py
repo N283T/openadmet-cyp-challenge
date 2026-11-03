@@ -68,10 +68,14 @@ def check_cooldown(sent_at, current_time):
     return next_eligible
 
 
-def confirm_live_submission(submission_id, track, changes, next_eligible):
-    """Require a deliberate confirmation from an interactive terminal."""
+def confirm_live_submission(submission_id, track, changes, next_eligible, confirmation=None):
+    """Require a deliberate confirmation naming this exact prepared submission.
 
-    if not sys.stdin.isatty():
+    The confirmation is typed in an interactive terminal, or passed as
+    `--confirm "SUBMIT <id>"` after the user has approved this payload explicitly.
+    """
+
+    if confirmation is None and not sys.stdin.isatty():
         raise ValueError("Live submission requires an interactive terminal and user approval")
     print(f"Prepared submission: {submission_id} ({track})")
     if changes is None:
@@ -90,10 +94,13 @@ def confirm_live_submission(submission_id, track, changes, next_eligible):
     else:
         print("A successful submission starts a 12-hour cooldown for this track.")
     expected = f"SUBMIT {submission_id}"
-    try:
-        answer = input(f"After explicit user approval, type '{expected}' to upload: ")
-    except EOFError as exc:
-        raise ValueError("Live submission confirmation was not received") from exc
+    if confirmation is not None:
+        answer = confirmation
+    else:
+        try:
+            answer = input(f"After explicit user approval, type '{expected}' to upload: ")
+        except EOFError as exc:
+            raise ValueError("Live submission confirmation was not received") from exc
     if answer != expected:
         raise ValueError("Live submission confirmation did not match")
 
@@ -203,7 +210,7 @@ def submit(args):
         sent_at, prior_file = last_sent(conn, track)
         changes = target_changes(file, prior_file, track)
         next_eligible = check_cooldown(sent_at, datetime.now(UTC))
-        confirm_live_submission(args.id, track, changes, next_eligible)
+        confirm_live_submission(args.id, track, changes, next_eligible, args.confirm)
         # These network reads happen before any upload intent or submission API call.
         # A failure propagates and prevents the live upload.
         pre_submission_leaderboards = snapshot_leaderboards(track)
