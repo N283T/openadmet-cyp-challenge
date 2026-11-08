@@ -85,8 +85,8 @@ def leaderboard(track, endpoint, board="live"):
 
     if endpoint != "MA" and endpoint not in ENDPOINTS[track]:
         raise ValueError("Endpoint does not belong to this track")
-    if board not in ("live", "interim"):
-        raise ValueError("Board must be live or interim")
+    if board not in ("live", "interim", "final"):
+        raise ValueError("Board must be live, interim or final")
     with connect():
         pass
     identifier, path = allocate("api", track)
@@ -126,6 +126,7 @@ def leaderboard(track, endpoint, board="live"):
         board_label = {
             "live": "🏎️ Live Leaderboard",
             "interim": "⏱️ Interim Leaderboard",
+            "final": "🏁 Final Leaderboard",
         }[board]
         endpoint_label = "🏆 Overall" if endpoint == "MA" else endpoint.replace("_", " ")
         matches = []

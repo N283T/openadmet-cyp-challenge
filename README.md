@@ -183,12 +183,14 @@ pixi run api-inspect
 pixi run cyp leaderboard --track regression
 pixi run cyp leaderboard --track classification
 pixi run cyp leaderboard --track regression --board interim
+pixi run cyp leaderboard --track regression --board final
 ```
 
 Inspection persists live schema/config plus revision-pinned public source.
 Leaderboard download resolves its endpoint from the live layout and saves actual
 files to that invocation's persistent directory, not `/tmp`. Use `--endpoint`
 with an official endpoint name to retrieve its leaderboard. The default is `MA`.
+Since the challenge closed, the Space shows Final instead of Live boards; use `--board final`.
 See [API notes](docs/api.md) for the current remote submission contract.
 
 ## Official references
