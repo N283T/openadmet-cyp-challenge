@@ -1,7 +1,8 @@
 # CYP Challenge
 
-- Keep the GitHub repository private. Change visibility only on explicit user instruction;
-  public release will be considered when preparing the model report.
+- The GitHub repository is public (since 2026-11-08, after the challenge closed). Never
+  commit third-party article text or figures: official and community snapshots stay
+  local, and only their provenance (`meta.json`, `intent.json`) is tracked.
 
 - Use `pixi run`; use Polars for table processing. No Jupyter or Boltz for now.
 - Run substantive experiments through `pixi run cyp run`. Small read-only inspections
