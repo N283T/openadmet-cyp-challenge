@@ -8,6 +8,13 @@ The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experimen
 
 ## Current direction
 
+- **The challenge is over; final result recorded.** On the Final board (full test set), the
+  regression entry `52e12de6` ranks 27 of 103 (MA-ST-RAE .4432, Tier 8) and the classification
+  entry `dd73905c` ranks 7 of 62 (MA-MCC .4034, Tier 2). The bullets below describe the state
+  while the challenge was running and are kept as history. See
+  [RL0239](2026-10.md#rl0239--final-leaderboard-regression-rank-27-of-103-classification-rank-7-of-62)
+  and the [final snapshot](../../artifacts/tracked/leaderboard-final-20261108/README.md).
+
 - **D6 has a new best observed Live score; the policy behind it is not
   validated.** The adopted payload `20261002T223229553466Z-a08301d2` calls the
   top 49 of an equal percentile-rank mean of the deployed September 15 score

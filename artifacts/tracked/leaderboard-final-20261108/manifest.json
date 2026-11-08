@@ -1,0 +1,273 @@
+{
+  "captured_on": "2026-11-08",
+  "indexed_at": "2026-11-08T12:39:03.820196+00:00",
+  "source": "https://huggingface.co/spaces/openadmet/cyp-challenge",
+  "scope": "Final and Interim boards captured 2026-11-08 after the challenge closed, plus the last Live boards captured 2026-11-03 06:53 UTC; regression and classification; overall and all endpoints",
+  "note": "Raw public leaderboard CSVs and API response/config snapshots are kept locally under artifacts/api/ and are Git-ignored. Paths are relative to the repository root.",
+  "entries": [
+    {
+      "board": "final",
+      "track": "classification",
+      "endpoint": "CYP2D6_is_TDI",
+      "captured_at": "2026-11-08T12:37:29.874554+00:00",
+      "api_name": "/partial_14",
+      "csv": "artifacts/api/classification/20261108T123729874226Z-1f8a9597/downloads/ce9d9b7cfc7760855f23a3216e1c1bd86f05be201219b9fbde883ab7adc247f1/classification_leaderboard_wxzf85v0.csv",
+      "sha256": "ce9d9b7cfc7760855f23a3216e1c1bd86f05be201219b9fbde883ab7adc247f1",
+      "bytes": 18913,
+      "rows": 62
+    },
+    {
+      "board": "final",
+      "track": "classification",
+      "endpoint": "CYP3A4_is_TDI",
+      "captured_at": "2026-11-08T12:37:34.097741+00:00",
+      "api_name": "/partial_15",
+      "csv": "artifacts/api/classification/20261108T123734097413Z-2b5b7a6b/downloads/418fb988ddcbfddc23d382f4fab21c6872dcdaadaee01cd5200237f492e59745/classification_leaderboard_ez8iqidu.csv",
+      "sha256": "418fb988ddcbfddc23d382f4fab21c6872dcdaadaee01cd5200237f492e59745",
+      "bytes": 18786,
+      "rows": 62
+    },
+    {
+      "board": "final",
+      "track": "classification",
+      "endpoint": "MA",
+      "captured_at": "2026-11-08T12:37:25.675617+00:00",
+      "api_name": "/partial_13",
+      "csv": "artifacts/api/classification/20261108T123725675287Z-620341e1/downloads/d646bdff4a8f6d2e466f4b08ea1381e383de6e07e3cbabe19908566aa5710bc3/classification_leaderboard_rz8qljeo.csv",
+      "sha256": "d646bdff4a8f6d2e466f4b08ea1381e383de6e07e3cbabe19908566aa5710bc3",
+      "bytes": 19430,
+      "rows": 62
+    },
+    {
+      "board": "final",
+      "track": "regression",
+      "endpoint": "CYP1A2_pIC50_direct_inhibition",
+      "captured_at": "2026-11-08T12:37:08.091120+00:00",
+      "api_name": "/partial_9",
+      "csv": "artifacts/api/regression/20261108T123708090848Z-a4064aa3/downloads/4ba739b74596f60a9672f0133045c69acdc83b8a09d090d274b53169698120fa/regression_leaderboard_eo79c0m0.csv",
+      "sha256": "4ba739b74596f60a9672f0133045c69acdc83b8a09d090d274b53169698120fa",
+      "bytes": 31641,
+      "rows": 103
+    },
+    {
+      "board": "final",
+      "track": "regression",
+      "endpoint": "CYP2C9_pIC50_direct_inhibition",
+      "captured_at": "2026-11-08T12:37:12.566472+00:00",
+      "api_name": "/partial_10",
+      "csv": "artifacts/api/regression/20261108T123712566158Z-170afa20/downloads/86b38319e72e5e2b5715ac9b9737e117e2fdd81dda4b6bdc5038744a84700923/regression_leaderboard_c4thscnb.csv",
+      "sha256": "86b38319e72e5e2b5715ac9b9737e117e2fdd81dda4b6bdc5038744a84700923",
+      "bytes": 31617,
+      "rows": 103
+    },
+    {
+      "board": "final",
+      "track": "regression",
+      "endpoint": "CYP2D6_pIC50_direct_inhibition",
+      "captured_at": "2026-11-08T12:37:16.929090+00:00",
+      "api_name": "/partial_11",
+      "csv": "artifacts/api/regression/20261108T123716928718Z-d9575854/downloads/9233ccddd96e10019cc33f4ddbc8e013f5aedc9f8361b7889a7e4640029dba78/regression_leaderboard_jtyyouf0.csv",
+      "sha256": "9233ccddd96e10019cc33f4ddbc8e013f5aedc9f8361b7889a7e4640029dba78",
+      "bytes": 31665,
+      "rows": 103
+    },
+    {
+      "board": "final",
+      "track": "regression",
+      "endpoint": "CYP3A4_pIC50_direct_inhibition",
+      "captured_at": "2026-11-08T12:37:21.247212+00:00",
+      "api_name": "/partial_12",
+      "csv": "artifacts/api/regression/20261108T123721246925Z-c655fab1/downloads/d6701fd264d75b302ec46ea96d4da9a205645cb91afd22003215cc050589c690/regression_leaderboard_yxn6b25k.csv",
+      "sha256": "d6701fd264d75b302ec46ea96d4da9a205645cb91afd22003215cc050589c690",
+      "bytes": 31652,
+      "rows": 103
+    },
+    {
+      "board": "final",
+      "track": "regression",
+      "endpoint": "MA",
+      "captured_at": "2026-11-08T12:37:03.578470+00:00",
+      "api_name": "/partial_8",
+      "csv": "artifacts/api/regression/20261108T123703578089Z-569bf92d/downloads/b4b2d6c09a8a79692f0d3bd419b8eb971be210cfa889bc98cfe7676e8a51d0de/regression_leaderboard_x7jf6fdf.csv",
+      "sha256": "b4b2d6c09a8a79692f0d3bd419b8eb971be210cfa889bc98cfe7676e8a51d0de",
+      "bytes": 32438,
+      "rows": 103
+    },
+    {
+      "board": "interim",
+      "track": "classification",
+      "endpoint": "CYP2D6_is_TDI",
+      "captured_at": "2026-11-08T12:36:14.964053+00:00",
+      "api_name": "/partial_6",
+      "csv": "artifacts/api/classification/20261108T123614963752Z-f9c47d81/downloads/91e6ea1225965089fa873fc0ee5322519a2c9fe9f75556f7298da75eb34618aa/classification_leaderboard_q6mkoir5.csv",
+      "sha256": "91e6ea1225965089fa873fc0ee5322519a2c9fe9f75556f7298da75eb34618aa",
+      "bytes": 28480,
+      "rows": 114
+    },
+    {
+      "board": "interim",
+      "track": "classification",
+      "endpoint": "CYP3A4_is_TDI",
+      "captured_at": "2026-11-08T12:36:19.274163+00:00",
+      "api_name": "/partial_7",
+      "csv": "artifacts/api/classification/20261108T123619273845Z-dd2e78bc/downloads/544893776cdc0514d72cfb303b5e87e7968a3334594fa8dd98ebd67b1de9c35d/classification_leaderboard_x1zkxdr2.csv",
+      "sha256": "544893776cdc0514d72cfb303b5e87e7968a3334594fa8dd98ebd67b1de9c35d",
+      "bytes": 28280,
+      "rows": 114
+    },
+    {
+      "board": "interim",
+      "track": "classification",
+      "endpoint": "MA",
+      "captured_at": "2026-11-08T12:36:10.581803+00:00",
+      "api_name": "/partial_5",
+      "csv": "artifacts/api/classification/20261108T123610581386Z-57039713/downloads/65dd8e62ae65a46e37b6e754c30ae1ec21cc0906b4d304bd7ff947a8e5ea1d87/classification_leaderboard_9en7npks.csv",
+      "sha256": "65dd8e62ae65a46e37b6e754c30ae1ec21cc0906b4d304bd7ff947a8e5ea1d87",
+      "bytes": 29352,
+      "rows": 114
+    },
+    {
+      "board": "interim",
+      "track": "regression",
+      "endpoint": "CYP1A2_pIC50_direct_inhibition",
+      "captured_at": "2026-11-08T12:35:53.218713+00:00",
+      "api_name": "/partial_1",
+      "csv": "artifacts/api/regression/20261108T123553218374Z-87674b68/downloads/9fc849e20463ab16422f1e5ab5d2537f39742910dbbc42980ab4521937d3d5dc/regression_leaderboard_vk2w9qzv.csv",
+      "sha256": "9fc849e20463ab16422f1e5ab5d2537f39742910dbbc42980ab4521937d3d5dc",
+      "bytes": 54669,
+      "rows": 219
+    },
+    {
+      "board": "interim",
+      "track": "regression",
+      "endpoint": "CYP2C9_pIC50_direct_inhibition",
+      "captured_at": "2026-11-08T12:35:57.547545+00:00",
+      "api_name": "/partial_2",
+      "csv": "artifacts/api/regression/20261108T123557547060Z-7625954f/downloads/dfdd55e74e031ca5f442e5920eb18329b10e9a5d4d434330d3459ee3fe23ab2e/regression_leaderboard_jny1g5jt.csv",
+      "sha256": "dfdd55e74e031ca5f442e5920eb18329b10e9a5d4d434330d3459ee3fe23ab2e",
+      "bytes": 54629,
+      "rows": 219
+    },
+    {
+      "board": "interim",
+      "track": "regression",
+      "endpoint": "CYP2D6_pIC50_direct_inhibition",
+      "captured_at": "2026-11-08T12:36:01.920017+00:00",
+      "api_name": "/partial_3",
+      "csv": "artifacts/api/regression/20261108T123601919724Z-84ad9e7e/downloads/1c7805c3e032809cafdff000881adbe40384ba69b963d5c1955d0cbfacf43a71/regression_leaderboard_kyulkso8.csv",
+      "sha256": "1c7805c3e032809cafdff000881adbe40384ba69b963d5c1955d0cbfacf43a71",
+      "bytes": 54659,
+      "rows": 219
+    },
+    {
+      "board": "interim",
+      "track": "regression",
+      "endpoint": "CYP3A4_pIC50_direct_inhibition",
+      "captured_at": "2026-11-08T12:36:06.286100+00:00",
+      "api_name": "/partial_4",
+      "csv": "artifacts/api/regression/20261108T123606285799Z-78fb7db7/downloads/2ea51e6cf6b2f9e59851db4ff6eac1a28e4f0c6ef02671a8e5e7b135da45b97a/regression_leaderboard_84h_ttge.csv",
+      "sha256": "2ea51e6cf6b2f9e59851db4ff6eac1a28e4f0c6ef02671a8e5e7b135da45b97a",
+      "bytes": 54673,
+      "rows": 219
+    },
+    {
+      "board": "interim",
+      "track": "regression",
+      "endpoint": "MA",
+      "captured_at": "2026-11-08T12:35:48.853713+00:00",
+      "api_name": "/partial",
+      "csv": "artifacts/api/regression/20261108T123548853350Z-7aad5a2b/downloads/83a0dc25c9c26a347a893038849d3de9fa117bd2a74032df6bfbb1ea3f9a031c/regression_leaderboard_wx2_bai5.csv",
+      "sha256": "83a0dc25c9c26a347a893038849d3de9fa117bd2a74032df6bfbb1ea3f9a031c",
+      "bytes": 56389,
+      "rows": 219
+    },
+    {
+      "board": "live",
+      "track": "classification",
+      "endpoint": "CYP2D6_is_TDI",
+      "captured_at": "2026-11-03T06:53:21.906306+00:00",
+      "api_name": "/partial_6",
+      "csv": "artifacts/api/classification/20261103T065321906052Z-b1b1f293/downloads/bafb91e02a5d7da2e9815e99d461d038319d9ab7dd566b7868a4d4208c50cf2c/classification_leaderboard__4jzy2s0.csv",
+      "sha256": "bafb91e02a5d7da2e9815e99d461d038319d9ab7dd566b7868a4d4208c50cf2c",
+      "bytes": 42620,
+      "rows": 164
+    },
+    {
+      "board": "live",
+      "track": "classification",
+      "endpoint": "CYP3A4_is_TDI",
+      "captured_at": "2026-11-03T06:53:26.435326+00:00",
+      "api_name": "/partial_7",
+      "csv": "artifacts/api/classification/20261103T065326435077Z-2a87a030/downloads/f95117cbec9b5016896b5239d8b103bfbfb932c8c9a94779291067724f8f9f68/classification_leaderboard_dk9sqnh6.csv",
+      "sha256": "f95117cbec9b5016896b5239d8b103bfbfb932c8c9a94779291067724f8f9f68",
+      "bytes": 42824,
+      "rows": 164
+    },
+    {
+      "board": "live",
+      "track": "classification",
+      "endpoint": "MA",
+      "captured_at": "2026-11-03T06:53:17.412618+00:00",
+      "api_name": "/partial_5",
+      "csv": "artifacts/api/classification/20261103T065317412452Z-84918034/downloads/346f0d420faa9fa96ba141e0436a12af9e4d6ccb193949b988cc28981db69b7a/classification_leaderboard_6y1bglk_.csv",
+      "sha256": "346f0d420faa9fa96ba141e0436a12af9e4d6ccb193949b988cc28981db69b7a",
+      "bytes": 42837,
+      "rows": 164
+    },
+    {
+      "board": "live",
+      "track": "regression",
+      "endpoint": "CYP1A2_pIC50_direct_inhibition",
+      "captured_at": "2026-11-03T06:52:58.593976+00:00",
+      "api_name": "/partial_1",
+      "csv": "artifacts/api/regression/20261103T065258593589Z-1f87ef3d/downloads/d3b451914498ae3654d98334bb9a99cda2bb5650f647592a4aa8956e559f1e5d/regression_leaderboard_uqz2cqri.csv",
+      "sha256": "d3b451914498ae3654d98334bb9a99cda2bb5650f647592a4aa8956e559f1e5d",
+      "bytes": 73399,
+      "rows": 284
+    },
+    {
+      "board": "live",
+      "track": "regression",
+      "endpoint": "CYP2C9_pIC50_direct_inhibition",
+      "captured_at": "2026-11-03T06:53:03.220458+00:00",
+      "api_name": "/partial_2",
+      "csv": "artifacts/api/regression/20261103T065303220213Z-d491b73b/downloads/fdc2a56a09a52cc7932a4570c8d654d7200711b86328baa2c56b1bfd1d227be5/regression_leaderboard_zmqnenai.csv",
+      "sha256": "fdc2a56a09a52cc7932a4570c8d654d7200711b86328baa2c56b1bfd1d227be5",
+      "bytes": 73450,
+      "rows": 284
+    },
+    {
+      "board": "live",
+      "track": "regression",
+      "endpoint": "CYP2D6_pIC50_direct_inhibition",
+      "captured_at": "2026-11-03T06:53:07.708866+00:00",
+      "api_name": "/partial_3",
+      "csv": "artifacts/api/regression/20261103T065307708544Z-da26874e/downloads/514a4e600e4e116240cb925d13df1aa861561ce02a831122743e7ede14b3b058/regression_leaderboard_w87_bnsz.csv",
+      "sha256": "514a4e600e4e116240cb925d13df1aa861561ce02a831122743e7ede14b3b058",
+      "bytes": 73423,
+      "rows": 284
+    },
+    {
+      "board": "live",
+      "track": "regression",
+      "endpoint": "CYP3A4_pIC50_direct_inhibition",
+      "captured_at": "2026-11-03T06:53:12.942278+00:00",
+      "api_name": "/partial_4",
+      "csv": "artifacts/api/regression/20261103T065312941993Z-52ef97eb/downloads/ac06a36c5965ea38f83ccb441c36c0aa099eda9cd6fe2e77a52d8b7d106eec86/regression_leaderboard_lv0qxxe5.csv",
+      "sha256": "ac06a36c5965ea38f83ccb441c36c0aa099eda9cd6fe2e77a52d8b7d106eec86",
+      "bytes": 73431,
+      "rows": 284
+    },
+    {
+      "board": "live",
+      "track": "regression",
+      "endpoint": "MA",
+      "captured_at": "2026-11-03T06:52:53.936455+00:00",
+      "api_name": "/partial",
+      "csv": "artifacts/api/regression/20261103T065253936185Z-df6288c6/downloads/18595be696f5a11d9723f57f07c8c737219bda6eecbc1197cc34597000973fb8/regression_leaderboard_xrg3vnhh.csv",
+      "sha256": "18595be696f5a11d9723f57f07c8c737219bda6eecbc1197cc34597000973fb8",
+      "bytes": 73466,
+      "rows": 284
+    }
+  ]
+}

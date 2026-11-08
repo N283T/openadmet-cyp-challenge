@@ -60,5 +60,7 @@ directory via Gradio's `download_files` parameter.
 
 Use `cyp leaderboard --track regression` or `--track classification`; `--endpoint`
 defaults to `MA` and `--board` defaults to `live`. Use `--board interim` for the frozen
-full-test interim board. Do not assume that a remote temporary path will remain
+full-test interim board. After the challenge closed (phase 4, observed 2026-11-08) the Space
+replaced the Live tab with a Final Leaderboard tab; use `--board final` for it, as `live` no
+longer resolves. Do not assume that a remote temporary path will remain
 available later. Saved manifests contain file hashes and failed requests remain visible.
