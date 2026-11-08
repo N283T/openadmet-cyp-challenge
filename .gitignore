@@ -17,7 +17,9 @@ artifacts/*
 !artifacts/tracked/
 !artifacts/tracked/**
 references/**/source*
-references/community/**/snapshot.md
+# Third-party article text and figures stay local; only provenance is tracked.
+references/**/snapshot.md
+references/**/assets/
 
 # Project environment is locked by pixi.lock; uv.lock is incidental.
 uv.lock

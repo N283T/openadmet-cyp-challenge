@@ -1,14 +1,16 @@
 # Official source archive
 
-Unabridged article-body snapshots for this private research repository.
-Original language is preserved. Interpretations belong in Issues, not snapshots.
-Each version has `snapshot.md`, `meta.json`, and local figures under `assets/`.
-Raw `source*` responses remain local and are excluded from Git.
+Article-body snapshots of official sources, kept for reproducible research.
+Original copyright applies, so the snapshot text (`snapshot.md`), figures (`assets/`)
+and raw `source*` responses stay local and are excluded from Git. The repository
+tracks only provenance: `meta.json` and `intent.json` record the original URL, the
+retrieval time and SHA-256 hashes. Read the originals through the links below.
+Original language is preserved. Interpretations belong in project docs, not snapshots.
 Updates create a new timestamped version; previous versions are never replaced.
 
 The Space snapshot includes its live Markdown instructions/FAQ, not dynamic LB tables.
 Use the API archive for leaderboard data. Snapshot dates are not publication dates.
-Original copyright applies; review redistribution before public release.
+Links to `snapshot.md` in project docs resolve only in a local checkout that ran the refresh.
 
 Refresh: `pixi run python scripts/archive_official_references.py`.
 

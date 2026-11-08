@@ -2,9 +2,10 @@
 
 Participant and third-party articles, separate from official sources.
 Snapshots preserve the author's claims; they are not independently verified.
-Each timestamped version includes article text, figures and hashed provenance.
-Raw source responses remain local and Git-ignored. Never replace old versions.
-Original copyright applies. Interpretations belong in project docs.
+Each timestamped version holds article text, figures and hashed provenance.
+Original copyright applies, so the text (`snapshot.md`), figures (`assets/`) and raw
+source responses stay local and Git-ignored; only `meta.json` and `intent.json` are
+tracked. Never replace old versions. Interpretations belong in project docs.
 
 Refresh: `pixi run python scripts/archive_community_references.py`.
 

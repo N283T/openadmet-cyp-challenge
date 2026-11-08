@@ -224,7 +224,8 @@ artifacts/api/                      API contracts, responses and downloaded file
 
 DB stores structured records; the local [research log](docs/research/README.md)
 stores hypotheses, results and decisions using run/candidate IDs. Reports and log
-entries default to English; Issues are optional for bounded implementation tasks. The private repository is https://github.com/N283T/openadmet-cyp-challenge.
-Keep it private until an explicit publication decision for the model report.
+entries default to English; Issues are optional for bounded implementation tasks. The repository is public at
+https://github.com/N283T/openadmet-cyp-challenge; the post-challenge model report is
+https://github.com/N283T/openadmet-cyp-model-report.
 Routine evaluation uses UMAP only. Revisit the split if observed LB results diverge
 substantially from CV. See the research log for current decisions and next steps.

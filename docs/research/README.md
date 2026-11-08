@@ -1,7 +1,7 @@
 # Research log
 
-The canonical research narrative lives here, in English, tracked in this private
-Git repository. This carries forward the dated research-log format previously
+The canonical research narrative lives here, in English, tracked in this Git
+repository (private during the challenge, public since 2026-11-08). This carries forward the dated research-log format previously
 used in PXR issues #100 and #208, without requiring an Issue for each experiment.
 
 The [October log](2026-10.md) records the frozen CYP/HEM trunk pooling experiment.
